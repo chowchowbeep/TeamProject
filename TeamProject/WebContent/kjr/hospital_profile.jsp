@@ -87,30 +87,33 @@
 								<label for="hospital_name">영업시작시간</label>
 								<div>
 									<select class="form-control">
-									<c:forEach items="a"> 
-										
-									</c:forEach>
 										<option>06:00
-										<option>06
-										<option>07
-										<option>07
-										<option>08
-										<option>08
-										<option>09
-										<option>09
-										<option>10
-										<option>10
-										<option>11
-										<option>12
-										<option>
-										<option>
-										<option>
-										<option>
-										<option>
-										<option>
-										<option>
-										<option>
-										<option>
+										<option>06:3
+										<option>07:0
+										<option>07:3
+										<option>08:0
+										<option>08:3
+										<option>09:0
+										<option>09:3
+										<option>10:0
+										<option>10:3
+										<option>11:0
+										<option>11:3
+										<option>12:0
+										<option>12:3
+										<option>13:0
+										<option>13:3
+										<option>14:0
+										<option>15:0
+										<option>16:0
+										<option>17:0
+										<option>18:0
+										<option>19:0
+										<option>20:0
+										<option>21:0
+										<option>22:0
+										<option>23:0
+										<option>24:0
 									</select>
 								</div>
 
