@@ -723,10 +723,10 @@ to get the desired effect
                 <table class="table table-striped table-valign-middle">
                   <thead>
                   <tr>
-                    <th>번호</th>
+                    <th style="width:5%;">번호</th>
                     <th>이름</th>
-                    <th>도착예정 시간</th>
-                    <th>담당의</th>
+                    <th style="width:28%;">도착예정 시간</th>
+                    <th style="width:29%;">담당의</th>
                   </tr>
                   </thead>
                   <tbody>

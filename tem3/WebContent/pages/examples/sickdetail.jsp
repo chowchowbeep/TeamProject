@@ -553,8 +553,8 @@
 					</div>
 					<br>
 					<div class="text-center">
-						<a href="#" class="btn btn-sm btn-secondary"> 진료기록물 조회 </a>&nbsp;
-						<a href="#" class="btn btn-sm btn-secondary"> 진료 기록물 업로드 </a>
+						<a href="#" class="btn btn-secondary"> 진료기록물 조회 </a>&nbsp;&nbsp;&nbsp;
+						<a href="#" class="btn btn-secondary"> 진료 기록물 업로드 </a>
 					</div>
 					<br>
 					<div class="text-center">
