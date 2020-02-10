@@ -1,98 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title></title>
+<title>AdminLTE 3 | General Form Elements</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <!-- Font Awesome -->
-<link rel="stylesheet" href="/tem3/plugins/fontawesome-free/css/all.min.css">
+<link rel="stylesheet"
+	href="../../plugins/fontawesome-free/css/all.min.css">
 <!-- Ionicons -->
 <link rel="stylesheet"
 	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-<!-- Tempusdominus Bbootstrap 4 -->
-<link rel="stylesheet"
-	href="/tem3/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-<!-- iCheck -->
-<link rel="stylesheet"
-	href="/tem3/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-<!-- JQVMap -->
-<link rel="stylesheet" href="/tem3/plugins/jqvmap/jqvmap.min.css">
 <!-- Theme style -->
-<link rel="stylesheet" href="/tem3/dist/css/adminlte.min.css">
-<!-- overlayScrollbars -->
-<link rel="stylesheet"
-	href="/tem3/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-<!-- Daterange picker -->
-<link rel="stylesheet"
-	href="/tem3/plugins/daterangepicker/daterangepicker.css">
-<!-- summernote -->
-<link rel="stylesheet" href="/tem3/plugins/summernote/summernote-bs4.css">
+<link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 <!-- Google Font: Source Sans Pro -->
 <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
 	rel="stylesheet">
-
-
-
-
-
-
-
-
-<!-- jQuery -->
-<script src="/tem3/plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="/tem3/plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-	$.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="/tem3/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
-<script src="/tem3/plugins/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="/tem3/plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="/tem3/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="/tem3/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="/tem3/plugins/jquery-knob/jquery.knob.min.js"></script>
-<!-- daterangepicker -->
-<script src="/tem3/plugins/moment/moment.min.js"></script>
-<script src="/tem3/plugins/daterangepicker/daterangepicker.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script
-	src="/tem3/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Summernote -->
-<script src="/tem3/plugins/summernote/summernote-bs4.min.js"></script>
-<!-- overlayScrollbars -->
-<script
-	src="/tem3/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="/tem3/dist/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/tem3/dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="/tem3/dist/js/demo.js"></script>
-
-
-
-
-
 </head>
-
-
-
-
-
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini">
 	<div class="wrapper">
-
 		<!-- Navbar -->
 		<nav
 			class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -100,50 +31,44 @@
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" data-widget="pushmenu"
 					href="#"><i class="fas fa-bars"></i></a></li>
-				<li class="nav-item d-none d-sm-inline-block"><a
-					href="/tem3/index3.html" class="nav-link">Home</a></li>
-				<li class="nav-item d-none d-sm-inline-block"><a href="#"
-					class="nav-link">Contact</a></li>
 			</ul>
 
-
-			<form class="form-inline ml-5">
+			<!-- SEARCH FORM -->
+			<form class="form-inline ml-3">
 				<div class="input-group input-group-sm" style="font-size: 30px;">
 					<!-- 타이틀을 중앙에 어떻게 둘까요? -->
 					SALLYEOJYO
+					<div class="input-group-append"></div>
 				</div>
 			</form>
 
-
-
 			<!-- Right navbar links -->
 			<ul class="navbar-nav ml-auto">
+
 				<!-- Notifications Dropdown Menu -->
 				<li class="nav-item dropdown"><a class="nav-link"
-					data-toggle="dropdown" href="#"> <i class="far fa-bell"></i> <span
-						class="badge badge-warning navbar-badge">15</span>
-				</a>
+					data-toggle="dropdown" href="#"> <i class="far fa-bell"></i> <!-- 알림 갯수 설정 -->
+						<span class="badge badge-warning navbar-badge">10</span>
+				</a> <!-- 알림 아이콘 눌렀을 때 뜨는 목록들 -->
 					<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-						<span class="dropdown-item dropdown-header">15
-							Notifications</span>
+						<span class="dropdown-item dropdown-header">10개의 알림</span>
 						<div class="dropdown-divider"></div>
 						<a href="#" class="dropdown-item"> <i
-							class="fas fa-envelope mr-2"></i> 4 new messages <span
-							class="float-right text-muted text-sm">3 mins</span>
+							class="fas fa-envelope mr-2"></i> 4개의 메세지 <span
+							class="float-right text-muted text-sm">3분 전</span>
 						</a>
 						<div class="dropdown-divider"></div>
 						<a href="#" class="dropdown-item"> <i
-							class="fas fa-users mr-2"></i> 8 friend requests <span
-							class="float-right text-muted text-sm">12 hours</span>
+							class="fas fa-users mr-2"></i> 8개의 친구 신청 <span
+							class="float-right text-muted text-sm">12시간 전</span>
 						</a>
 						<div class="dropdown-divider"></div>
 						<a href="#" class="dropdown-item"> <i class="fas fa-file mr-2"></i>
-							3 new reports <span class="float-right text-muted text-sm">2
-								days</span>
+							3개의 새로운 게시물 <span class="float-right text-muted text-sm">이틀
+								전</span>
 						</a>
 						<div class="dropdown-divider"></div>
-						<a href="#" class="dropdown-item dropdown-footer">See All
-							Notifications</a>
+						<a href="#" class="dropdown-item dropdown-footer">알림 모두 보기</a>
 					</div></li>
 				<li class="nav-item"><a class="nav-link"
 					data-widget="control-sidebar" data-slide="true" href="#"> <i
@@ -153,27 +78,26 @@
 		</nav>
 		<!-- /.navbar -->
 
-
-		<!-- 좌측 햄버거메뉴 내용 -->
+		<!-- 사이드바 컨트롤  481행까지 -->
 		<!-- Main Sidebar Container -->
 		<aside class="main-sidebar sidebar-dark-primary elevation-4">
 			<!-- Brand Logo -->
-			<a href="/tem3/index3.html" class="brand-link"> <img
-				src="/tem3/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+			<a href="../../index3.html" class="brand-link"> <img
+				src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
 				class="brand-image img-circle elevation-3" style="opacity: .8">
 				<span class="brand-text font-weight-light">AdminLTE 3</span>
 			</a>
 
 			<!-- Sidebar -->
 			<div class="sidebar">
-				<!-- Sidebar user panel (optional) -->
+				<!-- Sidebar user (optional) -->
 				<div class="user-panel mt-3 pb-3 mb-3 d-flex">
 					<div class="image">
-						<img src="/tem3/dist/img/user2-160x160.jpg"
+						<img src="../../dist/img/user2-160x160.jpg"
 							class="img-circle elevation-2" alt="User Image">
 					</div>
 					<div class="info">
-						<a href="#" class="d-block">사용자</a>
+						<a href="#" class="d-block">Alexander Pierce</a>
 					</div>
 				</div>
 
@@ -183,28 +107,27 @@
 						data-widget="treeview" role="menu" data-accordion="false">
 						<!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-						<li class="nav-item has-treeview menu-open"><a href="#"
-							class="nav-link active"> <i
-								class="nav-icon fas fa-tachometer-alt"></i>
+						<li class="nav-item has-treeview"><a href="#"
+							class="nav-link"> <i class="nav-icon fas fa-tachometer-alt"></i>
 								<p>
 									Dashboard <i class="right fas fa-angle-left"></i>
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="/tem3/index.html"
-									class="nav-link active"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a href="../../index.html"
+									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Dashboard v1</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/index2.html"
+								<li class="nav-item"><a href="../../index2.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Dashboard v2</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/index3.html"
+								<li class="nav-item"><a href="../../index3.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Dashboard v3</p>
 								</a></li>
 							</ul></li>
-						<li class="nav-item"><a href="/tem3/pages/widgets.html"
+						<li class="nav-item"><a href="../widgets.html"
 							class="nav-link"> <i class="nav-icon fas fa-th"></i>
 								<p>
 									Widgets <span class="right badge badge-danger">New</span>
@@ -218,37 +141,34 @@
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="/tem3/pages/layout/top-nav.html"
+								<li class="nav-item"><a href="../layout/top-nav.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Top Navigation</p>
 								</a></li>
 								<li class="nav-item"><a
-									href="/tem3/pages/layout/top-nav-sidebar.html" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
+									href="../layout/top-nav-sidebar.html" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
 										<p>Top Navigation + Sidebar</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/layout/boxed.html"
+								<li class="nav-item"><a href="../layout/boxed.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Boxed</p>
 								</a></li>
-								<li class="nav-item"><a
-									href="/tem3/pages/layout/fixed-sidebar.html" class="nav-link"> <i
-										class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a href="../layout/fixed-sidebar.html"
+									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Fixed Sidebar</p>
 								</a></li>
-								<li class="nav-item"><a
-									href="/tem3/pages/layout/fixed-topnav.html" class="nav-link"> <i
-										class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a href="../layout/fixed-topnav.html"
+									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Fixed Navbar</p>
 								</a></li>
-								<li class="nav-item"><a
-									href="/tem3/pages/layout/fixed-footer.html" class="nav-link"> <i
-										class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a href="../layout/fixed-footer.html"
+									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Fixed Footer</p>
 								</a></li>
 								<li class="nav-item"><a
-									href="/tem3/pages/layout/collapsed-sidebar.html" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
+									href="../layout/collapsed-sidebar.html" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
 										<p>Collapsed Sidebar</p>
 								</a></li>
 							</ul></li>
@@ -259,15 +179,15 @@
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="/tem3/pages/charts/chartjs.html"
+								<li class="nav-item"><a href="../charts/chartjs.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>ChartJS</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/charts/flot.html"
+								<li class="nav-item"><a href="../charts/flot.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Flot</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/charts/inline.html"
+								<li class="nav-item"><a href="../charts/inline.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Inline</p>
 								</a></li>
@@ -279,59 +199,59 @@
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="/tem3/pages/UI/general.html"
+								<li class="nav-item"><a href="../UI/general.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>General</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/UI/icons.html"
+								<li class="nav-item"><a href="../UI/icons.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Icons</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/UI/buttons.html"
+								<li class="nav-item"><a href="../UI/buttons.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Buttons</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/UI/sliders.html"
+								<li class="nav-item"><a href="../UI/sliders.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Sliders</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/UI/modals.html"
+								<li class="nav-item"><a href="../UI/modals.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Modals & Alerts</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/UI/navbar.html"
+								<li class="nav-item"><a href="../UI/navbar.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Navbar & Tabs</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/UI/timeline.html"
+								<li class="nav-item"><a href="../UI/timeline.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Timeline</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/ages/UI/ribbons.html"
+								<li class="nav-item"><a href="../UI/ribbons.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Ribbons</p>
 								</a></li>
 							</ul></li>
-						<li class="nav-item has-treeview"><a href="#"
-							class="nav-link"> <i class="nav-icon fas fa-edit"></i>
+						<li class="nav-item has-treeview menu-open"><a href="#"
+							class="nav-link active"> <i class="nav-icon fas fa-edit"></i>
 								<p>
 									Forms <i class="fas fa-angle-left right"></i>
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="/tem3/pages/forms/general.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a href="../forms/general.html"
+									class="nav-link active"> <i class="far fa-circle nav-icon"></i>
 										<p>General Elements</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/forms/advanced.html"
+								<li class="nav-item"><a href="../forms/advanced.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Advanced Elements</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/forms/editors.html"
+								<li class="nav-item"><a href="../forms/editors.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Editors</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/forms/validation.html"
+								<li class="nav-item"><a href="../forms/validation.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Validation</p>
 								</a></li>
@@ -343,27 +263,27 @@
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="/tem3/pages/tables/simple.html"
+								<li class="nav-item"><a href="../tables/simple.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Simple Tables</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/tables/data.html"
+								<li class="nav-item"><a href="../tables/data.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>DataTables</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/tables/jsgrid.html"
+								<li class="nav-item"><a href="../tables/jsgrid.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>jsGrid</p>
 								</a></li>
 							</ul></li>
 						<li class="nav-header">EXAMPLES</li>
-						<li class="nav-item"><a href="/tem3/pages/calendar.html"
+						<li class="nav-item"><a href="../calendar.html"
 							class="nav-link"> <i class="nav-icon far fa-calendar-alt"></i>
 								<p>
 									Calendar <span class="badge badge-info right">2</span>
 								</p>
 						</a></li>
-						<li class="nav-item"><a href="/tem3/pages/gallery.html"
+						<li class="nav-item"><a href="../gallery.html"
 							class="nav-link"> <i class="nav-icon far fa-image"></i>
 								<p>Gallery</p>
 						</a></li>
@@ -374,15 +294,15 @@
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="/tem3/pages/mailbox/mailbox.html"
+								<li class="nav-item"><a href="../mailbox/mailbox.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Inbox</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/mailbox/compose.html"
+								<li class="nav-item"><a href="../mailbox/compose.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Compose</p>
 								</a></li>
-								<li class="nav-item"><a href="pages/mailbox/read-mail.html"
+								<li class="nav-item"><a href="../mailbox/read-mail.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Read</p>
 								</a></li>
@@ -394,39 +314,37 @@
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="/tem3/pages/examples/invoice.html"
+								<li class="nav-item"><a href="../examples/invoice.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Invoice</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/examples/profile.html"
+								<li class="nav-item"><a href="../examples/profile.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Profile</p>
 								</a></li>
-								<li class="nav-item"><a
-									href="/tem3/pages/examples/e-commerce.html" class="nav-link"> <i
-										class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a href="../examples/e-commerce.html"
+									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>E-commerce</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/examples/projects.html"
+								<li class="nav-item"><a href="../examples/projects.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Projects</p>
 								</a></li>
-								<li class="nav-item"><a
-									href="/tem3/pages/examples/project-add.html" class="nav-link"> <i
-										class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a href="../examples/project-add.html"
+									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Project Add</p>
 								</a></li>
 								<li class="nav-item"><a
-									href="/tem3/pages/examples/project-edit.html" class="nav-link"> <i
+									href="../examples/project-edit.html" class="nav-link"> <i
 										class="far fa-circle nav-icon"></i>
 										<p>Project Edit</p>
 								</a></li>
 								<li class="nav-item"><a
-									href="/tem3/pages/examples/project-detail.html" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
+									href="../examples/project-detail.html" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
 										<p>Project Detail</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/examples/contacts.html"
+								<li class="nav-item"><a href="../examples/contacts.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Contacts</p>
 								</a></li>
@@ -438,56 +356,55 @@
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="/tem3/pages/examples/login.html"
+								<li class="nav-item"><a href="../examples/login.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Login</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/examples/register.html"
+								<li class="nav-item"><a href="../examples/register.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Register</p>
 								</a></li>
 								<li class="nav-item"><a
-									href="/tem3/pages/examples/forgot-password.html" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
+									href="../examples/forgot-password.html" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
 										<p>Forgot Password</p>
 								</a></li>
 								<li class="nav-item"><a
-									href="/tem3/pages/examples/recover-password.html" class="nav-link">
+									href="../examples/recover-password.html" class="nav-link">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Recover Password</p>
 								</a></li>
-								<li class="nav-item"><a
-									href="/tem3/pages/examples/lockscreen.html" class="nav-link"> <i
-										class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a href="../examples/lockscreen.html"
+									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Lockscreen</p>
 								</a></li>
 								<li class="nav-item"><a
-									href="/tem3/pages/examples/legacy-user-menu.html" class="nav-link">
+									href="../examples/legacy-user-menu.html" class="nav-link">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Legacy User Menu</p>
 								</a></li>
 								<li class="nav-item"><a
-									href="/tem3/pages/examples/language-menu.html" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
+									href="../examples/language-menu.html" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
 										<p>Language Menu</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/examples/404.html"
+								<li class="nav-item"><a href="../examples/404.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Error 404</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/examples/500.html"
+								<li class="nav-item"><a href="../examples/500.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Error 500</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/examples/pace.html"
+								<li class="nav-item"><a href="../examples/pace.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Pace</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/examples/blank.html"
+								<li class="nav-item"><a href="../examples/blank.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Blank Page</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/starter.html"
+								<li class="nav-item"><a href="../../starter.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Starter Page</p>
 								</a></li>
@@ -561,14 +478,141 @@
 			</div>
 			<!-- /.sidebar -->
 		</aside>
-
-
-
+		<!-- 사이드바 컨트롤 끝 80행? 언저리부터 시작 -->
 
 		<!-- Content Wrapper. Contains page content -->
-		<!--  <div class="content-wrapper">-->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1>sick_healModify</h1>
+						</div>
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">홈</a></li>
+								<li class="breadcrumb-item active">일반회원</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<!-- /.container-fluid -->
+			</section>
 
 
-			<!-- 개별 컨텐츠 위치 -->
 
+			<!-- Main content -->
+			<section class="content">
+			
+			   <div class="card card-info">
+              <div class="card-header  card text-center">
+                <h3 class="card-title">건강정보 수정 페이지</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form class="form-horizontal">
+                <div class="card-body">
+               
+                  <div class="form-group row">
+                    <label for="inputHstcs" class="col-sm-2 col-form-label">병력</label>
+                    <div class="col-sm-10">
+                      <select class="form-control select2" style="width: 100%;" id="inputHstcs">
+                    <option selected="selected">당뇨</option>
+                    <option>저혈압</option>
+                    <option>고혈압</option>
+                    <option>빈혈</option>
+                    <option>위염</option>
+                    <option>위암</option>
+                    <option>간암</option>
+                    <option>폐암</option>
+                  </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputMedi" class="col-sm-2 col-form-label">복용약물</label>
+                    <div class="col-sm-10">
+                        <select class="form-control select2" style="width: 100%;" id="inputMedi">
+                    <option selected="selected">당뇨</option>
+                    <option>저혈압</option>
+                    <option>고혈압</option>
+                    <option>빈혈</option>
+                    <option>위염</option>
+                    <option>위암</option>
+                    <option>간암</option>
+                    <option>폐암</option>
+                  </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputBdp" class="col-sm-2 col-form-label">혈액형</label>
+                    <div class="col-sm-10">
+                        <select class="form-control select2" style="width: 100%;" id="inputMedi">
+                       <option selected="selected">Rh-o</option>
+                    <option>Rh-a</option>
+                    <option>Rh-ab</option>
+                    <option>Rh-b</option>
+                    <option>Rh+o</option>
+                    <option>Rh+a</option>
+                    <option>Rh+ab</option>
+                    <option>Rh+b</option>
+                  </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputAllrgy" class="col-sm-2 col-form-label">알레르기</label>
+                    <div class="col-sm-10">
+                    <select class="form-control select2" style="width: 100%;" id="inputAllrgy">
+                     <option selected="selected">갑각류</option>
+                    <option>계란</option>
+                    <option>견과류</option>
+                    <option>먼지</option>
+                   </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+											<label for="inputHtEtc" class="col-sm-2 col-form-label">비고</label>
+											 <div class="col-sm-10">
+													<textarea class="form-control" rows="3"
+														placeholder="비고사항을 적어보세요" id="inputHtEtc"></textarea>
+	</div>
+										</div>
+           
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer  text-center" >
+                  <button type="submit" class="btn btn-info">완료</button>
+                  <!-- cancel에는 button type reset? -->
+                  <button type="reset" class="btn btn-default">Cancel</button>
+                </div>
+                <!-- /.card-footer -->
+              </form>
+            </div>
+			
 
+						<!-- Control Sidebar -->
+						<aside class="control-sidebar control-sidebar-dark">
+							<!-- Control sidebar content goes here -->
+						</aside>
+						<!-- /.control-sidebar -->
+					</div>
+					<!-- ./wrapper -->
+
+					<!-- jQuery -->
+					<script src="../../plugins/jquery/jquery.min.js"></script>
+					<!-- Bootstrap 4 -->
+					<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+					<!-- bs-custom-file-input -->
+					<script
+						src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+					<!-- AdminLTE App -->
+					<script src="../../dist/js/adminlte.min.js"></script>
+					<!-- AdminLTE for demo purposes -->
+					<script src="../../dist/js/demo.js"></script>
+					<script type="text/javascript">
+						$(document).ready(function() {
+							bsCustomFileInput.init();
+						});
+					</script>
+</body>
+</html>
