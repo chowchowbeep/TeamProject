@@ -21,6 +21,8 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="cssList.css">
 <script>
 	$(function() { //ready == window.load 와 같은 이벤트
 
@@ -35,51 +37,77 @@
 
 	})
 </script>
+<style>
+	.mar{
+		margin: 10px 0px;
+	}
+	
+</style>
 </head>
 <body>
-	<div class="container" style="width: 45rem;">
-		<div class="row" style="margin: auto">
-			<div class="col-sm">
-				<button class="btn-block">영업등록</button>
-			</div>
-			<div class="col-sm">
-				<button class="btn-block">영업마감</button>
-			</div>
-		</div>
-	</div>
 	<div class="container">
-		<div style="padding: 10px 0px"></div>
-		<div class="row" style="margin: auto">
-			<div class="col-sm">
-				<!-- 당일접수 신청 리스트 -->
-				<table>
-					<thead>
-						<tr >
-							<th>이름(ID)</th>
-							<th>예상도착시간</th>
-						</tr>
-					</thead>
-					<tbody>
-					</tbody>
-					<tfoot>
-					</tfoot>
-				</table>
-
+		<div class="row">
+			<div class="col-sm mar">
+				<button type="button" class="btn btn-primary btn-lg btn-block">영업등록</button>
 			</div>
-			<div class="col-sm">
-				<!-- 예약 신청한 당일진료 리스트 -->
-				<table>
-					<thead>
-						<tr>
-							<th>이름(ID)</th>
-							<th>예약시간</th>
-						</tr>
-					</thead>
-					<tbody></tbody>
-					<tfoot></tfoot>
-				</table>
+			<div class="col-sm mar">
+				<button type="button" class="btn btn-primary btn-lg btn-block">영업마감</button>
 			</div>
 		</div>
+<div class="row">
+	<div class="col-sm">
+			<div class="card text-center" style="margin:0px 0px 10px 0px">
+				<div class="card" style="margin: 5px;">
+					<div class="card-header text-left">접수현황</div>
+					<div class="card-body">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">이름(ID)</th>
+									<th scope="col">예상도착시간</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">1</th>
+									<td>Mark</td>
+									<td>10분뒤</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
 	</div>
+	<div class="col-sm">
+			<div class="card text-center">
+				<div class="card" style="margin: 5px;">
+					<div class="card-header text-left">예약현황</div>
+
+					<div class="card-body">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">이름(ID)</th>
+									<th scope="col">예약시간</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">1</th>
+									<td>Mark</td>
+									<td>10:00</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</div>
+</div>
+</div>
+		</div>
 </body>
 </html>

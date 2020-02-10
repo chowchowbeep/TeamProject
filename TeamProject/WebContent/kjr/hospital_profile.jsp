@@ -134,8 +134,7 @@
 						</div>
 					</div>
 				</div>
-
-				<button type="submit" class="btn btn-primary">수정완료</button>
+				<button type="submit" class="btn btn-primary btn-lg btn-block" >수정완료</button>
 			</form>
 		</div>
 

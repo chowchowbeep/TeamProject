@@ -32,7 +32,9 @@
 </head>
 <body>
 	<!-- 1.병원회원정보 간략하게 출력 -->
-	<div class="card mb-3 ">
+	<div class="container">
+	<div class="container">
+	<div class="card" style="margin: 5px;">
 		<div class="row no-gutters">
 			<div class="col-md-4">
 				<img src="img/캡처.PNG" style="max-width: 540px;" class="card-img"
@@ -48,10 +50,11 @@
 			</div>
 		</div>
 	</div>
+	</div>
 
 	<!--2. 등록한 카테고리 아이콘으로 출력 -->
-	<div class="card text-center">
-		<div id="tabs" style="margin: 15px;"
+	<div class="container text-center">
+		<div id="tabs" style="margin: 5px;"
 			class="ui-tabs ui-corner-all ui-widget ui-widget-content">
 			<ul>
 				<li><a href="#tabs-medi">진료과목</a></li>
@@ -76,18 +79,18 @@
 
 
 	<!-- 3.병원회원정보 수정버튼: 병원회원수정페이지로 이동-->
-	<div class="card mb-3 ">
+	<div class="card mb-3 " style="margin: 15px;">
 		<button type="button" class="btn btn-primary btn-lg btn-block">Block
 			level button</button>
 	</div>
 
 	<!-- 6. 진료현황리스트페이지 로 이동  -->
-	<div class="card mb-3 ">
+	<div class="card mb-3 " style="margin: 15px;">
 		<button type="button" class="btn btn-primary btn-lg btn-block">Block
 			level button</button>
 	</div>
 
-
+</div>
 	<!-- 
 4. 카테고리 수정버튼 : 카테고리수정페이지 로이동
 5. 의사리스트페이지 로 이동 
