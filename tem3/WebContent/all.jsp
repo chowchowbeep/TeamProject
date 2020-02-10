@@ -42,6 +42,7 @@ table {
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- IonIcons -->
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
@@ -700,7 +701,8 @@ to get the desired effect
     <section class="content">
       <div class="container-fluid">
          <div class="dropdown">
-			 <i class="fas fa-bars"></i>
+			전체&nbsp;<i class="fas fa-caret-down"></i><!-- 화살표 -->
+			<!-- <i class="fas fa-bars"></i>  줄 세개-->
  		 <div class="dropdown-content">
     		<a href="all.jsp">전체</a>
     		<a href="wjqtn.jsp">당일 접수</a>

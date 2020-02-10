@@ -1,62 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+ <style>
+ .float-right{ border: none;
+} </style>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 3 | User Profile</title>
+  <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>진료신청현황</title>
-	<style>
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px 0px;
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: #696969;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {background-color: #ddd;}
-
-.dropdown:hover .dropdown-content {display: block;}
-
-table {
-		text-align:center;
-	}
-	</style>
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-  <!-- IonIcons -->
-  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to to the body tag
-to get the desired effect
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
@@ -67,15 +32,15 @@ to get the desired effect
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="../../index3.html" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
       </li>
     </ul>
 
-    <!-- SEARCH FORM -->
-     <form class="form-inline ml-3">
+     <!-- SEARCH FORM -->
+     <form class="form-inline ml-5">
             <div class="input-group input-group-sm" style="font-size: 30px;">
                <!-- 타이틀을 중앙에 어떻게 둘까요? -->
                SALLYEOJYO
@@ -683,12 +648,11 @@ to get the desired effect
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">진료 현황</h1>
+            <h1 class="m-0 text-dark">환자 상세 정보</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active">당일 접수</li>
-             <li class="breadcrumb-item"><a href="#">예약</a></li>
+             <li class="breadcrumb-item"><a href="all.jsp">sick</a></li>
                       
             </ol>
           </div><!-- /.col -->
@@ -700,144 +664,59 @@ to get the desired effect
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-         <div class="dropdown">
-			예약&nbsp;<i class="fas fa-caret-down"></i>
- 		 <div class="dropdown-content">
-    		<a href="all.jsp">전체</a>
-    		<a href="wjqtn.jsp">당일 접수</a>
-   			<a href="reserve.jsp">예약</a>
- 		 </div>
-		</div><br>
         <div class="row">
-                  <div class="col-12" >
+          <div class="col-md-3">
 
-            <div class="card">
-            
-              <div class="card-header border-0">
-            
-                <h3 class="card-title"><!-- 제목 --></h3>
-                
-                <div class="card-tools">
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile">
+                <div class="text-center">
+                  <img class="profile-user-img img-fluid img-circle"
+                       src="../../dist/img/logo.smalls.jpg"
+                       alt="User profile picture">
                 </div>
-              </div>
-              <div class="card-body table-responsive p-0">
-                <table class="table table-striped table-valign-middle">
-                  <thead>
-                  <tr>
-                   <th style="width:5%;">번호</th>
-                    <th>이름</th>
-                    <th style="width:28%;">예약 시간</th>
-                    <th style="width:29%;">담당의</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>
-                      0001
-                    </td>
-                    <td>조선아<span class="badge bg-warning">NEW</span>
-                    </td>
-                    <td>
-                      13:00
-                    </td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                     0002
-                    </td>
-                    <td>이다연</td>
-                    <td>
-                      13:30
-                    </td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      	1000
-                    </td>
-                    <td>김민정</td>
-                    <td>
-                      15:00
-                    </td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                     	0013
-                    </td>
-                    <td>김초롱</td>
-                    <td>
-                      13:00
-                    </td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                     	0023
-                    </td>
-                    <td>김주련</td>
-                    <td>
-                      16:00
-                    </td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
+                <div class="text-center">
+                <input type="text" class="profile-username text-center" style="border:none;" placeholder="고먐이">
+						</div>
+                <ul class="list-group list-group-unbordered mb-4">
+                  <li class="list-group-item">
+                    <b>진료타입</b><input type="text" class="float-right" placeholder="예약">
+                  </li>
+                  <li class="list-group-item">
+                    <b>생년월일</b> <input type="text" class="float-right" placeholder="20-01-01">
+                  </li>
+                  <li class="list-group-item">
+                    <b>연락처</b> <input type="text" class="float-right" placeholder="소아과">
+                  </li>
+                  <li class="list-group-item">
+                    <b>주소</b> <input type="text" class="float-right" placeholder="고양시 고양동 고먐네모네모">
+                  </li>
+                  <li class="list-group-item">
+            <b>진료이력</b><textarea class="float-right">손가락 골절</textarea>
+                  </li></ul>  <a href="#" class="btn btn-primary btn-block"><b>기록물 업로드</b></a>
+           </div>
+              <!-- /.card-body -->
             </div>
             <!-- /.card -->
-          </div>
-          </div></div></section></div>
+
+            </div>
+            </div></div></section></div>
+
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.0.3-pre
-    </div>
-  </footer>
 </div>
 <!-- ./wrapper -->
 
-<!-- REQUIRED SCRIPTS -->
-
 <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE -->
-<script src="dist/js/adminlte.js"></script>
-
-<!-- OPTIONAL SCRIPTS -->
-<script src="plugins/chart.js/Chart.min.js"></script>
-<script src="dist/js/demo.js"></script>
-<script src="dist/js/pages/dashboard3.js"></script>
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
 </body>
 </html>
