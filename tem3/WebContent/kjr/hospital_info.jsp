@@ -1,28 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-	crossorigin="anonymous">
-<script src=" https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-	integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-	crossorigin="anonymous"></script>
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-	crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="cssList.css">
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b450fd1e475fcbb9f2bb640be5a6f4a8"></script>
+<%@ include file="../0_sick_layout_header.jsp"%>
 </head>
 <body>
+	<div class="container">
 
+		<div class="card text-center  topmg">
+			<div class="card" style="margin: 5px;">
+				<div class="card-header ">[병원이름]</div>
+				<div class="card-body">
+					<div id="map" style="width: auto; height: 400px;"></div>
+					<!-- 지도담을 영역만들기 -->
+					<script>
+						var container = document.getElementById('map');
+						var options = {
+							center : new kakao.maps.LatLng(33.450701,
+									126.570667),
+							level : 3
+						};
+
+						var map = new kakao.maps.Map(container, options);
+					</script>
+				</div>
+			</div>
+
+
+
+			<div class="card" style="margin: 5px;">
+				<div class="card-body">
+					<p>전화번호:$()</p>
+					<p>주소:$()</p>
+					<p>진료시간:$()</p>
+					<p>사업자등록번호:$()</p>
+					<P>검색코드</P>
+				</div>
+			</div>
+
+			<button type="button" class="btn btn-primary btn-lg btn-block">당일
+				접수</button>
+			<button type="button" class="btn btn-primary btn-lg btn-block">예약
+				신청</button>
+		</div>
+	</div>
 </body>
 </html>
