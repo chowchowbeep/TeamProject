@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
 
-</head>
-<body class="hold-transition sidebar-mini">
 
 
 	<%@ include file="../../0_hos_layout_header.jsp"%>
@@ -40,7 +35,7 @@
 				<!-- /.card-header -->
 
 				<form role="form" method="post" enctype="multipart/form-data"
-					action="" class="form-horizontal">
+					action="../../pages/examples/medidetail.jsp" class="form-horizontal">
 					<div class="card-body">
 						<div class="form-group">
 							<label for="exampleInputEmail1">파일 타입</label>
@@ -150,5 +145,4 @@
 	</div>
 	<!-- ./wrapper -->
 	<%@ include file="../../0_all_layout_footer.jsp"%>
-</body>
-</html>
+

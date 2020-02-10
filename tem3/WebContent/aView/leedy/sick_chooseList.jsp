@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
 
-</head>
-<body class="hold-transition sidebar-mini">
 	<%@ include file="../../0_hos_layout_header.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
@@ -68,5 +63,4 @@
 		<!-- ./wrapper -->
 
 	<%@ include file="../../0_all_layout_footer.jsp"%>
-</body>
-</html>
+
