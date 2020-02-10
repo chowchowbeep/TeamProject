@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -487,12 +487,12 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>General Form</h1>
+							<h1>hospital_inquiry</h1>
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
-								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item active">General Form</li>
+								<li class="breadcrumb-item"><a href="#">홈</a></li>
+								<li class="breadcrumb-item active">병원회원</li>
 							</ol>
 						</div>
 					</div>
@@ -513,40 +513,46 @@
 								</div>
 								<!-- /.card-header -->
 								<!-- form start -->
-								<form role="form" method="post" enctype="multipart/form-data" action="">
+								<form role="form" method="post" enctype="multipart/form-data"
+									action="">
 									<div class="card-body">
-									<div>
-									
-									<div class="card mb-3">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">진료 기록물 조회</h5>
-    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    <p class="card-text"><small class="text-muted">3분 전 업데이트</small></p>
-  </div>
-</div>
+										<div>
+
+											<div class="card mb-3">
+												<img src="nyang.jpg" class="card-img-top" alt="...">
+												<div class="card-body">
+													<h5 class="card-title">진료 기록물 조회</h5>
+													<p class="card-text">This is a wider card with
+														supporting text below as a natural lead-in to additional
+														content. This content is a little bit longer.</p>
+													<p class="card-text">
+														<small class="text-muted">3분 전</small>
+													</p>
+												</div>
+											</div>
 										</div>
 
-									<div class="card-body">
-										<div class="form-group row">
-											<label for="exampleInputPassword1">발급일자</label>
-											
+										<div class="card-body">
+											<div class="form-group row">
+												<label for="exampleInputPassword1">발급일자</label>
+
 												<div class="row">
 													<div class="col-4">
-														<input type="text" class="form-control" id="inputYear" placeholder="발급일자">
-														
+														<input type="text" class="form-control" id="inputYear"
+															placeholder="발급일자">
+
 													</div>
 													<label for="inputYear" class="col-1 col-form-label">년</label>
 													<div class="col-2">
 														<input type="text" class="form-control" id="inputMonth"
-														placeholder="불러">
-														
+															placeholder="불러">
+
 													</div>
 													<label for="inputMonth" class="col-1 col-form-label">월</label>
 													<div class="col-2">
 														<input type="text" class="form-control" id="inputDay"
-														placeholder="와요">
-														
+															placeholder="와요">
+
 													</div>
 													<label for="inputDay" class="col-1 col-form-label">일</label>
 												</div>
@@ -555,12 +561,12 @@
 
 										<div class="form-group">
 											<label for="exampleInputFile">비고</label>
-											
-													<textarea class="form-control" rows="3"
-														placeholder="비고사항을 불러옵니다"></textarea>
-	
+
+											<textarea class="form-control" rows="3"
+												placeholder="비고사항을 불러옵니다"></textarea>
+
 										</div>
-										
+
 									</div>
 									<!-- /.card-body -->
 
@@ -569,29 +575,29 @@
 							</div>
 							<!-- /.card -->
 
-						<!-- Control Sidebar -->
-						<aside class="control-sidebar control-sidebar-dark">
-							<!-- Control sidebar content goes here -->
-						</aside>
-						<!-- /.control-sidebar -->
-					</div>
-					<!-- ./wrapper -->
+							<!-- Control Sidebar -->
+							<aside class="control-sidebar control-sidebar-dark">
+								<!-- Control sidebar content goes here -->
+							</aside>
+							<!-- /.control-sidebar -->
+						</div>
+						<!-- ./wrapper -->
 
-					<!-- jQuery -->
-					<script src="../../plugins/jquery/jquery.min.js"></script>
-					<!-- Bootstrap 4 -->
-					<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-					<!-- bs-custom-file-input -->
-					<script
-						src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-					<!-- AdminLTE App -->
-					<script src="../../dist/js/adminlte.min.js"></script>
-					<!-- AdminLTE for demo purposes -->
-					<script src="../../dist/js/demo.js"></script>
-					<script type="text/javascript">
-						$(document).ready(function() {
-							bsCustomFileInput.init();
-						});
-					</script>
+						<!-- jQuery -->
+						<script src="../../plugins/jquery/jquery.min.js"></script>
+						<!-- Bootstrap 4 -->
+						<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+						<!-- bs-custom-file-input -->
+						<script
+							src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+						<!-- AdminLTE App -->
+						<script src="../../dist/js/adminlte.min.js"></script>
+						<!-- AdminLTE for demo purposes -->
+						<script src="../../dist/js/demo.js"></script>
+						<script type="text/javascript">
+							$(document).ready(function() {
+								bsCustomFileInput.init();
+							});
+						</script>
 </body>
 </html>

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -485,12 +487,12 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>General Form</h1>
+							<h1>sick_mediaList</h1>
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
-								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item active">General Form</li>
+								<li class="breadcrumb-item"><a href="#">홈</a></li>
+								<li class="breadcrumb-item active">일반회원</li>
 							</ol>
 						</div>
 					</div>
@@ -498,106 +500,80 @@
 				<!-- /.container-fluid -->
 			</section>
 
+
+
 			<!-- Main content -->
 			<section class="content">
-				<div class="container-fluid">
-					<div class="row">
-						<!-- left column -->
-						<div class="col-md-6">
-							<!-- general form elements -->
-							<div class="card card-primary ">
-								<div class="card-header card text-center">
-									<h1 class="card-title">진료 기록물 업로드</h1>
-								</div>
-								<!-- /.card-header -->
-								<!-- form start -->
-								<form role="form" method="post" enctype="multipart/form-data" action="">
-									<div class="card-body">
-										<div class="form-group">
-											<label for="exampleInputEmail1">파일 타입</label>
 
-											<div class="col-sm-6">
-												<!-- radio -->
-												<div class="form-group">
-													<div class="form-check">
-														<input class="form-check-input" type="radio" name="radio1" id="exampleInputEmail1">
-														<label class="form-check-label" for="">사진</label>
-													</div>
-													<div class="form-check">
-														<input class="form-check-input" type="radio" name="radio1" id="exampleInputEmail1">
-														<label class="form-check-label" for="">동영상</label>
-													</div>
-													<div class="form-check">
-														<input class="form-check-input" type="radio" name="radio1"
-															checked id="exampleInputEmail1"> <label class="form-check-label" for="">문서</label>
-													</div>
-												</div>
-											</div>
-										</div>
+				<div class="card card-info">
+					<div class="card">
+						<div class="card-header table-responsive pad card text-center">
+							<div class="btn-group btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-secondary active"> <input
+									type="radio" name="options" id="option1" autocomplete="off"
+									checked> 기록물
+								</label> <label class="btn btn-secondary"> <input type="radio"
+									name="options" id="option2" autocomplete="off"> 서류
+								</label>
 
-										<label for="exampleInputFile">파일선택</label>
-										<!-- 파일 선택시 사용할 form 태그 <form method="post" enctype="multipart/form-data" action="../FileUpload.do"> -->
-										<div class="input-group">
-											<div class="custom-file">
-												<input type="file" class="custom-file-input"
-													id="exampleInputFile">
-												<!-- data-browse="찾기" 사용하면 버튼 내용값 바꿀 수 있음 -->
-												<label class="custom-file-label" for="exampleInputFile"
-													data-browse="찾기"></label>
-											</div>
-
-										</div>
-
-									<div class="card-body">
-										<div class="form-group row">
-											<label for="exampleInputPassword1">발급일자</label>
-											
-												<div class="row">
-													<div class="col-4">
-														<input type="text" class="form-control" id="inputYear">
-														
-													</div>
-													<label for="inputYear" class="col-1 col-form-label">년</label>
-													<div class="col-2">
-														<input type="text" class="form-control" id="inputMonth">
-														
-													</div>
-													<label for="inputMonth" class="col-1 col-form-label">월</label>
-													<div class="col-2">
-														<input type="text" class="form-control" id="inputDay">
-														
-													</div>
-													<label for="inputDay" class="col-1 col-form-label">일</label>
-												</div>
-											</div>
-										</div>
-
-										<div class="form-group">
-											<label for="exampleInputFile">비고</label>
-											
-													<textarea class="form-control" rows="3"
-														placeholder="비고사항을 적어보세요"></textarea>
-	
-										</div>
-										
-									</div>
-									<!-- /.card-body -->
-
-									<div class="card-footer  text-center">
-										<button type="submit" class="btn btn-primary">업로드</button>
-									</div>
-
-								</form>
 							</div>
-							<!-- /.card -->
+						</div>
 
-						
-			
+						<!-- /.card-header -->
+						<!-- form start -->
 
-						
-					
-					
- 
+						<form role="form" method="post" enctype="multipart/form-data"
+							action="">
+							<div class="card-body">
+								<div>
+									<div class="card mb-3" style="max-width: 540px;">
+										<div class="row no-gutters">
+											<div class="col-md-4">
+												<a href="sick_detailList.jsp"><img src="nyang.jpg" class="card-img" alt="..."></a>
+											</div>
+											<div class="col-md-8">
+												<div class="card-body">
+													<h4 class="card-title">이다연</h4>
+													<br>
+													<p class="card-text">
+														기록물분류: CT <br> 발급병원: 예담내과 <br> 발급일자:
+														20200101
+													</p>
+													<p class="card-text">
+														<small class="text-muted">1시간 전</small>
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="card mb-3" style="max-width: 540px;">
+										<div class="row no-gutters">
+											<div class="col-md-4">
+											<a href="sick_detailList.jsp">	<img src="nyang.jpg" class="card-img" alt="..."></a>
+											</div>
+											<div class="col-md-8">
+												<div class="card-body">
+													<h4 class="card-title">이다연</h4>
+													<br>
+													<p class="card-text">
+														기록물분류: X-ray <br> 발급병원: 예담외과 <br> 발급일자:
+														20200101
+													</p>
+													<p class="card-text">
+														<small class="text-muted">어제</small>
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+
+						</form>
+
 
 						<!-- Control Sidebar -->
 						<aside class="control-sidebar control-sidebar-dark">
