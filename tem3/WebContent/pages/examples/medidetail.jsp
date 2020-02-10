@@ -515,6 +515,7 @@
 								<div class="card-header text-muted border-bottom-0">
 									<!-- 1번째 글 -->
 								</div>
+								<form>
 								<div class="card-body pt-0">
 									<div class="row">
 										<div class="col-7">
@@ -548,13 +549,14 @@
 										</p>
 									</div>
 								</div>
+								</form>
 							</div>
 						</div>
 					</div>
 					<br>
 					<div class="text-center">
-						<a href="#" class="btn btn-sm btn-secondary"> 진료기록물 조회 </a>&nbsp;
-						<a href="#" class="btn btn-sm btn-secondary"> 진료 기록물 업로드 </a>
+						<a href="../forms/sick_docuList.jsp" class="btn btn-secondary"> 진료기록물 조회 </a>&nbsp;&nbsp;&nbsp;
+						<a href="#" class="btn btn-secondary"> 진료 기록물 업로드 </a>
 					</div>
 					<br>
 					<div class="text-center">

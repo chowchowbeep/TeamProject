@@ -1,17 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
 
 
-<style>
-.abc {
-	display: inline-block;
-}
-</style>
-</head>
-<body class="hold-transition sidebar-mini">
 	<%@ include file="../../0_hos_layout_header.jsp"%>
 
 	<!-- Content Wrapper. Contains page content -->
@@ -110,7 +100,7 @@
 
 						</div>
 
-					</form></section>
+					</form></div></section>
 
 
 					<!-- Control Sidebar -->
@@ -123,8 +113,6 @@
 				<!-- ./wrapper -->
 			</div>
 		
-	</div>
+
 	
 	<%@ include file="../../0_all_layout_footer.jsp"%>
-</body>
-</html>

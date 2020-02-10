@@ -31,13 +31,13 @@
 						<h3 class="card-title">진료기록물 업로드</h3>
 					</div>
 					<!-- /.card-header -->
-					<div class="card">
+					
 
 						<div class="card-body text-center " style="border: none;">
-							<p>한마디를 넣어? 얘도 좀 고쳐야함</p>
-							<p>여기서 업로드 가능한 form 필요</p>
+							<p>촬영 또는 업로드를 해주세요</p>
+						
 							<a class="btn btn-app"> <i class="fas fa-camera"></i> 촬영</a> 
-							<a class="btn btn-app"> <i class="fas fa-edit "><div class="custom-file">업로드
+							<a class="btn btn-app col-2"> <i class="fas fa-edit "><div class="custom-file" style="font-size:0.65em">업로드
 									<input type="file" class="custom-file-input"
 										id="exampleInputFile">
 									<!-- data-browse="찾기" 사용하면 버튼 내용값 바꿀 수 있음 -->
@@ -52,7 +52,7 @@
 
 						</div>
 						<!-- /.card-body -->
-					</div>
+					
 					<!-- /.card -->
 					<!-- form start -->
 					<form class="form-horizontal">
@@ -124,6 +124,7 @@
 						<!-- /.card-footer -->
 					</form>
 				</div>
+				</section>
 
 
 

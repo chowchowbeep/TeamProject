@@ -700,8 +700,8 @@ to get the desired effect
     <section class="content">
       <div class="container-fluid">
          <div class="dropdown">
-			 <i class="fas fa-bars"></i>
- 		 <div class="dropdown-content">
+			당일&nbsp;접수&nbsp;<i class="fas fa-caret-down"></i>
+		<div class="dropdown-content">
     		<a href="all.jsp">전체</a>
     		<a href="wjqtn.jsp">당일 접수</a>
    			<a href="reserve.jsp">예약</a>
@@ -723,10 +723,10 @@ to get the desired effect
                 <table class="table table-striped table-valign-middle">
                   <thead>
                   <tr>
-                    <th>번호</th>
+                    <th style="width:5%;">번호</th>
                     <th>이름</th>
-                    <th>도착예정 시간</th>
-                    <th>담당의</th>
+                    <th style="width:28%;">도착예정 시간</th>
+                    <th style="width:29%;">담당의</th>
                   </tr>
                   </thead>
                   <tbody>

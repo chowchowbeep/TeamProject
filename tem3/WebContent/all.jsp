@@ -42,6 +42,7 @@ table {
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- IonIcons -->
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
@@ -76,7 +77,7 @@ to get the desired effect
 
     <!-- SEARCH FORM -->
      <form class="form-inline ml-5">
-            <div class="input-group input-group-sm" style="font-size: 30px; disdplay:inline-block; text-align:center;">
+            <div class="input-group input-group-sm" style="font-size: 30px;">
                <!-- 타이틀을 중앙에 어떻게 둘까요? -->
                SALLYEOJYO
                <div class="input-group-append"></div>
@@ -700,7 +701,8 @@ to get the desired effect
     <section class="content">
       <div class="container-fluid">
          <div class="dropdown">
-			 <i class="fas fa-bars"></i>
+			전체&nbsp;<i class="fas fa-caret-down"></i><!-- 화살표 -->
+			<!-- <i class="fas fa-bars"></i>  줄 세개-->
  		 <div class="dropdown-content">
     		<a href="all.jsp">전체</a>
     		<a href="wjqtn.jsp">당일 접수</a>
@@ -723,10 +725,10 @@ to get the desired effect
                 <table class="table table-striped table-valign-middle">
                   <thead>
                   <tr>
-                    <th>번호</th>
+                    <th style="width:5%;">번호</th>
                     <th>이름</th>
-                    <th>진료<br>시간</th>
-                    <th>담당의</th>
+                    <th style="width:28%;">시간</th>
+                    <th style="width:29%;">담당의</th>
                   </tr>
                   </thead>
                   <tbody>
