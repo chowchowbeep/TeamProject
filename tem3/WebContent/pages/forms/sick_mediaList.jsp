@@ -21,6 +21,12 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
 	rel="stylesheet">
+	
+	<style>
+	.abc{display: inline-block;
+	}
+	
+	</style>
 </head>
 <body class="hold-transition sidebar-mini">
 	<div class="wrapper">
@@ -523,10 +529,10 @@
 						<!-- form start -->
 
 						<form role="form" method="post" enctype="multipart/form-data"
-							action="">
+							action="" class="form-horizontal">
 							<div class="card-body">
-								<div>
-									<div class="card mb-3" style="max-width: 540px;">
+								<div >
+									<div class="card mb-3 abc" style="max-width: 750px; float:left;">
 										<div class="row no-gutters">
 											<div class="col-md-4">
 												<a href="sick_detailList.jsp"><img src="nyang.jpg" class="card-img" alt="..."></a>
@@ -547,9 +553,9 @@
 										</div>
 									</div>
 
-									<div class="card mb-3" style="max-width: 540px;">
+									<div class="card mb-3 abc" style="max-width: 750px; float:right;">
 										<div class="row no-gutters">
-											<div class="col-md-4">
+											<div class="col-md-4 ">
 											<a href="sick_detailList.jsp">	<img src="nyang.jpg" class="card-img" alt="..."></a>
 											</div>
 											<div class="col-md-8">
@@ -567,6 +573,8 @@
 											</div>
 										</div>
 									</div>
+									
+									
 
 								</div>
 
@@ -582,7 +590,7 @@
 						<!-- /.control-sidebar -->
 					</div>
 					<!-- ./wrapper -->
-
+					</div></section></div></div>
 					<!-- jQuery -->
 					<script src="../../plugins/jquery/jquery.min.js"></script>
 					<!-- Bootstrap 4 -->
