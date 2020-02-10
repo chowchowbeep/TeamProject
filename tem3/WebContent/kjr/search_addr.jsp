@@ -24,8 +24,9 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <link rel="stylesheet" href="cssList.css">
 <script>
- //시작시 자동포커스 검색에 넣어야함
- 
+	$(function() {
+		$("#tabs").tabs();
+	});
 </script>
 </head>
 <body>
@@ -38,14 +39,10 @@
 					id="button-Search2">검색</button>
 			</div>
 		</div>
-
-		<!-- 지역|카테고리버튼 -->
+			<!-- 지역|카테고리버튼 -->
 		<div class="row">
 			<div class="mb-3 col" style="margin: 20px 0px;">
-				<button type="button" class="btn btn-primary btn-lg btn-block" 
-				data-toggle="dropdown" data-activates='dropdown1'
-				id="area">지역</button>
-				
+				<button type="button" class="btn btn-primary btn-lg btn-block" 	data-toggle="dropdown" data-activates='dropdown1' id="area">지역</button>
 				<div class="dropdown-menu"  id='dropdown1' class='dropdown-content'>
 					 <a class="dropdown-item" href="search_addr.jsp">지역명</a>
 					 <a class="dropdown-item" href="search_sub.jsp">지하철명</a>
@@ -56,6 +53,24 @@
 			</div>
 		</div>
 		
+		
+		<!-- 주소별 검색 -->
+		<div class="row" id="">
+		<div id="list-main" class="col-4">
+  			<a class="list-group-item list-group-item-action" id="LS00">서울</a>
+  			<a class="list-group-item list-group-item-action" id="LB00">부산</a>
+ 			<a class="list-group-item list-group-item-action" id="LD00">대구</a>
+		</div>
+		
+		
+		<div id="list-addr2" class="col-4">
+  			<a class="list-group-item list-group-item-action" id="LDA0">동성로,시청</a>
+  			<button type="button" class="btn btn-primary btn-lg btn-block">카테고리 선택</button>
+  			<button type="button" class="btn btn-primary btn-lg btn-block">이 조건으로 검색</button>
+		</div>
+		
+		
+		</div>
 	</div>
 </body>
 </html>
