@@ -21,12 +21,6 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
 	rel="stylesheet">
-	
-	<style>
-	.abc{display: inline-block;
-	}
-	
-	</style>
 </head>
 <body class="hold-transition sidebar-mini">
 	<div class="wrapper">
@@ -493,7 +487,7 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>sick_mediaList</h1>
+							<h1>sick_memModify</h1>
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
@@ -512,97 +506,81 @@
 			<section class="content">
 
 				<div class="card card-info">
-					<div class="card">
-						<div class="card-header table-responsive pad card text-center">
-							<div class="btn-group btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-secondary active"> <input
-									type="radio" name="options" id="option1" autocomplete="off"
-									checked> 기록물
-								</label> <label class="btn btn-secondary"> <input type="radio"
-									name="options" id="option2" autocomplete="off"> 서류
-								</label>
-
-							</div>
-						</div>
-
-						<!-- /.card-header -->
-						<!-- form start -->
-
-						<form role="form" method="post" enctype="multipart/form-data"
-							action="" class="form-horizontal">
-							<div class="card-body">
-								<div >
-									<div class="card mb-3 abc" style="max-width: 750px; float:left;">
-										<div class="row no-gutters">
-											<div class="col-md-4">
-												<a href="sick_detailList.jsp"><img src="nyang.jpg" class="card-img" alt="..."></a>
-											</div>
-											<div class="col-md-8">
-												<div class="card-body">
-													<h4 class="card-title">이다연</h4>
-													<br>
-													<p class="card-text">
-														기록물분류: CT <br> 발급병원: 예담내과 <br> 발급일자:
-														20200101
-													</p>
-													<p class="card-text">
-														<small class="text-muted">1시간 전</small>
-													</p>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="card mb-3 abc" style="max-width: 750px; float:right;">
-										<div class="row no-gutters">
-											<div class="col-md-4 ">
-											<a href="sick_detailList.jsp">	<img src="nyang.jpg" class="card-img" alt="..."></a>
-											</div>
-											<div class="col-md-8">
-												<div class="card-body">
-													<h4 class="card-title">이다연</h4>
-													<br>
-													<p class="card-text">
-														기록물분류: X-ray <br> 발급병원: 예담외과 <br> 발급일자:
-														20200101
-													</p>
-													<p class="card-text">
-														<small class="text-muted">어제</small>
-													</p>
-												</div>
-											</div>
-										</div>
-									</div>
-									
-									
-
-								</div>
-
-							</div>
-
-						</form>
-
-
-						<!-- Control Sidebar -->
-						<aside class="control-sidebar control-sidebar-dark">
-							<!-- Control sidebar content goes here -->
-						</aside>
-						<!-- /.control-sidebar -->
+					<div class="card-header  card text-center">
+						<h3 class="card-title">회원정보 수정 페이지</h3>
 					</div>
-					<!-- ./wrapper -->
-					</div></section></div></div>
-					<!-- jQuery -->
-					<script src="../../plugins/jquery/jquery.min.js"></script>
-					<!-- Bootstrap 4 -->
-					<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-					<!-- bs-custom-file-input -->
-					<script
-						src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-					<!-- AdminLTE App -->
-					<script src="../../dist/js/adminlte.min.js"></script>
-					<!-- AdminLTE for demo purposes -->
-					<script src="../../dist/js/demo.js"></script>
-					<script type="text/javascript">
+					<!-- /.card-header -->
+					<!-- form start -->
+					<form class="form-horizontal">
+						<div class="card-body">
+
+							<div class="form-group row">
+								<label for="callSicId" class="col-sm-2 col-form-label">회원ID</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="callSicId" placeholder="회원ID 불러오기/수정 불가/수정 가능한 항목 잡기">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="callSicPw" class="col-sm-2 col-form-label">회원PW</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="callSicPw" placeholder="회원PW 불러오기//PW 수정가능하지 않아?">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="callSicName" class="col-sm-2 col-form-label">이름</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="callSicName" placeholder="회원이름 불러오기/수정 불가">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="callSicPhone" class="col-sm-2 col-form-label">전화번호</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="callSicPhone" placeholder="전화번호 불러오기/수정 가능">
+								</div>
+							</div>
+							
+							 <div class="form-group row">
+                    <label for="checkSicStt" class="col-sm-2 col-form-label">패널티 상태</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="checkSicStt" placeholder="패널티 상태 표시" disabled>
+                    </div>
+                  </div>
+		
+
+						</div>
+						<!-- /.card-body -->
+						<div class="card-footer  text-center">
+							<button type="submit" class="btn btn-info">수정완료</button>
+							<!-- cancel에는 button type reset? -->
+							<button type="reset" class="btn btn-default">취소</button>
+						</div>
+						<!-- /.card-footer -->
+					</form>
+				</div>
+
+
+
+
+				<!-- Control Sidebar -->
+				<aside class="control-sidebar control-sidebar-dark">
+					<!-- Control sidebar content goes here -->
+				</aside>
+				<!-- /.control-sidebar -->
+		</div>
+		<!-- ./wrapper -->
+
+		<!-- jQuery -->
+		<script src="../../plugins/jquery/jquery.min.js"></script>
+		<!-- Bootstrap 4 -->
+		<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<!-- bs-custom-file-input -->
+		<script
+			src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+		<!-- AdminLTE App -->
+		<script src="../../dist/js/adminlte.min.js"></script>
+		<!-- AdminLTE for demo purposes -->
+		<script src="../../dist/js/demo.js"></script>
+		<script type="text/javascript">
 						$(document).ready(function() {
 							bsCustomFileInput.init();
 						});

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,12 +21,6 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
 	rel="stylesheet">
-	
-	<style>
-	.abc{display: inline-block;
-	}
-	
-	</style>
 </head>
 <body class="hold-transition sidebar-mini">
 	<div class="wrapper">
@@ -493,7 +487,7 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>sick_mediaList</h1>
+							<h1>sick_healModify</h1>
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
@@ -510,78 +504,91 @@
 
 			<!-- Main content -->
 			<section class="content">
-
-				<div class="card card-info">
-					<div class="card">
-						<div class="card-header table-responsive pad card text-center">
-							<div class="btn-group btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-secondary active"> <input
-									type="radio" name="options" id="option1" autocomplete="off"
-									checked> 기록물
-								</label> <label class="btn btn-secondary"> <input type="radio"
-									name="options" id="option2" autocomplete="off"> 서류
-								</label>
-
-							</div>
-						</div>
-
-						<!-- /.card-header -->
-						<!-- form start -->
-
-						<form role="form" method="post" enctype="multipart/form-data"
-							action="" class="form-horizontal">
-							<div class="card-body">
-								<div >
-									<div class="card mb-3 abc" style="max-width: 750px; float:left;">
-										<div class="row no-gutters">
-											<div class="col-md-4">
-												<a href="sick_detailList.jsp"><img src="nyang.jpg" class="card-img" alt="..."></a>
-											</div>
-											<div class="col-md-8">
-												<div class="card-body">
-													<h4 class="card-title">이다연</h4>
-													<br>
-													<p class="card-text">
-														기록물분류: CT <br> 발급병원: 예담내과 <br> 발급일자:
-														20200101
-													</p>
-													<p class="card-text">
-														<small class="text-muted">1시간 전</small>
-													</p>
-												</div>
-											</div>
+			
+			   <div class="card card-info">
+              <div class="card-header  card text-center">
+                <h3 class="card-title">건강정보 수정 페이지</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form class="form-horizontal">
+                <div class="card-body">
+               
+                  <div class="form-group row">
+                    <label for="inputHstcs" class="col-sm-2 col-form-label">병력</label>
+                    <div class="col-sm-10">
+                      <select class="form-control select2" style="width: 100%;" id="inputHstcs">
+                    <option selected="selected">당뇨</option>
+                    <option>저혈압</option>
+                    <option>고혈압</option>
+                    <option>빈혈</option>
+                    <option>위염</option>
+                    <option>위암</option>
+                    <option>간암</option>
+                    <option>폐암</option>
+                  </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputMedi" class="col-sm-2 col-form-label">복용약물</label>
+                    <div class="col-sm-10">
+                        <select class="form-control select2" style="width: 100%;" id="inputMedi">
+                    <option selected="selected">당뇨</option>
+                    <option>저혈압</option>
+                    <option>고혈압</option>
+                    <option>빈혈</option>
+                    <option>위염</option>
+                    <option>위암</option>
+                    <option>간암</option>
+                    <option>폐암</option>
+                  </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputBdp" class="col-sm-2 col-form-label">혈액형</label>
+                    <div class="col-sm-10">
+                        <select class="form-control select2" style="width: 100%;" id="inputMedi">
+                       <option selected="selected">Rh-o</option>
+                    <option>Rh-a</option>
+                    <option>Rh-ab</option>
+                    <option>Rh-b</option>
+                    <option>Rh+o</option>
+                    <option>Rh+a</option>
+                    <option>Rh+ab</option>
+                    <option>Rh+b</option>
+                  </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputAllrgy" class="col-sm-2 col-form-label">알레르기</label>
+                    <div class="col-sm-10">
+                    <select class="form-control select2" style="width: 100%;" id="inputAllrgy">
+                     <option selected="selected">갑각류</option>
+                    <option>계란</option>
+                    <option>견과류</option>
+                    <option>먼지</option>
+                   </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+											<label for="inputHtEtc" class="col-sm-2 col-form-label">비고</label>
+											 <div class="col-sm-10">
+													<textarea class="form-control" rows="3"
+														placeholder="비고사항을 적어보세요" id="inputHtEtc"></textarea>
+	</div>
 										</div>
-									</div>
-
-									<div class="card mb-3 abc" style="max-width: 750px; float:right;">
-										<div class="row no-gutters">
-											<div class="col-md-4 ">
-											<a href="sick_detailList.jsp">	<img src="nyang.jpg" class="card-img" alt="..."></a>
-											</div>
-											<div class="col-md-8">
-												<div class="card-body">
-													<h4 class="card-title">이다연</h4>
-													<br>
-													<p class="card-text">
-														기록물분류: X-ray <br> 발급병원: 예담외과 <br> 발급일자:
-														20200101
-													</p>
-													<p class="card-text">
-														<small class="text-muted">어제</small>
-													</p>
-												</div>
-											</div>
-										</div>
-									</div>
-									
-									
-
-								</div>
-
-							</div>
-
-						</form>
-
+           
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer  text-center" >
+                  <button type="submit" class="btn btn-info">완료</button>
+                  <!-- cancel에는 button type reset? -->
+                  <button type="reset" class="btn btn-default">Cancel</button>
+                </div>
+                <!-- /.card-footer -->
+              </form>
+            </div>
+			
 
 						<!-- Control Sidebar -->
 						<aside class="control-sidebar control-sidebar-dark">
@@ -590,7 +597,7 @@
 						<!-- /.control-sidebar -->
 					</div>
 					<!-- ./wrapper -->
-					</div></section></div></div>
+
 					<!-- jQuery -->
 					<script src="../../plugins/jquery/jquery.min.js"></script>
 					<!-- Bootstrap 4 -->

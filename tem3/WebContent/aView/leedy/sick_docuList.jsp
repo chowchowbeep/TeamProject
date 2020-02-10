@@ -21,12 +21,6 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
 	rel="stylesheet">
-	
-	<style>
-	.abc{display: inline-block;
-	}
-	
-	</style>
 </head>
 <body class="hold-transition sidebar-mini">
 	<div class="wrapper">
@@ -493,7 +487,7 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>sick_mediaList</h1>
+							<h1>sick_docuList</h1>
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
@@ -515,11 +509,11 @@
 					<div class="card">
 						<div class="card-header table-responsive pad card text-center">
 							<div class="btn-group btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-secondary active"> <input
-									type="radio" name="options" id="option1" autocomplete="off"
-									checked> 기록물
-								</label> <label class="btn btn-secondary"> <input type="radio"
-									name="options" id="option2" autocomplete="off"> 서류
+								<label class="btn btn-secondary "> <input type="radio"
+									name="options" id="option1" autocomplete="off"> 기록물
+								</label> <label class="btn btn-secondary active"> <input
+									type="radio" name="options" id="option2" autocomplete="off"
+									checked> 서류
 								</label>
 
 							</div>
@@ -527,82 +521,89 @@
 
 						<!-- /.card-header -->
 						<!-- form start -->
-
-						<form role="form" method="post" enctype="multipart/form-data"
-							action="" class="form-horizontal">
+						<form class="form-horizontal">
 							<div class="card-body">
-								<div >
-									<div class="card mb-3 abc" style="max-width: 750px; float:left;">
-										<div class="row no-gutters">
-											<div class="col-md-4">
-												<a href="sick_detailList.jsp"><img src="nyang.jpg" class="card-img" alt="..."></a>
-											</div>
-											<div class="col-md-8">
-												<div class="card-body">
-													<h4 class="card-title">이다연</h4>
-													<br>
-													<p class="card-text">
-														기록물분류: CT <br> 발급병원: 예담내과 <br> 발급일자:
-														20200101
-													</p>
-													<p class="card-text">
-														<small class="text-muted">1시간 전</small>
-													</p>
-												</div>
-											</div>
-										</div>
-									</div>
 
-									<div class="card mb-3 abc" style="max-width: 750px; float:right;">
-										<div class="row no-gutters">
-											<div class="col-md-4 ">
-											<a href="sick_detailList.jsp">	<img src="nyang.jpg" class="card-img" alt="..."></a>
-											</div>
-											<div class="col-md-8">
-												<div class="card-body">
-													<h4 class="card-title">이다연</h4>
-													<br>
-													<p class="card-text">
-														기록물분류: X-ray <br> 발급병원: 예담외과 <br> 발급일자:
-														20200101
-													</p>
-													<p class="card-text">
-														<small class="text-muted">어제</small>
+								<div class="row">
+
+									<!-- ./col -->
+									<div class="col-lg-6 ">
+										<!-- small card -->
+										<div class="small-box bg-success">
+											<div class="inner">
+												<h5>진단서</h5>
+												<br>
+												<div>
+													<p>
+														발급병원: 예담내과 <br> 환자명: 이다연 <br> 발급일자: 20200101
 													</p>
 												</div>
 											</div>
+											<div class="icon">
+												<i class="ion ion-stats-bars"></i>
+											</div>
+											<a href="sick_detailList.jsp" class="small-box-footer">
+												상세정보 보기 <i class="fas fa-arrow-circle-right"></i>
+											</a>
 										</div>
 									</div>
-									
-									
+									<!-- ./col -->
+									<div class="col-lg-6 ">
+										<!-- small card -->
+										<div class="small-box bg-warning">
+											<div class="inner">
+												<h5>보험서류</h5>
+												<br>
+
+												<div>
+													<p>
+														발급병원: 예담외과 <br> 환자명: 이다연 <br> 발급일자: 20200101
+													</p>
+												</div>
+
+											</div>
+											<div class="icon">
+												<i class="fas fa-user-plus"></i>
+											</div>
+											<a href="sick_detailList.jsp" class="small-box-footer">
+												상세정보 보기 <i class="fas fa-arrow-circle-right"></i>
+											</a>
+										</div>
+									</div>
+									<!-- ./col -->
 
 								</div>
+
+
 
 							</div>
 
 						</form>
-
-
-						<!-- Control Sidebar -->
-						<aside class="control-sidebar control-sidebar-dark">
-							<!-- Control sidebar content goes here -->
-						</aside>
-						<!-- /.control-sidebar -->
 					</div>
-					<!-- ./wrapper -->
-					</div></section></div></div>
-					<!-- jQuery -->
-					<script src="../../plugins/jquery/jquery.min.js"></script>
-					<!-- Bootstrap 4 -->
-					<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-					<!-- bs-custom-file-input -->
-					<script
-						src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-					<!-- AdminLTE App -->
-					<script src="../../dist/js/adminlte.min.js"></script>
-					<!-- AdminLTE for demo purposes -->
-					<script src="../../dist/js/demo.js"></script>
-					<script type="text/javascript">
+
+
+
+
+					<!-- Control Sidebar -->
+					<aside class="control-sidebar control-sidebar-dark">
+						<!-- Control sidebar content goes here -->
+					</aside>
+					<!-- /.control-sidebar -->
+				</div>
+				<!-- ./wrapper -->
+
+				<!-- jQuery -->
+				<script src="../../plugins/jquery/jquery.min.js"></script>
+				<!-- Bootstrap 4 -->
+				<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+				<!-- bs-custom-file-input -->
+				<script
+					src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+				<!-- AdminLTE App -->
+				<script src="../../dist/js/adminlte.min.js"></script>
+				<!-- AdminLTE for demo purposes -->
+				<script src="../../dist/js/demo.js"></script>
+				<script type="text/javascript">
 						$(document).ready(function() {
 							bsCustomFileInput.init();
 						});
