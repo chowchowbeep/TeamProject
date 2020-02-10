@@ -1,22 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>AdminLTE 3 | Simple Tables</title>
+<title>AdminLTE 3 | General Form Elements</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <!-- Font Awesome -->
 <link rel="stylesheet"
 	href="../../plugins/fontawesome-free/css/all.min.css">
 <!-- Ionicons -->
 <link rel="stylesheet"
 	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-
 <!-- Theme style -->
 <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 <!-- Google Font: Source Sans Pro -->
@@ -33,8 +31,8 @@
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" data-widget="pushmenu"
 					href="#"><i class="fas fa-bars"></i></a></li>
-
 			</ul>
+
 			<!-- SEARCH FORM -->
 			<form class="form-inline ml-3">
 				<div class="input-group input-group-sm" style="font-size: 30px;">
@@ -477,8 +475,6 @@
 					</ul>
 				</nav>
 				<!-- /.sidebar-menu -->
-
-
 			</div>
 			<!-- /.sidebar -->
 		</aside>
@@ -491,12 +487,12 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>진료 현황</h1>
+							<h1>sick_healModify</h1>
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
-								<li class="breadcrumb-item"><a href="#">home</a></li>
-								<li class="breadcrumb-item active">sick</li>
+								<li class="breadcrumb-item"><a href="#">홈</a></li>
+								<li class="breadcrumb-item active">일반회원</li>
 							</ol>
 						</div>
 					</div>
@@ -504,81 +500,119 @@
 				<!-- /.container-fluid -->
 			</section>
 
+
+
 			<!-- Main content -->
 			<section class="content">
-
-				<!-- Default box -->
-				<div class="card-body pt-0" style="width: 360px;">
-					<div class="row d-flex align-items-stretch">
-						<div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
-							<div class="card bg-light">
-								<div class="card-header text-muted border-bottom-0">
-									<!-- 1번째 글 -->
-								</div>
-								<div class="card-body pt-0">
-									<div class="row">
-										<div class="col-7">
-											<h2 class="lead">
-												<b>김태영</b>
-											</h2>
-											<p class="text-sm">
-												<b>ID:</b>&nbsp;<input type="hidden">S001 <br>
-												<b>회원등급:</b>&nbsp; <input type="hidden">일반
-											</p>
-											<ul class="ml-4 mb-0 fa-ul text-muted">
-												<li class="small"><span class="fa-li"><i
-														class="fas fa-lg fa-phone"></i></span> 전화번호:&nbsp; <input
-													type="hidden">010-0000-0001</li>
-												<li class="small"><span class="fa-li"><i
-														class="fas fa-lg fa-building"></i></span> 주소:&nbsp; <input
-													type="hidden">대구시 달서구 신당동 1834-2</li>
-												<br>
-											</ul>
-										</div>
-										<div class="col-5 text-center">
-											<img src="../../dist/img/user1-128x128.jpg" alt=""
-												class="img-circle img-fluid">
-										</div>
-										<br>
-										<br>
-										<p class="text-sm">
-											<b>선생님께 한마디:</b>&nbsp;<input type="hidden">어제부터 배가
-											아파요<br> <b>진료기록물 신청:</b>&nbsp;<input type="hidden">없음<br>
-											<b>진료신청 일시:</b>&nbsp;<input type="hidden">2020-02-10
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<br>
-					<div class="text-center">
-						<a href="#" class="btn btn-sm btn-secondary"> 진료기록물 조회 </a>&nbsp;
-						<a href="#" class="btn btn-sm btn-secondary"> 진료 기록물 업로드 </a>
-					</div>
-					<br>
-					<div class="text-center">
-						<a href="#" class="btn btn-lg btn-primary"> 완료 </a>&nbsp; <a
-							href="../../all.jsp" class="btn btn-lg btn-primary"> 취소 </a>
-					</div>
-				</div>
-			</section>
-			<!-- Control Sidebar -->
-			<aside class="control-sidebar control-sidebar-dark">
-				<!-- Control sidebar content goes here -->
-			</aside>
-			<!-- /.control-sidebar -->
-		</div>
+			
+			   <div class="card card-info">
+              <div class="card-header  card text-center">
+                <h3 class="card-title">건강정보 수정 페이지</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form class="form-horizontal">
+                <div class="card-body">
+               
+                  <div class="form-group row">
+                    <label for="inputHstcs" class="col-sm-2 col-form-label">병력</label>
+                    <div class="col-sm-10">
+                      <select class="form-control select2" style="width: 100%;" id="inputHstcs">
+                    <option selected="selected">당뇨</option>
+                    <option>저혈압</option>
+                    <option>고혈압</option>
+                    <option>빈혈</option>
+                    <option>위염</option>
+                    <option>위암</option>
+                    <option>간암</option>
+                    <option>폐암</option>
+                  </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputMedi" class="col-sm-2 col-form-label">복용약물</label>
+                    <div class="col-sm-10">
+                        <select class="form-control select2" style="width: 100%;" id="inputMedi">
+                    <option selected="selected">당뇨</option>
+                    <option>저혈압</option>
+                    <option>고혈압</option>
+                    <option>빈혈</option>
+                    <option>위염</option>
+                    <option>위암</option>
+                    <option>간암</option>
+                    <option>폐암</option>
+                  </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputBdp" class="col-sm-2 col-form-label">혈액형</label>
+                    <div class="col-sm-10">
+                        <select class="form-control select2" style="width: 100%;" id="inputMedi">
+                       <option selected="selected">Rh-o</option>
+                    <option>Rh-a</option>
+                    <option>Rh-ab</option>
+                    <option>Rh-b</option>
+                    <option>Rh+o</option>
+                    <option>Rh+a</option>
+                    <option>Rh+ab</option>
+                    <option>Rh+b</option>
+                  </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputAllrgy" class="col-sm-2 col-form-label">알레르기</label>
+                    <div class="col-sm-10">
+                    <select class="form-control select2" style="width: 100%;" id="inputAllrgy">
+                     <option selected="selected">갑각류</option>
+                    <option>계란</option>
+                    <option>견과류</option>
+                    <option>먼지</option>
+                   </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+											<label for="inputHtEtc" class="col-sm-2 col-form-label">비고</label>
+											 <div class="col-sm-10">
+													<textarea class="form-control" rows="3"
+														placeholder="비고사항을 적어보세요" id="inputHtEtc"></textarea>
 	</div>
-	<!-- ./wrapper -->
+										</div>
+           
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer  text-center" >
+                  <button type="submit" class="btn btn-info">완료</button>
+                  <!-- cancel에는 button type reset? -->
+                  <button type="reset" class="btn btn-default">Cancel</button>
+                </div>
+                <!-- /.card-footer -->
+              </form>
+            </div>
+			
 
-	<!-- jQuery -->
-	<script src="../../plugins/jquery/jquery.min.js"></script>
-	<!-- Bootstrap 4 -->
-	<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<!-- AdminLTE App -->
-	<script src="../../dist/js/adminlte.min.js"></script>
-	<!-- AdminLTE for demo purposes -->
-	<script src="../../dist/js/demo.js"></script>
+						<!-- Control Sidebar -->
+						<aside class="control-sidebar control-sidebar-dark">
+							<!-- Control sidebar content goes here -->
+						</aside>
+						<!-- /.control-sidebar -->
+					</div>
+					<!-- ./wrapper -->
+
+					<!-- jQuery -->
+					<script src="../../plugins/jquery/jquery.min.js"></script>
+					<!-- Bootstrap 4 -->
+					<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+					<!-- bs-custom-file-input -->
+					<script
+						src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+					<!-- AdminLTE App -->
+					<script src="../../dist/js/adminlte.min.js"></script>
+					<!-- AdminLTE for demo purposes -->
+					<script src="../../dist/js/demo.js"></script>
+					<script type="text/javascript">
+						$(document).ready(function() {
+							bsCustomFileInput.init();
+						});
+					</script>
 </body>
 </html>
