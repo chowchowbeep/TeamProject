@@ -538,51 +538,14 @@
 									<input type="text" class="form-control" id="callSicPhone" placeholder="전화번호 불러오기/수정 가능">
 								</div>
 							</div>
-							<div class="form-group row">
-								<label for="checkSinNtfc" class="col-sm-2 col-form-label">알림 동의여부</label>
-								<div class="col-sm-10">
-									
-													<div class="form-check">
-														<input class="form-check-input" type="radio" name="radio1"
-															id="checkSinNtfc"> <label
-															class="form-check-label" for="">동의함</label>
-													</div>
-													<div class="form-check">
-														<input class="form-check-input" type="radio" name="radio1"
-															id="checkSinNtfc"> <label
-															class="form-check-label" for="">동의안함</label>
-													</div>
-												
-												
-								</div>
-							</div>
-							<div class="form-group row">
-								<label for="checkSicStt" class="col-sm-2 col-form-label">회원상태</label>
-								<div class="col-sm-10">
-									<div class="form-check">
-														<input class="form-check-input" type="radio" name="radio1"
-															id="checkSicStt"> <label
-															class="form-check-label" for="">정상</label>
-													</div>
-													<div class="form-check">
-														<input class="form-check-input" type="radio" name="radio1"
-															id="checkSicStt"> <label
-															class="form-check-label" for="">비정상</label>
-													</div>
-								</div>
-							</div>
-							<div class="form-group row">
-								<label for="checkSicLogin" class="col-sm-2 col-form-label">로그인 방법</label>
-								<div class="col-sm-10">
-									<select class="form-control select2" style="width: 100%;"
-										id="checkSicLogin">
-										<option selected="selected">얘 어떻게 구현해야 돼? </option>
-										<option>카카오톡</option>
-										<option>네이버</option>
-										<option>페이스북</option>
-									</select>
-								</div>
-							</div>
+							
+							 <div class="form-group row">
+                    <label for="checkSicStt" class="col-sm-2 col-form-label">패널티 상태</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="checkSicStt" placeholder="패널티 상태 표시" disabled>
+                    </div>
+                  </div>
+		
 
 						</div>
 						<!-- /.card-body -->
