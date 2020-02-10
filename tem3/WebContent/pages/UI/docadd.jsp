@@ -515,7 +515,7 @@
               <form class="form-horizontal" method="post" action="../tables/doclist.jsp">
                 <div class="card-body" style="height:300px;">
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">의사번호</label>
+                    <label for="inputEmail" class="col-sm-2 col-form-label">의사번호</label>
                     <div class="col-sm-10">
                       <input type="text" class="form-control" id="DocId" placeholder="의사번호">
                     </div>

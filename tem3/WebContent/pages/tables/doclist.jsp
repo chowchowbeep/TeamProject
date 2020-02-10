@@ -29,7 +29,7 @@
       
     </ul>
 
-           <!-- SEARCH FORM -->
+        
          <form class="form-inline ml-3">
             <div class="input-group input-group-sm" style="font-size: 30px;">
                <!-- 타이틀을 중앙에 어떻게 둘까요? -->
