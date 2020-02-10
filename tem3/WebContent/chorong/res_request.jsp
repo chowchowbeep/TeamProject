@@ -21,7 +21,7 @@
 
 <body class="hold-transition sidebar-mini">
 
-
+<%@ include page=""%>
 	  
 <!-- 컨텐츠 위치 -->
   <!-- Content Wrapper. Contains page content -->
