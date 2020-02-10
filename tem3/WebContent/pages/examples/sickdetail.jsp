@@ -527,7 +527,7 @@
 											</p>
 											<ul class="ml-4 mb-0 fa-ul text-muted">
 												<li class="small"><span class="fa-li"><i
-														class="fas fa-lg fa-phone"></i></span> 전화번호:&nbsp; + 800 <input
+														class="fas fa-lg fa-phone"></i></span> 전화번호:&nbsp; <input
 													type="hidden">010-0000-0001</li>
 												<li class="small"><span class="fa-li"><i
 														class="fas fa-lg fa-building"></i></span> 주소:&nbsp; <input
@@ -559,7 +559,7 @@
 					<br>
 					<div class="text-center">
 						<a href="#" class="btn btn-lg btn-primary"> 완료 </a>&nbsp; <a
-							href="#" class="btn btn-lg btn-primary"> 취소 </a>
+							href="../../all.jsp" class="btn btn-lg btn-primary"> 취소 </a>
 					</div>
 				</div>
 			</section>

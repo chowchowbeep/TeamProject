@@ -75,8 +75,8 @@ to get the desired effect
     </ul>
 
     <!-- SEARCH FORM -->
-     <form class="form-inline ml-3">
-            <div class="input-group input-group-sm" style="font-size: 30px;">
+     <form class="form-inline ml-5">
+            <div class="input-group input-group-sm" style="font-size: 30px; disdplay:inline-block; text-align:center;">
                <!-- 타이틀을 중앙에 어떻게 둘까요? -->
                SALLYEOJYO
                <div class="input-group-append"></div>
@@ -725,7 +725,7 @@ to get the desired effect
                   <tr>
                     <th>번호</th>
                     <th>이름</th>
-                    <th>예약시간</th>
+                    <th>진료<br>시간</th>
                     <th>담당의</th>
                   </tr>
                   </thead>
