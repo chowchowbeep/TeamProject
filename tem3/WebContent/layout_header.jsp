@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -106,7 +106,7 @@
 					class="nav-link">Contact</a></li>
 			</ul>
 
-			<!-- SEARCH FORM -->
+
 			<form class="form-inline ml-3">
 				<div class="input-group input-group-sm" style="font-size: 30px;">
 					<!-- 타이틀을 중앙에 어떻게 둘까요? -->
@@ -571,32 +571,7 @@
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
-			<!-- Content Header (Page header) -->
-			<div class="content-header">
-				<div class="container-fluid">
-					<div class="row mb-2">
-						<div class="col-sm-6">
-							<h1 class="m-0 text-dark">대제목</h1>
-						</div>
-						<!-- /.col -->
-						<div class="col-sm-6">
-							<ol class="breadcrumb float-sm-right">
-								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item active">위치표시</li>
-							</ol>
-						</div>
-						<!-- /.col -->
-					</div>
-					<!-- /.row -->
-				</div>
-				<!-- /.container-fluid -->
-			</div>
-			<!-- /.content-header -->
-
-
-
-
-
+		
 
 			<!-- 개별 컨텐츠 위치 -->
 
@@ -604,28 +579,11 @@
 
 
 
-		</div>
-		<!-- /.content-wrapper -->
 
 
 
 
-		<footer class="main-footer">
-			<strong>Copyright &copy; 2014-2019 <a
-				href="http://adminlte.io">AdminLTE.io</a>.
-			</strong> All rights reserved.
-			<div class="float-right d-none d-sm-inline-block">
-				<b>Version</b> 3.0.3-pre
-			</div>
-		</footer>
 
-		<!-- Control Sidebar -->
-		<aside class="control-sidebar control-sidebar-dark">
-			<!-- Control sidebar content goes here -->
-		</aside>
-		<!-- /.control-sidebar -->
-	</div>
-	<!-- ./wrapper -->
 
 
 </body>
