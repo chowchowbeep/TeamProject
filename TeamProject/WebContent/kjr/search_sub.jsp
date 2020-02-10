@@ -29,20 +29,16 @@
 	<div class="container">
 	
 		<div class="input-group mb-3 topmg">
-			<input type="text" class="form-control" placeholder="Search"
-				aria-label="Search" aria-describedby="button-Search2">
+			<input type="text" class="form-control" placeholder="Search"aria-label="Search" aria-describedby="button-Search2">
 			<div class="input-group-append">
-				<button class="btn btn-outline-secondary" type="button"
-					id="button-Search2">검색</button>
+				<button class="btn btn-outline-secondary" type="button"	id="button-Search2">검색</button>
 			</div>
 		</div>
 		
 		<!-- 지역|카테고리버튼 -->
 		<div class="row">
 			<div class="mb-3 col" style="margin: 20px 0px;">
-				<button type="button" class="btn btn-primary btn-lg btn-block" 
-				data-toggle="dropdown" data-activates='dropdown1'
-				id="area">지역</button>
+				<button type="button" class="btn btn-primary btn-lg btn-block" 	data-toggle="dropdown" data-activates='dropdown1'id="area">지역</button>
 				
 				<div class="dropdown-menu"  id='dropdown1' class='dropdown-content'>
 					 <a class="dropdown-item" href="search_addr.jsp">지역명</a>

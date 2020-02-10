@@ -38,10 +38,7 @@
 			<!-- 지역|카테고리버튼 -->
 		<div class="row">
 			<div class="mb-3 col" style="margin: 20px 0px;">
-				<button type="button" class="btn btn-primary btn-lg btn-block" 
-				data-toggle="dropdown" data-activates='dropdown1'
-				id="area">지역</button>
-				
+				<button type="button" class="btn btn-primary btn-lg btn-block" 	data-toggle="dropdown" data-activates='dropdown1' id="area">지역</button>
 				<div class="dropdown-menu"  id='dropdown1' class='dropdown-content'>
 					 <a class="dropdown-item" href="search_addr.jsp">지역명</a>
 					 <a class="dropdown-item" href="search_sub.jsp">지하철명</a>
