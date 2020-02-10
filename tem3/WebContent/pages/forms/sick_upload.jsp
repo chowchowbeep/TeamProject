@@ -514,25 +514,14 @@
 							<p>한마디를 넣어? 얘도 좀 고쳐야함</p>
 							<p>여기서 업로드 가능한 form 필요</p>
 							<a class="btn btn-app"> <i class="fas fa-camera"></i> 촬영</a> 
-							<a class="btn btn-app"> <i class="fas fa-edit "><div class="custom-file">
+							<a class="btn btn-app"> <i class="fas fa-edit "><div class="custom-file">업로드
 									<input type="file" class="custom-file-input"
 										id="exampleInputFile">
 									<!-- data-browse="찾기" 사용하면 버튼 내용값 바꿀 수 있음 -->
 									
-								</div></i> 업로드</a>
+								</div></i></a>
 
 							<!-- 파일 선택시 사용할 form 태그 <form method="post" enctype="multipart/form-data" action="../FileUpload.do"> -->
-							<div class="input-group">
-								<div class="custom-file">
-									<input type="file" class="custom-file-input"
-										id="exampleInputFile">
-									<!-- data-browse="찾기" 사용하면 버튼 내용값 바꿀 수 있음 -->
-									<label class="custom-file-label" for="exampleInputFile"
-										data-browse="찾기"></label>
-								</div>
-
-							</div>
-
 
 							<!-- 촬영 누르면 카메라/지원하지 않을 때는 지원하지 않는 모드입니다 -->
 							<!-- 업로드 누르면 기록물 리스트 페이지로 이동(sick_mediList) -->
@@ -558,26 +547,14 @@
 									</div>
 									<div class="custom-control custom-radio">
 										<input class="custom-control-input" type="radio"
-											id="customRadio1" name="customRadio"> <label
-											for="customRadio1" class="custom-control-label">서류</label>
+											id="customRadio2" name="customRadio"> <label
+											for="customRadio2" class="custom-control-label">서류</label>
 
 									</div>
 								</div>
 							</div>
-							<div class="form-group row">
-								<label for="inputHosId" class="col-sm-2 col-form-label">발급병원</label>
-								<div class="col-sm-10">
-									<input type="text" class="form-control" id="inputHosId"
-										placeholder="병원 이름 들어가는 속성이 없는데요...">
-								</div>
-							</div>
-							<div class="form-group row">
-								<label for="callDrName" class="col-sm-2 col-form-label">담당의</label>
-								<div class="col-sm-10">
-									<input type="text" class="form-control" id="callDrName"
-										placeholder="담당의 속성도 없고요...">
-								</div>
-							</div>
+						
+						
 							<div class="form-group row">
 								<label  class="col-sm-2 col-form-label">발급일자</label>
 								<div class="col-sm-10">
