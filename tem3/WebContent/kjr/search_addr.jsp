@@ -23,7 +23,11 @@
 	crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <link rel="stylesheet" href="cssList.css">
-
+<script>
+	$(function() {
+		$("#tabs").tabs();
+	});
+</script>
 </head>
 <body>
 	<div class="container">
