@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<%@ include file="../0_sick_layout_header.jsp" %>
+<%@ include file="../../0_sick_layout_header.jsp" %>
 <style>
 .mar {
 	margin: 10px 0px;
