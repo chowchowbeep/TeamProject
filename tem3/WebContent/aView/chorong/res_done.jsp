@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ include file="../../0_sick_layout_header.jsp"%>
+<%@ include file="../../0_sick_layout_topMenu.jsp"%>
 
 <!-- 컨텐츠 위치 -->
 <!-- Content Wrapper. Contains page content -->
@@ -100,7 +101,35 @@
 				<!--/.col (left) -->
 
 				<!-- right column -->
-				<div class="col-md-6"></div>
+				<div class="col-md-12">
+				
+								<div class="card card-secondary">
+						<div class="card-header">
+							<h3 class="card-title">주의사항</h3>
+						</div>
+						<div class="card-body">
+
+							<div class="row">
+								<div class="col-sm-12">
+									<div>
+										<span style="font-weight: bold;"> 1.</span> 병원 내원시 살려죠 서비스를 통해
+										예약/접수하였다고 알려주세요.
+									</div>
+									<div>
+										<span style="font-weight: bold;"> 2.</span> 예약/접수를 취소하실 경우 패널티가
+										부여됩니다. (3회 취소시 서비스이용이 제한됩니다.)
+									</div>
+									<div>
+										<span style="font-weight: bold;"> 3.</span> 예약/접수는 병원사정으로 인해
+										취소될 가능성이 있습니다.
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+				
+				</div>
 				<!--/.col (right) -->
 			</div>
 			<!-- /.row -->
