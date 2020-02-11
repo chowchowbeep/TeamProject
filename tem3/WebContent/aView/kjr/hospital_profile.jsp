@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <!-- 마이메뉴 페이지 -->
 <!-- 부트스트랩4 -->
-<%@ include file="../0_sick_layout_header.jsp" %>
+<%@ include file="../../0_sick_layout_header.jsp" %>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b450fd1e475fcbb9f2bb640be5a6f4a8"></script>
 <script>
 

@@ -2,6 +2,12 @@
     pageEncoding="UTF-8"%>
   
   <%@ include file="../../0_hos_layout_header.jsp"%>
+  <script>
+ 	$(function () {
+	$('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' }) 	
+ 	})
+	</script>
+   <%@ include file="../../0_hos_layout_topMenu.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
@@ -44,7 +50,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                     </div>
-                    <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="yy/mm/dd" data-mask>
+                    <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                   </div>
                   <!-- /.input group -->
                 </div>
