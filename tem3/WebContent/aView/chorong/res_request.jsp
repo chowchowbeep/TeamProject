@@ -3,6 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ include file="../../0_sick_layout_header.jsp"%>
+<%@ include file="../../0_sick_layout_topMenu.jsp"%>
+
 
 <!-- 컨텐츠 위치 -->
 <!-- Content Wrapper. Contains page content -->
