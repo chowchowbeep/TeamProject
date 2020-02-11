@@ -45,13 +45,13 @@
               </div>
               <!-- /.card-header -->
         <form class="form-horizontal" method="post" action="docadd.jsp">
-              <div class="card-body table-responsive p-0" style="height: 350px;">
+              <div class="card-body table-responsive p-0" style="height: 400px;">
                 <table class="table table-hover table-valign-middle">
                   <thead>
                     <tr>
                       <th>번호</th>
-                      <th>이름</th>
-                      <th>과목</th>
+                      <th style="width:25%;">이름</th>
+                      <th style="width:25%;">과목</th>
                       <th>삭제</th>
                     </tr>
                   </thead>
@@ -62,7 +62,7 @@
                       <td>[소아과]</td>
                       <td><a class="btn btn-block btn-default btn-sm" href="#">
                               <i class="fas fa-trash">
-                              </i>삭제</a>
+                              </i>Del</a>
                       </td>
                     </tr>
                     <tr>
@@ -71,7 +71,7 @@
                       <td>[내과]</td>
                       <td><a class="btn btn-block btn-default btn-sm" href="#">
                               <i class="fas fa-trash">
-                              </i>삭제</a>
+                              </i>Del</a>
                       </td>
                     </tr>
                     <tr>
@@ -80,7 +80,7 @@
                       <td>[이비인후과]</td>
                       <td><a class="btn btn-block btn-default btn-sm" href="#">
                               <i class="fas fa-trash">
-                              </i>삭제</a>
+                              </i>Del</a>
                       </td>
                     </tr>
                     <tr>
@@ -90,17 +90,17 @@
                       <td><a class="btn btn-block btn-default btn-sm" href="#">
                               <i class="fas fa-trash">
                               </i>
-                              	삭제
+                              	Del
                           </a></td>
                     </tr>
                     <tr>
                       <td>[982]</td>
                       <td>[조선아]</td>
                       <td>[내과]</td>
-                      <td><a class="btn btn-block btn-default btn-sm" href="#">
+                     <td><a class="btn btn-block btn-default btn-sm" href="#">
                               <i class="fas fa-trash">
                               </i>
-                              	삭제
+                              	Del
                           </a></td>
                     </tr>
                   </tbody>

@@ -78,7 +78,7 @@ table{
            <thead>
              <tr>
                <th style="width:5%;">번호</th>
-               <th>이름</th>
+               <th style="width:28%;">이름</th>
                <th style="width:28%;">시간</th>
                <th style="width:29%;">담당의</th>
              </tr>

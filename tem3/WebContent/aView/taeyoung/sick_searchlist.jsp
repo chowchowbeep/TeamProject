@@ -54,10 +54,10 @@ cursor:pointer;
                 <table class="table table-hover table-valign-middle">
                   <thead>
                     <tr>
-                      <th width="20%;">이름</th>
-                      <th>진료</th>
-                      <th>생년월일</th>
-                      <th>번호</th>
+                      <th width="40%;">이름</th>
+                      <th width="35%;">진료</th>
+                      <th width="25%;">생년월일</th>
+                      <th width="15%;">번호</th>
                     </tr>
                   </thead>
             		<tbody>
