@@ -1,24 +1,24 @@
 package dto;
 
-public class HospitalMemberDto { //병원회원정보
+public class HosMemberDto { //병원회원정보
 	private String hosId; 		//병원id
 	private String hosBizno;	//사업자등록번호
 	private String hosName;		//병원명
 	private String hosPhone;	//전화번호
 	private String hosPw;		//병원pw
 	private String hosAddr;		//주소
-	private String hosLat;		//위도
-	private String hosLng;		//경도
+	private int hosLat;		//위도
+	private int hosLng;		//경도
 	private String hosStart;	//영업시작시간
 	private String hosLast;		//영업마감시간
 	
 	
 	//생성자
-	public HospitalMemberDto() {
+	public HosMemberDto() {
 		super();
 	}
-	public HospitalMemberDto(String hosId, String hosBizno, String hosName, String hosPhone, String hosPw, String hosAddr,
-			String hosLat, String hosLng, String hosStart, String hosLast) {
+	public HosMemberDto(String hosId, String hosBizno, String hosName, String hosPhone, String hosPw, String hosAddr,
+			int hosLat, int hosLng, String hosStart, String hosLast) {
 		super();
 		this.hosId = hosId;
 		this.hosBizno = hosBizno;
@@ -71,16 +71,16 @@ public class HospitalMemberDto { //병원회원정보
 	public void setHosAddr(String hosAddr) {
 		this.hosAddr = hosAddr;
 	}
-	public String getHosLat() {
+	public int getHosLat() {
 		return hosLat;
 	}
-	public void setHosLat(String hosLat) {
+	public void setHosLat(int hosLat) {
 		this.hosLat = hosLat;
 	}
-	public String getHosLng() {
+	public int getHosLng() {
 		return hosLng;
 	}
-	public void setHosLng(String hosLng) {
+	public void setHosLng(int hosLng) {
 		this.hosLng = hosLng;
 	}
 	public String getHosStart() {
