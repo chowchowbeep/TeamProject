@@ -45,6 +45,7 @@
 		</div>
 		
 		<!-- 병원리스트출력 검색마다 추가되도록 이벤트가 발생해야함 -->
+		<!--  for:each  -->
 			<div class="card" style="margin: 5px;">
 				<div class="row no-gutters">
 					<div class="col-md-4 ">
