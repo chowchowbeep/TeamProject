@@ -2,14 +2,17 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%@ include file="/0_hos_layout_header.jsp"%>
+
+
+
+<%@ include file="/0_admin_layout_header.jsp"%>
 <!-- 헤더입력부 -->
 <script>
 
 
 </script>
 
-<%@ include file="/0_admin_layout_topMenu2.jsp"%>
+<%@ include file="/0_admin_layout_topMenu.jsp"%>
 
 
 <!-- 컨텐츠 입력부 -->
