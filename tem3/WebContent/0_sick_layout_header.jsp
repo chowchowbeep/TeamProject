@@ -92,15 +92,6 @@
 <script src="/tem3/dist/js/demo.js"></script>
 
 
-
-
-<style>
-.abc {
-	display: inline-block;
-}
-</style>
-
-
 <!-- 자기 페이지파일 맨 위에 지금파일 include한 후에 
 	(<head></head> 내 <script></script>입력할 사람은 입력하고,)
 	그 밑에 topMenu파일 include한 후에
