@@ -68,14 +68,8 @@
                 </div>
                 <!-- /.form group -->
 
-                  
-                 
-                
                 </div>
                 <!-- /.card-body -->
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-info">등록</button>
-                </div>
                 <!-- /.card-footer -->
               </form>
             </div>
