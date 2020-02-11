@@ -2,6 +2,12 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="../../0_hos_layout_header.jsp"%>
+<style>
+.float-right{
+				border:none;
+}
+</style>
+<%@ include file="../../0_hos_layout_topMenu.jsp"%>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -27,14 +33,14 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-3">
-
             <!-- Profile Image -->
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
+              <form>
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
                        src="../../dist/img/logo.smalls.jpg"
-                       alt="User profile picture">
+                       alt="Userprofile picture">
                 </div>
                 <div class="text-center">
                 <input type="text" class="profile-username text-center" style="border:none;" placeholder="고먐이">
@@ -54,7 +60,9 @@
                   </li>
                   <li class="list-group-item">
             <b>진료이력</b><textarea class="float-right">손가락 골절</textarea>
-                  </li></ul>  <a href="../leedy/hospital_upload.jsp" class="btn btn-primary btn-block"><b>기록물 업로드</b></a>
+                  </li></ul>
+                <a href="../leedy/hospital_upload.jsp" class="btn btn-primary btn-block"><b>기록물 업로드</b></a>
+          </form>
            </div>
               <!-- /.card-body -->
             </div>

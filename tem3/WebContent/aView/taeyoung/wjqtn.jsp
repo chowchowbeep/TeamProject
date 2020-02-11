@@ -3,6 +3,41 @@
 
 <%@ include file="../../0_hos_layout_header.jsp"%>
 
+<style>
+
+ .float-right{ border: none;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px 0px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #696969;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+table{
+		text-align:center;
+}
+</style>
+<%@ include file="../../0_hos_layout_topMenu.jsp"%>
+
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
@@ -13,10 +48,10 @@
 							<h1>진료현황</h1>
 						</div>
 						<div class="col-sm-6">
-							<ol class="breadcrumb float-sm-right">
+							<!--  <ol class="breadcrumb float-sm-right">
 								<li class="breadcrumb-item"><a href="#">홈</a></li>
 								<li class="breadcrumb-item active">접수</li>
-							</ol>
+							</ol>-->
 						</div>
 					</div>
 				</div>

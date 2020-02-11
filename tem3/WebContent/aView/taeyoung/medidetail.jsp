@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <%@ include file="../../0_hos_layout_header.jsp"%>
+<%@ include file="../../0_hos_layout_topMenu.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
@@ -42,29 +43,31 @@
 												<b>김태영</b>
 											</h2>
 											<p class="text-sm">
-												<b>ID:</b>&nbsp;<input type="hidden">S001 <br>
-												<b>회원등급:</b>&nbsp; <input type="hidden">일반
+												<b>ID:</b>&nbsp;
+												<input type="hidden">[S001] <br>
+												<b>회원등급:</b>&nbsp;
+												<input type="hidden">[일반]
 											</p>
 											<ul class="ml-4 mb-0 fa-ul text-muted">
-												<li class="small"><span class="fa-li"><i
-														class="fas fa-lg fa-phone"></i></span> 전화번호:&nbsp; <input
-													type="hidden">010-0000-0001</li>
-												<li class="small"><span class="fa-li"><i
-														class="fas fa-lg fa-building"></i></span> 주소:&nbsp; <input
-													type="hidden">대구시 달서구 신당동 1834-2</li>
-												<br>
+												<li class="small"><span class="fa-li">
+												<i class="fas fa-lg fa-phone"></i></span>
+														전화번호:&nbsp;
+														<input type="hidden">[010-0000-0001]
+												</li>
+												<li class="small"><span class="fa-li">
+												<i class="fas fa-lg fa-building"></i></span>
+														주소:&nbsp;
+														<input type="hidden">[대구시 달서구 신당동 1834-2]</li><br>
 											</ul>
 										</div>
 										<div class="col-5 text-center">
-											<img src="../../dist/img/user1-128x128.jpg" alt=""
-												class="img-circle img-fluid">
+											<img src="../../dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
 										</div>
-										<br>
-										<br>
+										<br><br>
 										<p class="text-sm">
-											<b>선생님께 한마디:</b>&nbsp;<input type="hidden">어제부터 배가
-											아파요<br> <b>진료기록물 신청:</b>&nbsp;<input type="hidden">없음<br>
-											<b>진료신청 일시:</b>&nbsp;<input type="hidden">2020-02-10
+											<b>선생님께 한마디:</b>&nbsp;<input type="hidden">[어제부터 배가
+											아파요]<br> <b>진료기록물 신청:</b>&nbsp;<input type="hidden">[없음]<br>
+											<b>진료신청 일시:</b>&nbsp;<input type="hidden">[2020-02-10]
 										</p>
 									</div>
 								</div>
@@ -74,7 +77,7 @@
 					</div>
 					<br>
 					<div class="text-center">
-						<a href="../forms/sick_docuList.jsp" class="btn btn-secondary"> 진료기록물 조회 </a>&nbsp;&nbsp;&nbsp;
+						<a href="../leedy/sick_docuList.jsp" class="btn btn-secondary"> 진료기록물 조회 </a>&nbsp;&nbsp;&nbsp;
 						<a href="#" class="btn btn-secondary"> 진료 기록물 업로드 </a>
 					</div>
 					<br>
