@@ -9,7 +9,7 @@
 
 </script>
 
-<%@ include file="/0_admin_layout_topMenu2.jsp"%>
+<%@ include file="/0_admin_layout_topMenu.jsp"%>
 
 
 <!-- 컨텐츠 입력부 -->

@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ include file="../../0_sick_layout_header.jsp"%>
+<%@ include file="../../0_sick_layout_topMenu.jsp"%>
 
 <!-- 컨텐츠 위치 -->
 <!-- Content Wrapper. Contains page content -->
@@ -12,7 +13,6 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					
 					<h1>예약내역</h1>
 				</div>
 				<div class="col-sm-6">
@@ -69,34 +69,38 @@
 											disabled> <br> <label for="medTime">진료시간</label>
 										<input type="text" id="medTime" name="medTime"
 											class="form-control" value="진료시간" disabled>
-									
-									<!-- 4. 공지사항 출력
-										(병원 내원 시 병원에 알려/ 취소하면 패널티 있음 / 병원사정으로 취소 가능성) -->
-										
-										<div></div>
+
+
+
+
 									</div>
-									
-									
+
+
 								</div>
 							</div>
 						</div>
-							
-							
-							
+
+
+
+
 
 						<!-- 신청폼푸터 // 제출 및 기타 버튼 위치
 						2. 예약취소 버튼
 						3. 예약취소시 확인알림팝업뜨고 
-						진료신청현황 리스트 페이지로 이동 -->	
-						
+						진료신청현황 리스트 페이지로 이동 -->
+
 						<div class="card-footer">
-							<button onclick="location.href=''"
-								class="btn btn-secondary">확인</button>
+							<button onclick="location.href=''" class="btn btn-secondary">확인</button>
 							<button onclick="" class="btn btn-secondary float-right">예약취소</button>
 						</div>
+
+
+
+
+
 					</div>
 
-						 <!-- 
+					<!-- 
 						 	이전: 진료현황 리스트 페이지
 						 	다음: "병원정보 상세조회 페이지,진료현황 리스트 페이지(예약취소버튼 누를 경우)"
 						 -->
@@ -105,8 +109,39 @@
 				</div>
 				<!--/.col (left) -->
 
+
+
+
 				<!-- right column -->
-				<div class="col-md-6"></div>
+				<div class="col-md-12">
+
+					<div class="card card-secondary">
+						<div class="card-header">
+							<h3 class="card-title">주의사항</h3>
+						</div>
+						<div class="card-body">
+
+							<div class="row">
+								<div class="col-sm-12">
+									<div>
+										<span style="font-weight: bold;"> 1.</span> 병원 내원시 살려죠 서비스를 통해
+										예약/접수하였다고 알려주세요.
+									</div>
+									<div>
+										<span style="font-weight: bold;"> 2.</span> 예약/접수를 취소하실 경우 패널티가
+										부여됩니다. (3회 취소시 서비스이용이 제한됩니다.)
+									</div>
+									<div>
+										<span style="font-weight: bold;"> 3.</span> 예약/접수는 병원사정으로 인해
+										취소될 가능성이 있습니다.
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
 				<!--/.col (right) -->
 			</div>
 			<!-- /.row -->
@@ -124,9 +159,6 @@
 
 </body>
 </html>
-
-
-
 
 
 
