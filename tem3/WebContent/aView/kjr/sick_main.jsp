@@ -7,6 +7,22 @@
 <title>Insert title here</title>
 <%@ include file="../../0_sick_layout_header.jsp" %>
 <link rel="stylesheet" href="cssList.css">
+<script>
+/* 1. 건강정보 출력
+	
+	//2.$("#edit")클릭 시 sick_healModify으로 이동
+2. 검색기능. 병원명입력받음. 결과값을가지고 search_list.jsp로 이동
+
+4. 등록한 관심병원 정보 출력
+-> 클릭하면 관심병원리스트 페이지로 이동
+
+5. 접수증 페이지 이동 기능
+*/
+
+
+
+
+</script>
 </head>
 <body>
 	<div class="container">
@@ -15,10 +31,10 @@
 			<div class="card" style="margin: 5px;">
 				<div class="card-header text-left">건강정보</div>
 				<div class="card-body">
-					<h5 class="card-title">Special title treatment</h5>
-					<p class="card-text">With supporting text below as a natural
-						lead-in to additional content.</p>
-					<a href="#" class="btn btn-primary">Go somewhere</a>
+					<p class="card-text">
+					
+					</p>
+					<a href="#" class="btn btn-primary" id="edit">건강정보수정</a>
 				</div>
 			</div>
 		</div>

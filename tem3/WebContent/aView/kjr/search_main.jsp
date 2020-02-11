@@ -156,6 +156,6 @@ $(function() { //window load이벤트 생략해서 적은것
 		
 		
 	</div>
-	<%@ include file="../0_all_layout_footer.jsp" %>
+	<%@ include file="../../0_all_layout_footer.jsp" %>
 </body>
 </html>
