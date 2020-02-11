@@ -59,8 +59,7 @@
 											name="DrInfo" class="form-control"
 											value="${dto.artr_name}의사이름 진료과목" disabled> <br>
 										<label for="toDr">의사선생님에게 한 마디</label>
-										<textarea id="toDr" name="toDr" class="form-control"
-											placeholder="증상, 기타사항을 입력해주세요" disabled></textarea>
+										<textarea id="toDr" name="toDr" class="form-control" disabled></textarea>
 										<br>
 
 										<!-- <input type="text" name="email" class="form-control" 
@@ -79,12 +78,12 @@
 
 						<!-- 신청폼푸터 // 제출 및 기타 버튼 위치 -->
 						<!-- 
-					3. 확인버튼 구현
-					-> 확인버튼 클릭시 접수현황 페이지로 이동
-					4. 예약취소 버튼 구현_   예약취소 .do 호출 및 alert function구현
-					-> 예약취소 버튼 클릭 : 취소완료 팝업페이지 출력
-					-> 진료현황리스트 페이지로 이동
-				-->
+							3. 확인버튼 구현
+							-> 확인버튼 클릭시 접수현황 페이지로 이동
+							4. 예약취소 버튼 구현_   예약취소 .do 호출 및 alert function구현
+							-> 예약취소 버튼 클릭 : 취소완료 팝업페이지 출력
+							-> 진료현황리스트 페이지로 이동
+						-->
 						<div class="card-footer">
 							<button onclick="location.href='접수현황페이지'"
 								class="btn btn-secondary">확인</button>
@@ -114,7 +113,10 @@
 
 
 <%@ include file="../../0_all_layout_footer.jsp"%>
+<script>
+//취소이벤트 발생시 
 
+</script>
 
 
 </body>

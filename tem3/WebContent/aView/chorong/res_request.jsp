@@ -3,6 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ include file="../../0_sick_layout_header.jsp"%>
+<%@ include file="../../0_sick_layout_topMenu.jsp"%>
+
 
 <!-- 컨텐츠 위치 -->
 <!-- Content Wrapper. Contains page content -->
@@ -475,7 +477,12 @@
 </div>
 <!-- /.content-wrapper -->
 
-<!-- 유효성 체크 및 값 넘기기 -->
+
+
+<%@ include file="../../0_all_layout_footer.jsp"%>
+
+
+	<!-- 유효성 체크 및 값 넘기기 -->
 <script>
 	// 필수입력사항체크 후 값 넘기도록
 
@@ -485,9 +492,5 @@
 	//병원기본정보 등이필요.
 </script>
 
-<%@ include file="../../0_all_layout_footer.jsp"%>
-
-
-	
 </body>
 </html>
