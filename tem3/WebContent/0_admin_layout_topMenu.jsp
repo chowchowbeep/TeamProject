@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
+
+
 
 </head>
 
@@ -9,14 +13,13 @@
 		<!-- Navbar -->
 		<nav
 			class="main-header navbar navbar-expand navbar-white navbar-light">
+			<!-- 왼쪽 메뉴아이콘 자리 -->
 			<!-- Left navbar links -->
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" data-widget="pushmenu"
-					href="#"><i class="fas fa-bars"></i></a></li>
-				<li class="nav-item d-none d-sm-inline-block"><a
-					href="/tem3/index3.html" class="nav-link">Home</a></li>
-				<li class="nav-item d-none d-sm-inline-block"><a href="#"
-					class="nav-link">Contact</a></li>
+			<li class="nav-item"><a class="nav-link"
+				data-widget="control-sidebar" data-slide="true" href="#"> <ion-icon
+						name="arrow-back-outline"></ion-icon>
+			</a></li>
 			</ul>
 
 
@@ -58,10 +61,14 @@
 						<a href="#" class="dropdown-item dropdown-footer">See All
 							Notifications</a>
 					</div></li>
-				<li class="nav-item"><a class="nav-link"
-					data-widget="control-sidebar" data-slide="true" href="#"> <i
-						class="fas fa-th-large"></i>
+
+
+
+				<li class="nav-item"><a class="nav-link" data-widget="pushmenu"
+					href="#"> <i class="fas fa-bars"></i>
 				</a></li>
+
+
 			</ul>
 		</nav>
 		<!-- /.navbar -->
@@ -131,8 +138,9 @@
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="/tem3/pages/layout/top-nav.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a
+									href="/tem3/pages/layout/top-nav.html" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
 										<p>Top Navigation</p>
 								</a></li>
 								<li class="nav-item"><a
@@ -140,28 +148,29 @@
 										<i class="far fa-circle nav-icon"></i>
 										<p>Top Navigation + Sidebar</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/layout/boxed.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a
+									href="/tem3/pages/layout/boxed.html" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
 										<p>Boxed</p>
 								</a></li>
 								<li class="nav-item"><a
-									href="/tem3/pages/layout/fixed-sidebar.html" class="nav-link"> <i
-										class="far fa-circle nav-icon"></i>
+									href="/tem3/pages/layout/fixed-sidebar.html" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
 										<p>Fixed Sidebar</p>
 								</a></li>
 								<li class="nav-item"><a
-									href="/tem3/pages/layout/fixed-topnav.html" class="nav-link"> <i
-										class="far fa-circle nav-icon"></i>
+									href="/tem3/pages/layout/fixed-topnav.html" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
 										<p>Fixed Navbar</p>
 								</a></li>
 								<li class="nav-item"><a
-									href="/tem3/pages/layout/fixed-footer.html" class="nav-link"> <i
-										class="far fa-circle nav-icon"></i>
+									href="/tem3/pages/layout/fixed-footer.html" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
 										<p>Fixed Footer</p>
 								</a></li>
 								<li class="nav-item"><a
-									href="/tem3/pages/layout/collapsed-sidebar.html" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
+									href="/tem3/pages/layout/collapsed-sidebar.html"
+									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Collapsed Sidebar</p>
 								</a></li>
 							</ul></li>
@@ -172,16 +181,18 @@
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="/tem3/pages/charts/chartjs.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a
+									href="/tem3/pages/charts/chartjs.html" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
 										<p>ChartJS</p>
 								</a></li>
 								<li class="nav-item"><a href="/tem3/pages/charts/flot.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Flot</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/charts/inline.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a
+									href="/tem3/pages/charts/inline.html" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
 										<p>Inline</p>
 								</a></li>
 							</ul></li>
@@ -232,20 +243,24 @@
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="/tem3/pages/forms/general.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a
+									href="/tem3/pages/forms/general.html" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
 										<p>General Elements</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/forms/advanced.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a
+									href="/tem3/pages/forms/advanced.html" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
 										<p>Advanced Elements</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/forms/editors.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a
+									href="/tem3/pages/forms/editors.html" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
 										<p>Editors</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/forms/validation.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a
+									href="/tem3/pages/forms/validation.html" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
 										<p>Validation</p>
 								</a></li>
 							</ul></li>
@@ -256,16 +271,18 @@
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="/tem3/pages/tables/simple.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a
+									href="/tem3/pages/tables/simple.html" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
 										<p>Simple Tables</p>
 								</a></li>
 								<li class="nav-item"><a href="/tem3/pages/tables/data.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>DataTables</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/tables/jsgrid.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a
+									href="/tem3/pages/tables/jsgrid.html" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
 										<p>jsGrid</p>
 								</a></li>
 							</ul></li>
@@ -287,12 +304,14 @@
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="/tem3/pages/mailbox/mailbox.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a
+									href="/tem3/pages/mailbox/mailbox.html" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
 										<p>Inbox</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/mailbox/compose.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a
+									href="/tem3/pages/mailbox/compose.html" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
 										<p>Compose</p>
 								</a></li>
 								<li class="nav-item"><a href="pages/mailbox/read-mail.html"
@@ -307,40 +326,44 @@
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="/tem3/pages/examples/invoice.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a
+									href="/tem3/pages/examples/invoice.html" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
 										<p>Invoice</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/examples/profile.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a
+									href="/tem3/pages/examples/profile.html" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
 										<p>Profile</p>
 								</a></li>
 								<li class="nav-item"><a
-									href="/tem3/pages/examples/e-commerce.html" class="nav-link"> <i
-										class="far fa-circle nav-icon"></i>
+									href="/tem3/pages/examples/e-commerce.html" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
 										<p>E-commerce</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/examples/projects.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a
+									href="/tem3/pages/examples/projects.html" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
 										<p>Projects</p>
 								</a></li>
 								<li class="nav-item"><a
-									href="/tem3/pages/examples/project-add.html" class="nav-link"> <i
-										class="far fa-circle nav-icon"></i>
+									href="/tem3/pages/examples/project-add.html" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
 										<p>Project Add</p>
 								</a></li>
 								<li class="nav-item"><a
-									href="/tem3/pages/examples/project-edit.html" class="nav-link"> <i
-										class="far fa-circle nav-icon"></i>
+									href="/tem3/pages/examples/project-edit.html" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
 										<p>Project Edit</p>
 								</a></li>
 								<li class="nav-item"><a
-									href="/tem3/pages/examples/project-detail.html" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
+									href="/tem3/pages/examples/project-detail.html"
+									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Project Detail</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/examples/contacts.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a
+									href="/tem3/pages/examples/contacts.html" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
 										<p>Contacts</p>
 								</a></li>
 							</ul></li>
@@ -351,32 +374,34 @@
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="/tem3/pages/examples/login.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a
+									href="/tem3/pages/examples/login.html" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
 										<p>Login</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/examples/register.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a
+									href="/tem3/pages/examples/register.html" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
 										<p>Register</p>
 								</a></li>
 								<li class="nav-item"><a
-									href="/tem3/pages/examples/forgot-password.html" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
+									href="/tem3/pages/examples/forgot-password.html"
+									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Forgot Password</p>
 								</a></li>
 								<li class="nav-item"><a
-									href="/tem3/pages/examples/recover-password.html" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
+									href="/tem3/pages/examples/recover-password.html"
+									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Recover Password</p>
 								</a></li>
 								<li class="nav-item"><a
-									href="/tem3/pages/examples/lockscreen.html" class="nav-link"> <i
-										class="far fa-circle nav-icon"></i>
+									href="/tem3/pages/examples/lockscreen.html" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
 										<p>Lockscreen</p>
 								</a></li>
 								<li class="nav-item"><a
-									href="/tem3/pages/examples/legacy-user-menu.html" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
+									href="/tem3/pages/examples/legacy-user-menu.html"
+									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Legacy User Menu</p>
 								</a></li>
 								<li class="nav-item"><a
@@ -384,20 +409,24 @@
 										<i class="far fa-circle nav-icon"></i>
 										<p>Language Menu</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/examples/404.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a
+									href="/tem3/pages/examples/404.html" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
 										<p>Error 404</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/examples/500.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a
+									href="/tem3/pages/examples/500.html" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
 										<p>Error 500</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/examples/pace.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a
+									href="/tem3/pages/examples/pace.html" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
 										<p>Pace</p>
 								</a></li>
-								<li class="nav-item"><a href="/tem3/pages/examples/blank.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<li class="nav-item"><a
+									href="/tem3/pages/examples/blank.html" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
 										<p>Blank Page</p>
 								</a></li>
 								<li class="nav-item"><a href="/tem3/starter.html"
@@ -482,4 +511,4 @@
 		<!--  <div class="content-wrapper">-->
 
 
-			<!-- 개별 컨텐츠 위치 -->
+		<!-- 개별 컨텐츠 위치 -->
