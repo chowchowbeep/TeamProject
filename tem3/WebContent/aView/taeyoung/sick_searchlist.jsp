@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,8 +14,6 @@
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
- 
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
@@ -34,7 +31,7 @@
       
     </ul>
 
-           <!-- SEARCH FORM -->
+        
          <form class="form-inline ml-3">
             <div class="input-group input-group-sm" style="font-size: 30px;">
                <!-- 타이틀을 중앙에 어떻게 둘까요? -->
@@ -483,68 +480,120 @@
       </aside>
       <!-- 사이드바 컨트롤 끝 80행? 언저리부터 시작 -->
 
-      <!-- Content Wrapper. Contains page content -->
+      <!----- Content Wrapper. Contains page content -------------------------->
       <div class="content-wrapper">
          <!-- Content Header (Page header) -->
          <section class="content-header">
             <div class="container-fluid">
                <div class="row mb-2">
                   <div class="col-12">
-                     <h1>환자 검색</h1>
+                     <h1>의사 관리</h1>
                   </div>
                   <div class="col-sm-6">
                      <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">home</a></li>
-                        <li class="breadcrumb-item active">sick</li>
+                        <li class="breadcrumb-item active">doctor</li>
                      </ol>
                   </div>
                </div>
             </div>
             <!-- /.container-fluid -->
          </section>
-
-    <!-- Main content -->
-         <!-- Horizontal Form -->
+         
+      <!-- Main content -->
  <section class="content">
       <div class="container-fluid">
         <div class="row">
-                  <div class="col-12" >
-            <div class="card card-info">
+          <div class="col-12">
+            <div class="card">
               <div class="card-header">
-                <h3 class="card-title"><i class="fas fa-user-plus"></i></h3><!-- "" -->
+                <h3 class="card-title"></h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
               </div>
               <!-- /.card-header -->
-              <!-- form start -->
-              <form class="form-horizontal" method="post" action="#">
-                <div class="card-body" style="height:300px;">
-                <div><b>진료타입:</b><input type="radio" placeholder="예약"></div>
-                 <div><b>이름:</b><input type="text" placeholder="김태영"></div>
-                 <div><b>생년월일:</b><input type="text" placeholder="96-12-08"></div>
-                 <div><b>전화번호:</b><input type="text" placeholder="010-0000-1234"></div>
-                  </div>        
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-info">등록</button>
-                  <a class="btn btn-default float-right" href="#">취소</a>
-                </div>
-                <!-- /.card-footer -->
+              <form method="post">
+              <div class="card-body table-responsive p-0" style="height: 350px;">
+                <table class="table table-head-fixed text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>번호</th>
+                      <th>이름</th>
+                      <th>과목</th>
+                      <th>삭제</th>
+                    </tr>
+                  </thead>
+            		<tbody>
+                    <tr>
+                      <td>175</td>
+                      <td>김민정</td>
+                      <td>소아과</td>
+                      <td><a class="btn btn-block btn-default btn-sm" href="#">
+                              <i class="fas fa-trash">
+                              </i>
+                              	삭제
+                          </a></td>
+                    </tr>
+                    <tr>
+                      <td>134</td>
+                      <td>김주련</td>
+                      <td>내과</td>
+                      <td><a class="btn btn-block btn-default btn-sm" href="#">
+                              <i class="fas fa-trash">
+                              </i>
+                              	삭제
+                          </a></td>
+                    </tr>
+                    <tr>
+                      <td>494</td>
+                      <td>김태영</td>
+                      <td>이비인후과</td>
+                      <td><a class="btn btn-block btn-default btn-sm" href="#">
+                              <i class="fas fa-trash">
+                              </i>
+                              	삭제
+                          </a></td>
+                    </tr>
+                    <tr>
+                      <td>832</td>
+                      <td>이다연</td>
+                      <td>안과</td>
+                      <td><a class="btn btn-block btn-default btn-sm" href="#">
+                              <i class="fas fa-trash">
+                              </i>
+                              	삭제
+                          </a></td>
+                    </tr>
+                    <tr>
+                      <td>982</td>
+                      <td>조선아</td>
+                      <td>내과</td>
+                      <td><a class="btn btn-block btn-default btn-sm" href="#">
+                              <i class="fas fa-trash">
+                              </i>
+                              	삭제
+                          </a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
               </form>
+              <!-- /.card-body -->
             </div>
             <!-- /.card -->
-</div></div></div></section>
           </div>
-          <!--/.col (left) -->
-          <!-- right column -->
-  <!-- /.content-wrapper -->
-  
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.0.3-pre
-    </div>
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-    reserved.
-  </footer>
-
+        </div><br><a class="btn btn-block btn-info" href="../UI/docadd.jsp">의사 추가</a>
+        </div>
+        </section>
+        </div>
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->

@@ -13,6 +13,7 @@
 <!-- Ionicons -->
 <link rel="stylesheet"
 	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 <!-- Tempusdominus Bbootstrap 4 -->
 <link rel="stylesheet"
 	href="/tem3/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
@@ -35,21 +36,27 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
 	rel="stylesheet">
+<!-- Bootstrap -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-
-
+<script src="../../plugins/moment/moment.min.js"></script>
+<script src="../../plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
 
 
 
 
 
 <!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
 <script src="/tem3/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="/tem3/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
 	$.widget.bridge('uibutton', $.ui.button)
+</script>
+<script>
+$('#datemask').inputmask('yy/mm/dd', { 'placeholder': 'yy/mm/dd' })
 </script>
 <!-- Bootstrap 4 -->
 <script src="/tem3/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -79,7 +86,13 @@
 <script src="/tem3/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/tem3/dist/js/demo.js"></script>
+<!-- AdminLTE -->
+<script src="dist/js/adminlte.js"></script>
 
+<!-- OPTIONAL SCRIPTS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+<script src="dist/js/demo.js"></script>
+<script src="dist/js/pages/dashboard3.js"></script>
 
 
 
@@ -87,9 +100,37 @@
 .abc {
 	display: inline-block;
 }
-</style>
+ .float-right{ border: none;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px 0px;
+  z-index: 1;
+}
 
+.dropdown-content a {
+  color: #696969;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+table{
+		text-align:center;
+}
+	</style>
 
 
 
@@ -571,7 +612,7 @@
 			<!-- /.sidebar -->
 		</aside>
 
-
+</div>
 
 
 		<!-- Content Wrapper. Contains page content -->

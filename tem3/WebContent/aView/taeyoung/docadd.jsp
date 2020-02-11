@@ -35,7 +35,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal" method="post" action="../tables/doclist.jsp">
+              <form class="form-horizontal" method="post" action="doclist.jsp">
                 <div class="card-body" style="height:280px;">
                   <div class="form-group row">
                     <label for="inputEmail" class="col-sm-2 col-form-label">의사번호</label>

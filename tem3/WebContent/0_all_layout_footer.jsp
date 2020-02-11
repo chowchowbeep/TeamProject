@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject
 
 	<!-- </div> --><!-- /.content-wrapper -->
 	<footer class="main-footer">

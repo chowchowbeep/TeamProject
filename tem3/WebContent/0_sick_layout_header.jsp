@@ -35,16 +35,8 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
 	rel="stylesheet">
-<<<<<<< HEAD
 <link rel="stylesheet"	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-
-
-
-
-
-=======
->>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject.git
 
 <!-- jQuery -->
 <script src="/tem3/plugins/jquery/jquery.min.js"></script>

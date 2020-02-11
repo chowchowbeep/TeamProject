@@ -10,12 +10,12 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>doctor_add</h1>
+							<h1>sick_search</h1>
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
 								<li class="breadcrumb-item"><a href="#">홈</a></li>
-								<li class="breadcrumb-item active">의사추가</li>
+								<li class="breadcrumb-item active">환자검색</li>
 							</ol>
 						</div>
 					</div>
@@ -25,49 +25,50 @@
 
     <!-- Main content -->
          <!-- Horizontal Form -->
+         
  <section class="content">
       <div class="container-fluid">
         <div class="row">
                   <div class="col-12" >
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title"><i class="fas fa-user-plus"></i></h3><!-- "" -->
+                <h3 class="card-title"></h3><!-- "" -->
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal" method="post" action="../tables/doclist.jsp">
-                <div class="card-body" style="height:280px;">
-                  <div class="form-group row">
-                    <label for="inputEmail" class="col-sm-2 col-form-label">의사번호</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="DocId" placeholder="의사번호">
+              <form class="form-horizontal" method="post" action="doclist.jsp">
+                <div class="card-body" style="height:250px; margin-left:20px;">
+                  <label>상세정보</label>
+                  <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                     </div>
+                    <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="yy/mm/dd" data-mask>
                   </div>
-                  <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label">의사이름</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputPassword3" placeholder="의사이름">
+                  <!-- /.input group -->
+                </div>
+                <!-- /.form group -->
+
+                <!-- phone mask -->
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-phone"></i></span>
                     </div>
+                    <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
                   </div>
-                  <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label">진료과목</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputPassword3" placeholder="진료과목">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <div class="offset-sm-2 col-sm-10">
-                     <!-- <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck2">
-                        <label class="form-check-label" for="exampleCheck2">real add?</label>
-                      </div>  -->
-                    </div>
-                  </div>
+                  <!-- /.input group -->
+                </div>
+                <!-- /.form group -->
+
+                  
+                 
+                
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-info">등록</button>
-                  <a class="btn btn-default float-right" href="#">취소</a>
                 </div>
                 <!-- /.card-footer -->
               </form>
