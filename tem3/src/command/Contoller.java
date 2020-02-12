@@ -27,6 +27,10 @@ public class Contoller extends HttpServlet {
 		cont.put("/SickMain.do", new SickMainCMD()); 			//회원메인페이지로 이동  
 		cont.put("/SearchList.do", new SearchListCMD());	//병원 검색결과 페이지로 이동
 		
+		
+		
+		
+		cont.put("/doctorlist.do", new DoctorList());
 /*		cont.put("/ajax/DeleteUsers.do", new DeleteUsers());
 		cont.put("/ajax/GetUsers.do", new GetUsers());
 		cont.put("/ajax/InsertUsers.do", new InsertUsers());
