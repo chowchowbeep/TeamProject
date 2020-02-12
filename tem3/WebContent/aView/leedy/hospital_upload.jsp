@@ -35,7 +35,7 @@
 				<!-- /.card-header -->
 
 				<form role="form" method="post" enctype="multipart/form-data"
-					action="../../pages/examples/medidetail.jsp" class="form-horizontal">
+					action="../taeyoung/medi_detail.jsp" class="form-horizontal">
 					<div class="card-body">
 						<div class="form-group">
 							<label for="exampleInputEmail1">파일 타입</label>

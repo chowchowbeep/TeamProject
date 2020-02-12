@@ -26,7 +26,7 @@
 			</section>
 				 
 		 <div class="col-md-3">
-            <div class="card card-warning">
+            <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title"></h3><!-- title -->
               </div>
@@ -34,7 +34,7 @@
               <!-- /.card-header -->
               
               <div class="card-body">
-                <form role="form" method="post" action="wjqtnwmd.jsp">
+                <form role="form" method="post" action="sick_wjqtnwmd.jsp">
                   
                   <div class="row">
                     <div class="col-sm">
@@ -85,7 +85,7 @@
                       </div>
                     </div>
                   </div>
-					<button type="submit" class="btn btn-block btn-warning">접수증 생성하기</button>     
+					<button type="submit" class="btn btn-block btn-info">접수증 생성하기</button>     
                 </form>
               </div>
               <!-- /.card-body -->

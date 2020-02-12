@@ -32,7 +32,7 @@
 			</div>
 			<!-- /.card-header -->
 			<!-- form start -->
-			<form class="form-horizontal">
+			<form class="form-horizontal" method=post action="../kjr/sick_main.jsp">
 				<div class="card-body">
 
 					<div class="form-group row">
