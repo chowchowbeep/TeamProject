@@ -18,7 +18,7 @@ public class DAO {
 
 	protected DAO() {
 		try {
-			DriverManager.getConnection(url, user, password);
+			conn = DriverManager.getConnection(url, user, password);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -6,23 +6,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DAO {
+public class TestDAO {
 	protected Connection conn;
 	protected PreparedStatement pstmt;
 	protected ResultSet rs;
 
 	protected String driver = "oracle.jdbc.driver.OracleDriver";
-	protected String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	protected String user = "hr";
-	protected String password = "hr";
-	
-	protected DAO() {
+	protected String url = "jdbc:oracle:thin:@localhost:1521:mdb";
+	protected String user = "pro";
+	protected String password = "pro";
+
+	protected TestDAO() {
 		try {
-			DriverManager.getConnection(url, user, password);
+			conn = DriverManager.getConnection(url, user, password);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
 }
