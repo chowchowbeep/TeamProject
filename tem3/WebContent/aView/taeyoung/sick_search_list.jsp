@@ -2,6 +2,11 @@
     pageEncoding="UTF-8"%>
     
 <%@ include file="../../0_hos_layout_header.jsp"%>
+<style>
+.ty{
+cursor:pointer;
+}
+</style>
 <%@ include file="../../0_hos_layout_topMenu.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
@@ -11,12 +16,12 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>doctor_list</h1>
+							<h1>sick_search_list</h1>
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
 								<li class="breadcrumb-item"><a href="#">홈</a></li>
-								<li class="breadcrumb-item active">의사관리</li>
+								<li class="breadcrumb-item active">환자관리</li>
 							</ol>
 						</div>
 					</div>
@@ -44,69 +49,54 @@
                 </div>
               </div>
               <!-- /.card-header -->
-        <form class="form-horizontal" method="post" action="docadd.jsp">
-              <div class="card-body table-responsive p-0" style="height: 400px;">
+        <form class="form-horizontal" method="post" action="doctor_add.jsp">
+              <div class="card-body table-responsive p-0" style="height: 350px;">
                 <table class="table table-hover table-valign-middle">
                   <thead>
                     <tr>
-                      <th>번호</th>
-                      <th style="width:25%;">이름</th>
-                      <th style="width:25%;">과목</th>
-                      <th>삭제</th>
+                      <th width="40%;">이름</th>
+                      <th width="35%;">진료</th>
+                      <th width="25%;">생년월일</th>
+                      <th width="15%;">번호</th>
                     </tr>
                   </thead>
             		<tbody>
                     <tr>
-                      <td>[175]</td>
-                      <td>[김민정]</td>
+                      <td class="ty" onclick="location.href='sick_searchdetail.jsp'">[김민정]</td>
                       <td>[소아과]</td>
-                      <td><a class="btn btn-block btn-default btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>Del</a>
-                      </td>
+                      <td>[96/12/08]</td>
+                      <td>[010-0000-0001]</td>
+                     
                     </tr>
                     <tr>
-                      <td>[134]</td>
-                      <td>[김주련]</td>
+                      <td class="ty" onclick="location.href='sick_searchdetail.jsp'">[김주련]</td>
                       <td>[내과]</td>
-                      <td><a class="btn btn-block btn-default btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>Del</a>
-                      </td>
+                      <td>[96/12/08]</td>
+                      <td>[010-0000-0001]</td>
+                      
                     </tr>
                     <tr>
-                      <td>[494]</td>
-                      <td>[김태영]</td>
+                      <td class="ty" onclick="location.href='sick_searchdetail.jsp'">[김태영]</td>
                       <td>[이비인후과]</td>
-                      <td><a class="btn btn-block btn-default btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>Del</a>
-                      </td>
+                      <td>[96/12/08]</td>
+                      <td>[010-0000-0003]</td>
                     </tr>
                     <tr>
-                      <td>[832]</td>
-                      <td>[이다연]</td>
-                      <td>[안과]</td>
-                      <td><a class="btn btn-block btn-default btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>
-                              	Del
-                          </a></td>
+                      <td class="ty" onclick="location.href='sick_searchdetail.jsp'">[이다연]</td>
+                      <td>[소아과]</td>
+                      <td>[96/12/08]</td>
+                     <td>[010-0000-0004]</td>
                     </tr>
                     <tr>
-                      <td>[982]</td>
-                      <td>[조선아]</td>
+                      <td class="ty" onclick="location.href='sick_searchdetail.jsp'">[조선아]</td>
                       <td>[내과]</td>
-                     <td><a class="btn btn-block btn-default btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>
-                              	Del
-                          </a></td>
+                      <td>[]</td>
+                      <td>[010-0000-0005]</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-			<button type="submit" class="btn btn-block btn-info">의사추가</button>
+			<button type="submit" class="btn btn-block btn-info">목록가기</button>
        </form>
               
               

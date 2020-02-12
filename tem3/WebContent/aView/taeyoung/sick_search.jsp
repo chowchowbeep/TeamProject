@@ -7,6 +7,7 @@
 	$('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' }) 	
  	})
 	</script>
+	
    <%@ include file="../../0_hos_layout_topMenu.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
@@ -42,35 +43,58 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal" method="post" action="doclist.jsp">
-                <div class="card-body" style="height:250px; margin-left:20px;">
+              <form class="form-horizontal" method="post" action="doctor_list.jsp">
+                <div class="card-body" style="height:300px; margin-left:20px;">
+                 <div>
+                  <label>진료타입</label>
+                  <div>
+                 	<input type="radio" name="wjqtn" value="당일접수"checked="checked"> 당일접수&nbsp;&nbsp;
+					<input type="radio" name="reserve" value="예약"> 예약&nbsp;&nbsp;
+					<input type="radio" name="cancel" value="예약"> 취소
+                  </div>
+					</div><br>
+                  <div>
                   <label>상세정보</label>
+                 <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="far fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="환자이름">
+                  </div>
+                  <!-- /.input group -->
+                </div>
+                <!-- /.form group -->
+
                   <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                     </div>
-                    <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                    <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask
+                    placeholder="생년월일">
                   </div>
                   <!-- /.input group -->
                 </div>
                 <!-- /.form group -->
-
-                <!-- phone mask -->
+            <!-- phone mask -->
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-phone"></i></span>
                     </div>
-                    <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+                    <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask placeholder="전화번호">
                   </div>
                   <!-- /.input group -->
                 </div>
                 <!-- /.form group -->
-
+				</div>
                 </div>
                 <!-- /.card-body -->
                 <!-- /.card-footer -->
+              <div class="card-footer text-center">
+                  <button type="submit" class="btn btn-info">검색</button>
+                </div>
               </form>
             </div>
             <!-- /.card -->

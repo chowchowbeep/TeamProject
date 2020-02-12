@@ -77,13 +77,13 @@
 					</div>
 					<br>
 					<div class="text-center">
-						<a href="../leedy/sick_docuList.jsp" class="btn btn-secondary"> 진료기록물 조회 </a>&nbsp;&nbsp;&nbsp;
-						<a href="#" class="btn btn-secondary"> 진료 기록물 업로드 </a>
+						<a href="../leedy/hospital_inquiry.jsp" class="btn btn-secondary"> 진료기록물 조회 </a>&nbsp;&nbsp;&nbsp;
+						<a href="../leedy/hospital_upload.jsp" class="btn btn-secondary"> 진료 기록물 업로드 </a>
 					</div>
 					<br>
 					<div class="text-center">
-						<a href="#" class="btn btn-lg btn-primary"> 완료 </a>&nbsp; <a
-							href="all.jsp" class="btn btn-lg btn-primary"> 취소 </a>
+						<a href="#" class="btn btn-lg btn-info"> 완료 </a>&nbsp; <a
+							href="all.jsp" class="btn btn-lg btn-info"> 취소 </a>
 					</div>
 				</div>
 			</section>
