@@ -4,9 +4,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import dto.SickMemberDto;
+import kty.DAO;
 
 
-public class sicMemberDAO {
+public class sicMemberDAO extends TestDAO {
 	public static String sql;
 	//전체리스트
 			public ArrayList<SickMemberDto> select(){

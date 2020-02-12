@@ -3,8 +3,9 @@ package kjr;
 import java.sql.SQLException;
 
 import dto.HealthInfoDto;
+import kty.DAO;
 
-public class HealthInfoDAO {
+public class HealthInfoDAO extends DAO{
 	String sql;
 	//단건조회
 	public HealthInfoDto select(String id){
