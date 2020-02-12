@@ -13,8 +13,7 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<!-- 1. 예약완료 멘트 출력 -->
-					<h1>예약이 완료되었습니다!</h1>
+					<h1>진료이력상세</h1>
 				</div>
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
@@ -35,19 +34,21 @@
 				<div class="col-md-12">
 
 
-					<!-- 선택한 정보 확인 -->
-					<!-- 2. 예약된 정보 출력_병원정보/ 예약시간 정보 등  -->
+					<!-- 1. 신청한 병원 상세정보-->
 					<div class="card card-secondary">
-						<div class="card-header">
-							<h3 class="card-title">예약정보확인</h3>
-						</div>
+						<!--  <div class="card-header">
+							<h3 class="card-title">상세정보</h3> </div> 	-->
 						<div class="card-body">
 
 							<div class="row">
 								<div class="col-sm-6">
 									<div class="form-group">
-										<label for="hosName">병원명</label> <input type="text"
-											id="hosName" name="hosName" class="form-control"
+										<!--  -->
+										<label for="hosName">상태정보</label> <input type="text"
+											id="medType" name="medType" class="form-control"
+											value="${dto.medType}예약" disabled> <br> <label
+											for="hosName">병원명</label> <input type="text" id="hosName"
+											name="hosName" class="form-control"
 											value="${dto.artr_name}병원명" disabled> <br> <label
 											for="hosAddr">주소</label>
 										<textarea id="hosAddr" name="hosAddr" class="form-control"
@@ -60,75 +61,58 @@
 											value="${dto.artr_name}의사이름 진료과목" disabled> <br>
 										<label for="toDr">의사선생님에게 한 마디</label>
 										<textarea id="toDr" name="toDr" class="form-control" disabled></textarea>
-										<br>
+										<br> <label for="medType">진료신청타입/상태</label> <input
+											type="text" id="medType" name="medType" class="form-control"
+											value="진료타입" disabled> <br>
 
 										<!-- <input type="text" name="email" class="form-control" 
                     				id="toDr" name="toDr" placeholder="증상, 기타사항을 입력해주세요"> -->
 
-										<label for="medDay">진료날짜</label> <input type="text"
+
+
+										<!-- sql문으로 진료정보.진료상태가 진료후 인 것만 골라온 다음
+										-> 예약을 했다가(진료날짜가 입력됨) 진료가 완료되거나, 취소한 경우에는 아래와 같이 예약상태의 이력을 표시제어  -->
+										<!-- c:if test = 내에 조건을  진료신청.예약날짜 != null로(el표현식 이용하기) -->
+										<label for="medDay">예약날짜</label> <input type="text"
 											id="medDay" name="medDay" class="form-control" value="진료날짜"
-											disabled> <br> <label for="medTime">진료시간</label>
+											disabled> <br> <label for="medTime">예약시간</label>
 										<input type="text" id="medTime" name="medTime"
 											class="form-control" value="진료시간" disabled>
+										<!-- /c:if -->
+
 									</div>
 								</div>
 							</div>
 						</div>
 
 
-						<!-- 신청폼푸터 // 제출 및 기타 버튼 위치 -->
-						<!-- 
-							3. 확인버튼 구현
-							-> 확인버튼 클릭시 접수현황 페이지로 이동
-							4. 예약취소 버튼 구현_   예약취소 .do 호출 및 alert function구현
-							-> 예약취소 버튼 클릭 : 취소완료 팝업페이지 출력
-							-> 진료현황리스트 페이지로 이동
-						-->
+
+
+
+						<!-- 신청폼푸터 // 제출 및 기타 버튼 위치-->
 						<div class="card-footer">
-							<button onclick="location.href='접수현황페이지'"
-								class="btn btn-secondary">확인</button>
-							<button onclick="" class="btn btn-secondary float-right">예약취소</button>
+							<button onclick="location.href='목록페이지로'"
+								class="btn btn-secondary float-left">목록</button>
+							<span style="margin-left:50px;">
+							<button onclick="location.href='리뷰작성페이지로'"
+								class="btn btn-secondary mx-auto">리뷰등록</button></span>
+							<button onclick="location.href='재접수페이지로'"
+								class="btn btn-secondary float-right">재접수</button>
 						</div>
+
+
+
 					</div>
-					<!-- 
-					넘겨받는:예약시간 선택 페이지
-					넘기는:진료현황 리스트 페이지(확인버튼, 예약취소버튼 누를 경우_취소확인 및 완료팝업 출력후)"	
-				 -->
 
 
 				</div>
 				<!--/.col (left) -->
 
-				<!-- right column -->
-				<div class="col-md-12">
-				
-								<div class="card card-secondary">
-						<div class="card-header">
-							<h3 class="card-title">주의사항</h3>
-						</div>
-						<div class="card-body">
 
-							<div class="row">
-								<div class="col-sm-12">
-									<div>
-										<span style="font-weight: bold;"> 1.</span> 병원 내원시 살려죠 서비스를 통해
-										예약/접수하였다고 알려주세요.
-									</div>
-									<div>
-										<span style="font-weight: bold;"> 2.</span> 예약/접수를 취소하실 경우 패널티가
-										부여됩니다. (3회 취소시 서비스이용이 제한됩니다.)
-									</div>
-									<div>
-										<span style="font-weight: bold;"> 3.</span> 예약/접수는 병원사정으로 인해
-										취소될 가능성이 있습니다.
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				
-				
-				</div>
+
+
+				<!-- right column -->
+				<div class="col-md-12"></div>
 				<!--/.col (right) -->
 			</div>
 			<!-- /.row -->
@@ -141,11 +125,12 @@
 
 
 <%@ include file="../../0_all_layout_footer.jsp"%>
-<script>
-//취소이벤트 발생시 
 
-</script>
 
 
 </body>
 </html>
+
+
+
+
