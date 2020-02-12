@@ -42,10 +42,10 @@ public class ArtrDao extends DAO {
 			// 3.결과저장
 			while (rs.next()) {
 				ApprenticeDoctorDto dto = new ApprenticeDoctorDto();
-				dto.setArtrNo(rs.getInt("artrNo"));
-				dto.setHosId(rs.getString("hosId"));
-				dto.setArtrName(rs.getString("artrName"));
-				dto.setArtrSub(rs.getString("artrSub"));
+				dto.setArtrNo(rs.getInt("ARTR_NO"));
+				dto.setHosId(rs.getString("HOS_ID"));
+				dto.setArtrName(rs.getString("ARTR_NAME"));
+				dto.setArtrSub(rs.getString("ARTR_SUB"));
 				list.add(dto);
 			}
 		} catch (Exception e) {

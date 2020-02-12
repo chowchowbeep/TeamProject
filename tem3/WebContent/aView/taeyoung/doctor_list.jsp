@@ -57,34 +57,17 @@
                     </tr>
                   </thead>
             		<tbody>
-            		
-            		<%mySQL= " select ARTR_NO, HOS_ID, ARTR_NAME, ARTR_SUB " +
-								" from ARTR_INFO";
-					myResultSet = stmt.executeQuery(mySQL);
-					if (myResultSet != null) {
-						while (myResultSet.next()) {
-						int artrNo = myResultSet.getInt("artrNo");
-						String hosId = myResultSet.getString("hosId");
-						String artrName = myResultSet.getString("artrName");
-						String artrSub = myResultSet.getString("artrSub");
-						%>
-						
                     <tr>
-                      <td><%= artrNo %></td>
+      			     <td><%= artrNo %></td>
                       <td><%= artrName %></td>
                       <td><%= artrSub %></td>
-                      <td><a class="btn btn-block btn-default btn-sm" href="#">
+                      <td><a class="btn btn-block btn-default btn-sm" href="#"> -->
                               <i class="fas fa-trash">
                               </i>Del</a>
                       </td>
                     </tr>          
                   </tbody>
-                  <%
-					}
-						}
-					stmt.close();
-					myConn.close();
-					%>
+
                 </table>
               </div>
 			<a class="btn btn-block btn-info" href="doctor_add.jsp">의사추가</a>

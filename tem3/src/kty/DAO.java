@@ -14,11 +14,11 @@ public class DAO {
 	protected String driver = "oracle.jdbc.driver.OracleDriver";
 	protected String url = "jdbc:oracle:thin:@39.116.34.40:1521:mdb";
 	protected String user = "pro";
-	protected String password = "pro";
+	protected String passwd = "pro";
 
 	protected DAO() {
 		try {
-			conn = DriverManager.getConnection(url, user, password);
+			conn = DriverManager.getConnection(url, user, passwd);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
