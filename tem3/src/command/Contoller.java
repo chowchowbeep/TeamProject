@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kjr.cmd.SearchListCMD;
 import kjr.cmd.SickMainCMD;
-import kjr.cmd.HospitalInfoCMD;
 
 @WebServlet("*.do")
 public class Contoller extends HttpServlet {
@@ -25,7 +25,7 @@ public class Contoller extends HttpServlet {
 	
 	public void init(ServletConfig config) throws ServletException {
 		cont.put("/SickMain.do", new SickMainCMD()); 			//회원메인페이지로 이동  
-		cont.put("/HospitalInfo.do", new HospitalInfoCMD());	//병원상세페이지로 이동
+		cont.put("/SearchList.do", new SearchListCMD());	//병원 검색결과 페이지로 이동
 		
 /*		cont.put("/ajax/DeleteUsers.do", new DeleteUsers());
 		cont.put("/ajax/GetUsers.do", new GetUsers());

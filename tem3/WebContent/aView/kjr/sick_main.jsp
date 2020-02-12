@@ -33,7 +33,7 @@ $(function() { //window load이벤트 생략해서 적은것
 
 //검색버튼클릭시 리스트페이지로 넘어가게 함
 function searchList(){
-	document.searchFrm.action="${pageContext.request.contextPath}/HospitalInfo.do"
+	document.searchFrm.action="${pageContext.request.contextPath}/SearchList.do"
 	document.searchFrm.method="post";
 	document.myForm.submit();
 }
@@ -46,6 +46,12 @@ function searchList(){
 			<div class="card" style="margin: 5px;">
 				<div class="card-header text-left">건강정보</div>
 				<div class="card-body">
+				${hInfo.sicId }
+				${hInfo.chrdis }
+				${hInfo.hstcs }
+				${hInfo.bdp }
+				${hInfo.allrgy }
+				${hInfo.htEtc }
 					<p class="card-text">
 					
 					</p>
@@ -60,7 +66,7 @@ function searchList(){
 			<div class="card-body">
 			<form name="searchFrm">
 				<div class="input-group mb-3">
-					<input type="text" class="form-control"	placeholder="병원명" name="hosId" id="hosId">
+					<input type="text" class="form-control"	placeholder="병원명" name="hosName" id="hosName">
 					<div class="input-group-append">
 						<button class="btn btn-outline-secondary" type="submit" id="searchBtn"><i class="fas fa-search"></i></button>
 					</div>
