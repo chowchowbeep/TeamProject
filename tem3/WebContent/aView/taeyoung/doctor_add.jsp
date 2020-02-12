@@ -38,30 +38,26 @@
               
               
               <!-- form start -->
-              <form class="form-horizontal" method="post" action="doctor_list.jsp">
-                <div class="card-body" style="height:280px;">
-                  <div class="form-group row">
-                    <label for="inputEmail" class="col-sm-2 col-form-label">의사번호</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="DocId" placeholder="의사번호">
-                    </div>
-                  </div>
+              <form class="form-horizontal" method="post" action="doctor_add_verify.jsp">
+                <div class="card-body" style="height:260px;">
                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">의사이름</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputPassword3" placeholder="의사이름"> <!-- value -->
+                      <input type="text" class="form-control" id= "artrName" name="artrName"> <!-- value -->
                     </div>
                   </div>
                   	<div class="form-group row">
 							<label for="inputPassword3" class="col-sm-2 col-form-label">진료과목</label>
 							<div class="col-sm-10">
-								<select class="form-control select2" style="width: 100%;" id="callArtrNo">
+								<input type="text" class="form-control" id="artrSub"name="artrSub"> <!-- value -->
+<!-- <select class="form-control select2" style="width: 100%;" name="artrSub">
+									
 									<option>내과</option>
 									<option>소아과</option>
 									<option>외과</option>
 									<option>정형외과</option>
 									<option>치과</option>
-								</select>
+								</select> -->
 							</div>
 						</div>
                   <div class="form-group row">

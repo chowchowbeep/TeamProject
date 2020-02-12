@@ -15,7 +15,7 @@
 
 		<div class="card text-center  topmg">
 			<div class="card" style="margin: 5px;">
-				<div class="card-header ">[병원이름]</div>
+				<div class="card-header ">${hosName } </div>
 				<div class="card-body">
 					<div id="map" style="width: auto; height: 400px;"></div>
 					<!-- 지도담을 영역만들기 -->

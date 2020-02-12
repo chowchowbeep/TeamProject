@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/0_admin_layout_header.jsp"%>
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 <style type="text/css">/* Chart.js */
 @
 keyframes chartjs-render-animation {
@@ -48,7 +49,7 @@ to {
 
 .info-box {
 	width: 270px;
-	height: 10px;
+	height: 20px;
 	text-align: center;
 	border: solid 1px;
 	font-size: 20px;
@@ -61,6 +62,8 @@ to {
 	border: solid 1px;
 	text-align: center;
 	margin-left: 30px;
+	margin-right: 10px;
+	padding: 5px;
 }
 
 .info-box-content {
@@ -68,10 +71,24 @@ to {
 	text-align: center;
 }
 
-.type {
-	margin-top: 20px;
+.listbox {
 	width: 270px;
+	height: 200px;
+	border: solid 1px;
+	align: center;
+	margin-left: 50px;
+	padding: 10px;
 }
+
+.name {
+	font-size: 20px;
+	margin-left: 30px;
+}
+
+.info {
+	padding: 10px;
+}
+
 </style>
 
 <%@ include file="/0_admin_layout_topMenu.jsp"%>
@@ -83,16 +100,40 @@ to {
 		</div>
 	</div>
 </div>
-<div class="type">
-	<div class="info-box-small">
-		<span class="info-box-content"> 회원 유형 </span>
-	</div>
-	<span class="select"> 
-		<input type="radio" name="type" value="all" checked>&nbsp;전체 &nbsp;&nbsp;
-		<input type="radio" name="type" value="standard">&nbsp;일반 &nbsp;&nbsp;
-		<input type="radio" name="type" value="hospital">&nbsp;병원
-	</span>
-</div>
+
+<table cellpadding = "5px" class = "listbox">
+	<tr>
+		<td>
+			<ion-icon name="person-circle-outline" size = "large" 
+			style = "width: 100px; height: 100px; margin: 0px 0px 10px 10px;"></ion-icon>
+			<div class = "name"><b> 조선아 </b></div>
+		</td>
+		<td class = "info">
+			<p><b> 회원 ID: </b>sunamanse </p>
+			<p><b> 회원 등급: </b>일반 </p>
+			<p><b> 연락처: </b>010-8401-0523 </p>
+			<p><b> 주소: </b>대구광역시 중구 상서로 예담직업전문학교 </p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan = "2"> <b>&nbsp;&nbsp;&nbsp;패널티 현황: </b>0회
+		</td>
+	</tr>
+	<tr>
+		<td colspan = "2"> <b>&nbsp;&nbsp;&nbsp;신고 현황: </b>2회<br>
+						   · 과잉 진료 신고(2020.01.11)<br>
+						   · 빻은 의사 신고(2020.02.05)
+		</td>
+	</tr>
+	<tr>
+		<td colspan = "2"> <b>&nbsp;&nbsp;&nbsp;리뷰 현황: </b>1회<br>
+						   · 서나의원 리뷰(2020.01.07)<br>
+		</td>
+	</tr>
+</table>
+
+
+
 
 </div>
 </aside>

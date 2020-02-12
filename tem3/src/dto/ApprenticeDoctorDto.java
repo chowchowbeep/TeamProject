@@ -18,6 +18,13 @@ public class ApprenticeDoctorDto { //의사 테이블
 		this.artrSub = artrSub;
 	}
 	
+	public ApprenticeDoctorDto(int artrNo, String artrName, String artrSub) {
+		super();
+		this.artrNo = artrNo;
+		this.artrName = artrName;
+		this.artrSub = artrSub;
+	}
+	
 	//get set
 	public int getArtrNo() {
 		return artrNo;
