@@ -64,9 +64,9 @@ table{
          <div class="dropdown">
 			당일&nbsp;접수&nbsp;<i class="fas fa-caret-down"></i>
 		<div class="dropdown-content">
-    		<a href="all.jsp">전체</a>
-    		<a href="wjqtn.jsp">당일 접수</a>
-   			<a href="reserve.jsp">예약</a>
+    		<a href="medi_all.jsp">전체</a>
+    		<a href="medi_wjqtn.jsp">당일 접수</a>
+   			<a href="medi_reserve.jsp">예약</a>
  		 </div>
 		</div><br>
         <div class="row">
