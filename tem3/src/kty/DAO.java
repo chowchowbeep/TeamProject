@@ -23,4 +23,18 @@ public class DAO {
 			e.printStackTrace();
 		}
 	}
+
+	public void close() {
+		try {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

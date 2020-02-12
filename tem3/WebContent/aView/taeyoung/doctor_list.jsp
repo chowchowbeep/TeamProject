@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@include file="dbconnect.jsp"%>
     
 <%@ include file="../../0_hos_layout_header.jsp"%>
 <%@ include file="../../0_hos_layout_topMenu.jsp"%>
@@ -44,69 +45,49 @@
                 </div>
               </div>
               <!-- /.card-header -->
-        <form class="form-horizontal" method="post" action="doctor_add.jsp">
+        <form class="form-horizontal">
               <div class="card-body table-responsive p-0" style="height: 400px;">
                 <table class="table table-hover table-valign-middle">
                   <thead>
                     <tr>
                       <th>번호</th>
+                      <th style="width:25%;">번호</th>
                       <th style="width:25%;">이름</th>
-                      <th style="width:25%;">과목</th>
-                      <th>삭제</th>
+                      <th>과목</th>
                     </tr>
                   </thead>
             		<tbody>
+            		
+            		<%mySQL= " select ARTR_NO, HOS_ID, ARTR_NAME, ARTR_SUB " +
+								" from ARTR_INFO";
+					myResultSet = stmt.executeQuery(mySQL);
+					if (myResultSet != null) {
+						while (myResultSet.next()) {
+						int artrNo = myResultSet.getInt("artrNo");
+						String hosId = myResultSet.getString("hosId");
+						String artrName = myResultSet.getString("artrName");
+						String artrSub = myResultSet.getString("artrSub");
+						%>
+						
                     <tr>
-                      <td>[175]</td>
-                      <td>[김민정]</td>
-                      <td>[소아과]</td>
+                      <td><%= artrNo %></td>
+                      <td><%= artrName %></td>
+                      <td><%= artrSub %></td>
                       <td><a class="btn btn-block btn-default btn-sm" href="#">
                               <i class="fas fa-trash">
                               </i>Del</a>
                       </td>
-                    </tr>
-                    <tr>
-                      <td>[134]</td>
-                      <td>[김주련]</td>
-                      <td>[내과]</td>
-                      <td><a class="btn btn-block btn-default btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>Del</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>[494]</td>
-                      <td>[김태영]</td>
-                      <td>[이비인후과]</td>
-                      <td><a class="btn btn-block btn-default btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>Del</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>[832]</td>
-                      <td>[이다연]</td>
-                      <td>[안과]</td>
-                      <td><a class="btn btn-block btn-default btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>
-                              	Del
-                          </a></td>
-                    </tr>
-                    <tr>
-                      <td>[982]</td>
-                      <td>[조선아]</td>
-                      <td>[내과]</td>
-                     <td><a class="btn btn-block btn-default btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>
-                              	Del
-                          </a></td>
-                    </tr>
+                    </tr>          
                   </tbody>
+                  <%
+					}
+						}
+					stmt.close();
+					myConn.close();
+					%>
                 </table>
               </div>
-			<button type="submit" class="btn btn-block btn-info">의사추가</button>
+			<a class="btn btn-block btn-info" href="doctor_add.jsp">의사추가</a>
        </form>
               
               
