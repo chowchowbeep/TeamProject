@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import dto.BookmarkDto;
 import kty.DAO;
 
-public class BookmarkDAO extends TestDAO {
+public class BookmarkDAO extends DAO {
 	String sql;
 	public ArrayList<BookmarkDto> select(String id) {
 		ArrayList<BookmarkDto> list = new ArrayList<>();

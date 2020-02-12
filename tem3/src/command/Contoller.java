@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kjr.SickMainCMD;
+import kjr.cmd.SickMainCMD;
+import kjr.cmd.HospitalInfoCMD;
 
 @WebServlet("*.do")
 public class Contoller extends HttpServlet {
@@ -23,7 +24,8 @@ public class Contoller extends HttpServlet {
 	
 	
 	public void init(ServletConfig config) throws ServletException {
-		cont.put("/SickMain.do", new SickMainCMD()); //회원메인페이지 sick_main.jsp
+		cont.put("/SickMain.do", new SickMainCMD()); 			//회원메인페이지로 이동  
+		cont.put("/HospitalInfo.do", new HospitalInfoCMD());	//병원상세페이지로 이동
 		
 /*		cont.put("/ajax/DeleteUsers.do", new DeleteUsers());
 		cont.put("/ajax/GetUsers.do", new GetUsers());
@@ -40,9 +42,9 @@ public class Contoller extends HttpServlet {
 		String uri = request.getRequestURI();
 		String context = request.getContextPath();
 		String path = uri.substring(context.length());
-		System.out.println(uri);
-		System.out.println(context);
-		System.out.println(path);
+		System.out.println("uri정보:"+uri);
+		System.out.println("context정보:"+context);
+		System.out.println("path정보:"+path);
 
 		Command command = cont.get(path); // 이동할 path를 받음
 		if (command != null) {

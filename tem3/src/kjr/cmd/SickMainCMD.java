@@ -1,4 +1,4 @@
-package kjr;
+package kjr.cmd;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,13 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 import command.Command;
 import dto.BookmarkDto;
 import dto.HealthInfoDto;
+import kjr.BookmarkDAO;
+import kjr.HealthInfoDAO;
 
 public class SickMainCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String path ="aView/kjr/sick_main.jsp"; //이동시킬 jsp페이지명을 기록
+		String path ="aView/kjr/sick_main.jsp"; //일반회원페이지로 이동 
 	
 		
 		//건강정보출력1. 건강정보는 항목 아이콘-값 아이콘 출력, 비고 출력
