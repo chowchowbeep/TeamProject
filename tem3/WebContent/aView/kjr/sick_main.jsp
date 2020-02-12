@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<%@ include file="../../0_sick_layout_topMenu.jsp" %>
 <%@ include file="../../0_sick_layout_header.jsp" %>
 <link rel="stylesheet" href="cssList.css">
 <script>
@@ -51,32 +53,6 @@
 						<button class="btn btn-outline-secondary" type="button"
 							id="button-addon2">Button</button>
 					</div>
-				</div>
-			</div>
-		</div>
-
-
-		<div class="card text-center">
-			<div class="card" style="margin: 5px;">
-				<div class="card-header text-left">관심병원</div>
-				<div class="card-body">
-					
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th scope="col">★</th>
-								<th scope="col">병원명</th>
-								<th scope="col">버튼?</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th scope="row">1</th>
-								<td>Mark</td>
-								<td>접수/예약</td>
-							</tr>
-						</tbody>
-					</table>
 				</div>
 			</div>
 		</div>
