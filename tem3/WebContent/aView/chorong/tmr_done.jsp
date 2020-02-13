@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%@ include file="../../0_sick_layout_header.jsp"%>
-<%@ include file="../../0_sick_layout_topMenu.jsp"%>
+<%@ include file="/layout/sick_head.jsp"%>
+<%@ include file="/layout/sick_menu.jsp"%>
 
 <!-- 
 		1. 신청한 병원 상세정보
@@ -161,7 +161,7 @@
 <!-- /.content-wrapper -->
 
 
-<%@ include file="../../0_all_layout_footer.jsp"%>
+<%@ include file="/layout/all_footer.jsp"%>
 <script>
 	//취소시 발생 이벤트
 </script>

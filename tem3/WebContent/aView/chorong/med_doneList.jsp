@@ -2,13 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%@ include file="../../0_hos_layout_header.jsp"%>
+<%@ include file="/layout/sick_head.jsp"%>
 <style>
 td {
 	text-align: center;
 }
 </style>
-<%@ include file="../../0_hos_layout_topMenu.jsp"%>
+<%@ include file="/layout/sick_menu.jsp"%>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -104,7 +104,7 @@ td {
 
 </div>
 <!-- ./wrapper -->
-<%@ include file="../../0_all_layout_footer.jsp"%>
+<%@ include file="/layout/all_footer.jsp"%>
 <script>
 	// 목록 항목 클릭시 상세정보로 이동
 	$(".goDetail").click(function() {
