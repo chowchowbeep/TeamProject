@@ -3,13 +3,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
  <%@include file="dbconnect.jsp"%>
     
-<%@ include file="../../0_hos_layout_header.jsp"%>
+<%@ include file="/layout/sick_head.jsp"%>
 <style>
 .ty{
 cursor:pointer;
 }
 </style>
-<%@ include file="../../0_hos_layout_topMenu.jsp"%>
+<%@ include file="/layout/sick_menu.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
@@ -120,4 +120,4 @@ cursor:pointer;
 		</div>
 		<!-- ./wrapper -->
 <br><br>
-	<%@ include file="../../0_all_layout_footer.jsp"%>
+<%@ include file="/layout/all_footer.jsp"%>

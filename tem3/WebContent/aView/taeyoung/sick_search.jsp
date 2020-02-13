@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
   
-  <%@ include file="../../0_hos_layout_header.jsp"%>
+<%@ include file="/layout/sick_head.jsp"%>
   <script>
  	$(function () {
 	$('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' }) 	
  	})
 	</script>
 	
-   <%@ include file="../../0_hos_layout_topMenu.jsp"%>
+<%@ include file="/layout/sick_menu.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
@@ -112,5 +112,5 @@
 		</div>
 		<!-- ./wrapper -->
 
-	<%@ include file="../../0_all_layout_footer.jsp"%>
+<%@ include file="/layout/all_footer.jsp"%>
 

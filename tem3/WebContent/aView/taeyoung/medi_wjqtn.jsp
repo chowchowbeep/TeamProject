@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<%@ include file="../../0_hos_layout_header.jsp"%>
+<%@ include file="/layout/sick_head.jsp"%>
 
 <style>
 
@@ -36,7 +36,7 @@ table{
 		text-align:center;
 }
 </style>
-<%@ include file="../../0_hos_layout_topMenu.jsp"%>
+<%@ include file="/layout/sick_menu.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
@@ -180,4 +180,4 @@ table{
 
 </div>
 <!-- ./wrapper -->
-<%@ include file="../../0_all_layout_footer.jsp"%>
+<%@ include file="/layout/all_footer.jsp"%>
