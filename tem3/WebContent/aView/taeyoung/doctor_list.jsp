@@ -5,7 +5,6 @@
     
 <%@ include file="/layout/sick_head.jsp"%>
 <%@ include file="/layout/sick_menu.jsp"%>
-
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->

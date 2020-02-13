@@ -3,7 +3,6 @@
   
 <%@ include file="/layout/sick_head.jsp"%>
 <%@ include file="/layout/sick_menu.jsp"%>
-
    <!-- Main content -->
          <!-- Horizontal Form -->
  <section class="content">
