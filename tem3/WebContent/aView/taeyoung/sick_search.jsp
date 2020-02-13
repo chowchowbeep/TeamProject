@@ -43,7 +43,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal" method="post" action="doctor_list.jsp">
+              <form class="form-horizontal" method="post" action="sick_search_list.jsp">
                 <div class="card-body" style="height:300px; margin-left:20px;">
                  <div>
                   <label>진료타입</label>

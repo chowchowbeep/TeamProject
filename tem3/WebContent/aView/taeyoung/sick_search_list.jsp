@@ -64,7 +64,7 @@ cursor:pointer;
                   </thead>
             		<tbody>
                     <tr>
-                      <td class="ty" onclick="location.href='sick_searchdetail.jsp'">[김민정]</td>
+                      <td class="ty" onclick="location.href='sick_search_detail.jsp'">[김민정]</td>
                       <td>[소아과]</td>
                       <td>[96/12/08]</td>
                       <td>[010-0000-0001]</td>
@@ -80,19 +80,19 @@ cursor:pointer;
                     </c:forEach>
                     
                     <tr>
-                      <td class="ty" onclick="location.href='sick_searchdetail.jsp'">[김태영]</td>
+                      <td class="ty" onclick="location.href='sick_search_detail.jsp'">[김태영]</td>
                       <td>[이비인후과]</td>
                       <td>[96/12/08]</td>
                       <td>[010-0000-0003]</td>
                     </tr>
                     <tr>
-                      <td class="ty" onclick="location.href='sick_searchdetail.jsp'">[이다연]</td>
+                      <td class="ty" onclick="location.href='sick_search_detail.jsp'">[이다연]</td>
                       <td>[소아과]</td>
                       <td>[96/12/08]</td>
                      <td>[010-0000-0004]</td>
                     </tr>
                     <tr>
-                      <td class="ty" onclick="location.href='sick_searchdetail.jsp'">[조선아]</td>
+                      <td class="ty" onclick="location.href='sick_search_detail.jsp'">[조선아]</td>
                       <td>[내과]</td>
                       <td>[]</td>
                       <td>[010-0000-0005]</td>
