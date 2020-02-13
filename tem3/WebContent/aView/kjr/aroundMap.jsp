@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-<%@ include file="../../0_sick_layout_header.jsp" %>
+<%@ include file="../../layout/sick_head.jsp" %>
+<%@ include file="../../layout/sick_menu.jsp" %>
 
 <link rel="stylesheet" href="cssList.css">
 <script>

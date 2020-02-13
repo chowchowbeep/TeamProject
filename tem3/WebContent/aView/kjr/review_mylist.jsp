@@ -6,7 +6,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- 부트스트랩4 -->
-<%@ include file="../../0_sick_layout_header.jsp" %>
+<%@ include file="../../layout/sick_head.jsp" %>
+<%@ include file="../../layout/sick_menu.jsp" %>
 <script>
 	$(function() { //ready == window.load 와 같은 이벤트
 

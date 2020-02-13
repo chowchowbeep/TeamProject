@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import cmd.HDoctorAddCMD;
 import cmd.HDoctorlistCMD;
 import cmd.HMenubarCMD;
+import cmd.HhospitalMainCMD;
 import cmd.MChartCMD;
 import cmd.MChartDetailCMD;
 import cmd.MMenubarCMD;
@@ -53,15 +54,15 @@ public class Contoller extends HttpServlet {
 		cont.put("/MChartDetail.do", new MChartDetailCMD()); //통계관리 상세페이지로 이동
 		cont.put("/MPolice.do", new MPoliceCMD()); //신고 리스트 페이지로 이동
 		cont.put("/MPoliceDetail.do", new MPoliceDetailCMD()); //상세-신고 페이지로 이동
-		
 		cont.put("/MMenubar.do", new MMenubarCMD()); //관리자 메뉴바페이지로 이동
 		cont.put("/HMenubar.do", new HMenubarCMD()); //병원회원 메뉴바페이지로 이동
 		cont.put("/SMenubar.do", new SMenubarCMD()); //일반회원 메뉴바페이지로 이동
+		
 		/*
 		//병원회원관련 페이지
-		cont.put("/.do", new CMD()); //병원회원용 회원가입 페이지 로 이동
-		cont.put("/.do", new CMD()); //병원회원 메인페이지 로 이동
-		cont.put("/.do", new CMD()); //알림 팝업 페이지 로이동
+		cont.put("/HhosSinup.do", new HhosSinupCMD()); //병원회원용 회원가입 페이지 로 이동
+		cont.put("/HhospitalMain.do", new HhospitalMainCMD()); //병원회원 메인페이지 로 이동
+	//	cont.put("/.do", new CMD()); //알림 팝업 페이지 로이동
 		cont.put("/.do", new CMD()); //진료신청 현황 리스트 페이지 로 이동
 		cont.put("/.do", new CMD()); //진료상세정보  페이지 로 이동
 		cont.put("/.do", new CMD()); //기록물 업로드 페이지  로 이동
@@ -71,12 +72,12 @@ public class Contoller extends HttpServlet {
 		cont.put("/.do", new CMD()); //H10 회원정보 검색 결과 상세 페이지  로 이동
 		cont.put("/.do", new CMD()); //H11 마이메뉴 페이지  로 이동
 		cont.put("/.do", new CMD()); //H12 병원회원 수정 페이지  로 이동
-		*/
+		
 		
 		cont.put("/HDoctorlist.do", new HDoctorlistCMD()); //H13 의사 리스트 페이지 로 이동
 		cont.put("/HDoctorAdd.do", new HDoctorAddCMD()); //H14 의사추가페이지 로 이동
-		
 		/*
+		
 		cont.put("/.do", new CMD()); //(병원)휴일 설정 페이지 로 이동
 		cont.put("/.do", new CMD()); //(의사)휴일 설정 페이지 로 이동
 		 
@@ -140,12 +141,15 @@ public class Contoller extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		StringBuffer url = request.getRequestURL();
 		String uri = request.getRequestURI();
 		String context = request.getContextPath();
 		String path = uri.substring(context.length());
+		System.out.println("path정보:"+url);
 		System.out.println("uri정보:"+uri);
 		System.out.println("context정보:"+context);
 		System.out.println("path정보:"+path);
+		
 
 		Command command = cont.get(path); // 이동할 path를 받음
 		if (command != null) {

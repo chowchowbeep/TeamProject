@@ -9,7 +9,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Insert title here</title>
 
-<%@ include file="../../0_sick_layout_header.jsp" %>
+<%@ include file="../../layout/sick_head.jsp" %>
+<%@ include file="../../layout/sick_menu.jsp" %>
 
 
 <style> 
@@ -156,6 +157,5 @@ $(function() { //window load이벤트 생략해서 적은것
 		
 		
 	</div>
-	<%@ include file="../../0_all_layout_footer.jsp" %>
 </body>
 </html>
