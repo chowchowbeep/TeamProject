@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="dbconnect.jsp"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     
 <%@ include file="../../0_hos_layout_header.jsp"%>
 <%@ include file="../../0_hos_layout_topMenu.jsp"%>
@@ -58,10 +59,10 @@
                   </thead>
             		<tbody>
                     <tr>
-      			     <td><%= artrNo %></td>
-                      <td><%= artrName %></td>
-                      <td><%= artrSub %></td>
-                      <td><a class="btn btn-block btn-default btn-sm" href="#"> -->
+      			     <td>artrNo</td>
+                      <td>artrName</td>
+                      <td>artrSub</td>
+                      <td><a class="btn btn-block btn-default btn-sm" href="#"> 
                               <i class="fas fa-trash">
                               </i>Del</a>
                       </td>

@@ -25,12 +25,13 @@ public class ArtrDao extends DAO {
 		}
 		return r;
 	}
-
+	
+	//리스트
 	public List<ApprenticeDoctorDto> selectList() {
 		List<ApprenticeDoctorDto> list = new ArrayList<ApprenticeDoctorDto>();
 		// 1.DB연결
 		try {
-			conn = DriverManager.getConnection(url, user, password);
+			conn = DriverManager.getConnection(url, user, passwd);
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
