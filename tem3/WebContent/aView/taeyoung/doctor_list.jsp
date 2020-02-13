@@ -93,3 +93,5 @@
 		<!-- ./wrapper -->
 <br><br>
 <%@ include file="/layout/all_footer.jsp"%>
+</body>
+</html>

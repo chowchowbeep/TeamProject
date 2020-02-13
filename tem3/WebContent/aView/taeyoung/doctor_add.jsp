@@ -54,4 +54,5 @@
   <!-- /.content-wrapper -->
 
 <%@ include file="/layout/all_footer.jsp"%>
-
+</body>
+</html>
