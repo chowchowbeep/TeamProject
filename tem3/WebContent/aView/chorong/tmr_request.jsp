@@ -4,8 +4,8 @@
 
 	
 
-<%@ include file="../../0_sick_layout_header.jsp"%>
-	 
+<%@ include file="/layout/sick_head.jsp"%>
+<%@ include file="/layout/sick_menu.jsp"%>	 
 
 	<!-- 관심병원리스트페이지 S30에서 받아올 데이터도 고려할 것. -->
 	  
@@ -187,7 +187,7 @@
   <!-- /.content-wrapper -->
   
 
-<%@ include file="../../0_all_layout_footer.jsp"%>
+<%@ include file="/layout/all_footer.jsp"%>
 
 
 

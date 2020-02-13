@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%@ include file="../../0_sick_layout_header.jsp"%>
-<%@ include file="../../0_sick_layout_topMenu.jsp"%>
+<%@ include file="/layout/sick_head.jsp"%>
+<%@ include file="/layout/sick_menu.jsp"%>
 
 <!-- 컨텐츠 위치 -->
 <!-- Content Wrapper. Contains page content -->
@@ -87,7 +87,7 @@
 						<div class="card-footer">
 							<button onclick="location.href='접수현황페이지'"
 								class="btn btn-secondary">확인</button>
-							<button onclick="" class="btn btn-secondary float-right">예약취소</button>
+							<button id="cancelBtn" class="btn btn-secondary float-right">예약취소</button>
 						</div>
 					</div>
 					<!-- 
@@ -140,10 +140,12 @@
 <!-- /.content-wrapper -->
 
 
-<%@ include file="../../0_all_layout_footer.jsp"%>
+<%@ include file="/layout/all_footer.jsp"%>
 <script>
 //취소이벤트 발생시 
-
+function cancel() {
+	cancelBtn.addeventlistener
+}
 </script>
 
 
