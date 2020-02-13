@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../../0_hos_layout_header.jsp"%>
+<%@ include file="/layout/hos_head.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <style>
@@ -35,7 +35,7 @@ table{
 	text-align:center;
 }
 </style>
-<%@ include file="../../0_hos_layout_topMenu.jsp"%>
+<%@ include file="/layout/hos_menu.jsp"%>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -85,7 +85,6 @@ table{
              </tr>
             </thead>
              <tbody>
-             <c:
                 <tr>
                   <td>[0001]</td>
                   <td>[조선아]<span class="badge bg-warning">NEW</span></td>
@@ -161,11 +160,11 @@ table{
 
 </div>
 <!-- ./wrapper -->
-<%@ include file="../../0_all_layout_footer.jsp"%>
+<%@ include file="/layout/all_footer.jsp"%>
 <script>
 	$("tr").click(function() {
 		console.log("click");
-		location.href = "medi_detail".do";
+		location.href 
 	})
 </script>
 

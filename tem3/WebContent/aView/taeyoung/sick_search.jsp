@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
   
-  <%@ include file="../../0_hos_layout_header.jsp"%>
+<%@ include file="/layout/sick_head.jsp"%>
   <script>
  	$(function () {
 	$('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' }) 	
  	})
 	</script>
 	
-   <%@ include file="../../0_hos_layout_topMenu.jsp"%>
+<%@ include file="/layout/sick_menu.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
@@ -43,7 +43,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal" method="post" action="doctor_list.jsp">
+              <form class="form-horizontal" method="post" action="sick_search_list.jsp">
                 <div class="card-body" style="height:300px; margin-left:20px;">
                  <div>
                   <label>진료타입</label>
@@ -112,5 +112,5 @@
 		</div>
 		<!-- ./wrapper -->
 
-	<%@ include file="../../0_all_layout_footer.jsp"%>
+<%@ include file="/layout/all_footer.jsp"%>
 

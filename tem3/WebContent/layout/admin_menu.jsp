@@ -105,16 +105,16 @@
             
                   <li class="nav-header"><small><strong>ADMIN MENU</strong></small></li>
                   
-                  <li class="nav-item"><a href="#" class="nav-link">
+                  <li class="nav-item"><a href="master_main.jsp" class="nav-link">
                         <p>메인</p>
                   </a></li>
-                  <li class="nav-item"><a href="#" class="nav-link">
+                  <li class="nav-item"><a href="master_search.jsp" class="nav-link">
                         <p>회원검색</p>
                   </a></li>
-                  <li class="nav-item"><a href="#" class="nav-link">
+                  <li class="nav-item"><a href="master_chart.jsp" class="nav-link">
                         <p>통계관리</p>
                   </a></li>
-                  <li class="nav-item"><a href="#" class="nav-link">
+                  <li class="nav-item"><a href="master_police.jsp" class="nav-link">
                         <p>신고리스트</p>
                   </a></li>
                   

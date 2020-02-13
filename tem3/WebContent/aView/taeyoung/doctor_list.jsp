@@ -3,8 +3,8 @@
 <%@include file="dbconnect.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     
-<%@ include file="../../0_hos_layout_header.jsp"%>
-<%@ include file="../../0_hos_layout_topMenu.jsp"%>
+<%@ include file="/layout/hos_head.jsp"%>
+<%@ include file="/layout/hos_menu.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
@@ -46,7 +46,7 @@
                 </div>
               </div>
               <!-- /.card-header -->
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="">
               <div class="card-body table-responsive p-0" style="height: 400px;">
                 <table class="table table-hover table-valign-middle">
                   <thead>
@@ -58,6 +58,27 @@
                     </tr>
                   </thead>
             		<tbody>
+            		<tr>
+                      <td>175</td>
+                      <td>김민정</td>
+                      <td>소아과</td>
+                      <td><a class="btn btn-block btn-default btn-sm" href="#">
+                              <i class="fas fa-trash">
+                              </i>
+                              	삭제
+                          </a></td>
+                    </tr>
+                    <tr>
+                      <td>134</td>
+                      <td>김주련</td>
+                      <td>내과</td>
+                      <td><a class="btn btn-block btn-default btn-sm" href="#">
+                              <i class="fas fa-trash">
+                              </i>
+                              	삭제
+                          </a></td>
+                    </tr>
+            		
             		<c:forEach items="${list}" var="dto">
                     <tr>
       			      <td>${dto.artrNo}</td>
@@ -73,7 +94,7 @@
                               	</i>Del</a>  삭제 기능 사용시 사용할 아이콘(del) --> 
                 </table>
               </div>
-			<a class="btn btn-block btn-info" href="doctor_add.jsp">의사추가</a>
+			<a class="btn btn-block btn-info" href="${pageContext.request.contextPath}/HDoctorAdd.do">의사추가</a>
        </form>
              
               
@@ -93,4 +114,6 @@
 		</div>
 		<!-- ./wrapper -->
 <br><br>
-	<%@ include file="../../0_all_layout_footer.jsp"%>
+<%@ include file="/layout/all_footer.jsp"%>
+</body>
+</html>

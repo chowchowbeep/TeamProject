@@ -3,13 +3,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
  <%@include file="dbconnect.jsp"%>
     
-<%@ include file="../../0_hos_layout_header.jsp"%>
+<%@ include file="/layout/sick_head.jsp"%>
 <style>
 .ty{
 cursor:pointer;
 }
 </style>
-<%@ include file="../../0_hos_layout_topMenu.jsp"%>
+<%@ include file="/layout/sick_menu.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
@@ -64,7 +64,7 @@ cursor:pointer;
                   </thead>
             		<tbody>
                     <tr>
-                      <td class="ty" onclick="location.href='sick_searchdetail.jsp'">[김민정]</td>
+                      <td class="ty" onclick="location.href='sick_search_detail.jsp'">[김민정]</td>
                       <td>[소아과]</td>
                       <td>[96/12/08]</td>
                       <td>[010-0000-0001]</td>
@@ -80,19 +80,19 @@ cursor:pointer;
                     </c:forEach>
                     
                     <tr>
-                      <td class="ty" onclick="location.href='sick_searchdetail.jsp'">[김태영]</td>
+                      <td class="ty" onclick="location.href='sick_search_detail.jsp'">[김태영]</td>
                       <td>[이비인후과]</td>
                       <td>[96/12/08]</td>
                       <td>[010-0000-0003]</td>
                     </tr>
                     <tr>
-                      <td class="ty" onclick="location.href='sick_searchdetail.jsp'">[이다연]</td>
+                      <td class="ty" onclick="location.href='sick_search_detail.jsp'">[이다연]</td>
                       <td>[소아과]</td>
                       <td>[96/12/08]</td>
                      <td>[010-0000-0004]</td>
                     </tr>
                     <tr>
-                      <td class="ty" onclick="location.href='sick_searchdetail.jsp'">[조선아]</td>
+                      <td class="ty" onclick="location.href='sick_search_detail.jsp'">[조선아]</td>
                       <td>[내과]</td>
                       <td>[]</td>
                       <td>[010-0000-0005]</td>
@@ -120,4 +120,4 @@ cursor:pointer;
 		</div>
 		<!-- ./wrapper -->
 <br><br>
-	<%@ include file="../../0_all_layout_footer.jsp"%>
+<%@ include file="/layout/all_footer.jsp"%>

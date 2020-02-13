@@ -111,16 +111,16 @@
 
 						<li class="nav-header"><small><strong>병원회원
 									메뉴</strong></small></li>
-						<li class="nav-item"><a href="#" class="nav-link">
+						<li class="nav-item"><a href="/tem3/aView/kjr/hospital_mymenu.jsp" class="nav-link">
 								<p>마이메뉴</p>
 						</a></li>
-						<li class="nav-item"><a href="#" class="nav-link">
+						<li class="nav-item"><a href="/tem3/aView/taeyoung/medi_all.jsp" class="nav-link">
 								<p>진료현황</p>
 						</a></li>
-						<li class="nav-item"><a href="#" class="nav-link">
+						<li class="nav-item"><a href="/tem3/aView/kjr/search_list.jsp" class="nav-link">
 								<p>회원정보 검색</p>
 						</a></li>
-						<li class="nav-item"><a href="#" class="nav-link">
+						<li class="nav-item"><a href="/tem3/aView/taeyoung/doctor_list.jsp" class="nav-link">
 								<p>의사목록 관리</p>
 						</a></li>
 						<li class="nav-item"><a href="#" class="nav-link">

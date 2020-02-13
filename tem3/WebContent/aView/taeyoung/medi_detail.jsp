@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ include file="../../0_hos_layout_header.jsp"%>
-<%@ include file="../../0_hos_layout_topMenu.jsp"%>
-
+<%@ include file="/layout/hos_head.jsp"%>
+<%@ include file="/layout/hos_menu.jsp"%>
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
@@ -26,7 +25,6 @@
 
 			<!-- Main content -->
 			<section class="content">
-
 				<!-- Default box -->
 				<div class="card-body pt-0" style="width: 360px;">
 					<div class="row d-flex align-items-stretch">
@@ -94,4 +92,4 @@
 			<!-- /.control-sidebar -->
 		</div>
 	<!-- ./wrapper -->
-<%@ include file="../../0_all_layout_footer.jsp"%>
+<%@ include file="/layout/all_footer.jsp"%>

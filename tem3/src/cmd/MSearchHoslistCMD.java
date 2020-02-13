@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 import command.Command;
 
 public class MSearchHoslistCMD implements Command {
-
-	@Override
+      
+	@Override  
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String path ="aView/kimmj/master-search-hoslist.jsp"; //
-		
+		  
 		return path;
 	}
-
+   
 }
