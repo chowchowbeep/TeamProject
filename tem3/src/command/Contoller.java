@@ -75,8 +75,8 @@ public class Contoller extends HttpServlet {
 		
 		cont.put("/HDoctorlist.do", new HDoctorlistCMD()); //H13 의사 리스트 페이지 로 이동
 		cont.put("/HDoctorAdd.do", new HDoctorAddCMD()); //H14 의사추가페이지 로 이동
-		
 		/*
+	
 		cont.put("/.do", new CMD()); //(병원)휴일 설정 페이지 로 이동
 		cont.put("/.do", new CMD()); //(의사)휴일 설정 페이지 로 이동
 		 
@@ -89,7 +89,7 @@ public class Contoller extends HttpServlet {
 		cont.put("/.do", new CMD()); //S5 접수증 생성 페이지
 		cont.put("/.do", new CMD()); //S6 약정보 조회 페이지
 		cont.put("/SearchList.do", new SearchListCMD()); //S7 검색 결과 리스트 페이지
-		cont.put("/.do", new CMD()); //S8 병원정보 상세조회 페이지
+		/*cont.put("/.do", new CMD()); //S8 병원정보 상세조회 페이지
 		cont.put("/.do", new CMD()); //S9~S14 메인 검색 페이지
 		cont.put("/.do", new CMD()); //S15 필터 페이지
 		cont.put("/.do", new CMD()); //S16 진료이력 리스트 페이지

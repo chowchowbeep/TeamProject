@@ -46,7 +46,7 @@
                 </div>
               </div>
               <!-- /.card-header -->
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="">
               <div class="card-body table-responsive p-0" style="height: 400px;">
                 <table class="table table-hover table-valign-middle">
                   <thead>
@@ -73,7 +73,7 @@
                               	</i>Del</a>  삭제 기능 사용시 사용할 아이콘(del) --> 
                 </table>
               </div>
-			<a class="btn btn-block btn-info" href="doctor_add.jsp">의사추가</a>
+			<a class="btn btn-block btn-info" href="${pageContext.request.contextPath}/HDoctorAdd.do">의사추가</a>
        </form>
              
               
