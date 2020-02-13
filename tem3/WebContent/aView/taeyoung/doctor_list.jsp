@@ -58,22 +58,24 @@
                     </tr>
                   </thead>
             		<tbody>
+            		<c:forEach items="${list}" var="dto">
                     <tr>
-      			     <td>artrNo</td>
-                      <td>artrName</td>
-                      <td>artrSub</td>
-                      <td><a class="btn btn-block btn-default btn-sm" href="#"> 
-                              <i class="fas fa-trash">
-                              </i>Del</a>
-                      </td>
-                    </tr>          
+      			      <td>${dto.artrNo}</td>
+      			      <td>${dto.hosId}</td>
+                      <td>${dto.artrName}</td>
+                      <td>${dto.artrSub}</td>
+                       </tr>
+                      </c:forEach>
+   
                   </tbody>
-
+								<!--a class="btn btn-block btn-default btn-sm" href="#"> 
+                              	<i class="fas fa-trash">
+                              	</i>Del</a>  삭제 기능 사용시 사용할 아이콘(del) --> 
                 </table>
               </div>
 			<a class="btn btn-block btn-info" href="doctor_add.jsp">의사추가</a>
        </form>
-              
+             
               
               <!-- /.card-body -->
             </div>

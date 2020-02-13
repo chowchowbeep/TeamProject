@@ -41,7 +41,7 @@
               <form class="form-horizontal" method="post" action="doctor_add_verify.jsp">
                 <div class="card-body" style="height:260px;">
                   <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label">의사이름</label>
+                    <label for="inputPassword3" class="col-sm-2 col-form-label" id=">의사이름</label>
                     <div class="col-sm-10">
                       <input type="text" class="form-control" id= "artrName" name="artrName"> <!-- value -->
                     </div>

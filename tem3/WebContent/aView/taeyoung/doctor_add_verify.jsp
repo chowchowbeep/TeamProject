@@ -6,7 +6,7 @@
 	request.setCharacterEncoding("UTF-8");
 
 	mySQL = "insert into ARTR_INFO" + "(ARTR_NO,HOS_ID,ARTR_NAME,ARTR_SUB)"
-			+ " values((1,?,?,?)";
+			+ " values((?,?,?,?)";
 	PreparedStatement pstmt = myConn.prepareStatement(mySQL);
 	pstmt.setString(2, request.getParameter("artrName"));
 	pstmt.setString(3, request.getParameter("artrSub"));

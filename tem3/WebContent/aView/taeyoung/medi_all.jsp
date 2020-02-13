@@ -85,6 +85,7 @@ table{
              </tr>
             </thead>
              <tbody>
+             <c:
                 <tr>
                   <td>[0001]</td>
                   <td>[조선아]<span class="badge bg-warning">NEW</span></td>
