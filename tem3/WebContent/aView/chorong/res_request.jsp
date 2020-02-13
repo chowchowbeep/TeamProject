@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%@ include file="../../0_sick_layout_header.jsp"%>
-<%@ include file="../../0_sick_layout_topMenu.jsp"%>
+<%@ include file="/layout/sick_menu.jsp"%>
+<%@ include file="/layout/sick_menu.jsp"%>
 
 
 <!-- 컨텐츠 위치 -->
@@ -479,7 +479,7 @@
 
 
 
-<%@ include file="../../0_all_layout_footer.jsp"%>
+<%@ include file="/layout/all_footer.jsp"%>
 
 
 	<!-- 유효성 체크 및 값 넘기기 -->

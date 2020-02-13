@@ -1,14 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@include file="dbconnect.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
- <%@include file="dbconnect.jsp"%>
+<%@include file="dbconnect.jsp"%>
     
 <%@ include file="../../0_hos_layout_header.jsp"%>
-<style>
-.ty{
-cursor:pointer;
-}
-</style>
 <%@ include file="../../0_hos_layout_topMenu.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
@@ -18,12 +14,12 @@ cursor:pointer;
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>sick_search_list</h1>
+							<h1>doctor_list</h1>
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
 								<li class="breadcrumb-item"><a href="#">홈</a></li>
-								<li class="breadcrumb-item active">환자관리</li>
+								<li class="breadcrumb-item active">의사관리</li>
 							</ol>
 						</div>
 					</div>
@@ -51,58 +47,36 @@ cursor:pointer;
                 </div>
               </div>
               <!-- /.card-header -->
-        <form class="form-horizontal" method="post" action="doctor_add.jsp">
-              <div class="card-body table-responsive p-0" style="height: 350px;">
+        <form class="form-horizontal">
+              <div class="card-body table-responsive p-0" style="height: 400px;">
                 <table class="table table-hover table-valign-middle">
                   <thead>
                     <tr>
-                      <th width="40%;">이름</th>
-                      <th width="35%;">진료</th>
-                      <th width="25%;">생년월일</th>
-                      <th width="15%;">번호</th>
+                      <th>번호</th>
+                      <th style="width:25%;">번호</th>
+                      <th style="width:25%;">이름</th>
+                      <th>과목</th>
                     </tr>
                   </thead>
             		<tbody>
+            		<c:forEach items="${list}" var="dto">
                     <tr>
-                      <td class="ty" onclick="location.href='sick_searchdetail.jsp'">[김민정]</td>
-                      <td>[소아과]</td>
-                      <td>[96/12/08]</td>
-                      <td>[010-0000-0001]</td>
-                    </tr>
-                    
-                    <c:forEach items="${list}" var="dto">
-                    <tr>
-                      <td><a href=sick_search_detail.jsp>${dto.getsicName()}</a></td>
-                      <td></td>
-                      <td>${dto.substr(ihidnum,6)}</td>
-                      <td>${dto.sicPhone}</td>
-                    </tr>
-                    </c:forEach>
-                    
-                    <tr>
-                      <td class="ty" onclick="location.href='sick_searchdetail.jsp'">[김태영]</td>
-                      <td>[이비인후과]</td>
-                      <td>[96/12/08]</td>
-                      <td>[010-0000-0003]</td>
-                    </tr>
-                    <tr>
-                      <td class="ty" onclick="location.href='sick_searchdetail.jsp'">[이다연]</td>
-                      <td>[소아과]</td>
-                      <td>[96/12/08]</td>
-                     <td>[010-0000-0004]</td>
-                    </tr>
-                    <tr>
-                      <td class="ty" onclick="location.href='sick_searchdetail.jsp'">[조선아]</td>
-                      <td>[내과]</td>
-                      <td>[]</td>
-                      <td>[010-0000-0005]</td>
-                    </tr>
+      			      <td>${dto.artrNo}</td>
+      			      <td>${dto.hosId}</td>
+                      <td>${dto.artrName}</td>
+                      <td>${dto.artrSub}</td>
+                       </tr>
+                      </c:forEach>
+   
                   </tbody>
+								<!--a class="btn btn-block btn-default btn-sm" href="#"> 
+                              	<i class="fas fa-trash">
+                              	</i>Del</a>  삭제 기능 사용시 사용할 아이콘(del) --> 
                 </table>
               </div>
-			<button type="submit" class="btn btn-block btn-info">목록가기</button>
+			<a class="btn btn-block btn-info" href="doctor_add.jsp">의사추가</a>
        </form>
-              
+             
               
               <!-- /.card-body -->
             </div>
