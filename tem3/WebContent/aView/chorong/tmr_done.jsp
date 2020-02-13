@@ -111,7 +111,7 @@
 						<div class="card-footer">
 							<button onclick="location.href='접수현황페이지'"
 								class="btn btn-secondary">확인</button>
-							<button onclick="" class="btn btn-secondary float-right">접수취소</button>
+							<button id="cancel" class="btn btn-secondary float-right">접수취소</button>
 						</div>
 					</div>
 					<!-- 
@@ -164,6 +164,12 @@
 <%@ include file="/layout/all_footer.jsp"%>
 <script>
 	//취소시 발생 이벤트
+	cancel.addEventListener("click", function(){
+		var chCancel = confirm("접수를 취소하시겠습니까?");
+		if(chCancel == true){
+			alert("접수가 취소되었습니다.");
+		} 
+	})
 </script>
 </body>
 </html>

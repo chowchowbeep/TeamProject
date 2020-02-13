@@ -50,7 +50,7 @@
 									</div>
 								</div>
 								<div class="icon"></div>
-								<a href="sick_detailList.jsp" class="small-box-footer"> 첨부하기
+								<a href="sick_detailList.jsp" id="attach1" class="small-box-footer"> 첨부하기
 									<i class="fas fa-arrow-circle-right"></i>
 								</a>
 							</div>
@@ -71,7 +71,7 @@
 
 								</div>
 								<div class="icon"></div>
-								<a href="sick_detailList.jsp" class="small-box-footer"> 첨부하기
+								<a href="sick_detailList.jsp" id="attach2" class="small-box-footer"> 첨부하기
 									<i class="fas fa-arrow-circle-right"></i>
 								</a>
 							</div>
@@ -85,7 +85,10 @@
 
 		</div>
 	</section>
+<script>
+	$('#')
 
+</script>
 
 </body>
 </html>

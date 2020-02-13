@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%@ include file="/layout/sick_menu.jsp"%>
+<%@ include file="/layout/sick_head.jsp"%>
 <%@ include file="/layout/sick_menu.jsp"%>
 
 
@@ -110,12 +110,11 @@
                     				id="toDr" name="toDr" placeholder="증상, 기타사항을 입력해주세요"> -->
 										</div>
 
-										<!-- 4. 기록물 업로드 버튼 구현 / 모달창 띄우기?? -->
+										<!-- 4. 기록물 업로드 버튼 구현 / 모달창 띄우기?? / 값 어떻게 담을지 체크하기 -->
 										<div class="form-group">
-											<label for="dcUpload">진료시 의료진이 참고할 기록물 첨부</label> <input
-												type="button" class="btn btn-default" id="dcUpload"
-												name="dcUpload" onclick="location.href='tmr_selectDcry.jsp'"
-												value="기록물 업로드">
+											<label for="dcUpload">진료시 의료진이 참고할 기록물 첨부</label> 
+											<input type="button" class="btn btn-default"
+											 id="dcUpload" name="dcUpload" value="기록물 업로드">
 										</div>
 
 
@@ -484,8 +483,18 @@
 
 	<!-- 유효성 체크 및 값 넘기기 -->
 <script>
+	//기록물 리스트 불러와서 값 넘기기 
+	dcUpload.addEventListener("click", function(){
+		//기록물리스트 가져올 수 있는 파라미터값 같이 넘기기 
+		//window.open("idcheck.jsp?cid="+id.value,"selDcry","width=350, height=550");
+		window.open("tmr_selectDcry.jsp","selDcry","width=350, height=550");
+	})
+	
 	// 필수입력사항체크 후 값 넘기도록
-
+	function idCheck(){
+		
+	}
+	
 	//신청가능여부 제어
 	//병원 스케줄(휴일을 예약가능날짜에서 제외, 영업상태속성확인)
 	//의사 스케줄(의사휴일을 예약가능날짜에서 제외)
