@@ -4,6 +4,7 @@
   
 <%@ include file="/layout/hos_head.jsp"%>
 <%@ include file="/layout/hos_menu.jsp"%>
+
    <!-- Main content -->
          <!-- Horizontal Form -->
  <section class="content">

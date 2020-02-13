@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="/layout/hos_head.jsp"%>
-
 <style>
 
  .float-right{ border: none;

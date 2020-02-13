@@ -164,7 +164,7 @@ table{
 <script>
 	$("tr").click(function() {
 		console.log("click");
-		location.href = "medi_detail".do";
+		location.href 
 	})
 </script>
 
