@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ include file="/layout/sick_head.jsp"%>
-<%@ include file="/layout/sick_menu.jsp"%>
+<%@ include file="/layout/hos_head.jsp"%>
+<%@ include file="/layout/hos_menu.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
@@ -26,7 +26,6 @@
 
 			<!-- Main content -->
 			<section class="content">
-
 				<!-- Default box -->
 				<div class="card-body pt-0" style="width: 360px;">
 					<div class="row d-flex align-items-stretch">

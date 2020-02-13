@@ -64,6 +64,7 @@ public class Contoller extends HttpServlet {
 		cont.put("/.do", new CMD()); //알림 팝업 페이지 로이동
 		cont.put("/.do", new CMD()); //진료신청 현황 리스트 페이지 로 이동
 		cont.put("/.do", new CMD()); //진료상세정보  페이지 로 이동
+		
 		cont.put("/.do", new CMD()); //기록물 업로드 페이지  로 이동
 		cont.put("/.do", new CMD()); //기록물 조회 페이지  로 이동
 		cont.put("/.do", new CMD()); //H8 회원정보 검색 페이지  로 이동

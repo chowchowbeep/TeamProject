@@ -3,8 +3,8 @@
 <%@include file="dbconnect.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     
-<%@ include file="/layout/sick_head.jsp"%>
-<%@ include file="/layout/sick_menu.jsp"%>
+<%@ include file="/layout/hos_head.jsp"%>
+<%@ include file="/layout/hos_menu.jsp"%>
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
@@ -57,6 +57,27 @@
                     </tr>
                   </thead>
             		<tbody>
+            		<tr>
+                      <td>175</td>
+                      <td>김민정</td>
+                      <td>소아과</td>
+                      <td><a class="btn btn-block btn-default btn-sm" href="#">
+                              <i class="fas fa-trash">
+                              </i>
+                              	삭제
+                          </a></td>
+                    </tr>
+                    <tr>
+                      <td>134</td>
+                      <td>김주련</td>
+                      <td>내과</td>
+                      <td><a class="btn btn-block btn-default btn-sm" href="#">
+                              <i class="fas fa-trash">
+                              </i>
+                              	삭제
+                          </a></td>
+                    </tr>
+            		
             		<c:forEach items="${list}" var="dto">
                     <tr>
       			      <td>${dto.artrNo}</td>

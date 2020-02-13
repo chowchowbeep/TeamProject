@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
   
-<%@ include file="/layout/sick_head.jsp"%>
-<%@ include file="/layout/sick_menu.jsp"%>
+<%@ include file="/layout/hos_head.jsp"%>
+<%@ include file="/layout/hos_menu.jsp"%>
    <!-- Main content -->
          <!-- Horizontal Form -->
  <section class="content">
@@ -15,7 +16,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal" method="post" action="doctor_add_verify.jsp">
+              <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/HDoctorlist.do">
                 <div class="card-body" style="height:300px;">
                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">의사이름</label>
