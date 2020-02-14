@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 
 
-<%@ include file="/layout/hos_head.jsp"%>
-<%@ include file="/layout/hos_menu.jsp"%>
+	<%@ include file="/layout/sick_head.jsp"%>
+	<%@ include file="/layout/sick_menu.jsp"%>
 
 	<!-- Content Wrapper. Contains page content -->
 	<div class="content-wrapper">
@@ -55,7 +55,9 @@
 									style="max-width: 750px; float: left;">
 									<div class="row no-gutters">
 										<div class="col-md-4">
-											<a href="sick_detailList.jsp"><img src="nyang.jpg"
+											<a href="sick_detailList.jsp">
+											
+											<img src="<%=request.getContextPath()%>/aView/chorong/nyang.jpg"
 												class="card-img" alt="..."></a>
 										</div>
 										<div class="col-md-8">
@@ -116,4 +118,8 @@
 		
 
 	
-<%@ include file="/layout/all_footer.jsp"%>
+	<%@ include file="/layout/all_footer.jsp"%>
+	
+	
+	</body>
+	</html>

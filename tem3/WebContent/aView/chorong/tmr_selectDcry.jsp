@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/layout/sick_head.jsp"%>
+<script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
 </head>
 <body>
 	<!-- Content Header (Page header) -->

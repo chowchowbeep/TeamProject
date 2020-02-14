@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.sql.*"%>
-
 <%@include file="dbconnect.jsp"%>
 <%
 	request.setCharacterEncoding("UTF-8");
@@ -15,7 +14,6 @@
 	pstmt.close();
 	myConn.close();
 %>
-
 <script>
 	alert("추가 되었습니다");
 	location.href = "doctor_list.jsp";

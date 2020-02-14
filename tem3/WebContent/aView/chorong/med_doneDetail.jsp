@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ include file="/layout/sick_head.jsp"%>
+<script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
 <%@ include file="/layout/sick_menu.jsp"%>
 
 <!-- 컨텐츠 위치 -->
@@ -91,7 +92,7 @@
 
 						<!-- 신청폼푸터 // 제출 및 기타 버튼 위치-->
 						<div class="card-footer">
-							<button onclick="location.href='목록페이지로'"
+							<button onclick="location.href='med_doneList.jsp'"
 								class="btn btn-secondary float-left">목록</button>
 							<span style="margin-left:50px;">
 							<button onclick="location.href='리뷰작성페이지로'"

@@ -9,11 +9,12 @@
 
 </script>
 
-<%@ include file="/layout/sick_menu.jsp"%>
+<%@ include file="/layout/admin_menu.jsp"%>
 
 
 <!-- 컨텐츠 입력부 -->
 테스트 페이지 입니다.
+<a href="/tem3/aView/chorong/tmr_request.jsp">접수신청</a>
 
 
 

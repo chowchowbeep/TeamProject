@@ -3,7 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ include file="/layout/sick_head.jsp"%>
+<script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
 <%@ include file="/layout/sick_menu.jsp"%>
+
 
 <!-- 컨텐츠 위치 -->
 <!-- Content Wrapper. Contains page content -->
@@ -90,12 +92,10 @@
 						진료신청현황 리스트 페이지로 이동 -->
 
 						<div class="card-footer">
-							<button onclick="location.href=''" class="btn btn-secondary">확인</button>
-							<button onclick="" class="btn btn-secondary float-right">예약취소</button>
+							<button onclick="toBeforeMedList();" class="btn btn-secondary">확인</button>
+							<button onclick="cancelRes();"
+								class="btn btn-secondary float-right">예약취소</button>
 						</div>
-
-
-
 
 
 					</div>
@@ -128,8 +128,8 @@
 										예약/접수하였다고 알려주세요.
 									</div>
 									<div>
-										<span style="font-weight: bold;"> 2.</span> 예약/접수를 취소하실 경우 패널티가
-										부여됩니다. (3회 취소시 서비스이용이 제한됩니다.)
+										<span style="font-weight: bold;"> 2.</span> 예약/접수를 취소하실 경우
+										패널티가 부여됩니다. (3회 취소시 서비스이용이 제한됩니다.)
 									</div>
 									<div>
 										<span style="font-weight: bold;"> 3.</span> 예약/접수는 병원사정으로 인해
@@ -154,9 +154,6 @@
 
 
 <%@ include file="/layout/all_footer.jsp"%>
-
-
-
 </body>
 </html>
 

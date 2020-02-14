@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ include file="/layout/sick_head.jsp"%>
+<script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
 <%@ include file="/layout/sick_menu.jsp"%>
 
 
@@ -415,7 +416,7 @@
 
 
 
-								<!-- 2. 예약시간선택_ 선택가능시간 제어 필요 -->
+								<!-- 2. 예약시간선택_ 선택가능시간 제어 필요_plsql로 선택가능한 시간만 표시되도록 할 것임 -->
 								<div class="form-group">
 									<label>예약시간선택</label> <br> <select class="custom-select"
 										id="hour" name="hour" style="width: 20%;">
@@ -451,7 +452,7 @@
 						<!-- 신청폼푸터 // 제출 및 기타 버튼 위치 -->
 						<!-- 5. 다음:예약날짜 선택 페이지로 이동 -->
 						<div class="card-footer">
-							<input type="submit" class="btn btn-secondary" value="이전">
+							<input type="reset" class="btn btn-secondary" value="초기화">
 							<input type="submit" class="btn btn-secondary float-right"
 								value="예약완료">
 							<!-- 
@@ -495,7 +496,7 @@
 		
 	}
 	
-	//신청가능여부 제어
+	//신청가능여부 제어_ plsql
 	//병원 스케줄(휴일을 예약가능날짜에서 제외, 영업상태속성확인)
 	//의사 스케줄(의사휴일을 예약가능날짜에서 제외)
 	//병원기본정보 등이필요.

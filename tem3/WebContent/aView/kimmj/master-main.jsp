@@ -121,13 +121,13 @@
 	</ul>
 
 
-	<button type="button" class="btn-lg">雀盔 包府</button>
+	<button type="button" class="btn-lg" onclick="location.href='master-search-normal.jsp'">雀盔 包府</button>
 	<br>
 	<br>
-	<button type="button" class="btn-lg">烹拌 包府</button>
+	<button type="button" class="btn-lg" onclick="location.href='master-chart.jsp'">烹拌 包府</button>
 	<br>
 	<br>
-	<button type="button" class="btn-lg">脚绊 包府</button>
+	<button type="button" class="btn-lg" onclick="location.href='master-police.jsp'">脚绊 包府</button>
 <br>
 
 </body>

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@ include file="/layout/sick_head.jsp"%>
 <style>
 .float-right{
@@ -61,7 +60,7 @@
                   <li class="list-group-item">
             <b>진료이력</b><textarea class="float-right">손가락 골절</textarea>
                   </li></ul>
-                <a href="../leedy/hospital_upload.jsp" class="btn btn-primary btn-block"><b>기록물 업로드</b></a>
+                <a href="../../aView/leedy/hospital_upload.jsp" class="btn btn-primary btn-block"><b>기록물 업로드</b></a>
           </form>
            </div>
               <!-- /.card-body -->

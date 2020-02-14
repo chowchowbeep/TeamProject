@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
  <%@include file="dbconnect.jsp"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     
 <%@ include file="/layout/sick_head.jsp"%>
 <style>
@@ -51,7 +52,7 @@ cursor:pointer;
                 </div>
               </div>
               <!-- /.card-header -->
-        <form class="form-horizontal" method="post" action="doctor_add.jsp">
+        <form class="form-horizontal" method="post" action="sick_search.jsp">
               <div class="card-body table-responsive p-0" style="height: 350px;">
                 <table class="table table-hover table-valign-middle">
                   <thead>
