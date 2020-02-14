@@ -67,11 +67,6 @@
 <p/><button onclick="location.href='SSickHealModify.do'">//S19 건강정보 수정 페이지 </button>
 <p/><button onclick="location.href='SMedBeforeMedList.do'"> //S20 진료신청현황 리스트 페이지</button>
 <p/><button onclick="location.href='STmrDetail.do'"> 진료신청현황 상세/취소 페이지(당일접수) </button>
-<p/><button onclick="location.href='SReviewWrite.do'">리뷰 작성 페이지 </button>
-<p/><button onclick="location.href='SReviewMylist.do'"> 내가 쓴 리뷰 리스트 페이지 </button>
-<p/><button onclick="location.href='SSickHealModify.do'"> 건강정보 수정 페이지</button>
-<p/><button onclick="location.href='SMedBeforeMedList.do'"> 진료신청현황 리스트 페이지 </button>
-<p/><button onclick="location.href='STmrDetail.do'">진료신청현황 상세/취소 페이지(당일접수)  </button>
 <p/><button onclick="location.href='SResDetail.do'">진료신청현황 상세/취소 페이지(예약)  </button>
 <p/><button onclick="location.href='SAroundMap.do'"> 주변 병원/약국 페이지 </button>
 <p/><button onclick="location.href='SResRequest.do'">예약신청 페이지</button>

@@ -3,6 +3,7 @@
 
 <%@ include file="/layout/hos_head.jsp"%>
 <%@ include file="/layout/hos_menu.jsp"%>
+
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
@@ -81,7 +82,7 @@
 					<br>
 					<div class="text-center">
 						<a href="#" class="btn btn-lg btn-info"> 완료 </a>&nbsp; <a
-							href="all.jsp" class="btn btn-lg btn-info"> 취소 </a>
+							href="medi_all.jsp" class="btn btn-lg btn-info"> 취소 </a>
 					</div>
 				</div>
 			</section>

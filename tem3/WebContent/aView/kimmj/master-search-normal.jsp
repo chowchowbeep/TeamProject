@@ -48,7 +48,7 @@ to {
 
 .info-box {
 	width: 270px;
-	height: 20px;
+	height: 10px;
 	text-align: center;
 	border: solid 1px;
 	font-size: 20px;
@@ -91,34 +91,31 @@ to {
 }
 
 .listof {
-	margin: 20px 10px 15px 25px;
-	height: 30px;
+	margin: 20px 10px 15px 20px;
 }
 
 .listof2 {
-	margin: 20px 10px 15px 10px;
-	height: 30px;
+	margin: 10px 10px 15px 5px;
 }
 
 .listof3 {
-	margin: 20px 10px 15px 5px;
-	height: 30px;
+	margin: 10px 0px 15px 0px;
 }
 
 .btn {
 	width: 150px;
 	height: 60px;
 	font-size: 18px;
-	margin: 60px 0px 0px 110px;
+	margin: 40px 0px 0px 110px;
 }
-
-.input {
-	margin-left: 135px;
-}
-
 </style>
 
+
 <%@ include file="/layout/admin_menu.jsp"%>
+
+
+
+
 
 <div class = "card">
 	<div class = "card-header text-center">
@@ -130,50 +127,55 @@ to {
 	</div>
 	<div class="card-body">
 		<div class="type">
-		<span class="info-box-small"> 
-		<span class="info-box-content"> 회원 유형 </span>
-		</span>
-		<span class="info-box-box"> 
-			&nbsp;&nbsp;&nbsp;
-		<input type="radio" name="type" value="all" checked>&nbsp;전체 &nbsp;&nbsp;&nbsp;
-		<input type="radio" name="type" value="standard">&nbsp;일반 &nbsp;&nbsp;&nbsp;
-		<input type="radio" name="type" value="hospital">&nbsp;병원
-		</span>
-		<br><br>
+			<span class="info-box-small">
+			<span class="info-box-content"> 회원 유형 </span>
+			</span> 
+			<span class="info-box-box"> &nbsp;&nbsp;&nbsp; 
+			<input type="radio" name="type" value="all" checked>&nbsp; 전체
+				&nbsp;&nbsp;&nbsp; <input type="radio" name="type" value="standard">&nbsp;일반
+				&nbsp;&nbsp;&nbsp; <input type="radio" name="type" value="hospital">&nbsp;병원
+			</span> 
+			<br> 
+			<br>
+		</div>
+		<div class="type">
+			<span class="info-box-small"> 
+			<span class="info-box-content"> 회원 등급 </span>
+			</span> 
+			<span class="info-box-box"> &nbsp;&nbsp;&nbsp; 
+			<input type="radio" name="type" value="all" checked>&nbsp;전체
+				&nbsp;&nbsp;&nbsp; <input type="radio" name="type" value="standard">&nbsp;일반
+				&nbsp;&nbsp;&nbsp; <input type="radio" name="type" value="hospital">&nbsp;제재
+			</span> 
+			<br>
+		</div>
+		<div class="detail">
+			<span class="info-box-small">
+				<span class="info-box-content"> 상세 검색 </span>
+			</span>
+		</div>
+		<div class="list">
+			<span class="listof"> 회원명&nbsp;&nbsp;&nbsp; <input type="text">
+			</span>
+		</div>
+		<div class="list">
+			<span class="listof2"> 전화번호&nbsp;&nbsp;&nbsp; <input
+				type="text">
+			</span>
+		</div>
+		<div class="list">
+			<span class="listof3"> 주민등록번호&nbsp;&nbsp;&nbsp; <input
+				type="text">
+			</span>
+		</div>
+		<div class="search">
+			<button type="button" class="btn btn-block btn-warning">
+				<b>검색</b>
+			</button>
+		</div>
 	</div>
-	<div class="type">
-		<span class="info-box-small"> 
-		<span class="info-box-content"> 회원 등급 </span>
-		</span>
-		<span class="info-box-box"> 
-			&nbsp;&nbsp;&nbsp;
-		<input type="radio" name="type" value="all" checked>&nbsp;전체 &nbsp;&nbsp;&nbsp;
-		<input type="radio" name="type" value="standard">&nbsp;우수 &nbsp;&nbsp;&nbsp;
-		<br><br>
-		<input type="radio" name="type" value="hospital" class = "input">&nbsp;일반 &nbsp;&nbsp;&nbsp;
-		<input type="radio" name="type" value="hospital">&nbsp;제재
-		</span>
-		<br>
-	</div>
-	<div class = "detail">
-		<span class = "info-box-small">
-		<span class = "info-box-content"> 상세 검색 </span>
-		</span>
-	</div>
-	<div class = "list">
-		<span class = "listof"> 병원명&nbsp;&nbsp;&nbsp;
-		<input type = "text"> </span>
-	</div>
-	<div class = "list">
-		<span class = "listof2"> 전화번호&nbsp;&nbsp;&nbsp;
-		<input type = "text"> </span>
-	</div>
+</div>
 
-	<div class = "search">
-		<button type = "button" class = "btn btn-block btn-warning"> <b>검색</b> </button>
-	</div>
-</div>
-</div>
 <%@ include file="/layout/all_footer.jsp"%>
 </body>
 </html>
