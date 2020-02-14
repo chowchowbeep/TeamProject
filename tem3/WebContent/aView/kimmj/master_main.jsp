@@ -128,7 +128,7 @@
 	<br>
 	<br>
 	<button type="button" class="btn-lg">신고 관리</button>
-
+<br>
 
 </body>
 </html>
