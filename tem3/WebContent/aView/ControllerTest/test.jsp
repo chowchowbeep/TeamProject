@@ -66,11 +66,11 @@
 
 
 
-<p/><button onclick="location.href='MPoliceDetail.do'"> </button>
-<p/><button onclick="location.href='MPoliceDetail.do'"> </button>
-<p/><button onclick="location.href='MPoliceDetail.do'"> </button>
-<p/><button onclick="location.href='MPoliceDetail.do'"> </button>
-<p/><button onclick="location.href='MPoliceDetail.do'"> </button>
+<p/><button onclick="location.href='SReviewWrite.do'">//S17 리뷰 작성 페이지 </button>
+<p/><button onclick="location.href='SReviewMylist.do'">//S18 내가 쓴 리뷰 리스트 페이지 </button>
+<p/><button onclick="location.href='SSickHealModify.do'">//S19 건강정보 수정 페이지 </button>
+<p/><button onclick="location.href='SMedBeforeMedList.do'"> //S20 진료신청현황 리스트 페이지</button>
+<p/><button onclick="location.href='STmrDetail.do'"> 진료신청현황 상세/취소 페이지(당일접수) </button>
 <p/><button onclick="location.href='MPoliceDetail.do'"> </button>
 <p/><button onclick="location.href='MPoliceDetail.do'"> </button>
 <p/><button onclick="location.href='MPoliceDetail.do'"> </button>

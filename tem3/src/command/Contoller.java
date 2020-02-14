@@ -36,12 +36,17 @@ import cmd.MSearchHoslistHosCMD;
 import cmd.MasterMainCMD;
 import cmd.MasterSearchNormalCMD;
 import cmd.SHospitalInfoCMD;
+import cmd.SMedBeforeMedListCMD;
 import cmd.SMedDoneDetailCMD;
 import cmd.SMedDoneListCMD;
 import cmd.SMenubarCMD;
+import cmd.SReviewMylistCMD;
+import cmd.SReviewWriteCMD;
+import cmd.SSickHealModifyCMD;
 import cmd.SSickMemModifyCMD;
 import cmd.SSickWjqtnCreateCMD;
 import cmd.SSickWjqtnwmdCMD;
+import cmd.STmrDetailCMD;
 import cmd.SsearchMainCMD;
 import cmd.TestCMD;
 import cmd.MSearchListCMD;
@@ -114,13 +119,14 @@ public class Contoller extends HttpServlet {
 		cont.put("/ShospitalInfo.do", new SHospitalInfoCMD()); //S15 필터 페이지
 		cont.put("/SMedDoneList.do", new SMedDoneListCMD()); //S16 진료이력 리스트 페이지
 		cont.put("/SMedDoneDetail.do", new SMedDoneDetailCMD()); // 진료이력 상세 페이지
-	/*	cont.put("/S.do", new CMD()); //S17 리뷰 작성 페이지
-		cont.put("/S.do", new CMD()); //S18 내가 쓴 리뷰 리스트 페이지
-		cont.put("/S.do", new CMD()); //S19 건강정보 수정 페이지
-		cont.put("/S.do", new CMD()); //S20 진료신청현황 리스트 페이지
-		cont.put("/S.do", new CMD()); //S21 진료신청현황 상세/취소 페이지(당일접수)
-/*		cont.put("/S.do", new CMD()); //S22 진료신청현황 상세/취소 페이지(예약)
-		cont.put("/S.do", new CMD()); //S23 주변 병원/약국 페이지
+		
+		cont.put("/SReviewWrite.do", new SReviewWriteCMD()); //S17 리뷰 작성 페이지
+		cont.put("/SReviewMylist.do", new SReviewMylistCMD()); //S18 내가 쓴 리뷰 리스트 페이지
+		cont.put("/SSickHealModify.do", new SSickHealModifyCMD()); //S19 건강정보 수정 페이지
+		cont.put("/SMedBeforeMedList.do", new SMedBeforeMedListCMD()); //S20 진료신청현황 리스트 페이지
+		cont.put("/STmrDetail.do", new STmrDetailCMD()); //S21 진료신청현황 상세/취소 페이지(당일접수)
+/*		cont.put("/Sres_detail.jsp.do", new CMD()); //S22 진료신청현황 상세/취소 페이지(예약)
+	/*	cont.put("/S.do", new CMD()); //S23 주변 병원/약국 페이지
 		cont.put("/S.do", new CMD()); //S24 예약신청 페이지
 		cont.put("/S.do", new CMD()); //S25 예약날짜 선택 페이지
 		cont.put("/S.do", new CMD()); //S26 예약시간 선택 페이지
