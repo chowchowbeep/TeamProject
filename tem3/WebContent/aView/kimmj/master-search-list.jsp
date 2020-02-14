@@ -6,7 +6,6 @@
 keyframes chartjs-render-animation {
 	from {opacity: .99
 }
-
 to {
 	opacity: 1
 }
