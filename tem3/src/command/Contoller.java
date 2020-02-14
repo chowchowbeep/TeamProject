@@ -12,7 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import cmd.HDoctorAddCMD;
 import cmd.HDoctorlistCMD;
+import cmd.HHospitalInquiryCMD;
 import cmd.HMenubarCMD;
+import cmd.HSickSearchCMD;
+import cmd.HSickSearchDetailCMD;
+import cmd.HSickSearchListCMD;
+import cmd.HHospitalMainCMD;
+import cmd.HHospitalMymenuCMD;
+import cmd.HHospitalProfileCMD;
+import cmd.HHospitalUploadCMD;
+import cmd.HMediAllCMD;
+import cmd.HMediDetailCMD;
+import cmd.HMediReserveCMD;
+import cmd.HMediWjqtnCMD;
 import cmd.MChartCMD;
 import cmd.MChartDetailCMD;
 import cmd.MMenubarCMD;
@@ -24,6 +36,7 @@ import cmd.MSearchHoslistHosCMD;
 import cmd.MasterMainCMD;
 import cmd.MasterSearchNormalCMD;
 import cmd.SMenubarCMD;
+import cmd.TestCMD;
 import cmd.MSearchListCMD;
 import cmd.MSearchListNormalCMD;
 import kjr.cmd.SearchListCMD;
@@ -40,6 +53,8 @@ public class Contoller extends HttpServlet {
 	   
 	
 	public void init(ServletConfig config) throws ServletException {
+		//컨트롤러 테스트 페이지
+		cont.put("/Test.do", new TestCMD()); 
 		
 		//관리자관련 페이지
 		cont.put("/MMain.do", new MasterMainCMD()); //관리자 메인페이지로 이동
@@ -57,31 +72,28 @@ public class Contoller extends HttpServlet {
 		cont.put("/MMenubar.do", new MMenubarCMD()); //관리자 메뉴바페이지로 이동
 		cont.put("/HMenubar.do", new HMenubarCMD()); //병원회원 메뉴바페이지로 이동
 		cont.put("/SMenubar.do", new SMenubarCMD()); //일반회원 메뉴바페이지로 이동
-		/*
+		
 		//병원회원관련 페이지
-		cont.put("/.do", new CMD()); //병원회원용 회원가입 페이지 로 이동
-		cont.put("/.do", new CMD()); //병원회원 메인페이지 로 이동
-		cont.put("/.do", new CMD()); //알림 팝업 페이지 로이동
-		cont.put("/.do", new CMD()); //진료신청 현황 리스트 페이지 로 이동
-		cont.put("/.do", new CMD()); //진료상세정보  페이지 로 이동
-		
-		cont.put("/.do", new CMD()); //기록물 업로드 페이지  로 이동
-		cont.put("/.do", new CMD()); //기록물 조회 페이지  로 이동
-		cont.put("/.do", new CMD()); //H8 회원정보 검색 페이지  로 이동
-		cont.put("/.do", new CMD()); //H9 회원정보 검색 리스트 페이지  로 이동
-		cont.put("/.do", new CMD()); //H10 회원정보 검색 결과 상세 페이지  로 이동
-		cont.put("/.do", new CMD()); //H11 마이메뉴 페이지  로 이동
-		cont.put("/.do", new CMD()); //H12 병원회원 수정 페이지  로 이동
-		*/
-		
+	//	cont.put("/HhosSinup.do", new HhosSinupCMD()); //병원회원용 회원가입 페이지 로 이동
+		cont.put("/HHospitalMain.do", new HHospitalMainCMD()); //병원회원 메인페이지 로 이동
+	//	cont.put("/Hpopup.do", new HpopupCMD()); //알림 팝업 페이지 로이동
+		cont.put("/HMediAll.do", new HMediAllCMD()); //(전체)진료신청 현황 리스트 페이지 로 이동
+		cont.put("/HMediWjqtn.do", new HMediWjqtnCMD()); //(당일접수)진료신청 현황 리스트 페이지 로 이동
+		cont.put("/HMediReserve.do", new HMediReserveCMD()); //(예약)진료신청 현황 리스트 페이지 로 이동
+		cont.put("/HMediDetail.do", new HMediDetailCMD()); //진료상세정보  페이지 로 이동
+		cont.put("/HHospitalUpload.do", new HHospitalUploadCMD()); //기록물 업로드 페이지  로 이동
+		cont.put("/HHospitalInquiry.do", new HHospitalInquiryCMD()); //기록물 조회 페이지  로 이동
+		cont.put("/HSickSearch.do", new HSickSearchCMD()); //H8 회원정보 검색 페이지  로 이동
+		cont.put("/HSickSearchList.do", new HSickSearchListCMD()); //H9 회원정보 검색 리스트 페이지  로 이동
+		cont.put("/HSickSearchDetail.do", new HSickSearchDetailCMD()); //H10 회원정보 검색 결과 상세 페이지  로 이동
+		cont.put("/HHospitalMymenu.do", new HHospitalMymenuCMD()); //H11 마이메뉴 페이지  로 이동
+		cont.put("/HHospitalProfile.do", new HHospitalProfileCMD()); //H12 병원회원 수정 페이지  로 이동
 		cont.put("/HDoctorlist.do", new HDoctorlistCMD()); //H13 의사 리스트 페이지 로 이동
 		cont.put("/HDoctorAdd.do", new HDoctorAddCMD()); //H14 의사추가페이지 로 이동
-		/*
-	
-		cont.put("/.do", new CMD()); //(병원)휴일 설정 페이지 로 이동
-		cont.put("/.do", new CMD()); //(의사)휴일 설정 페이지 로 이동
+	//	cont.put("/.do", new CMD()); //(병원)휴일 설정 페이지 로 이동
+	//	cont.put("/.do", new CMD()); //(의사)휴일 설정 페이지 로 이동
 		 
-		
+		/*
 		//일반회원관련 페이지
 		cont.put("/.do", new CMD()); //S1 일반회원 회원가입 페이지 로 이동 
 		cont.put("/SickMain.do", new SickMainCMD()); 		//S2일반회원 메인페이지로 이동
