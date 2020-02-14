@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/0_admin_layout_header.jsp"%>
-<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+<%@ include file="/layout/admin_head.jsp"%>
 <style type="text/css">/* Chart.js */
 @
 keyframes chartjs-render-animation {
@@ -76,7 +75,7 @@ to {
 	height: 200px;
 	border: solid 1px;
 	align: center;
-	margin-left: 50px;
+	margin-left: 30px;
 	padding: 10px;
 }
 
@@ -91,36 +90,35 @@ to {
 
 </style>
 
-<%@ include file="/0_admin_layout_topMenu.jsp"%>
+<%@ include file="/layout/admin_menu.jsp"%>
 
-<div class="col-md-4" align="center">
-	<div class="info-box mb-3">
-		<div class="info-box-content">
-			<span class="info-box-text"> <b>회원 관리</b></span>
+<div class = "card">
+	<div class = "card-header text-center">
+		<div class = "text-center" style = "padding: 10px 0px 0px 0px">
+			<h4>
+				<b>회원 관리</b>
+			</h4>
 		</div>
+	</div>
+	<div class="card-body">
+	<table class = "listbox">
+		<tr>
+			<td>
+				<ion-icon name="person-circle-outline" size = "large" 
+				style = "width: 100px; height: 100px; margin: 0px 0px 10px 10px;"></ion-icon>
+				<div class = "name"><b> 조선아 </b></div>
+			</td>
+			<td class = "info">
+				<p><b> 회원 ID: </b>sunamanse </p>
+				<p><b> 회원 등급: </b>일반 </p>
+				<p><b> 패널티 현황: </b>0회 </p>
+				<p><b> 신고 현황: </b>2회 </p>
+			</td>
+		</tr>
+	</table>
 	</div>
 </div>
 
-<table class = "listbox">
-	<tr>
-		<td>
-			<ion-icon name="person-circle-outline" size = "large" 
-			style = "width: 100px; height: 100px; margin: 0px 0px 10px 10px;"></ion-icon>
-			<div class = "name"><b> 조선아 </b></div>
-		</td>
-		<td class = "info">
-			<p><b> 회원 ID: </b>sunamanse </p>
-			<p><b> 회원 등급: </b>일반 </p>
-			<p><b> 패널티 현황: </b>0회 </p>
-			<p><b> 신고 현황: </b>2회 </p>
-		</td>
-	</tr>
-</table>
-
-
-
-
-</div>
-</aside>
+<%@ include file="/layout/all_footer.jsp"%>
 </body>
 </html>

@@ -104,7 +104,7 @@ to {
 		<table cellpadding = "5px" class = "listbox">
 			<tr>
 				<td>
-				<ion-icon name="person-circle-outline" size = "large" 
+				<ion-icon name="business" size = "large" 
 				style = "width: 100px; height: 100px; margin: 0px 0px 10px 10px;"></ion-icon>
 				<div class = "name"><b> 조선아 </b></div>
 			</td>
@@ -116,7 +116,7 @@ to {
 			</td>
 		</tr>
 		<tr>
-			<td colspan = "2"> <b>&nbsp;&nbsp;&nbsp;패널티 현황: </b>0회
+			<td colspan = "2"> <b>&nbsp;&nbsp;&nbsp;사업자 등록번호: </b>123-45789
 			</td>
 		</tr>
 		<tr>

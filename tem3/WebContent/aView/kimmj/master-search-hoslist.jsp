@@ -101,39 +101,22 @@ to {
 		</div>
 	</div>
 	<div class="card-body">
-		<table cellpadding = "5px" class = "listbox">
-			<tr>
-				<td>
-				<ion-icon name="person-circle-outline" size = "large" 
+	<table class = "listbox">
+		<tr>
+			<td>
+				<ion-icon name="business" size = "large" 
 				style = "width: 100px; height: 100px; margin: 0px 0px 10px 10px;"></ion-icon>
-				<div class = "name"><b> 조선아 </b></div>
+				<div class = "name"><b> 예담병원 </b></div>
 			</td>
 			<td class = "info">
 				<p><b> 회원 ID: </b>sunamanse </p>
 				<p><b> 회원 등급: </b>일반 </p>
-				<p><b> 연락처: </b>010-8401-0523 </p>
-				<p><b> 주소: </b>대구광역시 중구 상서로 예담직업전문학교 </p>
-			</td>
-		</tr>
-		<tr>
-			<td colspan = "2"> <b>&nbsp;&nbsp;&nbsp;패널티 현황: </b>0회
-			</td>
-		</tr>
-		<tr>
-			<td colspan = "2"> <b>&nbsp;&nbsp;&nbsp;신고 현황: </b>2회<br>
-						  		 · 과잉 진료 신고(2020.01.11)<br>
-						 		  · 빻은 의사 신고(2020.02.05)
-			</td>
-			</tr>
-		<tr>
-			<td colspan = "2"> <b>&nbsp;&nbsp;&nbsp;리뷰 현황: </b>1회<br>
-						 	  · 서나의원 리뷰(2020.01.07)<br>
+				<p><b> 신고 현황: </b>2회 </p>
 			</td>
 		</tr>
 	</table>
 	</div>
 </div>
-
 
 <%@ include file="/layout/all_footer.jsp"%>
 </body>
