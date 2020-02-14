@@ -35,11 +35,15 @@ import cmd.MSearchHoslistCMD;
 import cmd.MSearchHoslistHosCMD;
 import cmd.MasterMainCMD;
 import cmd.MasterSearchNormalCMD;
+import cmd.SAroundMapCMD;
 import cmd.SHospitalInfoCMD;
 import cmd.SMedBeforeMedListCMD;
 import cmd.SMedDoneDetailCMD;
 import cmd.SMedDoneListCMD;
 import cmd.SMenubarCMD;
+import cmd.SResDetailCMD;
+import cmd.SResDoneCMD;
+import cmd.SResRequestCMD;
 import cmd.SReviewMylistCMD;
 import cmd.SReviewWriteCMD;
 import cmd.SSickHealModifyCMD;
@@ -47,6 +51,8 @@ import cmd.SSickMemModifyCMD;
 import cmd.SSickWjqtnCreateCMD;
 import cmd.SSickWjqtnwmdCMD;
 import cmd.STmrDetailCMD;
+import cmd.STmrDoneCMD;
+import cmd.STmrRequestCMD;
 import cmd.SsearchMainCMD;
 import cmd.TestCMD;
 import cmd.MSearchListCMD;
@@ -125,15 +131,16 @@ public class Contoller extends HttpServlet {
 		cont.put("/SSickHealModify.do", new SSickHealModifyCMD()); //S19 건강정보 수정 페이지
 		cont.put("/SMedBeforeMedList.do", new SMedBeforeMedListCMD()); //S20 진료신청현황 리스트 페이지
 		cont.put("/STmrDetail.do", new STmrDetailCMD()); //S21 진료신청현황 상세/취소 페이지(당일접수)
-/*		cont.put("/Sres_detail.jsp.do", new CMD()); //S22 진료신청현황 상세/취소 페이지(예약)
-	/*	cont.put("/S.do", new CMD()); //S23 주변 병원/약국 페이지
-		cont.put("/S.do", new CMD()); //S24 예약신청 페이지
-		cont.put("/S.do", new CMD()); //S25 예약날짜 선택 페이지
-		cont.put("/S.do", new CMD()); //S26 예약시간 선택 페이지
-		cont.put("/S.do", new CMD()); //S27 예약완료 페이지
-		cont.put("/S.do", new CMD()); //S28 당일접수 신청 페이지
-		cont.put("/S.do", new CMD()); //S29 당일접수 완료 페이지
-		cont.put("/S.do", new CMD()); //S30 관심병원 리스트 페이지
+		cont.put("/SResDetail.do", new SResDetailCMD()); //S22 진료신청현황 상세/취소 페이지(예약)
+		cont.put("/SAroundMap.do", new SAroundMapCMD()); //S23 주변 병원/약국 페이지
+		cont.put("/SResRequest.do", new SResRequestCMD()); //S24 예약신청 페이지
+	//	cont.put("/S.do", new CMD()); //S25 예약날짜 선택 페이지
+	//	cont.put("/S.do", new CMD()); //S26 예약시간 선택 페이지
+		cont.put("/SResDone.do", new SResDoneCMD()); //S27 예약완료 페이지
+		cont.put("/STmrRequest.do", new STmrRequestCMD()); //S28 당일접수 신청 페이지
+		cont.put("/STmrDone.do", new STmrDoneCMD()); //S29 당일접수 완료 페이지
+		
+	/*	cont.put("/S.do", new CMD()); //S30 관심병원 리스트 페이지
 		cont.put("/S.do", new CMD()); //S31 기록물-기록물 리스트페이지
 		cont.put("/S.do", new CMD()); //S32 서류-기록물 리스트페이지
 		cont.put("/S.do", new CMD()); //S33 (진료신청시)기록물 선택 페이지
