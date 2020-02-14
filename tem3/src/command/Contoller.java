@@ -35,7 +35,14 @@ import cmd.MSearchHoslistCMD;
 import cmd.MSearchHoslistHosCMD;
 import cmd.MasterMainCMD;
 import cmd.MasterSearchNormalCMD;
+import cmd.SHospitalInfoCMD;
+import cmd.SMedDoneDetailCMD;
+import cmd.SMedDoneListCMD;
 import cmd.SMenubarCMD;
+import cmd.SSickMemModifyCMD;
+import cmd.SSickWjqtnCreateCMD;
+import cmd.SSickWjqtnwmdCMD;
+import cmd.SsearchMainCMD;
 import cmd.TestCMD;
 import cmd.MSearchListCMD;
 import cmd.MSearchListNormalCMD;
@@ -93,40 +100,40 @@ public class Contoller extends HttpServlet {
 	//	cont.put("/.do", new CMD()); //(병원)휴일 설정 페이지 로 이동
 	//	cont.put("/.do", new CMD()); //(의사)휴일 설정 페이지 로 이동
 		 
-		/*
+		
 		//일반회원관련 페이지
-		cont.put("/.do", new CMD()); //S1 일반회원 회원가입 페이지 로 이동 
-		cont.put("/SickMain.do", new SickMainCMD()); 		//S2일반회원 메인페이지로 이동
-		cont.put("/.do", new CMD()); //S3 회원정보 수정 페이지
-		cont.put("/.do", new CMD()); //S4 접수증 페이지(QR)
-		cont.put("/.do", new CMD()); //S5 접수증 생성 페이지
-		cont.put("/.do", new CMD()); //S6 약정보 조회 페이지
-		cont.put("/SearchList.do", new SearchListCMD()); //S7 검색 결과 리스트 페이지
-		/*cont.put("/.do", new CMD()); //S8 병원정보 상세조회 페이지
-		cont.put("/.do", new CMD()); //S9~S14 메인 검색 페이지
-		cont.put("/.do", new CMD()); //S15 필터 페이지
-		cont.put("/.do", new CMD()); //S16 진료이력 리스트 페이지
-		cont.put("/.do", new CMD()); // 진료이력 상세 페이지
-		cont.put("/.do", new CMD()); //S17 리뷰 작성 페이지
-		cont.put("/.do", new CMD()); //S18 내가 쓴 리뷰 리스트 페이지
-		cont.put("/.do", new CMD()); //S19 건강정보 수정 페이지
-		cont.put("/.do", new CMD()); //S20 진료신청현황 리스트 페이지
-		cont.put("/.do", new CMD()); //S21 진료신청현황 상세/취소 페이지(당일접수)
-		cont.put("/.do", new CMD()); //S22 진료신청현황 상세/취소 페이지(예약)
-		cont.put("/.do", new CMD()); //S23 주변 병원/약국 페이지
-		cont.put("/.do", new CMD()); //S24 예약신청 페이지
-		cont.put("/.do", new CMD()); //S25 예약날짜 선택 페이지
-		cont.put("/.do", new CMD()); //S26 예약시간 선택 페이지
-		cont.put("/.do", new CMD()); //S27 예약완료 페이지
-		cont.put("/.do", new CMD()); //S28 당일접수 신청 페이지
-		cont.put("/.do", new CMD()); //S29 당일접수 완료 페이지
-		cont.put("/.do", new CMD()); //S30 관심병원 리스트 페이지
-		cont.put("/.do", new CMD()); //S31 기록물-기록물 리스트페이지
-		cont.put("/.do", new CMD()); //S32 서류-기록물 리스트페이지
-		cont.put("/.do", new CMD()); //S33 (진료신청시)기록물 선택 페이지
-		cont.put("/.do", new CMD()); //S34 기록물 상세 페이지
-		cont.put("/.do", new CMD()); //S35 기록물 업로드 페이지
-		cont.put("/.do", new CMD()); //S36 병원 신고 페이지
+	//	cont.put("/S.do", new CMD()); //S1 일반회원 회원가입 페이지 로 이동 
+		cont.put("/SSickMain.do", new SickMainCMD()); 		//S2일반회원 메인페이지로 이동
+		cont.put("/SSickMemModify.do", new SSickMemModifyCMD()); //S3 회원정보 수정 페이지
+		cont.put("/SSickWjqtnwmd.do", new SSickWjqtnwmdCMD()); //S4 접수증 페이지(QR)
+		cont.put("/SSickWjqtnCreate.do", new SSickWjqtnCreateCMD()); //S5 접수증 생성 페이지
+	//	cont.put("/S.do", new CMD()); //S6 약정보 조회 페이지
+		cont.put("/SSearchList.do", new SearchListCMD()); //S7 검색 결과 리스트 페이지
+		cont.put("/SHospitalInfo.do", new SHospitalInfoCMD()); //S8 병원정보 상세조회 페이지
+		cont.put("/SsearchMain.do", new SsearchMainCMD()); //S9~S14 메인 검색 페이지
+		cont.put("/ShospitalInfo.do", new SHospitalInfoCMD()); //S15 필터 페이지
+		cont.put("/SMedDoneList.do", new SMedDoneListCMD()); //S16 진료이력 리스트 페이지
+		cont.put("/SMedDoneDetail.do", new SMedDoneDetailCMD()); // 진료이력 상세 페이지
+	/*	cont.put("/S.do", new CMD()); //S17 리뷰 작성 페이지
+		cont.put("/S.do", new CMD()); //S18 내가 쓴 리뷰 리스트 페이지
+		cont.put("/S.do", new CMD()); //S19 건강정보 수정 페이지
+		cont.put("/S.do", new CMD()); //S20 진료신청현황 리스트 페이지
+		cont.put("/S.do", new CMD()); //S21 진료신청현황 상세/취소 페이지(당일접수)
+/*		cont.put("/S.do", new CMD()); //S22 진료신청현황 상세/취소 페이지(예약)
+		cont.put("/S.do", new CMD()); //S23 주변 병원/약국 페이지
+		cont.put("/S.do", new CMD()); //S24 예약신청 페이지
+		cont.put("/S.do", new CMD()); //S25 예약날짜 선택 페이지
+		cont.put("/S.do", new CMD()); //S26 예약시간 선택 페이지
+		cont.put("/S.do", new CMD()); //S27 예약완료 페이지
+		cont.put("/S.do", new CMD()); //S28 당일접수 신청 페이지
+		cont.put("/S.do", new CMD()); //S29 당일접수 완료 페이지
+		cont.put("/S.do", new CMD()); //S30 관심병원 리스트 페이지
+		cont.put("/S.do", new CMD()); //S31 기록물-기록물 리스트페이지
+		cont.put("/S.do", new CMD()); //S32 서류-기록물 리스트페이지
+		cont.put("/S.do", new CMD()); //S33 (진료신청시)기록물 선택 페이지
+		cont.put("/S.do", new CMD()); //S34 기록물 상세 페이지
+		cont.put("/S.do", new CMD()); //S35 기록물 업로드 페이지
+		cont.put("/S.do", new CMD()); //S36 병원 신고 페이지
 		
 
 		cont.put("/.do", new CMD()); // 알림아이콘

@@ -24,6 +24,8 @@
 <p/><button onclick="location.href='MPolice.do'">신고 리스트 페이지로 이동</button>
 <p/><button onclick="location.href='MPoliceDetail.do'">상세-신고 페이지로 이동</button>
 </div>
+
+<DIV>
 <h3 id="h">병원회원 컨트롤러 테스트</h3>
 <p/>병원회원 메인페이지 (컨트롤러x)
 <p/><button onclick="location.href='HHospitalMain.do'">병원회원 메인페이지 로 이동</button>
@@ -43,11 +45,43 @@
 <p/><button onclick="location.href='HDoctorAdd.do'">의사추가페이지 로 이동 </button>
 <p/>병원 휴일 설정 페이지 (컨트롤러x)
 <p/>의사 휴일 설정 페이지 (컨트롤러x)
+</DIV>
+
+
+<DIV>
+<h3 id="h">일반회원 컨트롤러 테스트</h3>
+<p/>일반회원 회원가입 페이지  (컨트롤러x)
+<p/><button onclick="location.href='SSickMain.do'"> 일반회원 메인페이지로 이동 </button>
+<p/><button onclick="location.href='SSickMemModify.do'"> 회원정보 수정 페이지 </button>
+<p/><button onclick="location.href='SSickWjqtnwmd.do'"> 접수증 페이지(QR) </button>
+<p/><button onclick="location.href='SSickWjqtnCreate.do'"> 접수증 생성 페이지 </button>
+<p/>약정보 조회 페이지  (컨트롤러x)
+<p/><button onclick="location.href='SSearchList.do'"> 검색 결과 리스트 페이지 </button>
+<p/><button onclick="location.href='SHospitalInfo.do'">  병원정보 상세조회 페이지 </button>
+<p/><button onclick="location.href='SsearchMain.do'"> 메인 검색 페이지 </button>
+<p/><button onclick="location.href='ShospitalInfo.do'"> 필터 페이지 </button>
+<p/><button onclick="location.href='SMedDoneList.do'"> 진료이력 리스트 페이지 </button>
+<p/><button onclick="location.href='SMedDoneDetail.do'"> 진료이력 상세 페이지 </button>
+</DIV>
 
 
 
-
-
+<p/><button onclick="location.href='MPoliceDetail.do'"> </button>
+<p/><button onclick="location.href='MPoliceDetail.do'"> </button>
+<p/><button onclick="location.href='MPoliceDetail.do'"> </button>
+<p/><button onclick="location.href='MPoliceDetail.do'"> </button>
+<p/><button onclick="location.href='MPoliceDetail.do'"> </button>
+<p/><button onclick="location.href='MPoliceDetail.do'"> </button>
+<p/><button onclick="location.href='MPoliceDetail.do'"> </button>
+<p/><button onclick="location.href='MPoliceDetail.do'"> </button>
+<p/><button onclick="location.href='MPoliceDetail.do'"> </button>
+<p/><button onclick="location.href='MPoliceDetail.do'"> </button>
+<p/><button onclick="location.href='MPoliceDetail.do'"> </button>
+<p/><button onclick="location.href='MPoliceDetail.do'"> </button>
+<p/><button onclick="location.href='MPoliceDetail.do'"> </button>
+<p/><button onclick="location.href='MPoliceDetail.do'"> </button>
+<p/><button onclick="location.href='MPoliceDetail.do'"> </button>
+<p/><button onclick="location.href='MPoliceDetail.do'"> </button>
 <p/><button onclick="location.href='MPoliceDetail.do'"> </button>
 </body>
 </html>
