@@ -14,7 +14,6 @@
 	pstmt.close();
 	myConn.close();
 %>
-
 <script>
 	alert("추가 되었습니다");
 	location.href = "doctor_list.jsp";
