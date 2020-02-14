@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/layout/hos_head.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<%@ include file="/layout/hos_head.jsp"%>
 <style>
 .float-right{
  border: none;
@@ -164,7 +164,7 @@ table{
 <script>
 	$("tr").click(function() {
 		console.log("click");
-		location.href 
+		location.href = "${pageContext.request.contextPath}/HDoctorlist.do";
 	})
 </script>
 

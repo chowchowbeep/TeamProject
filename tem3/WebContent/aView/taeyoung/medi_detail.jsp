@@ -81,7 +81,7 @@
 					<br>
 					<div class="text-center">
 						<a href="#" class="btn btn-lg btn-info"> 완료 </a>&nbsp; <a
-							href="all.jsp" class="btn btn-lg btn-info"> 취소 </a>
+							href="medi_all.jsp" class="btn btn-lg btn-info"> 취소 </a>
 					</div>
 				</div>
 			</section>
