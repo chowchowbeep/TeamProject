@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@include file="dbconnect.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-    
 <%@ include file="/layout/hos_head.jsp"%>
 <%@ include file="/layout/hos_menu.jsp"%>
 
