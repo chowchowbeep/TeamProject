@@ -36,6 +36,7 @@ import cmd.MSearchHoslistHosCMD;
 import cmd.MasterMainCMD;
 import cmd.MasterSearchNormalCMD;
 import cmd.SAroundMapCMD;
+import cmd.SBookmarkCMD;
 import cmd.SHospitalInfoCMD;
 import cmd.SMedBeforeMedListCMD;
 import cmd.SMedDoneDetailCMD;
@@ -46,13 +47,18 @@ import cmd.SResDoneCMD;
 import cmd.SResRequestCMD;
 import cmd.SReviewMylistCMD;
 import cmd.SReviewWriteCMD;
+import cmd.SSickDetailListCMD;
+import cmd.SSickDocuListCMD;
 import cmd.SSickHealModifyCMD;
+import cmd.SSickMediaListCMD;
 import cmd.SSickMemModifyCMD;
+import cmd.SSickUploadCMD;
 import cmd.SSickWjqtnCreateCMD;
 import cmd.SSickWjqtnwmdCMD;
 import cmd.STmrDetailCMD;
 import cmd.STmrDoneCMD;
 import cmd.STmrRequestCMD;
+import cmd.STmrSelectDcryCMD;
 import cmd.SsearchMainCMD;
 import cmd.TestCMD;
 import cmd.MSearchListCMD;
@@ -140,27 +146,22 @@ public class Contoller extends HttpServlet {
 		cont.put("/STmrRequest.do", new STmrRequestCMD()); //S28 당일접수 신청 페이지
 		cont.put("/STmrDone.do", new STmrDoneCMD()); //S29 당일접수 완료 페이지
 		
-	/*	cont.put("/S.do", new CMD()); //S30 관심병원 리스트 페이지
-		cont.put("/S.do", new CMD()); //S31 기록물-기록물 리스트페이지
-		cont.put("/S.do", new CMD()); //S32 서류-기록물 리스트페이지
-		cont.put("/S.do", new CMD()); //S33 (진료신청시)기록물 선택 페이지
-		cont.put("/S.do", new CMD()); //S34 기록물 상세 페이지
-		cont.put("/S.do", new CMD()); //S35 기록물 업로드 페이지
-		cont.put("/S.do", new CMD()); //S36 병원 신고 페이지
-		
-
-		cont.put("/.do", new CMD()); // 알림아이콘
+		cont.put("/SBookmark.do", new SBookmarkCMD()); //S30 관심병원 리스트 페이지
+		cont.put("/SSickMediaList.do", new SSickMediaListCMD()); //S31 기록물-기록물 리스트페이지
+		cont.put("/SSickDocuList.do", new SSickDocuListCMD()); //S32 서류-기록물 리스트페이지 
+		cont.put("/STmrSelectDcry.do", new STmrSelectDcryCMD()); //S33 (진료신청시)기록물 선택 페이지 
+		cont.put("/SSickDetailList.do", new SSickDetailListCMD()); //S34 기록물 상세 페이지
+		cont.put("/SSickUpload.do", new SSickUploadCMD()); //S35 기록물 업로드 페이지
+	//	cont.put("/S.do", new CMD()); //S36 병원 신고 페이지
+	//	cont.put("/.do", new CMD()); // 알림아이콘
 		
 		//공통
-		cont.put("/.do", new CMD()); //로그인 페이지
-		cont.put("/.do", new CMD()); //로그아웃 페이지
-		cont.put("/.do", new CMD()); //오류페이지
-		cont.put("/.do", new CMD()); //위젯
+	//	cont.put("/.do", new CMD()); //로그인 페이지
+	//	cont.put("/.do", new CMD()); //로그아웃 페이지
+	//	cont.put("/.do", new CMD()); //오류페이지
+	//	cont.put("/.do", new CMD()); //위젯
 		
-		
-		
-		
-	*/	
+	
 /*		cont.put("/ajax/DeleteUsers.do", new DeleteUsers());
 		cont.put("/ajax/GetUsers.do", new GetUsers());
 		cont.put("/ajax/InsertUsers.do", new InsertUsers());

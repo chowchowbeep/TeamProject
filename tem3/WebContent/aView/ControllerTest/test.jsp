@@ -78,8 +78,13 @@
 <p/><button onclick="location.href='SResDone.do'"> 예약완료 페이지 </button>
 <p/><button onclick="location.href='STmrRequest.do'">당일접수 신청 페이지  </button>
 <p/><button onclick="location.href='STmrDone.do'"> 당일접수 완료 페이지</button>
+<p/><button onclick="location.href='SBookmark.do'">관심병원 리스트 페이지</button>
+<p/><button onclick="location.href='SSickMediaList.do'"> 기록물-기록물 리스트페이지</button>
+<p/><button onclick="location.href='SSickDocuList.do'">서류-기록물 리스트페이지 </button>
+<p/><button onclick="location.href='STmrSelectDcry.do'">(진료신청시)기록물 선택 페이지 </button>
+<p/><button onclick="location.href='SSickDetailList.do'"> 기록물 상세 페이지</button>
+<p/><button onclick="location.href='SSickUpload.do'">기록물 업로드 페이지</button>
 </DIV>
 
-<p/><button onclick="location.href='MPoliceDetail.do'">  </button>
 </body>
 </html>
