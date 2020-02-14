@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ include file="/layout/sick_head.jsp"%>
+<script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
 <%@ include file="/layout/sick_menu.jsp"%>
 
 <!-- 컨텐츠 위치 -->
@@ -85,9 +86,8 @@
 							-> 진료현황리스트 페이지로 이동
 						-->
 						<div class="card-footer">
-							<button onclick="location.href='접수현황페이지'"
-								class="btn btn-secondary">확인</button>
-							<button id="cancelBtn" class="btn btn-secondary float-right">예약취소</button>
+							<button onclick="toBeforeMedList()"	class="btn btn-secondary">확인</button>
+							<button onclick="cancelRes();" class="btn btn-secondary float-right">예약취소</button>
 						</div>
 					</div>
 					<!-- 
@@ -141,12 +141,6 @@
 
 
 <%@ include file="/layout/all_footer.jsp"%>
-<script>
-//취소이벤트 발생시 
-function cancel() {
-	cancelBtn.addeventlistener
-}
-</script>
 
 
 </body>

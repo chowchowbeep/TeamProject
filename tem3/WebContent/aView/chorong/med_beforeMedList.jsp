@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ include file="/layout/sick_head.jsp"%>
+<script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
 <style>
 td {
 	text-align: center;
@@ -45,89 +46,102 @@ td {
 
 
 
+	<!-- 클릭한 항목의 값을 파라미터로 가지고 가야 함_ 아래 스크립트 참고
+	상세정보-->
+	<form id="frm" name="frm" method="post">
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="container-fluid">
 
 
+				<div>
+					<!-- 2. 진료 타입별로 선택해서 조회 가능한 기능     -->
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item active">전체</li>
+						<li class="breadcrumb-item"><a href="당일접수목록">당일접수</a></li>
+						<li class="breadcrumb-item"><a href="예약목록">예약</a></li>
+						<li class="breadcrumb-item"><a href="취소목록">취소</a></li>
+					</ol>
+				</div>
 
-	<!-- Main content -->
-	<section class="content">
-		<div class="container-fluid">
-
-
-			<div>
-				<!-- 2. 진료 타입별로 선택해서 조회 가능한 기능     -->
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item active">전체</li>
-					<li class="breadcrumb-item"><a href="당일접수목록">당일접수</a></li>
-					<li class="breadcrumb-item"><a href="예약목록">예약</a></li>
-				</ol>
-			</div>
-
-			<br>
-			<div class="row">
-				<div class="col-12">
-					<div class="card">
-						<div class="card-body table-responsive p-0">
-							<table class="table table table-hover text-nowrap">
-								<!-- 3. 항목 선택 시 병원정보 상세조회 페이지로 이동 
+				<br>
+				<div class="row">
+					<div class="col-12">
+						<div class="card">
+							<div class="card-body table-responsive p-0">
+								<table class="table table table-hover text-nowrap">
+									<!-- 3. 항목 선택 시 병원정보 상세조회 페이지로 이동 
 								4. 취소한 이력은 취소표시  -->
-								<thead>
-									<tr align="center">
-										<th style="width: 33%;">신청일</th>
-										<!-- 접수일 경우 접수일로 표시 -->
-										<th style="width: 33%;">병원</th>
-										<th style="width: 33%;">상태</th><!-- 진료상태 -->
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>2020/02/11</td>
-										<td>yy병원</td>
-										<td>당일접수</td>
-									</tr>
-									<tr>
-										<td>2020/02/11</td>
-										<td>xx병원</td>
-										<td>예약</td>
-									</tr>
-									<tr>
-										<td>2020/02/11</td>
-										<td>xy병원</td>
-										<td>취소</td>
-									</tr>
-									<tr>
-										<td>2020/02/11</td>
-										<td>xx병원</td>
-										<td>예약</td>
-									</tr>
-									<tr>
-										<td>2020/02/11</td>
-										<td>zz병원</td>
-										<td>예약</td>
-									</tr>
-								</tbody>
-							</table>
+									<thead>
+										<tr align="center">
+											<th style="width: 33%;">신청일</th>
+											<!-- 접수일 경우 접수일로 표시 -->
+											<th style="width: 33%;">병원</th>
+											<th style="width: 33%;">상태</th>
+											<!-- 진료상태 -->
+										</tr>
+									</thead>
+									<tbody>
+										<tr id="32">
+											<td>2020/02/11</td>
+											<td>yy병원</td>
+											<td>당일접수</td>
+										</tr>
+										<tr>
+											<td>2020/02/11</td>
+											<td>xx병원</td>
+											<td>예약</td>
+										</tr>
+										<tr>
+											<td>2020/02/11</td>
+											<td>xy병원</td>
+											<td>취소</td>
+										</tr>
+										<tr>
+											<td>2020/02/11</td>
+											<td>xx병원</td>
+											<td>예약</td>
+										</tr>
+										<tr>
+											<td>2020/02/11</td>
+											<td>zz병원</td>
+											<td>예약</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
+						<!-- /.card -->
 					</div>
-					<!-- /.card -->
 				</div>
 			</div>
-		</div>
-	</section>
-	<!-- Control Sidebar -->
-	<aside class="control-sidebar control-sidebar-dark">
-		<!-- Control sidebar content goes here -->
-	</aside>
-	<!-- /.control-sidebar -->
-
-
+		</section>
+	
+	<input type="hidden" id="submitNo" name="submitNo" >
+	</form>
+	
 </div>
 <!-- ./wrapper -->
 <%@ include file="/layout/all_footer.jsp"%>
 <script>
 	// 목록 항목 클릭시 상세정보로 이동
 	$("tr").click(function() {
-		console.log("클릭");
-		location.href = "상세정보.do";
+		//console.log($(this).attr("id"));
+		var submitNo = $(this).attr("id");
+		var 
+		$("#submitNo").attr("value",submitNo );
+		//console.log("변경된값 : " + $("#submitNo").attr("value"));
+//		if(${} == ""){  //
+//			$("#frm").attr("action","HMediWjqtn.do");
+//		}
+//		if(${} == "") { //
+//			$("#frm").attr("action","HMediReserve.do");
+//		}
+
+		
+		document.getElementById("frm").submit(); //제출되면 클릭된 행의 신청번호가 파라미터로 실려갑니다.
+		
 	})
 </script>
 

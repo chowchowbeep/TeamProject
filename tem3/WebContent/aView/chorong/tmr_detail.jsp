@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ include file="/layout/sick_head.jsp"%>
+<script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
 <%@ include file="/layout/sick_menu.jsp"%>
 
 <!-- 
@@ -109,9 +110,8 @@
 					-> 접수내역 페이지로 이동
 				-->
 						<div class="card-footer">
-							<button onclick="location.href='접수현황페이지'"
-								class="btn btn-secondary">확인</button>
-							<button onclick="" class="btn btn-secondary float-right">접수취소</button>
+							<button onclick="toBeforeMedList()" class="btn btn-secondary">확인</button>
+							<button onclick="cancelRes()" class="btn btn-secondary float-right">접수취소</button>
 						</div>
 					</div>
 					<!-- 
@@ -168,6 +168,14 @@
 <%@ include file="/layout/all_footer.jsp"%>
 <script>
 	//취소시 발생 이벤트
+	cancel.addEventListener("click", function(){
+		var chCancel = confirm("접수를 취소하시겠습니까?");
+		if(chCancel == true){
+			alert("접수가 취소되었습니다.");
+			//접수 처리하는 .do 요청(dao에서 접수내용 row삭제하고, med_beforeMedList.jsp로 redirection? forward?)
+			location.href="med_beforeMedList.jsp";
+		} 
+	})
 </script>
 </body>
 </html>

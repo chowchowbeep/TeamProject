@@ -2,7 +2,6 @@
    pageEncoding="UTF-8"%>
 <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 
-
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -15,7 +14,7 @@
          <!-- Left navbar links -->
          <ul class="navbar-nav">
          <li class="nav-item"><a class="nav-link"
-           href="#"> <ion-icon name="arrow-back-outline"></ion-icon>
+           href="javascript:history.back();"><ion-icon name="arrow-back-outline"></ion-icon>
          </a></li>
          </ul>
 
