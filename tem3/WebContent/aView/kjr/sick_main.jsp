@@ -26,14 +26,25 @@
 5. 접수증 페이지 이동 기능
 */
 $(function() { //window load이벤트 생략해서 적은것
+	//건강정보수정 페이지로이동
+	$("#edit").on("click", function() {
+		location.href='SSickHealModify.do';
+	});
+	
+	$("#WjqtnwmdBtn").on("click", function() {
+		location.href='SSickWjqtnwmd.do';
+	});
+
 	$("#searchBtn").on("click", function() {
 		searchList();
 	});
+	
+	
 });
 
 //검색버튼클릭시 리스트페이지로 넘어가게 함
 function searchList(){
-	document.searchFrm.action="${pageContext.request.contextPath}/SearchList.do"
+	document.searchFrm.action="SSearchList.do"
 	document.searchFrm.method="post";
 	document.myForm.submit();
 }
@@ -76,14 +87,6 @@ function searchList(){
 			</div>
 		</div>
 		
-		
-		
-        
-      
-   
-		
-		
-		
 
 		<div class="card text-center" style="margin: 20px 0px;">
 			<div class="card-header text-left" id="bokkmarkA">최근 등록한 관심병원</div>
@@ -96,7 +99,6 @@ function searchList(){
 							center : new kakao.maps.LatLng(33.450701,126.570667),
 							level : 3
 						};
-
 						var map = new kakao.maps.Map(container, options);
 					</script>
 			</div>
@@ -104,9 +106,12 @@ function searchList(){
 
 
 		<div class="card mb-3 " style="margin: 20px 0px;">
-			<button type="button" class="btn btn-primary btn-lg btn-block">접수증 관리</button>
+			<button type="button" class="btn btn-primary btn-lg btn-block" id="WjqtnwmdBtn">접수증 관리</button>
 		</div>
 
+
+
 	</div>
+
 </body>
 </html>

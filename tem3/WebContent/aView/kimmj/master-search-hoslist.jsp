@@ -6,6 +6,7 @@
 keyframes chartjs-render-animation {
 	from {opacity: .99
 }
+
 to {
 	opacity: 1
 }
@@ -103,14 +104,13 @@ to {
 	<table class = "listbox">
 		<tr>
 			<td>
-				<ion-icon name="person-circle-outline" size = "large" 
+				<ion-icon name="business" size = "large" 
 				style = "width: 100px; height: 100px; margin: 0px 0px 10px 10px;"></ion-icon>
-				<div class = "name"><b> 조선아 </b></div>
+				<div class = "name"><b> 예담병원 </b></div>
 			</td>
 			<td class = "info">
 				<p><b> 회원 ID: </b>sunamanse </p>
 				<p><b> 회원 등급: </b>일반 </p>
-				<p><b> 패널티 현황: </b>0회 </p>
 				<p><b> 신고 현황: </b>2회 </p>
 			</td>
 		</tr>

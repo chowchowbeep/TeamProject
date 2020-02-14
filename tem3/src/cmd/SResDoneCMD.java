@@ -1,4 +1,4 @@
-package kjr.cmd;
+package cmd;
 
 import java.io.IOException;
 
@@ -8,18 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
 
-public class SearchListCMD implements Command {
+public class SResDoneCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String path ="aView/kjr/search_list.jsp"; //S7 검색 결과 리스트 페이지
-		String hosName;
-		hosName=request.getParameter("hosName");
+		String path ="aView/chorong/res_done.jsp"; //S27 예약완료 페이지
 		
-		System.out.println("병원명 = "+hosName);
-		
-		//병원명으로 검색한 병원리스트 조회하는 dao 필요!
 		return path;
 	}
 
