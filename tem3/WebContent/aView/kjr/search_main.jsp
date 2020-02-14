@@ -55,13 +55,26 @@ $(function() { //window load이벤트 생략해서 적은것
 				$("#areaDivAddr2").append( $("<button>").addClass("btn btn-primary btn-lg btn-block").html("이 조건으로 검색") );
 			});
 		});
-	
-	
+	$("#searched").on("click", function() {
+		searchedGo();
+	});
+	function searchedGo(){
+		document.searchFrm.action="SSearchList.do"
+		document.searchFrm.method="post";
+		document.searchFrm.submit();
+	}
 	});
 </script>
  
 </head>
 <body>
+	<form id="searchFrm">
+		<input type="hidden" value="" id="areaInp">
+		<input type="hidden" value="" id="subInp">
+		<input type="hidden" value="" id="ct1Inp">
+		<input type="hidden" value="" id="ct2Inp">
+		<input type="hidden" value="" id="ct3Inp">
+	</form>
 	
 	<div class="container">
 		<div class="input-group mb-3 topmg">
@@ -104,7 +117,7 @@ $(function() { //window load이벤트 생략해서 적은것
 				</div>
 				<div id="btnDiv" class="col-4 hiden">	
 					<button type="button" class="btn btn-primary btn-lg btn-block">카테고리 선택</button>
-					<button type="button" class="btn btn-primary btn-lg btn-block">이 조건으로 검색</button>
+					<button type="button" class="btn btn-primary btn-lg btn-block" id="searched">이 조건으로 검색</button>
 				</div>
 
 

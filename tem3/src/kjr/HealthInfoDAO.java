@@ -10,7 +10,7 @@ public class HealthInfoDAO extends DAO{
 	//단건조회
 	public HealthInfoDto select(String id){
 		HealthInfoDto dto = new HealthInfoDto();
-		sql="SELECT * FROM Health_info WHERE SIC_ID=? ";
+		sql="SELECT * FROM Health_info WHERE SIC_ID= ? ";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1,id);
@@ -24,7 +24,7 @@ public class HealthInfoDAO extends DAO{
 				dto.setAllrgy(rs.getString("ALLRGY"));
 				dto.setHtEtc(rs.getString("HT_ETC"));
 				dto.setSicId(rs.getString("SIC_ID"));
-				}
+								}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

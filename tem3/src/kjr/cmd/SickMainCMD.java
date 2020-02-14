@@ -23,14 +23,15 @@ public class SickMainCMD implements Command {
 		//건강정보출력1. 건강정보는 항목 아이콘-값 아이콘 출력, 비고 출력
 		HealthInfoDAO hInfo= new HealthInfoDAO();
 		
-		String id = "01";//세션에서 id를 당겨와서 넣어야함 *현재 임시로 아이디 입력
+		String id = "sic1";//세션에서 id를 당겨와서 넣어야함 *현재 임시로 아이디 입력
 		HealthInfoDto hIndto = hInfo.select(id);
+		System.out.println(hIndto.toString());
 		/*
 		System.out.println("SickMainCMD클래스 sicid : "+hIndto.getSicId());	
 		System.out.println("SickMainCMD클래스 hthtc : "+hIndto.getHtEtc());
 		http://localhost:9099/tem3/SickMain.do
 		*/
-		request.setAttribute("hInfo",hIndto);
+		request.setAttribute("hIndto",hIndto);
 		
 		
 		//병원검색
