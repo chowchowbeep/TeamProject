@@ -173,7 +173,7 @@ public class Contoller extends HttpServlet {
 		cont.put("/Upload.do", new FileUpload());
 		cont.put("/GetDeptCnt.do", new GetDeptCnt());
 */
-		cont.put("/ajax/LocaseachAjaxCMD.do", new LocaseachAjaxCMD());
+		cont.put("/ajax/LocaseachAjaxCMD.do", new LocaseachAjaxCMD()); //지역코드 가져오는 ajax
 		
 	
 	
