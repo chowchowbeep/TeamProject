@@ -34,10 +34,11 @@ public class LocaSechDAO extends DAO {
 	
 	public ArrayList<locaSechDTO> select(String wd) { //wd코드를 부모로가진 키워드 출력
 		ArrayList<locaSechDTO> list = new ArrayList<locaSechDTO>();
-		sql="select * from loca_sech";
+		sql="select * from loca_sech ";
 		if(wd!=null) {
 			sql += " where P_CODE = ? ";
-		}
+		}   
+		System.out.println(sql);
 		try {
 			pstmt = conn.prepareStatement(sql);
 			if(wd!=null) {
