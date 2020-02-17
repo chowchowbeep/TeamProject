@@ -46,7 +46,7 @@ $(function() { //window load이벤트 생략해서 적은것
 function searchList(){
 	document.searchFrm.action="SSearchList.do"
 	document.searchFrm.method="post";
-	document.myForm.submit();
+	document.searchFrm.submit();
 }
 </script>
 </head>
@@ -57,12 +57,12 @@ function searchList(){
 			<div class="card" style="margin: 5px;">
 				<div class="card-header text-left">건강정보</div>
 				<div class="card-body">
-				${hInfo.sicId }
-				${hInfo.chrdis }
-				${hInfo.hstcs }
-				${hInfo.bdp }
-				${hInfo.allrgy }
-				${hInfo.htEtc }
+				${hIndto.sicId } <br>
+				${hIndto.chrdis }<br>
+				${hIndto.hstcs } <br>
+				${hIndto.bdp }	 <br>
+				${hIndto.allrgy }<br>
+				${hIndto.htEtc } <br>
 					<p class="card-text">
 					
 					</p>

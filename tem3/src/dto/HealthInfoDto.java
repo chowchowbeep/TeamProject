@@ -82,6 +82,12 @@ public class HealthInfoDto { //건강정보테이블
 	public void setHtEtc(String htEtc) {
 		this.htEtc = htEtc;
 	}
+
+	@Override
+	public String toString() {
+		return "HealthInfoDto [sicId=" + sicId + ", chrdis=" + chrdis + ", hstcs=" + hstcs + ", medi=" + medi + ", bdp="
+				+ bdp + ", allrgy=" + allrgy + ", htEtc=" + htEtc + "]";
+	}
 	
 	
 	

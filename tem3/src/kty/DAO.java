@@ -12,7 +12,7 @@ public class DAO {
 	protected ResultSet rs;
 
 	protected String driver = "oracle.jdbc.driver.OracleDriver";
-	protected String url = "jdbc:oracle:thin:@39.116.34.40:1521:mdb";
+	protected String url = "jdbc:oracle:thin:@39.116.34.40:1523:mdb";
 	protected String user = "pro";
 	protected String passwd = "pro";
 
