@@ -66,6 +66,7 @@ import cmd.STmrRequestCMD;
 import cmd.STmrSelectDcryCMD;
 import cmd.SsearchMainCMD;
 import cmd.TestCMD;
+import kjr.ajax.LocaseachAjaxCMD;
 import kjr.cmd.SearchListCMD;
 import kjr.cmd.SickMainCMD;
 
@@ -172,6 +173,12 @@ public class Contoller extends HttpServlet {
 		cont.put("/Upload.do", new FileUpload());
 		cont.put("/GetDeptCnt.do", new GetDeptCnt());
 */
+		cont.put("/ajax/LocaseachAjaxCMD.do", new LocaseachAjaxCMD());
+		
+	
+	
+	
+	
 	}
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response)
