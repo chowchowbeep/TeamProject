@@ -23,10 +23,13 @@ public class SMedBeforeMedListCMD implements Command {
 		
 		
 		MediRqstDAO dao = new MediRqstDAO();
-		// String id = request.getParameter("id");
+		// String id = request.getParameter("id"); 
+		//로그인중인 아이디를 받아오도록// 나중에 세션으로 변경
 		String id = "sic1"; //가상의 파라미터
 		List<mediRqstDTO> list = new ArrayList<>(); 
 		list = dao.selectAll(id);
+		
+		
 		
 		String path ="aView/chorong/med_beforeMedList.jsp";
 		

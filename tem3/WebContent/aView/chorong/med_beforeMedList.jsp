@@ -13,7 +13,7 @@ td {
 
 
 
-<!--  /SMedBeforeMedList.do를 타고 들어a-->
+<!--  /SMedBeforeMedList.do를 타고 들어옴-->
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -56,7 +56,7 @@ td {
 					<!-- 2. 진료 타입별로 선택해서 조회 가능한 기능     -->
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item active">전체</li>
-						<li class="breadcrumb-item"><a href="당일접수목록">당일접수</a></li>
+						<li class="breadcrumb-item"><a href="당일접수목록">접수</a></li>
 						<li class="breadcrumb-item"><a href="예약목록">예약</a></li>
 						<li class="breadcrumb-item"><a href="취소목록">취소</a></li>
 					</ol>
@@ -76,22 +76,36 @@ td {
 											<!-- 접수일 경우 접수일로 표시 -->
 											<th style="width: 33%;">병원</th>
 											<th style="width: 33%;">상태</th>
-											<!-- 진료상태 -->
+											<!-- 진료타입-->
 										</tr>
 									</thead>
 									<tbody>
 
 
 
-										<c:forEach items="${list}" var="MEDI_RQST">
+										<c:forEach var="MEDI_RQST" items="${list}">
 											<tr id="${MEDI_RQST.rqstNo}">
 												<td>${MEDI_RQST.rqstDttm }</td>
-												<td>${MEDI_RQST.병원 }</td>
-												<td>${MEDI_RQST.상태}</td>
+												<td>${MEDI_RQST.hosId }</td>
+												<!-- 이름으로 변경 -->
+												<c:choose>
+													<c:when test="${MEDI_RQST.rqstTy =='D001'}">
+														<td>접수</td>
+													</c:when>
+													<c:when test="${MEDI_RQST.rqstTy =='D002'}">
+														<td>예약</td>
+													</c:when>
+													<c:when test="${MEDI_RQST.rqstTy =='D003'}">
+														<td>병원취소</td>
+													</c:when>
+													<c:when test="${MEDI_RQST.rqstTy =='D004'}">
+														<td>본인취소</td>
+													</c:when>
+												</c:choose>
 											</tr>
 										</c:forEach>
-										
-										
+
+
 									</tbody>
 								</table>
 							</div>
@@ -102,7 +116,10 @@ td {
 			</div>
 		</section>
 
-		<input type="hidden" id="submitNo" name="submitNo">
+		<input type="hidden" id="submitNo" name="submitNo"> 
+		<!-- 선택한 진료신청항목의 진료신청번호를 전송 -->
+		<inpu type="hidden" id="id" name="id" value="${id }">
+		<!-- 로그인중인 아이디 -->
 	</form>
 
 
@@ -115,22 +132,18 @@ td {
 <%@ include file="/layout/all_footer.jsp"%>
 <script>
 	// 목록 항목 클릭시 상세정보로 이동
-	$("tr").click(function() {
-		console.log($(this).attr("id"));
-		var submitNo = $(this).attr("id"); //클릭한 행의 id값(진료신청번호 넘길것임)
-		var 
-		$("#submitNo").attr("value",submitNo );
-		console.log("변경된값 : " + $("#submitNo").attr("value"));
-		if(${list.sp} == ""){  //진료현황 상세 페이지-예약 res_detail
-			$("#frm").attr("action","SResDetail.do"); 
-		}
-		if(${list.sp} == "") { //진료현황 상세 페이지-당일접수 tmr_detail
-			$("#frm").attr("action","STmrDetail.do");
-		}
 
 	
-		document.getElementById("frm").submit(); //제출되면 클릭된 행의 신청번호가 파라미터로 실려갑니다.
-		
+	
+	$("tr").click(function() {
+		//console.log($(this)[0])
+		var submitNo = $(this).attr("id"); //클릭한 행의 id값(진료신청번호 넘길것임)
+		console.log(submitNo)
+		$("#submitNo").attr("value", submitNo);
+		console.log("변경된값 : " + $("#submitNo").attr("value"));
+
+		frm.submit(); //제출되면 클릭된 행의 신청번호가 파라미터로 실려갑니다.
+
 	})
 </script>
 

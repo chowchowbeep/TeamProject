@@ -43,14 +43,6 @@ public class mediRqstDTO {
 		this.hosId = hosId;
 	}
 	
-	public mediRqstDTO(int rqstNo, String sicId, Date resDttm, String hosId) {
-		super();
-		this.rqstNo = rqstNo;
-		this.sicId = sicId;
-		this.resDttm = resDttm;
-		this.hosId = hosId;
-	}
-	
 	
 	public int getRqstNo() {
 		return rqstNo;
