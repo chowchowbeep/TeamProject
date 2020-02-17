@@ -3,6 +3,7 @@
 >>>>>>>=branch 'master' of https\://github.com/chowchowbeep/TeamProject.git
 eclipse.preferences.version=1
 encoding//WebContent/aView/kjr/hospital_mymenu.jsp=UTF-8
+encoding//WebContent/aView/leedy/hospital_signup.jsp=UTF-8
 encoding//WebContent/aView/taeyoung/all_login.jsp=UTF-8
 encoding//WebContent/pages/UI/docadd.jsp=UTF-8
 encoding//WebContent/pages/forms=UTF-8
