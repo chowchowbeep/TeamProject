@@ -1,4 +1,4 @@
-package finaldto;
+package dto;
 
 public class cSubDTO {
 	private String subCode; // 과목코드

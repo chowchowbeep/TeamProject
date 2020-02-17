@@ -13,7 +13,7 @@ public class HSickSearchCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String path ="aView/kjr/hospital_mymenu.jsp"; //병원-회원 정보 검색	페이지
+		String path ="aView/taeyoung/sick_search.jsp"; //병원-회원 정보 검색	페이지
 		
 		return path;
 	}
