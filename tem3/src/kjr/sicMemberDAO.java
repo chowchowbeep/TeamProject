@@ -3,21 +3,21 @@ package kjr;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import dto.SickMemberDto;
+import finaldto.sickMemberDTO;
 import kty.DAO;
 
 
 public class sicMemberDAO extends DAO {
 	public static String sql;
 	//전체리스트
-			public ArrayList<SickMemberDto> select(){
-				ArrayList<SickMemberDto> list = new ArrayList<>();
+			public ArrayList<sickMemberDTO> select(){
+				ArrayList<sickMemberDTO> list = new ArrayList<>();
 				sql="SELECT * FROM Sick_Member";
 				try {
 					pstmt = conn.prepareStatement(sql);
 					rs = pstmt.executeQuery();
 					while(rs.next()) {
-						SickMemberDto dto = new SickMemberDto();
+						sickMemberDTO dto = new sickMemberDTO();
 						dto.setSicName("SIC_NAME");
 						dto.setSicPhone("SIC_PHONE");
 						dto.setSicId(rs.getString("SIC_NAME"));
@@ -33,14 +33,14 @@ public class sicMemberDAO extends DAO {
 			}
 			
 			// 환자iD로 정보가져오기.
-		public ArrayList<SickMemberDto> select(int id) {
-			ArrayList<SickMemberDto> list = new ArrayList<>();
+		public ArrayList<sickMemberDTO> select(int id) {
+			ArrayList<sickMemberDTO> list = new ArrayList<>();
 			sql = "SELECT * FROM Sick_Member where =?";
 			try {
 				pstmt = conn.prepareStatement(sql);
 				rs = pstmt.executeQuery();
 				while (rs.next()) {
-					SickMemberDto dto = new SickMemberDto();
+					sickMemberDTO dto = new sickMemberDTO();
 					dto.setSicName("SIC_NAME");
 					dto.setSicPhone("SIC_PHONE");
 					dto.setSicId(rs.getString("SIC_NAME"));
@@ -56,8 +56,8 @@ public class sicMemberDAO extends DAO {
 
 		}
 			//dto로 넘어오는 데이터를 DB에 추가(등록)하는 메소드
-			public ArrayList<SickMemberDto> insert(int id){
-				ArrayList<SickMemberDto> list = new ArrayList<>();
+			public ArrayList<sickMemberDTO> insert(int id){
+				ArrayList<sickMemberDTO> list = new ArrayList<>();
 				sql="";
 				int n=0;
 				try {

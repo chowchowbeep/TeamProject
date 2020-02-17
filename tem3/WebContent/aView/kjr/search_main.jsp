@@ -153,8 +153,6 @@ div .hiden {
 
 
 
-
-
 		<div id="subDiv" class="hiden">
 			<!-- 지하철 -->
 				<div class="card">

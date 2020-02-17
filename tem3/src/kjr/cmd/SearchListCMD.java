@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import dto.HosMemberDto;
+import finaldto.hosMemberDTO;
 import kjr.HosmemberDAO;
 
 public class SearchListCMD implements Command {
@@ -22,7 +22,7 @@ public class SearchListCMD implements Command {
 		System.out.println("병원명 = "+hosName);
 		
 		HosmemberDAO dao = new HosmemberDAO();
-		ArrayList<HosMemberDto> hosList = new ArrayList<>();
+		ArrayList<hosMemberDTO> hosList = new ArrayList<>();
 		hosList = dao.select(hosName); //병원명으로 검색한 병원리스트 db에서 가져옴
 		
 		request.setAttribute("hosList",hosList);

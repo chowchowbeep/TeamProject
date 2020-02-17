@@ -2,14 +2,14 @@ package kjr;
 
 import java.sql.SQLException;
 
-import dto.HealthInfoDto;
+import finaldto.healthInfoDTO;
 import kty.DAO;
 
 public class HealthInfoDAO extends DAO{
 	String sql;
 	//단건조회
-	public HealthInfoDto select(String id){
-		HealthInfoDto dto = new HealthInfoDto();
+	public healthInfoDTO select(String id){
+		healthInfoDTO dto = new healthInfoDTO();
 		sql="SELECT * FROM Health_info WHERE SIC_ID= ? ";
 		try {
 			pstmt = conn.prepareStatement(sql);
