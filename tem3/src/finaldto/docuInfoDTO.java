@@ -1,23 +1,21 @@
-package dto;
+package finaldto;
 
 import java.sql.Date;
 
-public class DocumentInfoDto { //기록물 세부정보 테이블
-	private int dcryNo;		//파일번호
-	private String sicId;	//회원id
-	private Date dcryDttm;	//발급일자
-	private String dcryEtc;	//비고
-	private int artrNo;		//의사번호
-	private String hosId;	//병원id
-	
-	
-	
-	//생성자
-	public DocumentInfoDto() {
+public class docuInfoDTO {
+	private int dcryNo; // 파일번호
+	private String sicId; // 회원id
+	private Date dcryDttm; // 발급일자
+	private String dcryEtc; // 비고
+	private int artrNo; // 의사번호
+	private String hosId; // 병원id
+
+	// 생성자
+	public docuInfoDTO() {
 		super();
 	}
 
-	public DocumentInfoDto(int dcryNo, String sicId, Date dcryDttm, String dcryEtc, int artrNo, String hosId) {
+	public docuInfoDTO(int dcryNo, String sicId, Date dcryDttm, String dcryEtc, int artrNo, String hosId) {
 		super();
 		this.dcryNo = dcryNo;
 		this.sicId = sicId;
@@ -27,7 +25,6 @@ public class DocumentInfoDto { //기록물 세부정보 테이블
 		this.hosId = hosId;
 	}
 
-	//get set
 	public int getDcryNo() {
 		return dcryNo;
 	}
@@ -75,13 +72,5 @@ public class DocumentInfoDto { //기록물 세부정보 테이블
 	public void setHosId(String hosId) {
 		this.hosId = hosId;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

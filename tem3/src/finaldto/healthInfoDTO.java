@@ -1,20 +1,20 @@
-package dto;
+package finaldto;
 
-public class HealthInfoDto { //건강정보테이블
-	private String sicId;	//회원id
-	private String chrdis;	//지병
-	private String hstcs;	//병력
-	private String medi;	//복용약물
-	private String bdp;		//혈액형
-	private String allrgy;	//알레르기
-	private String htEtc;	//비고
-	
-	//생성자
-	public HealthInfoDto() {
+public class healthInfoDTO {
+	private String sicId; // 회원id
+	private String chrdis; // 지병
+	private String hstcs; // 병력
+	private String medi; // 복용약물
+	private String bdp; // 혈액형
+	private String allrgy; // 알레르기
+	private String htEtc; // 비고
+
+	// 생성자
+	public healthInfoDTO() {
 		super();
 	}
 
-	public HealthInfoDto(String sicId, String chrdis, String hstcs, String medi, String bdp, String allrgy,
+	public healthInfoDTO(String sicId, String chrdis, String hstcs, String medi, String bdp, String allrgy,
 			String htEtc) {
 		super();
 		this.sicId = sicId;
@@ -25,8 +25,7 @@ public class HealthInfoDto { //건강정보테이블
 		this.allrgy = allrgy;
 		this.htEtc = htEtc;
 	}
-	
-	//get set
+
 	public String getSicId() {
 		return sicId;
 	}
@@ -83,14 +82,4 @@ public class HealthInfoDto { //건강정보테이블
 		this.htEtc = htEtc;
 	}
 
-	@Override
-	public String toString() {
-		return "HealthInfoDto [sicId=" + sicId + ", chrdis=" + chrdis + ", hstcs=" + hstcs + ", medi=" + medi + ", bdp="
-				+ bdp + ", allrgy=" + allrgy + ", htEtc=" + htEtc + "]";
-	}
-	
-	
-	
-	
-	
 }
