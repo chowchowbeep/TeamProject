@@ -1,4 +1,4 @@
-package finaldto;
+package dto;
 
 public class caceptHistoryDTO {
 	private int rqstNo; // 신청번호

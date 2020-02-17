@@ -1,4 +1,4 @@
-package finaldto;
+package dto;
 
 public class tmrFileDTO {
 	private int tmrNo; // 접수증번호

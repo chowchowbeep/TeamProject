@@ -1,4 +1,4 @@
-package finaldto;
+package dto;
 
 public class docuPdfDTO {
 	private int dcryNo; // 파일번호

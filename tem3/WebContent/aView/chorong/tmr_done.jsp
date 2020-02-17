@@ -111,7 +111,7 @@
 				-->
 						<div class="card-footer">
 							<button onclick="location.href='접수현황페이지'" class="btn btn-secondary">확인</button>
-							<button onclick="cancelRes" class="btn btn-secondary float-right">접수취소</button>
+							<button onclick="cancelRes()" class="btn btn-secondary float-right">접수취소</button>
 						</div>
 					</div>
 					<!-- 

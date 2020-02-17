@@ -1,4 +1,4 @@
-package finaldto;
+package dto;
 
 public class searchDTO {
 	private int sechNo; // 검색번호

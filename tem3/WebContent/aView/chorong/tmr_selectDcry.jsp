@@ -72,7 +72,7 @@
 
 								</div>
 								<div class="icon"></div>
-								<a href="sick_detailList.jsp" id="attach2" class="small-box-footer"> 첨부하기
+								<a href="STmrSelectDcry.do" id="attach2" class="small-box-footer"> 첨부하기
 									<i class="fas fa-arrow-circle-right"></i>
 								</a>
 							</div>
