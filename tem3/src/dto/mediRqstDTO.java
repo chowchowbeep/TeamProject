@@ -15,6 +15,7 @@ public class mediRqstDTO {
 	private String msg; // 한마디
 	private int dcryNo; // 파일번호
 
+	
 	// 생성자
 	public mediRqstDTO() {
 		super();
@@ -33,7 +34,24 @@ public class mediRqstDTO {
 		this.msg = msg;
 		this.dcryNo = dcryNo;
 	}
-
+	
+	public mediRqstDTO(int rqstNo, String sicId, Date rqstDttm, String hosId) {
+		super();
+		this.rqstNo = rqstNo;
+		this.sicId = sicId;
+		this.rqstDttm = rqstDttm;
+		this.hosId = hosId;
+	}
+	
+	public mediRqstDTO(int rqstNo, String sicId, Date resDttm, String hosId) {
+		super();
+		this.rqstNo = rqstNo;
+		this.sicId = sicId;
+		this.resDttm = resDttm;
+		this.hosId = hosId;
+	}
+	
+	
 	public int getRqstNo() {
 		return rqstNo;
 	}
