@@ -5,15 +5,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import dto.ApprenticeDoctorDto;
+import finaldto.artrInfoDTO;
+
 
 public class ArtrDao extends DAO {
 
 	// 추가
-	public int insert(ApprenticeDoctorDto dto) {
+	public int insert(artrInfoDTO dto) {
 		int r = 0;
 		try {
-			String sql = "insert into ARTR_INFO(ARTR_NO,HOS_ID,ARTR_NAME,ARTR_SUB)" + " values((ARTR_SEQ.nextval,?,?,?)"; // ARTR_seq.nextval
+			String sql = "insert into ARTR_INFO(ARTR_NO,HOS_ID,ARTR_NAME,ARTR_SUB)"
+						+ " values((ARTR_SEQ.nextval,?,?,?)"; // ARTR_seq.nextval
 			pstmt.setString(2, dto.getArtrName());
 			pstmt.setString(3, dto.getArtrSub());
 			r = pstmt.executeUpdate();
@@ -26,8 +28,8 @@ public class ArtrDao extends DAO {
 	}
 
 	// 리스트
-	public List<ApprenticeDoctorDto> selectList() {
-		List<ApprenticeDoctorDto> list = new ArrayList<ApprenticeDoctorDto>();
+	public List<artrInfoDTO> selectList() {
+		List<artrInfoDTO> list = new ArrayList<artrInfoDTO>();
 		// 1.DB연결
 		try {
 			conn = DriverManager.getConnection(url, user, passwd);
@@ -41,7 +43,7 @@ public class ArtrDao extends DAO {
 			rs = pstmt.executeQuery(sql);
 			// 3.결과저장
 			while (rs.next()) {
-				ApprenticeDoctorDto dto = new ApprenticeDoctorDto();
+				artrInfoDTO dto = new artrInfoDTO();
 				dto.setArtrNo(rs.getInt("ARTR_NO"));
 				dto.setHosId(rs.getString("HOS_ID"));
 				dto.setArtrName(rs.getString("ARTR_NAME"));

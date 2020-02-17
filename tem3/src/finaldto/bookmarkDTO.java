@@ -1,16 +1,15 @@
-package dto;
+package finaldto;
 
-public class BookmarkDto { //즐겨찾기 테이블
-	private String sicId;  //회원ID
-	private String hosId;  //병원ID
-	
-	
-	//생성자
-	public BookmarkDto() {
+public class bookmarkDTO {
+	private String sicId; // 회원ID
+	private String hosId; // 병원ID
+
+	// 생성자
+	public bookmarkDTO() {
 		super();
 	}
 
-	public BookmarkDto(String sicId, String hosId) {
+	public bookmarkDTO(String sicId, String hosId) {
 		super();
 		this.sicId = sicId;
 		this.hosId = hosId;
@@ -31,6 +30,5 @@ public class BookmarkDto { //즐겨찾기 테이블
 	public void setHosId(String hosId) {
 		this.hosId = hosId;
 	}
-	
-	
+
 }
