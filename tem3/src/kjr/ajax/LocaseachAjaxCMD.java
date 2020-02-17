@@ -18,9 +18,9 @@ public class LocaseachAjaxCMD implements Command  {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String wd ="LD00";
+		String wd = request.getParameter("pCode");
 		LocaSechDAO loacadao = new LocaSechDAO();
-		ArrayList<locaSechDTO> list = new ArrayList<>(); 
+		ArrayList<locaSechDTO> list; 
 		list = loacadao.select(wd);
 		
 		return "ajax:" + JSONArray.fromObject(list);

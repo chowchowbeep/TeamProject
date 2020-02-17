@@ -23,6 +23,7 @@ div .hiden {
 
 
 <script>
+	
 	$(function() { //window load이벤트 생략해서 적은것
 
 		$("#areaBtn").bind("click", function() {//지역명 클릭 시 밑에 subDiv출력 
@@ -43,36 +44,30 @@ div .hiden {
 			$("#ctDiv").removeClass("hiden");
 		});
 
-
-	$("#areaDivMain").bind("click",function() { //지역 대분류 클릭시 중분류 출력
+		$("#areaDivMain").on(
+				"click",
+				"a",
+				function() { //지역 대분류 클릭시 중분류 출력
 					$("#areaDivAddr2").removeClass("hiden");
 					$("#areaDivAddr2").html("");
 					console.log("aa");
-					$.ajax("test.jsp", {
-						dataType : "json" //json데이터를 받아올때 그 파일엔 json데이터값만 있어야함. 
-					}).done(
-							function(data) {
+					$.ajax("/tem3/ajax/LocaseachAjaxCMD.do", {
+						dataType : "json", //json데이터를 받아올때 그 파일엔 json데이터값만 있어야함. 
+						data : {
+							pCode : $(this).attr("id")
+						}
+					//클릭한값의id를 파라매터로보냄
+					}).done(function(data) {
 								for (i = 0; i < data.length; i++) {
-									console.log(i);
+									console.log("this는?" + this);
 									$("#areaDivAddr2").append(
 											'<a class="list-group-item list-group-item-action" id="LS00">'
-													+ data[i].name); //(자식)appendTo(부모)
+													+ data[i].wd); //(자식)appendTo(부모)
 								}
 								;
 
 							});
 				});
-
-		$("#subDivMain").bind("click", function() {
-			$("#subDivMain2").removeClass("hiden");
-			$("#subDivMain2").html("");
-			$.ajax("", {
-				dataType : "json"
-			}) 
-			.done(function(data) {
-
-			});
-		});
 
 		$("#searched").bind("click", function() {
 			searchedGo();
@@ -82,6 +77,33 @@ div .hiden {
 			document.searchFrm.method = "post";
 			document.searchFrm.submit();
 		}
+		
+		$("#subDivMain").on(
+				"click",
+				"a",
+				function() { //지역 대분류 클릭시 중분류 출력
+					$("#subDivMain2").removeClass("hiden");
+					$("#subDivMain2").html("");
+					console.log("aa");
+					$.ajax("/tem3/ajax/LocaseachAjaxCMD.do", {
+						dataType : "json", //json데이터를 받아올때 그 파일엔 json데이터값만 있어야함. 
+						data : {
+							pCode : $(this).attr("id")
+						}
+					//클릭한값의id를 파라매터로보냄
+					}).done(function(data) {
+								for (i = 0; i < data.length; i++) {
+									console.log("this는?" + this);
+									$("#subDivMain2").append(
+											'<a class="list-group-item list-group-item-action" id="LS00">'
+													+ data[i].wd); //(자식)appendTo(부모)
+								}
+								;
+
+							});
+				});
+		
+
 	});
 </script>
 
@@ -167,7 +189,7 @@ div .hiden {
 							<a class="list-group-item list-group-item-action" id="LD10">1호선</a>
 							<a class="list-group-item list-group-item-action" id="LD20">2호선</a>
 						</div>
-						<div id="btnDiv" class="col-4">
+						<div id="subDivMain3" class="col-4">
 							<a class="list-group-item list-group-item-action" id="LD10">중앙로역</a>
 							<a class="list-group-item list-group-item-action" id="LD20">동대구역</a>
 						</div>

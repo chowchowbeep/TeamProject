@@ -11,6 +11,10 @@ td {
 </style>
 <%@ include file="/layout/sick_menu.jsp"%>
 
+
+
+<!--  /SMedBeforeMedList.do를 타고 들어a-->
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
@@ -76,32 +80,18 @@ td {
 										</tr>
 									</thead>
 									<tbody>
-									<!--  tbody 적용부 구글 스프레드 시트 참고 -->
-										<tr id="32">
-											<td>2020/02/11</td>
-											<td>yy병원</td>
-											<td>당일접수</td>
-										</tr>
-										<tr>
-											<td>2020/02/11</td>
-											<td>xx병원</td>
-											<td>예약</td>
-										</tr>
-										<tr>
-											<td>2020/02/11</td>
-											<td>xy병원</td>
-											<td>취소</td>
-										</tr>
-										<tr>
-											<td>2020/02/11</td>
-											<td>xx병원</td>
-											<td>예약</td>
-										</tr>
-										<tr>
-											<td>2020/02/11</td>
-											<td>zz병원</td>
-											<td>예약</td>
-										</tr>
+
+
+
+										<c:forEach items="${list}" var="MEDI_RQST">
+											<tr id="${MEDI_RQST.rqstNo}">
+												<td>${MEDI_RQST.rqstDttm }</td>
+												<td>${MEDI_RQST.병원 }</td>
+												<td>${MEDI_RQST.상태}</td>
+											</tr>
+										</c:forEach>
+										
+										
 									</tbody>
 								</table>
 							</div>
@@ -111,12 +101,12 @@ td {
 				</div>
 			</div>
 		</section>
-	
-	<input type="hidden" id="submitNo" name="submitNo" >
+
+		<input type="hidden" id="submitNo" name="submitNo">
 	</form>
-	
-	
-		<!-- 
+
+
+	<!-- 
 		이전:"상단바 사이트맵, 상단바 메뉴바"
 		다음:"진료현황 상세 페이지-예약, 진료현황 상세 페이지-당일접수"
 	 -->
