@@ -86,12 +86,12 @@ table{
              <tbody>
              <c:forEach items="${list}" var="dto">
                 <tr>
-                  <td>${dto.0001}</td>
-                  <td>${dto.조선아}<span class="badge bg-warning">NEW</span></td>
-                  <td>${dto.13:00}</td>
+                  <td>${dto.rqstNo}</td>
+                  <td>${dto.sicId}<span class="badge bg-warning">NEW</span></td>
+                  <td>${dto.resDttm}</td>
                   <td>
                     <a href="#" class="text-muted">
-                    <i class="fas fa-search">${dto.}</i>
+                    <i class="fas fa-search">${dto.artrNo}</i>
                       </a>
                   </td>
                 </tr>
