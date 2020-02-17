@@ -1,6 +1,6 @@
 package dto;
 
-public class locaSechDto { //지역검색
+public class LocaSechDto { //지역검색
 	private String locaCode; //지역코드
 	private String wd;		 //검색어
 	private String pCode;	 //부모코드
@@ -8,25 +8,25 @@ public class locaSechDto { //지역검색
 	
 	
 	//생성자
-	public locaSechDto() {
+	public LocaSechDto() {
 		super();
 	}
 
 
-	public locaSechDto(String locaCode) {
+	public LocaSechDto(String locaCode) {
 		super();
 		this.locaCode = locaCode;
 	}
 
 
-	public locaSechDto(String locaCode, String wd) {
+	public LocaSechDto(String locaCode, String wd) {
 		super();
 		this.locaCode = locaCode;
 		this.wd = wd;
 	}
 
 
-	public locaSechDto(String locaCode, String wd, String pCode) {
+	public LocaSechDto(String locaCode, String wd, String pCode) {
 		super();
 		this.locaCode = locaCode;
 		this.wd = wd;
