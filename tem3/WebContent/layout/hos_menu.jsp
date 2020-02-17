@@ -119,20 +119,14 @@
 						<li class="nav-item"><a href="HMediAll.do" class="nav-link">
 								<p>진료현황</p>
 						</a></li>
-<<<<<<< HEAD
-						<li class="nav-item"><a href="/tem3/aView/taeyoung/sick_search.jsp" class="nav-link">
-=======
+
 						<li class="nav-item"><a href="HSickSearch.do"
 							class="nav-link">
->>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject.git
 								<p>회원정보 검색</p>
 						</a></li>
-<<<<<<< HEAD
-						<li class="nav-item"><a href="HDoctorlist.do" class="nav-link">
-=======
+
 						<li class="nav-item"><a href="HDoctorlist.do"
 							class="nav-link">
->>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject.git
 								<p>의사목록 관리</p>
 						</a></li>
 						<li class="nav-item"><a href="#" class="nav-link">
@@ -143,19 +137,13 @@
 						</a></li>
 					</ul>
 
-					<c:choose test="로그인상태가 아닌경우">
-					<c:when>
+					<!--  <c:choose test="로그인상태가 아닌경우"><c:when></c:when></c:choose>-->
 						<div class="text-center" style="padding: 20px;">
 							<a href="#로그인페이지" class="d-block"><small><strong>로그인_미정</strong></small></a>
 						</div>
-					</c:when>
-					<c:if test="로그인 상태일 경우">
 						<div class="text-center" style="padding: 20px;">
 							<a href="로그아웃페이지" class="d-block"> <small><strong>로그아웃_미정</strong></small></a>
 						</div>
-					</c:choose>
-
-
 				</nav>
 				<!-- /.sidebar-menu -->
 			</div>
