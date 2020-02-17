@@ -4,11 +4,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import dto.DocumentImgFileDto;
-import dto.DocumentInfoDto;
+
 import dto.DocumentMvpFileDto;
 import dto.DocumentPdfFileDto;
-import dto.HealthInfoDto;
-import dto.SickMemberDto;
+
 import kty.DAO;
 
 public class FileDownDAO extends DAO {
