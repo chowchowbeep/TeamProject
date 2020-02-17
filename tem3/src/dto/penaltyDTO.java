@@ -2,16 +2,15 @@ package dto;
 
 import java.sql.Date;
 
-public class PenaltyDto { //패널티제재현황 테이블
-	private int sicId;		//회원id
-	private Date startDttm;	//시작일시
-	
-	
-	public PenaltyDto() {
+public class penaltyDTO {
+	private int sicId; // 회원id
+	private Date startDttm; // 시작일시
+
+	public penaltyDTO() {
 		super();
 	}
 
-	public PenaltyDto(int sicId, Date startDttm) {
+	public penaltyDTO(int sicId, Date startDttm) {
 		super();
 		this.sicId = sicId;
 		this.startDttm = startDttm;
@@ -32,7 +31,5 @@ public class PenaltyDto { //패널티제재현황 테이블
 	public void setStartDttm(Date startDttm) {
 		this.startDttm = startDttm;
 	}
-	
-	
-	
+
 }

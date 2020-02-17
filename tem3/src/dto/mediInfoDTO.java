@@ -1,21 +1,20 @@
 package dto;
 
-public class MedicalInfoDto { //진료정보 테이블
-	private int rqstNo;		//진료신청번호
-	private String mcttStt;	//진료상태
-	
-	//생성자
-	public MedicalInfoDto() {
+public class mediInfoDTO {
+	private int rqstNo; // 진료신청번호
+	private String mcttStt; // 진료상태
+
+	// 생성자
+	public mediInfoDTO() {
 		super();
 	}
 
-	public MedicalInfoDto(int rqstNo, String mcttStt) {
+	public mediInfoDTO(int rqstNo, String mcttStt) {
 		super();
 		this.rqstNo = rqstNo;
 		this.mcttStt = mcttStt;
 	}
 
-	//get set
 	public int getRqstNo() {
 		return rqstNo;
 	}
@@ -33,5 +32,5 @@ public class MedicalInfoDto { //진료정보 테이블
 	}
 	
 	
-	
+
 }

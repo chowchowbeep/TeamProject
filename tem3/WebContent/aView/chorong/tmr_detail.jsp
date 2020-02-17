@@ -86,6 +86,7 @@
 										<!-- <input type="text" name="email" class="form-control" 
                     	id="toDr" name="toDr" placeholder="증상, 기타사항을 입력해주세요"> -->
 										<br>
+										
 										<!-- 	3. 예상 대기인원수 출력 (프로시저 이용) -->
 										<label for="waiting">예상대기인원수</label> <input type="text"
 											id="waiting" name="waiting" class="form-control"

@@ -14,8 +14,9 @@
 			<!-- 왼쪽 메뉴아이콘 자리 -->
 			<!-- Left navbar links -->
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="javascript:history.back();"> 
-				<ion-icon name="arrow-back-outline"></ion-icon>
+				<li class="nav-item"><a class="nav-link"
+					href="javascript:history.back();"> <ion-icon
+							name="arrow-back-outline"></ion-icon>
 				</a></li>
 			</ul>
 
@@ -111,36 +112,38 @@
 
 						<li class="nav-header"><small><strong>병원회원
 									메뉴</strong></small></li>
-						<li class="nav-item"><a href="/tem3/aView/kjr/hospital_mymenu.jsp" class="nav-link">
+						<li class="nav-item"><a href="HHospitalMymenu.do"
+							class="nav-link">
 								<p>마이메뉴</p>
 						</a></li>
-						<li class="nav-item"><a href="/tem3/aView/taeyoung/medi_all.jsp" class="nav-link">
+						<li class="nav-item"><a href="HMediAll.do" class="nav-link">
 								<p>진료현황</p>
 						</a></li>
-						<li class="nav-item"><a href="/tem3/aView/kjr/search_list.jsp" class="nav-link">
+
+						<li class="nav-item"><a href="HSickSearch.do"
+							class="nav-link">
 								<p>회원정보 검색</p>
 						</a></li>
-						<li class="nav-item"><a href="/tem3/aView/taeyoung/doctor_list.jsp" class="nav-link">
+
+						<li class="nav-item"><a href="HDoctorlist.do"
+							class="nav-link">
 								<p>의사목록 관리</p>
 						</a></li>
 						<li class="nav-item"><a href="#" class="nav-link">
-								<p>병원휴일 관리</p>
+								<p>병원휴일 관리_미정</p>
 						</a></li>
 						<li class="nav-item"><a href="#" class="nav-link">
-								<p>의사휴일 관리</p>
+								<p>의사휴일 관리_미정</p>
 						</a></li>
 					</ul>
 
-					<c:if test="로그인상태가 아닌경우">
+					<!--  <c:choose test="로그인상태가 아닌경우"><c:when></c:when></c:choose>-->
 						<div class="text-center" style="padding: 20px;">
-							<a href="#로그인페이지" class="d-block"><small><strong>로그인</strong></small></a>
+							<a href="#로그인페이지" class="d-block"><small><strong>로그인_미정</strong></small></a>
 						</div>
-					</c:if>
-					<div class="text-center" style="padding: 20px;">
-						<a href="로그아웃페이지" class="d-block"> <small><strong>로그아웃</strong></small></a>
-					</div>
-
-
+						<div class="text-center" style="padding: 20px;">
+							<a href="로그아웃페이지" class="d-block"> <small><strong>로그아웃_미정</strong></small></a>
+						</div>
 				</nav>
 				<!-- /.sidebar-menu -->
 			</div>

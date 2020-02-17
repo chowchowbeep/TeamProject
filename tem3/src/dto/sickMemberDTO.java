@@ -1,6 +1,6 @@
 package dto;
 
-public class SickMemberDto { //일반회원정보
+public class sickMemberDTO {
 	private String sicId;		//회원id
 	private String sicPw;		//회원pw
 	private String sicName;		//이름
@@ -9,10 +9,10 @@ public class SickMemberDto { //일반회원정보
 	private String sicLogin;	//로그인방법
 	
 	//생성자
-	public SickMemberDto() {
+	public sickMemberDTO() {
 		super();
 	}
-	public SickMemberDto(String sicId, String sicPw, String sicName, String sicPhone,String sicStt,	String sicLogin) {
+	public sickMemberDTO(String sicId, String sicPw, String sicName, String sicPhone,String sicStt,	String sicLogin) {
 		super();
 		this.sicId = sicId;
 		this.sicPw = sicPw;
@@ -21,8 +21,6 @@ public class SickMemberDto { //일반회원정보
 		this.sicStt = sicStt;
 		this.sicLogin = sicLogin;
 	}
-	
-	//get set
 	public String getSicId() {
 		return sicId;
 	}
@@ -59,6 +57,7 @@ public class SickMemberDto { //일반회원정보
 	public void setSicLogin(String sicLogin) {
 		this.sicLogin = sicLogin;
 	}
+	
 	
 	
 	

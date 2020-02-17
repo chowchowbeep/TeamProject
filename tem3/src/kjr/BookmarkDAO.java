@@ -3,13 +3,13 @@ package kjr;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import dto.BookmarkDto;
+import dto.bookmarkDTO;
 import kty.DAO;
 
 public class BookmarkDAO extends DAO {
 	String sql;
-	public ArrayList<BookmarkDto> select(String id) {
-		ArrayList<BookmarkDto> list = new ArrayList<>();
+	public ArrayList<bookmarkDTO> select(String id) {
+		ArrayList<bookmarkDTO> list = new ArrayList<>();
 		sql = "select * FROM Bookmark WHERE SIC_ID=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -17,7 +17,7 @@ public class BookmarkDAO extends DAO {
 			rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
-				BookmarkDto dto = new BookmarkDto();
+				bookmarkDTO dto = new bookmarkDTO();
 				dto.setHosId(rs.getString("HOS_ID"));
 				//System.out.println("BookmarkDAO : "+ dto.getHosId());
 				list.add(dto);

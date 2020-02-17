@@ -66,6 +66,7 @@ import cmd.STmrRequestCMD;
 import cmd.STmrSelectDcryCMD;
 import cmd.SsearchMainCMD;
 import cmd.TestCMD;
+import kjr.ajax.LocaseachAjaxCMD;
 import kjr.cmd.SearchListCMD;
 import kjr.cmd.SickMainCMD;
 
@@ -172,18 +173,24 @@ public class Contoller extends HttpServlet {
 		cont.put("/Upload.do", new FileUpload());
 		cont.put("/GetDeptCnt.do", new GetDeptCnt());
 */
+		cont.put("/ajax/LocaseachAjaxCMD.do", new LocaseachAjaxCMD()); //지역코드 가져오는 ajax
+		
+	
+	
+	
+	
 	}
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
 		String uri = request.getRequestURI();
 		String context = request.getContextPath();
 		String path = uri.substring(context.length());
 		System.out.println("uri정보:"+uri);
 		System.out.println("context정보:"+context);
 		System.out.println("path정보:"+path);
-
 		Command command = cont.get(path); // 이동할 path를 받음
 		if (command != null) {
 			String page = command.execute(request, response); // 해당패스를 처리할 클래스안에서 처리후)
