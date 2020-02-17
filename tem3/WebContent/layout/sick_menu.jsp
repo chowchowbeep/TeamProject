@@ -130,7 +130,7 @@
 								<p>내가 쓴 리뷰</p>
 						</a></li>
 
-						<li class="nav-item"><a href="/aView/taeyoung/sick_wjqtnwmd.jsp/" class="nav-link">
+						<li class="nav-item"><a href="SSickWjqtnwmd.do" class="nav-link">
 								<p>접수증</p>
 						</a></li>
 						<li class="nav-item"><a href="/aView/" class="nav-link">

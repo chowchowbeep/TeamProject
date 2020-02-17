@@ -117,10 +117,10 @@
 						<li class="nav-item"><a href="/tem3/aView/taeyoung/medi_all.jsp" class="nav-link">
 								<p>진료현황</p>
 						</a></li>
-						<li class="nav-item"><a href="/tem3/aView/kjr/search_list.jsp" class="nav-link">
+						<li class="nav-item"><a href="/tem3/aView/taeyoung/sick_search.jsp" class="nav-link">
 								<p>회원정보 검색</p>
 						</a></li>
-						<li class="nav-item"><a href="/tem3/aView/taeyoung/doctor_list.jsp" class="nav-link">
+						<li class="nav-item"><a href="HDoctorlist.do" class="nav-link">
 								<p>의사목록 관리</p>
 						</a></li>
 						<li class="nav-item"><a href="#" class="nav-link">

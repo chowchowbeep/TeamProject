@@ -13,7 +13,7 @@ public class ArtrDao extends DAO {
 	public int insert(ApprenticeDoctorDto dto) {
 		int r = 0;
 		try {
-			String sql = "insert into ARTR_INFO(HOS_ID,ARTR_NO,ARTR_NAME,ARTR_SUB)" + " values((1,?,?,?)"; // ARTR_seq.nextval
+			String sql = "insert into ARTR_INFO(ARTR_NO,HOS_ID,ARTR_NAME,ARTR_SUB)" + " values((ARTR_SEQ.nextval,?,?,?)"; // ARTR_seq.nextval
 			pstmt.setString(2, dto.getArtrName());
 			pstmt.setString(3, dto.getArtrSub());
 			r = pstmt.executeUpdate();
