@@ -13,11 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import cmd.HDoctorAddCMD;
 import cmd.HDoctorlistCMD;
 import cmd.HHospitalInquiryCMD;
-import cmd.HMenubarCMD;
-import cmd.HSickSearchCMD;
-import cmd.HSickSearchDetailCMD;
-import cmd.HSickSearchListCMD;
-import cmd.HHospitalMainCMD;
 import cmd.HHospitalMymenuCMD;
 import cmd.HHospitalProfileCMD;
 import cmd.HHospitalUploadCMD;
@@ -25,6 +20,10 @@ import cmd.HMediAllCMD;
 import cmd.HMediDetailCMD;
 import cmd.HMediReserveCMD;
 import cmd.HMediWjqtnCMD;
+import cmd.HMenubarCMD;
+import cmd.HSickSearchCMD;
+import cmd.HSickSearchDetailCMD;
+import cmd.HSickSearchListCMD;
 import cmd.MChartCMD;
 import cmd.MChartDetailCMD;
 import cmd.MMenubarCMD;
@@ -33,6 +32,8 @@ import cmd.MPoliceDetailCMD;
 import cmd.MSearchHosCMD;
 import cmd.MSearchHoslistCMD;
 import cmd.MSearchHoslistHosCMD;
+import cmd.MSearchListCMD;
+import cmd.MSearchListNormalCMD;
 import cmd.MasterMainCMD;
 import cmd.MasterSearchNormalCMD;
 import cmd.SAroundMapCMD;
@@ -61,8 +62,6 @@ import cmd.STmrRequestCMD;
 import cmd.STmrSelectDcryCMD;
 import cmd.SsearchMainCMD;
 import cmd.TestCMD;
-import cmd.MSearchListCMD;
-import cmd.MSearchListNormalCMD;
 import kjr.cmd.SearchListCMD;
 import kjr.cmd.SickMainCMD;
 
@@ -99,7 +98,7 @@ public class Contoller extends HttpServlet {
 		
 		//병원회원관련 페이지
 	//	cont.put("/HhosSinup.do", new HhosSinupCMD()); //병원회원용 회원가입 페이지 로 이동
-		cont.put("/HHospitalMain.do", new HHospitalMainCMD()); //병원회원 메인페이지 로 이동
+	//	cont.put("/HHospitalMain.do", new HHospitalMainCMD()); //병원회원 메인페이지 로 이동
 	//	cont.put("/Hpopup.do", new HpopupCMD()); //알림 팝업 페이지 로이동
 		cont.put("/HMediAll.do", new HMediAllCMD()); //(전체)진료신청 현황 리스트 페이지 로 이동
 		cont.put("/HMediWjqtn.do", new HMediWjqtnCMD()); //(당일접수)진료신청 현황 리스트 페이지 로 이동
