@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import finaldto.locaSechDTO;
+import dto.locaSechDTO;
 import kjr.LocaSechDAO;
 import net.sf.json.JSONArray;
 

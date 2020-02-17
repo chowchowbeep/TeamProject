@@ -3,7 +3,7 @@ package kjr;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import finaldto.sickMemberDTO;
+import dto.sickMemberDTO;
 import kty.DAO;
 
 

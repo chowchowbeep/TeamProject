@@ -3,7 +3,7 @@ package kjr;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import finaldto.hosMemberDTO;
+import dto.hosMemberDTO;
 import kty.DAO;
 
 public class HosmemberDAO extends DAO {

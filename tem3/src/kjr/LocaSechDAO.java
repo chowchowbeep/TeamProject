@@ -3,7 +3,7 @@ package kjr;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import finaldto.locaSechDTO;
+import dto.locaSechDTO;
 import kty.DAO;
 
 public class LocaSechDAO extends DAO {

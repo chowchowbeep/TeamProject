@@ -2,7 +2,7 @@ package kjr;
 
 import java.sql.SQLException;
 
-import finaldto.healthInfoDTO;
+import dto.healthInfoDTO;
 import kty.DAO;
 
 public class HealthInfoDAO extends DAO{

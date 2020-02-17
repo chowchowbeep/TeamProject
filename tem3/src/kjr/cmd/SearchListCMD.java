@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import finaldto.hosMemberDTO;
+import dto.hosMemberDTO;
 import kjr.HosmemberDAO;
 
 public class SearchListCMD implements Command {
