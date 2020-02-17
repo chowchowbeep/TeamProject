@@ -7,7 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import finaldto.artrInfoDTO;
+import dto.artrInfoDTO;
 import kty.ArtrDao;
 
 public class DoctorList implements Command {

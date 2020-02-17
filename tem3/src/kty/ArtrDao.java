@@ -5,7 +5,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import finaldto.artrInfoDTO;
+import dto.artrInfoDTO;
+
 
 
 public class ArtrDao extends DAO {
