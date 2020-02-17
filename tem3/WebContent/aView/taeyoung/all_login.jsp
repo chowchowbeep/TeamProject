@@ -59,9 +59,7 @@
             </div>
           </div>
         </div>
-        <div>
-        <img 
-       </div>
+       
         <div class="input-group mb-3">
           <input type="password" class="form-control" id="form2" placeholder="Password">
           <div class="input-group-append">

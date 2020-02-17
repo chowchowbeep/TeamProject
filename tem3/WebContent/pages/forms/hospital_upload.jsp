@@ -8,8 +8,8 @@
 <body class="hold-transition sidebar-mini">
 
 
-<%@ include file="../../layout_header.jsp"%>
-
+<%@ include file="/layout/hos_head.jsp"%>
+<%@ include file="/layout/hos_menu.jsp"%>
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
@@ -157,6 +157,6 @@
 				<!-- /.control-sidebar -->
 		</div>
 		<!-- ./wrapper -->
-<%@ include file="../layout_footer.jsp"%>
+<%@ include file="/layout/all_footer.jsp"%>
 </body>
 </html>
