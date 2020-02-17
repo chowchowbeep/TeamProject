@@ -111,29 +111,29 @@
 						<li class="nav-header"><small><strong>일반회원
 									메뉴</strong></small></li>
 
-						<li class="nav-item"><a href="/tem3/aView/chorong/med_beforeMedList.jsp" class="nav-link">
+						<li class="nav-item"><a href="SMedBeforeMedList.do" class="nav-link">
 								<p>진료신청현황</p>
 						</a></li>
-						<li class="nav-item"><a href="/tem3/aView/chorong/med_doneList.jsp" class="nav-link">
+						<li class="nav-item"><a href="SMedDoneList.do" class="nav-link">
 								<p>진료이력</p>
 						</a></li>
-						<li class="nav-item"><a href="/tem3/aView/kjr/search_main.jsp" class="nav-link">
+						<li class="nav-item"><a href="SsearchMain.do" class="nav-link">
 								<p>병원검색</p>
 						</a></li>
-						<li class="nav-item"><a href="/tem3/aView/kjr/aroundMap.jsp" class="nav-link">
+						<li class="nav-item"><a href="SAroundMap.do" class="nav-link">
 								<p>주변병원/약국 조회</p>
 						</a></li>
 						<li class="nav-item"><a href="#" class="nav-link">
-								<p>약정보조회</p>
+								<p>약정보조회_미정</p>
 						</a></li>
-						<li class="nav-item"><a href="/tem3/aView/kjr/review_mylist.jsp" class="nav-link">
+						<li class="nav-item"><a href="SReviewMylist.do" class="nav-link">
 								<p>내가 쓴 리뷰</p>
 						</a></li>
 
-						<li class="nav-item"><a href="/aView/taeyoung/sick_wjqtnwmd.jsp/" class="nav-link">
+						<li class="nav-item"><a href="SSickWjqtnwmd.do" class="nav-link">
 								<p>접수증</p>
 						</a></li>
-						<li class="nav-item"><a href="/aView/" class="nav-link">
+						<li class="nav-item"><a href="SSickMediaList.do" class="nav-link">
 								<p>의료 기록물</p>
 						</a></li>
 					</ul>

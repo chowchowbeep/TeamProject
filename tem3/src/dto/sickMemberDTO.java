@@ -1,4 +1,4 @@
-package finaldto;
+package dto;
 
 public class sickMemberDTO {
 	private String sicId;		//회원id

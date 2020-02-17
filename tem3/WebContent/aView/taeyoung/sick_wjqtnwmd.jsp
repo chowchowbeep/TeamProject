@@ -31,6 +31,7 @@
 			</div>
 			<!-- /.card-header -->
 			<div class="card-body">
+		<form method="post" action="sick_wjqtnwmd.jsp">
 				<div id="carouselExampleIndicators" class="carousel slide"
 					data-ride="carousel">
 					<ol class="carousel-indicators">
@@ -65,7 +66,9 @@
 						class="carousel-control-next-icon" aria-hidden="true"></span> <span
 						class="sr-only">Next</span>
 					</a>
+					<button type="submit" class="btn btn-block btn-info">접수증 목록</button>    
 				</div>
+			</form>
 			</div>
 			<!-- /.card-body -->
 		</div>

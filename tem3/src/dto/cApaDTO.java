@@ -1,4 +1,4 @@
-package finaldto;
+package dto;
 
 public class cApaDTO {
 	private String apaCode; // 증상코드

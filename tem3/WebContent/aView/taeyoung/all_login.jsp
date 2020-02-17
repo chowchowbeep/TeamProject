@@ -50,7 +50,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">로그인 페이지 입니다.</p>
 	
-      <form name="form" method="post" action="../../aView/kjr/sick_main.jsp" onsubmit="return checkall()">
+      <form name="form" method="post" action="../../aView/kjr/sick_main.jsp" onsubmit="return checkall();">
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="form1" placeholder="id">
           <div class="input-group-append">

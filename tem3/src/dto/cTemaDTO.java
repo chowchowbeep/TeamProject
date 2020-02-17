@@ -1,4 +1,4 @@
-package finaldto;
+package dto;
 
 public class cTemaDTO {
 	private String temaCode; // 테마코드
