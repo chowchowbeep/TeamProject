@@ -2,72 +2,31 @@ package kty;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
-import dto.SickMemberDto;
 
-public class SickSearchDao extends DAO {
+public class SickSearchDAO extends DAO {
 
-	public static String sql;
-
-	// 전체리스트
-	public ArrayList<SickMemberDto> select() {
-		ArrayList<SickMemberDto> list = new ArrayList<>();
-		sql = "SELECT * FROM Sick_Member";
-		try {
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				SickMemberDto dto = new SickMemberDto();
-				dto.setSicName("SIC_NAME");
-				dto.setSicPhone("SIC_PHONE");
-				dto.setSicId(rs.getString("SIC_NAME"));
-				dto.setSicStt(rs.getString("SIC_STT"));
-				dto.setSicLogin(rs.getString("SIC_LOGIN"));
-				dto.setSicPw(rs.getString("SIC_PW"));
-				list.add(dto);
+	//전체리스트
+		public List<artrInfoDTO> selectList() {
+			List<artrInfoDTO> list = new ArrayList<artrInfoDTO>();
+			try {
+				String sql = "select * from ARTR_INFO order by ARTR_NO ";
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery(sql);
+				while (rs.next()) {
+					artrInfoDTO dto = new artrInfoDTO();
+					dto.setArtrNo(rs.getInt("ARTR_NO"));
+					dto.setHosId(rs.getString("HOS_ID"));
+					dto.setArtrName(rs.getString("ARTR_NAME"));
+					dto.setArtrSub(rs.getString("ARTR_SUB"));
+					list.add(dto);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				close();
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+			return list;
 		}
-		return list;
-	}
-
-	public ArrayList<SickMemberDto> select(int id) {
-		ArrayList<SickMemberDto> list = new ArrayList<>();
-		sql = "SELECT * FROM Sick_Member where =?";
-		try {
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				SickMemberDto dto = new SickMemberDto();
-				dto.setSicName("SIC_NAME");
-				dto.setSicPhone("SIC_PHONE");
-				dto.setSicId(rs.getString("SIC_NAME"));
-				dto.setSicStt(rs.getString("SIC_STT"));
-				dto.setSicLogin(rs.getString("SIC_LOGIN"));
-				dto.setSicPw(rs.getString("SIC_PW"));
-				list.add(dto);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return list;
-
-	}
-
-	public ArrayList<SickMemberDto> insert(int id) {
-		ArrayList<SickMemberDto> list = new ArrayList<>();
-		sql = "";
-		int n = 0;
-		try {
-			pstmt = conn.prepareStatement(sql);
-			n = pstmt.executeUpdate();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		return list;
-	}
-
-}
+	}}

@@ -98,9 +98,11 @@
       <p class="mb-1">
         <a href="forgot-password.html">비밀번호 찾기</a>
       </p>
+      <div>
       <p class="mb-0">
-        <a href="register.html" class="text-center">회원 가입</a>
-      </p>
+        <a href="../leedy/sick_signup.jsp" class="text-center">일반회원가입</a>&nbsp;&nbsp;
+        <a href="../leedy/hospital_signup.jsp" class="text-center">병원회원가입</a></p>
+     </div>
     </div>
     <!-- /.login-card-body -->
   </div>
