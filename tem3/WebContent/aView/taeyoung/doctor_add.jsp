@@ -17,23 +17,23 @@
               </div>
               <!-- /.card-header -->
      <!-- form start -->
-       <form class="form-horizontal" method="post" action="doctor_add_verify.jsp">
+       <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/HDoctorAddVerify.do">
          <div class="card-body" style="height:300px;">
          <div class="form-group row">
            <label for="inputPassword3" class="col-sm-2 col-form-label">의사이름</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputPassword3" placeholder="의사이름" name="artrName">
+            <input type="text" class="form-control" id="inputPassword3" name="artrName">
           </div>
         </div>
          <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">진료과목</label>
             <div class="col-sm-10">
-             <select class="form-control" id="artrSub">
-                <option>내과</option>
-                <option>소아과</option>
-                <option>외과</option>
-                <option>정형외과</option>
-               	<option>치과</option>
+             <select class="form-control" name="artrSub">
+                <option value="CS10">내과</option>
+                <option value="CS20">소아과</option>
+                <option value="CS30">외과</option>
+                <option value="CS40">정형외과</option>
+               	<option value="CS50">치과</option>
               </select>
             </div>
          </div>

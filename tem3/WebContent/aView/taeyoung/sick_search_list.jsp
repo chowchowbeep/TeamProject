@@ -4,13 +4,13 @@
     
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     
-<%@ include file="/layout/sick_head.jsp"%>
+<%@ include file="/layout/hos_head.jsp"%>
 <style>
 .ty{
 cursor:pointer;
 }
 </style>
-<%@ include file="/layout/sick_menu.jsp"%>
+<%@ include file="/layout/hos_menu.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">

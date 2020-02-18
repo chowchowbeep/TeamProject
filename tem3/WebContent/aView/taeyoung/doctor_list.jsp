@@ -55,22 +55,22 @@
             		<th>이름</th>
             		<th>과목</th>
             		</tr>
-            	<c:forEach items="${list}" var="list">
+            	<c:forEach items="${list}" var="dto">
                     <tr>
-      			      <td>${list.artrNo}</td>
-      			      <td>${list.hosId}</td>
-                      <td>${list.artrName}</td>
+      			      <td>${dto.artrNo}</td>
+      			      <td>${dto.hosId}</td>
+                      <td>${dto.artrName}</td>
  			        <c:choose>
-						<c:when test="${list.artrSub =='CS10'}">
+						<c:when test="${dto.artrSub =='CS10'}">
 							<td>내과</td>
 						</c:when>
-						<c:when test="${list.artrSub =='CS20'}">
+						<c:when test="${dto.artrSub =='CS20'}">
 							<td>소아과</td>
 						</c:when>
-						<c:when test="${list.artrSub =='CS30'}">
+						<c:when test="${dto.artrSub =='CS30'}">
 							<td>외과</td>
 						</c:when>
-						<c:when test="${list.artrSub =='CS40'}">
+						<c:when test="${dto.artrSub =='CS40'}">
 							<td>정형외과</td>
 						</c:when>
 						<c:otherwise>

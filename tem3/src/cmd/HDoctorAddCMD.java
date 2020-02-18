@@ -15,14 +15,8 @@ public class HDoctorAddCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String path ="aView/taeyoung/doctor_add.jsp"; //
-		artrInfoDTO dto = new artrInfoDTO();
-		//
-		dto.setArtrName(request.getParameter("artrName"));
-		dto.setArtrSub(request.getParameter("artrSub"));
 
-		ArtrDAO dao = new ArtrDAO();
-		dao.insert(dto);
+		String path ="aView/taeyoung/doctor_add.jsp"; //
 		return path;
 	}
 
