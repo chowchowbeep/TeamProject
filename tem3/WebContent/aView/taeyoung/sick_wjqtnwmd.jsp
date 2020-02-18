@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
 <%@ include file="/layout/sick_head.jsp"%>
 <%@ include file="/layout/sick_menu.jsp"%>
 
@@ -30,10 +30,12 @@
 				<h3 class="card-title">QR code</h3>
 			</div>
 			<!-- /.card-header -->
-			<div class="card-body">
-		<form method="post" action="sick_wjqtnwmd.jsp">
+		<form method="post" action="${pageContext.request.contextPath}/SSickWjqtnCreate.do">
+							<div class="card-body">
+				
 				<div id="carouselExampleIndicators" class="carousel slide"
 					data-ride="carousel">
+				<c:forEach items="${list}" var="dto">
 					<ol class="carousel-indicators">
 						<li data-target="#carouselExampleIndicators" data-slide-to="0"
 							class="active"></li>
@@ -41,12 +43,15 @@
 						<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 					</ol>
 					<div class="carousel-inner">
+						<div>
+						 <p>${dto.tmrNo}</p>
+						</div>
 						<div class="carousel-item active">
 							<img class="d-block w-100"
 								src="https://placehold.it/900x500/39CCCC/ffffff&text=I+Love+Bootstrap"
-								alt="First slide">
+								alt="First slide">${dto.qr}
 						</div>
-						<div class="carousel-item">
+						<!--<div class="carousel-item">
 							<img class="d-block w-100"
 								src="https://placehold.it/900x500/3c8dbc/ffffff&text=I+Love+Bootstrap"
 								alt="Second slide">
@@ -55,19 +60,20 @@
 							<img class="d-block w-100"
 								src="https://placehold.it/900x500/f39c12/ffffff&text=I+Love+Bootstrap"
 								alt="Third slide">
-						</div>
+						</div>  -->
 					</div>
 					<a class="carousel-control-prev" href="#carouselExampleIndicators"
 						role="button" data-slide="prev"> <span
 						class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-						class="sr-only">Previous</span>
+						class="sr-only">tmrNo</span>
 					</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
 						role="button" data-slide="next"> <span
 						class="carousel-control-next-icon" aria-hidden="true"></span> <span
 						class="sr-only">Next</span>
 					</a>
-					<button type="submit" class="btn btn-block btn-info">접수증 목록</button>    
+				</c:forEach></div>
 				</div>
+				<button type="submit" class="btn btn-block btn-default">접수증 생성</button>    
 			</form>
 			</div>
 			<!-- /.card-body -->
@@ -75,7 +81,6 @@
 		<!-- /.card -->
 	</div>
 	<!-- /.col -->
-</div>
 <!-- /.row -->
 <!-- END ACCORDION & CAROUSEL-->
 

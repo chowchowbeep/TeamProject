@@ -4,14 +4,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import dto.mediRqstDTO;
+import kcrDAO.HosInfoDAO;
 import kcrDAO.MediRqstDAO;
+import lastdto.hosMemberDTO;
+import lastdto.mediRqstDTO;
 
 public class SMedBeforeMedListCMD implements Command {
 
@@ -22,22 +23,26 @@ public class SMedBeforeMedListCMD implements Command {
 		
 		
 		
-		MediRqstDAO dao = new MediRqstDAO();
+		
 		// String id = request.getParameter("id"); 
 		//로그인중인 아이디를 받아오도록// 나중에 세션으로 변경
 		String id = "sic1"; //가상의 파라미터
-		List<mediRqstDTO> list = new ArrayList<>(); 
-		list = dao.selectAll(id);
+		
+		MediRqstDAO dao = new MediRqstDAO();
+		List<mediRqstDTO> listRq = new ArrayList<>(); 
+		listRq = dao.selectAll(id);
 		
 		
+		HosInfoDAO dao2 = new HosInfoDAO();
+		List<hosMemberDTO> listHos = new ArrayList<>();
+		listHos = dao2.selectAll();
 		
-		String path ="aView/chorong/med_beforeMedList.jsp";
-		
-		
-		request.setAttribute("list", list);
+	
+		request.setAttribute("listR", listRq);
+		request.setAttribute("listH", listHos);
 		request.setAttribute("id", id); 
 		
-		
+		String path ="aView/chorong/med_beforeMedList.jsp";
 		
 		return path;
 	}
