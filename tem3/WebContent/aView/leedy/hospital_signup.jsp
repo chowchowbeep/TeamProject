@@ -30,69 +30,78 @@
     <div class="card-body register-card-body">
      
 
-      <form action="../../index.html" method="post">
+      <form name="frm" action="../../aView/taeyoung/all_login.jsp" method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Full name">
+          <input type="text" class="form-control" id="f1" placeholder="아이디">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+          <div class="input-group mb-3">
+          <input type="password" class="form-control" id="f2" placeholder="비밀번호">
+          <div class="input-group-append">
+            <div class="input-group-text">
+            </div>
+          </div>
+        </div>
+         <div class="input-group mb-3">
+          <input type="password" class="form-control" id="f3" placeholder="비밀번호 확인">
+          <div class="input-group-append">
+            <div class="input-group-text">
+            </div>
+          </div>
+        </div>
+          <div class="input-group mb-3">
+          <input type="text" class="form-control"  id="f4" placeholder="병원명">
+          <div class="input-group-append">
+            <div class="input-group-text">
+            </div>
+          </div>
+        </div>
+          <div class="input-group mb-3">
+          <input type="text" class="form-control" id="f5"  placeholder="주소">
+          <div class="input-group-append">
+            <div class="input-group-text">
             </div>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="text" class="form-control" id="f6" placeholder="사업자번호">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
             </div>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="text" class="form-control" id="f7" placeholder="전화번호">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Retype password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
+       
         <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
+          <div class="">
+            <div class="icheck-danger">
               <input type="checkbox" id="agreeTerms" name="terms" value="agree">
               <label for="agreeTerms">
-               I agree to the <a href="#">terms</a>
+                <a href="#">이용약관</a> 및  <a href="#">개인정보취급방침</a>에 동의합니다.
               </label>
             </div>
           </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
-          </div>
+         
           <!-- /.col -->
         </div>
+         <!-- /.col -->
+         <br>
+          <div class="">
+            <button type="submit" class="btn btn-primary btn-block">회원가입 확인</button>
+          </div>
       </form>
-
-      <div class="social-auth-links text-center">
-        <p>- OR -</p>
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i>
-          Sign up using Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i>
-          Sign up using Google+
-        </a>
-      </div>
-
-      <a href="login.html" class="text-center">I already have a membership</a>
+<br>
+<hr>
+      <a href="../../aView/taeyoung/all_login.jsp" class="text-center">이미 아이디가 있으신가요?</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

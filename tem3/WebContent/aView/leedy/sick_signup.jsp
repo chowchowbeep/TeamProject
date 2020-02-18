@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,76 +23,97 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
+    <a href="#"><b>회원가입</b></a>
   </div>
 
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">Register a new membership</p>
+     
 
-      <form action="../../index.html" method="post">
+      <form name="frm" action="../../aView/taeyoung/all_login.jsp" method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Full name">
+          <input type="text" class="form-control" id="f1" placeholder="아이디">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+          <div class="input-group mb-3">
+          <input type="password" class="form-control" id="f2" placeholder="비밀번호">
+          <div class="input-group-append">
+            <div class="input-group-text">
+            </div>
+          </div>
+        </div>
+         <div class="input-group mb-3">
+          <input type="password" class="form-control" id="f3" placeholder="비밀번호 확인">
+          <div class="input-group-append">
+            <div class="input-group-text">
+            </div>
+          </div>
+        </div>
+          <div class="input-group mb-3">
+          <input type="text" class="form-control"  id="f4" placeholder="이름">
+          <div class="input-group-append">
+            <div class="input-group-text">
+            </div>
+          </div>
+        </div>
+          <div class="input-group mb-3">
+          <input type="text" class="form-control" id="f5"  placeholder="생년월일">
+          <div class="input-group-append">
+            <div class="input-group-text">
             </div>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="text" class="form-control" id="f6" placeholder="연락처">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
             </div>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="text" class="form-control" id="f7" placeholder="전화번호">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Retype password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
+       
         <div class="row">
-          <div class="col-8">
+          <div class="">
             <div class="icheck-primary">
               <input type="checkbox" id="agreeTerms" name="terms" value="agree">
               <label for="agreeTerms">
-               I agree to the <a href="#">terms</a>
+                <a href="#">이용약관</a> 및  <a href="#">개인정보취급방침</a>에 동의합니다.
               </label>
             </div>
           </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
-          </div>
+         
           <!-- /.col -->
         </div>
+         <!-- /.col -->
+         <br>
+          <div class="">
+            <button type="submit" class="btn btn-primary btn-block">회원가입 확인</button>
+          </div>
       </form>
-
+<hr>
       <div class="social-auth-links text-center">
-        <p>- OR -</p>
+        <p>SNS계정으로 간편하게 회원가입</p>
+            <a href="#" class="btn btn-block btn-warning">
+         
+         카카오톡
+        </a>
         <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i>
-          Sign up using Facebook
+         
+         페이스북
         </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i>
-          Sign up using Google+
-        </a>
+    
       </div>
-
-      <a href="login.html" class="text-center">I already have a membership</a>
+<hr>
+      <a href="../../aView/taeyoung/all_login.jsp" class="text-center">이미 아이디가 있으신가요?</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->
