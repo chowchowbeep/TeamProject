@@ -5,7 +5,7 @@ import java.util.List;
 
 import dto.artrInfoDTO;
 
-public class ArtrDao extends DAO {
+public class ArtrDAO extends DAO {
 
 	// 추가
 	public int insert(artrInfoDTO dto) {

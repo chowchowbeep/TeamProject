@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import dto.SickMemberDto;
 
-public class MediDao extends DAO {
+public class MediDAO extends DAO {
 
 	public static String sql;
 
