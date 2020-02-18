@@ -68,7 +68,7 @@
         
         // 회원가입창의 아이디 입력란의 값을 가져온다. 부모창에 접근하려면 opener 사용
         function pIdValue(){
-            document.getElementById("userId").value = opener.document.hosFrm.f1.value;
+            document.getElementById("userId").value = opener.document.hosFrm.hos_id.value;
         }
         
         // 아이디 중복체크

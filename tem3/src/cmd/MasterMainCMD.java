@@ -13,7 +13,7 @@ public class MasterMainCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String path ="aView/kimmj/master_main.jsp"; //관리자 메인페이지로 이동
+		String path ="aView/kimmj/master-main.jsp"; //관리자 메인페이지로 이동
 		
 		return path;
 	}
