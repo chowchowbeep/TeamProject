@@ -17,18 +17,19 @@
               </div>
               <!-- /.card-header -->
      <!-- form start -->
-       <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/HDoctorAddVerify.do">
+       <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/HDoctorAddVerify.do" onsubmit="return checkall();">
          <div class="card-body" style="height:300px;">
          <div class="form-group row">
            <label for="inputPassword3" class="col-sm-2 col-form-label">의사이름</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputPassword3" name="artrName">
+            <input type="text" class="form-control" id="artrName" name="artrName">
           </div>
         </div>
          <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">진료과목</label>
             <div class="col-sm-10">
-             <select class="form-control" name="artrSub">
+             <select class="form-control" name="artrSub" id="artrSub">
+              <option></option>
                 <option value="CS10">내과</option>
                 <option value="CS20">소아과</option>
                 <option value="CS30">외과</option>
@@ -48,7 +49,7 @@
          <!-- /.card-body -->
      <div class="card-footer">
        <button type="submit" class="btn btn-info">등록</button>
-        <a class="btn btn-default float-right" href="#">취소</a>
+        <a class="btn btn-default float-right" href="${pageContext.request.contextPath}/HDoctorList.do">취소</a>
      </div>
      <!-- /.card-footer -->
     </form>
@@ -62,5 +63,22 @@
   <!-- /.content-wrapper -->
 
 <%@ include file="/layout/all_footer.jsp"%>
+<script>
+        function checkall() {
+            var ty1 = document.getElementById("artrName");
+            var ty2 = document.getElementById("artrSub");
+            if (ty1.value == "") {
+                alert("이름을 입력해주세요.");
+                ty1.focus();
+                return false;
+            }
+            if (ty2.value == "") {
+                alert("진료과목을 선택해주세요.");
+                ty2.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 </html>

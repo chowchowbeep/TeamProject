@@ -1,58 +1,48 @@
 package lastdto;
 
 public class sickSearchDTO {
-	private String Code;// 과목코드
-	private String name; // 이름
-	private String ihidno; // 주민등록번호
-	private String phone; // 전화번호
-	
+	private String sicName;		//이름
+	private String sicPhone;	//전화번호
+	private String rqstTy; // 진료타입
+
 	// 생성자
 	public sickSearchDTO() {
 		super();
 	}
 	
 
-	public sickSearchDTO(String code, String name, String ihidno, String phone) {
+	public sickSearchDTO(String sicName, String sicPhone, String rqstTy) {
 		super();
-		this.Code = code;
-		this.name = name;
-		this.ihidno = ihidno;
-		this.phone = phone;
+		this.sicName = sicName;
+		this.sicPhone = sicPhone;
+		this.rqstTy = rqstTy;
 	}
 
 
-	public String getCode() {
-		return Code;
+	public String getSicName() {
+		return sicName;
 	}
 
-	public void setCode(String code) {
-		Code = code;
+	public void setSicName(String sicName) {
+		this.sicName = sicName;
 	}
 
-	public String getName() {
-		return name;
+	public String getSicPhone() {
+		return sicPhone;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setSicPhone(String sicPhone) {
+		this.sicPhone = sicPhone;
 	}
 
-	public String getIhidno() {
-		return ihidno;
+	public String getRqstTy() {
+		return rqstTy;
 	}
 
-	public void setIhidno(String ihidno) {
-		this.ihidno = ihidno;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setRqstTy(String rqstTy) {
+		this.rqstTy = rqstTy;
 	}
 	
-	
+
 	
 }

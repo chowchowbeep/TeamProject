@@ -11,7 +11,7 @@ public class SickSearchDAO extends DAO {
 		public List<sickSearchDTO> selectList() {
 			List<sickSearchDTO> list = new ArrayList<sickSearchDTO>();
 			try {
-				String sql = "select  from a.TMR_INFO, b.C_SUB where = ";
+				String sql = "select * from MEDI_LIST";
 				pstmt = conn.prepareStatement(sql);
 				rs = pstmt.executeQuery(sql);
 				while (rs.next()) {

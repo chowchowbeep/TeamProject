@@ -45,14 +45,14 @@
               <!-- form start -->
       
               <form class="form-horizontal" method="post" action="sick_search_list.jsp">
-                             <c:forEach items="${list}" var="list">
+                             <!--  c:forEach items="${list}" var="dto">-->
                 
                 <div class="card-body" style="height:300px; margin-left:20px;">
                  <div>
                   <label>진료타입</label>
                   <div>
                  	<input type="radio" name="wjqtn" value="당일접수"checked="checked">당일접수&nbsp;&nbsp;
-					<input type="radio" name="reserve"> 예약 &nbsp;&nbsp;
+					<input type="radio" name="reserve">예약 &nbsp;&nbsp;
 					<input type="radio" name="cancel"> 취소
                   </div>
 					</div><br>
@@ -63,7 +63,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="far fa-user"></i></span>
                     </div>
-                    <input type="text" class="form-control" placeholder="환자이름" value="${list.rqstNo}">
+                    <input type="text" class="form-control" placeholder="환자이름">
                   </div>
                   <!-- /.input group -->
                 </div>
@@ -98,7 +98,7 @@
               <div class="card-footer text-center">
                   <button type="submit" class="btn btn-info">검색</button>
                 </div>
-                </c:forEach>
+        
               </form>
             </div>
             <!-- /.card -->

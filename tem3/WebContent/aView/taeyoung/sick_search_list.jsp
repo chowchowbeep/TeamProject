@@ -58,18 +58,29 @@ cursor:pointer;
                   <thead>
                     <tr>
                       <th width="40%;">이름</th>
-                      <th width="35%;">진료</th>
-                      <th width="25%;">생년월일</th>
-                      <th width="15%;">번호</th>
+                      <th width="35%;">번호</th>
+                      <th width="25%;">진료타입</th>
                     </tr>
                   </thead>
             		<tbody>
                     <c:forEach items="${list}" var="dto">
                     <tr>
-                      <td><a href=sick_search_detail.jsp>${dto.name}</a></td>
-                      <td>${dto.Code}</td>
-                      <td>${dto.ihidno}</td>
-                      <td>${dto.phone}</td>
+                      <td><a href=sick_search_detail.jsp>${dto.sicName}</a></td>
+                      <td>${dto.sicPhone}</td>
+                      <c:choose>
+						<c:when test="${dto.artrSub =='D001'}">
+							<td>당일접수</td>
+						</c:when>
+						<c:when test="${dto.artrSub =='D002'}">
+							<td>예약</td>
+						</c:when>
+						<c:when test="${dto.artrSub =='D003'}">
+							<td>병원취소</td>
+						</c:when>
+						<c:when test="${dto.artrSub =='D004'}">
+							<td>일반취소</td>
+						</c:when>
+					</c:choose>		
                     </tr>
                     </c:forEach>
                     </tbody>

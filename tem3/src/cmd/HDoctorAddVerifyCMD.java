@@ -16,7 +16,7 @@ public class HDoctorAddVerifyCMD implements Command{
    public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		artrInfoDTO dto = new artrInfoDTO();
-		dto.setHosId("hos1");
+		dto.setHosId("hos1");//
 		dto.setArtrName(request.getParameter("artrName"));
 		dto.setArtrSub(request.getParameter("artrSub"));
 
