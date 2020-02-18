@@ -1,4 +1,4 @@
-package finaldto;
+package lastdto;
 
 public class reviewDTO {
 	private int rvNo; // 글번호

@@ -1,4 +1,4 @@
-package finaldto;
+package lastdto;
 
 public class bookmarkDTO {
 	private String sicId; // 회원ID

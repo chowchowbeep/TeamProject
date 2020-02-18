@@ -1,4 +1,4 @@
-package finaldto;
+package lastdto;
 
 public class docuImgDTO {
 	private int dcryNo; // 파일번호

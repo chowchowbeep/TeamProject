@@ -1,4 +1,4 @@
-package finaldto;
+package lastdto;
 
 public class artrInfoDTO {
 	private int artrNo; // 의사번호

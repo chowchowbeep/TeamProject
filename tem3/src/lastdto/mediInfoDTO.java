@@ -1,4 +1,4 @@
-package finaldto;
+package lastdto;
 
 public class mediInfoDTO {
 	private int rqstNo; // 진료신청번호

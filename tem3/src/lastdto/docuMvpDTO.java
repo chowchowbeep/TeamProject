@@ -1,4 +1,4 @@
-package finaldto;
+package lastdto;
 
 public class docuMvpDTO {
 	private int dcryNo; // 파일번호

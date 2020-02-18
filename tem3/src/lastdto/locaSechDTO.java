@@ -1,4 +1,4 @@
-package finaldto;
+package lastdto;
 
 public class locaSechDTO {
 	private String locaCode; // 지역코드
