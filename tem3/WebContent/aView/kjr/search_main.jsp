@@ -236,9 +236,9 @@ div .hiden {
 				<div class="card-body">
 					<div class="row">
 						<div id="ctDivMain" class="col-4">
-							<a class="list-group-item list-group-item-action" id="c_apa">진료과목</a>
-							<a class="list-group-item list-group-item-action" id="c_sub">증상</a>
-							<a class="list-group-item list-group-item-action" id="c_tema">테마</a>
+							<a class="list-group-item list-group-item-action" id="apa">진료과목</a>
+							<a class="list-group-item list-group-item-action" id="sub">증상</a>
+							<a class="list-group-item list-group-item-action" id="tema">테마</a>
 						</div>
 						<div id="ctDivMain2" class="col-4">
 							<a class="list-group-item list-group-item-action" id="LD10">내과</a>

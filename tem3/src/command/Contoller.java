@@ -62,6 +62,7 @@ import cmd.STmrRequestCMD;
 import cmd.STmrSelectDcryCMD;
 import cmd.SsearchMainCMD;
 import cmd.TestCMD;
+import kjr.ajax.CategoriAjaxCMD;
 import kjr.ajax.LocaseachAjaxCMD;
 import kjr.cmd.SearchListCMD;
 import kjr.cmd.SickMainCMD;
@@ -175,6 +176,8 @@ public class Contoller extends HttpServlet {
 		cont.put("/GetDeptCnt.do", new GetDeptCnt());
 */
 		cont.put("/ajax/LocaseachAjaxCMD.do", new LocaseachAjaxCMD()); //지역코드 가져오는 ajax
+		cont.put("/ajax/CategoriAjaxCMD.do", new CategoriAjaxCMD()); //카테고리코드 가져오는 ajax
+
 		
 	
 	

@@ -22,9 +22,15 @@ public class CategoriAjaxCMD implements Command {
 		String wd = request.getParameter("Code");
 		System.out.println(wd);
 		CateDAO catedao = new CateDAO();
-		ArrayList<cApaDTO> list; 
-		list = catedao.select(wd);
+		ArrayList<cApaDTO> list = null; 
 		
+		if(wd.equals("apa")) {
+			list = catedao.apaSelect();
+		}else if(wd.equals("sub")){
+			list = catedao.subSelect();
+		}else if(wd.equals("tema")){
+			list = catedao.temaSelect();
+		}
 		return "ajax:" + JSONArray.fromObject(list);
 	}
 
