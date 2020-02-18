@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%@ include file="/layout/hos_head.jsp"%>
 <%@ include file="/layout/hos_menu.jsp"%>
 
-		<!-- Content Wrapper. Contains page content -->
+	<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
@@ -20,42 +21,39 @@
 						</div>
 					</div>
 				</div>
-				<!-- /.container-fluid -->
 			</section>
 
-			<!-- Main content -->
-			<section class="content">
-				<!-- Default box -->
+		<!-- Main content -->
+		<section class="content">
 				<div class="card-body pt-0" style="width: 360px;">
-					<div class="row d-flex align-items-stretch">
+				<div class="row d-flex align-items-stretch">
 						<div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
 							<div class="card bg-light">
 								<div class="card-header text-muted border-bottom-0">
-									<!-- 1번째 글 -->
 								</div>
 								<form>
 								<div class="card-body pt-0">
+             					<c:forEach items="${list}" var="list">
 									<div class="row">
 										<div class="col-7">
 											<h2 class="lead">
-												<b>김태영</b>
+												<b>${list.sicName}</b>
 											</h2>
 											<p class="text-sm">
 												<b>ID:</b>&nbsp;
-												<input type="hidden">[S001] <br>
+												<input type="hidden">${list.sicId}<br>
 												<b>회원등급:</b>&nbsp;
-												<input type="hidden">[일반]
+												<input type="hidden">${list.sicStt}
 											</p>
 											<ul class="ml-4 mb-0 fa-ul text-muted">
 												<li class="small"><span class="fa-li">
 												<i class="fas fa-lg fa-phone"></i></span>
 														전화번호:&nbsp;
-														<input type="hidden">[010-0000-0001]
-												</li>
+														<input type="hidden">${list.sicPhone}													</li>
 												<li class="small"><span class="fa-li">
 												<i class="fas fa-lg fa-building"></i></span>
 														주소:&nbsp;
-														<input type="hidden">[대구시 달서구 신당동 1834-2]</li><br>
+														<input type="hidden">${list.addr}</li><br>
 											</ul>
 										</div>
 										<div class="col-5 text-center">
@@ -63,11 +61,12 @@
 										</div>
 										<br><br>
 										<p class="text-sm">
-											<b>선생님께 한마디:</b>&nbsp;<input type="hidden">[어제부터 배가
-											아파요]<br> <b>진료기록물 신청:</b>&nbsp;<input type="hidden">[없음]<br>
-											<b>진료신청 일시:</b>&nbsp;<input type="hidden">[2020-02-10]
+											<b>선생님께 한마디:</b>&nbsp;<input type="hidden">${list.msg}<br>
+											<b>진료기록물 신청:</b>&nbsp;<input type="hidden">${list.dcryNo}<br>
+											<b>진료신청 일시:</b>&nbsp;<input type="hidden">${list.rqstDttm}
 										</p>
 									</div>
+									</c:forEach>
 								</div>
 								</form>
 							</div>

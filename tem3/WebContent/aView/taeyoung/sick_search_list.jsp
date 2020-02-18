@@ -64,34 +64,14 @@ cursor:pointer;
                     </tr>
                   </thead>
             		<tbody>
-                    <tr>
-                      <td class="ty" onclick="location.href='sick_search_detail.jsp'">[김민정]</td>
-                      <td>[소아과]</td>
-                      <td>[96/12/08]</td>
-                      <td>[010-0000-0001]</td>
-                    </tr>
-                    
                     <c:forEach items="${list}" var="dto">
                     <tr>
-                      <td><a href=sick_search_detail.jsp>${dto.getsicName()}</a></td>
-                      <td></td>
-                      <td>${dto.substr(ihidnum,6)}</td>
-                      <td>${dto.sicPhone}</td>
+                      <td><a href=sick_search_detail.jsp>${dto.name}</a></td>
+                      <td>${dto.Code}</td>
+                      <td>${dto.ihidno}</td>
+                      <td>${dto.phone}</td>
                     </tr>
                     </c:forEach>
-                    
-                    <tr>
-                      <td class="ty" onclick="location.href='sick_search_detail.jsp'">[김태영]</td>
-                      <td>[이비인후과]</td>
-                      <td>[96/12/08]</td>
-                      <td>[010-0000-0003]</td>
-                    </tr>
-                    <tr>
-                      <td class="ty" onclick="location.href='sick_search_detail.jsp'">[이다연]</td>
-                      <td>[소아과]</td>
-                      <td>[96/12/08]</td>
-                     <td>[010-0000-0004]</td>
-                    </tr>
                     </tbody>
                 </table>
               </div>

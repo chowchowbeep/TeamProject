@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +50,7 @@
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">로그인 페이지 입니다.</p>
-	
+	<c:forEach items="${list}" var="list">
       <form name="form" method="post" action="../../aView/kjr/sick_main.jsp" onsubmit="return checkall();">
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="form1" placeholder="id">
@@ -59,7 +60,6 @@
             </div>
           </div>
         </div>
-       
         <div class="input-group mb-3">
           <input type="password" class="form-control" id="form2" placeholder="Password">
           <div class="input-group-append">
@@ -94,13 +94,16 @@
         </a>
       </div>
       <!-- /.social-auth-links -->
-
+	</c:forEach>
+		
       <p class="mb-1">
         <a href="forgot-password.html">비밀번호 찾기</a>
       </p>
+      <div>
       <p class="mb-0">
-        <a href="register.html" class="text-center">회원 가입</a>
-      </p>
+        <a href="../leedy/sick_signup.jsp" class="text-center">일반회원가입</a>&nbsp;&nbsp;
+        <a href="../leedy/hospital_signup.jsp" class="text-center">병원회원가입</a></p>
+     </div>
     </div>
     <!-- /.login-card-body -->
   </div>

@@ -3,7 +3,7 @@ package kjr;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import dto.bookmarkDTO;
+import lastdto.bookmarkDTO;
 import kty.DAO;
 
 public class BookmarkDAO extends DAO {

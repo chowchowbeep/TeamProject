@@ -63,9 +63,9 @@ table{
          <div class="dropdown">
 			예약&nbsp;<i class="fas fa-caret-down"></i>
  		 <div class="dropdown-content">
-    		<a href="medi_all.jsp">전체</a>
-    		<a href="medi_wjqtn.jsp">당일 접수</a>
-   			<a href="medi_reserve.jsp">예약</a>
+    		<a href="${pageContext.request.contextPath}/HMediAll.do">전체</a>
+    		<a href="${pageContext.request.contextPath}/HMediWjqtn.do">당일 접수</a>
+   			<a href="${pageContext.request.contextPath}/HMediReserve.do">예약</a>
  		 </div>
 		</div><br>
         <div class="row">
@@ -95,7 +95,7 @@ table{
                 <tr>
                   <td>${list.rqstNo}</td>
                   <td>${list.sicId}<span class="badge bg-warning">NEW</span></td>
-                  <td>${list.rqstDttm}</td>
+                  <td>${list.resDttm}</td>
                   <td>
                     <a href="#" class="text-muted">
                     <i class="fas fa-search">${list.artrNo}</i>
@@ -103,7 +103,11 @@ table{
                   </td>
                 </tr>
                 </c:forEach>
-                 
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        	</div></div></div></section>
                   <!--<tr>
                     <td>
                      0002
@@ -117,64 +121,22 @@ table{
                         <i class="fas fa-search"></i>
                       </a>
                     </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      	1000
-                    </td>
-                    <td>김민정</td>
-                    <td>
-                      15:00
-                    </td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                     	0013
-                    </td>
-                    <td>김초롱</td>
-                    <td>
-                      13:00
-                    </td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                     	0023
-                    </td>
-                    <td>김주련</td>
-                    <td>
-                      16:00
-                    </td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                    </td>
-                  </tr>  -->
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <!-- /.card -->
-          </div>
-          </div></div></section>
+                  </tr>--!>
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-
- 
 </div>
 <!-- ./wrapper -->
+
 <%@ include file="/layout/all_footer.jsp"%>
+<script>
+	$("tr").click(function() {
+		console.log("click");
+		location.href = "${pageContext.request.contextPath}/ ";
+	})
+</script>
+</body>
+</html>
 

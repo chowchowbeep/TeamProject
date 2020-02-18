@@ -4,6 +4,7 @@ public class locaSechDTO {
 	private String locaCode; // 지역코드
 	private String wd; // 검색어
 	private String pCode; // 부모코드
+	private String cate; //지하철이면 s
 
 	// 생성자
 	public locaSechDTO() {
@@ -13,6 +14,14 @@ public class locaSechDTO {
 	public locaSechDTO(String locaCode) {
 		super();
 		this.locaCode = locaCode;
+	}
+
+	public String getCate() {
+		return cate;
+	}
+
+	public void setCate(String cate) {
+		this.cate = cate;
 	}
 
 	public String getLocaCode() {

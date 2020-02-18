@@ -1,3 +1,5 @@
+package leedy.cmd;
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -6,14 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
 
-public class SSickMediaListCMD implements Command {
+public class HosMemberBizNoCheckActionCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String path ="aView/leedy/sick_mediaList.jsp"; //
 		
-		return path;
+		return null;
 	}
 
 }

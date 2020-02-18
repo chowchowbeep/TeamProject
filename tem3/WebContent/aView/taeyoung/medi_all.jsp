@@ -2,41 +2,44 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="/layout/hos_head.jsp"%>
+
 <style>
-.float-right{
- border: none;
-}
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px 0px;
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: #696969;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {background-color: #ddd;}
-.dropdown:hover .dropdown-content {display: block;}
-
-table{
-	text-align:center;
-}
+	.float-right{
+	 border: none;
+	}
+	
+	.dropdown {
+	  position: relative;
+	  display: inline-block;
+	}
+	
+	.dropdown-content {
+	  display: none;
+	  position: absolute;
+	  background-color: #f1f1f1;
+	  min-width: 160px;
+	  box-shadow: 0px 8px 16px 0px 0px;
+	  z-index: 1;
+	}
+	
+	.dropdown-content a {
+	  color: #696969;
+	  padding: 12px 16px;
+	  text-decoration: none;
+	  display: block;
+	}
+	
+	.dropdown-content a:hover {background-color: #ddd;}
+	.dropdown:hover .dropdown-content {display: block;}
+	
+	table{
+		text-align:center;
+	}
 </style>
+
 <%@ include file="/layout/hos_menu.jsp"%>
 
-  <!-- Content Wrapper. Contains page content -->
+ <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -51,16 +54,16 @@ table{
       </div><!-- /.container-fluid -->
     </div><!-- /.content-header -->
 
-    <!---- Main content ----------------------------->
+  <!---- Main content ----------------------------->
     <section class="content">
       <div class="container-fluid">
          <div class="dropdown">
 			전체&nbsp;<i class="fas fa-caret-down"></i><!-- 화살표 -->
 			<!-- <i class="fas fa-bars"></i>  줄 세개-->
  		 <div class="dropdown-content">
-    		<a href="medi_all.jsp">전체</a>
-    		<a href="medi_wjqtn.jsp">당일 접수</a>
-   			<a href="medi_reserve.jsp">예약</a>
+    		<a href="${pageContext.request.contextPath}/HMediAll.do">전체</a>
+    		<a href="${pageContext.request.contextPath}/HMediWjqtn.do">당일 접수</a>
+   			<a href="${pageContext.request.contextPath}/HMediReserve.do">예약</a>
  		 </div>
 		</div><br>
 		
@@ -87,7 +90,7 @@ table{
                 <tr>
                   <td>${list.rqstNo}</td>
                   <td>${list.sicId}<span class="badge bg-warning">NEW</span></td>
-                  <td>${list.rqstDttm}</td>
+                  <td>${list.rqstDttm}${list.resDttm}</td>
                   <td>
                     <a href="#" class="text-muted">
                     <i class="fas fa-search">${list.artrNo}</i>
@@ -95,7 +98,6 @@ table{
                   </td>
                 </tr>
                 </c:forEach>
-                 
                  </tbody>
                 </table>
               </div></div>
@@ -108,17 +110,16 @@ table{
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-
 </div>
 <!-- ./wrapper -->
+
 <%@ include file="/layout/all_footer.jsp"%>
+
 <script>
 	$("tr").click(function() {
 		console.log("click");
-		location.href = "${pageContext.request.contextPath}/HDoctorlist.do";
+		location.href = "${pageContext.request.contextPath}/ ";
 	})
 </script>
-
-
 </body>
 </html>
