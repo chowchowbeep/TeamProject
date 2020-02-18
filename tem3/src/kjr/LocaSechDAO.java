@@ -3,7 +3,7 @@ package kjr;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import dto.locaSechDTO;
+import lastdto.locaSechDTO;
 import kty.DAO;
 
 public class LocaSechDAO extends DAO {
@@ -36,7 +36,7 @@ public class LocaSechDAO extends DAO {
 		ArrayList<locaSechDTO> list = new ArrayList<locaSechDTO>();
 		sql="select * from loca_sech ";
 		if(wd!=null) {
-			sql += " where P_CODE = ? ";
+			sql += " where P_CODE = ? and LOCA_CODE NOT IN('LD10','LD20','LD30') ";
 		}   
 		System.out.println(sql);
 		try {

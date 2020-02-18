@@ -44,30 +44,8 @@ div .hiden {
 			$("#ctDiv").removeClass("hiden");
 		});
 
-		$("#areaDivMain").on(
-				"click",
-				"a",
-				function() { //지역 대분류 클릭시 중분류 출력
-					$("#areaDivAddr2").removeClass("hiden");
-					$("#areaDivAddr2").html("");
-					console.log("aa");
-					$.ajax("/tem3/ajax/LocaseachAjaxCMD.do", {
-						dataType : "json", //json데이터를 받아올때 그 파일엔 json데이터값만 있어야함. 
-						data : {
-							pCode : $(this).attr("id")
-						}
-					//클릭한값의id를 파라매터로보냄
-					}).done(function(data) {
-								for (i = 0; i < data.length; i++) {
-									console.log("this는?" + this);
-									$("#areaDivAddr2").append(
-											'<a class="list-group-item list-group-item-action" id="LS00">'
-													+ data[i].wd); //(자식)appendTo(부모)
-								}
-								;
-
-							});
-				});
+		
+					
 
 		$("#searched").bind("click", function() {
 			searchedGo();
@@ -77,33 +55,33 @@ div .hiden {
 			document.searchFrm.method = "post";
 			document.searchFrm.submit();
 		}
+		$("#areaDivMain").on("click","a",searchFunc); //지역 대분류 클릭시 중분류 출력
+		//$("#subDivMain").on("click","a",searchFunc); //지하철 대분류 클릭시 중분류 출력
+		$("#subDivMain2").on("click","a",searchFunc); //지하철 중분류 클릭시 소분류 출력
+		$("#ctDivMain").on("click","a",searchFunc); //카테고리 대분류 클릭시 중분류 출력	
 		
-		$("#subDivMain").on(
-				"click",
-				"a",
-				function() { //지역 대분류 클릭시 중분류 출력
-					$("#subDivMain2").removeClass("hiden");
-					$("#subDivMain2").html("");
-					console.log("aa");
-					$.ajax("/tem3/ajax/LocaseachAjaxCMD.do", {
-						dataType : "json", //json데이터를 받아올때 그 파일엔 json데이터값만 있어야함. 
-						data : {
-							pCode : $(this).attr("id")
-						}
-					//클릭한값의id를 파라매터로보냄
-					}).done(function(data) {
-								for (i = 0; i < data.length; i++) {
-									console.log("this는?" + this);
-									$("#subDivMain2").append(
-											'<a class="list-group-item list-group-item-action" id="LS00">'
-													+ data[i].wd); //(자식)appendTo(부모)
-								}
-								;
-
-							});
-				});
 		
-
+		
+		function searchFunc(){ //대분류 클릭시 중분류 출력
+			var pDiv = $(this).closest("div") //클릭한 a의 부모div 객체를 찾음
+			pDiv = pDiv.next();//부모div에서 그 다음 객체를 찾음
+			var pDivId = pDiv.attr("id");//pDiv의 id로 객체확인
+			console.log(pDivId);	//pDiv의 id로 객체확인2
+			////////////////////////
+			pDiv.removeClass("hiden");
+			pDiv.html("");
+			$.ajax("/tem3/ajax/LocaseachAjaxCMD.do", {
+				dataType : "json",
+				data : {pCode : $(this).attr("id")}
+			})
+				.done(function(data) {
+					for (i = 0; i < data.length; i++) {
+						pDiv.append(
+						'<a class="list-group-item list-group-item-action" id="LS00">'
+								+ data[i].wd); //(자식)appendTo(부모)
+					}
+			});
+		};
 	});
 </script>
 
@@ -155,8 +133,6 @@ div .hiden {
 							<a class="list-group-item list-group-item-action" id="LD00">대구</a>
 						</div>
 						<div id="areaDivAddr2" class="col-4">
-							<a class="list-group-item list-group-item-action" id="LDA0">동성로,시청</a>
-							<a class="list-group-item list-group-item-action" id="LDB0">동대구역,신천</a>
 						</div>
 						<div id="btnDiv" class="col-4 hiden"></div>
 					</div>
@@ -189,9 +165,7 @@ div .hiden {
 							<a class="list-group-item list-group-item-action" id="LD10">1호선</a>
 							<a class="list-group-item list-group-item-action" id="LD20">2호선</a>
 						</div>
-						<div id="subDivMain3" class="col-4">
-							<a class="list-group-item list-group-item-action" id="LD10">중앙로역</a>
-							<a class="list-group-item list-group-item-action" id="LD20">동대구역</a>
+						<div id="subDivMain3" class="col-4 hiden">
 						</div>
 					</div>
 					<div class="row">
