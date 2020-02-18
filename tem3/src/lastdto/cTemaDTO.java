@@ -1,7 +1,7 @@
 package lastdto;
 
 public class cTemaDTO {
-	private String temaCode; // 테마코드
+	private String Code; // 테마코드
 	private String wd; // 검색어
 
 	// 생성자
@@ -9,18 +9,18 @@ public class cTemaDTO {
 		super();
 	}
 
-	public cTemaDTO(String temaCode, String wd) {
+	public cTemaDTO(String Code, String wd) {
 		super();
-		this.temaCode = temaCode;
+		this.Code = Code;
 		this.wd = wd;
 	}
 
-	public String getTemaCode() {
-		return temaCode;
+	public String getCode() {
+		return Code;
 	}
 
-	public void setTemaCode(String temaCode) {
-		this.temaCode = temaCode;
+	public void setCode(String temaCode) {
+		this.Code = temaCode;
 	}
 
 	public String getWd() {

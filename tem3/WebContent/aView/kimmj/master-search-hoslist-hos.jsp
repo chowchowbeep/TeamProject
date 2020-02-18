@@ -106,7 +106,7 @@ to {
 				<td>
 				<ion-icon name="business" size = "large" 
 				style = "width: 100px; height: 100px; margin: 0px 0px 10px 10px;"></ion-icon>
-				<div class = "name"><b> 조선아 </b></div>
+				<div class = "name"><b> 예담병원 </b></div>
 			</td>
 			<td class = "info">
 				<p><b> 회원 ID: </b>sunamanse </p>

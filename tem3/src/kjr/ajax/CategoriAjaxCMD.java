@@ -12,9 +12,8 @@ import kjr.LocaSechDAO;
 import lastdto.locaSechDTO;
 import net.sf.json.JSONArray;
 
-public class LocaseachAjaxCMD implements Command  {
-	
-	
+public class CategoriAjaxCMD implements Command {
+
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -25,6 +24,5 @@ public class LocaseachAjaxCMD implements Command  {
 		
 		return "ajax:" + JSONArray.fromObject(list);
 	}
-	
-	
+
 }

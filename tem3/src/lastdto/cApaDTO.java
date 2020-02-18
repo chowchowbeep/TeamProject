@@ -1,7 +1,7 @@
 package lastdto;
 
 public class cApaDTO {
-	private String apaCode; // 증상코드
+	private String Code; // 증상코드
 	private String wd; // 검색어
 
 	// 생성자
@@ -9,18 +9,18 @@ public class cApaDTO {
 		super();
 	}
 
-	public cApaDTO(String apaCode, String wd) {
+	public cApaDTO(String Code, String wd) {
 		super();
-		this.apaCode = apaCode;
+		this.Code = Code;
 		this.wd = wd;
 	}
 
-	public String getApaCode() {
-		return apaCode;
+	public String getCode() {
+		return Code;
 	}
 
-	public void setApaCode(String apaCode) {
-		this.apaCode = apaCode;
+	public void setCode(String apaCode) {
+		this.Code = apaCode;
 	}
 
 	public String getWd() {

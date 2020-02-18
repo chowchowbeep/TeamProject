@@ -114,9 +114,6 @@ to {
 <%@ include file="/layout/admin_menu.jsp"%>
 
 
-
-
-
 <div class = "card">
 	<div class = "card-header text-center">
 		<div class = "text-center" style = "padding: 10px 0px 0px 0px">
@@ -160,11 +157,6 @@ to {
 		</div>
 		<div class="list">
 			<span class="listof2"> 전화번호&nbsp;&nbsp;&nbsp; <input
-				type="text">
-			</span>
-		</div>
-		<div class="list">
-			<span class="listof3"> 주민등록번호&nbsp;&nbsp;&nbsp; <input
 				type="text">
 			</span>
 		</div>
