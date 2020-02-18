@@ -20,7 +20,6 @@ public class CateDAO extends DAO {
 				dto.setWd(rs.getString("WD"));
 				System.out.println(dto.getWd());
 				list.add(dto);		
-				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
