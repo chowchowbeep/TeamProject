@@ -19,7 +19,7 @@ public class CategoriAjaxCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String wd = request.getParameter("Code");
+		String wd = request.getParameter("wd");
 		System.out.println(wd);
 		CateDAO catedao = new CateDAO();
 		ArrayList<cApaDTO> list = null; 

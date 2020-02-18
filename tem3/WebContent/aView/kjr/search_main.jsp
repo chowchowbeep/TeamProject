@@ -22,19 +22,24 @@ div .hiden {
   .selectActive {
   	background-color:green;
   }
+  #divall a:hover{
+ 	 background-color:green;
+  }
+  .mar{margin:3px;}
 </style>
 
 
 <script>
 	
 	$(function() { //window load이벤트 생략해서 적은것
-
+		
 		$("#areaBtn").bind("click", function() {//지역명 클릭 시 밑에 subDiv출력 
 			$("#areaDiv").removeClass("hiden");
 			$("#subDiv").addClass("hiden");
 			$("#ctDiv").addClass("hiden");
 			$(".selectActive").removeClass("selectActive");
 			$(this).addClass("selectActive");
+			cateFrm.cate.value="";
 
 		});
 		$("#subBtn").bind("click", function() {//지하철명 클릭 시 밑에 ctDiv출력
@@ -43,6 +48,7 @@ div .hiden {
 			$("#ctDiv").addClass("hiden");
 			$(".selectActive").removeClass("selectActive");
 			$(this).addClass("selectActive");
+			cateFrm.cate.value="s";
 
 		});
 		$("#ctBtn").bind("click", function() {//카테고리 클릭 시 밑에 ctDiv출력
@@ -51,55 +57,107 @@ div .hiden {
 			$("#ctDiv").removeClass("hiden");
 			$(".selectActive").removeClass("selectActive");
 			$(this).addClass("selectActive");
+			cateFrm.cate.value="c";
 		});
-
+	
+		$("#nameSearchBtn").bind("click", function(){searchedGo('name')}); //병원명으로 상세리스트로 검색
+		$("#codeSearchedBtn").bind("click",function(){searchedGo('code')}); //버튼클릭시 상세리스트로 검색
 		
-					
-
-		$("#searched").bind("click", function() {
-			searchedGo();
-		});
-		function searchedGo() {
-			document.searchFrm.action = "SSearchList.do"
-			document.searchFrm.method = "post";
-			document.searchFrm.submit();
-		}
 		$("#areaDivMain").on("click","a",searchFunc); //지역 대분류 클릭시 중분류 출력
-		$("#areaDivAddr2").on("click","a",selectClass); //지역 마지막분류 클릭시 색상변화+값 입력 
+		$("#areaDivAddr2").on("click","a",arSelectClass); //지역 마지막분류 클릭시 색상변화+값 입력 
+		
 		$("#subDivMain").on("click","a",searchFunc); //지하철 대분류 클릭시 중분류 출력
 		$("#subDivMain2").on("click","a",searchFunc); //지하철 중분류 클릭시 소분류 출력
-		$("#subDivMain3").on("click","a",selectClass); //지하철 마지막분류 클릭시 색상변화+값 입력 
+		$("#subDivMain3").on("click","a",arSelectClass); //지하철 마지막분류 클릭시 색상변화+값 입력 
+		
+		$("#ctDivMain").on("click","a",searchFunc2); //카테고리 대분류 클릭시 중분류 출력
+		$("#ctDivMain2").on("click","a",cateSelectClass); //카테고리 마지막분류 클릭시 색상변화+값 입력 
+		
+		$("#dataFrm").on("click","input",function(){	//선택한태그버튼(input)을 다시클릭하면 삭제됨
+			$(this).remove();
+		});
+		
+		function searchedGo(n){
+			console.log(n);
+			if(n=='name'){
+				document.nameSearchFrm.action="SSearchList.do"
+				document.nameSearchFrm.method="post";
+				document.nameSearchFrm.submit();
+			}else if(n=='code'){
+				document.dataFrm.action="SSearchList.do"
+				document.dataFrm.method="post";
+				document.dataFrm.submit();
+			}
+		}
 		
 		
-		
-		$("#ctDivMain").on("click","a",searchFunc2); //카테고리 대분류 클릭시 중분류 출력	
-		
-		function selectClass(){
+	
+		function cateSelectClass(){
+			
 			var pDiv = $(this).closest("div");
-			pDiv.find("a").removeClass("selectActive");
-			$(this).addClass("selectActive");
-			//값입력추가필요
+			var val = cateFrm.cate.value;
+			var thisAttr = $(this).attr("id");
+			var thisVal = this.innerHTML;
+
+			
+			if($(this).hasClass("selectActive")===true){
+				$(this).removeClass("selectActive");
+				$("#dataFrm").find('#'+thisAttr)[0].remove();
+			}else{
+				$(this).addClass("selectActive");
+				$("#dataFrm").append("<button type='button' class='btn mar btn-outline-info' id='"+thisAttr+"' name='shcode' value='"+thisAttr+"'>"+thisVal);
+			}
+			
 		};
+			
+		function arSelectClass(){
+				
+			var pDiv = $(this).closest("div");
+			var val = cateFrm.cate.value;
+			var thisAttr = $(this).attr("id");
+			var thisVal = this.innerHTML;
+			var cur = $(this).hasClass("selectActive");
+			pDiv.find("a").removeClass("selectActive");
+			$("#dataFrm").find('#areaId').remove();
+			
+			if(cur===true){
+				$(this).removeClass("selectActive");
+			}else{
+				$(this).addClass("selectActive");
+				$("#dataFrm").append("<button type='button' class='btn mar btn-outline-info' id='areaId' name='shcode'value='"+thisAttr+"'>"+thisVal);
+			}
+			
+		};
+				
+			
+			
+			
 		
 		function searchFunc(){ //대분류 클릭시 중분류 출력
 			var pDiv = $(this).closest("div"); //클릭한 a의 부모div 객체를 찾음
+			var pDivId = pDiv.attr("id");//pDiv의 id로 객체확인
 			pDiv.find("a").removeClass("selectActive");//자식태그 가져옴
 			$(this).addClass("selectActive");
 			pDiv = pDiv.next();//부모div에서 그 다음 객체를 찾음
-			var pDivId = pDiv.attr("id");//pDiv의 id로 객체확인
-			console.log(pDivId);	//pDiv의 id로 객체확인2
 			////////////////////////
 			pDiv.removeClass("hiden");
 			pDiv.html("");
+			pDiv.next().html("");
 			$.ajax("/tem3/ajax/LocaseachAjaxCMD.do", {
 				dataType : "json",
-				data : {pCode : $(this).attr("id")}
+				data : 
+					{pCode : $(this).attr("id"),
+					cate : cateFrm.cate.value
+					}
 			})
 				.done(function(data) {
 					for (i = 0; i < data.length; i++) {
+						console.log(i);
 						pDiv.append(
-						'<a class="list-group-item list-group-item-action" id="LS00">'
-								+ data[i].wd); //(자식)appendTo(부모)
+						'<a class="list-group-item list-group-item-action" id='+data[i].locaCode+'>'+ data[i].wd);
+								
+						
+						//(자식)appendTo(부모)
 					}
 			});
 		};
@@ -120,8 +178,7 @@ div .hiden {
 				.done(function(data) {
 					for (i = 0; i < data.length; i++) {
 						pDiv.append(
-						'<a class="list-group-item list-group-item-action" id="LS00">'
-								+ data[i].wd); //(자식)appendTo(부모)
+								'<a class="list-group-item list-group-item-action" id='+data[i].code+'>'+ data[i].wd); //(자식)appendTo(부모)
 					}
 			});
 		};
@@ -141,14 +198,15 @@ div .hiden {
 	</form>
 
 	<div class="container">
+	<form id="nameSearchFrm" name="nameSearchFrm">
 		<div class="input-group mb-3 topmg">
-			<input type="text" class="form-control" placeholder="Search"
-				aria-label="Search" aria-describedby="button-Search2">
-			<div class="input-group-append">
-				<button class="btn btn-outline-secondary" type="button"
-					id="button-Search2">검색</button>
-			</div>
+				<input type="text" class="form-control"	placeholder="병원명" name="hosName" id="hosName">
+				<div class="input-group-append">
+					<button class="btn btn-outline-secondary" type="button"
+					id="nameSearchBtn">검색</button>
+				</div>
 		</div>
+	</form>
 
 		<!-- 지역|카테고리버튼 -->
 		<div class="row">
@@ -166,7 +224,7 @@ div .hiden {
 			</div>
 		</div>
 
-
+	<div id="divall">
 
 		<div id="areaDiv" class="">
 			<!-- 지역 -->
@@ -181,13 +239,6 @@ div .hiden {
 						<div id="areaDivAddr2" class="col-4">
 						</div>
 						<div id="btnDiv" class="col-4 hiden"></div>
-					</div>
-					<div class="row">
-						<div class="col-9">선택한 카테고리 출력</div>
-						<div class="col-3">
-							<button type="button" class="btn btn-primary btn-lg fl"
-								id="searched">선택한 조건으로 검색</button>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -207,23 +258,13 @@ div .hiden {
 							<a class="list-group-item list-group-item-action" id="LB00">부산</a>
 							<a class="list-group-item list-group-item-action" id="LD00">대구</a>
 						</div>
-						<div id="subDivMain2" class="col-4">
-							<a class="list-group-item list-group-item-action" id="LD10">1호선</a>
-							<a class="list-group-item list-group-item-action" id="LD20">2호선</a>
+						<div id="subDivMain2" class="col-4 hiden">
 						</div>
 						<div id="subDivMain3" class="col-4 hiden">
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-9">선택한 카테고리 출력</div>
-						<div class="col-3">
-							<button type="button" class="btn btn-primary btn-lg fl"
-								id="searched">선택한 조건으로 검색</button>
-						</div>
-					</div>
 				</div>
 			</div>
-			
 			
 			
 			
@@ -240,32 +281,30 @@ div .hiden {
 							<a class="list-group-item list-group-item-action" id="sub">증상</a>
 							<a class="list-group-item list-group-item-action" id="tema">테마</a>
 						</div>
-						<div id="ctDivMain2" class="col-4">
-							<a class="list-group-item list-group-item-action" id="LD10">내과</a>
-							<a class="list-group-item list-group-item-action" id="LD20">소아과</a>
+						<div id="ctDivMain2" class="col-4 hiden">
 						</div>
-						<div id="" class="col-4">
-						</div>
-					</div>
-				
-					<div class="row">
-						<div class="col-9">
-							<form>
-							<input name="cate" id="cate">
-							<input name="pCode" id="pCode">
-							
-						
-							</form>
-						</div>
-						<div class="col-3">
-							<button type="button" class="btn btn-primary btn-lg fl"
-								id="searched">선택한 조건으로 검색</button>
+						<div id="" class="col-4 hiden">
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
+		<div class="row">
+			<div id="dataDiv" class="col-9">
+				<form id="dataFrm" name="dataFrm">
+				
+				</form>
+			</div>
+			<div class="col-3">
+				<button type="button" class="btn btn-primary btn-lg fl"	id="codeSearchedBtn" >선택한 조건으로 검색</button>
+			</div>
+		</div>
 
+		<form name="cateFrm" class="hiden"> <!-- 제목에서 지역/지하철 구분 -->
+				<input name="cate" id="cate">
+				<input name="pCode" id="pCode">
+		</form>
 
 
 	</div>

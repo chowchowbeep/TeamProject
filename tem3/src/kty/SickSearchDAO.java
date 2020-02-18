@@ -16,10 +16,9 @@ public class SickSearchDAO extends DAO {
 				rs = pstmt.executeQuery(sql);
 				while (rs.next()) {
 					sickSearchDTO dto = new sickSearchDTO();
-					dto.setArtrNo(rs.getInt("ARTR_NO"));
-					dto.setHosId(rs.getString("HOS_ID"));
-					dto.setArtrName(rs.getString("ARTR_NAME"));
-					dto.setArtrSub(rs.getString("ARTR_SUB"));
+					dto.setSicName(rs.getString("SIC_NAME"));
+					dto.setSicPhone(rs.getString("SIC_PHONE"));
+					dto.setRqstTy(rs.getString("RQST_TY"));
 					list.add(dto);
 				}
 			} catch (Exception e) {
@@ -29,4 +28,4 @@ public class SickSearchDAO extends DAO {
 			}
 			return list;
 		}
-	}}
+	}
