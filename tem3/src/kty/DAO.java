@@ -1,5 +1,6 @@
 package kty;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,6 +10,7 @@ import java.sql.SQLException;
 public class DAO {
 	protected Connection conn;
 	protected PreparedStatement pstmt;
+	protected CallableStatement cstmt;
 	protected ResultSet rs;
 
 	protected String driver = "oracle.jdbc.driver.OracleDriver";
@@ -30,6 +32,8 @@ public class DAO {
 				rs.close();
 			if (pstmt != null)
 				pstmt.close();
+			if (cstmt != null)
+				cstmt.close();
 			if (conn != null)
 				conn.close();
 		} catch (SQLException e) {
