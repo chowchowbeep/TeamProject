@@ -32,12 +32,14 @@ public class LocaSechDAO extends DAO {
 		return list;
 	}
 	
-	public ArrayList<locaSechDTO> select(String wd) { //wd코드를 부모로가진 키워드 출력
+	public ArrayList<locaSechDTO> select(String wd, String cate) { //wd코드를 부모로가진 키워드 출력
 		ArrayList<locaSechDTO> list = new ArrayList<locaSechDTO>();
 		sql="select * from loca_sech ";
 		if(wd!=null) {
-			sql += " where P_CODE = ? and LOCA_CODE NOT IN('LD10','LD20','LD30') ";
-		}   
+			sql += " where P_CODE = ? ";
+		}else if(cate !=null && cate.equals("s")) {
+			sql += " and cate='s'";
+		}
 		System.out.println(sql);
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -61,5 +63,7 @@ public class LocaSechDAO extends DAO {
 		
 		return list;
 	}
+	
+	
 	
 }

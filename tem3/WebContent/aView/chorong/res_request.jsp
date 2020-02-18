@@ -484,12 +484,7 @@
 
 	<!-- 유효성 체크 및 값 넘기기 -->
 <script>
-	//기록물 리스트 불러와서 값 넘기기 
-	dcUpload.addEventListener("click", function(){
-		//기록물리스트 가져올 수 있는 파라미터값 같이 넘기기 
-		//window.open("idcheck.jsp?cid="+id.value,"selDcry","width=350, height=550");
-		window.open("tmr_selectDcry.jsp","selDcry","width=350, height=550");
-	})
+
 	
 	// 필수입력사항체크 후 값 넘기도록
 	function idCheck(){

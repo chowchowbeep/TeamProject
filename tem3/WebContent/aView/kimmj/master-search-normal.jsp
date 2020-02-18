@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/layout/admin_head.jsp"%>
+<script>
+	function search_click() {
+		document.searchFrm.action="MSearchList.do";
+		document.searchFrm.method="post";
+		document.searchFrm.submit();
+	}
+</script>
 <style type="text/css">/* Chart.js */
 @
 keyframes chartjs-render-animation {
@@ -122,15 +129,15 @@ to {
 			</h4>
 		</div>
 	</div>
+	<form method = "post" action = "master-search-list.jsp">
 	<div class="card-body">
 		<div class="type">
 			<span class="info-box-small">
 			<span class="info-box-content"> 회원 유형 </span>
 			</span> 
-			<span class="info-box-box"> &nbsp;&nbsp;&nbsp; 
-			<input type="radio" name="type" value="all" checked>&nbsp; 전체
-				&nbsp;&nbsp;&nbsp; <input type="radio" name="type" value="standard">&nbsp;일반
-				&nbsp;&nbsp;&nbsp; <input type="radio" name="type" value="hospital">&nbsp;병원
+			<span class="info-box-box">
+				&nbsp;&nbsp;&nbsp; <input type="radio" name="gener" value="standard">&nbsp;일반
+				&nbsp;&nbsp;&nbsp; <input type="radio" name="gener" value="hospital" onclick="location.href='master-search-hos.jsp';">&nbsp;병원
 			</span> 
 			<br> 
 			<br>
@@ -140,9 +147,9 @@ to {
 			<span class="info-box-content"> 회원 등급 </span>
 			</span> 
 			<span class="info-box-box"> &nbsp;&nbsp;&nbsp; 
-			<input type="radio" name="type" value="all" checked>&nbsp;전체
-				&nbsp;&nbsp;&nbsp; <input type="radio" name="type" value="standard">&nbsp;일반
-				&nbsp;&nbsp;&nbsp; <input type="radio" name="type" value="hospital">&nbsp;제재
+			<input type="radio" name="ckck" value="all">&nbsp;전체
+				&nbsp;&nbsp;&nbsp; <input type="radio" name="ckck" value="standard">&nbsp;일반
+				&nbsp;&nbsp;&nbsp; <input type="radio" name="ckck" value="police">&nbsp;제재
 			</span> 
 			<br>
 		</div>
@@ -161,11 +168,12 @@ to {
 			</span>
 		</div>
 		<div class="search">
-			<button type="button" class="btn btn-block btn-warning">
+			<button type="submit" class="btn btn-block btn-warning">
 				<b>검색</b>
 			</button>
 		</div>
 	</div>
+	</form>
 </div>
 
 <%@ include file="/layout/all_footer.jsp"%>

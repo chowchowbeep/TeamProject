@@ -43,6 +43,7 @@
 <p/><button onclick="location.href='HHospitalProfile.do'">병원회원 수정 페이지  로 이동 </button>
 <p/><button onclick="location.href='HDoctorlist.do'"> 의사 리스트 페이지 로 이동 </button>
 <p/><button onclick="location.href='HDoctorAdd.do'">의사추가페이지 로 이동 </button>
+<p/><button onclick="location.href='HDoctorAddVerify.do'">의사추가페이지로 이동 </button><!-- 추가했슴미다 - 태영 -->
 <p/>병원 휴일 설정 페이지 (컨트롤러x)
 <p/>의사 휴일 설정 페이지 (컨트롤러x)
 </DIV>
