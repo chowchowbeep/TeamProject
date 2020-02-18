@@ -80,6 +80,7 @@ td {
 										</tr>
 									</thead>
 									<tbody>
+									
 										<c:forEach var="listHos" items="${listH}">
 											<c:forEach var="listRq" items="${listR}">
 												<tr id="${listRq.rqstNo}">
@@ -108,6 +109,9 @@ td {
 												</tr>
 											</c:forEach>
 										</c:forEach>
+										
+										
+										
 									</tbody>
 								</table>
 
@@ -137,7 +141,6 @@ td {
 	// 목록 항목 클릭시 상세정보로 이동
 
 	$("tr").click(function() {
-		//console.log($(this)[0])
 		var submitNo = $(this).attr("id"); //클릭한 행의 id값(진료신청번호 넘길것임)
 		console.log(submitNo)
 		$("#submitNo").attr("value", submitNo);

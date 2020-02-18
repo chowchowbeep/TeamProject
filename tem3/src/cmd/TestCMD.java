@@ -13,7 +13,7 @@ public class TestCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String path ="aView/ControllerTest/test.jsp"; //
+		String path ="Controllertest.jsp"; //
 		
 		return path;
 	}

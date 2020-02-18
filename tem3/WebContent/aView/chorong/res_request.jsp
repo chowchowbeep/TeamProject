@@ -6,6 +6,7 @@
 <script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
 <%@ include file="/layout/sick_menu.jsp"%>
 
+<!-- /SResRequest.do -->
 
 <!-- 컨텐츠 위치 -->
 <!-- Content Wrapper. Contains page content -->
@@ -84,8 +85,8 @@
 						<!-- 신청폼바디 // form 태그 시작-->
 						<div class="card-body">
 							<!-- @질문 : role속성 뭐임 -->
-							<form role="form" id="frm" name="frm" action="예약완료 페이지"
-								method="post" return="필수입력사항체크펑션">
+							<form id="frm" name="frm" action="SResDetail.do"
+								method="post" onsubmit="return formSubmit()">
 
 								<div class="row">
 									<div class="col-sm-6">
@@ -487,11 +488,11 @@
 
 	
 	// 필수입력사항체크 후 값 넘기도록
-	function idCheck(){
-		
+	function formSubmit() {
+		return true;
 	}
 	
-	//신청가능여부 제어_ plsql
+	//신청가능여부 제어 //병원상태가 영업중인지만 체크하기.
 	//병원 스케줄(휴일을 예약가능날짜에서 제외, 영업상태속성확인)
 	//의사 스케줄(의사휴일을 예약가능날짜에서 제외)
 	//병원기본정보 등이필요.

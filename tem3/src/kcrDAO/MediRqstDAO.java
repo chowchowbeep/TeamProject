@@ -46,7 +46,8 @@ public class MediRqstDAO extends DAO {
 		String sql = "insert into MEDI_RQST" + 
 				"(RQST_NO, SIC_ID,  HOS_ID, "
 				+ "ARTR_NO, RQST_TY, DCRY_NO, MSG)" + 
-				"values(RQST_SEQ.nextval, ?, ?, "
+				"values"
+				+ "(RQST_SEQ.nextval, ?, ?, "
 				+ "?, 'D001', ? ,?)"; //D001 당일접수
 		try {
 			pstmt = conn.prepareStatement(sql);
