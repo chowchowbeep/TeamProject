@@ -1,13 +1,9 @@
 package kty;
 
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import dto.artrInfoDTO;
-
-
 
 public class ArtrDao extends DAO {
 
@@ -27,22 +23,14 @@ public class ArtrDao extends DAO {
 		}
 		return r;
 	}
-
-	// 리스트
+	
+	//전체리스트
 	public List<artrInfoDTO> selectList() {
 		List<artrInfoDTO> list = new ArrayList<artrInfoDTO>();
-		// 1.DB연결
 		try {
-			conn = DriverManager.getConnection(url, user, passwd);
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		}
-		try {
-			// 2.쿼리실행
-			String sql = "select * from ARTR_INFO order by ARTR_NO";
+			String sql = "select * from ARTR_INFO order by ARTR_NO ";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery(sql);
-			// 3.결과저장
 			while (rs.next()) {
 				artrInfoDTO dto = new artrInfoDTO();
 				dto.setArtrNo(rs.getInt("ARTR_NO"));
@@ -53,6 +41,8 @@ public class ArtrDao extends DAO {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			close();
 		}
 		return list;
 	}

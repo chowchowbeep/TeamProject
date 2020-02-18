@@ -50,41 +50,18 @@
               <div class="card-body table-responsive p-0" style="height: 400px;">
                 <table class="table table-hover table-valign-middle">
                   <thead>
-                    <tr>
-                      <th>번호</th>
-                      <th style="width:25%;">번호</th>
-                      <th style="width:25%;">이름</th>
-                      <th>과목</th>
-                    </tr>
-                  </thead>
-            		<tbody>
             		<tr>
-                      <td>175</td>
-                      <td>김민정</td>
-                      <td>소아과</td>
-                      <td><a class="btn btn-block btn-default btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>
-                              	삭제
-                          </a></td>
-                    </tr>
+            		<th>번호</th>
+            		<th>id</th>
+            		<th>이름</th>
+            		<th>과목</th>
+            		</tr>
+            		<c:forEach items="${list}" var="list">
                     <tr>
-                      <td>134</td>
-                      <td>김주련</td>
-                      <td>내과</td>
-                      <td><a class="btn btn-block btn-default btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>
-                              	삭제
-                          </a></td>
-                    </tr>
-            		
-            		<c:forEach items="${list}" var="dto">
-                    <tr>
-      			      <td>${dto.artrNo}</td>
-      			      <td>${dto.hosId}</td>
-                      <td>${dto.artrName}</td>
-                      <td>${dto.artrSub}</td>
+      			      <td>${list.artrNo}</td>
+      			      <td>${list.hosId}</td>
+                      <td>${list.artrName}</td>
+                      <td>${list.artrSub}</td>
                        </tr>
                       </c:forEach>
    
