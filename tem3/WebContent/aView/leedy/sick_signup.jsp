@@ -21,7 +21,9 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition register-page">
+<br><br><br>
 <div class="register-box">
+
   <div class="register-logo">
     <a href="#"><b>회원가입</b></a>
   </div>
@@ -118,6 +120,7 @@
     <!-- /.form-box -->
   </div><!-- /.card -->
 </div>
+
 <!-- /.register-box -->
 
 <!-- jQuery -->
