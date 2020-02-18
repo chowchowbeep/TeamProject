@@ -33,7 +33,7 @@
               <!-- /.card-header -->
               
               <div class="card-body">
-                <form role="form" method="post" action="sick_wjqtnwmd.jsp">
+                <form role="form" method="post" action="${pageContext.request.contextPath}/SSickWjqtnwmd.do">
                   
                   <div class="row">
                     <div class="col-sm">
@@ -44,7 +44,6 @@
                       </div>
                     </div>
                     </div>
-                    
                      <div class="row">
                     <div class="col-sm-6">
                       <!-- text input -->

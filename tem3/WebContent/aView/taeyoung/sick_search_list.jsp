@@ -52,32 +52,32 @@ cursor:pointer;
                 </div>
               </div>
               <!-- /.card-header -->
-        <form class="form-horizontal" method="post" action="sick_search.jsp">
+        <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/HSickSearch.do">
               <div class="card-body table-responsive p-0" style="height: 350px;">
-                <table class="table table-hover table-valign-middle">
+                <table class="table table-hover table-valign-middle"  style="text-align:center;">
                   <thead>
                     <tr>
-                      <th width="40%;">이름</th>
+                      <th width="25%;">이름</th>
                       <th width="35%;">번호</th>
-                      <th width="25%;">진료타입</th>
+                      <th width="30%;">진료타입</th>
                     </tr>
                   </thead>
             		<tbody>
                     <c:forEach items="${list}" var="dto">
-                    <tr>
-                      <td><a href=sick_search_detail.jsp>${dto.sicName}</a></td>
+                    <tr style="hover:background-Color:gray;">
+                      <td>${dto.sicName}</td>
                       <td>${dto.sicPhone}</td>
                       <c:choose>
-						<c:when test="${dto.artrSub =='D001'}">
+						<c:when test="${dto.rqstTy =='D001'}">
 							<td>당일접수</td>
 						</c:when>
-						<c:when test="${dto.artrSub =='D002'}">
+						<c:when test="${dto.rqstTy =='D002'}">
 							<td>예약</td>
 						</c:when>
-						<c:when test="${dto.artrSub =='D003'}">
+						<c:when test="${dto.rqstTy =='D003'}">
 							<td>병원취소</td>
 						</c:when>
-						<c:when test="${dto.artrSub =='D004'}">
+						<c:when test="${dto.rqstTy =='D004'}">
 							<td>일반취소</td>
 						</c:when>
 					</c:choose>		
@@ -88,9 +88,7 @@ cursor:pointer;
               </div>
 			<button type="submit" class="btn btn-block btn-info">목록가기</button>
        </form>
-              
-              
-              <!-- /.card-body -->
+		<!-- /.card-body -->
             </div>
             <!-- /.card -->
           </div>
@@ -107,3 +105,13 @@ cursor:pointer;
 		<!-- ./wrapper -->
 <br><br>
 <%@ include file="/layout/all_footer.jsp"%>
+
+<script>
+	$("tr").click(function() {
+		console.log("click");
+		location.href = "${pageContext.request.contextPath}/HSickSearchDetail.do";
+	})
+</script>
+</body>
+</html>
+
