@@ -10,7 +10,7 @@ import lastdto.mediRqstDTO;
 
 public class MediRqstDAO extends DAO {
 
-	// 전체 목록
+	// 전체 리스트
 	public List<mediRqstDTO> selectAll(String id) {
 		List<mediRqstDTO> list = new ArrayList<>();
 		String sql = "SELECT * FROM MEDI_RQST" + " WHERE SIC_ID = ?";
@@ -28,9 +28,11 @@ public class MediRqstDAO extends DAO {
 				dto.setResDttm(rs.getDate("RES_DTTM"));
 				dto.setArtrNo(rs.getInt("ARTR_NO"));
 				dto.setRqstTy(rs.getString("RQST_TY"));
-				dto.setMsg(rs.getString("DCRY_NO"));
-				dto.setDcryNo(rs.getInt("MSG"));
-
+				dto.setDcryNo(rs.getInt("DCRY_NO"));
+				dto.setMsg(rs.getString("MSG"));
+				dto.setIfTime(rs.getString("IFTIME"));
+				
+				
 				list.add(dto);
 			}
 		} catch (SQLException e) {
@@ -45,10 +47,10 @@ public class MediRqstDAO extends DAO {
 		int r = 0;
 		String sql = "insert into MEDI_RQST" + 
 				"(RQST_NO, SIC_ID,  HOS_ID, "
-				+ "ARTR_NO, RQST_TY, DCRY_NO, MSG)" + 
+				+ "ARTR_NO, RQST_TY, DCRY_NO, MSG, IFTIME)" + 
 				"values"
 				+ "(RQST_SEQ.nextval, ?, ?, "
-				+ "?, 'D001', ? ,?)"; //D001 당일접수
+				+ "?, 'D001', ? ,?, ?)"; //D001 당일접수
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getSicId());
@@ -56,6 +58,9 @@ public class MediRqstDAO extends DAO {
 			pstmt.setInt(3, dto.getArtrNo());
 			pstmt.setInt(4, dto.getDcryNo());
 			pstmt.setString(5, dto.getMsg());
+			pstmt.setString(6, dto.getIfTime());
+			System.out.println(dto.toString());
+			
 	        r = pstmt.executeUpdate();
 	        
 		} catch(Exception e) {

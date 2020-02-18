@@ -13,39 +13,41 @@ td {
 
 
 
-<!--  /SMedBeforeMedList.do를 타고 들어옴-->
-
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-	<!-- Content Header (Page header) -->
-	<div class="content-header">
-		<div class="container-fluid">
-			<div class="row mb-2">
-				<div class="col-sm-6">
-					<h1 class="m-0 text-dark">진료신청현황</h1>
-				</div>
-				<!-- /.col -->
-				<div class="col-sm-6">
-					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item active">홈</li>
-						<li class="breadcrumb-item">일반회원</li>
-					</ol>
-				</div>
-				<!-- /.col -->
-			</div>
-			<!-- /.row -->
-		</div>
-		<!-- /.container-fluid -->
-	</div>
-	<!-- /.content-header -->
+<!--  /SMedTBeforeMedList.do를 타고 들어옴-->
 
 
-
-
-
-	<!-- 클릭한 항목의 값을 파라미터로 가지고 가야 함_ 아래 스크립트 참고
+<!-- 클릭한 항목의 값을 파라미터로 가지고 가야 함_ 아래 스크립트 참고
 	상세정보-->
-	<form id="frm" name="frm" method="post">
+<form id="frm" name="frm" method="post">
+
+	<!-- Content Wrapper. Contains page content -->
+	<div class="content-wrapper">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1 class="m-0 text-dark">진료신청현황</h1>
+					</div>
+					<!-- /.col -->
+					<div class="col-sm-6">
+						<ol class="breadcrumb float-sm-right">
+							<li class="breadcrumb-item active">홈</li>
+							<li class="breadcrumb-item">일반회원</li>
+						</ol>
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</div>
+			<!-- /.container-fluid -->
+		</div>
+		<!-- /.content-header -->
+
+
+
+
+
 
 		<!-- Main content -->
 		<section class="content">
@@ -55,10 +57,10 @@ td {
 				<div>
 					<!-- 2. 진료 타입별로 선택해서 조회 가능한 기능     -->
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item active">전체</li>
-						<li class="breadcrumb-item"><a href="당일접수목록">접수</a></li>
-						<li class="breadcrumb-item"><a href="예약목록">예약</a></li>
-						<li class="breadcrumb-item"><a href="취소목록">취소</a></li>
+						<li class="breadcrumb-item"><a href="SMedABeforeMedList.do">전체</a></li>
+						<li class="breadcrumb-item active">접수</li>
+						<li class="breadcrumb-item"><a href="SMedRBeforeMedList.do">예약</a></li>
+						<li class="breadcrumb-item"><a href="SMedCBeforeMedList.do">취소</a></li>
 					</ol>
 				</div>
 
@@ -80,36 +82,41 @@ td {
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach var="listHos" items="${listH}">
-											<c:forEach var="listRq" items="${listR}">
-												<tr id="${listRq.rqstNo}">
+										<c:forEach var="list1" items="${list1}" varStatus="status">
+											<tr id="${list1.rqstNo}">
 
-													<td>${listRq.rqstDttm}</td>
+												<td>${list1.rqstDttm}</td>
 
-													<c:if test="${listHos.hosId == listRq.hosId}">
-														<td>${listHos.hosName}</td>
-													</c:if>
+												<td>${list1.hosId}</td>
 
-													<c:choose>
-														<c:when test="${listRq.rqstTy =='D001'}">
-															<td>접수</td>
-														</c:when>
-														<c:when test="${listRq.rqstTy =='D002'}">
-															<td>예약</td>
-														</c:when>
-														<c:when test="${listRq.rqstTy =='D003'}">
-															<td>병원취소</td>
-														</c:when>
-														<c:when test="${listRq.rqstTy =='D004'}">
-															<td>본인취소</td>
-														</c:when>
-													</c:choose>
-													
-												</tr>
-											</c:forEach>
+												<c:choose>
+													<c:when test="${list1.rqstTy =='D001'}">
+														<td>접수</td>
+													</c:when>
+													<c:when test="${list1.rqstTy =='D002'}">
+														<td>예약</td>
+													</c:when>
+													<c:when test="${list1.rqstTy =='D003'}">
+														<td>병원취소</td>
+													</c:when>
+													<c:when test="${list1.rqstTy =='D004'}">
+														<td>본인취소</td>
+													</c:when>
+												</c:choose>
+
+											</tr>
 										</c:forEach>
 									</tbody>
 								</table>
+
+								<div>
+
+									<c:forEach var="list2" items="${list2}">
+										<div>${list2.hosId}</div>
+									</c:forEach>
+								</div>
+
+
 
 							</div>
 						</div>
@@ -123,25 +130,27 @@ td {
 		<!-- 선택한 진료신청항목의 진료신청번호를 전송 -->
 		<input type="hidden" id="id" name="id" value="${id }">
 		<!-- 로그인중인 아이디 -->
-	</form>
 
 
-	<!-- 
+
+		<!-- 
 		이전:"상단바 사이트맵, 상단바 메뉴바"
 		다음:"진료현황 상세 페이지-예약, 진료현황 상세 페이지-당일접수"
 	 -->
-</div>
-<!-- ./wrapper -->
+	</div>
+	<!-- ./wrapper -->
+</form>
 <%@ include file="/layout/all_footer.jsp"%>
 <script>
 	// 목록 항목 클릭시 상세정보로 이동
 
 	$("tr").click(function() {
 		var submitNo = $(this).attr("id"); //클릭한 행의 id값(진료신청번호 넘길것임)
-		console.log(submitNo)
+		console.log(submitNo);
 		$("#submitNo").attr("value", submitNo);
 		console.log("변경된값 : " + $("#submitNo").attr("value"));
 
+		frm.action = "SRqDetail.do"; //진료신청현황 상세 페이지로
 		frm.submit(); //제출되면 클릭된 행의 신청번호가 파라미터로 실려갑니다.
 	})
 </script>

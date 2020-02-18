@@ -1,6 +1,5 @@
 package lastdto;
 
-import java.sql.Timestamp;
 
 public class hosMemberDTO {
 	private String hosId; // 병원id
@@ -11,15 +10,15 @@ public class hosMemberDTO {
 	private String hosAddr; // 주소
 	private int hosLat; // 위도
 	private int hosLng; // 경도
-	private String hosStart; // 영업시작시간
-	private String hosLast; // 영업마감시간
+	private String hosBizTime; // 진료시간
 
 	public hosMemberDTO() {
 		super();
 	}
 
+
 	public hosMemberDTO(String hosId, String hosBizno, String hosName, String hosPhone, String hosPw, String hosAddr,
-			int hosLat, int hosLng, String hosStart, String hosLast) {
+			int hosLat, int hosLng, String hosBizTime) {
 		super();
 		this.hosId = hosId;
 		this.hosBizno = hosBizno;
@@ -29,9 +28,10 @@ public class hosMemberDTO {
 		this.hosAddr = hosAddr;
 		this.hosLat = hosLat;
 		this.hosLng = hosLng;
-		this.hosStart = hosStart;
-		this.hosLast = hosLast;
+		this.hosBizTime = hosBizTime;
 	}
+
+
 
 	public String getHosId() {
 		return hosId;
@@ -97,20 +97,16 @@ public class hosMemberDTO {
 		this.hosLng = hosLng;
 	}
 
-	public String getHosStart() {
-		return hosStart;
+
+	public String getHosBizTime() {
+		return hosBizTime;
 	}
 
-	public void setHosStart(String hosStart) {
-		this.hosStart = hosStart;
+
+	public void setHosBizTime(String hosBizTime) {
+		this.hosBizTime = hosBizTime;
 	}
 
-	public String getHosLast() {
-		return hosLast;
-	}
-
-	public void setHosLast(String hosLast) {
-		this.hosLast = hosLast;
-	}
+	
 
 }

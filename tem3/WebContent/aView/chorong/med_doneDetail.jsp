@@ -7,7 +7,9 @@
 <%@ include file="/layout/sick_menu.jsp"%>
 
 <!-- 컨텐츠 위치 -->
+
 <!-- Content Wrapper. Contains page content -->
+<form id="frm" name="frm" method="post">
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
@@ -96,9 +98,9 @@
 							<button onclick="location.href='SMedDoneList.do'"
 								class="btn btn-secondary float-left">목록</button>
 							<span style="margin-left:50px;">
-							<button onclick="location.href='SReviewWrite.do'" 
+							<button onclick="toReview()" 
 								class="btn btn-secondary mx-auto">리뷰등록</button></span>
-							<button onclick="location.href='SHospitalInfo.do'" 
+							<button onclick="toRequest()"
 								class="btn btn-secondary float-right">재접수</button>
 								<!-- 현재 선택한 병원의 상세정보 페이지로 이동. hospital member의 hos id를 파라미터를 가지고 가야함. --> 
 								<!--  -->
@@ -127,9 +129,20 @@
 </div>
 <!-- /.content-wrapper -->
 
+</form>
+
 
 <%@ include file="/layout/all_footer.jsp"%>
-
+<script>
+function toReview() {
+	frm.action = "SReviewWrite.do";
+	frm.submit();
+}
+function toRequest() {
+	frm.action = "SHospitalInfo.do";
+	frm.submit();
+}
+</script>
 
 
 </body>

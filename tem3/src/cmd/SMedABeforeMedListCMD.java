@@ -36,11 +36,11 @@ public class SMedABeforeMedListCMD implements Command {
 		listHos = dao2.selectAll();
 		
 		
-		request.setAttribute("listR", listRq);
-		request.setAttribute("listH", listHos);
+		request.setAttribute("list1", listRq);
+		request.setAttribute("list2", listHos);
 		request.setAttribute("id", id); 
 		
-		String path ="aView/chorong/med_AbeforeMedList.jsp ";
+		String path ="aView/chorong/med_AbeforeMedList.jsp";
 		
 		return path;
 	}
