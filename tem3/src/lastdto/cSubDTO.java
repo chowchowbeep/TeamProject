@@ -1,7 +1,7 @@
 package lastdto;
 
 public class cSubDTO {
-	private String subCode; // 과목코드
+	private String Code; // 과목코드
 	private String wd; // 검색어
 
 	// 생성자
@@ -9,18 +9,18 @@ public class cSubDTO {
 		super();
 	}
 
-	public cSubDTO(String subCode, String wd) {
+	public cSubDTO(String Code, String wd) {
 		super();
-		this.subCode = subCode;
+		this.Code = Code;
 		this.wd = wd;
 	}
 
-	public String getSubCode() {
-		return subCode;
+	public String getCode() {
+		return Code;
 	}
 
-	public void setSubCode(String subCode) {
-		this.subCode = subCode;
+	public void setCode(String subCode) {
+		this.Code = subCode;
 	}
 
 	public String getWd() {

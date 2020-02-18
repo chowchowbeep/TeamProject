@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import dto.locaSechDTO;
 import kjr.LocaSechDAO;
+import lastdto.locaSechDTO;
 import net.sf.json.JSONArray;
 
 public class LocaseachAjaxCMD implements Command  {
