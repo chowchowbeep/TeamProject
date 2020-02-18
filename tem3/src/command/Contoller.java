@@ -116,8 +116,11 @@ public class Contoller extends HttpServlet {
 		cont.put("/HHospitalProfile.do", new HHospitalProfileCMD()); //H12 병원회원 수정 페이지  로 이동
 		cont.put("/HDoctorlist.do", new HDoctorlistCMD()); //H13 의사 리스트 페이지 로 이동
 		cont.put("/HDoctorAdd.do", new HDoctorAddCMD()); //H14 의사추가페이지 로 이동
-		cont.put("/HosMemberIdCheckAction.do", new HosMemberIdCheckActionCMD ()); //(병원)휴일 설정 페이지 로 이동
-		cont.put("/HosMemberBizNoCheckAction.do", new HosMemberBizNoCheckActionCMD()); //(의사)휴일 설정 페이지 로 이동
+		cont.put("/HosMemberIdCheckAction.do", new HosMemberIdCheckActionCMD ());  //(병원)ID 중복검사 페이지로 이동
+		cont.put("/HosMemberBizNoCheckAction.do", new HosMemberBizNoCheckActionCMD());  //(병원)사업자번호 중복검사 페이지로 이동
+		
+		//(병원)휴일 설정 페이지 로 이동
+		//(의사)휴일 설정 페이지 로 이동
 		 
 		
 		//일반회원관련 페이지
