@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
 import dto.artrInfoDTO;
-import kty.ArtrDao;
+import kty.ArtrDAO;
 
 public class HDoctorlistCMD implements Command {
 
@@ -17,7 +17,7 @@ public class HDoctorlistCMD implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String path ="aView/taeyoung/doctor_list.jsp"; //
-		ArtrDao dao = new ArtrDao();
+		ArtrDAO dao = new ArtrDAO();
 		List<artrInfoDTO> list = dao.selectList();
 		request.setAttribute("list", list);
 		return path;
