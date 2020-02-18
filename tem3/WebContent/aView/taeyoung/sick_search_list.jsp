@@ -4,13 +4,13 @@
     
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     
-<%@ include file="/layout/sick_head.jsp"%>
+<%@ include file="/layout/hos_head.jsp"%>
 <style>
 .ty{
 cursor:pointer;
 }
 </style>
-<%@ include file="/layout/sick_menu.jsp"%>
+<%@ include file="/layout/hos_menu.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
@@ -58,40 +58,31 @@ cursor:pointer;
                   <thead>
                     <tr>
                       <th width="40%;">이름</th>
-                      <th width="35%;">진료</th>
-                      <th width="25%;">생년월일</th>
-                      <th width="15%;">번호</th>
+                      <th width="35%;">번호</th>
+                      <th width="25%;">진료타입</th>
                     </tr>
                   </thead>
             		<tbody>
-                    <tr>
-                      <td class="ty" onclick="location.href='sick_search_detail.jsp'">[김민정]</td>
-                      <td>[소아과]</td>
-                      <td>[96/12/08]</td>
-                      <td>[010-0000-0001]</td>
-                    </tr>
-                    
                     <c:forEach items="${list}" var="dto">
                     <tr>
-                      <td><a href=sick_search_detail.jsp>${dto.getsicName()}</a></td>
-                      <td></td>
-                      <td>${dto.substr(ihidnum,6)}</td>
+                      <td><a href=sick_search_detail.jsp>${dto.sicName}</a></td>
                       <td>${dto.sicPhone}</td>
+                      <c:choose>
+						<c:when test="${dto.artrSub =='D001'}">
+							<td>당일접수</td>
+						</c:when>
+						<c:when test="${dto.artrSub =='D002'}">
+							<td>예약</td>
+						</c:when>
+						<c:when test="${dto.artrSub =='D003'}">
+							<td>병원취소</td>
+						</c:when>
+						<c:when test="${dto.artrSub =='D004'}">
+							<td>일반취소</td>
+						</c:when>
+					</c:choose>		
                     </tr>
                     </c:forEach>
-                    
-                    <tr>
-                      <td class="ty" onclick="location.href='sick_search_detail.jsp'">[김태영]</td>
-                      <td>[이비인후과]</td>
-                      <td>[96/12/08]</td>
-                      <td>[010-0000-0003]</td>
-                    </tr>
-                    <tr>
-                      <td class="ty" onclick="location.href='sick_search_detail.jsp'">[이다연]</td>
-                      <td>[소아과]</td>
-                      <td>[96/12/08]</td>
-                     <td>[010-0000-0004]</td>
-                    </tr>
                     </tbody>
                 </table>
               </div>

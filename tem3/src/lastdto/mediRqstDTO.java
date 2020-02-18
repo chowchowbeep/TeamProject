@@ -19,7 +19,7 @@ public class mediRqstDTO {
 	public mediRqstDTO() {
 		super();
 	}
-
+	
 	public mediRqstDTO(int rqstNo, String sicId, Date rqstDttm, String hosId, Date resDttm, int artrNo, String rqstTy,
 			String msg, int dcryNo) {
 		super();
@@ -32,6 +32,24 @@ public class mediRqstDTO {
 		this.rqstTy = rqstTy;
 		this.msg = msg;
 		this.dcryNo = dcryNo;
+	}
+	
+	//접수
+	public mediRqstDTO(int rqstNo, String sicId, Date rqstDttm, String hosId) {
+		super();
+		this.rqstNo = rqstNo;
+		this.sicId = sicId;
+		this.rqstDttm = rqstDttm;
+		this.hosId = hosId;
+	}
+	
+	//예약
+	public mediRqstDTO(int rqstNo, String sicId, String hosId, Date resDttm) {
+		super();
+		this.rqstNo = rqstNo;
+		this.sicId = sicId;
+		this.hosId = hosId;
+		this.resDttm = resDttm;
 	}
 
 	public int getRqstNo() {

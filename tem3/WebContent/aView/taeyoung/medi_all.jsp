@@ -61,9 +61,9 @@
 			전체&nbsp;<i class="fas fa-caret-down"></i><!-- 화살표 -->
 			<!-- <i class="fas fa-bars"></i>  줄 세개-->
  		 <div class="dropdown-content">
-    		<a href="medi_all.jsp">전체</a>
-    		<a href="medi_wjqtn.jsp">당일 접수</a>
-   			<a href="medi_reserve.jsp">예약</a>
+    		<a href="${pageContext.request.contextPath}/HMediAll.do">전체</a>
+    		<a href="${pageContext.request.contextPath}/HMediWjqtn.do">당일 접수</a>
+   			<a href="${pageContext.request.contextPath}/HMediReserve.do">예약</a>
  		 </div>
 		</div><br>
 		
@@ -90,7 +90,7 @@
                 <tr>
                   <td>${list.rqstNo}</td>
                   <td>${list.sicId}<span class="badge bg-warning">NEW</span></td>
-                  <td>${list.rqstDttm}</td>
+                  <td>${list.rqstDttm}${list.resDttm}</td>
                   <td>
                     <a href="#" class="text-muted">
                     <i class="fas fa-search">${list.artrNo}</i>
@@ -118,7 +118,7 @@
 <script>
 	$("tr").click(function() {
 		console.log("click");
-		location.href = "${pageContext.request.contextPath}/HDoctorlist.do";
+		location.href = "${pageContext.request.contextPath}/ ";
 	})
 </script>
 </body>

@@ -61,9 +61,9 @@
 										</div>
 										<br><br>
 										<p class="text-sm">
-											<b>선생님께 한마디:</b>&nbsp;<input type="hidden">[어제부터 배가
-											아파요]<br> <b>진료기록물 신청:</b>&nbsp;<input type="hidden">[없음]<br>
-											<b>진료신청 일시:</b>&nbsp;<input type="hidden">rqst_dttm
+											<b>선생님께 한마디:</b>&nbsp;<input type="hidden">${list.msg}<br>
+											<b>진료기록물 신청:</b>&nbsp;<input type="hidden">${list.dcryNo}<br>
+											<b>진료신청 일시:</b>&nbsp;<input type="hidden">${list.rqstDttm}
 										</p>
 									</div>
 									</c:forEach>

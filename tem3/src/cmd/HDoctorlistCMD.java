@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import dto.artrInfoDTO;
+import lastdto.artrInfoDTO;
 import kty.ArtrDAO;
 
 public class HDoctorlistCMD implements Command {
@@ -16,7 +16,7 @@ public class HDoctorlistCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String path ="aView/taeyoung/doctor_list.jsp"; //
+		String path ="aView/taeyoung/doctor_list.jsp"; //의사리스트 페이지로 이동
 		ArtrDAO dao = new ArtrDAO();
 		List<artrInfoDTO> list = dao.selectList();
 		request.setAttribute("list", list);
