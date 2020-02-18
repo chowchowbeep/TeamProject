@@ -27,7 +27,7 @@ public class SearchListCMD implements Command {
 		request.setAttribute("hosList",hosList);
 		
 		///////////////////////////////////////////////////////////////////////////키워드로검색
-		
+		String[] shcode= request.getParameterValues("shcode");
 		
 		
 		return path;
