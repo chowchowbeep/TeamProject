@@ -13,7 +13,7 @@ public class MasterSearchNormalCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String path ="aView/kimmj/master_search-normal.jsp";  //M2 회원검색(일반회원) 페이지로 이동
+		String path ="aView/kimmj/master-search-normal.jsp";  //M2 회원검색(일반회원) 페이지로 이동
 		
 		
 		

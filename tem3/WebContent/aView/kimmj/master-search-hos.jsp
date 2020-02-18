@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/layout/admin_head.jsp"%>
+<script>
+	function search_click() {
+		document.searchFrm.action="MSearchHoslist.do";
+		document.searchFrm.method="post";
+		document.searchFrm.submit();
+	}
+</script>
 <style type="text/css">/* Chart.js */
 @
 keyframes chartjs-render-animation {
@@ -119,7 +126,7 @@ to {
 </style>
 
 <%@ include file="/layout/admin_menu.jsp"%>
-
+<form>
 <div class = "card">
 	<div class = "card-header text-center">
 		<div class = "text-center" style = "padding: 10px 0px 0px 0px">
@@ -135,9 +142,8 @@ to {
 		</span>
 		<span class="info-box-box"> 
 			&nbsp;&nbsp;&nbsp;
-		<input type="radio" name="type" value="all" checked>&nbsp;전체 &nbsp;&nbsp;&nbsp;
-		<input type="radio" name="type" value="standard">&nbsp;일반 &nbsp;&nbsp;&nbsp;
-		<input type="radio" name="type" value="hospital">&nbsp;병원
+		<input type="radio" name="gener" value="standard" onclick="location.href='master-search-normal.jsp';">&nbsp;일반 &nbsp;&nbsp;&nbsp;
+		<input type="radio" name="gener" value="hospital">&nbsp;병원
 		</span>
 		<br><br>
 	</div>
@@ -147,11 +153,11 @@ to {
 		</span>
 		<span class="info-box-box"> 
 			&nbsp;&nbsp;&nbsp;
-		<input type="radio" name="type" value="all" checked>&nbsp;전체 &nbsp;&nbsp;&nbsp;
-		<input type="radio" name="type" value="standard">&nbsp;우수 &nbsp;&nbsp;&nbsp;
+		<input type="radio" name="ckck" value="all" checked>&nbsp;전체 &nbsp;&nbsp;&nbsp;
+		<input type="radio" name="ckck" value="standard">&nbsp;우수 &nbsp;&nbsp;&nbsp;
 		<br><br>
-		<input type="radio" name="type" value="hospital" class = "input">&nbsp;일반 &nbsp;&nbsp;&nbsp;
-		<input type="radio" name="type" value="hospital">&nbsp;제재
+		<input type="radio" name="ckck" value="hospital" class = "input">&nbsp;일반 &nbsp;&nbsp;&nbsp;
+		<input type="radio" name="ckck" value="hospital">&nbsp;제재
 		</span>
 		<br>
 	</div>
@@ -168,12 +174,12 @@ to {
 		<span class = "listof2"> 전화번호&nbsp;&nbsp;&nbsp;
 		<input type = "text"> </span>
 	</div>
-
 	<div class = "search">
-		<button type = "button" class = "btn btn-block btn-warning"> <b>검색</b> </button>
+		<button type = "submit" class = "btn btn-block btn-warning"><b>검색</b></button>
 	</div>
 </div>
 </div>
+</form>
 <%@ include file="/layout/all_footer.jsp"%>
 </body>
 </html>
