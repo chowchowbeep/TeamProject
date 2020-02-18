@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import lastdto.artrInfoDTO;
+
 public class MediDAO extends DAO {
 
 	//전체리스트

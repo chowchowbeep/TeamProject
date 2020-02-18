@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import dto.artrInfoDTO;
+import lastdto.artrInfoDTO;
 import kty.ArtrDAO;
 
 public class HDoctorlistCMD implements Command {

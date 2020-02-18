@@ -3,7 +3,7 @@ package kty;
 import java.util.ArrayList;
 import java.util.List;
 
-import dto.artrInfoDTO;
+import lastdto.artrInfoDTO;
 
 public class ArtrDAO extends DAO {
 

@@ -26,10 +26,16 @@
           </div>
         </div>
          <div class="form-group row">
-           <label for="inputPassword3" class="col-sm-2 col-form-label">진료과목</label>
-             <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputPassword3" placeholder="진료과목">
-             </div>
+            <label for="inputPassword3" class="col-sm-2 col-form-label">진료과목</label>
+            <div class="col-sm-10">
+             <select class="form-control" id="sub">
+                <option>내과</option>
+                <option>소아과</option>
+                <option>외과</option>
+                <option>정형외과</option>
+               	<option>치과</option>
+              </select>
+            </div>
          </div>
            <div class="form-group row">
             <div class="offset-sm-2 col-sm-10">
