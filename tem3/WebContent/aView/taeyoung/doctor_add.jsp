@@ -17,7 +17,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/HDoctorlist.do">
+              <form class="form-horizontal" method="post" action="doctor_add_verify.jsp">
                 <div class="card-body" style="height:300px;">
                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">의사이름</label>

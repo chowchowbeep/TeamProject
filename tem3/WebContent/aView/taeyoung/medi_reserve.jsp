@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%@ include file="/layout/hos_head.jsp"%>
 <style>
-
  .float-right{ border: none;
 }
 .dropdown {
@@ -84,29 +84,27 @@ table{
                 <table class="table table-striped table-valign-middle">
                   <thead>
                   <tr>
-                   <th style="width:5%;">번호</th>
-                    <th>이름</th>
-                    <th style="width:28%;">예약 시간</th>
-                    <th style="width:29%;">담당의</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>
-                      0001
-                    </td>
-                    <td>조선아<span class="badge bg-warning">NEW</span>
-                    </td>
-                    <td>
-                      13:00
-                    </td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
+               <th style="width:5%;">번호</th>
+               <th style="width:28%;">이름</th>
+               <th style="width:28%;">시간</th>
+               <th style="width:29%;">담당의</th>
+             </tr>
+            </thead>
+             <tbody>
+             <c:forEach items="${list}" var="list">
+                <tr>
+                  <td>${list.rqstNo}</td>
+                  <td>${list.sicId}<span class="badge bg-warning">NEW</span></td>
+                  <td>${list.rqstDttm}</td>
+                  <td>
+                    <a href="#" class="text-muted">
+                    <i class="fas fa-search">${list.artrNo}</i>
                       </a>
-                    </td>
-                  </tr>
-                  <tr>
+                  </td>
+                </tr>
+                </c:forEach>
+                 
+                  <!--<tr>
                     <td>
                      0002
                     </td>
@@ -161,7 +159,7 @@ table{
                         <i class="fas fa-search"></i>
                       </a>
                     </td>
-                  </tr>
+                  </tr>  -->
                   </tbody>
                 </table>
               </div>

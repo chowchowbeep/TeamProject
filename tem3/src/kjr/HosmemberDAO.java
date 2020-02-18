@@ -3,19 +3,19 @@ package kjr;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import dto.HosMemberDto;
+import dto.hosMemberDTO;
 import kty.DAO;
 
 public class HosmemberDAO extends DAO {
 	String sql = "";
-	public ArrayList<HosMemberDto> select(){ //전체 조회
-		ArrayList<HosMemberDto> list = new ArrayList<>();
+	public ArrayList<hosMemberDTO> select(){ //전체 조회
+		ArrayList<hosMemberDTO> list = new ArrayList<>();
 		sql="SELECT * FROM hos_member";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				HosMemberDto dto = new HosMemberDto();
+				hosMemberDTO dto = new hosMemberDTO();
 				dto.setHosId(rs.getString("HOS_ID"));
 				dto.setHosBizno(rs.getString("HOS_BIZNO"));
 				dto.setHosName(rs.getString("HOS_NAME"));
@@ -24,8 +24,8 @@ public class HosmemberDAO extends DAO {
 				dto.setHosAddr(rs.getString("HOS_ADDR"));
 				dto.setHosLat(rs.getInt("HOS_LAT"));
 				dto.setHosLng(rs.getInt("HOS_LNG"));
-				dto.setHosStart(rs.getTimestamp("BIZ_START"));
-				dto.setHosLast(rs.getTimestamp("BIZ_LAST"));
+				dto.setHosStart(rs.getString("BIZ_START"));
+				dto.setHosLast(rs.getString("BIZ_LAST"));
 				list.add(dto);		
 				
 			}
@@ -35,8 +35,8 @@ public class HosmemberDAO extends DAO {
 		return list;
 	}
 	
-	public ArrayList<HosMemberDto> select(String hos){ //병원이름으로 조회
-		ArrayList<HosMemberDto> list = new ArrayList<>();
+	public ArrayList<hosMemberDTO> select(String hos){ //병원이름으로 조회
+		ArrayList<hosMemberDTO> list = new ArrayList<>();
 		sql="SELECT * FROM hos_member ";
 		if(hos!=null) {
 			sql += " where hos_name like ? ";
@@ -48,7 +48,7 @@ public class HosmemberDAO extends DAO {
 			}
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				HosMemberDto dto = new HosMemberDto();
+				hosMemberDTO dto = new hosMemberDTO();
 				dto.setHosId(rs.getString("HOS_ID"));
 				dto.setHosBizno(rs.getString("HOS_BIZNO"));
 				dto.setHosName(rs.getString("HOS_NAME"));
@@ -57,8 +57,8 @@ public class HosmemberDAO extends DAO {
 				dto.setHosAddr(rs.getString("HOS_ADDR"));
 				dto.setHosLat(rs.getInt("HOS_LAT"));
 				dto.setHosLng(rs.getInt("HOS_LNG"));
-				dto.setHosStart(rs.getTimestamp("BIZ_START"));
-				dto.setHosLast(rs.getTimestamp("BIZ_LAST"));
+				dto.setHosStart(rs.getString("BIZ_START"));
+				dto.setHosLast(rs.getString("BIZ_LAST"));
 				list.add(dto);		
 				
 			}

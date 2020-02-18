@@ -65,6 +65,7 @@
 										<br> <label for="medType">진료신청타입/상태</label> <input
 											type="text" id="medType" name="medType" class="form-control"
 											value="진료타입" disabled> <br>
+											
 
 										<!-- <input type="text" name="email" class="form-control" 
                     				id="toDr" name="toDr" placeholder="증상, 기타사항을 입력해주세요"> -->
@@ -92,13 +93,15 @@
 
 						<!-- 신청폼푸터 // 제출 및 기타 버튼 위치-->
 						<div class="card-footer">
-							<button onclick="location.href='med_doneList.jsp'"
+							<button onclick="location.href='SMedDoneList.do'"
 								class="btn btn-secondary float-left">목록</button>
 							<span style="margin-left:50px;">
-							<button onclick="location.href='리뷰작성페이지로'"
+							<button onclick="location.href='SReviewWrite.do'" 
 								class="btn btn-secondary mx-auto">리뷰등록</button></span>
-							<button onclick="location.href='재접수페이지로'"
+							<button onclick="location.href='SHospitalInfo.do'" 
 								class="btn btn-secondary float-right">재접수</button>
+								<!-- 현재 선택한 병원의 상세정보 페이지로 이동. hospital member의 hos id를 파라미터를 가지고 가야함. --> 
+								<!--  -->
 						</div>
 
 

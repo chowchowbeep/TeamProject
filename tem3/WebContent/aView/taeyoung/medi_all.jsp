@@ -72,7 +72,6 @@ table{
                 <div class="card-tools">
                 </div>
               </div>
-              
          <div class="card-body table-responsive p-0">
          <table class="table table-striped table-valign-middle">
            <thead>
@@ -84,66 +83,19 @@ table{
              </tr>
             </thead>
              <tbody>
+             <c:forEach items="${list}" var="list">
                 <tr>
-                  <td>[0001]</td>
-                  <td>[조선아]<span class="badge bg-warning">NEW</span></td>
-                  <td>[13:00]</td>
+                  <td>${list.rqstNo}</td>
+                  <td>${list.sicId}<span class="badge bg-warning">NEW</span></td>
+                  <td>${list.rqstDttm}</td>
                   <td>
                     <a href="#" class="text-muted">
-                    <i class="fas fa-search"></i>
+                    <i class="fas fa-search">${list.artrNo}</i>
                       </a>
                   </td>
                 </tr>
-                  <tr>
-                   <td>[0002]</td>
-                   <td>[이다연]</td>
-                   <td>[13:30]</td>
-                   <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                   </td>
-                 </tr>
-                 <tr>
-                   <td>[1000]</td>
-                    <td>[김민정]</td>
-                    <td>[15:00]</td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                    </td>
-                 </tr>
-                  <tr>
-                    <td>[0013]</td>
-                    <td>[김초롱]</td>
-                    <td>[13:00]</td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>[0023]</td>
-                    <td>[김주련]</td>
-                    <td>[16:00]</td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>[0050]</td>
-                    <td>[김태영]</td>
-                    <td>[18:00]</td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                    </td>
-                  </tr>
+                </c:forEach>
+                 
                  </tbody>
                 </table>
               </div></div>

@@ -92,13 +92,7 @@ cursor:pointer;
                       <td>[96/12/08]</td>
                      <td>[010-0000-0004]</td>
                     </tr>
-                    <tr>
-                      <td class="ty" onclick="location.href='sick_search_detail.jsp'">[조선아]</td>
-                      <td>[내과]</td>
-                      <td>[]</td>
-                      <td>[010-0000-0005]</td>
-                    </tr>
-                  </tbody>
+                    </tbody>
                 </table>
               </div>
 			<button type="submit" class="btn btn-block btn-info">목록가기</button>

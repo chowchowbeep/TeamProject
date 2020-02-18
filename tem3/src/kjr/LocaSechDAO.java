@@ -3,13 +3,13 @@ package kjr;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import dto.LocaSechDto;
+import dto.locaSechDTO;
 import kty.DAO;
 
 public class LocaSechDAO extends DAO {
 	String sql;
-	public ArrayList<LocaSechDto> select() { //지역관련 키워드 전체출력
-		ArrayList<LocaSechDto> list = new ArrayList<LocaSechDto>();
+	public ArrayList<locaSechDTO> select() { //지역관련 키워드 전체출력
+		ArrayList<locaSechDTO> list = new ArrayList<locaSechDTO>();
 		sql="select * from loca_sech";
 		
 		try {
@@ -17,7 +17,7 @@ public class LocaSechDAO extends DAO {
 			
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				LocaSechDto dto = new LocaSechDto();
+				locaSechDTO dto = new locaSechDTO();
 				dto.setLocaCode(rs.getString("LOCA_CODE"));
 				dto.setWd(rs.getString("WD"));
 				list.add(dto);		
@@ -32,12 +32,13 @@ public class LocaSechDAO extends DAO {
 		return list;
 	}
 	
-	public ArrayList<LocaSechDto> select(String wd) { //wd코드를 부모로가진 키워드 출력
-		ArrayList<LocaSechDto> list = new ArrayList<LocaSechDto>();
-		sql="select * from loca_sech";
+	public ArrayList<locaSechDTO> select(String wd) { //wd코드를 부모로가진 키워드 출력
+		ArrayList<locaSechDTO> list = new ArrayList<locaSechDTO>();
+		sql="select * from loca_sech ";
 		if(wd!=null) {
-			sql += "where P_CODE = ? ";
-		}
+			sql += " where P_CODE = ? ";
+		}   
+		System.out.println(sql);
 		try {
 			pstmt = conn.prepareStatement(sql);
 			if(wd!=null) {
@@ -45,9 +46,10 @@ public class LocaSechDAO extends DAO {
 			}
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				LocaSechDto dto = new LocaSechDto();
+				locaSechDTO dto = new locaSechDTO();
 				dto.setLocaCode(rs.getString("LOCA_CODE"));
 				dto.setWd(rs.getString("WD"));
+				System.out.println(dto.getWd());
 				list.add(dto);		
 				
 			}

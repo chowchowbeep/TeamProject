@@ -1,19 +1,18 @@
 package kty;
 
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import dto.ApprenticeDoctorDto;
+import dto.artrInfoDTO;
 
 public class ArtrDao extends DAO {
 
 	// 추가
-	public int insert(ApprenticeDoctorDto dto) {
+	public int insert(artrInfoDTO dto) {
 		int r = 0;
 		try {
-			String sql = "insert into ARTR_INFO(HOS_ID,ARTR_NO,ARTR_NAME,ARTR_SUB)" + " values((1,?,?,?)"; // ARTR_seq.nextval
+			String sql = "insert into ARTR_INFO(ARTR_NO,HOS_ID,ARTR_NAME,ARTR_SUB)"
+						+ " values((ARTR_SEQ.nextval,?,?,?)"; // ARTR_seq.nextval
 			pstmt.setString(2, dto.getArtrName());
 			pstmt.setString(3, dto.getArtrSub());
 			r = pstmt.executeUpdate();
@@ -24,24 +23,16 @@ public class ArtrDao extends DAO {
 		}
 		return r;
 	}
-
-	// 리스트
-	public List<ApprenticeDoctorDto> selectList() {
-		List<ApprenticeDoctorDto> list = new ArrayList<ApprenticeDoctorDto>();
-		// 1.DB연결
+	
+	//전체리스트
+	public List<artrInfoDTO> selectList() {
+		List<artrInfoDTO> list = new ArrayList<artrInfoDTO>();
 		try {
-			conn = DriverManager.getConnection(url, user, passwd);
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		}
-		try {
-			// 2.쿼리실행
-			String sql = "select * from ARTR_INFO order by ARTR_NO";
+			String sql = "select * from ARTR_INFO order by ARTR_NO ";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery(sql);
-			// 3.결과저장
 			while (rs.next()) {
-				ApprenticeDoctorDto dto = new ApprenticeDoctorDto();
+				artrInfoDTO dto = new artrInfoDTO();
 				dto.setArtrNo(rs.getInt("ARTR_NO"));
 				dto.setHosId(rs.getString("HOS_ID"));
 				dto.setArtrName(rs.getString("ARTR_NAME"));
@@ -50,6 +41,8 @@ public class ArtrDao extends DAO {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			close();
 		}
 		return list;
 	}

@@ -1,19 +1,14 @@
 package kjr.cmd;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import dto.BookmarkDto;
-import dto.HealthInfoDto;
-import dto.HosMemberDto;
-import kjr.BookmarkDAO;
+import dto.healthInfoDTO;
 import kjr.HealthInfoDAO;
-import kjr.HosmemberDAO;
 
 public class SickMainCMD implements Command {
 
@@ -26,7 +21,7 @@ public class SickMainCMD implements Command {
 		HealthInfoDAO hInfo= new HealthInfoDAO();
 		
 		String id = "sic1";//세션에서 회원 id를 당겨와서 넣어야함 *현재 임시로 아이디 입력
-		HealthInfoDto hIndto = hInfo.select(id);
+		healthInfoDTO hIndto = hInfo.select(id);
 		System.out.println(hIndto.toString());
 		/*
 		System.out.println("SickMainCMD클래스 sicid : "+hIndto.getSicId());	
