@@ -62,9 +62,9 @@ table{
          <div class="dropdown">
 			당일&nbsp;접수&nbsp;<i class="fas fa-caret-down"></i>
 		<div class="dropdown-content">
-    		<a href="medi_all.jsp">전체</a>
-    		<a href="medi_wjqtn.jsp">당일 접수</a>
-   			<a href="medi_reserve.jsp">예약</a>
+    		<a href="${pageContext.request.contextPath}/HMediAll.do">전체</a>
+    		<a href="${pageContext.request.contextPath}/HMediWjqtn.do">당일 접수</a>
+   			<a href="${pageContext.request.contextPath}/HMediReserve.do">예약</a>
  		 </div>
 		</div><br>
         <div class="row">
@@ -97,7 +97,7 @@ table{
                   <td>${list.rqstDttm}</td>
                   <td>
                     <a href="#" class="text-muted">
-                    <i class="fas fa-search">${list.artrNo}</i>
+                    ${list.artrNo}&nbsp;<i class="fas fa-search"></i>
                       </a>
                   </td>
                 </tr>
@@ -115,8 +115,15 @@ table{
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-
-
 </div>
 <!-- ./wrapper -->
 <%@ include file="/layout/all_footer.jsp"%>
+
+<script>
+	$("tr").click(function() {
+		console.log("click");
+		location.href = "${pageContext.request.contextPath}/ ";
+	})
+</script>
+</body>
+</html>

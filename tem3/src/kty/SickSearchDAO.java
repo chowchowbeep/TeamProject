@@ -3,19 +3,19 @@ package kty;
 import java.util.ArrayList;
 import java.util.List;
 
-import lastdto.artrInfoDTO;
+import lastdto.sickSearchDTO;
 
 public class SickSearchDAO extends DAO {
 
 	//전체리스트
-		public List<artrInfoDTO> selectList() {
-			List<artrInfoDTO> list = new ArrayList<artrInfoDTO>();
+		public List<sickSearchDTO> selectList() {
+			List<sickSearchDTO> list = new ArrayList<sickSearchDTO>();
 			try {
-				String sql = "select * from ARTR_INFO order by ARTR_NO ";
+				String sql = "select  from a.TMR_INFO, b.C_SUB where = ";
 				pstmt = conn.prepareStatement(sql);
 				rs = pstmt.executeQuery(sql);
 				while (rs.next()) {
-					artrInfoDTO dto = new artrInfoDTO();
+					sickSearchDTO dto = new sickSearchDTO();
 					dto.setArtrNo(rs.getInt("ARTR_NO"));
 					dto.setHosId(rs.getString("HOS_ID"));
 					dto.setArtrName(rs.getString("ARTR_NAME"));

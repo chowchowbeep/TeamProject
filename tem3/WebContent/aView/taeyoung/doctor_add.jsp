@@ -22,13 +22,13 @@
          <div class="form-group row">
            <label for="inputPassword3" class="col-sm-2 col-form-label">의사이름</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputPassword3" placeholder="의사이름">
+            <input type="text" class="form-control" id="inputPassword3" placeholder="의사이름" name="artrName">
           </div>
         </div>
          <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">진료과목</label>
             <div class="col-sm-10">
-             <select class="form-control" id="sub">
+             <select class="form-control" id="artrSub">
                 <option>내과</option>
                 <option>소아과</option>
                 <option>외과</option>
@@ -57,7 +57,6 @@
 	</div>
 </div>
 </div></section>
-          </div>
           <!--/.col (left) -->
           <!-- right column -->
   <!-- /.content-wrapper -->
