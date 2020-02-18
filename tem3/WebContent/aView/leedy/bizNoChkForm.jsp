@@ -68,7 +68,7 @@
         
         // 회원가입창의 사업자번호 값을 가져온다. 부모창에 접근하려면 opener 사용
         function pBizNoValue(){
-            document.getElementById("bizNo").value = opener.document.hosFrm.f1.value;
+            document.getElementById("bizNo").value = opener.document.hosFrm.hos_bizno.value;
         }
         
         // 아이디 중복체크
@@ -81,7 +81,7 @@
                 return false;
             } 
             else if((biz < "0" || biz > "9") ){ 
-                alert("문자 및 특수문자는 사업자번호로 사용하실 수 없습니다.");
+                alert("사업자번호는 숫자만 사용할 수 있습니다.");
                 return false;
             }
             else
