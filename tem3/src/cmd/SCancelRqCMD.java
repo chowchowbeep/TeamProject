@@ -13,8 +13,8 @@ public class SCancelRqCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		String path = "SMedABeforeMedList.do";
+
+		String path="/SMedABeforeMedList";
 		return path;
 	}
 

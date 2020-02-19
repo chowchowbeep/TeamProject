@@ -10,11 +10,16 @@ import lastdto.hosMemberDTO;
 public class HosInfoDAO extends DAO {
 
 	// 전체리스트
-	public List<hosMemberDTO> selectAll() {
+	public List<hosMemberDTO> selectAll(String id) {
 		List<hosMemberDTO> list = new ArrayList<>();
-		String sql = "SELECT * FROM HOS_MEMBER";
+		String sql = "SELECT r.*, h.*" +
+				" FROM MEDI_RQST r, HOS_MEMBER h" +
+				" where r.HOS_ID = h.HOS_ID" +
+				" and SIC_ID = ?" +
+				" order by r.rqst_dttm desc, rqst_no desc";
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
