@@ -44,9 +44,9 @@ td {
 			<div class="container-fluid">
 				<div>
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item active">전체</li>
-						<li class="breadcrumb-item"><a href="당일접수목록">접수</a></li>
-						<li class="breadcrumb-item"><a href="예약목록">예약</a></li>
+						<li class="breadcrumb-item"><a href="SMedADoneList.do">전체</a></li>
+						<li class="breadcrumb-item active">접수</li>
+						<li class="breadcrumb-item"><a href="SMedRDoneList.do">예약</a></li>
 					</ol>
 				</div>
 
@@ -83,12 +83,6 @@ td {
 													<c:when test="${list1.rqstTy =='D002'}">
 														<td>예약</td>
 													</c:when>
-													<!--<c:when test="${list1.rqstTy =='D003'}">
-														<td>병원취소</td>
-													</c:when>
-													<c:when test="${list1.rqstTy =='D004'}">
-														<td>본인취소</td>
-													</c:when>-->
 												</c:choose>
 
 											</tr>

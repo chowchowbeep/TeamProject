@@ -83,12 +83,6 @@ td {
 													<c:when test="${list1.rqstTy =='D002'}">
 														<td>예약</td>
 													</c:when>
-													<!--<c:when test="${list1.rqstTy =='D003'}">
-														<td>병원취소</td>
-													</c:when>
-													<c:when test="${list1.rqstTy =='D004'}">
-														<td>본인취소</td>
-													</c:when>-->
 												</c:choose>
 
 											</tr>
