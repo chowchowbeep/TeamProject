@@ -11,9 +11,29 @@ import lastdto.mediRqstDTO;
 public class MediRqstDAO extends DAO {
 
 	// 전체 리스트
-	public List<mediRqstDTO> selectAll(String id) {
+	public List<mediRqstDTO> selectAll(String id, String type) {
 		List<mediRqstDTO> list = new ArrayList<>();
-		String sql = "SELECT * FROM MEDI_RQST" + " WHERE SIC_ID = ?";
+		String sql = null;
+		if (type == "all") { //전체목록
+			sql = "SELECT r.*, h.*" + " FROM MEDI_RQST r, HOS_MEMBER h" + " where r.HOS_ID = h.HOS_ID"
+					+ " and SIC_ID = ?" + " order by r.rqst_dttm desc, rqst_no desc";
+		} else if (type == "tmr") {//접수목록
+			sql = "SELECT r.*, h.*" + " FROM MEDI_RQST r, HOS_MEMBER h" + " where r.HOS_ID = h.HOS_ID"
+					+ " and SIC_ID = ?" 
+					+ " and RQST_TY = 'D001'"
+					+ " order by r.rqst_dttm desc, rqst_no desc";
+		} else if (type == "res") {//예약목록
+			sql = "SELECT r.*, h.*" + " FROM MEDI_RQST r, HOS_MEMBER h" + " where r.HOS_ID = h.HOS_ID"
+					+ " and SIC_ID = ?" 
+					+ " and RQST_TY = 'D002'"
+					+ " order by r.rqst_dttm desc, rqst_no desc";
+		} else if (type == "cancel") {//취소목록
+			sql = "SELECT r.*, h.*" + " FROM MEDI_RQST r, HOS_MEMBER h" + " where r.HOS_ID = h.HOS_ID"
+					+ " and SIC_ID = ?" 
+					+ " and RQST_TY in ('D003', 'D004')"
+					+ " order by r.rqst_dttm desc, rqst_no desc";
+		}
+
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
@@ -31,26 +51,25 @@ public class MediRqstDAO extends DAO {
 				dto.setDcryNo(rs.getInt("DCRY_NO"));
 				dto.setMsg(rs.getString("MSG"));
 				dto.setIfTime(rs.getString("IFTIME"));
-				
-				
+
 				list.add(dto);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close();
 		}
-		close();
 		return list;
 	}
 
+	
+	
+	
 	// 당일접수 신청추가
 	public int tmrInsert(mediRqstDTO dto) {
 		int r = 0;
-		String sql = "insert into MEDI_RQST" + 
-				"(RQST_NO, SIC_ID,  HOS_ID, "
-				+ "ARTR_NO, RQST_TY, DCRY_NO, MSG, IFTIME)" + 
-				"values"
-				+ "(RQST_SEQ.nextval, ?, ?, "
-				+ "?, 'D001', ? ,?, ?)"; //D001 당일접수
+		String sql = "insert into MEDI_RQST" + "(RQST_NO, SIC_ID,  HOS_ID, " + "ARTR_NO, RQST_TY, DCRY_NO, MSG, IFTIME)"
+				+ "values" + "(RQST_SEQ.nextval, ?, ?, " + "?, 'D001', ? ,?, ?)"; // D001 당일접수
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getSicId());
@@ -60,15 +79,15 @@ public class MediRqstDAO extends DAO {
 			pstmt.setString(5, dto.getMsg());
 			pstmt.setString(6, dto.getIfTime());
 			System.out.println(dto.toString());
-			
-	        r = pstmt.executeUpdate();
-	        
-		} catch(Exception e) {
+
+			r = pstmt.executeUpdate();
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
-		
+
 		return r;
 	}
 

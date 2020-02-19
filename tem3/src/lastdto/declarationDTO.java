@@ -1,6 +1,8 @@
 package lastdto;
 
 import java.sql.Date;
+import java.sql.SQLException;
+import kty.DAO;
 
 public class declarationDTO {
 	private int decNo;		//신고번호
@@ -15,6 +17,9 @@ public class declarationDTO {
 	public declarationDTO() {
 		super();
 	}
+	
+	
+	
 	public declarationDTO(int decNo, String sicId, String decCont, Date decDttm, String decStt, String hosId) {
 		super();
 		this.decNo = decNo;
@@ -24,6 +29,9 @@ public class declarationDTO {
 		this.decStt = decStt;
 		this.hosId = hosId;
 	}
+	
+	
+	
 	public int getDecNo() {
 		return decNo;
 	}
@@ -61,6 +69,5 @@ public class declarationDTO {
 		this.decStt = decStt;
 	}
 	
-	
-	
+
 }

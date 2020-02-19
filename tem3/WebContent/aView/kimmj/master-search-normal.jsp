@@ -1,3 +1,5 @@
+<%@page import="lastdto.sickJoinMemberDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/layout/admin_head.jsp"%>
@@ -119,8 +121,7 @@ to {
 
 
 <%@ include file="/layout/admin_menu.jsp"%>
-
-
+<%  %>
 <div class = "card">
 	<div class = "card-header text-center">
 		<div class = "text-center" style = "padding: 10px 0px 0px 0px">

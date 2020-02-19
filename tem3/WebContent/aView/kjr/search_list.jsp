@@ -15,7 +15,16 @@
 </style>
 <link rel="stylesheet" href="cssList.css">
 <script>
-//병원리스트출력 검색마다 추가되도록 이벤트가 발생해야함
+$(function() { 
+	$("#nameSearchBtn").bind("click",searchNameGo); //병원명으로 상세리스트로 검색
+	
+	function searchNameGo(){
+		document.nameSearchFrm.action="SSearchList.do"
+		document.nameSearchFrm.method="post";
+		document.nameSearchFrm.submit();
+	};
+
+}
 
 //리스트 클릭 시 상세페이지로 이동시킬지 버튼으로 이동시킬지? 클릭이벤트발생필요 
 		
@@ -24,15 +33,16 @@
 
 <body>
 	<div class="container">
-		<div class="input-group mb-3 topmg"><!-- 클릭이벤트로 search_list로 이동 -->
-			<input type="text" class="form-control" placeholder="Search"
-				aria-label="Search" aria-describedby="button-Search2">
-			<div class="input-group-append">
-				<button class="btn btn-outline-secondary" type="button"
-					id="button-Search2">검색</button>
-			</div>
-			
+		<form id="nameSearchFrm" name="nameSearchFrm">
+		<div class="input-group mb-3 topmg">
+				<input type="text" class="form-control"	placeholder="병원명" name="hosName" id="hosName">
+				<div class="input-group-append">
+					<button class="btn btn-outline-secondary" type="button"
+					id="nameSearchBtn">검색</button>
+				</div>
 		</div>
+		</form>
+		
 		<div class="row">
 			<div class="mb-3 col-4" style="margin: 20px 0px;">
 				<button type="button" class="btn btn-primary btn-lg btn-block">랭킹순</button>
@@ -60,7 +70,7 @@
 							<h5 class="card-title">${list.hosName }</h5>
 							<p class="card-text">${list.hosAddr }</p>
 							<p>전화번호 : ${list.hosPhone }</p>
-							<p>진료 시간 :${list.hosStart } ~ ${list.hosLast }</p>
+							<p>진료 시간 :${list.hosBizTime }</p>
 							<a href="SHospitalInfo.do" class="btn btn-primary">접수 예약 및 상세페이지</a>
 						</div>
 					</div>

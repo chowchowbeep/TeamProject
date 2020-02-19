@@ -47,11 +47,13 @@ import cmd.SHospitalInfoCMD;
 import cmd.SInsertResCMD;
 import cmd.SInsertTmrCMD;
 import cmd.SMedABeforeMedListCMD;
+import cmd.SMedADoneListCMD;
 import cmd.SMedCBeforeMedListCMD;
 import cmd.SMedDoneDetailCMD;
-import cmd.SMedDoneListCMD;
 import cmd.SMedRBeforeMedListCMD;
+import cmd.SMedRDoneListCMD;
 import cmd.SMedTBeforeMedListCMD;
+import cmd.SMedTDoneListCMD;
 import cmd.SMenubarCMD;
 import cmd.SResRequestCMD;
 import cmd.SReviewMylistCMD;
@@ -150,7 +152,10 @@ public class Contoller extends HttpServlet {
 		cont.put("/SReviewMylist.do", new SReviewMylistCMD()); //S18 내가 쓴 리뷰 리스트 페이지
 		cont.put("/SSickHealModify.do", new SSickHealModifyCMD()); //S19 건강정보 수정 페이지
 		
-		cont.put("/SMedDoneList.do", new SMedDoneListCMD()); //S16 진료이력 리스트 페이지로 이동
+		cont.put("/SMedADoneList.do", new SMedADoneListCMD()); //S16 진료이력 리스트(전체) 페이지로 이동
+		cont.put("/SMedTDoneList.do", new SMedTDoneListCMD()); //S16 진료이력 리스트(접수) 페이지로 이동
+		cont.put("/SMedRDoneList.do", new SMedRDoneListCMD()); //S16 진료이력 리스트(예약) 페이지로 이동
+		
 		cont.put("/SMedDoneDetail.do", new SMedDoneDetailCMD()); // 진료이력 상세 페이지로 이동
 		
 		cont.put("/SRqDetail.do", new SRqDetailCMD()); //S21 진료신청현황 상세/취소 페이지로 이동
@@ -159,6 +164,7 @@ public class Contoller extends HttpServlet {
 		cont.put("/SMedRBeforeMedList.do", new SMedRBeforeMedListCMD()); //S22 진료신청현황 리스트(예약) 페이지로 이동
 		cont.put("/SMedCBeforeMedList.do", new SMedCBeforeMedListCMD()); //S23 진료신청현황 리스트(취소) 페이지로 이동
 		cont.put("/SMedABeforeMedList.do", new SMedABeforeMedListCMD()); //S27 진료신청현황 리스트(전체) 페이지로 이동
+		
 		
 		cont.put("/SCancelRq.do", new SCancelRqCMD()); //진료신청 취소처리 로직
 		
