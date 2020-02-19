@@ -13,7 +13,11 @@ public class MediRqstDAO extends DAO {
 	// 전체 리스트
 	public List<mediRqstDTO> selectAll(String id) {
 		List<mediRqstDTO> list = new ArrayList<>();
-		String sql = "SELECT * FROM MEDI_RQST" + " WHERE SIC_ID = ?";
+		String sql = "SELECT r.*, h.*" +
+				" FROM MEDI_RQST r, HOS_MEMBER h" +
+				" where r.HOS_ID = h.HOS_ID" +
+				" and SIC_ID = ?" +
+				" order by r.rqst_dttm desc, rqst_no desc";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);

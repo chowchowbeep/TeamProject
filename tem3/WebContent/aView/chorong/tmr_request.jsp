@@ -54,9 +54,9 @@ STmrRequest.do
 								<div class="row">
 									<div class="col-sm-6">
 										<div class="form-group">
-											<label for="HOS_ID">병원명</label> 
-											<input type="text"
-												id="HOS_ID" name="HOS_ID" class="form-control" value="hos1" readonly>
+											<label for="HOS_ID">병원명</label> <input type="text"
+												id="HOS_ID" name="HOS_ID" class="form-control" value="hos1"
+												readonly>
 											<!-- 병원id값 가져오기 -->
 											<br> <label for="HOS_ADDR">주소</label>
 											<textarea id="HOS_ADDR" name="HOS_ADDR" class="form-control"
@@ -110,9 +110,9 @@ STmrRequest.do
 
 										<!-- 4. 기록물 업로드 버튼 구현 / 모달창 띄우기?? -->
 										<div class="form-group">
-											<label for="dcDCRY_NOUpload">진료시 의료진이 참고할 기록물 첨부</label> <input
+											<label for="DCRY_NO">진료시 의료진이 참고할 기록물 첨부</label> <input
 												type="hidden" class="btn btn-default" id="DCRY_NO"
-												name="DCRY_NO" value="1">
+												name="DCRY_NO" value="1" onclick="toAddDcry()">
 											<!-- 임시 -->
 										</div>
 
@@ -148,7 +148,7 @@ STmrRequest.do
 							<div class="card-footer">
 								<input type="hidden" id="id" name="id" value="sic1">
 								<!-- 로그인중인 아이디(임시로 sic1로 설정)-->
-								
+
 								<input type="reset" class="btn btn-secondary" value="초기화">
 								<input type="submit" class="btn btn-secondary float-right"
 									value="접수하기" onclick="tmrFormSubmit()">
@@ -189,6 +189,7 @@ STmrRequest.do
 	//병원 스케줄(휴일을 예약가능날짜에서 제외, 영업상태속성확인)
 	//,의사 스케줄(의사휴일을 예약가능날짜에서 제외)
 	//,병원기본정보 등이필요. //프로시저 이용?
+
 
 	//도착예상시간 선택가능값 제어 후 전달
 	function tmrFormSubmit() {

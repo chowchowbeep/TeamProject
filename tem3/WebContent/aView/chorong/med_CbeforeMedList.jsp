@@ -83,13 +83,14 @@ td {
 										</tr>
 									</thead>
 									<tbody>
+									
 										<c:forEach var="list1" items="${list1}" varStatus="status">
+											<c:if test="${list1.rqs}"></c:if>
 											<tr id="${list1.rqstNo}">
 
 												<td>${list1.rqstDttm}</td>
 
-												<td>${list1.hosId}</td>
-
+												<td>${list2[status.index].hosName}</td>
 												<c:choose>
 													<c:when test="${list1.rqstTy =='D001'}">
 														<td>접수</td>
@@ -109,16 +110,6 @@ td {
 										</c:forEach>
 									</tbody>
 								</table>
-
-								<div>
-
-									<c:forEach var="list2" items="${list2}">
-										<div>${list2.hosId}</div>
-									</c:forEach>
-								</div>
-
-
-
 							</div>
 						</div>
 						<!-- /.card -->
