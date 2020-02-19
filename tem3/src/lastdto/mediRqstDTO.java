@@ -14,14 +14,16 @@ public class mediRqstDTO {
 	private String rqstTy; // 진료타입
 	private String msg; // 한마디
 	private int dcryNo; // 파일번호
+	private String ifTime; //도착예정시간 
 
 	// 생성자
 	public mediRqstDTO() {
 		super();
 	}
 	
+	
 	public mediRqstDTO(int rqstNo, String sicId, Date rqstDttm, String hosId, Date resDttm, int artrNo, String rqstTy,
-			String msg, int dcryNo) {
+			String msg, int dcryNo, String ifTime) {
 		super();
 		this.rqstNo = rqstNo;
 		this.sicId = sicId;
@@ -32,8 +34,11 @@ public class mediRqstDTO {
 		this.rqstTy = rqstTy;
 		this.msg = msg;
 		this.dcryNo = dcryNo;
+		this.ifTime = ifTime;
 	}
-	
+
+
+
 	//접수
 	public mediRqstDTO(int rqstNo, String sicId, Date rqstDttm, String hosId) {
 		super();
@@ -124,4 +129,21 @@ public class mediRqstDTO {
 		this.dcryNo = dcryNo;
 	}
 
+	public String getIfTime() {
+		return ifTime;
+	}
+
+	public void setIfTime(String ifTime) {
+		this.ifTime = ifTime;
+	}
+
+
+	@Override
+	public String toString() {
+		return "mediRqstDTO [rqstNo=" + rqstNo + ", sicId=" + sicId + ", rqstDttm=" + rqstDttm + ", hosId=" + hosId
+				+ ", resDttm=" + resDttm + ", artrNo=" + artrNo + ", rqstTy=" + rqstTy + ", msg=" + msg + ", dcryNo="
+				+ dcryNo + ", ifTime=" + ifTime + "]";
+	}
+	
+	
 }

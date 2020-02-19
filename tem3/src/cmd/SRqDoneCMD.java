@@ -8,16 +8,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
 
-public class STmrDetailCMD implements Command {
+public class SRqDoneCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//S21 진료신청현황 상세/취소 페이지(당일접수)
-		String path ="aView/chorong/tmr_detail.jsp"; //
+		
+		//S29 진료신청 완료 페이지(접수/예약)
+		
+		String path ="aView/chorong/rq_done.jsp"; 
 		
 		return path;
-
 	}
 
 }

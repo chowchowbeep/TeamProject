@@ -100,9 +100,12 @@ td {
 			</div>
 		</section>
 	</div>
+
+
+	<!-- ./wrapper -->
 	<input type="hidden" id="submitNo" name="submitNo">
 </form>
-<!-- ./wrapper -->
+
 <%@ include file="/layout/all_footer.jsp"%>
 <script>
 	// 목록 항목 클릭시 상세정보로 이동

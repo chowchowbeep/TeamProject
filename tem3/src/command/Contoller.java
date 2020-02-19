@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cmd.HDoctorAddCMD;
-import cmd.HDoctorAddVerifyCMD;
 import cmd.HDoctorlistCMD;
 import cmd.HHospitalInquiryCMD;
 import cmd.HHospitalMymenuCMD;
@@ -39,16 +38,22 @@ import cmd.MasterMainCMD;
 import cmd.MasterSearchNormalCMD;
 import cmd.SAroundMapCMD;
 import cmd.SBookmarkCMD;
+import cmd.SCancelRqCMD;
 import cmd.SHospitalInfoCMD;
-import cmd.SMedBeforeMedListCMD;
+import cmd.SInsertResCMD;
+import cmd.SInsertTmrCMD;
+import cmd.SMedABeforeMedListCMD;
+import cmd.SMedCBeforeMedListCMD;
 import cmd.SMedDoneDetailCMD;
 import cmd.SMedDoneListCMD;
+import cmd.SMedRBeforeMedListCMD;
+import cmd.SMedTBeforeMedListCMD;
 import cmd.SMenubarCMD;
-import cmd.SResDetailCMD;
-import cmd.SResDoneCMD;
 import cmd.SResRequestCMD;
 import cmd.SReviewMylistCMD;
 import cmd.SReviewWriteCMD;
+import cmd.SRqDetailCMD;
+import cmd.SRqDoneCMD;
 import cmd.SSickDetailListCMD;
 import cmd.SSickDocuListCMD;
 import cmd.SSickHealModifyCMD;
@@ -57,8 +62,6 @@ import cmd.SSickMemModifyCMD;
 import cmd.SSickUploadCMD;
 import cmd.SSickWjqtnCreateCMD;
 import cmd.SSickWjqtnwmdCMD;
-import cmd.STmrDetailCMD;
-import cmd.STmrDoneCMD;
 import cmd.STmrRequestCMD;
 import cmd.STmrSelectDcryCMD;
 import cmd.SsearchMainCMD;
@@ -118,8 +121,7 @@ public class Contoller extends HttpServlet {
 		cont.put("/HHospitalProfile.do", new HHospitalProfileCMD()); //H12 병원회원 수정 페이지  로 이동
 		cont.put("/HDoctorlist.do", new HDoctorlistCMD()); //H13 의사 리스트 페이지 로 이동
 		cont.put("/HDoctorAdd.do", new HDoctorAddCMD()); //H14 의사추가페이지 로 이동
-		cont.put("/HDoctorAddVerify.do", new HDoctorAddVerifyCMD()); //H14 의사추가추가페이지 로 이동
-		cont.put("/HosMemberIdCheckAction.do", new HosMemberIdCheckActionCMD());  //(병원)ID 중복검사 페이지로 이동
+		cont.put("/HosMemberIdCheckAction.do", new HosMemberIdCheckActionCMD ());  //(병원)ID 중복검사 페이지로 이동
 		cont.put("/HosMemberBizNoCheckAction.do", new HosMemberBizNoCheckActionCMD());  //(병원)사업자번호 중복검사 페이지로 이동
 		
 		
@@ -138,27 +140,41 @@ public class Contoller extends HttpServlet {
 		cont.put("/SHospitalInfo.do", new SHospitalInfoCMD()); //S8 병원정보 상세조회 페이지
 		cont.put("/SsearchMain.do", new SsearchMainCMD()); //S9~S14 메인 검색 페이지
 		cont.put("/ShospitalInfo.do", new SHospitalInfoCMD()); //S15 필터 페이지
-		cont.put("/SMedDoneList.do", new SMedDoneListCMD()); //S16 진료이력 리스트 페이지
-		cont.put("/SMedDoneDetail.do", new SMedDoneDetailCMD()); // 진료이력 상세 페이지
 		
 		cont.put("/SReviewWrite.do", new SReviewWriteCMD()); //S17 리뷰 작성 페이지
 		cont.put("/SReviewMylist.do", new SReviewMylistCMD()); //S18 내가 쓴 리뷰 리스트 페이지
 		cont.put("/SSickHealModify.do", new SSickHealModifyCMD()); //S19 건강정보 수정 페이지
-		cont.put("/SMedBeforeMedList.do", new SMedBeforeMedListCMD()); //S20 진료신청현황 리스트 페이지
-		cont.put("/STmrDetail.do", new STmrDetailCMD()); //S21 진료신청현황 상세/취소 페이지(당일접수)
-		cont.put("/SResDetail.do", new SResDetailCMD()); //S22 진료신청현황 상세/취소 페이지(예약)
+		
+		
+		
+		cont.put("/SMedDoneList.do", new SMedDoneListCMD()); //S16 진료이력 리스트 페이지로 이동
+		cont.put("/SMedDoneDetail.do", new SMedDoneDetailCMD()); // 진료이력 상세 페이지로 이동
+		
+		
+		cont.put("/SRqDetail.do", new SRqDetailCMD()); //S21 진료신청현황 상세/취소 페이지로 이동
+		
+		cont.put("/SMedTBeforeMedList.do", new SMedTBeforeMedListCMD()); //S20 진료신청현황 리스트(접수) 페이지로 이동
+		cont.put("/SMedRBeforeMedList.do", new SMedRBeforeMedListCMD()); //S22 진료신청현황 리스트(예약) 페이지로 이동
+		cont.put("/SMedCBeforeMedList.do", new SMedCBeforeMedListCMD()); //S23 진료신청현황 리스트(취소) 페이지로 이동
+		cont.put("/SMedABeforeMedList.do", new SMedABeforeMedListCMD()); //S27 진료신청현황 리스트(전체) 페이지로 이동
+		
+		cont.put("/SCancelRq.do", new SCancelRqCMD()); //진료신청 취소처리 로직
+		
 		cont.put("/SAroundMap.do", new SAroundMapCMD()); //S23 주변 병원/약국 페이지
-		cont.put("/SResRequest.do", new SResRequestCMD()); //S24 예약신청 페이지
-	//	cont.put("/S.do", new CMD()); //S25 예약날짜 선택 페이지
-	//	cont.put("/S.do", new CMD()); //S26 예약시간 선택 페이지
-		cont.put("/SResDone.do", new SResDoneCMD()); //S27 예약완료 페이지
-		cont.put("/STmrRequest.do", new STmrRequestCMD()); //S28 당일접수 신청 페이지
-		cont.put("/STmrDone.do", new STmrDoneCMD()); //S29 당일접수 완료 페이지
+		
+		cont.put("/SResRequest.do", new SResRequestCMD()); //S24 예약신청 페이지로 이동
+		cont.put("/STmrRequest.do", new STmrRequestCMD()); //S28 당일접수 신청 페이지로 이동
+		cont.put("/STmrSelectDcry.do", new STmrSelectDcryCMD()); //S33 (진료신청시)기록물 선택 페이지로 이동
+		
+		cont.put("/SInsertRes.do", new SInsertResCMD()); //예약신청 입력처리 로직
+		cont.put("/SInsertTmr.do", new SInsertTmrCMD()); //접수신청 입력처리 로직
+		
+		cont.put("/SRqDone.do", new SRqDoneCMD()); //S29 진료신청 완료 페이지(접수/예약)로 이동
+		
 		
 		cont.put("/SBookmark.do", new SBookmarkCMD()); //S30 관심병원 리스트 페이지
 		cont.put("/SSickMediaList.do", new SSickMediaListCMD()); //S31 기록물-기록물 리스트페이지
-		cont.put("/SSickDocuList.do", new SSickDocuListCMD()); //S32 서류-기록물 리스트페이지 
-		cont.put("/STmrSelectDcry.do", new STmrSelectDcryCMD()); //S33 (진료신청시)기록물 선택 페이지 
+		cont.put("/SSickDocuList.do", new SSickDocuListCMD()); //S32 서류-기록물 리스트페이지 \
 		cont.put("/SSickDetailList.do", new SSickDetailListCMD()); //S34 기록물 상세 페이지
 		cont.put("/SSickUpload.do", new SSickUploadCMD()); //S35 기록물 업로드 페이지
 	//	cont.put("/S.do", new CMD()); //S36 병원 신고 페이지

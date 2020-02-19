@@ -6,38 +6,41 @@
 <script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
 <%@ include file="/layout/sick_menu.jsp"%>
 
+<!-- /SResRequest.do -->
 
-<!-- 컨텐츠 위치 -->
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-	<!-- Content Header (Page header) -->
-	<section class="content-header">
-		<div class="container-fluid">
-			<div class="row mb-2">
-				<div class="col-sm-6">
-					<h1>진료예약신청</h1>
-				</div>
-				<div class="col-sm-6">
-					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="#">홈</a></li>
-						<li class="breadcrumb-item active">진료신청</li>
-					</ol>
+
+<form id="frm" name="frm" method="post">
+	<!-- 컨텐츠 위치 -->
+	<!-- Content Wrapper. Contains page content -->
+	<div class="content-wrapper">
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1>진료예약신청</h1>
+					</div>
+					<div class="col-sm-6">
+						<ol class="breadcrumb float-sm-right">
+							<li class="breadcrumb-item"><a href="#">홈</a></li>
+							<li class="breadcrumb-item active">진료신청</li>
+						</ol>
+					</div>
 				</div>
 			</div>
-		</div>
-		<!-- /.container-fluid -->
-	</section>
+			<!-- /.container-fluid -->
+		</section>
 
-	<!-- Main content -->
-	<section class="content">
-		<div class="container-fluid">
-			<div class="row">
-				<!-- left column -->
-				<div class="col-md-12">
-
+		<!-- Main content -->
+		<section class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<!-- left column -->
+					<div class="col-md-12">
 
 
-					<!--
+
+						<!--
 				1. 선택한 병원, 의사, 진료과목 정보 출력 
 				c:if
 				c:choose사용
@@ -48,45 +51,40 @@
 
 
 
-					<!-- 1. 선택한 병원정보 출력  -->
-					<div class="card card-secondary">
-						<div class="card-header">
-							<h3 class="card-title">선택한 정보 확인</h3>
-						</div>
-						<div class="card-body">
+						<!-- 1. 선택한 병원정보 출력  -->
+						<div class="card card-secondary">
+							<div class="card-header">
+								<h3 class="card-title">선택한 정보 확인</h3>
+							</div>
+							<div class="card-body">
 
-							<div class="row">
-								<div class="col-sm-6">
-									<div class="form-group">
-										<label for="hosName">병원명</label> <input type="text"
-											id="hosName" name="hosName" class="form-control"
-											value="${dto.artr_name}병원명" disabled>
-									</div>
-									<div class="form-group">
-										<label for="hosAddr">주소</label>
-										<textarea id="hosAddr" name="hosAddr" class="form-control"
-											disabled>${dto.artr_name}주소주소</textarea>
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="hosName">병원명</label> <input type="text"
+												id="hosName" name="hosName" class="form-control"
+												value="${dto.artr_name}병원명" disabled>
+										</div>
+										<div class="form-group">
+											<label for="hosAddr">주소</label>
+											<textarea id="hosAddr" name="hosAddr" class="form-control"
+												disabled>${dto.artr_name}주소주소</textarea>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
 
 
-					<!-- 신청 폼 div시작 -->
-					<div class="card card-secondary">
-						<!-- 신청폼헤더 -->
-						<div class="card-header">
-							<h3 class="card-title">예약신청양식</h3>
-						</div>
-						<!-- /.card-header 끝 신청폼말머리-->
+						<!-- 신청 폼 div시작 -->
+						<div class="card card-secondary">
+							<!-- 신청폼헤더 -->
+							<div class="card-header">
+								<h3 class="card-title">예약신청양식</h3>
+							</div>
+							<!-- /.card-header 끝 신청폼말머리-->
 
-						<!-- 신청폼바디 // form 태그 시작-->
-						<div class="card-body">
-							<!-- @질문 : role속성 뭐임 -->
-							<form role="form" id="frm" name="frm" action="예약완료 페이지"
-								method="post" return="필수입력사항체크펑션">
-
+							<div class="card-body">
 								<div class="row">
 									<div class="col-sm-6">
 
@@ -113,9 +111,9 @@
 
 										<!-- 4. 기록물 업로드 버튼 구현 / 모달창 띄우기?? / 값 어떻게 담을지 체크하기 -->
 										<div class="form-group">
-											<label for="dcUpload">진료시 의료진이 참고할 기록물 첨부</label> 
-											<input type="button" class="btn btn-default"
-											 id="dcUpload" name="dcUpload" value="기록물 업로드">
+											<label for="dcUpload">진료시 의료진이 참고할 기록물 첨부</label> <input
+												type="button" class="btn btn-default" id="dcUpload"
+												name="dcUpload" value="기록물 업로드">
 										</div>
 
 
@@ -441,57 +439,52 @@
 									</select>&nbsp;분
 								</div>
 
-							</form>
 
 
-						</div>
-						<!-- /.card-body 끝 신청폼바디-->
+							</div>
+							<!-- /.card-body 끝 신청폼바디-->
 
 
 
-						<!-- 신청폼푸터 // 제출 및 기타 버튼 위치 -->
-						<!-- 5. 다음:예약날짜 선택 페이지로 이동 -->
-						<div class="card-footer">
-							<input type="reset" class="btn btn-secondary" value="초기화">
-							<input type="submit" class="btn btn-secondary float-right"
-								value="예약완료">
-							<!-- 
-								 	전: 병원정보 상세조회 페이지(선택한 병원정보를넘겨받아야 함)
-								 	후: 예약날짜 선택 페이지, (진료신청시)기록물 선택 페이지
-								  -->
+							<!-- 신청폼푸터 // 제출 및 기타 버튼 위치 -->
+							<!-- 5. 다음:예약날짜 선택 페이지로 이동 -->
+							<div class="card-footer">
+								<input type="reset" class="btn btn-secondary" value="초기화">
+								<input type="submit" class="btn btn-secondary float-right"
+									value="예약완료" onclick="resFormSubmit()">
 
+							</div>
 						</div>
 					</div>
+					<!--/.col (left) -->
+
+					<!-- right column -->
+					<div class="col-md-6"></div>
+					<!--/.col (right) -->
 				</div>
-				<!--/.col (left) -->
-
-				<!-- right column -->
-				<div class="col-md-6"></div>
-				<!--/.col (right) -->
+				<!-- /.row -->
 			</div>
-			<!-- /.row -->
-		</div>
-		<!-- /.container-fluid -->
-	</section>
-	<!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
-
+			<!-- /.container-fluid -->
+		</section>
+		<!-- /.content -->
+	</div>
+	<!-- /.content-wrapper -->
+</form>
 
 
 <%@ include file="/layout/all_footer.jsp"%>
 
 
-	<!-- 유효성 체크 및 값 넘기기 -->
+<!-- 유효성 체크 및 값 넘기기 -->
 <script>
-
-	
 	// 필수입력사항체크 후 값 넘기도록
-	function idCheck(){
-		
+	function resFormSubmit() {
+		alert("예약신청이 완료되었습니다.");
+		frm.action = "SInsertRes.do"; //예약신청처리 후 결과페이지로
+		frm.submit();
 	}
-	
-	//신청가능여부 제어_ plsql
+
+	//신청가능여부 제어 //병원상태가 영업중인지만 체크하기.
 	//병원 스케줄(휴일을 예약가능날짜에서 제외, 영업상태속성확인)
 	//의사 스케줄(의사휴일을 예약가능날짜에서 제외)
 	//병원기본정보 등이필요.
