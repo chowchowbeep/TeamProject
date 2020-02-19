@@ -47,11 +47,13 @@ import cmd.SHospitalInfoCMD;
 import cmd.SInsertResCMD;
 import cmd.SInsertTmrCMD;
 import cmd.SMedABeforeMedListCMD;
+import cmd.SMedADoneListCMD;
 import cmd.SMedCBeforeMedListCMD;
 import cmd.SMedDoneDetailCMD;
-import cmd.SMedDoneListCMD;
 import cmd.SMedRBeforeMedListCMD;
+import cmd.SMedRDoneListCMD;
 import cmd.SMedTBeforeMedListCMD;
+import cmd.SMedTDoneListCMD;
 import cmd.SMenubarCMD;
 import cmd.SResRequestCMD;
 import cmd.SReviewMylistCMD;
@@ -149,9 +151,9 @@ public class Contoller extends HttpServlet {
 		cont.put("/SReviewMylist.do", new SReviewMylistCMD()); //S18 내가 쓴 리뷰 리스트 페이지
 		cont.put("/SSickHealModify.do", new SSickHealModifyCMD()); //S19 건강정보 수정 페이지
 		
-		cont.put("/SMedDoneList.do", new SMedDoneListCMD()); //S16 진료이력 리스트 페이지로 이동
-		cont.put("/SMedDoneList.do", new SMedDoneListCMD()); //S16 진료이력 리스트
-		cont.put("/SMedDoneList.do", new SMedDoneListCMD()); //S16 진료이력 리스트
+		cont.put("/SMedADoneList.do", new SMedADoneListCMD()); //S16 진료이력 리스트(전체) 페이지로 이동
+		cont.put("/SMedTDoneList.do", new SMedTDoneListCMD()); //S16 진료이력 리스트(접수) 페이지로 이동
+		cont.put("/SMedRDoneList.do", new SMedRDoneListCMD()); //S16 진료이력 리스트(예약) 페이지로 이동
 		
 		cont.put("/SMedDoneDetail.do", new SMedDoneDetailCMD()); // 진료이력 상세 페이지로 이동
 		
