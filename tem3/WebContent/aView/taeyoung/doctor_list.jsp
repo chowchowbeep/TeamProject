@@ -54,6 +54,7 @@
             		<th>id</th>
             		<th>이름</th>
             		<th>과목</th>
+            		<th></th>
             		</tr>
             	<c:forEach items="${list}" var="dto">
                     <tr>
@@ -76,14 +77,17 @@
 						<c:otherwise>
 							<td>치과</td>
 						</c:otherwise>
-					</c:choose>			
+					</c:choose>
+					<td>
+					<a class="btn btn-block btn-default btn-sm" href="#"> 
+                              	<i class="fas fa-trash">
+                              	</i> </a>
+					</td>			
                     </tr>
                  </c:forEach>
-   
+   					
                   </tbody>
-								<!--a class="btn btn-block btn-default btn-sm" href="#"> 
-                              	<i class="fas fa-trash">
-                              	</i>Del</a>  삭제 기능 사용시 사용할 아이콘(del) --> 
+								
                 </table>
               </div>
 			<a class="btn btn-block btn-info" href="${pageContext.request.contextPath}/HDoctorAdd.do">의사추가</a>

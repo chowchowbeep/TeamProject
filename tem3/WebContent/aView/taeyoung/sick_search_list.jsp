@@ -58,29 +58,17 @@ cursor:pointer;
                   <thead>
                     <tr>
                       <th width="25%;">이름</th>
+                      <th width="30%">생년월일</th>
                       <th width="35%;">번호</th>
-                      <th width="30%;">진료타입</th>
                     </tr>
                   </thead>
             		<tbody>
                     <c:forEach items="${list}" var="dto">
                     <tr style="hover:background-Color:gray;">
                       <td>${dto.sicName}</td>
+                      <td>${dto.ihidno}</td> <!-- 주민등록번호 substr(,6) -->
                       <td>${dto.sicPhone}</td>
-                      <c:choose>
-						<c:when test="${dto.rqstTy =='D001'}">
-							<td>당일접수</td>
-						</c:when>
-						<c:when test="${dto.rqstTy =='D002'}">
-							<td>예약</td>
-						</c:when>
-						<c:when test="${dto.rqstTy =='D003'}">
-							<td>병원취소</td>
-						</c:when>
-						<c:when test="${dto.rqstTy =='D004'}">
-							<td>일반취소</td>
-						</c:when>
-					</c:choose>		
+                      
                     </tr>
                     </c:forEach>
                     </tbody>
