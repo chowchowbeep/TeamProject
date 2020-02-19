@@ -24,8 +24,7 @@ public class HosmemberDAO extends DAO {
 				dto.setHosAddr(rs.getString("HOS_ADDR"));
 				dto.setHosLat(rs.getInt("HOS_LAT"));
 				dto.setHosLng(rs.getInt("HOS_LNG"));
-				dto.setHosStart(rs.getString("BIZ_START"));
-				dto.setHosLast(rs.getString("BIZ_LAST"));
+				dto.setHosBizTime(rs.getString("BIZ_TIME"));
 				list.add(dto);		
 				
 			}
@@ -57,8 +56,7 @@ public class HosmemberDAO extends DAO {
 				dto.setHosAddr(rs.getString("HOS_ADDR"));
 				dto.setHosLat(rs.getInt("HOS_LAT"));
 				dto.setHosLng(rs.getInt("HOS_LNG"));
-				dto.setHosStart(rs.getString("BIZ_START"));
-				dto.setHosLast(rs.getString("BIZ_LAST"));
+				dto.setHosBizTime(rs.getString("BIZ_TIME"));
 				list.add(dto);		
 				
 			}
