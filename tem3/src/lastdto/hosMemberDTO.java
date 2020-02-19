@@ -107,6 +107,14 @@ public class hosMemberDTO {
 		this.hosBizTime = hosBizTime;
 	}
 
+
+	@Override
+	public String toString() {
+		return "hosMemberDTO [hosId=" + hosId + ", hosBizno=" + hosBizno + ", hosName=" + hosName + ", hosPhone="
+				+ hosPhone + ", hosPw=" + hosPw + ", hosAddr=" + hosAddr + ", hosLat=" + hosLat + ", hosLng=" + hosLng
+				+ ", hosBizTime=" + hosBizTime + "]";
+	}
+
 	
 
 }

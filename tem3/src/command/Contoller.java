@@ -72,6 +72,7 @@ import kjr.cmd.SearchListCMD;
 import kjr.cmd.SickMainCMD;
 import leedy.cmd.HosMemberBizNoCheckActionCMD;
 import leedy.cmd.HosMemberIdCheckActionCMD;
+import leedy.cmd.HosSignupCMD;
 
 @WebServlet("*.do")
 public class Contoller extends HttpServlet {
@@ -105,7 +106,9 @@ public class Contoller extends HttpServlet {
 		cont.put("/SMenubar.do", new SMenubarCMD()); //일반회원 메뉴바페이지로 이동
 		
 		//병원회원관련 페이지
-	//	cont.put("/HhosSinup.do", new HhosSinupCMD()); //병원회원용 회원가입 페이지 로 이동
+		cont.put("/HhosSignup.do", new HosSignupCMD());
+		cont.put("/HhosSignup.do", new HosSignupCMD()); //
+		cont.put("/HhosSignup.do", new HosSignupCMD()); //병원회원용 회원가입 페이지 로 이동
 	//	cont.put("/HHospitalMain.do", new HHospitalMainCMD()); //병원회원 메인페이지 로 이동
 	//	cont.put("/Hpopup.do", new HpopupCMD()); //알림 팝업 페이지 로이동
 		cont.put("/HMediAll.do", new HMediAllCMD()); //(전체)진료신청 현황 리스트 페이지 로 이동
@@ -180,7 +183,7 @@ public class Contoller extends HttpServlet {
 	//	cont.put("/.do", new CMD()); // 알림아이콘
 		
 		//공통
-	//	cont.put("/.do", new CMD()); //로그인 페이지
+		cont.put("/Alllogin.do", new AllloginCMD()); //로그인 페이지
 	//	cont.put("/.do", new CMD()); //로그아웃 페이지
 	//	cont.put("/.do", new CMD()); //오류페이지
 	//	cont.put("/.do", new CMD()); //위젯

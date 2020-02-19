@@ -9,16 +9,11 @@ public class searchDTO {
 	public searchDTO() {
 		super();
 	}
-	public searchDTO(int sechNo, String hosId, String code) {
-		super();
-		this.sechNo = sechNo;
-		this.hosId = hosId;
-		this.code = code;
-	}
 
 	public int getSechNo() {
 		return sechNo;
 	}
+
 	public void setSechNo(int sechNo) {
 		this.sechNo = sechNo;
 	}
@@ -26,6 +21,7 @@ public class searchDTO {
 	public String getHosId() {
 		return hosId;
 	}
+
 	public void setHosId(String hosId) {
 		this.hosId = hosId;
 	}
@@ -33,8 +29,16 @@ public class searchDTO {
 	public String getCode() {
 		return code;
 	}
+
 	public void setCode(String code) {
 		this.code = code;
 	}
 
+	@Override
+	public String toString() {
+		return "searchDTO [sechNo=" + sechNo + ", hosId=" + hosId + ", code=" + code + "]";
+	}
+
+	
+	
 }

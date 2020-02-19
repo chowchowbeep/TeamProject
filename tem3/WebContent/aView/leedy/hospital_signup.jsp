@@ -136,7 +136,7 @@
 			<div class="card-body register-card-body">
 
 
-				<form name="hosFrm" action="../../aView/taeyoung/all_login.jsp"
+				<form name="hosFrm" action="HhosSignup.do"
 					method="post" onsubmit="return checkValue()">
 					<div class="input-group mb-3">
 						<input type="text" class="form-control" name="hos_id" id="hos_id"
