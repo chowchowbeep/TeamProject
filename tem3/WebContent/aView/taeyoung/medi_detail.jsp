@@ -33,6 +33,7 @@
 								</div>
 								<form>
 								<div class="card-body pt-0">
+            					 <c:forEach items="${list}" var="dto">
 									<div class="row">
 										<div class="col-7">
 											<h2 class="lead">
@@ -59,6 +60,7 @@
 											<b>선생님께 한마디:</b>&nbsp;<input type="hidden">${list.msg}<br>
 										</p>
 									</div>
+									</c:forEach>
 								</div>
 								</form>
 							</div>

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
 import kty.Medi_wjqtnDAO;
-import lastdto.mediRqstDTO;
+import lastdto.mediListDTO;
 
 public class HMediWjqtnCMD implements Command {
 
@@ -18,7 +18,7 @@ public class HMediWjqtnCMD implements Command {
 			throws ServletException, IOException {
 		String path ="aView/taeyoung/medi_wjqtn.jsp"; //(당일접수)진료신청 현황 리스트 페이지 로 이동
 		Medi_wjqtnDAO dao = new Medi_wjqtnDAO();
-		List<mediRqstDTO> list = dao.selectList();
+		List<mediListDTO> list = dao.selectList();
 		request.setAttribute("list", list);
 		return path;
 	}

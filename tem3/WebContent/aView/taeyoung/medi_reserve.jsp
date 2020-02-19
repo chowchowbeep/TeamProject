@@ -93,7 +93,6 @@ table{
              <tbody>
              <c:forEach items="${list}" var="list">
                 <tr>
-                 <td>
                 	<c:choose>
 						<c:when test="${dto.rqstTy =='D001'}">
 							<td>당일접수</td>
@@ -108,7 +107,6 @@ table{
 							<td>일반취소</td>
 						</c:when>
 					</c:choose>
-				</td>
                   <td>${dto.sicName}<span class="badge bg-warning">NEW</span></td>
                   <td>${dto.resDttm}</td>
                   <td>

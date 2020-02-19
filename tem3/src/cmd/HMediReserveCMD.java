@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
 import kty.Medi_reserveDAO;
-import lastdto.mediRqstDTO;
+import lastdto.mediListDTO;
 
 public class HMediReserveCMD implements Command {
 
@@ -19,7 +19,7 @@ public class HMediReserveCMD implements Command {
 		//(예약)진료신청 현황 리스트 페이지 로 이동
 		String path ="aView/taeyoung/medi_reserve.jsp"; //
 		Medi_reserveDAO dao = new Medi_reserveDAO();
-		List<mediRqstDTO> list = dao.selectList();
+		List<mediListDTO> list = dao.selectList();
 		request.setAttribute("list", list);
 		return path;
 	}
