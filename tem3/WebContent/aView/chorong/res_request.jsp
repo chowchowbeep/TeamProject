@@ -111,9 +111,9 @@
 
 										<!-- 4. 기록물 업로드 버튼 구현 / 모달창 띄우기?? / 값 어떻게 담을지 체크하기 -->
 										<div class="form-group">
-											<label for="dcUpload">진료시 의료진이 참고할 기록물 첨부</label> <input
-												type="button" class="btn btn-default" id="dcUpload"
-												name="dcUpload" value="기록물 업로드">
+											<label for="DCRY_NO">진료시 의료진이 참고할 기록물 첨부</label> <input
+												type="button" class="btn btn-default" id="DCRY_NO"
+												name="DCRY_NO" value="기록물 업로드" onclick="toAddDcry()">
 										</div>
 
 

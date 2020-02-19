@@ -70,6 +70,12 @@ td {
 					<div class="col-12">
 						<div class="card">
 							<div class="card-body table-responsive p-0">
+
+
+								<c:if test="${isNull} != null">
+									<div>${isNull}</div>
+								</c:if>
+
 								<table class="table table table-hover text-nowrap">
 									<!-- 3. 항목 선택 시 병원정보 상세조회 페이지로 이동 
 								4. 취소한 이력은 취소표시  -->
@@ -88,7 +94,7 @@ td {
 
 												<td>${list1.rqstDttm}</td>
 
-												<td>${list1.hosId}</td>
+												<td>${list2[status.index].hosName}</td>
 
 												<c:choose>
 													<c:when test="${list1.rqstTy =='D001'}">
@@ -109,15 +115,6 @@ td {
 										</c:forEach>
 									</tbody>
 								</table>
-
-								<div>
-
-									<c:forEach var="list2" items="${list2}">
-										<div>${list2.hosId}</div>
-									</c:forEach>
-								</div>
-
-
 
 							</div>
 						</div>

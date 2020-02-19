@@ -1,6 +1,17 @@
+<%@page import="lastdto.declarationDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="kimmj.decDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/layout/admin_head.jsp"%>
+ <script language="javascript">
+ 	function popup() {
+ 		var url = "decPOPUP.html";
+ 		var name = "decpop";
+ 		var option = "width = 270px, height = 50px, top = 150px, location = no, toolbar = no, menubar = no, directories = no, status = no";
+ 		window.open(url, name, option);
+ 	}
+ </script>
 <style type="text/css">/* Chart.js */
 @
 keyframes chartjs-render-animation {
@@ -91,19 +102,14 @@ to {
 	width: 150px;
 	height: 60px;
 	font-size: 18px;
-	margin-left: 10px;
-}
-.btn2 {
-	width: 150px;
-	height: 60px;
-	font-size: 18px;
-	margin-left: 180px;
+	margin-left: 90px;
 }
 
 </style>
 
 <%@ include file="/layout/admin_menu.jsp"%>
-
+<% request.setCharacterEncoding("utf-8"); %>
+<jsp:useBean id="dec" class="lastdto.declarationDTO"/>
 <div class = "card">
 	<div class = "card-header text-center">
 		<div class = "text-center" style = "padding: 10px 0px 0px 0px">
@@ -112,37 +118,49 @@ to {
 			</h4>
 		</div>
 	</div>
+	<% 
+	decDAO dao = new decDAO();
+	ArrayList<declarationDTO> list = dao.select();
+	for(declarationDTO dto : list) { 
+	%>
 	<div class="card-body">
 	<table class = "listbox">
 		<tr>
 			<td class = "info">
-				<b> 회원 ID: </b>sunamanse
+				<b> 회원 ID: </b><%= dto.getSicId() %>
 			</td>
 		</tr>
 		<tr>
 			<td class = "info">
-				<b> 신고일자: </b>2020. 02. 16
+				<b> 신고 대상 병원: </b> <%= dto.getHosId() %>
 			</td>
 		</tr>
 		<tr>
 			<td class = "info">
-				<b> 신고 대상 병원: </b>예담병원
+				<b> 신고일자: </b><%= dto.getDecDttm() %>
 			</td>
 		</tr>
 		<tr>
 			<td class = "info">
-				<b> 신고 내용: </b>어쩌구 저쩌구 신고합니다. 제대로 처리해 주세요.
+				<b> 신고 내용: </b> <%= dto.getDecCont() %>
 			</td>
 		</tr>
 	</table>
 	<br>
 	<br>
 	<br>
+	<br>
+	<br>
 	<div>
-		<button type = "button" class = "btn btn-block btn-warning"> <b>처리</b> </button>
-		<button type = "button" class = "btn btn-block btn-warning" style = "margin-left: 180px;"> <b>목록</b> </button>
+	
+		<button type = "button" class = "btn btn-block btn-warning"
+		onclick = "location.href = 'javascript:popup()'"> 
+		${ dto.getPrd() } <b>처리</b> </button>
+		<button type = "button" class = "btn btn-block btn-warning"
+		onclick = "location.href = 'master-police.jsp';"> <b>목록</b> </button>
 	</div>
 	</div>
+	<% } %>
 </div>
 
 <%@ include file="/layout/all_footer.jsp"%>

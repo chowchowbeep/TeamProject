@@ -7,14 +7,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
+import leedy.hosSignupDAO;
 
-public class HosMemberBizNoCheckActionCMD implements Command {
+public class HHospitalMemberIdCheckActionCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		return null;
+		hosSignupDAO dao = new hosSignupDAO();
+		
+		String id = request.getParameter("hos_id");
+		boolean b = dao.isIdChk(id);
+		
+		
+		request.setAttribute("idChk", b);
+		request.setAttribute("hos_id", id);
+		return "aView/leedy/idChkForm.jsp";
 	}
 
 }
