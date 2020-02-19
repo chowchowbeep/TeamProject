@@ -74,7 +74,6 @@ import kjr.cmd.SearchListCMD;
 import kjr.cmd.SickMainCMD;
 import leedy.cmd.HosMemberBizNoCheckActionCMD;
 import leedy.cmd.HosMemberIdCheckActionCMD;
-import leedy.cmd.HosSignupCMD;
 
 @WebServlet("*.do")
 public class Contoller extends HttpServlet {
@@ -84,9 +83,7 @@ public class Contoller extends HttpServlet {
 	public Contoller() {
 		super();
 	}
-<<<<<<< HEAD
-	   
-	
+
 	public void init(ServletConfig config) throws ServletException {
 		//컨트롤러 테스트 페이지
 		cont.put("/Test.do", new TestCMD()); 
@@ -109,9 +106,9 @@ public class Contoller extends HttpServlet {
 		cont.put("/SMenubar.do", new SMenubarCMD()); //일반회원 메뉴바페이지로 이동
 		
 		//병원회원관련 페이지
-		cont.put("/HhosSignup.do", new HosSignupCMD());
-		cont.put("/HhosSignup.do", new HosSignupCMD()); //
-		cont.put("/HhosSignup.do", new HosSignupCMD()); //병원회원용 회원가입 페이지 로 이동
+	//	cont.put("/HhosSignup.do", new HosSignupCMD());
+	//	cont.put("/HhosSignup.do", new HosSignupCMD()); //
+	//	cont.put("/HhosSignup.do", new HosSignupCMD()); //병원회원용 회원가입 페이지 로 이동
 	//	cont.put("/HHospitalMain.do", new HHospitalMainCMD()); //병원회원 메인페이지 로 이동
 	//	cont.put("/Hpopup.do", new HpopupCMD()); //알림 팝업 페이지 로이동
 		cont.put("/HMediAll.do", new HMediAllCMD()); //(전체)진료신청 현황 리스트 페이지 로 이동
@@ -127,6 +124,7 @@ public class Contoller extends HttpServlet {
 		cont.put("/HHospitalProfile.do", new HHospitalProfileCMD()); //H12 병원회원 수정 페이지  로 이동
 		cont.put("/HDoctorlist.do", new HDoctorlistCMD()); //H13 의사 리스트 페이지 로 이동
 		cont.put("/HDoctorAdd.do", new HDoctorAddCMD()); //H14 의사추가페이지 로 이동
+		cont.put("/HDoctorAddVerify.do", new HDoctorAddVerifyCMD()); // 의사추가추가페이지로 이동 <추가했습니다 - 태영>
 		cont.put("/HosMemberIdCheckAction.do", new HosMemberIdCheckActionCMD ());  //(병원)ID 중복검사 페이지로 이동
 		cont.put("/HosMemberBizNoCheckAction.do", new HosMemberBizNoCheckActionCMD());  //(병원)사업자번호 중복검사 페이지로 이동
 		
@@ -150,11 +148,8 @@ public class Contoller extends HttpServlet {
 		cont.put("/SReviewMylist.do", new SReviewMylistCMD()); //S18 내가 쓴 리뷰 리스트 페이지
 		cont.put("/SSickHealModify.do", new SSickHealModifyCMD()); //S19 건강정보 수정 페이지
 		
-		
-		
 		cont.put("/SMedDoneList.do", new SMedDoneListCMD()); //S16 진료이력 리스트 페이지로 이동
 		cont.put("/SMedDoneDetail.do", new SMedDoneDetailCMD()); // 진료이력 상세 페이지로 이동
-		
 		
 		cont.put("/SRqDetail.do", new SRqDetailCMD()); //S21 진료신청현황 상세/취소 페이지로 이동
 		
@@ -186,7 +181,7 @@ public class Contoller extends HttpServlet {
 	//	cont.put("/.do", new CMD()); // 알림아이콘
 		
 		//공통
-		cont.put("/Alllogin.do", new AllloginCMD()); //로그인 페이지
+	//	cont.put("/Alllogin.do", new AllloginCMD()); //로그인 페이지
 	//	cont.put("/.do", new CMD()); //로그아웃 페이지
 	//	cont.put("/.do", new CMD()); //오류페이지
 	//	cont.put("/.do", new CMD()); //위젯
@@ -201,72 +196,6 @@ public class Contoller extends HttpServlet {
 */
 		cont.put("/ajax/LocaseachAjaxCMD.do", new LocaseachAjaxCMD()); //지역코드 가져오는 ajax
 		cont.put("/ajax/CategoriAjaxCMD.do", new CategoriAjaxCMD()); //카테고리코드 가져오는 ajax
-=======
->>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject
-
-	public void init(ServletConfig config) throws ServletException {
-		// 컨트롤러 테스트 페이지
-		cont.put("/Test.do", new TestCMD());
-
-		// 관리자관련 페이지
-		cont.put("/MMain.do", new MasterMainCMD()); // 관리자 메인페이지로 이동
-		cont.put("/MSearchNormal.do", new MasterSearchNormalCMD()); // M2 회원검색(일반회원) 페이지로 이동
-		cont.put("/MSearchHos.do", new MSearchHosCMD()); // M2 병원검색(병원회원) 페이지로 이동
-		cont.put("/MSearchList.do", new MSearchListCMD()); // 일반회원정보 검색 결과 리스트 페이지로 이동
-		cont.put("/MSearchListNormal.do", new MSearchListNormalCMD()); // 일반회원정보 검색 결과 상세페이지로 이동
-		cont.put("/MSearchHoslist.do", new MSearchHoslistCMD()); // 병원회원정보 검색결과 리스트 페이지로 이동
-		cont.put("/MSearchHoslistHos.do", new MSearchHoslistHosCMD()); // 병원회원정보 검색결과 상세 페이지로 이동
-		cont.put("/MChart.do", new MChartCMD()); // 통계관리 페이지로 이동
-		cont.put("/MChartDetail.do", new MChartDetailCMD()); // 통계관리 상세페이지로 이동
-		cont.put("/MPolice.do", new MPoliceCMD()); // 신고 리스트 페이지로 이동
-		cont.put("/MPoliceDetail.do", new MPoliceDetailCMD()); // 상세-신고 페이지로 이동
-
-		cont.put("/MMenubar.do", new MMenubarCMD()); // 관리자 메뉴바페이지로 이동
-		cont.put("/HMenubar.do", new HMenubarCMD()); // 병원회원 메뉴바페이지로 이동
-		cont.put("/SMenubar.do", new SMenubarCMD()); // 일반회원 메뉴바페이지로 이동
-
-		// 병원회원관련 페이지
-		// cont.put("/HhosSinup.do", new HhosSinupCMD()); //병원회원용 회원가입 페이지 로 이동
-		// cont.put("/HHospitalMain.do", new HHospitalMainCMD()); //병원회원 메인페이지 로 이동
-		// cont.put("/Hpopup.do", new HpopupCMD()); //알림 팝업 페이지 로이동
-		cont.put("/HMediAll.do", new HMediAllCMD()); // (전체)진료신청 현황 리스트 페이지 로 이동
-		cont.put("/HMediWjqtn.do", new HMediWjqtnCMD()); // (당일접수)진료신청 현황 리스트 페이지 로 이동
-		cont.put("/HMediReserve.do", new HMediReserveCMD()); // (예약)진료신청 현황 리스트 페이지 로 이동
-		cont.put("/HMediDetail.do", new HMediDetailCMD()); // 진료상세정보 페이지 로 이동
-		cont.put("/HHospitalUpload.do", new HHospitalUploadCMD()); // 기록물 업로드 페이지 로 이동
-		cont.put("/HHospitalInquiry.do", new HHospitalInquiryCMD()); // 기록물 조회 페이지 로 이동
-		cont.put("/HSickSearch.do", new HSickSearchCMD()); // H8 회원정보 검색 페이지 로 이동
-		cont.put("/HSickSearchList.do", new HSickSearchListCMD()); // H9 회원정보 검색 리스트 페이지 로 이동
-		cont.put("/HSickSearchDetail.do", new HSickSearchDetailCMD()); // H10 회원정보 검색 결과 상세 페이지 로 이동
-		cont.put("/HHospitalMymenu.do", new HHospitalMymenuCMD()); // H11 마이메뉴 페이지 로 이동
-		cont.put("/HHospitalProfile.do", new HHospitalProfileCMD()); // H12 병원회원 수정 페이지 로 이동
-		cont.put("/HDoctorlist.do", new HDoctorlistCMD()); // H13 의사 리스트 페이지 로 이동
-		cont.put("/HDoctorAdd.do", new HDoctorAddCMD()); // H14 의사추가페이지 로 이동
-		cont.put("/HDoctorAddVerify.do", new HDoctorAddVerifyCMD()); // 의사추가추가페이지로 이동 <추가했습니다 - 태영>
-		cont.put("/HosMemberIdCheckAction.do", new HosMemberIdCheckActionCMD()); // (병원)ID 중복검사 페이지로 이동
-		cont.put("/HosMemberBizNoCheckAction.do", new HosMemberBizNoCheckActionCMD()); // (병원)사업자번호 중복검사 페이지로 이동
-
-		// (병원)휴일 설정 페이지 로 이동
-		// (의사)휴일 설정 페이지 로 이동
-
-		// 일반회원관련 페이지
-		// cont.put("/S.do", new CMD()); //S1 일반회원 회원가입 페이지 로 이동
-		cont.put("/SSickMain.do", new SickMainCMD()); // S2일반회원 메인페이지로 이동
-		cont.put("/SSickMemModify.do", new SSickMemModifyCMD()); // S3 회원정보 수정 페이지
-		cont.put("/SSickWjqtnwmd.do", new SSickWjqtnwmdCMD()); // S4 접수증 페이지(QR)
-		cont.put("/SSickWjqtnCreate.do", new SSickWjqtnCreateCMD()); // S5 접수증 생성 페이지
-		// cont.put("/S.do", new CMD()); //S6 약정보 조회 페이지
-		cont.put("/SSearchList.do", new SearchListCMD()); // S7 검색 결과 리스트 페이지
-		cont.put("/SHospitalInfo.do", new SHospitalInfoCMD()); // S8 병원정보 상세조회 페이지
-		cont.put("/SsearchMain.do", new SsearchMainCMD()); // S9~S14 메인 검색 페이지
-		cont.put("/ShospitalInfo.do", new SHospitalInfoCMD()); // S15 필터 페이지
-
-		cont.put("/SReviewWrite.do", new SReviewWriteCMD()); // S17 리뷰 작성 페이지
-		cont.put("/SReviewMylist.do", new SReviewMylistCMD()); // S18 내가 쓴 리뷰 리스트 페이지
-		cont.put("/SSickHealModify.do", new SSickHealModifyCMD()); // S19 건강정보 수정 페이지
-
-		cont.put("/SMedDoneList.do", new SMedDoneListCMD()); // S16 진료이력 리스트 페이지로 이동
-		cont.put("/SMedDoneDetail.do", new SMedDoneDetailCMD()); // 진료이력 상세 페이지로 이동
 
 		cont.put("/SRqDetail.do", new SRqDetailCMD()); // S21 진료신청현황 상세/취소 페이지로 이동
 
