@@ -17,6 +17,8 @@ import cmd.HDoctorlistCMD;
 import cmd.HHospitalInquiryCMD;
 import cmd.HHospitalMymenuCMD;
 import cmd.HHospitalProfileCMD;
+import cmd.HHospitalSignupActionCMD;
+import cmd.HHospitalSignupCMD;
 import cmd.HHospitalUploadCMD;
 import cmd.HMediAllCMD;
 import cmd.HMediDetailCMD;
@@ -45,11 +47,13 @@ import cmd.SHospitalInfoCMD;
 import cmd.SInsertResCMD;
 import cmd.SInsertTmrCMD;
 import cmd.SMedABeforeMedListCMD;
+import cmd.SMedADoneListCMD;
 import cmd.SMedCBeforeMedListCMD;
 import cmd.SMedDoneDetailCMD;
-import cmd.SMedDoneListCMD;
 import cmd.SMedRBeforeMedListCMD;
+import cmd.SMedRDoneListCMD;
 import cmd.SMedTBeforeMedListCMD;
+import cmd.SMedTDoneListCMD;
 import cmd.SMenubarCMD;
 import cmd.SResRequestCMD;
 import cmd.SReviewMylistCMD;
@@ -72,8 +76,7 @@ import kjr.ajax.CategoriAjaxCMD;
 import kjr.ajax.LocaseachAjaxCMD;
 import kjr.cmd.SearchListCMD;
 import kjr.cmd.SickMainCMD;
-import leedy.cmd.HosMemberBizNoCheckActionCMD;
-import leedy.cmd.HosMemberIdCheckActionCMD;
+
 
 @WebServlet("*.do")
 public class Contoller extends HttpServlet {
@@ -107,8 +110,8 @@ public class Contoller extends HttpServlet {
 		
 		//병원회원관련 페이지
 	//	cont.put("/HhosSignup.do", new HosSignupCMD());
-	//	cont.put("/HhosSignup.do", new HosSignupCMD()); //
-	//	cont.put("/HhosSignup.do", new HosSignupCMD()); //병원회원용 회원가입 페이지 로 이동
+		cont.put("/HHospitalSignupAction.do", new HHospitalSignupActionCMD()); //병원회원용 회원가입 페이지 로 이동
+		cont.put("/HHospitalSignup.do", new HHospitalSignupCMD()); //병원회원 가입 DB처리
 	//	cont.put("/HHospitalMain.do", new HHospitalMainCMD()); //병원회원 메인페이지 로 이동
 	//	cont.put("/Hpopup.do", new HpopupCMD()); //알림 팝업 페이지 로이동
 		cont.put("/HMediAll.do", new HMediAllCMD()); //(전체)진료신청 현황 리스트 페이지 로 이동
@@ -125,8 +128,8 @@ public class Contoller extends HttpServlet {
 		cont.put("/HDoctorlist.do", new HDoctorlistCMD()); //H13 의사 리스트 페이지 로 이동
 		cont.put("/HDoctorAdd.do", new HDoctorAddCMD()); //H14 의사추가페이지 로 이동
 		cont.put("/HDoctorAddVerify.do", new HDoctorAddVerifyCMD()); // 의사추가추가페이지로 이동 <추가했습니다 - 태영>
-		cont.put("/HosMemberIdCheckAction.do", new HosMemberIdCheckActionCMD ());  //(병원)ID 중복검사 페이지로 이동
-		cont.put("/HosMemberBizNoCheckAction.do", new HosMemberBizNoCheckActionCMD());  //(병원)사업자번호 중복검사 페이지로 이동
+		//cont.put("/HosMemberIdCheckAction.do", new HosMemberIdCheckActionCMD ());  //(병원)ID 중복검사 페이지로 이동
+		//cont.put("/HosMemberBizNoCheckAction.do", new HosMemberBizNoCheckActionCMD());  //(병원)사업자번호 중복검사 페이지로 이동
 		
 		//(병원)휴일 설정 페이지 로 이동
 		//(의사)휴일 설정 페이지 로 이동
@@ -148,7 +151,10 @@ public class Contoller extends HttpServlet {
 		cont.put("/SReviewMylist.do", new SReviewMylistCMD()); //S18 내가 쓴 리뷰 리스트 페이지
 		cont.put("/SSickHealModify.do", new SSickHealModifyCMD()); //S19 건강정보 수정 페이지
 		
-		cont.put("/SMedDoneList.do", new SMedDoneListCMD()); //S16 진료이력 리스트 페이지로 이동
+		cont.put("/SMedADoneList.do", new SMedADoneListCMD()); //S16 진료이력 리스트(전체) 페이지로 이동
+		cont.put("/SMedTDoneList.do", new SMedTDoneListCMD()); //S16 진료이력 리스트(접수) 페이지로 이동
+		cont.put("/SMedRDoneList.do", new SMedRDoneListCMD()); //S16 진료이력 리스트(예약) 페이지로 이동
+		
 		cont.put("/SMedDoneDetail.do", new SMedDoneDetailCMD()); // 진료이력 상세 페이지로 이동
 		
 		cont.put("/SRqDetail.do", new SRqDetailCMD()); //S21 진료신청현황 상세/취소 페이지로 이동
@@ -157,6 +163,7 @@ public class Contoller extends HttpServlet {
 		cont.put("/SMedRBeforeMedList.do", new SMedRBeforeMedListCMD()); //S22 진료신청현황 리스트(예약) 페이지로 이동
 		cont.put("/SMedCBeforeMedList.do", new SMedCBeforeMedListCMD()); //S23 진료신청현황 리스트(취소) 페이지로 이동
 		cont.put("/SMedABeforeMedList.do", new SMedABeforeMedListCMD()); //S27 진료신청현황 리스트(전체) 페이지로 이동
+		
 		
 		cont.put("/SCancelRq.do", new SCancelRqCMD()); //진료신청 취소처리 로직
 		

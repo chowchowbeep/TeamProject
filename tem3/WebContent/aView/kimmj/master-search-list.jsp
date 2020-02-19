@@ -1,6 +1,9 @@
+<%@page import="lastdto.sickJoinMemberDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/layout/admin_head.jsp"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <style type="text/css">/* Chart.js */
 @
 keyframes chartjs-render-animation {
@@ -90,6 +93,13 @@ to {
 </style>
 
 <%@ include file="/layout/admin_menu.jsp"%>
+<jsp:useBean id="dao" class="kimmj.normalDAO" />
+<%
+request.setCharacterEncoding("UTF-8");
+String keyField = request.getParameter("keyField");
+String keyWord = request.getParameter("keyWord");
+ArrayList<sickJoinMemberDTO> list = dao.select();
+%>
 
 <div class = "card">
 	<div class = "card-header text-center">
@@ -99,22 +109,23 @@ to {
 			</h4>
 		</div>
 	</div>
+	<% for(sickJoinMemberDTO dto : list) { %>
 	<div class="card-body">
 	<table class = "listbox">
 		<tr>
 			<td>
 				<ion-icon name="person-circle-outline" size = "large" 
 				style = "width: 100px; height: 100px; margin: 0px 0px 10px 10px;"></ion-icon>
-				<div class = "name"><b> 조선아 </b></div>
+				<div class = "name"><b> <%=dto.getSicName() %> </b></div>
 			</td>
 			<td class = "info">
-				<p><b> 회원 ID: </b>sunamanse </p>
-				<p><b> 회원 등급: </b>일반 </p>
-				<p><b> 패널티 현황: </b>0회 </p>
-				<p><b> 신고 현황: </b>2회 </p>
+				<p><b> 회원 ID: </b> <%=dto.getSicId() %> </p>
+				<p><b> 회원 등급: </b> <%=dto.getSicStt() %> </p>
+				<p><b> 패널티 현황: </b> <%=dto.getSicPhone() %> </p>
 			</td>
 		</tr>
 	</table>
+	<% } %>
 	</div>
 </div>
 

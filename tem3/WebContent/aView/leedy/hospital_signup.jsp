@@ -1,34 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>AdminLTE 3 | Registration Page</title>
-<!-- Tell the browser to be responsive to screen width -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- Font Awesome -->
-<link rel="stylesheet"
-	href="../../plugins/fontawesome-free/css/all.min.css">
-<!-- Ionicons -->
-<link rel="stylesheet"
-	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-<!-- icheck bootstrap -->
-<link rel="stylesheet"
-	href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-<!-- Theme style -->
-<link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-<!-- Google Font: Source Sans Pro -->
-<link
-	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
-	rel="stylesheet">
+<%@ include file="/layout/hos_head.jsp"%>
 <script>
-	
+
 
 	function checkValue() {
-		var form = document.hosFrm;
+		/* 			var form = document.hosFrm;
 		//회원가입 화면의 입력값들을 검사
 
 		if (!form.hos_id.value) {
@@ -91,7 +68,7 @@
 		if ($("#biz_time_2").val == '') {
 			alert("마감 시간을 선택하세요");
 			return false;
-		}
+		} */
 		return true;
 	}
 
@@ -136,7 +113,7 @@
 			<div class="card-body register-card-body">
 
 
-				<form name="hosFrm" action="HhosSignup.do"
+				<form name="hosFrm" action="HHospitalSignup.do"
 					method="post" onsubmit="return checkValue()">
 					<div class="input-group mb-3">
 						<input type="text" class="form-control" name="hos_id" id="hos_id"
@@ -287,7 +264,7 @@
 				</form>
 				<br>
 				<hr>
-				<a href="../../aView/taeyoung/all_login.jsp" class="text-center">이미
+				<a href="../../aView/taeyoung/logintest.jsp" class="text-center">이미
 					아이디가 있으신가요?</a>
 			</div>
 			<!-- /.form-box -->

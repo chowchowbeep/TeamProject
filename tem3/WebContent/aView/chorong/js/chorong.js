@@ -4,7 +4,7 @@
 // 신청현황상세 혹은 신청완료 페이지에서 목록 또는 확인 버튼 누를 경우
 // 진료신청현황 리스트 페이지로 이동 
 function toBeforeMedList() {
-	frm.action = "SMedCBeforeMedList.do";
+	frm.action = "SMedABeforeMedList.do";
 	frm.submit();
 	
 }
@@ -21,8 +21,7 @@ function cancelRes() {
 
 
 //기록물 리스트 불러와서 값 넘기기 
-dcUpload.addEventListener("click", function(){
+function toAddDcry() {
 	//기록물리스트 가져올 수 있는 파라미터값 같이 넘기기 
-	//window.open("idcheck.jsp?cid="+id.value,"selDcry","width=350, height=550");
-	window.open("STmrSelectDcry.do","selDcry","width=350, height=550");
-})
+	window.open("STmrSelectDcry.do", "selDcry", "width=350, height=550");
+}

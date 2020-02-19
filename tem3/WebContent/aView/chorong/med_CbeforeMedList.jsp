@@ -59,7 +59,7 @@ td {
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="SMedABeforeMedList.do">전체</a></li>
 						<li class="breadcrumb-item"><a href="SMedTBeforeMedList.do">접수</a></li>
-						<li class="breadcrumb-item"><a href="SMedTReforeMedList.do">예약</a></li>
+						<li class="breadcrumb-item"><a href="SMedRReforeMedList.do">예약</a></li>
 						<li class="breadcrumb-item active">취소</li>
 					</ol>
 
@@ -70,6 +70,13 @@ td {
 					<div class="col-12">
 						<div class="card">
 							<div class="card-body table-responsive p-0">
+
+
+
+
+							
+
+
 								<table class="table table table-hover text-nowrap">
 									<!-- 3. 항목 선택 시 병원정보 상세조회 페이지로 이동 
 								4. 취소한 이력은 취소표시  -->
@@ -83,12 +90,13 @@ td {
 										</tr>
 									</thead>
 									<tbody>
+
 										<c:forEach var="list1" items="${list1}" varStatus="status">
 											<tr id="${list1.rqstNo}">
 
 												<td>${list1.rqstDttm}</td>
 
-												<td>${list1.hosId}</td>
+												<td>${list2[status.index].hosName}</td>
 
 												<c:choose>
 													<c:when test="${list1.rqstTy =='D001'}">
@@ -104,18 +112,10 @@ td {
 														<td>본인취소</td>
 													</c:when>
 												</c:choose>
-
 											</tr>
 										</c:forEach>
 									</tbody>
 								</table>
-
-								<div>
-
-									<c:forEach var="list2" items="${list2}">
-										<div>${list2.hosId}</div>
-									</c:forEach>
-								</div>
 
 
 

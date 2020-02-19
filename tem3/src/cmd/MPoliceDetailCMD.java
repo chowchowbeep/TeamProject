@@ -13,8 +13,15 @@ public class MPoliceDetailCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		
+		
+		
+		
 		String path ="aView/kimmj/master-police-detail.jsp"; //
 		return path;
 	}
+	
+	
 
 }
