@@ -60,8 +60,8 @@ div .hiden {
 			cateFrm.cate.value="c";
 		});
 	
-		$("#nameSearchBtn").bind("click", function(){searchedGo('name')}); //병원명으로 상세리스트로 검색
-		$("#codeSearchedBtn").bind("click",function(){searchedGo('code')}); //버튼클릭시 상세리스트로 검색
+		$("#nameSearchBtn").bind("click",searchNameGo); //병원명으로 상세리스트로 검색
+		$("#codeSearchedBtn").bind("click",searchkeywdGo); //버튼클릭시 상세리스트로 검색
 		
 		$("#areaDivMain").on("click","a",searchFunc); //지역 대분류 클릭시 중분류 출력
 		$("#areaDivAddr2").on("click","a",arSelectClass); //지역 마지막분류 클릭시 색상변화+값 입력 
@@ -77,35 +77,34 @@ div .hiden {
 			$(this).remove();
 		});
 		
-		function searchedGo(n){
-			console.log(n);
-			if(n=='name'){
-				document.nameSearchFrm.action="SSearchList.do"
-				document.nameSearchFrm.method="post";
-				document.nameSearchFrm.submit();
-			}else if(n=='code'){
-				document.dataFrm.action="SSearchList.do"
-				document.dataFrm.method="post";
-				document.dataFrm.submit();
-			}
+		
+		function searchNameGo(){
+			document.nameSearchFrm.action="SSearchList.do"
+			document.nameSearchFrm.method="post";
+			document.nameSearchFrm.submit();
 		}
 		
-		
+		function searchkeywdGo(){
+			document.dataInpFrm.action="SSearchList.do"
+			document.dataInpFrm.method="post";
+			document.dataInpFrm.submit();
+		}
+	
 	
 		function cateSelectClass(){
-			
 			var pDiv = $(this).closest("div");
 			var val = cateFrm.cate.value;
 			var thisAttr = $(this).attr("id");
 			var thisVal = this.innerHTML;
-
 			
 			if($(this).hasClass("selectActive")===true){
 				$(this).removeClass("selectActive");
 				$("#dataFrm").find('#'+thisAttr)[0].remove();
+				$("#dataInpFrm").find('#'+thisAttr)[0].remove();
 			}else{
 				$(this).addClass("selectActive");
-				$("#dataFrm").append("<button type='button' class='btn mar btn-outline-info' id='"+thisAttr+"' name='shcode' value='"+thisAttr+"'>"+thisVal);
+				$("#dataFrm").append("<button type='button' class='btn mar btn-outline-info' id='"+thisAttr+"' name='cateCode' value='"+thisAttr+"'>"+thisVal);
+				$("#dataInpFrm").append("<input type='text' class='btn mar btn-outline-info' id='"+thisAttr+"' name='cateCode' value='"+thisAttr+"'>");
 			}
 			
 		};
@@ -118,19 +117,19 @@ div .hiden {
 			var thisVal = this.innerHTML;
 			var cur = $(this).hasClass("selectActive");
 			pDiv.find("a").removeClass("selectActive");
-			$("#dataFrm").find('#areaId').remove();
+			$("#dataFrm").find('#areaCode').remove();
+			$("#dataInpFrm").find('#areaCode').remove();
 			
 			if(cur===true){
 				$(this).removeClass("selectActive");
 			}else{
 				$(this).addClass("selectActive");
-				$("#dataFrm").append("<button type='button' class='btn mar btn-outline-info' id='areaId' name='shcode'value='"+thisAttr+"'>"+thisVal);
+				$("#dataFrm").append("<button type='button' class='btn mar btn-outline-info' id='areaCode' name='areaCode' value='"+thisAttr+"'>"+thisVal);
+				$("#dataInpFrm").append("<input type='text' class='btn mar btn-outline-info' id='areaCode' name='areaCode' value='"+thisAttr+"'>");
 			}
 			
 		};
 				
-			
-			
 			
 		
 		function searchFunc(){ //대분류 클릭시 중분류 출력
@@ -300,7 +299,10 @@ div .hiden {
 				<button type="button" class="btn btn-primary btn-lg fl"	id="codeSearchedBtn" >선택한 조건으로 검색</button>
 			</div>
 		</div>
-
+		<div class="hiden">
+		<form id="dataInpFrm" name="dataInpFrm">
+		</form>
+		</div>
 		<form name="cateFrm" class="hiden"> <!-- 제목에서 지역/지하철 구분 -->
 				<input name="cate" id="cate">
 				<input name="pCode" id="pCode">

@@ -1,3 +1,6 @@
+<%@page import="kimmj.decDAO"%>
+<%@page import="lastdto.declarationDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/layout/admin_head.jsp"%>
@@ -102,7 +105,8 @@ to {
 </style>
 
 <%@ include file="/layout/admin_menu.jsp"%>
-
+<% request.setCharacterEncoding("utf-8"); %>
+<jsp:useBean id="dec" class="lastdto.declarationDTO"/>
 <div class = "card">
 	<div class = "card-header text-center">
 		<div class = "text-center" style = "padding: 10px 0px 0px 0px">
@@ -112,42 +116,31 @@ to {
 		</div>
 	</div>
 	<div class="card-body">
-	<table class = "listbox">
+	<table class = "listbox" onclick = "location.href = 'master-police-detail.jsp';">
+	<% 
+	decDAO dao = new decDAO();
+	ArrayList<declarationDTO> list = dao.select();
+	for(declarationDTO dto : list) { 
+	%>
 		<tr>
 			<td class = "info">
-				<b> 회원 ID: </b>sunamanse
+				<b> 회원 ID: </b> <%= dto.getSicId() %>
 			</td>
 		</tr>
 		<tr>
 			<td class = "info">
-				<b> 신고일자 </b>2020. 02. 16
+				<b> 신고 대상 병원: </b> <%= dto.getHosId() %>
 			</td>
 		</tr>
 		<tr>
 			<td class = "info">
-				<b> 신고 대상 병원: </b>예담병원
+				<b> 신고일자: </b> <%= dto.getDecDttm() %>
 			</td>
 		</tr>
 	</table>
+	<% } %>
 	</div>
 	<br>
-	<table class = "listbox2">
-		<tr>
-			<td class = "info">
-				<b> 회원 ID: </b>sunamanse
-			</td>
-		</tr>
-		<tr>
-			<td class = "info">
-				<b> 신고일자 </b>2020. 02. 16
-			</td>
-		</tr>
-		<tr>
-			<td class = "info">
-				<b> 신고 대상 병원: </b>예담병원
-			</td>
-		</tr>
-	</table>
 </div>
 
 <%@ include file="/layout/all_footer.jsp"%>

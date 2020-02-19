@@ -84,21 +84,34 @@ table{
                 <table class="table table-striped table-valign-middle">
                   <thead>
                   <tr>
-               <th style="width:5%;">번호</th>
-               <th style="width:28%;">이름</th>
-               <th style="width:28%;">시간</th>
-               <th style="width:29%;">담당의</th>
+             	 <th>진료</th>
+               <th>이름</th>
+               <th>예약&nbsp;시간</th>
+               <th>담당의</th>
              </tr>
             </thead>
              <tbody>
              <c:forEach items="${list}" var="list">
                 <tr>
-                  <td>${list.rqstNo}</td>
-                  <td>${list.sicId}<span class="badge bg-warning">NEW</span></td>
-                  <td>${list.resDttm}</td>
+                	<c:choose>
+						<c:when test="${dto.rqstTy =='D001'}">
+							<td>당일접수</td>
+						</c:when>
+						<c:when test="${dto.rqstTy =='D002'}">
+							<td>예약</td>
+						</c:when>
+						<c:when test="${dto.rqstTy =='D003'}">
+							<td>병원취소</td>
+						</c:when>
+						<c:when test="${dto.rqstTy =='D004'}">
+							<td>일반취소</td>
+						</c:when>
+					</c:choose>
+                  <td>${dto.sicName}<span class="badge bg-warning">NEW</span></td>
+                  <td>${dto.resDttm}</td>
                   <td>
                     <a href="#" class="text-muted">
-                    <i class="fas fa-search">${list.artrNo}</i>
+                    <i class="fas fa-search">${dto.artrName}</i>
                       </a>
                   </td>
                 </tr>

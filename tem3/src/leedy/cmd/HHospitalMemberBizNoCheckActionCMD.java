@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
 
-public class HosMemberBizNoCheckActionCMD implements Command {
+public class HHospitalMemberBizNoCheckActionCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)

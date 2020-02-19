@@ -76,6 +76,7 @@ import kjr.ajax.CategoriAjaxCMD;
 import kjr.ajax.LocaseachAjaxCMD;
 import kjr.cmd.SearchListCMD;
 import kjr.cmd.SickMainCMD;
+import leedy.cmd.HHospitalMemberIdCheckActionCMD;
 
 
 @WebServlet("*.do")
@@ -128,8 +129,8 @@ public class Contoller extends HttpServlet {
 		cont.put("/HDoctorlist.do", new HDoctorlistCMD()); //H13 의사 리스트 페이지 로 이동
 		cont.put("/HDoctorAdd.do", new HDoctorAddCMD()); //H14 의사추가페이지 로 이동
 		cont.put("/HDoctorAddVerify.do", new HDoctorAddVerifyCMD()); // 의사추가추가페이지로 이동 <추가했습니다 - 태영>
-		//cont.put("/HosMemberIdCheckAction.do", new HosMemberIdCheckActionCMD ());  //(병원)ID 중복검사 페이지로 이동
-		//cont.put("/HosMemberBizNoCheckAction.do", new HosMemberBizNoCheckActionCMD());  //(병원)사업자번호 중복검사 페이지로 이동
+		cont.put("/HHospitalMemberIdCheckAction.do", new HHospitalMemberIdCheckActionCMD());  //(병원)ID 중복검사 페이지로 이동
+		//cont.put("/HHospitalMemberBizNoCheckActionCMD.do", new HHospitalMemberBizNoCheckActionCMD());  //(병원)사업자번호 중복검사 페이지로 이동
 		
 		//(병원)휴일 설정 페이지 로 이동
 		//(의사)휴일 설정 페이지 로 이동
