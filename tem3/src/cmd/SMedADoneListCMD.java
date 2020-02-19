@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
 import kcrDAO.HosInfoDAO;
+import kcrDAO.MediInfoDAO;
 import kcrDAO.MediRqstDAO;
 import lastdto.hosMemberDTO;
+import lastdto.mediInfoDTO;
 import lastdto.mediRqstDTO;
 
 public class SMedADoneListCMD implements Command {
@@ -26,7 +28,7 @@ public class SMedADoneListCMD implements Command {
 				
 				String type = "all";				
 				
-				//두 테이블을 조인하고, list는 dto별로 각각 받아오기.
+				//세 테이블을 조인하고, list는 dto별로 각각 받아오기.
 				MediRqstDAO dao = new MediRqstDAO();
 				List<mediRqstDTO> listRq = new ArrayList<>(); 
 				listRq = dao.selectDone(id, type);
@@ -35,8 +37,8 @@ public class SMedADoneListCMD implements Command {
 				List<hosMemberDTO> listHos = new ArrayList<>();
 				listHos = dao2.selectDone(id, type);
 				
-				HosInfoDAO dao3 = new HosInfoDAO();
-				List<hosMemberDTO> listDc = new ArrayList<>();
+				MediInfoDAO dao3 = new MediInfoDAO();
+				List<mediInfoDTO> listDc = new ArrayList<mediInfoDTO>();
 				listDc = dao3.selectDone(id, type);
 				
 				

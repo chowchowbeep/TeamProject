@@ -62,28 +62,31 @@ public class MediRqstDAO extends DAO {
 		List<mediRqstDTO> list = new ArrayList<>();
 		String sql = null;
 		if (type == "all") { // 전체목록
-			sql ="SELECT r.*, h.* \r\n" + 
-					"FROM MEDI_RQST r \r\n" + 
-					"join HOS_MEMBER h on r.HOS_ID = h.HOS_ID\r\n" + 
-					"join medi_info i on r.RQST_NO = i.RQST_NO\r\n" + 
-					"where SIC_ID = ? \r\n" + 
-					"order by r.rqst_dttm desc, r.rqst_no desc"; 
+			sql = "SELECT r.*, h.*, i.mctt_stt" + 
+					" FROM MEDI_RQST r" + 
+					" join HOS_MEMBER h on r.HOS_ID = h.HOS_ID" + 
+					" join medi_info i on r.RQST_NO = i.RQST_NO" + 
+					" where SIC_ID = ? " + 
+					" and i.mctt_stt = 'Y'" + //진료완료한 것만 골라오기
+					" order by r.rqst_dttm desc, r.rqst_no desc";
 		} else if (type == "tmr") {// 접수목록
-			sql = "SELECT r.*, h.* \r\n" + 
-					"FROM MEDI_RQST r \r\n" + 
-					"join HOS_MEMBER h on r.HOS_ID = h.HOS_ID\r\n" + 
-					"join medi_info i on r.RQST_NO = i.RQST_NO\r\n" + 
-					"where SIC_ID = ? \r\n" + 
-					"and r.RQST_TY = 'D001' \r\n" + //접수만
-					"order by r.rqst_dttm desc, r.rqst_no desc";
+			sql = "SELECT r.*, h.*, i.mctt_stt" + 
+					" FROM MEDI_RQST r " + 
+					" join HOS_MEMBER h on r.HOS_ID = h.HOS_ID" + 
+					" join medi_info i on r.RQST_NO = i.RQST_NO" + 
+					" where SIC_ID = ? " + 
+					" and r. rqst_ty = 'D001'" + //접수한것만 
+					" and i.mctt_stt = 'Y'" + //진료완료한 것만
+					" order by r.rqst_dttm desc, r.rqst_no desc";
 		} else if (type == "res") {// 예약목록
-			sql = "SELECT r.*, h.* \r\n" + 
-					"FROM MEDI_RQST r \r\n" + 
-					"join HOS_MEMBER h on r.HOS_ID = h.HOS_ID\r\n" + 
-					"join medi_info i on r.RQST_NO = i.RQST_NO\r\n" + 
-					"where SIC_ID = ? \r\n" + 
-					"and r.RQST_TY = 'D002' \r\n" + //예약만
-					"order by r.rqst_dttm desc, r.rqst_no desc";
+			sql = "SELECT r.*, h.*, i.mctt_stt" + 
+					" FROM MEDI_RQST r " + 
+					" join HOS_MEMBER h on r.HOS_ID = h.HOS_ID " + 
+					" join medi_info i on r.RQST_NO = i.RQST_NO " + 
+					" where SIC_ID = ?  " + 
+					" and r. rqst_ty = 'D002' " + //예약한것만
+					" and i.mctt_stt = 'Y' " + //진료완료한 것만
+					" order by r.rqst_dttm desc, r.rqst_no desc";
 		}
 		try {
 			pstmt = conn.prepareStatement(sql);

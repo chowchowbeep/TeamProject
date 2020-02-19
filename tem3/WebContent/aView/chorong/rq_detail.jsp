@@ -4,6 +4,8 @@
 
 <%@ include file="/layout/sick_head.jsp"%>
 <script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css">
 <%@ include file="/layout/sick_menu.jsp"%>
 
 <form id="frm" name="frm" method="post">

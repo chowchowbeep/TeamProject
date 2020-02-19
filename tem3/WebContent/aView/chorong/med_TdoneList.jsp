@@ -4,11 +4,8 @@
 
 <%@ include file="/layout/sick_head.jsp"%>
 <script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
-<style>
-td {
-	text-align: center;
-}
-</style>
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css">
 <%@ include file="/layout/sick_menu.jsp"%>
 
 <!-- /SMedDoneDetail.do로 진료이력목록조회 -->

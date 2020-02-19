@@ -13,29 +13,21 @@ public class HosInfoDAO extends DAO {
 	public List<hosMemberDTO> selectAll(String id, String type) {
 		List<hosMemberDTO> list = new ArrayList<>();
 		String sql = null;
-		if (type == "all") { //전체목록
-			sql = "SELECT r.*, h.*" 
-					+ " FROM MEDI_RQST r, HOS_MEMBER h" 
-					+ " where r.HOS_ID = h.HOS_ID"
-					+ " and SIC_ID = ?" 
-					+ " order by r.rqst_dttm desc, rqst_no desc";
-		} else if (type == "tmr") {//접수목록
+		if (type == "all") { // 전체목록
 			sql = "SELECT r.*, h.*" + " FROM MEDI_RQST r, HOS_MEMBER h" + " where r.HOS_ID = h.HOS_ID"
-					+ " and SIC_ID = ?" 
-					+ " and RQST_TY = 'D001'"
-					+ " order by r.rqst_dttm desc, rqst_no desc";
-		} else if (type == "res") {//예약목록
+					+ " and SIC_ID = ?" + " order by r.rqst_dttm desc, rqst_no desc";
+		} else if (type == "tmr") {// 접수목록
 			sql = "SELECT r.*, h.*" + " FROM MEDI_RQST r, HOS_MEMBER h" + " where r.HOS_ID = h.HOS_ID"
-					+ " and SIC_ID = ?" 
-					+ " and RQST_TY = 'D002'"
-					+ " order by r.rqst_dttm desc, rqst_no desc";
-		} else if (type == "cancel") {//취소목록
+					+ " and SIC_ID = ?" + " and RQST_TY = 'D001'" + " order by r.rqst_dttm desc, rqst_no desc";
+		} else if (type == "res") {// 예약목록
 			sql = "SELECT r.*, h.*" + " FROM MEDI_RQST r, HOS_MEMBER h" + " where r.HOS_ID = h.HOS_ID"
-					+ " and SIC_ID = ?" 
-					+ " and RQST_TY in ('D003', 'D004')"
+					+ " and SIC_ID = ?" + " and RQST_TY = 'D002'" + " order by r.rqst_dttm desc, rqst_no desc";
+		} else if (type == "cancel") {// 취소목록
+			sql = "SELECT r.*, h.*" + " FROM MEDI_RQST r, HOS_MEMBER h" + " where r.HOS_ID = h.HOS_ID"
+					+ " and SIC_ID = ?" + " and RQST_TY in ('D003', 'D004')"
 					+ " order by r.rqst_dttm desc, rqst_no desc";
 		}
-		
+
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
@@ -57,31 +49,45 @@ public class HosInfoDAO extends DAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close();
 		}
-		close();
+
 		return list;
 	}
-	
-	
+
 	// 진료이력(완료한진료) 목록
 	public List<hosMemberDTO> selectDone(String id, String type) {
 		List<hosMemberDTO> list = new ArrayList<>();
 		String sql = null;
-		if (type == "all") { //전체목록
-			sql = "SELECT r.*, h.*" + " FROM MEDI_RQST r, HOS_MEMBER h" + " where r.HOS_ID = h.HOS_ID"
-					+ " and SIC_ID = ?" + " order by r.rqst_dttm desc, rqst_no desc";
-		} else if (type == "tmr") {//접수목록
-			sql = "SELECT r.*, h.*" + " FROM MEDI_RQST r, HOS_MEMBER h" + " where r.HOS_ID = h.HOS_ID"
-					+ " and SIC_ID = ?" 
-					+ " and RQST_TY = 'D001'"
-					+ " order by r.rqst_dttm desc, rqst_no desc";
-		} else if (type == "res") {//예약목록
-			sql = "SELECT r.*, h.*" + " FROM MEDI_RQST r, HOS_MEMBER h" + " where r.HOS_ID = h.HOS_ID"
-					+ " and SIC_ID = ?" 
-					+ " and RQST_TY = 'D002'"
-					+ " order by r.rqst_dttm desc, rqst_no desc";
+		if (type == "all") { // 전체목록
+			sql = "SELECT r.*, h.*, i.mctt_stt" + 
+					" FROM MEDI_RQST r" + 
+					" join HOS_MEMBER h on r.HOS_ID = h.HOS_ID" + 
+					" join medi_info i on r.RQST_NO = i.RQST_NO" + 
+					" where SIC_ID = ? " + 
+					" and i.mctt_stt = 'Y'" + //진료완료한 것만 골라오기
+					" order by r.rqst_dttm desc, r.rqst_no desc";
+		} else if (type == "tmr") {// 접수목록
+			sql = "SELECT r.*, h.*, i.mctt_stt" + 
+					" FROM MEDI_RQST r " + 
+					" join HOS_MEMBER h on r.HOS_ID = h.HOS_ID" + 
+					" join medi_info i on r.RQST_NO = i.RQST_NO" + 
+					" where SIC_ID = ? " + 
+					" and r. rqst_ty = 'D001'" + //접수한것만 
+					" and i.mctt_stt = 'Y'" + //진료완료한 것만
+					" order by r.rqst_dttm desc, r.rqst_no desc";
+		} else if (type == "res") {// 예약목록
+			sql = "SELECT r.*, h.*, i.mctt_stt" + 
+					" FROM MEDI_RQST r " + 
+					" join HOS_MEMBER h on r.HOS_ID = h.HOS_ID " + 
+					" join medi_info i on r.RQST_NO = i.RQST_NO " + 
+					" where SIC_ID = ?  " + 
+					" and r. rqst_ty = 'D002' " + //예약한것만
+					" and i.mctt_stt = 'Y' " + //진료완료한 것만
+					" order by r.rqst_dttm desc, r.rqst_no desc";
 		}
-		
+
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
@@ -103,14 +109,11 @@ public class HosInfoDAO extends DAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close();
 		}
-		close();
 		return list;
 	}
-	
-	
-	
-	
 
 	// 단건조회
 	public hosMemberDTO selectOne(int hosNo) {
