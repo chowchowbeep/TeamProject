@@ -105,7 +105,7 @@ div .hiden {
 				$("#dataFrm").find('#'+thisAttr)[0].remove();
 			}else{
 				$(this).addClass("selectActive");
-				$("#dataFrm").append("<button type='button' class='btn mar btn-outline-info' id='"+thisAttr+"' name='shcode' value='"+thisAttr+"'>"+thisVal);
+				$("#dataFrm").append("<button type='button' class='btn mar btn-outline-info' id='"+thisAttr+"' name='cateCode' value='"+thisAttr+"'>"+thisVal);
 			}
 			
 		};
@@ -124,7 +124,7 @@ div .hiden {
 				$(this).removeClass("selectActive");
 			}else{
 				$(this).addClass("selectActive");
-				$("#dataFrm").append("<button type='button' class='btn mar btn-outline-info' id='areaId' name='shcode'value='"+thisAttr+"'>"+thisVal);
+				$("#dataFrm").append("<button type='button' class='btn mar btn-outline-info' id='areaId' name='areaCode' value='"+thisAttr+"'>"+thisVal);
 			}
 			
 		};
