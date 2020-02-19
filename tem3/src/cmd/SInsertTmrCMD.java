@@ -23,7 +23,6 @@ public class SInsertTmrCMD implements Command {
 				
 				// 나중에 세션값 받아오는 것으로 수정할 것
 				dto.setSicId(request.getParameter("id"));
-				
 				int drNo = Integer.parseInt(request.getParameter("ARTR_NO"));
 				dto.setArtrNo(drNo);
 				dto.setHosId(request.getParameter("HOS_ID"));
@@ -35,9 +34,6 @@ public class SInsertTmrCMD implements Command {
 				
 				
 				int r = dao.tmrInsert(dto);
-				
-				//request.setAttribute("list1", r);
-				
 				System.out.println( r + "건 입력완료");
 				System.out.println("의사번호"+request.getParameter("ARTR_NO"));
 				System.out.println("병원id"+request.getParameter("HOS_ID"));
