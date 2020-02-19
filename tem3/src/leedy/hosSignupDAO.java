@@ -35,7 +35,7 @@ public class hosSignupDAO extends DAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			close();
+		
 		}
 
 		return n;
@@ -54,9 +54,10 @@ public class hosSignupDAO extends DAO {
 			for(i=0; i<list.size(); i++ ) {
 				searchDTO dto = new searchDTO();
 				dto = list.get(i);
+				   
 				pstmt.setString(1, dto.getHosId());
 				pstmt.setString(2, dto.getCode());
-				pstmt.executeUpdate();
+				pstmt.executeUpdate();    
 			}
 
 		} catch (SQLException e) {
