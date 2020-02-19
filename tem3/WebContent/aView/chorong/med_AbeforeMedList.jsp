@@ -13,7 +13,7 @@ td {
 
 
 
-<!--  /SMedCBeforeMedList.do를 타고 들어옴-->
+<!--  /SMedABeforeMedList.do를 타고 들어옴-->
 
 
 <!-- 클릭한 항목의 값을 파라미터로 가지고 가야 함_ 아래 스크립트 참고
@@ -87,7 +87,7 @@ td {
 
 												<td>${list1.rqstDttm}</td>
 
-												<td>${list1.hosId}</td>
+												<td> ${list2[status.index].hosName}</td>
 
 												<c:choose>
 													<c:when test="${list1.rqstTy =='D001'}">
@@ -108,13 +108,6 @@ td {
 										</c:forEach>
 									</tbody>
 								</table>
-
-								<div>
-
-									<c:forEach var="list2" items="${list2}">
-										<div>${list2.hosId}</div>
-									</c:forEach>
-								</div>
 
 
 
@@ -143,7 +136,6 @@ td {
 <%@ include file="/layout/all_footer.jsp"%>
 <script>
 	// 목록 항목 클릭시 상세정보로 이동
-
 	$("tr").click(function() {
 		var submitNo = $(this).attr("id"); //클릭한 행의 id값(진료신청번호 넘길것임)
 		console.log(submitNo)

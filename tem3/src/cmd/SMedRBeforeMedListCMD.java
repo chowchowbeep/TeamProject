@@ -33,11 +33,11 @@ public class SMedRBeforeMedListCMD implements Command {
 		
 		HosInfoDAO dao2 = new HosInfoDAO();
 		List<hosMemberDTO> listHos = new ArrayList<>();
-		listHos = dao2.selectAll();
+		listHos = dao2.selectAll(id);
 		
 		
-		request.setAttribute("listR", listRq);
-		request.setAttribute("listH", listHos);
+		request.setAttribute("list1", listRq);
+		request.setAttribute("list2", listHos);
 		request.setAttribute("id", id); 
 		
 		String path ="aView/chorong/med_RbeforeMedList.jsp";

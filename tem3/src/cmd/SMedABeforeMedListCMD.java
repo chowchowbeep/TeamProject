@@ -26,14 +26,14 @@ public class SMedABeforeMedListCMD implements Command {
 		//로그인중인 아이디를 받아오도록// 나중에 세션으로 변경
 		String id = "sic1"; //가상의 파라미터
 		
+		//두 테이블을 조인하고, list는 dto별로 각각 받아오기.
 		MediRqstDAO dao = new MediRqstDAO();
 		List<mediRqstDTO> listRq = new ArrayList<>(); 
 		listRq = dao.selectAll(id);
 		
-		
 		HosInfoDAO dao2 = new HosInfoDAO();
 		List<hosMemberDTO> listHos = new ArrayList<>();
-		listHos = dao2.selectAll();
+		listHos = dao2.selectAll(id);
 		
 		
 		request.setAttribute("list1", listRq);

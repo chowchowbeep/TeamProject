@@ -85,10 +85,10 @@ td {
 									<tbody>
 										<c:forEach var="list1" items="${list1}" varStatus="status">
 											<tr id="${list1.rqstNo}">
-
+											
 												<td>${list1.rqstDttm}</td>
 
-												<td>${list1.hosId}</td>
+												<td>${list2[status.index].hosName}</td>
 
 												<c:choose>
 													<c:when test="${list1.rqstTy =='D001'}">
@@ -109,15 +109,6 @@ td {
 										</c:forEach>
 									</tbody>
 								</table>
-
-								<div>
-
-									<c:forEach var="list2" items="${list2}">
-										<div>${list2.hosId}</div>
-									</c:forEach>
-								</div>
-
-
 
 							</div>
 						</div>
