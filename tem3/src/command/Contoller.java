@@ -149,6 +149,9 @@ public class Contoller extends HttpServlet {
 		cont.put("/SSickHealModify.do", new SSickHealModifyCMD()); //S19 건강정보 수정 페이지
 		
 		cont.put("/SMedDoneList.do", new SMedDoneListCMD()); //S16 진료이력 리스트 페이지로 이동
+		cont.put("/SMedDoneList.do", new SMedDoneListCMD()); //S16 진료이력 리스트
+		cont.put("/SMedDoneList.do", new SMedDoneListCMD()); //S16 진료이력 리스트
+		
 		cont.put("/SMedDoneDetail.do", new SMedDoneDetailCMD()); // 진료이력 상세 페이지로 이동
 		
 		cont.put("/SRqDetail.do", new SRqDetailCMD()); //S21 진료신청현황 상세/취소 페이지로 이동
@@ -157,6 +160,7 @@ public class Contoller extends HttpServlet {
 		cont.put("/SMedRBeforeMedList.do", new SMedRBeforeMedListCMD()); //S22 진료신청현황 리스트(예약) 페이지로 이동
 		cont.put("/SMedCBeforeMedList.do", new SMedCBeforeMedListCMD()); //S23 진료신청현황 리스트(취소) 페이지로 이동
 		cont.put("/SMedABeforeMedList.do", new SMedABeforeMedListCMD()); //S27 진료신청현황 리스트(전체) 페이지로 이동
+		
 		
 		cont.put("/SCancelRq.do", new SCancelRqCMD()); //진료신청 취소처리 로직
 		

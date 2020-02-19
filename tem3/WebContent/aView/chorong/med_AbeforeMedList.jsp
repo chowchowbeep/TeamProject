@@ -69,6 +69,10 @@ td {
 					<div class="col-12">
 						<div class="card">
 							<div class="card-body table-responsive p-0">
+							
+							
+							
+							
 								<table class="table table table-hover text-nowrap">
 									<!-- 3. 항목 선택 시 병원정보 상세조회 페이지로 이동 
 								4. 취소한 이력은 취소표시  -->

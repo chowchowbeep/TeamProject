@@ -13,8 +13,16 @@ public class SMedDoneDetailCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String path ="aView/chorong/med_doneDetail.jsp"; // 진료이력 상세 페이지
 		
+		
+		
+		
+		
+		
+		
+		
+		// 진료이력 상세 페이지
+		String path ="aView/chorong/med_doneDetail.jsp"; 
 		return path;
 	}
 
