@@ -24,8 +24,7 @@ public class normalDAO extends DAO {
 				dto.setSicStt("sic_stt");
 				dto.setRvNo(rs.getInt("rv_no"));
 				dto.setStarPoint(rs.getInt("star_point"));
-				dto.setDecNo(rs.getInt("dec_no"));
-				dto.setDecDttm(rs.getDate("dec_dttm"));
+				dto.setStartDttm(rs.getDate("start_dttm"));
 				list.add(dto);
 				}
 			} catch (SQLException e) {
@@ -36,7 +35,7 @@ public class normalDAO extends DAO {
 		
 	
 	// 등급별 조회
-	public ArrayList<sickJoinMemberDTO> select(String sicStt) {
+	public ArrayList<sickJoinMemberDTO> select2(String sicStt) {
 		ArrayList<sickJoinMemberDTO> list = new ArrayList<>();
 		sql = "SELECT * FROM Sick_Member";
 		try {
@@ -49,8 +48,7 @@ public class normalDAO extends DAO {
 				dto.setSicPhone("sic_Phone");
 				dto.setRvNo(rs.getInt("rv_no"));
 				dto.setStarPoint(rs.getInt("star_point"));
-				dto.setDecNo(rs.getInt("dec_no"));
-				dto.setDecDttm(rs.getDate("dec_dttm"));
+				dto.setStartDttm(rs.getDate("start_dttm"));
 				list.add(dto);
 				}
 			} catch (SQLException e) {
@@ -61,7 +59,7 @@ public class normalDAO extends DAO {
 	
 	
 	// 이름 조회
-	public ArrayList<sickJoinMemberDTO> select(String sicName) {
+	public ArrayList<sickJoinMemberDTO> select3(String sicName) {
 		ArrayList<sickJoinMemberDTO> list = new ArrayList<>();
 		sql = "SELECT * FROM Sick_Member";
 		try {
@@ -74,8 +72,7 @@ public class normalDAO extends DAO {
 				dto.setSicStt("sic_stt");
 				dto.setRvNo(rs.getInt("rv_no"));
 				dto.setStarPoint(rs.getInt("star_point"));
-				dto.setDecNo(rs.getInt("dec_no"));
-				dto.setDecDttm(rs.getDate("dec_dttm"));
+				dto.setStartDttm(rs.getDate("start_dttm"));
 				list.add(dto);
 				}
 			} catch (SQLException e) {
@@ -86,7 +83,7 @@ public class normalDAO extends DAO {
 	
 	
 	// 전화번호 조회
-	public ArrayList<sickJoinMemberDTO> select(String sicPhone) {
+	public ArrayList<sickJoinMemberDTO> select4(String sicPhone) {
 		ArrayList<sickJoinMemberDTO> list = new ArrayList<>();
 		sql = "SELECT * FROM Sick_Member";
 		try {
@@ -99,8 +96,7 @@ public class normalDAO extends DAO {
 				dto.setSicStt("sic_stt");
 				dto.setRvNo(rs.getInt("rv_no"));
 				dto.setStarPoint(rs.getInt("star_point"));
-				dto.setDecNo(rs.getInt("dec_no"));
-				dto.setDecDttm(rs.getDate("dec_dttm"));
+				dto.setStartDttm(rs.getDate("start_dttm"));
 				list.add(dto);
 				}
 			} catch (SQLException e) {
@@ -112,7 +108,7 @@ public class normalDAO extends DAO {
 	
 	
 	// 등급별, 이름 조회
-	public ArrayList<sickJoinMemberDTO> select(String sicStt, String sicName) {
+	public ArrayList<sickJoinMemberDTO> select5(String sicStt, String sicName) {
 		ArrayList<sickJoinMemberDTO> list = new ArrayList<>();
 		sql = "SELECT * FROM Sick_Member";
 		try {
@@ -124,8 +120,7 @@ public class normalDAO extends DAO {
 				dto.setSicPhone("sic_Phone");
 				dto.setRvNo(rs.getInt("rv_no"));
 				dto.setStarPoint(rs.getInt("star_point"));
-				dto.setDecNo(rs.getInt("dec_no"));
-				dto.setDecDttm(rs.getDate("dec_dttm"));
+				dto.setStartDttm(rs.getDate("start_dttm"));
 				list.add(dto);
 				}
 			} catch (SQLException e) {
@@ -137,7 +132,7 @@ public class normalDAO extends DAO {
 	
 	
 	// 이름, 전화번호 조회
-	public ArrayList<sickJoinMemberDTO> select(String sicName, String sicPhone) {
+	public ArrayList<sickJoinMemberDTO> select6(String sicName, String sicPhone) {
 		ArrayList<sickJoinMemberDTO> list = new ArrayList<>();
 		sql = "SELECT * FROM Sick_Member";
 		try {
@@ -149,8 +144,7 @@ public class normalDAO extends DAO {
 				dto.setSicStt("sic_stt");
 				dto.setRvNo(rs.getInt("rv_no"));
 				dto.setStarPoint(rs.getInt("star_point"));
-				dto.setDecNo(rs.getInt("dec_no"));
-				dto.setDecDttm(rs.getDate("dec_dttm"));
+				dto.setStartDttm(rs.getDate("start_dttm"));
 				list.add(dto);
 				}
 			} catch (SQLException e) {
@@ -162,7 +156,7 @@ public class normalDAO extends DAO {
 	
 	
 	// 등급, 전화번호 조회
-	public ArrayList<sickJoinMemberDTO> select(String sicStt, String sicPhone) {
+	public ArrayList<sickJoinMemberDTO> select7(String sicStt, String sicPhone) {
 		ArrayList<sickJoinMemberDTO> list = new ArrayList<>();
 		sql = "SELECT * FROM Sick_Member";
 		try {
@@ -174,8 +168,7 @@ public class normalDAO extends DAO {
 				dto.setSicName("sic_name");
 				dto.setRvNo(rs.getInt("rv_no"));
 				dto.setStarPoint(rs.getInt("star_point"));
-				dto.setDecNo(rs.getInt("dec_no"));
-				dto.setDecDttm(rs.getDate("dec_dttm"));
+				dto.setStartDttm(rs.getDate("start_dttm"));
 				list.add(dto);
 				}
 			} catch (SQLException e) {
@@ -186,7 +179,7 @@ public class normalDAO extends DAO {
 	
 	
 	// 등급별, 이름, 전화번호 조회
-	public ArrayList<sickJoinMemberDTO> select(String sicStt, String sicName, String sicPhone) {
+	public ArrayList<sickJoinMemberDTO> select8(String sicStt, String sicName, String sicPhone) {
 		ArrayList<sickJoinMemberDTO> list = new ArrayList<>();
 		sql = "SELECT * FROM Sick_Member";
 		try {
@@ -197,8 +190,7 @@ public class normalDAO extends DAO {
 				dto.setSicId("sic_ID");
 				dto.setRvNo(rs.getInt("rv_no"));
 				dto.setStarPoint(rs.getInt("star_point"));
-				dto.setDecNo(rs.getInt("dec_no"));
-				dto.setDecDttm(rs.getDate("dec_dttm"));
+				dto.setStartDttm(rs.getDate("start_dttm"));
 				list.add(dto);
 				}
 			} catch (SQLException e) {
