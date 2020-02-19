@@ -122,6 +122,7 @@ public class Contoller extends HttpServlet {
 		cont.put("/HosMemberIdCheckAction.do", new HosMemberIdCheckActionCMD());  //(병원)ID 중복검사 페이지로 이동
 		cont.put("/HosMemberBizNoCheckAction.do", new HosMemberBizNoCheckActionCMD());  //(병원)사업자번호 중복검사 페이지로 이동
 		
+		
 		//(병원)휴일 설정 페이지 로 이동
 		//(의사)휴일 설정 페이지 로 이동
 		 
