@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | 404 Page not found</title>
+  <title>AdminLTE 3 | error Page not found</title>
 <!-- %@ include file="../../layout/sick_head.jsp" %-->
 <!-- %@ include file="../../layout/sick_menu.jsp" % -->
   <!-- Tell the browser to be responsive to screen width -->

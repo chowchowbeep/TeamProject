@@ -19,6 +19,7 @@ public class SickSearchDAO extends DAO {
 					dto.setSicName(rs.getString("SIC_NAME"));
 					dto.setSicPhone(rs.getString("SIC_PHONE"));
 					dto.setRqstTy(rs.getString("RQST_TY"));
+					dto.setSicId(rs.getString("SIC_ID"));
 					list.add(dto);
 				}
 			} catch (Exception e) {

@@ -51,7 +51,7 @@
                  <div>
                   <label>진료타입</label>
                   <div>
-                 	<input type="radio" name="wjqtn" value="당일접수"checked="checked">당일접수&nbsp;&nbsp;
+                 	<input type="radio" name="wjqtn">당일접수&nbsp;&nbsp;
 					<input type="radio" name="reserve">예약 &nbsp;&nbsp;
 					<input type="radio" name="cancel"> 취소
                   </div>

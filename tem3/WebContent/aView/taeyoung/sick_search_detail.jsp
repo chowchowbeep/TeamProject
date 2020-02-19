@@ -43,7 +43,7 @@
                 </div>
                 <div class="text-center">
                 <input type="text" class="profile-username text-center" style="border:none;" placeholder="고먐이">
-						</div>
+				</div>
                 <ul class="list-group list-group-unbordered mb-4">
                   <li class="list-group-item">
                     <b>진료타입</b><input type="text" class="float-right" placeholder="예약">
@@ -58,7 +58,7 @@
                     <b>주소</b> <input type="text" class="float-right" placeholder="고양시 고양동 고먐네모네모">
                   </li>
                   <li class="list-group-item">
-            <b>진료이력</b><textarea class="float-right">손가락 골절</textarea>
+            		<b>진료이력</b><textarea class="float-right">손가락 골절</textarea>
                   </li></ul>
                 <a href="../../aView/leedy/hospital_upload.jsp" class="btn btn-primary btn-block"><b>기록물 업로드</b></a>
           </form>

@@ -86,6 +86,7 @@
       </form>
       <div class="social-auth-links text-center mb-3">
         <p>- OR -</p>
+        <img src="../img/kakao_account_login_btn.png">
         <a href="#" class="btn btn-block btn-primary">
           <i class="fab fa-facebook mr-2"></i> facebook으로 로그인
         </a>

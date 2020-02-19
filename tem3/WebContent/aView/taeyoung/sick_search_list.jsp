@@ -64,7 +64,7 @@ cursor:pointer;
                   </thead>
             		<tbody>
                     <c:forEach items="${list}" var="dto">
-                    <tr style="hover:background-Color:gray;">
+                    <tr style="hover:background-Color:gray;"  data-id="${dto.sicId}">
                       <td>${dto.sicName}</td>
                       <td>${dto.sicPhone}</td>
                       <c:choose>
@@ -109,7 +109,7 @@ cursor:pointer;
 <script>
 	$("tr").click(function() {
 		console.log("click");
-		location.href = "${pageContext.request.contextPath}/HSickSearchDetail.do";
+		location.href = "${pageContext.request.contextPath}/HSickSearchDetail.do?sicId="+$(this).attr('data-id');
 	})
 </script>
 </body>

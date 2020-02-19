@@ -32,5 +32,4 @@ public class Medi_reserveDAO extends DAO {
 			}
 			return list;
 		}
-	
 }
