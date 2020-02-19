@@ -17,6 +17,8 @@ import cmd.HDoctorlistCMD;
 import cmd.HHospitalInquiryCMD;
 import cmd.HHospitalMymenuCMD;
 import cmd.HHospitalProfileCMD;
+import cmd.HHospitalSignupActionCMD;
+import cmd.HHospitalSignupCMD;
 import cmd.HHospitalUploadCMD;
 import cmd.HMediAllCMD;
 import cmd.HMediDetailCMD;
@@ -72,8 +74,7 @@ import kjr.ajax.CategoriAjaxCMD;
 import kjr.ajax.LocaseachAjaxCMD;
 import kjr.cmd.SearchListCMD;
 import kjr.cmd.SickMainCMD;
-import leedy.cmd.HosMemberBizNoCheckActionCMD;
-import leedy.cmd.HosMemberIdCheckActionCMD;
+
 
 @WebServlet("*.do")
 public class Contoller extends HttpServlet {
@@ -107,8 +108,8 @@ public class Contoller extends HttpServlet {
 		
 		//병원회원관련 페이지
 	//	cont.put("/HhosSignup.do", new HosSignupCMD());
-	//	cont.put("/HhosSignup.do", new HosSignupCMD()); //
-	//	cont.put("/HhosSignup.do", new HosSignupCMD()); //병원회원용 회원가입 페이지 로 이동
+		cont.put("/HHospitalSignupAction.do", new HHospitalSignupActionCMD()); //병원회원용 회원가입 페이지 로 이동
+		cont.put("/HHospitalSignup.do", new HHospitalSignupCMD()); //병원회원 가입 DB처리
 	//	cont.put("/HHospitalMain.do", new HHospitalMainCMD()); //병원회원 메인페이지 로 이동
 	//	cont.put("/Hpopup.do", new HpopupCMD()); //알림 팝업 페이지 로이동
 		cont.put("/HMediAll.do", new HMediAllCMD()); //(전체)진료신청 현황 리스트 페이지 로 이동
@@ -125,8 +126,8 @@ public class Contoller extends HttpServlet {
 		cont.put("/HDoctorlist.do", new HDoctorlistCMD()); //H13 의사 리스트 페이지 로 이동
 		cont.put("/HDoctorAdd.do", new HDoctorAddCMD()); //H14 의사추가페이지 로 이동
 		cont.put("/HDoctorAddVerify.do", new HDoctorAddVerifyCMD()); // 의사추가추가페이지로 이동 <추가했습니다 - 태영>
-		cont.put("/HosMemberIdCheckAction.do", new HosMemberIdCheckActionCMD ());  //(병원)ID 중복검사 페이지로 이동
-		cont.put("/HosMemberBizNoCheckAction.do", new HosMemberBizNoCheckActionCMD());  //(병원)사업자번호 중복검사 페이지로 이동
+		//cont.put("/HosMemberIdCheckAction.do", new HosMemberIdCheckActionCMD ());  //(병원)ID 중복검사 페이지로 이동
+		//cont.put("/HosMemberBizNoCheckAction.do", new HosMemberBizNoCheckActionCMD());  //(병원)사업자번호 중복검사 페이지로 이동
 		
 		//(병원)휴일 설정 페이지 로 이동
 		//(의사)휴일 설정 페이지 로 이동
