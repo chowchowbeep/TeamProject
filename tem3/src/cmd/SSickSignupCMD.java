@@ -21,10 +21,14 @@ public class SSickSignupCMD implements Command {
 		
 		//파라미터 받아오기
 		
+		String sic_phone= request.getParameter("sic_phone_1")+"-"+request.getParameter("sic_phone_2")+"-"
+				+request.getParameter("sic_phone_3");
+		
+		
 		dto.setSicId(request.getParameter("sic_id"));
 		dto.setSicPw(request.getParameter("sic_pw"));
 		dto.setSicName(request.getParameter("sic_name"));
-		dto.setSicPhone(request.getParameter("sic_phone"));
+		dto.setSicPhone(sic_phone);
 		System.out.println(dto.toString());
 		
 		int r=dao.sickInsert(dto);

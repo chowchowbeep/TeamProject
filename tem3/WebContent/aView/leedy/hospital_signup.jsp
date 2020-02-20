@@ -96,10 +96,12 @@
 
 	function bizNoChk() {
 		
-		var biz = hosFrm.hos_bizno.value;
+		var biz = hosFrm.hos_bizno_1.value+
+		hosFrm.hos_bizno_2.value+
+		hosFrm.hos_bizno_3.value;
 		if(biz == ""){
 			alert("사업자 번호를 입력 후 확인하세요.");
-			hosFrm.hos_bizno.focus();
+			hosFrm.hos_bizno_1.focus();
 		} else {
 			window.open("HHospitalMemberBizNoCheckAction.do?hos_bizno="+biz, "chkBizForm",
 			"width=500, height=300 resizable=no, scrollbars=no");
@@ -180,8 +182,12 @@
 						</div>
 					</div>
 					<div class="input-group mb-3">
-						<input type="text" class="form-control" name="hos_bizno"
-							id="hos_bizno" onkeydown="inputBizNoUnChk()" placeholder="사업자번호">
+						<input type="text" class="form-control" name="hos_bizno_1"
+							id="hos_bizno_1" onkeydown="inputBizNoUnChk()" placeholder="사업자번호">-
+								<input type="text" class="form-control" name="hos_bizno_2"
+							id="hos_bizno_2" onkeydown="inputBizNoUnChk()" placeholder="사업자번호">-
+								<input type="text" class="form-control" name="hos_bizno_3"
+							id="hos_bizno_3" onkeydown="inputBizNoUnChk()" placeholder="사업자번호">
 						<input type="button" id="bizChk" name="bizChk" value="중복확인"  
 						onclick="bizNoChk()"> 
 						<input type="hidden" name="bizNoDuplication" id="bizNoDuplication"
@@ -191,8 +197,12 @@
 						</div>
 					</div>
 					<div class="input-group mb-3">
-						<input type="text" class="form-control" name="hos_phone"
-							id="hos_phone" placeholder="전화번호">
+						<input type="text" class="form-control" name="hos_phone_1"
+							id="hos_phone_1" placeholder="전화번호">-
+							<input type="text" class="form-control" name="hos_phone_2"
+							id="hos_phone_2" placeholder="전화번호">-
+							<input type="text" class="form-control" name="hos_phone_3"
+							id="hos_phone_3" placeholder="전화번호">
 						<div class="input-group-append">
 							<div class="input-group-text"></div>
 						</div>

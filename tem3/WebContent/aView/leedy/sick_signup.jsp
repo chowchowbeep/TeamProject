@@ -116,7 +116,11 @@ function inputIdUnChk() {
         </div>
         <div class="input-group mb-3">
           <input type="text" class="form-control" 
-          id="sic_phone" name="sic_phone" placeholder="전화번호">
+          id="sic_phone_1" name="sic_phone_1" placeholder="전화번호">-
+          <input type="text" class="form-control" 
+          id="sic_phone_2" name="sic_phone_2" placeholder="전화번호">-
+          <input type="text" class="form-control" 
+          id="sic_phone_3" name="sic_phone_3" placeholder="전화번호">
           <div class="input-group-append">
             <div class="input-group-text">
             </div>
