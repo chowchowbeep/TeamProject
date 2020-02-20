@@ -10,7 +10,7 @@
 	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css">
 <%@ include file="/layout/sick_menu.jsp"%>
 
-<!-- 관심병원리스트페이지 S30에서 받아올 데이터도 고려할 것.
+<!-- 
 STmrRequest.do
 		-->
 

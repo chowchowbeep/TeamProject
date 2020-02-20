@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import kcrDAO.MediRqstDAO;
+import kcrDAO.XXMediRqstDAO;
 import lastdto.mediRqstDTO;
 
 public class SInsertResCMD implements Command {
@@ -20,8 +20,8 @@ public class SInsertResCMD implements Command {
 		
 		int dcNo = 0;
 
-		MediRqstDAO dao = new MediRqstDAO();
-		mediRqstDTO dto = new mediRqstDTO();
+		XXMediRqstDAO dao = new XXMediRqstDAO();
+		mediRqstDTO dto  = new mediRqstDTO();
 
 		// 나중에 세션값 받아오는 것으로 수정할 것
 		dto.setSicId(request.getParameter("id"));

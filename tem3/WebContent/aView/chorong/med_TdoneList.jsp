@@ -18,7 +18,7 @@
 				<div class="row mb-2">
 					<div class="col-sm-6">
 						<!-- 1. 진료이력 출력 ( 회원Id, 진료상태 완료, 모든진료타입 ) -->
-						<h1 class="m-0 text-dark">진료이력</h1>
+						<h1 class="m-0 text-dark">진료완료이력</h1>
 					</div>
 					<!-- /.col -->
 					<div class="col-sm-6">
@@ -53,34 +53,30 @@
 						<div class="card">
 							<div class="card-body table-responsive p-0">
 
-
-								<table class="table table table-hover text-nowrap">
+								<table class="table table table-hover text-wrap">
 									<!-- 3. 항목 선택 시 병원정보 상세조회 페이지로 이동 
 								4. 취소한 이력은 취소표시  -->
 									<thead>
 										<tr align="center">
-											<th style="width: 33%;">신청일</th>
-											<th style="width: 33%;">병원</th>
-											<th style="width: 33%;">신청타입</th>
-											<!-- 진료타입-->
+											<th style="width: 35%;">신청일</th>
+											<th style="width: 35%;">병원</th>
+											<th style="width: 30%;">상세</th>
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach var="list1" items="${list1}" varStatus="status">
-											<tr id="${list1.rqstNo}">
+										<c:forEach var="list" items="${list}">
+											<tr id="${list.rqstNo}">
 
-												<td>${list1.rqstDttm}</td>
+												<td>${list.rqstDttm}</td>
 
-												<td>${list2[status.index].hosName}</td>
+												<td>${list.hosName}</td>
 
-												<c:choose>
-													<c:when test="${list1.rqstTy =='D001'}">
-														<td>접수</td>
-													</c:when>
-													<c:when test="${list1.rqstTy =='D002'}">
-														<td>예약</td>
-													</c:when>
-												</c:choose>
+												<td><svg class="bi bi-chevron-right" width="20"
+														height="20" viewBox="0 0 20 20" fill="currentColor"
+														xmlns="http://www.w3.org/2000/svg">
+														<path fill-rule="evenodd"
+															d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"
+															clip-rule="evenodd" /></svg></td>
 
 											</tr>
 										</c:forEach>

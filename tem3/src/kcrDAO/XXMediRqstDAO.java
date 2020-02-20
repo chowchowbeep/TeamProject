@@ -8,7 +8,7 @@ import java.util.List;
 import kty.DAO;
 import lastdto.mediRqstDTO;
 
-public class MediRqstDAO extends DAO {
+public class XXMediRqstDAO extends DAO {
 
 	// 전체 리스트
 	public List<mediRqstDTO> selectAll(String id, String type) {
@@ -19,13 +19,15 @@ public class MediRqstDAO extends DAO {
 					+ " and SIC_ID = ?" + " order by r.rqst_dttm desc, rqst_no desc";
 		} else if (type == "tmr") {// 접수목록
 			sql = "SELECT r.*, h.*" + " FROM MEDI_RQST r, HOS_MEMBER h" + " where r.HOS_ID = h.HOS_ID"
-					+ " and SIC_ID = ?" + " and RQST_TY = 'D001'" + " order by r.rqst_dttm desc, rqst_no desc";
+					+ " and SIC_ID = ?" + " and RQST_TY = 'D001'" //접수
+					+ " order by r.rqst_dttm desc, rqst_no desc";
 		} else if (type == "res") {// 예약목록
 			sql = "SELECT r.*, h.*" + " FROM MEDI_RQST r, HOS_MEMBER h" + " where r.HOS_ID = h.HOS_ID"
-					+ " and SIC_ID = ?" + " and RQST_TY = 'D002'" + " order by r.rqst_dttm desc, rqst_no desc";
+					+ " and SIC_ID = ?" + " and RQST_TY = 'D002'" //예약
+					+ " order by r.rqst_dttm desc, rqst_no desc";
 		} else if (type == "cancel") {// 취소목록
 			sql = "SELECT r.*, h.*" + " FROM MEDI_RQST r, HOS_MEMBER h" + " where r.HOS_ID = h.HOS_ID"
-					+ " and SIC_ID = ?" + " and RQST_TY in ('D003', 'D004')"
+					+ " and SIC_ID = ?" + " and RQST_TY in ('D003', 'D004')" //취소
 					+ " order by r.rqst_dttm desc, rqst_no desc";
 		}
 

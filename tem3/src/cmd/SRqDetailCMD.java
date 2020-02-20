@@ -13,9 +13,14 @@ public class SRqDetailCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//S21 진료신청현황 상세/취소 페이지(접수/예약)
-		String path ="aView/chorong/rq_detail.jsp"; 
-		
+		// S21 진료신청현황 상세/취소 페이지(접수/예약)
+
+		String hosId = request.getParameter("submitNo");
+
+		request.setAttribute("hosId", hosId);
+
+		String path = "aView/chorong/rq_detail.jsp";
+
 		return path;
 
 	}

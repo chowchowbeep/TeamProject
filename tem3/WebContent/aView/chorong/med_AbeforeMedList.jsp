@@ -67,44 +67,34 @@
 					<div class="col-12">
 						<div class="card">
 							<div class="card-body table-responsive p-0">
-							
-							
-							
-							
-								<table class="table table table-hover text-nowrap">
+
+
+
+
+								<table class="table table table-hover text-wrap">
 									<!-- 3. 항목 선택 시 병원정보 상세조회 페이지로 이동 
 								4. 취소한 이력은 취소표시  -->
 									<thead>
 										<tr align="center">
-											<th style="width: 33%;">신청일</th>
-											<!-- 접수일 경우 접수일로 표시 -->
-											<th style="width: 33%;">병원</th>
-											<th style="width: 33%;">상태</th>
-											<!-- 진료타입-->
+											<th style="width: 35%;">신청일</th>
+											<th style="width: 35%;">병원</th>
+											<th style="width: 30%;">상세</th>
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach var="list1" items="${list1}" varStatus="status">
-											<tr id="${list1.rqstNo}">
+										<c:forEach var="list" items="${list}">
+											<tr id="${list.rqstNo}">
 
-												<td>${list1.rqstDttm}</td>
+												<td>${list.rqstDttm}</td>
 
-												<td> ${list2[status.index].hosName}</td>
+												<td>${list.hosName}</td>
 
-												<c:choose>
-													<c:when test="${list1.rqstTy =='D001'}">
-														<td>접수</td>
-													</c:when>
-													<c:when test="${list1.rqstTy =='D002'}">
-														<td>예약</td>
-													</c:when>
-													<c:when test="${list1.rqstTy =='D003'}">
-														<td>병원취소</td>
-													</c:when>
-													<c:when test="${list1.rqstTy =='D004'}">
-														<td>본인취소</td>
-													</c:when>
-												</c:choose>
+												<td><svg class="bi bi-chevron-right" 
+												width="20" height="20" viewBox="0 0 20 20" fill="currentColor"
+														xmlns="http://www.w3.org/2000/svg">
+														<path fill-rule="evenodd"
+															d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"
+															clip-rule="evenodd" /></svg></td>
 
 											</tr>
 										</c:forEach>
@@ -146,6 +136,8 @@
 
 		frm.action = "SRqDetail.do"; //진료신청현황 상세 페이지로
 		frm.submit(); //제출되면 클릭된 행의 신청번호가 파라미터로 실려갑니다.
+
+		
 	})
 </script>
 
