@@ -4,6 +4,8 @@
 
 <%@ include file="/layout/sick_head.jsp"%>
 <script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css">
 <%@ include file="/layout/sick_menu.jsp"%>
 
 <!-- /SResRequest.do -->
@@ -23,7 +25,7 @@
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right">
 							<li class="breadcrumb-item"><a href="#">홈</a></li>
-							<li class="breadcrumb-item active">진료신청</li>
+							<li class="breadcrumb-item active">일반회원</li>
 						</ol>
 					</div>
 				</div>
@@ -61,14 +63,14 @@
 								<div class="row">
 									<div class="col-sm-6">
 										<div class="form-group">
-											<label for="hosName">병원명</label> <input type="text"
-												id="hosName" name="hosName" class="form-control"
-												value="${dto.artr_name}병원명" disabled>
+											<label for="hosId">병원명</label> <input type="text"
+												id="hosId" name="hosId" class="form-control"
+												value="${dto.artr_name}병원명" readonly>
 										</div>
 										<div class="form-group">
 											<label for="hosAddr">주소</label>
 											<textarea id="hosAddr" name="hosAddr" class="form-control"
-												disabled>${dto.artr_name}주소주소</textarea>
+												readonly>${dto.artr_name}주소주소</textarea>
 										</div>
 									</div>
 								</div>
@@ -446,8 +448,6 @@
 
 
 
-							<!-- 신청폼푸터 // 제출 및 기타 버튼 위치 -->
-							<!-- 5. 다음:예약날짜 선택 페이지로 이동 -->
 							<div class="card-footer">
 								<input type="reset" class="btn btn-secondary" value="초기화">
 								<input type="submit" class="btn btn-secondary float-right"

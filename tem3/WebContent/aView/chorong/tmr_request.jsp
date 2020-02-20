@@ -6,6 +6,8 @@
 
 <%@ include file="/layout/sick_head.jsp"%>
 <script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css">
 <%@ include file="/layout/sick_menu.jsp"%>
 
 <!-- 관심병원리스트페이지 S30에서 받아올 데이터도 고려할 것.
@@ -92,7 +94,7 @@ STmrRequest.do
 										<div class="form-group">
 											<label for="ARTR_NO">진료받을 의사 선택</label> <select
 												class="custom-select" id="ARTR_NO" name="ARTR_NO">
-												<option value="24"><!-- ARTR_NO의사 아이디 --> 성명: 조선아 /
+												<option value="2"><!-- ARTR_NO의사 아이디 --> 성명: 조선아 /
 													진료과목: 예시과목
 												</option>
 												<option value="">성명: / 진료과목:</option>
@@ -112,7 +114,7 @@ STmrRequest.do
 										<div class="form-group">
 											<label for="DCRY_NO">진료시 의료진이 참고할 기록물 첨부</label> <input
 												type="hidden" class="btn btn-default" id="DCRY_NO"
-												name="DCRY_NO" value="1" onclick="toAddDcry()">
+												name="DCRY_NO" onclick="toAddDcry()">
 											<!-- 임시 -->
 										</div>
 
@@ -184,6 +186,7 @@ STmrRequest.do
 <!-- 유효성 체크 및 값 넘기기 -->
 <script>
 	//필수입력사항 체크
+	//(기록물빼고 전부 다 입력해야 해)
 
 	//접수가능여부 제어
 	//병원 스케줄(휴일을 예약가능날짜에서 제외, 영업상태속성확인)

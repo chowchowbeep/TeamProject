@@ -4,11 +4,8 @@
 
 <%@ include file="/layout/sick_head.jsp"%>
 <script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
-<style>
-td {
-	text-align: center;
-}
-</style>
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css">
 <%@ include file="/layout/sick_menu.jsp"%>
 
 <!-- /SMedADoneList.do로 진료이력목록조회 -->
@@ -83,12 +80,6 @@ td {
 													<c:when test="${list1.rqstTy =='D002'}">
 														<td>예약</td>
 													</c:when>
-													<!--<c:when test="${list1.rqstTy =='D003'}">
-														<td>병원취소</td>
-													</c:when>
-													<c:when test="${list1.rqstTy =='D004'}">
-														<td>본인취소</td>
-													</c:when>-->
 												</c:choose>
 
 											</tr>

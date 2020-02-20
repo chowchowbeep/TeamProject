@@ -4,11 +4,8 @@
 
 <%@ include file="/layout/sick_head.jsp"%>
 <script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
-<style>
-td {
-	text-align: center;
-}
-</style>
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css">
 <%@ include file="/layout/sick_menu.jsp"%>
 
 <!-- /SMedDoneDetail.do로 진료이력목록조회 -->
@@ -44,9 +41,9 @@ td {
 			<div class="container-fluid">
 				<div>
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item active">전체</li>
-						<li class="breadcrumb-item"><a href="당일접수목록">접수</a></li>
-						<li class="breadcrumb-item"><a href="예약목록">예약</a></li>
+						<li class="breadcrumb-item"><a href="SMedADoneList.do">전체</a></li>
+						<li class="breadcrumb-item"><a href="SMedTDoneList.do">접수</a></li>
+						<li class="breadcrumb-item active">예약</li>
 					</ol>
 				</div>
 
@@ -83,12 +80,6 @@ td {
 													<c:when test="${list1.rqstTy =='D002'}">
 														<td>예약</td>
 													</c:when>
-													<!--<c:when test="${list1.rqstTy =='D003'}">
-														<td>병원취소</td>
-													</c:when>
-													<c:when test="${list1.rqstTy =='D004'}">
-														<td>본인취소</td>
-													</c:when>-->
 												</c:choose>
 
 											</tr>
