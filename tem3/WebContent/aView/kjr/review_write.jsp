@@ -16,10 +16,7 @@ $(function() {
 	
 	function insertGo(){
 		
-		if($("#title").val()==''){
-			alert("제목을 입력하세요");	
-			return false;
-		}else if($("#contents").val()==''){
+		if($("#contents").val()==''){
 			alert("내용을 입력하세요");
 			return false;
 		}else{
@@ -43,10 +40,6 @@ $(function() {
 	<p class="text-center mar"> 병원 리뷰 작성 </p>
 		<div class="card mb-8">
 			<form style="padding:10px" id="reviewFrm" name="reviewFrm" >
-				<div class="form-group">
-					<label for="hospital_name">제목 </label>
-					<input type="text" class="form-control" id="title" name="title"aria-describedby="emailHelp">
-				</div>
 				<div class="form-group">
 					<label for="hospital_name">내용</label>
 					<textarea class="form-control" id="contents" name="contents" rows="10"></textarea>
