@@ -12,6 +12,14 @@ public class reviewDTO {
 		super();
 	}
 
+	public reviewDTO(String sicId, String hosId, int starPoint, String rvCont) {
+		super();
+		this.sicId = sicId;
+		this.hosId = hosId;
+		this.starPoint = starPoint;
+		this.rvCont = rvCont;
+	}
+
 	public reviewDTO(int rvNo, String sicId, String hosId, int starPoint, String rvCont) {
 		super();
 		this.rvNo = rvNo;
