@@ -54,9 +54,11 @@
     <script>
    function openFormClose(n) {
       if (n == 1) {
-         opener.document.hosFrm.hos_id.value = "checked"
+    	  opener.inputIdChk();
+         opener.document.hosFrm.hos_id.value = "${hos_id}"; //받은 아이디를 다시 넘겨줘야 함
          opener.hosFrm.hos_pw.focus();
       } else {
+    	  opener.inputIdUnChk();
          opener.hosFrm.hos_id.focus();
       }
       window.close();
@@ -71,15 +73,14 @@
          <c:when test="${idChk == true }">
          <script>
          alert('${hos_id}는 사용할 수 있는 아이디입니다.');
-         location.href='openFormClose(1)'
-         window.close();
+         openFormClose(1);
+         
          </script>
          </c:when>
          <c:otherwise>
          <script>
          alert('${hos_id}는 이미 사용중인 아이디입니다.');
-         location.href='openFormClose(0)'
-         window.close();
+        openFormClose(0);
          
          </script>
          </c:otherwise>

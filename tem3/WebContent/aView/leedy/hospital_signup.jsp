@@ -86,10 +86,15 @@
 			window.open("HHospitalMemberIdCheckAction.do?hos_id="+id, "chkForm",
 					"width=500, height=300 resizable=no, scrollbars=no");
 		}
+		return true;
 	}
 		
 
 	function inputIdChk() {
+		document.hosFrm.idDuplication.value = "idChk";
+	}
+	
+	function inputIdUnChk() {
 		document.hosFrm.idDuplication.value = "idUnchk";
 	}
 
@@ -103,10 +108,14 @@
 			window.open("HHospitalMemberBizNoCheckAction.do?hos_bizno="+biz, "chkBizForm",
 			"width=500, height=300 resizable=no, scrollbars=no");
 		}
-
+		return true;
 	}
 
 	function inputBizNoChk() {
+		document.hosFrm.bizNoDuplication.value = "bizNoChk";
+	}
+	
+	function inputBizNoUnChk() {
 		document.hosFrm.bizNoDuplication.value = "bizNoUnchk";
 	}
 </script>
@@ -137,10 +146,10 @@
 					onsubmit="return checkValue()">
 					<div class="input-group mb-3">
 						<input type="text" class="form-control" name="hos_id" id="hos_id"
-							onkeydown="inputIdChk()" placeholder="아이디"> 
+							onkeydown="inputIdUnChk()" placeholder="아이디"> 
 							<input type="button" id="idChk" name="idChk" value="중복확인"
 							onclick="idCheck()"> 
-							<input type="hidden"name="idDuplication" id="idDuplication" value="idUnchk">
+							<input type="hidden"name="idDuplication" id="idDuplication" value="idUnchk"> 
 						<div class="input-group-append">
 							<div class="input-group-text"></div>
 						</div>
@@ -175,7 +184,7 @@
 					</div>
 					<div class="input-group mb-3">
 						<input type="text" class="form-control" name="hos_bizno"
-							id="hos_bizno" onkeydown="inputBizNoChk()" placeholder="사업자번호">
+							id="hos_bizno" onkeydown="inputBizNoUnChk()" placeholder="사업자번호">
 						<input type="button" value="중복확인" id="bizChk" name="bizChk" onclick="bizNoChk()"> <input
 							type="hidden" name="bizNoDuplication" id="bizNoDuplication"
 							value="bizNoUnchk">
