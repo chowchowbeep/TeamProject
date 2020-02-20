@@ -58,7 +58,7 @@
 	function openFormClose(n) {
 		if (n == 1) {
 			opener.inputBizNoChk();
-			opener.document.hosFrm.hos_bizno.value = "checked";
+			opener.document.hosFrm.hos_bizno.value = "${hos_bizno}"; //받은 사업자 번호를 다시 넘겨줌
 			opener.hosFrm.hos_phone.focus();
 		} else {
 			opener.inputBizNoUnChk();

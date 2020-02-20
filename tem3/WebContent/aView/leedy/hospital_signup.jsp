@@ -7,7 +7,7 @@
 
 
 	function checkValue() {
-					var form = document.hosFrm;
+		var form = document.hosFrm;
 		//회원가입 화면의 입력값들을 검사
 
 		if (!form.hos_id.value) {
@@ -15,7 +15,7 @@
 			return false;
 		}
 
-		if (form.idDuplication.value != "idCheck") {
+		if (form.idDuplication.value != "idChk") {
 			alert("아이디 중복체크 해주세요.");
 			return false;
 		}
@@ -45,7 +45,7 @@
 			return false;
 		}
 
-		if (form.bizNoDuplication.value != "bizNoCheck") {
+		if (form.bizNoDuplication.value != "bizChk") {
 			alert("사업자번호 중복체크 해주세요.");
 			return false;
 		}
@@ -112,7 +112,7 @@
 	}
 
 	function inputBizNoChk() {
-		document.hosFrm.bizNoDuplication.value = "bizNoChk";
+		document.hosFrm.bizNoDuplication.value = "bizChk";
 	}
 	
 	function inputBizNoUnChk() {
@@ -185,8 +185,9 @@
 					<div class="input-group mb-3">
 						<input type="text" class="form-control" name="hos_bizno"
 							id="hos_bizno" onkeydown="inputBizNoUnChk()" placeholder="사업자번호">
-						<input type="button" value="중복확인" id="bizChk" name="bizChk" onclick="bizNoChk()"> <input
-							type="hidden" name="bizNoDuplication" id="bizNoDuplication"
+						<input type="button" id="bizChk" name="bizChk" value="중복확인"  
+						onclick="bizNoChk()"> 
+						<input type="hidden" name="bizNoDuplication" id="bizNoDuplication"
 							value="bizNoUnchk">
 						<div class="input-group-append">
 							<div class="input-group-text"></div>
