@@ -20,16 +20,35 @@ $(function() {
 			alert("내용을 입력하세요");
 			return false;
 		}else{
+			insertCheck();
+			/*
 			document.reviewFrm.action="SReviewMylist.do"
 			document.reviewFrm.method="post";
-			document.reviewFrm.submit();	
+			document.reviewFrm.submit();
+			*/
 		}
 	};
 	
 	
 	function insertCheck(){
+		var formData = $("#reviewFrm").serialize();
 		
-	}
+		$.ajax("/tem3/ajax/ReviewInsrtAjaxCMD.do", {
+			type:"POST",
+			dataType : "json",
+			data : formData 
+		})
+			.done(function(data) {
+				if(data){
+					alert("등록에 성공하셨습니다.");
+					location.href="SReviewMylist.do";//내가쓴리뷰페이지로이동
+				}else{
+					eleat("등록에 실패하셨습니다.")
+					location.href="SReviewWriteCMD.do";//리뷰작성페이지로이동
+				}
+			})
+		};
+	
 	
 });
 </script>
