@@ -59,7 +59,7 @@
 
 <body>
 
-  <div align="center">
+  <div id="wrap" align="center">
       <c:choose>
          <c:when test="${idChk == true }">
          <script>

@@ -2,14 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/layout/hos_head.jsp"%>
 
-
 <script>
-
-
 	function checkValue() {
 		var form = document.hosFrm;
+		
 		//회원가입 화면의 입력값들을 검사
-
 		if (!form.hos_id.value) {
 			alert("아이디를 입력하세요.");
 			return false;
@@ -75,7 +72,6 @@
 	}
 
 	function idCheck() {
-		
 		var id = hosFrm.hos_id.value;
 		if(id ==""){
 			alert("아이디값을 입력 후 확인하세요.");
@@ -132,6 +128,7 @@
 
 <body class="hold-transition register-page">
 <iframe width=0 height=0 name="chkForm" style="display: none;"></iframe>
+<iframe width=0 height=0 name="chkBizForm" style="display: none;"></iframe>
 	<br>
 	<div class="register-box">
 		<div class="register-logo">
@@ -275,7 +272,7 @@
 					<div class="row">
 						<div class="">
 							<div class="icheck-primary">
-								<input type="checkbox" id="agreeTerms" name="terms"
+								<input type="checkbox" id="agreeTerms" name="agreeTerms"
 									value="agree"> <label for="agreeTerms"> <a
 									href="#">이용약관</a> 및 <a href="#">개인정보취급방침</a>에 동의합니다.
 								</label>

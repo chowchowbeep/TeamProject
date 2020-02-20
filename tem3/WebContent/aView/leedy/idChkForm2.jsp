@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,16 +10,7 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  
 <title>아이디 중복 체크</title>
     
     <style type="text/css">
@@ -42,37 +34,39 @@
  
    </style>
     
-    <script type="text/javascript">
+    <script >
+    function openFormClose(n) {
+        if (n == 1) {
+      	  opener.inputIdChk();
+           opener.document.sickFrm.sic_id.value = "${sic_id}"; //받은 아이디를 다시 넘겨줘야 함
+           opener.sickFrm.sic_pw.focus();
+        } else {
+      	  opener.inputIdUnChk();
+           opener.sickFrm.sic_id.focus();
+        }
+        window.close();
+     }
     
+    /*
         var httpRequest = null;
-        
+        //jQurery 사용시 한 줄로 가능
+        $.ajax();
         // httpRequest 객체 생성
         function getXMLHttpRequest(){
             var httpRequest = null;
-        
-            if(window.ActiveXObject){
-                try{
-                    httpRequest = new ActiveXObject("Msxml2.XMLHTTP");    
-                } catch(e) {
-                    try{
-                        httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-                    } catch (e2) { httpRequest = null; }
-                }
-            }
-            else if(window.XMLHttpRequest){
                 httpRequest = new window.XMLHttpRequest();
-            }
             return httpRequest;    
         }
         
         
         // 회원가입창의 아이디 입력란의 값을 가져온다. 부모창에 접근하려면 opener 사용
         function pIdValue(){
-            document.getElementById("userId").value = opener.document.hosFrm.hos_id.value;
+            document.getElementById("userId").value =
+            	opener.document.hosFrm.hos_id.value;
         }
-        
+        */
         // 아이디 중복체크
-        function idCheck(){
+        /*function idCheck(){
  
             var id = document.getElementById("userId").value;
  
@@ -87,8 +81,11 @@
             else
             {
                 var param="id="+id
+                //ajax 호출하는 객체 생성
                 httpRequest = getXMLHttpRequest();
+                //callback 함수 요청
                 httpRequest.onreadystatechange = callback;
+                //server url 적ㄱㅣ(요청해야 할)
                 httpRequest.open("POST", "HHospitalMemberIdCheckActionCMD.do", true);    
                 httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); 
                 httpRequest.send(param);
@@ -114,6 +111,7 @@
         }
         
         // 사용하기 클릭 시 부모창으로 값 전달 
+        // 현재는 필요없음
         function sendCheckValue(){
             // 중복체크 결과인 idCheck 값을 전달한다.
             opener.document.hosFrm.idDuplication.value ="idCheck";
@@ -124,14 +122,34 @@
                 opener.chkForm = null;
                 self.close();
             }    
-        }    
+        }   */
+        
+        
    </script>
     
 </head>
-<body onload="pIdValue()">
-<div  id="wrap">
-    <br>
-    <b><font size="4" color="gray">아이디 중복체크</font></b>
+<body >
+<div  id="wrap" align="center">
+
+<c:choose>
+         <c:when test="${idChk == true }">
+         <script>
+         alert('${sic_id}는 사용할 수 있는 아이디입니다.');
+         openFormClose(1);
+         
+         </script>
+         </c:when>
+         <c:otherwise>
+         <script>
+         alert('${sic_id}는 이미 사용중인 아이디입니다.');
+        openFormClose(0);
+         
+         </script>
+         </c:otherwise>
+      </c:choose>
+
+
+   <!-- <b><font size="4" color="gray">아이디 중복체크</font></b>
     <hr size="1" width="460">
     <br>
     <div id="chk">
@@ -143,16 +161,12 @@
         <br>
         <input id="cancelBtn" type="button" value="취소" onclick="window.close()"><br>
         <input id="useBtn" type="button" value="사용하기" onclick="sendCheckValue()">
-    </div>
+    </div> -->
+    
 </div>    
 
 
-<!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+
 </body>
 </html>
 

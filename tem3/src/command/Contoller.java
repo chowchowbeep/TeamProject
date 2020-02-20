@@ -67,6 +67,8 @@ import cmd.SSickDocuListCMD;
 import cmd.SSickHealModifyCMD;
 import cmd.SSickMediaListCMD;
 import cmd.SSickMemModifyCMD;
+import cmd.SSickSignupActionCMD;
+import cmd.SSickSignupCMD;
 import cmd.SSickUploadCMD;
 import cmd.SSickWjqtnCreateCMD;
 import cmd.SSickWjqtnwmdCMD;
@@ -116,6 +118,8 @@ public class Contoller extends HttpServlet {
 	//	cont.put("/HhosSignup.do", new HosSignupCMD());
 		cont.put("/HHospitalSignupAction.do", new HHospitalSignupActionCMD()); //병원회원용 회원가입 페이지 로 이동
 		cont.put("/HHospitalSignup.do", new HHospitalSignupCMD()); //병원회원 가입 DB처리
+		cont.put("/HHospitalMemberIdCheckAction.do", new HHospitalMemberIdCheckActionCMD());  //(병원)ID 중복검사 페이지로 이동
+		cont.put("/HHospitalMemberBizNoCheckAction.do", new HHospitalMemberBizNoCheckActionCMD());  //(병원)사업자번호 중복검사 페이지로 이동
 	//	cont.put("/HHospitalMain.do", new HHospitalMainCMD()); //병원회원 메인페이지 로 이동
 	//	cont.put("/Hpopup.do", new HpopupCMD()); //알림 팝업 페이지 로이동
 		cont.put("/HMediAll.do", new HMediAllCMD()); //(전체)진료신청 현황 리스트 페이지 로 이동
@@ -140,7 +144,9 @@ public class Contoller extends HttpServlet {
 		 
 		
 		//일반회원관련 페이지
-	//	cont.put("/S.do", new CMD()); //S1 일반회원 회원가입 페이지 로 이동 
+		cont.put("/SSickSignupAction.do", new SSickSignupActionCMD()); //S1 일반회원 회원가입 페이지 로 이동 
+		cont.put("/SSickSignup.do", new SSickSignupCMD()); //일반회원 회원가입 DB처리
+		//cont.put("/SSickMemberIdCheckAction.do", new SSickMemberIdCheckActionCMD());  //(일반회원)ID 중복검사 페이지로 이동
 		cont.put("/SSickMain.do", new SickMainCMD()); 		//S2일반회원 메인페이지로 이동
 		cont.put("/SSickMemModify.do", new SSickMemModifyCMD()); //S3 회원정보 수정 페이지
 		cont.put("/SSickWjqtnwmd.do", new SSickWjqtnwmdCMD()); //S4 접수증 페이지(QR)
