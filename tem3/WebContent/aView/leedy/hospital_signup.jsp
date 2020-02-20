@@ -70,7 +70,7 @@
 		if ($("#biz_time_2").val == '') {
 			alert("마감 시간을 선택하세요");
 			return false;
-		} ㅕ
+		} 
 		return true;
 	}
 
@@ -94,9 +94,15 @@
 	}
 
 	function bizNoChk() {
-		window.name = "parentForm";
-		window.open("bizNoChkForm.jsp", "chkForm",
-				"width=500, height=300 resizable=no, scrollbars=no");
+		
+		var biz = hosFrm.hos_bizno.value;
+		if(biz == ""){
+			alert("사업자 번호를 입력 후 확인하세요.");
+			hosFrm.hos_bizno.focus();
+		} else {
+			window.open("HHospitalMemberBizNoCheckAction.do?hos_bizno="+biz, "chkBizForm",
+			"width=500, height=300 resizable=no, scrollbars=no");
+		}
 
 	}
 
@@ -170,7 +176,7 @@
 					<div class="input-group mb-3">
 						<input type="text" class="form-control" name="hos_bizno"
 							id="hos_bizno" onkeydown="inputBizNoChk()" placeholder="사업자번호">
-						<input type="button" value="중복확인" onclick="bizNoChk()"> <input
+						<input type="button" value="중복확인" id="bizChk" name="bizChk" onclick="bizNoChk()"> <input
 							type="hidden" name="bizNoDuplication" id="bizNoDuplication"
 							value="bizNoUnchk">
 						<div class="input-group-append">

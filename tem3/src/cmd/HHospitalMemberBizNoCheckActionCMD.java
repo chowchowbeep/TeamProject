@@ -1,4 +1,4 @@
-package leedy.cmd;
+package cmd;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import command.Command;
 import leedy.hosSignupDAO;
 
-public class HHospitalMemberIdCheckActionCMD implements Command {
+public class HHospitalMemberBizNoCheckActionCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
@@ -17,13 +17,13 @@ public class HHospitalMemberIdCheckActionCMD implements Command {
 		
 		hosSignupDAO dao = new hosSignupDAO();
 		
-		String id = request.getParameter("hos_id");
-		boolean b = dao.isIdChk(id);
+		String biz = request.getParameter("hos_bizno");
+		boolean b = dao.isBizChk(biz);
 		
+		request.setAttribute("bizChk", b);
+		request.setAttribute("hos_bizno", biz);
 		
-		request.setAttribute("idChk", b);
-		request.setAttribute("hos_id", id);
-		return "aView/leedy/idChkForm.jsp";
+		return "aView/leedy/bizNoChkForm.jsp";
 	}
 
 }
