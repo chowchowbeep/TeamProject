@@ -93,7 +93,10 @@
 
 
 
-
+							<input type="hidden" id="rqstNo" name="rqstNo" value="${rqstNo} }">
+							<!-- 선택한 진료신청항목의 진료신청번호를 전송_ 리뷰등록, 재접수할 때 값 넘겨야 함 -->
+							<input type="hidden" id="id" name="id" value="${id }">
+							<!-- 로그인중인 아이디 -->
 
 						<!-- 신청폼푸터 // 제출 및 기타 버튼 위치-->
 						<div class="card-footer">

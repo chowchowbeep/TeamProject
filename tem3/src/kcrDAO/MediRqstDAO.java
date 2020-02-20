@@ -8,7 +8,7 @@ import java.util.List;
 import kty.DAO;
 import lastdto.mediRqstDTO;
 
-public class XXMediRqstDAO extends DAO {
+public class MediRqstDAO extends DAO {
 
 	// 전체 리스트
 	public List<mediRqstDTO> selectAll(String id, String type) {

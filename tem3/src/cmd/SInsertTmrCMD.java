@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import kcrDAO.XXMediRqstDAO;
+import kcrDAO.MediRqstDAO;
 import lastdto.mediRqstDTO;
 
 public class SInsertTmrCMD implements Command {
@@ -17,10 +17,12 @@ public class SInsertTmrCMD implements Command {
 			throws ServletException, IOException {
 
 		int dcNo = 0;
-
+		//DAO DTO수정필요
+		
+		
 		// 접수신청 입력처리 로직
-
-		XXMediRqstDAO dao = new XXMediRqstDAO();
+		
+		MediRqstDAO dao = new MediRqstDAO();
 		mediRqstDTO dto = new mediRqstDTO();
 
 		// 나중에 세션값 받아오는 것으로 수정할 것

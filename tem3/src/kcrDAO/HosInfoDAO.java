@@ -7,7 +7,7 @@ import java.util.List;
 import kty.DAO;
 import lastdto.hosMemberDTO;
 
-public class XXHosInfoDAO extends DAO {
+public class HosInfoDAO extends DAO {
 
 	// 전체리스트
 	public List<hosMemberDTO> selectAll(String id, String type) {

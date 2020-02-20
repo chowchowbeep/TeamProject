@@ -103,7 +103,10 @@
 							</div>
 						</div>
 
-
+							<input type="hidden" id="rqstNo" name="rqstNo" value="${rqstNo} }">
+							<!-- 선택한 진료신청항목의 진료신청번호를 전송_ 취소할 때 값 넘겨야 함 -->
+							<input type="hidden" id="id" name="id" value="${id }">
+							<!-- 로그인중인 아이디 -->
 
 
 						<div class="card-footer">
