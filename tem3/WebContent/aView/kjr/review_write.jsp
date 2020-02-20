@@ -25,6 +25,12 @@ $(function() {
 			document.reviewFrm.submit();	
 		}
 	};
+	
+	
+	function insertCheck(){
+		
+	}
+	
 });
 </script>
 <style>
