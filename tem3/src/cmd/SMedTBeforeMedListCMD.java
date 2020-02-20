@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import kcrDAO.XXHosInfoDAO;
+import kcrDAO.HosInfoDAO;
 import kcrDAO.MediRqListItemDAO;
-import kcrDAO.XXMediRqstDAO;
+import kcrDAO.MediRqstDAO;
 import lastdto.hosMemberDTO;
 import lastdto.mediRqListItemDTO;
 import lastdto.mediRqstDTO;

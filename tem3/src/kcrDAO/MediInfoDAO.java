@@ -7,7 +7,7 @@ import java.util.List;
 import kty.DAO;
 import lastdto.mediInfoDTO;
 
-public class XXMediInfoDAO extends DAO {
+public class MediInfoDAO extends DAO {
 
 	// 진료이력목록(진료완료한 목록)
 	public List<mediInfoDTO> selectDone(String id, String type) {
