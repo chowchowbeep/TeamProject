@@ -154,7 +154,7 @@ function inputIdUnChk() {
     
       </div>
 <hr>
-      <a href="../../aView/taeyoung/logintest.jsp" class="text-center">이미 아이디가 있으신가요?</a>
+      <a href="/tem3/aView/taeyoung/logintest.jsp" class="text-center">이미 아이디가 있으신가요?</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

@@ -123,7 +123,7 @@
 				</p>
 				<div>
 					<p class="mb-0">
-						<a href="../leedy/sick_signup.jsp" class="text-center">일반회원가입</a>&nbsp;&nbsp;
+						<a href="<%=request.getContextPath() %>/SSickSignupAction.do" class="text-center">일반회원가입</a>&nbsp;&nbsp;
 						<a href="<%=request.getContextPath() %>/HHospitalSignupAction.do" class="text-center">병원회원가입</a>
 					</p>
 				</div>

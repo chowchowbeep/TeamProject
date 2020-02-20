@@ -67,6 +67,7 @@ import cmd.SSickDocuListCMD;
 import cmd.SSickHealModifyCMD;
 import cmd.SSickMediaListCMD;
 import cmd.SSickMemModifyCMD;
+import cmd.SSickMemberIdCheckActionCMD;
 import cmd.SSickSignupActionCMD;
 import cmd.SSickSignupCMD;
 import cmd.SSickUploadCMD;
@@ -146,7 +147,7 @@ public class Contoller extends HttpServlet {
 		//일반회원관련 페이지
 		cont.put("/SSickSignupAction.do", new SSickSignupActionCMD()); //S1 일반회원 회원가입 페이지 로 이동 
 		cont.put("/SSickSignup.do", new SSickSignupCMD()); //일반회원 회원가입 DB처리
-		//cont.put("/SSickMemberIdCheckAction.do", new SSickMemberIdCheckActionCMD());  //(일반회원)ID 중복검사 페이지로 이동
+		cont.put("/SSickMemberIdCheckAction.do", new SSickMemberIdCheckActionCMD());  //(일반회원)ID 중복검사 페이지로 이동
 		cont.put("/SSickMain.do", new SickMainCMD()); 		//S2일반회원 메인페이지로 이동
 		cont.put("/SSickMemModify.do", new SSickMemModifyCMD()); //S3 회원정보 수정 페이지
 		cont.put("/SSickWjqtnwmd.do", new SSickWjqtnwmdCMD()); //S4 접수증 페이지(QR)
