@@ -16,6 +16,16 @@ public class SReviewMylistCMD implements Command {
 		//S18 내가 쓴 리뷰 리스트 페이지
 		String path ="aView/kjr/review_mylist.jsp"; //
 		
+		//insert작업 
+		String title = request.getParameter("title");
+		String contents = request.getParameter("contents");
+		String star = request.getParameter("star");
+		
+		System.out.println("title"+title);
+		System.out.println("contents"+contents);
+		System.out.println("star"+star);
+		
+	
 		return path;
 	}
 
