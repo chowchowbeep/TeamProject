@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import kcrDAO.XXMediRqstDAO;
+import kcrDAO.MediRqstDAO;
 import lastdto.mediRqstDTO;
 
 public class SInsertResCMD implements Command {
@@ -20,7 +20,7 @@ public class SInsertResCMD implements Command {
 		
 		int dcNo = 0;
 
-		XXMediRqstDAO dao = new XXMediRqstDAO();
+		MediRqstDAO dao = new MediRqstDAO();
 		mediRqstDTO dto  = new mediRqstDTO();
 
 		// 나중에 세션값 받아오는 것으로 수정할 것
@@ -31,7 +31,7 @@ public class SInsertResCMD implements Command {
 
 		
 		// 기록물 선택하지 않으면 데이터가 0으로 넘어가고, 해당 값은 null이 되게 할 것임
-		// NumberFormatException처리
+		// NumberFormatException처리 //수정필요___ 파라미터 값이 안 넘어가서일수도 있어여
 		try {
 			if (request.getParameter("DCRY_NO") != null || request.getParameter("DCRY_NO") != "") {
 				dcNo = Integer.parseInt(request.getParameter("DCRY_NO"));

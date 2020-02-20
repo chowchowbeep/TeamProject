@@ -41,18 +41,6 @@
 					<div class="col-md-12">
 
 
-
-						<!--
-				1. 선택한 병원, 의사, 진료과목 정보 출력 
-				c:if
-				c:choose사용
-				<c:forEach var="dto" items="${list }">
-				다수의 dto필드값 가져올 때 // 의사 여러명인 경우
-				</c:forEach>
-			 -->
-
-
-
 						<!-- 1. 선택한 병원정보 출력  -->
 						<div class="card card-secondary">
 							<div class="card-header">

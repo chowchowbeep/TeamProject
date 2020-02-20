@@ -1,3 +1,5 @@
+<%@page import="java.sql.Date"%>
+<%@page import="lastdto.mediRqdetailDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -18,7 +20,7 @@
 				<div class="row mb-2">
 					<div class="col-sm-6">
 						<!-- 넘어온 값을 이용하여 접수내역/예약내역으로 구분하여 출력 -->
-						<h1>진료신청현황</h1>
+						<h1>진료신청현황_____${rqstNo}</h1>
 					</div>
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right">
@@ -48,89 +50,44 @@
 
 								<div class="row">
 									<div class="col-sm-6">
-									
-											
-		<div>${list.hosName}</div>
-		<div>${hosId}</div>
-									
-									
-									
-										<div class="form-group">
-											<label for="hosName">병원명</label> <input type="text"
-												id="hosName" name="hosName" class="form-control"
-												value="${dto.artr_name}병원명" disabled> <br> <label
-												for="hosAddr">주소</label>
-											<textarea id="hosAddr" name="hosAddr" class="form-control"
-												disabled>${dto.artr_name}주소주소</textarea>
-											<br> <label for="hosTel">연락처</label> <input type="text"
-												id="hosTel" name="hosTel" class="form-control"
-												value="${dto.artr_name}연락처" disabled> <br> <label
-												for="DrInfo">의사 및 진료과목</label> <input type="text"
-												id="DrInfo" name="DrInfo" class="form-control"
-												value="${dto.artr_name}의사이름 진료과목" disabled> <br>
-											<label for="toDr">의사선생님에게 한 마디</label>
-											<textarea id="toDr" name="toDr" class="form-control" disabled></textarea>
-											<br>
+										<div>병원명:${dto.hosName }</div>
+										<div>주소:${dto.hosAddr }</div>
+										<div>연락처:${dto.hosPhone }</div>
+										<div>담당의사:${dto.artr_name }</div>
+										<div>진료과목:${dto.artr_sub }</div>
+										<div>의사선생님께 한 마디:${dto.msg }</div>
 
+										<!-- 접수일 경우에만 표시 -->
+										<c:if test="${dto.rqstTy == 'D001'}">
+											<div>도착예상시간:${dto.ifTime }</div>
+											<div>예상대기인원수:</div>
+											<!-- 크게 표시 -->
+										</c:if>
 
-											<!-- 예약일 경우에만 표시 -->
-											<label for="medDay">진료날짜</label> <input type="text"
-												id="medDay" name="medDay" class="form-control" value="진료날짜"
-												disabled> <br> <label for="medTime">진료시간</label>
-											<input type="text" id="medTime" name="medTime"
-												class="form-control" value="진료시간" disabled>
+										<!-- 예약일 경우에만 표시 -->
+										<c:if test="${dto.rqstTy == 'D002'}">
 
+											<%
+												mediRqdetailDTO dto = (mediRqdetailDTO) request.getAttribute("dto");
+													Date resDate = dto.getResDttm();
+													Date resTime = dto.getResDttm();
+											%>
 
-
-											<!-- 접수일 경우에만 표시 -->
-											<label for="medTime">도착예상시간</label> <input type="text"
-												id="medTime" name="medTime" class="form-control"
-												value="도착예상시간" disabled> <br> <label for="toDr">의사선생님에게
-												한 마디</label>
-											<textarea id="toDr" name="toDr" class="form-control" disabled></textarea>
-											<br>
-											<!-- 	3. 예상 대기인원수 출력 (프로시저 이용) -->
-											<label for="waiting">예상대기인원수</label> <input type="text"
-												id="waiting" name="waiting" class="form-control"
-												value="예상대기인원수  n명" disabled>
-
-										</div>
+											<div>
+												진료날짜:<%=resDate%>
+											</div>
+											<div>
+												진료시간:<%=resTime%>
+											</div>
+										</c:if>
 
 
 									</div>
+
+
 								</div>
 							</div>
-
-
-
-
-
-							<!-- 신청폼푸터 // 제출 및 기타 버튼 위치
-						2. 예약/접수취소 버튼 -->
-
-							<div class="card-footer">
-								<button onclick="toBeforeMedList()" class="btn btn-secondary">확인</button>
-								<button onclick="cancelRes()"
-									class="btn btn-secondary float-right">진료신청취소</button>
-							</div>
-
-
 						</div>
-
-						<!-- 
-						 	이전: 진료현황 리스트 페이지
-						 	다음: "병원정보 상세조회 페이지,진료현황 리스트 페이지(예약취소버튼 누를 경우)"
-						 -->
-
-
-					</div>
-					<!--/.col (left) -->
-
-
-
-
-					<!-- right column -->
-					<div class="col-md-12">
 
 						<div class="card card-secondary">
 							<div class="card-header">
@@ -155,17 +112,40 @@
 									</div>
 								</div>
 							</div>
+							<input type="hidden" id="rqstNo" name="rqstNo"
+								value="${rqstNo} }">
+							<!-- 선택한 진료신청항목의 진료신청번호를 전송_ 취소할 때 값 넘겨야 함 -->
+							<input type="hidden" id="id" name="id" value="${id }">
+							<!-- 로그인중인 아이디 -->
+
+
+							<!-- 신청폼푸터 //2. 예약/접수취소 버튼 -->
+
+							<div class="card-footer">
+								<button onclick="toBeforeMedList()" class="btn btn-secondary">확인</button>
+								<button onclick="cancelRes()"
+									class="btn btn-secondary float-right">진료신청취소</button>
+								<!-- js파일 참고_ 각각 SMedABeforeMedList.do, SCancelRq.do 요청 -->
+							</div>
 						</div>
-
-
 					</div>
-					<!--/.col (right) -->
+
+
 				</div>
-				<!-- /.row -->
+				<!--/.col (left) -->
+
+
+
+
+				<!-- right column -->
+				<div class="col-md-12"></div>
+				<!--/.col (right) -->
 			</div>
-			<!-- /.container-fluid -->
-		</section>
-		<!-- /.content -->
+			<!-- /.row -->
+	</div>
+	<!-- /.container-fluid -->
+	</section>
+	<!-- /.content -->
 	</div>
 	<!-- /.content-wrapper -->
 </form>

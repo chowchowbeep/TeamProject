@@ -43,7 +43,7 @@ public class mediRqstDTO {
 		this.hosId = hosId;
 	}
 	
-	
+
 	public int getRqstNo() {
 		return rqstNo;
 	}

@@ -25,7 +25,7 @@ public class mediRqdetailDTO {
 	private String artr_name; //의사이름
 	private String artr_sub; //진료과목
 	
-	//medi_info
+	//medi_info 
 	private String mcttStt; // 진료상태
 
 	public mediRqdetailDTO() {

@@ -10,7 +10,7 @@ import lastdto.mediRqListItemDTO;
 
 public class MediRqListItemDAO extends DAO {
 
-	// 전체 리스트
+	// 진료신청 전체 리스트
 	public List<mediRqListItemDTO> selectAll(String id, String type) {
 		List<mediRqListItemDTO> list = new ArrayList<>();
 		String sql = null;

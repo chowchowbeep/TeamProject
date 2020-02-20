@@ -1,26 +1,71 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Registration Page</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<%@ include file="/layout/sick_head.jsp" %>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+<script>
+function checkValue() {
+	var frm = document.sickFrm;
+	
+	//회원가입 화면의 입력값들을 검사
+	if (!frm.sic_id.value) {
+		alert("아이디를 입력하세요.");
+		return false;
+	}
+
+	if (frm.idDuplication.value != "idChk") {
+		alert("아이디 중복체크 해주세요.");
+		return false;
+	}
+
+	if (!frm.sic_pw.value) {
+		alert("비밀번호를 입력하세요.");
+		return false;
+	}
+
+	if (frm.sic_pw.value != frm.sic_pw_re.value) {
+		alert("비밀번호를 동일하게 입력하세요.");
+		return false;
+	}
+
+	if (!frm.sic_name.value) {
+		alert("이름을 입력하세요.");
+		return false;
+	}
+
+
+	if (!frm.sic_phone.value) {
+		alert("전화번호를 입력하세요.");
+		return false;
+	}
+	return true;
+}
+
+function idCheck(){
+	var id = sickFrm.sic_id.value;
+	if(id == ""){
+		alert("아이디값을 입력 후 확인하세요.");
+		sickFrm.sic_id.focus();
+	} else {
+		window.open("SSickMemberIdCheckAction.do?sic_id="+id, "sickChkForm",
+		"width=500, height=300 resizable=no, scrollbars=no");
+	}
+	return true;
+}
+
+function inputIdChk() {
+	document.sickFrm.idDuplication.value = "idChk";
+}
+
+function inputIdUnChk() {
+	document.sickFrm.idDuplication.value = "idUnchk";
+}
+</script>
+
+
+
 </head>
 <body class="hold-transition register-page">
+<iframe width=0 height=0 name="sickChkForm" style="display: none;"></iframe>
 <br><br><br>
 <div class="register-box">
 
@@ -32,61 +77,59 @@
     <div class="card-body register-card-body">
      
 
-      <form name="frm" action="../../aView/taeyoung/all_login.jsp" method="post">
+      <form name="sickFrm" action="SSickSignup.do" method="post"
+      onsubmit="return checkValue()">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" id="f1" placeholder="아이디">
+          <input type="text" class="form-control" name="sic_id" id="sic_id" 
+          onkeydown="inputIdUnChk()" placeholder="아이디">
+          <input type="button" id="idChk" name="idChk" value="중복확인" 
+          onclick="idCheck()">
+          <input type="hidden"name="idDuplication" id="idDuplication" value="idUnchk"> 
           <div class="input-group-append">
             <div class="input-group-text">
             </div>
           </div>
         </div>
           <div class="input-group mb-3">
-          <input type="password" class="form-control" id="f2" placeholder="비밀번호">
+          <input type="password" class="form-control" 
+          id="sic_pw" name="sic_pw" placeholder="비밀번호">
           <div class="input-group-append">
             <div class="input-group-text">
             </div>
           </div>
         </div>
          <div class="input-group mb-3">
-          <input type="password" class="form-control" id="f3" placeholder="비밀번호 확인">
+          <input type="password" class="form-control" 
+          id="sic_pw_re" name="sic_pw_re" placeholder="비밀번호 확인">
           <div class="input-group-append">
             <div class="input-group-text">
             </div>
           </div>
         </div>
           <div class="input-group mb-3">
-          <input type="text" class="form-control"  id="f4" placeholder="이름">
-          <div class="input-group-append">
-            <div class="input-group-text">
-            </div>
-          </div>
-        </div>
-          <div class="input-group mb-3">
-          <input type="text" class="form-control" id="f5"  placeholder="생년월일">
+          <input type="text" class="form-control" 
+           id="sic_name" name="sic_name" placeholder="이름">
           <div class="input-group-append">
             <div class="input-group-text">
             </div>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" id="f6" placeholder="연락처">
+          <input type="text" class="form-control" 
+          id="sic_phone_1" name="sic_phone_1" placeholder="전화번호">-
+          <input type="text" class="form-control" 
+          id="sic_phone_2" name="sic_phone_2" placeholder="전화번호">-
+          <input type="text" class="form-control" 
+          id="sic_phone_3" name="sic_phone_3" placeholder="전화번호">
           <div class="input-group-append">
             <div class="input-group-text">
             </div>
           </div>
         </div>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" id="f7" placeholder="전화번호">
-          <div class="input-group-append">
-            <div class="input-group-text">
-            </div>
-          </div>
-        </div>
-       
         <div class="row">
           <div class="">
             <div class="icheck-primary">
-              <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+              <input type="checkbox" id="agreeTerms" name="agreeTerms" value="agree">
               <label for="agreeTerms">
                 <a href="#">이용약관</a> 및  <a href="#">개인정보취급방침</a>에 동의합니다.
               </label>
@@ -115,7 +158,7 @@
     
       </div>
 <hr>
-      <a href="../../aView/taeyoung/all_login.jsp" class="text-center">이미 아이디가 있으신가요?</a>
+      <a href="/tem3/aView/taeyoung/logintest.jsp" class="text-center">이미 아이디가 있으신가요?</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->
