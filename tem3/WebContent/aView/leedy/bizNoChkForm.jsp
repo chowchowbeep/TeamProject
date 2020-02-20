@@ -57,9 +57,11 @@
 <script type="text/javascript">
 	function openFormClose(n) {
 		if (n == 1) {
-			opener.document.hosFrm.hos_bizno.value = "checked"
+			opener.inputBizNoChk();
+			opener.document.hosFrm.hos_bizno.value = "${hos_bizno}"; //받은 사업자 번호를 다시 넘겨줌
 			opener.hosFrm.hos_phone.focus();
 		} else {
+			opener.inputBizNoUnChk();
 			opener.hosFrm.hos_bizno.focus();
 		}
 		window.close();
@@ -67,28 +69,28 @@
 </script>
 
 </head>
+
+
 <body>
-	<div align="center">
-		<c:choose>
-			<c:when test="${bizChk == true }">
-				<script>
-					alert('${hos_bizno}는 사용할 수 있는 사업자 번호입니다.')
-					location.href = 'openFormClose(1)'
-					window.close();
-				</script>
-			</c:when>
 
-			<c:otherwise>
-				<script>	
-				alert('${hos_bizno}는 이미 사용중인 사업자 번호입니다.')
-				location.href = 'openFormClose(0)'
-				window.close();
-				</script>
-			</c:otherwise>
-		</c:choose>
-
-	</div>
-
+  <div align="center">
+      <c:choose>
+         <c:when test="${bizChk == true }">
+         <script>
+         alert('${hos_bizno}는 사용할 수 있는 사업자 번호입니다.');
+         openFormClose(1);
+         
+         </script>
+         </c:when>
+         <c:otherwise>
+         <script>
+         alert('${hos_bizno}는 이미 사용중인 사업자 번호입니다.');
+        openFormClose(0);
+         
+         </script>
+         </c:otherwise>
+      </c:choose>
+   </div>
 
 
 </body>

@@ -5,11 +5,18 @@ import java.util.ArrayList;
 
 import kty.DAO;
 import lastdto.hosMemberDTO;
+import lastdto.sListCodeDTO;
 
 public class SearchDAO extends DAO {
 	String sql;
-	public ArrayList<hosMemberDTO> select(String[] cateCode, String areaCode){
+	public ArrayList<hosMemberDTO> select(sListCodeDTO cdto){
 		ArrayList<hosMemberDTO> list = new ArrayList<>();
+		String[] cateCode = cdto.getCateCode();
+		String areaCode = cdto.getAreaCode();
+		String orderby = cdto.getOderby();
+		String diam= cdto.getDiam();
+		String filter= cdto.getFilter();
+		
 		System.out.println("?????????????????????????????????????????????????????");
 		sql="select * from hos_member where hos_id in"+
 		    "(select hos_id from search " + 
@@ -32,7 +39,12 @@ public class SearchDAO extends DAO {
 					sql +="?,";
 				};
 			}
-			sql+=")";
+			if(areaCode!=null && !areaCode.isEmpty()){
+				sql+=")";
+			}else {
+				sql+="))";
+			}
+			
 		}
 		
 		//지역검색
@@ -40,9 +52,9 @@ public class SearchDAO extends DAO {
 			sql += "and hos_id in (select HOS_ID from search " + 
 			"where code = ? ))";
 		}
-		System.out.println(sql);
-		System.out.println("len?"+len);
-		
+		if(orderby!=null) {
+			sql +="order by ";
+		}
 		try {
 			int cnt=1;
 			pstmt = conn.prepareStatement(sql);
@@ -52,7 +64,6 @@ public class SearchDAO extends DAO {
 			if(areaCode!=null && !areaCode.isEmpty()){
 				pstmt.setString(cnt++,areaCode);
 			}
-			System.out.println("쿼리리리리"+sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {	
 				hosMemberDTO dto = new hosMemberDTO();

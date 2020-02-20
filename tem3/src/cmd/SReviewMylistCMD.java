@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
+import kjr.ReviewDAO;
+import lastdto.reviewDTO;
 
 public class SReviewMylistCMD implements Command {
 
@@ -16,6 +18,9 @@ public class SReviewMylistCMD implements Command {
 		//S18 내가 쓴 리뷰 리스트 페이지
 		String path ="aView/kjr/review_mylist.jsp"; //
 		
+		
+		
+	
 		return path;
 	}
 

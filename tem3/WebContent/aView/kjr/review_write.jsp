@@ -11,7 +11,27 @@
 <%@ include file="../../layout/sick_head.jsp" %>
 <%@ include file="../../layout/sick_menu.jsp" %>
 <script>
-
+$(function() { 
+	$("#inpBtn").bind("click",insertGo); //병원명으로 상세리스트로 검색
+	
+	function insertGo(){
+		
+		if($("#contents").val()==''){
+			alert("내용을 입력하세요");
+			return false;
+		}else{
+			document.reviewFrm.action="SReviewMylist.do"
+			document.reviewFrm.method="post";
+			document.reviewFrm.submit();	
+		}
+	};
+	
+	
+	function insertCheck(){
+		
+	}
+	
+});
 </script>
 <style>
 	.mar{
@@ -24,35 +44,33 @@
 
 	<div class="container">
 	<p class="text-center mar"> 병원 리뷰 작성 </p>
-	
 		<div class="card mb-8">
-			<form style="padding:10px">
-				<div class="form-group">
-					<label for="hospital_name">제목 </label><input type="text"
-						class="form-control" id="title" aria-describedby="emailHelp">
-				</div>
+			<form style="padding:10px" id="reviewFrm" name="reviewFrm" >
 				<div class="form-group">
 					<label for="hospital_name">내용</label>
-					<textarea class="form-control" id="contents" rows="10"></textarea>
+					<textarea class="form-control" id="contents" name="contents" rows="10"></textarea>
 				</div>
 
 				<div class="form-group">
 					<label for="hospital_name">별점</label>
 					<div>
-						<select class="form-control">
-							<option>★☆☆☆☆</option>
-							<option>★★☆☆☆</option>
-							<option>★★★☆☆</option>
-							<option>★★★★☆</option>
-							<option>★★★★★</option>
+						<select class="form-control" name="star" id="star">
+							<option value="0">☆☆☆☆☆</option>
+							<option value="1">★☆☆☆☆</option>
+							<option value="2">★★☆☆☆</option>
+							<option value="3">★★★☆☆</option>
+							<option value="4">★★★★☆</option>
+							<option value="5">★★★★★</option>
 						</select>
 					</div>
 				</div>
-
-				<button type="submit" class="btn btn-primary btn-lg btn-block">수정완료</button>
+				<input id="inpBtn" type="button"value="수정완료" class="btn btn-primary btn-lg btn-block">
 			</form>
 		</div>
-
+	
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+ 		 <span aria-hidden="true">&times;</span>
+	</button>
 	</div>
 </body>
 </html>

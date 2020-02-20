@@ -24,7 +24,7 @@ $(function() {
 		document.nameSearchFrm.submit();
 	};
 
-}
+});
 
 //리스트 클릭 시 상세페이지로 이동시킬지 버튼으로 이동시킬지? 클릭이벤트발생필요 
 		
