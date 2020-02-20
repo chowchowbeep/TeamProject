@@ -68,5 +68,52 @@ public class hosSignupDAO extends DAO {
 
 		return n;
 	}
+	
+	
+	//id 중복체크
+	public boolean isIdChk(String id) {
+		
+		boolean b = true;
+		String sql = "select hos_id from hos_member where hos_id=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				b=false;
+			}
+			
+			} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return b;
+		
+	}
+	
+	//사업자번호 중복체크
+	public boolean isBizChk(String biz) {
+		
+	boolean b = true;
+	String sql = "select hos_bizno from hos_member where hos_bizno=?";
+	
+	try {
+		pstmt=conn.prepareStatement(sql);
+		pstmt.setString(1, biz);
+		rs = pstmt.executeQuery();
+		if(rs.next()) {
+			b=false;
+		}
+		
+	} catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		close();
+	}
+
+	return b;
+	}
 
 }

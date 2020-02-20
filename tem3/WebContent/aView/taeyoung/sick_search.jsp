@@ -2,11 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="/layout/hos_head.jsp"%>
-  <script>
- 	$(function () {
-	$('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' }) 	
- 	})
-	</script>
 	
 <%@ include file="/layout/hos_menu.jsp"%>
 
@@ -48,16 +43,8 @@
                              <!--  c:forEach items="${list}" var="dto">-->
                 
                 <div class="card-body" style="height:300px; margin-left:20px;">
-                 <div>
-                  <label>진료타입</label>
-                  <div>
-                 	<input type="radio" name="wjqtn" value="당일접수"checked="checked">당일접수&nbsp;&nbsp;
-					<input type="radio" name="reserve">예약 &nbsp;&nbsp;
-					<input type="radio" name="cancel"> 취소
-                  </div>
-					</div><br>
-                  <div>
-                  <label>상세정보</label>
+                  <div><br><br>
+                  <label>환자정보</label>
                  <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -69,16 +56,7 @@
                 </div>
                 <!-- /.form group -->
 
-                  <div class="form-group">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                    </div>
-                    <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask
-                    placeholder="생년월일">
-                  </div>
-                  <!-- /.input group -->
-                </div>
+                
                 <!-- /.form group -->
             <!-- phone mask -->
                 <div class="form-group">

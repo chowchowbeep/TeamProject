@@ -4,6 +4,8 @@
 
 <%@ include file="/layout/sick_head.jsp"%>
 <script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css">
 <%@ include file="/layout/sick_menu.jsp"%>
 
 <form id="frm" name="frm" method="post">
@@ -16,7 +18,7 @@
 				<div class="row mb-2">
 					<div class="col-sm-6">
 						<!-- 넘어온 값을 이용하여 접수내역/예약내역으로 구분하여 출력 -->
-						<h1>진료신청내역</h1>
+						<h1>진료신청현황</h1>
 					</div>
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right">
@@ -46,8 +48,14 @@
 
 								<div class="row">
 									<div class="col-sm-6">
+									
+											
+		<div>${list.hosName}</div>
+		<div>${hosId}</div>
+									
+									
+									
 										<div class="form-group">
-											<!--  -->
 											<label for="hosName">병원명</label> <input type="text"
 												id="hosName" name="hosName" class="form-control"
 												value="${dto.artr_name}병원명" disabled> <br> <label

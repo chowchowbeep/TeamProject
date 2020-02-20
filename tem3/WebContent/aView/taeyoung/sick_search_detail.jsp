@@ -8,7 +8,9 @@
 </style>
 <%@ include file="/layout/hos_menu.jsp"%>
 
-  <!-- Content Wrapper. Contains page content -->
+  <!-- Content Wrapper. Contains page content --> 
+  
+  <!-- trmInfoDTO: 환자상세정보 -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -45,9 +47,6 @@
                 <input type="text" class="profile-username text-center" style="border:none;" placeholder="고먐이">
 						</div>
                 <ul class="list-group list-group-unbordered mb-4">
-                  <li class="list-group-item">
-                    <b>진료타입</b><input type="text" class="float-right" placeholder="예약">
-                  </li>
                   <li class="list-group-item">
                     <b>생년월일</b> <input type="text" class="float-right" placeholder="20-01-01">
                   </li>

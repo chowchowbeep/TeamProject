@@ -7,22 +7,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
+import leedy.hosSignupDAO;
 
-public class SRqDetailCMD implements Command {
+public class HHospitalMemberIdCheckActionCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// S21 진료신청현황 상세/취소 페이지(접수/예약)
-
-		String hosId = request.getParameter("submitNo");
-
-		request.setAttribute("hosId", hosId);
-
-		String path = "aView/chorong/rq_detail.jsp";
-
-		return path;
-
+		
+		hosSignupDAO dao = new hosSignupDAO();
+		
+		String id = request.getParameter("hos_id");
+		boolean b = dao.isIdChk(id);
+		
+		
+		request.setAttribute("idChk", b);
+		request.setAttribute("hos_id", id);
+		return "aView/leedy/idChkForm.jsp";
 	}
 
 }

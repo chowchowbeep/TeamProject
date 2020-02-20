@@ -13,53 +13,21 @@
 			<!-- 왼쪽 메뉴아이콘 자리 -->
 			<!-- Left navbar links -->
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="javascript:history.back();"> 
-				<ion-icon name="arrow-back-outline"></ion-icon>
+				<li class="nav-item"><a class="nav-link"
+					href="javascript:history.back();"> <ion-icon
+							name="arrow-back-outline"></ion-icon>
 				</a></li>
 			</ul>
 
 
 			<form class="form-inline ml-5">
-				<div class="input-group input-group-sm" style="font-size: 30px;">
-					<!-- 타이틀을 중앙에 어떻게 둘까요? -->
-					SALLYEOJYO
-				</div>
+				<div class="input-group input-group-sm" style="font-size: 30px;">SALLYEOJYO</div>
 			</form>
 
 
 
 			<!-- Right navbar links -->
 			<ul class="navbar-nav ml-auto">
-				<!-- Notifications Dropdown Menu -->
-				<li class="nav-item dropdown"><a class="nav-link"
-					data-toggle="dropdown" href="#"> <i class="far fa-bell"></i> <span
-						class="badge badge-warning navbar-badge">15</span>
-				</a>
-					<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-						<span class="dropdown-item dropdown-header">15
-							Notifications</span>
-						<div class="dropdown-divider"></div>
-						<a href="#" class="dropdown-item"> <i
-							class="fas fa-envelope mr-2"></i> 4 new messages <span
-							class="float-right text-muted text-sm">3 mins</span>
-						</a>
-						<div class="dropdown-divider"></div>
-						<a href="#" class="dropdown-item"> <i
-							class="fas fa-users mr-2"></i> 8 friend requests <span
-							class="float-right text-muted text-sm">12 hours</span>
-						</a>
-						<div class="dropdown-divider"></div>
-						<a href="#" class="dropdown-item"> <i class="fas fa-file mr-2"></i>
-							3 new reports <span class="float-right text-muted text-sm">2
-								days</span>
-						</a>
-						<div class="dropdown-divider"></div>
-						<a href="#" class="dropdown-item dropdown-footer">See All
-							Notifications</a>
-					</div></li>
-
-
-
 				<li class="nav-item"><a class="nav-link" data-widget="pushmenu"
 					href="#"> <i class="fas fa-bars"></i>
 				</a></li>
@@ -73,14 +41,11 @@
 
 
 
-
-
-
 		<!-- 햄버거메뉴 내용 -->
 		<!-- Main Sidebar Container -->
 		<aside class="main-sidebar sidebar-dark-primary elevation-4">
 			<!-- Brand Logo -->
-			<a href="/tem3/index3.html" class="brand-link"> <img
+			<a href="#" class="brand-link"> <img
 				src="/tem3/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
 				class="brand-image img-circle elevation-3" style="opacity: .8">
 				<span class="brand-text font-weight-light">SALLYEOJYO</span>
@@ -96,7 +61,7 @@
 							style="width: 70%; height: 70%;"></a>
 						<div style="padding-top: 15px;">
 							<a href="#" class="d-block"><strong>김환자 님!</strong></a>
-							<div style="color:#C2C7D0">건강한 하루되세요</div>
+							<div style="color: #C2C7D0">건강한 하루되세요</div>
 						</div>
 					</div>
 				</div>
@@ -111,13 +76,16 @@
 						<li class="nav-header"><small><strong>일반회원
 									메뉴</strong></small></li>
 
-						<li class="nav-item"><a href="SMedBeforeMedList.do" class="nav-link">
+						<li class="nav-item"><a href="SMedABeforeMedList.do"
+							class="nav-link">
 								<p>진료신청현황</p>
 						</a></li>
-						<li class="nav-item"><a href="SMedDoneList.do" class="nav-link">
-								<p>진료이력</p>
+						<li class="nav-item"><a href="SMedADoneList.do"
+							class="nav-link">
+								<p>진료완료이력</p>
 						</a></li>
-						<li class="nav-item"><a href="SsearchMain.do" class="nav-link">
+						<li class="nav-item"><a href="SsearchMain.do"
+							class="nav-link">
 								<p>병원검색</p>
 						</a></li>
 						<li class="nav-item"><a href="SAroundMap.do" class="nav-link">
@@ -126,31 +94,32 @@
 						<li class="nav-item"><a href="#" class="nav-link">
 								<p>약정보조회_미정</p>
 						</a></li>
-						<li class="nav-item"><a href="SReviewMylist.do" class="nav-link">
+						<li class="nav-item"><a href="SReviewMylist.do"
+							class="nav-link">
 								<p>내가 쓴 리뷰</p>
 						</a></li>
 
-						<li class="nav-item"><a href="SSickWjqtnwmd.do" class="nav-link">
+						<li class="nav-item"><a href="SSickWjqtnwmd.do"
+							class="nav-link">
 								<p>접수증</p>
 						</a></li>
-						<li class="nav-item"><a href="SSickMediaList.do" class="nav-link">
+						<li class="nav-item"><a href="SSickMediaList.do"
+							class="nav-link">
 								<p>의료 기록물</p>
 						</a></li>
 					</ul>
 
-					
+
 
 					<c:if test="로그인상태가 아닌경우">
-						<div class="text-center" style="padding:20px;">
-							<a href="#로그인페이지" class="d-block"
-							><small><strong>로그인</strong></small></a>
+						<div class="text-center" style="padding: 20px;">
+							<a href="로그인페이지" class="d-block"><small><strong>로그인</strong></small></a>
 						</div>
 					</c:if>
-					<div class="text-center" style="padding:20px;">
-						<a href="로그아웃페이지" class="d-block">
-						<small><strong>로그아웃</strong></small></a>
+					<div class="text-center" style="padding: 20px;">
+						<a href="로그아웃페이지" class="d-block"> <small><strong>로그아웃</strong></small></a>
 					</div>
-					
+
 				</nav>
 				<!-- /.sidebar-menu -->
 

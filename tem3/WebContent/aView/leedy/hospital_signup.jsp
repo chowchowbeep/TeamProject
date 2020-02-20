@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/layout/hos_head.jsp"%>
+
+
 <script>
 
 
 	function checkValue() {
-		/* 			var form = document.hosFrm;
+					var form = document.hosFrm;
 		//회원가입 화면의 입력값들을 검사
 
 		if (!form.hos_id.value) {
@@ -68,29 +70,52 @@
 		if ($("#biz_time_2").val == '') {
 			alert("마감 시간을 선택하세요");
 			return false;
-		} */
+		} 
 		return true;
 	}
 
-	function idChk() {
-
-		window.name = "parentForm";
-		window.open("idChkForm.jsp", "chkForm",
-				"width=500, height=300 resizable=no, scrollbars=no");
+	function idCheck() {
+		
+		var id = hosFrm.hos_id.value;
+		if(id ==""){
+			alert("아이디값을 입력 후 확인하세요.");
+			hosFrm.hos_id.focus();
+		}
+		else {
+			//커맨드 만들기+컨트롤러 만들기 ../컨트롤러.do?hos_id="+id
+			window.open("HHospitalMemberIdCheckAction.do?hos_id="+id, "chkForm",
+					"width=500, height=300 resizable=no, scrollbars=no");
+		}
+		return true;
 	}
+		
 
 	function inputIdChk() {
+		document.hosFrm.idDuplication.value = "idChk";
+	}
+	
+	function inputIdUnChk() {
 		document.hosFrm.idDuplication.value = "idUnchk";
 	}
 
 	function bizNoChk() {
-		window.name = "parentForm";
-		window.open("bizNoChkForm.jsp", "chkForm",
-				"width=500, height=300 resizable=no, scrollbars=no");
-
+		
+		var biz = hosFrm.hos_bizno.value;
+		if(biz == ""){
+			alert("사업자 번호를 입력 후 확인하세요.");
+			hosFrm.hos_bizno.focus();
+		} else {
+			window.open("HHospitalMemberBizNoCheckAction.do?hos_bizno="+biz, "chkBizForm",
+			"width=500, height=300 resizable=no, scrollbars=no");
+		}
+		return true;
 	}
 
 	function inputBizNoChk() {
+		document.hosFrm.bizNoDuplication.value = "bizNoChk";
+	}
+	
+	function inputBizNoUnChk() {
 		document.hosFrm.bizNoDuplication.value = "bizNoUnchk";
 	}
 </script>
@@ -102,7 +127,11 @@
 
 
 </head>
+<!-- 새창 안 띄우고 alert로 중복확인 메세지 띄우도록 -->
+
+
 <body class="hold-transition register-page">
+<iframe width=0 height=0 name="chkForm" style="display: none;"></iframe>
 	<br>
 	<div class="register-box">
 		<div class="register-logo">
@@ -113,14 +142,14 @@
 			<div class="card-body register-card-body">
 
 
-				<form name="hosFrm" action="HHospitalSignup.do"
-					method="post" onsubmit="return checkValue()">
+				<form name="hosFrm" action="HHospitalSignup.do" method="post"
+					onsubmit="return checkValue()">
 					<div class="input-group mb-3">
 						<input type="text" class="form-control" name="hos_id" id="hos_id"
-							onkeydown="inputIdChk()" placeholder="아이디"> <input
-							type="button" value="중복확인" onclick="idChk()"> <input
-							type="hidden" name="idDuplication" id="idDuplication"
-							value="idUnchk">
+							onkeydown="inputIdUnChk()" placeholder="아이디"> 
+							<input type="button" id="idChk" name="idChk" value="중복확인"
+							onclick="idCheck()"> 
+							<input type="hidden"name="idDuplication" id="idDuplication" value="idUnchk"> 
 						<div class="input-group-append">
 							<div class="input-group-text"></div>
 						</div>
@@ -155,8 +184,8 @@
 					</div>
 					<div class="input-group mb-3">
 						<input type="text" class="form-control" name="hos_bizno"
-							id="hos_bizno" onkeydown="inputBizNoChk()" placeholder="사업자번호">
-						<input type="button" value="중복확인" onclick="bizNoChk()"> <input
+							id="hos_bizno" onkeydown="inputBizNoUnChk()" placeholder="사업자번호">
+						<input type="button" value="중복확인" id="bizChk" name="bizChk" onclick="bizNoChk()"> <input
 							type="hidden" name="bizNoDuplication" id="bizNoDuplication"
 							value="bizNoUnchk">
 						<div class="input-group-append">
@@ -273,11 +302,6 @@
 	</div>
 	<!-- /.register-box -->
 
-	<!-- jQuery -->
-	<script src="../../plugins/jquery/jquery.min.js"></script>
-	<!-- Bootstrap 4 -->
-	<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<!-- AdminLTE App -->
-	<script src="../../dist/js/adminlte.min.js"></script>
+
 </body>
 </html>

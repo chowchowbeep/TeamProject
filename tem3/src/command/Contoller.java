@@ -15,6 +15,8 @@ import cmd.HDoctorAddCMD;
 import cmd.HDoctorAddVerifyCMD;
 import cmd.HDoctorlistCMD;
 import cmd.HHospitalInquiryCMD;
+import cmd.HHospitalMemberBizNoCheckActionCMD;
+import cmd.HHospitalMemberIdCheckActionCMD;
 import cmd.HHospitalMymenuCMD;
 import cmd.HHospitalProfileCMD;
 import cmd.HHospitalSignupActionCMD;
@@ -78,6 +80,7 @@ import kjr.cmd.SearchListCMD;
 import kjr.cmd.SickMainCMD;
 
 
+
 @WebServlet("*.do")
 public class Contoller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -128,8 +131,8 @@ public class Contoller extends HttpServlet {
 		cont.put("/HDoctorlist.do", new HDoctorlistCMD()); //H13 의사 리스트 페이지 로 이동
 		cont.put("/HDoctorAdd.do", new HDoctorAddCMD()); //H14 의사추가페이지 로 이동
 		cont.put("/HDoctorAddVerify.do", new HDoctorAddVerifyCMD()); // 의사추가추가페이지로 이동 <추가했습니다 - 태영>
-		//cont.put("/HosMemberIdCheckAction.do", new HosMemberIdCheckActionCMD ());  //(병원)ID 중복검사 페이지로 이동
-		//cont.put("/HosMemberBizNoCheckAction.do", new HosMemberBizNoCheckActionCMD());  //(병원)사업자번호 중복검사 페이지로 이동
+		cont.put("/HHospitalMemberIdCheckAction.do", new HHospitalMemberIdCheckActionCMD());  //(병원)ID 중복검사 페이지로 이동
+		cont.put("/HHospitalMemberBizNoCheckAction.do", new HHospitalMemberBizNoCheckActionCMD());  //(병원)사업자번호 중복검사 페이지로 이동
 		
 		//(병원)휴일 설정 페이지 로 이동
 		//(의사)휴일 설정 페이지 로 이동
@@ -181,7 +184,7 @@ public class Contoller extends HttpServlet {
 		
 		cont.put("/SBookmark.do", new SBookmarkCMD()); //S30 관심병원 리스트 페이지
 		cont.put("/SSickMediaList.do", new SSickMediaListCMD()); //S31 기록물-기록물 리스트페이지
-		cont.put("/SSickDocuList.do", new SSickDocuListCMD()); //S32 서류-기록물 리스트페이지 \
+		cont.put("/SSickDocuList.do", new SSickDocuListCMD()); //S32 서류-기록물 리스트페이지 
 		cont.put("/SSickDetailList.do", new SSickDetailListCMD()); //S34 기록물 상세 페이지
 		cont.put("/SSickUpload.do", new SSickUploadCMD()); //S35 기록물 업로드 페이지
 	//	cont.put("/S.do", new CMD()); //S36 병원 신고 페이지
