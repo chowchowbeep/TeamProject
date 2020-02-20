@@ -82,7 +82,7 @@
 						</a></li>
 						<li class="nav-item"><a href="SMedADoneList.do"
 							class="nav-link">
-								<p>진료이력</p>
+								<p>진료완료이력</p>
 						</a></li>
 						<li class="nav-item"><a href="SsearchMain.do"
 							class="nav-link">

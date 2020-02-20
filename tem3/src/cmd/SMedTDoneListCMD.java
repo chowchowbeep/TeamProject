@@ -9,9 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import kcrDAO.HosInfoDAO;
-import kcrDAO.MediRqstDAO;
+import kcrDAO.XXHosInfoDAO;
+import kcrDAO.MediRqListItemDAO;
+import kcrDAO.XXMediRqstDAO;
 import lastdto.hosMemberDTO;
+import lastdto.mediRqListItemDTO;
 import lastdto.mediRqstDTO;
 
 public class SMedTDoneListCMD implements Command {
@@ -26,20 +28,13 @@ public class SMedTDoneListCMD implements Command {
 		
 		String type = "tmr";
 		
-		
-		//두 테이블을 조인하고, list는 dto별로 각각 받아오기.
-		MediRqstDAO dao = new MediRqstDAO();
-		List<mediRqstDTO> listRq = new ArrayList<>(); 
-		listRq = dao.selectDone(id, type);
-		
-		HosInfoDAO dao2 = new HosInfoDAO();
-		List<hosMemberDTO> listHos = new ArrayList<>();
-		listHos = dao2.selectDone(id, type);
+		MediRqListItemDAO dao = new MediRqListItemDAO();
+		List<mediRqListItemDTO> list = new ArrayList<>();
+		list = dao.selectDone(id, type);
 		
 		
-		request.setAttribute("list1", listRq);
-		request.setAttribute("list2", listHos);
-		request.setAttribute("id", id); 
+		request.setAttribute("list", list);
+		request.setAttribute("id", id);  
 		
 		String path ="aView/chorong/med_TdoneList.jsp";
 		

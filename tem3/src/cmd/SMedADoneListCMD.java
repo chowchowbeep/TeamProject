@@ -9,11 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import kcrDAO.HosInfoDAO;
-import kcrDAO.MediInfoDAO;
-import kcrDAO.MediRqstDAO;
+import kcrDAO.XXHosInfoDAO;
+import kcrDAO.XXMediInfoDAO;
+import kcrDAO.MediRqListItemDAO;
+import kcrDAO.XXMediRqstDAO;
 import lastdto.hosMemberDTO;
 import lastdto.mediInfoDTO;
+import lastdto.mediRqListItemDTO;
 import lastdto.mediRqstDTO;
 
 public class SMedADoneListCMD implements Command {
@@ -28,23 +30,12 @@ public class SMedADoneListCMD implements Command {
 				
 				String type = "all";				
 				
-				//세 테이블을 조인하고, list는 dto별로 각각 받아오기.
-				MediRqstDAO dao = new MediRqstDAO();
-				List<mediRqstDTO> listRq = new ArrayList<>(); 
-				listRq = dao.selectDone(id, type);
-				
-				HosInfoDAO dao2 = new HosInfoDAO();
-				List<hosMemberDTO> listHos = new ArrayList<>();
-				listHos = dao2.selectDone(id, type);
-				
-				MediInfoDAO dao3 = new MediInfoDAO();
-				List<mediInfoDTO> listDc = new ArrayList<mediInfoDTO>();
-				listDc = dao3.selectDone(id, type);
+				MediRqListItemDAO dao = new MediRqListItemDAO();
+				List<mediRqListItemDTO> list = new ArrayList<>();
+				list = dao.selectDone(id, type);
 				
 				
-				request.setAttribute("list1", listRq);
-				request.setAttribute("list2", listHos);
-				request.setAttribute("list3", listDc);
+				request.setAttribute("list", list);
 				request.setAttribute("id", id); 
 				
 				String path ="aView/chorong/med_AdoneList.jsp";
