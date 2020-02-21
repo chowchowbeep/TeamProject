@@ -26,8 +26,3 @@ function toAddDcry() {
 	window.open("STmrSelectDcry.do", "selDcry", "width=350, height=550");
 }
 
-
-// 진료완료이력목록 행 클릭시 상세정보로 이동
-function toMedDoneDetail() {
-	
-}

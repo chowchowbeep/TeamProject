@@ -19,8 +19,9 @@
 			<div class="container-fluid">
 				<div class="row mb-2">
 					<div class="col-sm-6">
-						<!-- 넘어온 값을 이용하여 접수내역/예약내역으로 구분하여 출력 -->
-						<h1>진료신청현황_____${rqstNo}</h1>
+					<!-- 넘어온 페이지에 따라 다르게 해야 함 -->
+					
+						<h1>진료신청현황</h1>
 					</div>
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right">
@@ -40,27 +41,52 @@
 					<!-- left column -->
 					<div class="col-md-12">
 
-
-						<!-- 1. 신청한 병원 상세정보 (병원이름, 의사이름, 주소, 진료예약시간) -->
-						<div class="card card-secondary">
+						<div class="card card-default">
 							<div class="card-header">
-								<h3 class="card-title">상세정보</h3>
+								<c:if test="${dto.rqstTy == 'D001'}">
+									<h3 class="card-title">접수상세정보</h3>
+								</c:if>
+								<c:if test="${dto.rqstTy == 'D002'}">
+									<h3 class="card-title">예약상세정보</h3>
+								</c:if>
+								<c:if test="${dto.rqstTy == 'D004' ||
+								dto.rqstTy == 'D004'}">
+									<h3 class="card-title">취소상세정보</h3>
+								</c:if>
+								
 							</div>
 							<div class="card-body">
 
 								<div class="row">
 									<div class="col-sm-6">
-										<div>병원명:${dto.hosName }</div>
-										<div>주소:${dto.hosAddr }</div>
-										<div>연락처:${dto.hosPhone }</div>
-										<div>담당의사:${dto.artr_name }</div>
-										<div>진료과목:${dto.artr_sub }</div>
-										<div>의사선생님께 한 마디:${dto.msg }</div>
+										<div>병원명 : ${dto.hosName }</div>
+										<div>주소 : ${dto.hosAddr }</div>
+										<div>병원연락처 : ${dto.hosPhone }</div>
+										<div>담당의사 : ${dto.artrName }</div>
+										
+										<c:if test="${dto.artrSub == 'CS10'}">
+											<div>진료과목 : 내과</div>
+										</c:if>
+										<c:if test="${dto.artrSub == 'CS20'}">
+											<div>진료과목 : 소아과</div>
+										</c:if>
+										<c:if test="${dto.artrSub == 'CS30'}">
+											<div>진료과목 : 외과</div>
+										</c:if>
+										<c:if test="${dto.artrSub == 'CS40'}">
+											<div>진료과목 : 정형외과</div>
+										</c:if>
+										<c:if test="${dto.artrSub == 'CS50'}">
+											<div>진료과목 : 치과</div>
+										</c:if>
+
+
+										<div>의사선생님께 한 마디 : ${dto.msg }</div>
 
 										<!-- 접수일 경우에만 표시 -->
 										<c:if test="${dto.rqstTy == 'D001'}">
-											<div>도착예상시간:${dto.ifTime }</div>
-											<div>예상대기인원수:</div>
+											<div>도착예상시간 : ${dto.ifTime }</div>
+											<div>예상대기인원수 :</div>
 											<!-- 크게 표시 -->
 										</c:if>
 
@@ -74,10 +100,12 @@
 											%>
 
 											<div>
-												진료날짜:<%=resDate%>
+												진료날짜 :
+												<%=resDate%>
 											</div>
 											<div>
-												진료시간:<%=resTime%>
+												진료시간 :
+												<%=resTime%>
 											</div>
 										</c:if>
 
@@ -89,9 +117,9 @@
 							</div>
 						</div>
 
-						<div class="card card-secondary">
+						<div class="card card-default">
 							<div class="card-header">
-								<h3 class="card-title">주의사항</h3>
+								<h3 class="card-title">주의사항 <ion-icon name="alert-circle-outline" style="font-size:1rem;"></ion-icon></h3>
 							</div>
 							<div class="card-body">
 
@@ -113,14 +141,13 @@
 								</div>
 							</div>
 							<input type="hidden" id="rqstNo" name="rqstNo"
-								value="${rqstNo} }">
+								value="${rqstNo}">
 							<!-- 선택한 진료신청항목의 진료신청번호를 전송_ 취소할 때 값 넘겨야 함 -->
 							<input type="hidden" id="id" name="id" value="${id }">
 							<!-- 로그인중인 아이디 -->
 
 
 							<!-- 신청폼푸터 //2. 예약/접수취소 버튼 -->
-
 							<div class="card-footer">
 								<button onclick="toBeforeMedList()" class="btn btn-secondary">확인</button>
 								<button onclick="cancelRes()"

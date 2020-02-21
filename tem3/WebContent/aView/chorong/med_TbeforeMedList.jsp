@@ -78,7 +78,8 @@
 									</thead>
 									<tbody>
 										<c:forEach var="list" items="${list}">
-											<tr id="${list.rqstNo}">
+											<tr class="toRqDetail" id="${list.rqstNo}">
+												<!-- 목록 행 클릭시 상세정보로 이동 -->
 
 												<td>${list.rqstDttm}</td>
 
@@ -105,7 +106,7 @@
 			</div>
 		</section>
 
-		<input type="hidden" id="submitNo" name="submitNo">
+		<input type="hidden" id="rqstNo" name="rqstNo">
 		<!-- 선택한 진료신청항목의 진료신청번호를 전송 -->
 		<input type="hidden" id="id" name="id" value="${id }">
 		<!-- 로그인중인 아이디 -->
@@ -121,13 +122,11 @@
 </form>
 <%@ include file="/layout/all_footer.jsp"%>
 <script>
-	// 목록 항목 클릭시 상세정보로 이동
-
-	$("tr").click(function() {
-		var submitNo = $(this).attr("id"); //클릭한 행의 id값(진료신청번호 넘길것임)
-		console.log(submitNo);
-		$("#submitNo").attr("value", submitNo);
-		console.log("변경된값 : " + $("#submitNo").attr("value"));
+	$(".toRqDetail").click(function() {
+		var rqstNo = $(this).attr("id"); //클릭한 현재 행의 id값(진료신청번호)을 넘길것임
+		console.log(rqstNo);
+		$("#rqstNo").attr("value", rqstNo);
+		console.log("파라미터에 실린 진료신청번호 : " + $("#rqstNo").attr("value"));
 
 		frm.action = "SRqDetail.do"; //진료신청현황 상세 페이지로
 		frm.submit(); //제출되면 클릭된 행의 신청번호가 파라미터로 실려갑니다.

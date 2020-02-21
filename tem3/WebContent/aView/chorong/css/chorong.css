@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+div.card-body {
+	font-size: 0.9rem;
+}
+
 td {
 	text-align: center;
 }
@@ -9,18 +13,23 @@ td {
 }
 
 .breadcrumb-item.active {
-	color:#007bff; 
+	color: #343a40;
+	font-weight: 700;
 }
 
 .breadcrumb-item {
-	color:#6c757d;
+	color: #6c757d;
 }
 
 .breadcrumb-item a {
-	color:#6c757d;
-}
-.breadcrumb-item a : hover {
-	color:#007bff;
+	color: #6c757d;
 }
 
 
+.card-title {
+	font-weight: 600;
+}
+
+h1 {
+	font-weight: 200;
+}

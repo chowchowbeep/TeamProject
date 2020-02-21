@@ -23,8 +23,7 @@
 
 			<form class="form-inline ml-5">
 				<div class="input-group input-group-sm" style="font-size: 30px;">
-					SALLYEOJYO
-				</div>
+					SALLYEOJYO</div>
 			</form>
 
 
@@ -84,10 +83,12 @@
 						<li class="nav-item"><a href="HMediAll.do" class="nav-link">
 								<p>진료현황</p>
 						</a></li>
-						<li class="nav-item"><a href="HSickSearch.do" class="nav-link">
+						<li class="nav-item"><a href="HSickSearch.do"
+							class="nav-link">
 								<p>회원정보 검색</p>
 						</a></li>
-						<li class="nav-item"><a href="HDoctorlist.do" class="nav-link">
+						<li class="nav-item"><a href="HDoctorlist.do"
+							class="nav-link">
 								<p>의사목록 관리</p>
 						</a></li>
 						<li class="nav-item"><a href="#" class="nav-link">
@@ -96,16 +97,21 @@
 						<li class="nav-item"><a href="#" class="nav-link">
 								<p>의사휴일 관리_미정</p>
 						</a></li>
+
+
+						<li class="nav-item"><a href="로그인페이지"
+							class="nav-link d-block text-center" style="padding: 20px;">
+								<p>
+									<small><strong>로그인_미정</strong></small>
+								</p>
+						</a></li>
+						<li class="nav-item"><a href="로그아웃페이지"
+							class="nav-link d-block text-center" style="padding: 20px;">
+								<p>
+									<small><strong>로그아웃_미정</strong></small>
+								</p>
+						</a></li>
 					</ul>
-
-
-							<div class="text-center" style="padding: 20px;">
-								<a href="#로그인페이지" class="d-block"><small><strong>로그인_미정</strong></small></a>
-							</div>
-
-							<div class="text-center" style="padding: 20px;">
-								<a href="로그아웃페이지" class="d-block"> <small><strong>로그아웃_미정</strong></small></a>
-							</div>
 
 
 				</nav>

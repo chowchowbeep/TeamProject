@@ -52,13 +52,13 @@
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label for="hosId">병원명</label> <input type="text"
-												id="hosId" name="hosId" class="form-control"
-												value="${dto.artr_name}병원명" readonly>
-										</div>
-										<div class="form-group">
-											<label for="hosAddr">주소</label>
+												class="form-control" value="${dto.hosName}" readonly>
+												<!-- 병원id값 가져와서 넘기는 것으로 수정하기 -->
+												<input type="hidden" id="hosId" name="hosId"  value="${dto.hosId}">
+											<br> <label for="hosAddr">주소</label>
 											<textarea id="hosAddr" name="hosAddr" class="form-control"
-												readonly>${dto.artr_name}주소주소</textarea>
+												disabled>주소주소${dto.hosAddr}</textarea>
+											<br>
 										</div>
 									</div>
 								</div>
@@ -79,21 +79,22 @@
 									<div class="col-sm-6">
 
 
-										<!-- 2. 의사 선택_ 선택한병원정보에서 -->
+										<!-- 2. 의사 선택 기능 구현_선택불가능 항목은 색으로 구분 -->
 										<div class="form-group">
-											<label for="Dr">진료받을 의사 선택</label> <select
-												class="custom-select" id="Dr" name="Dr">
-												<option value="${dto.artr_name}">성명: 예시성명 / 진료과목:
-													예시과목</option>
-												<option value="${dto.artr_name}">성명:
-													${dto.artr_name} / 진료과목: ${dto.artr_sub}</option>
+											<label for="artrNo">진료받을 의사 선택</label> <select
+												class="custom-select" id="artrNo" name="artrNo">
+												<option value="2"><!-- ARTR_NO의사 번호로 수정 -->성명:
+													조선아${dto.artrName } / 진료과목: 예시과목${dto.artrSub }
+												</option>
+												<option value="">성명: / 진료과목:</option>
 											</select>
 										</div>
 
+
 										<!-- 3. 선생님께 한마디 입력란  -->
 										<div class="form-group">
-											<label for="toDr">의사선생님에게 한 마디</label>
-											<textarea id="toDr" name="toDr" class="form-control"
+											<label for="msg">의사선생님에게 한 마디</label>
+											<textarea id="msg" name="msg" class="form-control"
 												placeholder="증상, 기타사항을 입력해주세요"></textarea>
 											<!-- <input type="text" name="email" class="form-control" 
                     				id="toDr" name="toDr" placeholder="증상, 기타사항을 입력해주세요"> -->
@@ -101,9 +102,9 @@
 
 										<!-- 4. 기록물 업로드 버튼 구현 / 모달창 띄우기?? / 값 어떻게 담을지 체크하기 -->
 										<div class="form-group">
-											<label for="DCRY_NO">진료시 의료진이 참고할 기록물 첨부</label> <input
-												type="button" class="btn btn-default" id="DCRY_NO"
-												name="DCRY_NO" value="기록물 업로드" onclick="toAddDcry()">
+											<label for="dcryNo">진료시 의료진이 참고할 기록물 첨부</label> <input
+												type="button" class="btn btn-default" id="dcryNo"
+												name="dcryNo" value="기록물 업로드" onclick="toAddDcry()">
 										</div>
 
 
@@ -434,6 +435,10 @@
 							</div>
 							<!-- /.card-body 끝 신청폼바디-->
 
+
+
+							<input type="hidden" id="id" name="id" value="${id }">
+							<!-- 로그인중인 아이디 -->
 
 
 							<div class="card-footer">

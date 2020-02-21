@@ -5,10 +5,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import kty.DAO;
+import command.DAO;
 import lastdto.mediRqstDTO;
 
-public class MediRqstDAO extends DAO {
+public class XXMediRqstDAO extends DAO {
 
 	// 전체 리스트
 	public List<mediRqstDTO> selectAll(String id, String type) {
@@ -156,7 +156,7 @@ public class MediRqstDAO extends DAO {
 				pstmt.setString(4, dto.getMsg());
 				pstmt.setString(5, dto.getIfTime());
 			}
-
+			System.out.println(r+"건 입력완료");
 			r = pstmt.executeUpdate();
 
 		} catch (Exception e) {

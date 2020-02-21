@@ -42,10 +42,6 @@
 		<!-- /.content-header -->
 
 
-
-
-
-
 		<!-- Main content -->
 		<section class="content">
 			<div class="container-fluid">
@@ -68,8 +64,6 @@
 							<div class="card-body table-responsive p-0">
 
 
-
-
 								<table class="table table table-hover text-wrap">
 									<thead>
 										<tr align="center">
@@ -87,7 +81,7 @@
 
 												<td>${list.hosName}</td>
 
-												<td>${list.rqstNo}<svg class="bi bi-chevron-right"
+												<td><svg class="bi bi-chevron-right"
 														width="20" height="20" viewBox="0 0 20 20"
 														fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 														<path fill-rule="evenodd"
@@ -98,8 +92,6 @@
 										</c:forEach>
 									</tbody>
 								</table>
-
-
 
 							</div>
 						</div>
