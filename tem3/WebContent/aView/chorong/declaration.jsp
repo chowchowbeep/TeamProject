@@ -52,13 +52,14 @@
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label for="hosName">병원명</label> <input type="text"
-												id="hosName" name="hosName" class="form-control"
-												value="${dto.artr_name}병원명" disabled>
+												class="form-control" value="${dto.artrName}병원명" readonly>
+											<input type="hidden" id="hosName" name="hosName"
+												class="form-control" value="${dto.hosId}병원명" readonly>
 										</div>
 										<div class="form-group">
 											<label for="hosAddr">주소</label>
 											<textarea id="hosAddr" name="hosAddr" class="form-control"
-												disabled>${dto.artr_name}주소주소</textarea>
+												disabled>${dto.hosAddr}주소주소</textarea>
 										</div>
 									</div>
 								</div>
@@ -81,25 +82,24 @@
 
 										<!-- 2. 의사 선택_ 선택한병원정보에서 -->
 										<div class="form-group">
-											<label for="Dr">진료받을 의사 선택</label> <select
-												class="custom-select" id="Dr" name="Dr">
-												<option value="${dto.artr_name}">성명: 예시성명 / 진료과목:
+											<label for="artrNo">진료받을 의사 선택</label> <select
+												class="custom-select" id="artrNo" name="artrNo">
+												<option value="${dto.artrName}">성명: 예시성명 / 진료과목:
 													예시과목</option>
-												<option value="${dto.artr_name}">성명:
-													${dto.artr_name} / 진료과목: ${dto.artr_sub}</option>
+
 											</select>
 										</div>
 
 										<!-- 3. 선생님께 한마디 입력란  -->
 										<div class="form-group">
-											<label for="toDr">의사선생님에게 한 마디</label>
-											<textarea id="toDr" name="toDr" class="form-control"
+											<label for="msg">의사선생님에게 한 마디</label>
+											<textarea id="msg" name="msg" class="form-control"
 												placeholder="증상, 기타사항을 입력해주세요"></textarea>
 											<!-- <input type="text" name="email" class="form-control" 
                     				id="toDr" name="toDr" placeholder="증상, 기타사항을 입력해주세요"> -->
 										</div>
 
-										
+
 
 									</div>
 								</div>
@@ -141,15 +141,12 @@
 
 <script>
 	// 필수입력사항체크 후 값 넘기도록
-	
-	
+
 	function resFormSubmit() {
 		alert("예약신청이 완료되었습니다.");
 		frm.action = ".do"; //신고처리 후 결과페이지로
 		frm.submit();
 	}
-
-
 </script>
 
 </body>

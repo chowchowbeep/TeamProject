@@ -14,7 +14,6 @@ public class STmrRequestCMD implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		
 		//S8 병원정보 상세조회 페이지로부터 병원id를 파라미터로 받아야해요
 		
 		String hosId = null;

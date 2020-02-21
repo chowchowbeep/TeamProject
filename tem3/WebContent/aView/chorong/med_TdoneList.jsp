@@ -65,7 +65,8 @@
 									</thead>
 									<tbody>
 										<c:forEach var="list" items="${list}">
-											<tr id="${list.rqstNo}">
+											<tr class="toRqDetail" id="${list.rqstNo}">
+												<!-- 목록 행 클릭시 상세정보로 이동 -->
 
 												<td>${list.rqstDttm}</td>
 
@@ -93,7 +94,7 @@
 
 
 	<!-- ./wrapper -->
-	<input type="hidden" id="submitNo" name="submitNo">
+	<input type="hidden" id="rqstNo" name="rqstNo">
 </form>
 
 <%@ include file="/layout/all_footer.jsp"%>

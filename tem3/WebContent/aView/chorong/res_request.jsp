@@ -53,8 +53,8 @@
 										<div class="form-group">
 											<label for="hosId">병원명</label> <input type="text"
 												class="form-control" value="${dto.hosName}" readonly>
-												<!-- 병원id값 가져와서 넘기는 것으로 수정하기 -->
-												<input type="hidden" id="hosId" name="hosId"  value="${dto.hosId}">
+												<!-- dto.hosId 병원id값 가져와서 넘기는 것으로 수정하기 -->
+												<input type="hidden" id="hosId" name="hosId"  value="ㅙ">
 											<br> <label for="hosAddr">주소</label>
 											<textarea id="hosAddr" name="hosAddr" class="form-control"
 												disabled>주소주소${dto.hosAddr}</textarea>

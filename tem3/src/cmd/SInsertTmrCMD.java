@@ -20,8 +20,15 @@ public class SInsertTmrCMD implements Command {
 		
 		// 접수신청 입력처리 로직
 		
-		MediRqdetailDAO dao = new MediRqdetailDAO();
-		mediRqstDTO InDto = new mediRqstDTO();
+		// 메소드 호출할 때마다 getConnection필요하기 때문에 메소드별로 생성
+		// 다른방법? DAO를 분리해야 하나?? 수정시 결정할 것.
+		MediRqdetailDAO dao1 = new MediRqdetailDAO(); //insert
+		MediRqdetailDAO dao2 = new MediRqdetailDAO(); //rqst_no select
+		MediRqdetailDAO dao3 = new MediRqdetailDAO(); // r.* select
+		MediRqdetailDAO dao4 = new MediRqdetailDAO(); //예상대기인원수 호출용
+		
+		
+		mediRqdetailDTO InDto = new mediRqdetailDTO();
 		mediRqdetailDTO dto = new mediRqdetailDTO();
 		
 		int dcNo = 0;
@@ -57,19 +64,19 @@ public class SInsertTmrCMD implements Command {
 		
 		InDto.setIfTime(request.getParameter("ifTime"));
 		
-		System.out.println("파라미터로 구성한 InsertDto"+InDto.toString());
-		dao.tmrInsert(InDto); 
+		System.out.println("파라미터로 구성한 InsertDto = "+InDto.toString());
+		dao1.tmrInsert(InDto); 
 		
 		
 		
 		
 		// 결과페이지 출력을 위한 부분_가장최근 insert된 rqstNo 리턴하는 메소드 호출
-		rqstNo = dao.getHotRqstNo(sicId); //이거 실행할때 자꾸 에러나... 수정해...
+		rqstNo = dao2.getHotRqstNo(sicId);
 		
 		// 결과페이지 출력을 위한 부분_신청 상세내용 가져와서 넘기기
-		dto = dao.selectOne(rqstNo);
+		dto = dao3.selectOne(rqstNo);
 		
-		request.setAttribute("dto", dto);
+		request.setAttribute("dto", dto); //결과 페이지 출력을 위해 
 		
 		
 		String path ="aView/chorong/rq_done.jsp"; 

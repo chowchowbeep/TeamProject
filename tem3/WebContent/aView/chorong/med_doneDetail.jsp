@@ -52,21 +52,21 @@
 										<div>병원명 : ${dto.hosName }</div>
 										<div>주소 : ${dto.hosAddr }</div>
 										<div>병원연락처 : ${dto.hosPhone }</div>
-										<div>담당의사 : ${dto.artr_name }</div>
+										<div>담당의사 : ${dto.artrName }</div>
 
-										<c:if test="${dto.artr_sub == 'CS10'}">
+										<c:if test="${dto.artrSub == 'CS10'}">
 											<div>진료과목 : 내과</div>
 										</c:if>
-										<c:if test="${dto.artr_sub == 'CS20'}">
+										<c:if test="${dto.artrSub == 'CS20'}">
 											<div>진료과목 : 소아과</div>
 										</c:if>
-										<c:if test="${dto.artr_sub == 'CS30'}">
+										<c:if test="${dto.artrSub == 'CS30'}">
 											<div>진료과목 : 외과</div>
 										</c:if>
-										<c:if test="${dto.artr_sub == 'CS40'}">
+										<c:if test="${dto.artrSub == 'CS40'}">
 											<div>진료과목 : 정형외과</div>
 										</c:if>
-										<c:if test="${dto.artr_sub == 'CS50'}">
+										<c:if test="${dto.artrSub == 'CS50'}">
 											<div>진료과목 : 치과</div>
 										</c:if>
 
@@ -76,19 +76,11 @@
 
 										<!-- 예약일 경우에만 표시 -->
 										<c:if test="${dto.rqstTy == 'D002'}">
-
-											<%
-												mediRqdetailDTO dto = (mediRqdetailDTO) request.getAttribute("dto");
-													Date resDate = dto.getResDttm();
-													Date resTime = dto.getResDttm();
-											%>
 											<div>
-												진료날짜 :
-												<%=resDate%>
+												진료날짜 :${dto.resDt }
 											</div>
 											<div>
-												진료시간 :
-												<%=resTime%>
+												진료시간 :${dto.resTm }
 											</div>
 										</c:if>
 									</div>

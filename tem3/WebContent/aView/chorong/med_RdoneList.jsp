@@ -65,14 +65,15 @@
 									</thead>
 									<tbody>
 										<c:forEach var="list" items="${list}">
-											<tr id="${list.rqstNo}">
+											<tr class="toRqDetail" id="${list.rqstNo}">
+												<!-- 목록 행 클릭시 상세정보로 이동 -->
 
-												<td>${list.rqstDttm}</td>
+												<td>${list.rqstNo}${list.rqstDttm}</td>
 
 												<td>${list.hosName}</td>
 
-												<td><svg class="bi bi-chevron-right" 
-												width="20" height="20" viewBox="0 0 20 20" fill="currentColor"
+												<td><svg class="bi bi-chevron-right" width="20"
+														height="20" viewBox="0 0 20 20" fill="currentColor"
 														xmlns="http://www.w3.org/2000/svg">
 														<path fill-rule="evenodd"
 															d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"
@@ -93,7 +94,7 @@
 
 
 	<!-- ./wrapper -->
-	<input type="hidden" id="submitNo" name="submitNo">
+	<input type="hidden" id="rqstNo" name="rqstNo">
 </form>
 
 <%@ include file="/layout/all_footer.jsp"%>

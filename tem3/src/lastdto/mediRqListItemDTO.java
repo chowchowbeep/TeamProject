@@ -1,12 +1,10 @@
 package lastdto;
 
-import java.sql.Date;
-
 public class mediRqListItemDTO {
 	//medi_rqst
 	private int rqstNo; // 진료신청번호
 	private String sicId; // 회원id
-	private Date rqstDttm; // 신청일시
+	private String rqstDttm; // 신청일시
 	private String rqstTy; // 진료타입
 	
 	
@@ -40,12 +38,12 @@ public class mediRqListItemDTO {
 	}
 
 
-	public Date getRqstDttm() {
+	public String getRqstDttm() {
 		return rqstDttm;
 	}
 
 
-	public void setRqstDttm(Date rqstDttm) {
+	public void setRqstDttm(String rqstDttm) {
 		this.rqstDttm = rqstDttm;
 	}
 
@@ -75,6 +73,9 @@ public class mediRqListItemDTO {
 		return "mediRqListItemDTO [rqstNo=" + rqstNo + ", sicId=" + sicId + ", rqstDttm=" + rqstDttm + ", rqstTy="
 				+ rqstTy + ", hosName=" + hosName + "]";
 	}
+	
+	
+
 
 	
 	
