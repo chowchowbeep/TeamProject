@@ -7,15 +7,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
+import leedy.sickSignupDAO;
 
-public class HHospitalMymenuCMD implements Command {
+public class SSickMemberIdCheckActionCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String path ="aView/kjr/hospital_mymenu.jsp"; //H11 마이메뉴 페이지  로 이동
+	sickSignupDAO dao = new sickSignupDAO();
+	
+	String id = request.getParameter("sic_id");
+	boolean b = dao.isIdChk(id);
+	
+	request.setAttribute("idChk", b);
+	request.setAttribute("sic_id", id);
 		
-		return path;
+		return "aView/leedy/idChkForm2.jsp";
 	}
 
 }

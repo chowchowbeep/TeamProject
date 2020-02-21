@@ -154,8 +154,6 @@ div .hiden {
 						console.log(i);
 						pDiv.append(
 						'<a class="list-group-item list-group-item-action" id='+data[i].locaCode+'>'+ data[i].wd);
-								
-						
 						//(자식)appendTo(부모)
 					}
 			});

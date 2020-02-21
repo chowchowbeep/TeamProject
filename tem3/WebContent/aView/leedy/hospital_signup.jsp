@@ -2,14 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/layout/hos_head.jsp"%>
 
-
 <script>
-
-
 	function checkValue() {
 		var form = document.hosFrm;
+		
 		//회원가입 화면의 입력값들을 검사
-
 		if (!form.hos_id.value) {
 			alert("아이디를 입력하세요.");
 			return false;
@@ -75,7 +72,6 @@
 	}
 
 	function idCheck() {
-		
 		var id = hosFrm.hos_id.value;
 		if(id ==""){
 			alert("아이디값을 입력 후 확인하세요.");
@@ -100,10 +96,12 @@
 
 	function bizNoChk() {
 		
-		var biz = hosFrm.hos_bizno.value;
+		var biz = hosFrm.hos_bizno_1.value+
+		hosFrm.hos_bizno_2.value+
+		hosFrm.hos_bizno_3.value;
 		if(biz == ""){
 			alert("사업자 번호를 입력 후 확인하세요.");
-			hosFrm.hos_bizno.focus();
+			hosFrm.hos_bizno_1.focus();
 		} else {
 			window.open("HHospitalMemberBizNoCheckAction.do?hos_bizno="+biz, "chkBizForm",
 			"width=500, height=300 resizable=no, scrollbars=no");
@@ -132,6 +130,7 @@
 
 <body class="hold-transition register-page">
 <iframe width=0 height=0 name="chkForm" style="display: none;"></iframe>
+<iframe width=0 height=0 name="chkBizForm" style="display: none;"></iframe>
 	<br>
 	<div class="register-box">
 		<div class="register-logo">
@@ -183,8 +182,12 @@
 						</div>
 					</div>
 					<div class="input-group mb-3">
-						<input type="text" class="form-control" name="hos_bizno"
-							id="hos_bizno" onkeydown="inputBizNoUnChk()" placeholder="사업자번호">
+						<input type="text" class="form-control" name="hos_bizno_1"
+							id="hos_bizno_1" onkeydown="inputBizNoUnChk()" placeholder="사업자번호">-
+								<input type="text" class="form-control" name="hos_bizno_2"
+							id="hos_bizno_2" onkeydown="inputBizNoUnChk()" placeholder="사업자번호">-
+								<input type="text" class="form-control" name="hos_bizno_3"
+							id="hos_bizno_3" onkeydown="inputBizNoUnChk()" placeholder="사업자번호">
 						<input type="button" id="bizChk" name="bizChk" value="중복확인"  
 						onclick="bizNoChk()"> 
 						<input type="hidden" name="bizNoDuplication" id="bizNoDuplication"
@@ -194,8 +197,12 @@
 						</div>
 					</div>
 					<div class="input-group mb-3">
-						<input type="text" class="form-control" name="hos_phone"
-							id="hos_phone" placeholder="전화번호">
+						<input type="text" class="form-control" name="hos_phone_1"
+							id="hos_phone_1" placeholder="전화번호">-
+							<input type="text" class="form-control" name="hos_phone_2"
+							id="hos_phone_2" placeholder="전화번호">-
+							<input type="text" class="form-control" name="hos_phone_3"
+							id="hos_phone_3" placeholder="전화번호">
 						<div class="input-group-append">
 							<div class="input-group-text"></div>
 						</div>
@@ -275,7 +282,7 @@
 					<div class="row">
 						<div class="">
 							<div class="icheck-primary">
-								<input type="checkbox" id="agreeTerms" name="terms"
+								<input type="checkbox" id="agreeTerms" name="agreeTerms"
 									value="agree"> <label for="agreeTerms"> <a
 									href="#">이용약관</a> 및 <a href="#">개인정보취급방침</a>에 동의합니다.
 								</label>
@@ -294,7 +301,7 @@
 				</form>
 				<br>
 				<hr>
-				<a href="../../aView/taeyoung/logintest.jsp" class="text-center">이미
+				<a href="/tem3/aView/taeyoung/logintest.jsp" class="text-center">이미
 					아이디가 있으신가요?</a>
 			</div>
 			<!-- /.form-box -->

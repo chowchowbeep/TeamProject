@@ -40,12 +40,17 @@ public class HHospitalSignupCMD implements Command {
 		 * for (i = 0; i < list.size(); i++) { searchDTO dto = new searchDTO(); dto =
 		 * list.get(i); System.out.println(i + "번째 searchDTO는 " + dto.toString()); }
 		 */
-
+		String hos_phone= request.getParameter("hos_phone_1")+"-"+request.getParameter("hos_phone_2")+"-"
+		+request.getParameter("hos_phone_3");
+		
+		String hos_bizno= request.getParameter("hos_bizno_1")+"-"+request.getParameter("hos_bizno_2")+"-"
+				+request.getParameter("hos_bizno_3");
+		
 		// 파라미터 받아오기?
 		hdto.setHosId(request.getParameter("hos_id"));
-		hdto.setHosBizno(request.getParameter("hos_bizno"));
+		hdto.setHosBizno(hos_bizno);
 		hdto.setHosName(request.getParameter("hos_name"));
-		hdto.setHosPhone(request.getParameter("hos_phone"));
+		hdto.setHosPhone(hos_phone);
 		hdto.setHosPw(request.getParameter("hos_pw"));
 		hdto.setHosAddr(request.getParameter("hos_addr"));
 		hdto.setHosBizTime(request.getParameter("biz_time_1")+"~"+

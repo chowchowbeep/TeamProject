@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
 
-public class HHospitalMymenuCMD implements Command {
+public class SSickSignupActionCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String path ="aView/kjr/hospital_mymenu.jsp"; //H11 마이메뉴 페이지  로 이동
+		String path = "aView/leedy/sick_signup.jsp";
 		
 		return path;
 	}
