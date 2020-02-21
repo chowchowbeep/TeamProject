@@ -45,7 +45,52 @@
                       <td>${list.rvCont }[내용]</td>
                       <td>
                         <div>
-                          <div>${list.star }★★★★★</div>
+                          <div>
+                         	<c:choose>
+                         		<c:when test="${list.starPoint eq '1' }">
+                         			<img src="images/star-on-big.png">
+                         			<img src="images/star-off-big.png">
+                         			<img src="images/star-off-big.png">
+                         			<img src="images/star-off-big.png">
+                         			<img src="images/star-off-big.png">
+                         		</c:when>
+                         		<c:when test="${list.starPoint eq '2' }">
+									<img src="images/star-on-big.png">
+                         			<img src="images/star-on-big.png">
+                         			<img src="images/star-off-big.png">
+                         			<img src="images/star-off-big.png">
+                         			<img src="images/star-off-big.png">									
+								</c:when>
+                         		<c:when test="${list.starPoint eq '3' }">
+									<img src="images/star-on-big.png">
+									<img src="images/star-on-big.png">
+                         			<img src="images/star-on-big.png">
+                         			<img src="images/star-off-big.png">
+                         			<img src="images/star-off-big.png">
+								</c:when>
+                         		<c:when test="${list.starPoint eq '4' }">
+                         			<img src="images/star-on-big.png">
+                         			<img src="images/star-on-big.png">
+									<img src="images/star-on-big.png">
+                         			<img src="images/star-on-big.png">
+                         			<img src="images/star-off-big.png">
+                         		</c:when>
+                         		<c:when test="${list.starPoint eq '5' }">
+                         			<img src="images/star-on-big.png">
+                         			<img src="images/star-on-big.png">
+                         			<img src="images/star-on-big.png">
+									<img src="images/star-on-big.png">
+                         			<img src="images/star-on-big.png">
+								</c:when>
+                         		<c:otherwise>
+                         			<img src="images/star-off-big.png">
+                         			<img src="images/star-off-big.png">
+                         			<img src="images/star-off-big.png">
+                         			<img src="images/star-off-big.png">
+                         			<img src="images/star-off-big.png">
+                         		</c:otherwise>
+                         	</c:choose>
+                          </div>
                         </div>
                       </td>
                       <td><span class="badge bg-danger">삭제</span></td>
