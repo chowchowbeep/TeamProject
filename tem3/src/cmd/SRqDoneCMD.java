@@ -16,6 +16,7 @@ public class SRqDoneCMD implements Command {
 		
 		//S29 진료신청 완료 페이지(접수/예약)
 		
+		
 		String path ="aView/chorong/rq_done.jsp"; 
 		
 		return path;

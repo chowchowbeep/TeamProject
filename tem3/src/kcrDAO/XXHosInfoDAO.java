@@ -5,29 +5,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 import command.DAO;
-import lastdto.mediRqListItemDTO;
+import lastdto.hosMemberDTO;
 
+public class XXHosInfoDAO extends DAO {
 
-public class MediRqListItemDAO extends DAO {
-
-	// 진료신청 전체 리스트
-	public List<mediRqListItemDTO> selectAll(String id, String type) {
-		List<mediRqListItemDTO> list = new ArrayList<>();
+	// 전체리스트
+	public List<hosMemberDTO> selectAll(String id, String type) {
+		List<hosMemberDTO> list = new ArrayList<>();
 		String sql = null;
 		if (type == "all") { // 전체목록
 			sql = "SELECT r.*, h.*" + " FROM MEDI_RQST r, HOS_MEMBER h" + " where r.HOS_ID = h.HOS_ID"
 					+ " and SIC_ID = ?" + " order by r.rqst_dttm desc, rqst_no desc";
 		} else if (type == "tmr") {// 접수목록
 			sql = "SELECT r.*, h.*" + " FROM MEDI_RQST r, HOS_MEMBER h" + " where r.HOS_ID = h.HOS_ID"
-					+ " and SIC_ID = ?" + " and RQST_TY = 'D001'" //접수
-					+ " order by r.rqst_dttm desc, rqst_no desc";
+					+ " and SIC_ID = ?" + " and RQST_TY = 'D001'" + " order by r.rqst_dttm desc, rqst_no desc";
 		} else if (type == "res") {// 예약목록
 			sql = "SELECT r.*, h.*" + " FROM MEDI_RQST r, HOS_MEMBER h" + " where r.HOS_ID = h.HOS_ID"
-					+ " and SIC_ID = ?" + " and RQST_TY = 'D002'" //예약
-					+ " order by r.rqst_dttm desc, rqst_no desc";
+					+ " and SIC_ID = ?" + " and RQST_TY = 'D002'" + " order by r.rqst_dttm desc, rqst_no desc";
 		} else if (type == "cancel") {// 취소목록
 			sql = "SELECT r.*, h.*" + " FROM MEDI_RQST r, HOS_MEMBER h" + " where r.HOS_ID = h.HOS_ID"
-					+ " and SIC_ID = ?" + " and RQST_TY in ('D003', 'D004')" //취소
+					+ " and SIC_ID = ?" + " and RQST_TY in ('D003', 'D004')"
 					+ " order by r.rqst_dttm desc, rqst_no desc";
 		}
 
@@ -35,14 +32,19 @@ public class MediRqListItemDAO extends DAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				mediRqListItemDTO dto = new mediRqListItemDTO();
 
-				dto.setRqstNo(rs.getInt("RQST_NO"));
-				dto.setSicId(rs.getString("SIC_ID"));
-				dto.setRqstDttm(rs.getDate("RQST_DTTM"));
-				dto.setRqstTy(rs.getString("RQST_TY"));
+			while (rs.next()) {
+				hosMemberDTO dto = new hosMemberDTO();
+				dto.setHosId(rs.getString("HOS_ID"));
+				dto.setHosBizno(rs.getString("HOS_BIZNO"));
 				dto.setHosName(rs.getString("HOS_NAME"));
+				dto.setHosPhone(rs.getString("HOS_PHONE"));
+				dto.setHosPw(rs.getString("HOS_PW"));
+				dto.setHosAddr(rs.getString("HOS_ADDR"));
+				dto.setHosLat(rs.getInt("HOS_LAT"));
+				dto.setHosLng(rs.getInt("HOS_LNG"));
+				dto.setHosBizTime(rs.getString("BIZ_TIME"));
+
 				list.add(dto);
 			}
 		} catch (SQLException e) {
@@ -50,13 +52,13 @@ public class MediRqListItemDAO extends DAO {
 		} finally {
 			close();
 		}
+
 		return list;
 	}
-	
-	
-	// 진료이력목록(진료완료한 목록)
-	public List<mediRqListItemDTO> selectDone(String id, String type) {
-		List<mediRqListItemDTO> list = new ArrayList<>();
+
+	// 진료이력(완료한진료) 목록
+	public List<hosMemberDTO> selectDone(String id, String type) {
+		List<hosMemberDTO> list = new ArrayList<>();
 		String sql = null;
 		if (type == "all") { // 전체목록
 			sql = "SELECT r.*, h.*, i.mctt_stt" + 
@@ -85,18 +87,24 @@ public class MediRqListItemDAO extends DAO {
 					" and i.mctt_stt = 'Y' " + //진료완료한 것만
 					" order by r.rqst_dttm desc, r.rqst_no desc";
 		}
+
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				mediRqListItemDTO dto = new mediRqListItemDTO();
 
-				dto.setRqstNo(rs.getInt("RQST_NO"));
-				dto.setSicId(rs.getString("SIC_ID"));
-				dto.setRqstDttm(rs.getDate("RQST_DTTM"));
-				dto.setRqstTy(rs.getString("RQST_TY"));
+			while (rs.next()) {
+				hosMemberDTO dto = new hosMemberDTO();
+				dto.setHosId(rs.getString("HOS_ID"));
+				dto.setHosBizno(rs.getString("HOS_BIZNO"));
 				dto.setHosName(rs.getString("HOS_NAME"));
+				dto.setHosPhone(rs.getString("HOS_PHONE"));
+				dto.setHosPw(rs.getString("HOS_PW"));
+				dto.setHosAddr(rs.getString("HOS_ADDR"));
+				dto.setHosLat(rs.getInt("HOS_LAT"));
+				dto.setHosLng(rs.getInt("HOS_LNG"));
+				dto.setHosBizTime(rs.getString("BIZ_TIME"));
+
 				list.add(dto);
 			}
 		} catch (SQLException e) {
@@ -107,5 +115,30 @@ public class MediRqListItemDAO extends DAO {
 		return list;
 	}
 
+	// 단건조회
+	public hosMemberDTO selectOne(int hosNo) {
+		hosMemberDTO dto = new hosMemberDTO();
+		try {
+			String sql = "SELECT * FROM HOS_MEMBER" + " WHERE HOS_ID = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, hosNo);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				dto.setHosBizno(rs.getString("HOS_BIZNO"));
+				dto.setHosName(rs.getString("HOS_NAME"));
+				dto.setHosPhone(rs.getString("HOS_PHONE"));
+				dto.setHosPw(rs.getString("HOS_PW"));
+				dto.setHosAddr(rs.getString("HOS_ADDR"));
+				dto.setHosLat(rs.getInt("HOS_LAT"));
+				dto.setHosLng(rs.getInt("HOS_LNG"));
+				dto.setHosBizTime(rs.getString("BIZ_TIME"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return dto;
+	}
 
 }

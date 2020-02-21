@@ -56,13 +56,13 @@ STmrRequest.do
 								<div class="row">
 									<div class="col-sm-6">
 										<div class="form-group">
-											<label for="HOS_ID">병원명</label> <input type="text"
-												id="HOS_ID" name="HOS_ID" class="form-control" value="hos1"
-												readonly>
-											<!-- 병원id값 가져오기 -->
-											<br> <label for="HOS_ADDR">주소</label>
-											<textarea id="HOS_ADDR" name="HOS_ADDR" class="form-control"
-												disabled>주소주소</textarea>
+											<label for="hosId">병원명</label> <input type="text"
+												class="form-control" value="hos1${dto.hosName}" readonly>
+												<!-- 병원id값 가져와서 넘기는 것으로 수정하기 -->
+												<input type="hidden" id="hosId" name="hosId"  value="hos1">
+											<br> <label for="hosAddr">주소</label>
+											<textarea id="hosAddr" name="hosAddr" class="form-control"
+												disabled>주소주소${dto.hosAddr}</textarea>
 											<br>
 										</div>
 									</div>
@@ -81,9 +81,6 @@ STmrRequest.do
 
 							<!-- 신청폼바디 // form 태그 시작-->
 							<div class="card-body">
-								<!-- @질문 : role속성 뭐임 -->
-
-
 
 
 								<div class="row">
@@ -92,9 +89,9 @@ STmrRequest.do
 
 										<!-- 2. 의사 선택 기능 구현_선택불가능 항목은 색으로 구분 -->
 										<div class="form-group">
-											<label for="ARTR_NO">진료받을 의사 선택</label> <select
-												class="custom-select" id="ARTR_NO" name="ARTR_NO">
-												<option value="2"><!-- ARTR_NO의사 아이디 --> 성명: 조선아 /
+											<label for="artrNo">진료받을 의사 선택</label> <select
+												class="custom-select" id="artrNo" name="artrNo">
+												<option value="2"><!-- dto.artrNo의사 번호로 수정 -->${dto.artrName } 성명: 조선아 /
 													진료과목: 예시과목
 												</option>
 												<option value="">성명: / 진료과목:</option>
@@ -103,8 +100,8 @@ STmrRequest.do
 
 										<!-- 3. 선생님께 한마디 입력란  -->
 										<div class="form-group">
-											<label for="MSG">의사선생님에게 한 마디</label>
-											<textarea id="MSG" name="MSG" class="form-control"
+											<label for="msg">의사선생님에게 한 마디</label>
+											<textarea id="msg" name="msg" class="form-control"
 												placeholder="증상, 기타사항을 입력해주세요"></textarea>
 											<!-- <input type="text" name="email" class="form-control" 
                     	id="toDr" name="toDr" placeholder="증상, 기타사항을 입력해주세요"> -->
@@ -112,17 +109,18 @@ STmrRequest.do
 
 										<!-- 4. 기록물 업로드 버튼 구현 / 모달창 띄우기?? -->
 										<div class="form-group">
-											<label for="DCRY_NO">진료시 의료진이 참고할 기록물 첨부</label> <input
-												type="hidden" class="btn btn-default" id="DCRY_NO"
-												name="DCRY_NO" onclick="toAddDcry()">
+											<label for="dcryNo">진료시 의료진이 참고할 기록물 첨부</label> <input
+												type="hidden" class="btn btn-default" id="dcryNo"
+												name="dcryNo" onclick="toAddDcry()">
 											<!-- 임시 -->
 										</div>
 
 
 										<!-- 5. 도착예상시간 선택 기능 구현_ 당일 해당 시간 접수가능한지 체크하는 펑션 필요-->
 										<div class="form-group">
-											<label for="IFTIME">도착예상시간</label> <select
-												class="custom-select" id="IFTIME" name="IFTIME"
+											<label for="ifTime">도착예상시간</label><br>
+											<select
+												class="custom-select" id="ifTime" name="ifTime"
 												style="width: 20%;">
 												<option value="05분 후">05</option>
 												<option value="10분 후">10</option>

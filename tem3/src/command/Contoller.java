@@ -184,10 +184,10 @@ public class Contoller extends HttpServlet {
 		cont.put("/STmrRequest.do", new STmrRequestCMD()); //S28 당일접수 신청 페이지로 이동
 		cont.put("/STmrSelectDcry.do", new STmrSelectDcryCMD()); //S33 (진료신청시)기록물 선택 페이지로 이동
 		
-		cont.put("/SInsertRes.do", new SInsertResCMD()); //예약신청 입력처리 로직
-		cont.put("/SInsertTmr.do", new SInsertTmrCMD()); //접수신청 입력처리 로직
+		cont.put("/SInsertRes.do", new SInsertResCMD()); //예약신청 입력처리 후 완료 페이지(접수/예약)로 이동
+		cont.put("/SInsertTmr.do", new SInsertTmrCMD()); //접수신청 입력처리 후 완료 페이지(접수/예약)로 이동
 		
-		cont.put("/SRqDone.do", new SRqDoneCMD()); //S29 진료신청 완료 페이지(접수/예약)로 이동
+		//cont.put("/SRqDone.do", new SRqDoneCMD()); //S29 진료신청 완료 페이지(접수/예약)로 이동
 		
 		
 		cont.put("/SBookmark.do", new SBookmarkCMD()); //S30 관심병원 리스트 페이지

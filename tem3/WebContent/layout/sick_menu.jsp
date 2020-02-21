@@ -107,18 +107,28 @@
 							class="nav-link">
 								<p>의료 기록물</p>
 						</a></li>
+						<li class="nav-item"><a href="로그인페이지"
+							class="nav-link d-block text-center" style="padding: 20px;">
+								<p>
+									<small><strong>로그인_미정</strong></small>
+								</p>
+						</a></li>
+						<c:if test="로그인상태가 아닌경우">
+						<li class="nav-item"><a href="로그인페이지"
+							class="nav-link d-block text-center" style="padding: 20px;">
+								<p>
+									<small><strong>로그인_미정</strong></small>
+								</p>
+						</a></li>
+						</c:if>
+						<li class="nav-item"><a href="로그아웃페이지"
+							class="nav-link d-block text-center" style="padding: 20px;">
+								<p>
+									<small><strong>로그아웃_미정</strong></small>
+								</p>
+						</a></li>
 					</ul>
 
-
-
-					<c:if test="로그인상태가 아닌경우">
-						<div class="text-center" style="padding: 20px;">
-							<a href="로그인페이지" class="d-block"><small><strong>로그인</strong></small></a>
-						</div>
-					</c:if>
-					<div class="text-center" style="padding: 20px;">
-						<a href="로그아웃페이지" class="d-block"> <small><strong>로그아웃</strong></small></a>
-					</div>
 
 				</nav>
 				<!-- /.sidebar-menu -->

@@ -1,3 +1,5 @@
+<%@page import="java.sql.Date"%>
+<%@page import="lastdto.mediRqdetailDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -12,144 +14,152 @@
 
 <!-- Content Wrapper. Contains page content -->
 <form id="frm" name="frm" method="post">
-<div class="content-wrapper">
-	<!-- Content Header (Page header) -->
-	<section class="content-header">
-		<div class="container-fluid">
-			<div class="row mb-2">
-				<div class="col-sm-6">
-					<h1>진료이력상세</h1>
-				</div>
-				<div class="col-sm-6">
-					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="#">홈</a></li>
-						<li class="breadcrumb-item active">일반회원</li>
-					</ol>
+	<div class="content-wrapper">
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1>진료완료이력</h1>
+					</div>
+					<div class="col-sm-6">
+						<ol class="breadcrumb float-sm-right">
+							<li class="breadcrumb-item"><a href="#">홈</a></li>
+							<li class="breadcrumb-item active">일반회원</li>
+						</ol>
+					</div>
 				</div>
 			</div>
-		</div>
-		<!-- /.container-fluid -->
-	</section>
+			<!-- /.container-fluid -->
+		</section>
 
-	<!-- Main content -->
-	<section class="content">
-		<div class="container-fluid">
-			<div class="row">
-				<!-- left column -->
-				<div class="col-md-12">
+		<!-- Main content -->
+		<section class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<!-- left column -->
+					<div class="col-md-12">
 
+						<!-- 신청한 병원 상세정보 (병원이름, 의사이름, 주소, 진료예약시간) -->
+						<div class="card card-default">
+							<div class="card-header">
+								<h3 class="card-title">상세정보</h3>
+							</div>
+							<div class="card-body">
 
-					<!-- 1. 신청한 병원 상세정보-->
-					<div class="card card-secondary">
-						<!--  <div class="card-header">
-							<h3 class="card-title">상세정보</h3> </div> 	-->
-						<div class="card-body">
+								<div class="row">
+									<div class="col-sm-6">
+										<div>병원명 : ${dto.hosName }</div>
+										<div>주소 : ${dto.hosAddr }</div>
+										<div>병원연락처 : ${dto.hosPhone }</div>
+										<div>담당의사 : ${dto.artr_name }</div>
 
-							<div class="row">
-								<div class="col-sm-6">
-									<div class="form-group">
-										<!--  -->
-										<label for="hosName">상태정보</label> <input type="text"
-											id="medType" name="medType" class="form-control"
-											value="${dto.medType}예약" disabled> <br> <label
-											for="hosName">병원명</label> <input type="text" id="hosName"
-											name="hosName" class="form-control"
-											value="${dto.artr_name}병원명" disabled> <br> <label
-											for="hosAddr">주소</label>
-										<textarea id="hosAddr" name="hosAddr" class="form-control"
-											disabled>${dto.artr_name}주소주소</textarea>
-										<br> <label for="hosTel">연락처</label> <input type="text"
-											id="hosTel" name="hosTel" class="form-control"
-											value="${dto.artr_name}연락처" disabled> <br> <label
-											for="DrInfo">의사 및 진료과목</label> <input type="text" id="DrInfo"
-											name="DrInfo" class="form-control"
-											value="${dto.artr_name}의사이름 진료과목" disabled> <br>
-										<label for="toDr">의사선생님에게 한 마디</label>
-										<textarea id="toDr" name="toDr" class="form-control" disabled></textarea>
-										<br> <label for="medType">진료신청타입/상태</label> <input
-											type="text" id="medType" name="medType" class="form-control"
-											value="진료타입" disabled> <br>
-											
-
-										<!-- <input type="text" name="email" class="form-control" 
-                    				id="toDr" name="toDr" placeholder="증상, 기타사항을 입력해주세요"> -->
+										<c:if test="${dto.artr_sub == 'CS10'}">
+											<div>진료과목 : 내과</div>
+										</c:if>
+										<c:if test="${dto.artr_sub == 'CS20'}">
+											<div>진료과목 : 소아과</div>
+										</c:if>
+										<c:if test="${dto.artr_sub == 'CS30'}">
+											<div>진료과목 : 외과</div>
+										</c:if>
+										<c:if test="${dto.artr_sub == 'CS40'}">
+											<div>진료과목 : 정형외과</div>
+										</c:if>
+										<c:if test="${dto.artr_sub == 'CS50'}">
+											<div>진료과목 : 치과</div>
+										</c:if>
 
 
+										<div>의사선생님께 한 마디 : ${dto.msg }</div>
 
-										<!-- sql문으로 진료정보.진료상태가 진료후 인 것만 골라온 다음
-										-> 예약을 했다가(진료날짜가 입력됨) 진료가 완료되거나, 취소한 경우에는 아래와 같이 예약상태의 이력을 표시제어  -->
-										<!-- c:if test = 내에 조건을  진료신청.예약날짜 != null로(el표현식 이용하기) -->
-										<label for="medDay">예약날짜</label> <input type="text"
-											id="medDay" name="medDay" class="form-control" value="진료날짜"
-											disabled> <br> <label for="medTime">예약시간</label>
-										<input type="text" id="medTime" name="medTime"
-											class="form-control" value="진료시간" disabled>
-										<!-- /c:if -->
 
+										<!-- 예약일 경우에만 표시 -->
+										<c:if test="${dto.rqstTy == 'D002'}">
+
+											<%
+												mediRqdetailDTO dto = (mediRqdetailDTO) request.getAttribute("dto");
+													Date resDate = dto.getResDttm();
+													Date resTime = dto.getResDttm();
+											%>
+											<div>
+												진료날짜 :
+												<%=resDate%>
+											</div>
+											<div>
+												진료시간 :
+												<%=resTime%>
+											</div>
+										</c:if>
 									</div>
+
+
 								</div>
 							</div>
-						</div>
 
 
-
-							<input type="hidden" id="rqstNo" name="rqstNo" value="${rqstNo} }">
-							<!-- 선택한 진료신청항목의 진료신청번호를 전송_ 리뷰등록, 재접수할 때 값 넘겨야 함 -->
+							<input type="hidden" id="rqstNo" name="rqstNo" value="${rqstNo}">
+							<!-- 선택한 진료신청항목의 진료신청번호를 전송_ 리뷰등록시 값 넘겨야 함 -->
+							<input type="hidden" id="rqstNo" name="rqstNo"
+								value="${dto.hosId}">
+							<!-- 재접수시 필요한 값 넘김 -->
 							<input type="hidden" id="id" name="id" value="${id }">
 							<!-- 로그인중인 아이디 -->
 
-						<!-- 신청폼푸터 // 제출 및 기타 버튼 위치-->
-						<div class="card-footer">
-							<button onclick="location.href='SMedDoneList.do'"
-								class="btn btn-secondary float-left">목록</button>
-							<span style="margin-left:50px;">
-							<button onclick="toReview()" 
-								class="btn btn-secondary mx-auto">리뷰등록</button></span>
-							<button onclick="toRequest()"
-								class="btn btn-secondary float-right">재접수</button>
-								<!-- 현재 선택한 병원의 상세정보 페이지로 이동. hospital member의 hos id를 파라미터를 가지고 가야함. --> 
-								<!--  -->
+							<!-- 신청폼푸터 // 제출 및 기타 버튼 위치-->
+							<div class="card-footer">
+								<button onclick="toList()" 
+								class="btn btn-secondary mx-auto">목록</button>
+								<button onclick="toReview()" 
+								class="btn btn-secondary float-right" style="margin-left: 10px;">리뷰등록</button>
+								<button onclick="toRequest()"
+									class="btn btn-secondary float-right">재접수</button>
+								
+								<!-- 현재 선택한 병원의 상세정보 페이지로 이동. 
+								hospital member의 hos id를 파라미터를 가지고 가야함. -->
+							</div>
+
+
+
 						</div>
 
 
-
 					</div>
+					<!--/.col (left) -->
 
 
+
+
+					<!-- right column -->
+					<div class="col-md-12"></div>
+					<!--/.col (right) -->
 				</div>
-				<!--/.col (left) -->
-
-
-
-
-				<!-- right column -->
-				<div class="col-md-12"></div>
-				<!--/.col (right) -->
+				<!-- /.row -->
 			</div>
-			<!-- /.row -->
-		</div>
-		<!-- /.container-fluid -->
-	</section>
-	<!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
+			<!-- /.container-fluid -->
+		</section>
+		<!-- /.content -->
+	</div>
+	<!-- /.content-wrapper -->
 
 </form>
 
 
 <%@ include file="/layout/all_footer.jsp"%>
 <script>
-function toReview() {
-	frm.action = "SReviewWrite.do";
-	frm.submit();
-}
-function toRequest() {
-	frm.action = "SHospitalInfo.do";
-	frm.submit();
-}
+	function toList() {
+		frm.action = "SMedADoneList.do";
+		frm.submit();
+	}
+	function toReview() {
+		frm.action = "SReviewWrite.do";
+		frm.submit();
+	}
+	function toRequest() {
+		frm.action = "SHospitalInfo.do";
+		frm.submit();
+	}
 </script>
-
-
 </body>
 </html>
 

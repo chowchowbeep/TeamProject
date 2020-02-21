@@ -4,10 +4,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import kty.DAO;
+import command.DAO;
 import lastdto.mediInfoDTO;
 
-public class MediInfoDAO extends DAO {
+public class XXMediInfoDAO extends DAO {
 
 	// 진료이력목록(진료완료한 목록)
 	public List<mediInfoDTO> selectDone(String id, String type) {
