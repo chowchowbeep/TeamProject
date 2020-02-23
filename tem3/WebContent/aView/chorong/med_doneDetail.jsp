@@ -48,7 +48,7 @@
 							<div class="card-body">
 
 								<div class="row">
-									<div class="col-sm-6">
+									<div class="col-sm-12">
 										<div>병원명 : ${dto.hosName }</div>
 										<div>주소 : ${dto.hosAddr }</div>
 										<div>병원연락처 : ${dto.hosPhone }</div>

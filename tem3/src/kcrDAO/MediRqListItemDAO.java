@@ -16,44 +16,32 @@ public class MediRqListItemDAO extends DAO {
 		List<mediRqListItemDTO> list = new ArrayList<>();
 		String sql = null;
 		if (type == "all") { // 전체목록
-			sql = "SELECT r.sic_id, r.rqst_ty, r.rqst_no, h.hos_name " + 
-					",to_char(r.rqst_dttm,'yyyy/mm/dd') rqst_dt " + 
-					"from MEDI_RQST r " + 
-					"join HOS_MEMBER h on r.HOS_ID = h.HOS_ID " + 
-					"join MEDI_INFO i on r.rqst_no = i.rqst_no " + 
-					"and SIC_ID = ? " + 
-					"and not i.mctt_stt = 'Y' " +  //진료완료가 아닌 경우
-					"order by r.rqst_no desc";
+			sql= "SELECT * " +
+					" from MEDIRQLISTITEM "  +
+					" where not MCTT_STT = 'Y' " +  //진료완료가 아닌 경우
+					" and SIC_ID = ? " + 					
+					" order by RQST_NO desc";
 		} else if (type == "tmr") {// 접수목록
-			sql = "SELECT r.sic_id, r.rqst_ty, r.rqst_no, h.hos_name " + 
-					",to_char(r.rqst_dttm,'yyyy/mm/dd') rqst_dt " + 
-					"from MEDI_RQST r " + 
-					"join HOS_MEMBER h on r.HOS_ID = h.HOS_ID " + 
-					"join MEDI_INFO i on r.rqst_no = i.rqst_no " + 
-					"and SIC_ID = ? " + 
-					"and not i.mctt_stt = 'Y' " +  //진료완료가 아닌 경우
-					"and r.rqst_ty = 'D001' " +  //접수인 경우
-					"order by r.rqst_no desc";
+			sql = "SELECT * " +
+					" from MEDIRQLISTITEM "  +
+					" where not MCTT_STT = 'Y' " +  //진료완료가 아닌 경우
+					" and RQST_TY = 'D001' " +  //접수인 경우
+					" and SIC_ID = ? " + 					
+					" order by RQST_NO desc";
 		} else if (type == "res") {// 예약목록
-			sql = "SELECT r.sic_id, r.rqst_ty, r.rqst_no, h.hos_name " + 
-					",to_char(r.rqst_dttm,'yyyy/mm/dd') rqst_dt " + 
-					"from MEDI_RQST r " + 
-					"join HOS_MEMBER h on r.HOS_ID = h.HOS_ID " + 
-					"join MEDI_INFO i on r.rqst_no = i.rqst_no " + 
-					"and SIC_ID = ? " + 
-					"and not i.mctt_stt = 'Y' " +  //진료완료가 아닌 경우
-					"and r.rqst_ty = 'D002' " + //예약인 경우
-					"order by r.rqst_no desc";
-		} else if (type == "cancel") {// 취소목록
-			sql = "SELECT r.sic_id, r.rqst_ty, r.rqst_no, h.hos_name " + 
-					",to_char(r.rqst_dttm,'yyyy/mm/dd') rqst_dt " +  
-					"from MEDI_RQST r " + 
-					"join HOS_MEMBER h on r.HOS_ID = h.HOS_ID " + 
-					"join MEDI_INFO i on r.rqst_no = i.rqst_no " + 
-					"and SIC_ID = ? " + 
-					"and not i.mctt_stt = 'Y' " +  //진료완료가 아닌 경우
-					"and r.rqst_ty in ('D003', 'D004') " + //취소인 경우
-					"order by r.rqst_no desc";
+			sql = "SELECT * " +
+					" from MEDIRQLISTITEM "  +
+					" where not MCTT_STT = 'Y' " +  //진료완료가 아닌 경우
+					" and RQST_TY = 'D002' " +  //예약인 경우
+					" and SIC_ID = ? " + 					
+					" order by RQST_NO desc";
+		} else if (type == "cancel") {// 취소목록" 
+			sql = "SELECT * " +
+					" from MEDIRQLISTITEM "  +
+					" where not MCTT_STT = 'Y' " +  //진료완료가 아닌 경우
+					" and RQST_TY in ('D003', 'D004') " +  //취소인 경우
+					" and SIC_ID = ? " + 					
+					" order by RQST_NO desc";
 		}
 
 		try {
@@ -63,11 +51,12 @@ public class MediRqListItemDAO extends DAO {
 			while (rs.next()) {
 				mediRqListItemDTO dto = new mediRqListItemDTO();
 				
-				dto.setSicId(rs.getString("SIC_ID"));
 				dto.setRqstNo(rs.getInt("RQST_NO"));
+				dto.setSicId(rs.getString("SIC_ID"));
+				dto.setRqstDttm(rs.getString("RQST_DT"));
 				dto.setRqstTy(rs.getString("RQST_TY"));
 				dto.setHosName(rs.getString("HOS_NAME"));
-				dto.setRqstDttm(rs.getString("RQST_DT"));
+				
 				
 				list.add(dto);
 			}
@@ -85,34 +74,25 @@ public class MediRqListItemDAO extends DAO {
 		List<mediRqListItemDTO> list = new ArrayList<>();
 		String sql = null;
 		if (type == "all") { // 전체목록
-			sql = "SELECT r.sic_id, r.rqst_ty, r.rqst_no, h.hos_name " + 
-					",to_char(r.rqst_dttm,'yyyy/mm/dd') rqst_dt " +  
-					" FROM MEDI_RQST r" + 
-					" join HOS_MEMBER h on r.HOS_ID = h.HOS_ID" + 
-					" join medi_info i on r.RQST_NO = i.RQST_NO" + 
-					" where SIC_ID = ? " + 
-					" and i.mctt_stt = 'Y'" + //진료완료한 것만 골라오기
-					" order by r.rqst_dttm desc, r.rqst_no desc";
+			sql =   "SELECT * " +
+					" from MEDIRQLISTITEM "  +
+					" where MCTT_STT = 'Y' " +  //진료완료가 아닌 경우
+					" and SIC_ID = ? " + 					
+					" order by RQST_NO desc"; 
 		} else if (type == "tmr") {// 접수목록
-			sql = "SELECT r.sic_id, r.rqst_ty, r.rqst_no, h.hos_name " + 
-					",to_char(r.rqst_dttm,'yyyy/mm/dd') rqst_dt " +  
-					" FROM MEDI_RQST r " + 
-					" join HOS_MEMBER h on r.HOS_ID = h.HOS_ID" + 
-					" join medi_info i on r.RQST_NO = i.RQST_NO" + 
-					" where SIC_ID = ? " + 
-					" and r. rqst_ty = 'D001'" + //접수한것만 
-					" and i.mctt_stt = 'Y'" + //진료완료한 것만
-					" order by r.rqst_dttm desc, r.rqst_no desc";
+			sql = "SELECT * " +
+					" from MEDIRQLISTITEM "  +
+					" where MCTT_STT = 'Y' " +  //진료완료가 아닌 경우
+					" and SIC_ID = ? " + 	
+					" and RQST_TY = 'D001'" + //접수인경우
+					" order by RQST_NO desc";  
 		} else if (type == "res") {// 예약목록
-			sql =  "SELECT r.sic_id, r.rqst_ty, r.rqst_no, h.hos_name " + 
-					",to_char(r.rqst_dttm,'yyyy/mm/dd') rqst_dt " +  
-					" FROM MEDI_RQST r " + 
-					" join HOS_MEMBER h on r.HOS_ID = h.HOS_ID " + 
-					" join medi_info i on r.RQST_NO = i.RQST_NO " + 
-					" where SIC_ID = ?  " + 
-					" and r. rqst_ty = 'D002' " + //예약한것만
-					" and i.mctt_stt = 'Y' " + //진료완료한 것만
-					" order by r.rqst_dttm desc, r.rqst_no desc";
+			sql =  "SELECT * " +
+					" from MEDIRQLISTITEM "  +
+					" where MCTT_STT = 'Y' " +  //진료완료가 아닌 경우
+					" and SIC_ID = ? " + 	
+					" and RQST_TY = 'D002'" + //예약인경우
+					" order by RQST_NO desc";  
 		}
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -121,11 +101,12 @@ public class MediRqListItemDAO extends DAO {
 			while (rs.next()) {
 				mediRqListItemDTO dto = new mediRqListItemDTO();
 
-				dto.setSicId(rs.getString("SIC_ID"));
 				dto.setRqstNo(rs.getInt("RQST_NO"));
+				dto.setSicId(rs.getString("SIC_ID"));
+				dto.setRqstDttm(rs.getString("RQST_DT"));
 				dto.setRqstTy(rs.getString("RQST_TY"));
 				dto.setHosName(rs.getString("HOS_NAME"));
-				dto.setRqstDttm(rs.getString("RQST_DT"));
+				
 				list.add(dto);
 			}
 		} catch (SQLException e) {

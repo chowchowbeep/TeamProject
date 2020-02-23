@@ -54,11 +54,11 @@ STmrRequest.do
 							<div class="card-body">
 
 								<div class="row">
-									<div class="col-sm-6">
+									<div class="col-sm-12">
 										<div class="form-group">
 											<label for="hosId">병원명</label> <input type="text"
-												class="form-control" value="hos1${dto.hosName}" readonly>
-												<!-- 병원id값 가져와서 넘기는 것으로 수정하기 -->
+												class="form-control" value="hos1" readonly>
+												<!-- 임시 파라미터// dto.hosId 병원id값 가져와서 넘기는 것으로 수정하기  -->
 												<input type="hidden" id="hosId" name="hosId"  value="hos1">
 											<br> <label for="hosAddr">주소</label>
 											<textarea id="hosAddr" name="hosAddr" class="form-control"
@@ -84,17 +84,17 @@ STmrRequest.do
 
 
 								<div class="row">
-									<div class="col-sm-6">
+									<div class="col-sm-12">
 
 
 										<!-- 2. 의사 선택 기능 구현_선택불가능 항목은 색으로 구분 -->
 										<div class="form-group">
 											<label for="artrNo">진료받을 의사 선택</label> <select
 												class="custom-select" id="artrNo" name="artrNo">
-												<option value="2"><!-- dto.artrNo의사 번호로 수정 -->${dto.artrName } 성명: 조선아 /
-													진료과목: 예시과목
+												<option value="3"><!-- ARTR_NO의사 번호로 수정 -->
+												성명:초롱김${dto.artrName } / 진료과목: 내과${dto.artrSub }
 												</option>
-												<option value="">성명: / 진료과목:</option>
+												<option value="4">성명:선아조 / 진료과목:</option>
 											</select>
 										</div>
 
@@ -147,7 +147,7 @@ STmrRequest.do
 							<!-- 5. 완료버튼 구현 -> 클릭시 접수완료 페이지로 이동 -->
 							<div class="card-footer">
 								<input type="hidden" id="id" name="id" value="sic1">
-								<!-- 로그인중인 아이디(임시로 sic1로 설정)-->
+								<!-- 로그인중인 아이디(임시로 sic1로 설정) 나중에 수정-->
 
 								<input type="reset" class="btn btn-secondary" value="초기화">
 								<input type="submit" class="btn btn-secondary float-right"

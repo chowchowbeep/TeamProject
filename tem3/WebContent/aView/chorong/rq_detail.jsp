@@ -48,7 +48,7 @@
 							<div class="card-body">
 
 								<div class="row">
-									<div class="col-sm-6">
+									<div class="col-sm-12">
 
 
 										<c:if test="${dto.rqstTy == 'D001'}">
@@ -98,10 +98,10 @@
 										<!-- 예약일 경우에만 표시 -->
 										<c:if test="${dto.rqstTy == 'D002'}">
 											<div>
-												진료날짜 :${dto.resDt }
+												진료날짜 : ${dto.resDt }
 											</div>
 											<div>
-												진료시간 :${dto.resTm }
+												진료시간 : ${dto.resTm }
 											</div>
 										</c:if>
 
@@ -139,9 +139,9 @@
 									</div>
 								</div>
 							</div>
-							<input type="hidden" id="rqstNo" name="rqstNo" value="${rqstNo}">
+							<input type="hidden" id="rqstNo" name="rqstNo" value="${dto.rqstNo}">
 							<!-- 선택한 진료신청항목의 진료신청번호를 전송_ 취소할 때 값 넘겨야 함 -->
-							<input type="hidden" id="id" name="id" value="${id }">
+							<input type="hidden" id="id" name="id" value="${dto.sicId }">
 							<!-- 로그인중인 아이디 -->
 
 
