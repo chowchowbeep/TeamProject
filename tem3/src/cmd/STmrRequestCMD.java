@@ -37,8 +37,6 @@ public class STmrRequestCMD implements Command {
 		hosInfoForRqDTO dto = new hosInfoForRqDTO();		
 				
 		dto = dao.neededWhenRq(hosId);
-		
-		
 	
 		// 영업중 상태에서만 hos_state bizstate_y) 접수가능
 		// 1차 제어. (c:if로 신청폼 표시 제어__

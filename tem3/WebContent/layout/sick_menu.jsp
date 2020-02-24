@@ -20,14 +20,14 @@
 			</ul>
 
 
-			<form class="form-inline ml-5">
+			<form class="form-inline mx-auto">
 				<div class="input-group input-group-sm" style="font-size: 30px;">SALLYEOJYO</div>
 			</form>
 
 
 
 			<!-- Right navbar links -->
-			<ul class="navbar-nav ml-auto">
+			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" data-widget="pushmenu"
 					href="#"> <i class="fas fa-bars"></i>
 				</a></li>

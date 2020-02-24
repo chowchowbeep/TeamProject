@@ -91,7 +91,7 @@
 										<!-- 접수일 경우에만 표시  -->
 										<c:if test="${dto.rqstTy == 'D001'}">
 											<div>도착예상시간 : ${dto.ifTime }</div>
-											<div>예상대기인원수 :</div>
+											<div>예상대기인원수 :${noOfWaiting}</div>
 											<!-- 크게 표시 -->
 										</c:if>
 
@@ -147,7 +147,8 @@
 
 							<!-- 신청폼푸터 //2. 예약/접수취소 버튼 -->
 							<div class="card-footer">
-								<button onclick="toBeforeMedList()" class="btn btn-secondary">확인</button>
+							<!-- 확인버튼 누르면 다시 목록보기(뒤로가기) -->
+								<input type="button" onclick="window.history.back()" class="btn btn-secondary" value="확인">
 								<!-- 진료상태가 진료완료가 아닌 경우(진료전인경우)_ list 가져올때 이미 필터링 됨
 								+  진료타입이 병원취소이거나 환자취소가 아닌경우-->
 								<c:if

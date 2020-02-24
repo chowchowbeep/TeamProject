@@ -1,13 +1,14 @@
 
 
 
-// 신청현황상세 혹은 신청완료 페이지에서 목록 또는 확인 버튼 누를 경우
+// 신청완료 페이지에서 목록 또는 확인 버튼 누를 경우
 // 진료신청현황 리스트 페이지로 이동 
 function toBeforeMedList() {
 	frm.action = "SMedABeforeMedList.do";
 	frm.submit();
-	
 }
+
+
 
 // 신청현황상세 혹은 신청완료 페이지에서 진료신청 취소할 경우
 function cancelRes() {

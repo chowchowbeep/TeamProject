@@ -89,7 +89,7 @@
 										<!-- 접수일 경우에만 표시 -->
 										<c:if test="${dto.rqstTy == 'D001'}">
 											<div>도착예상시간 : ${dto.ifTime }</div>
-											<div>예상대기인원수 :</div>
+											<div>예상대기인원수 : ${noOfWaiting}</div>
 											<!-- 크게 표시 -->
 										</c:if>
 
@@ -145,6 +145,7 @@
 
 							<!-- 신청폼푸터 //2. 예약/접수취소 버튼 -->
 							<div class="card-footer">
+							<!-- 목록으로 이동 -->
 								<button onclick="toBeforeMedList()" class="btn btn-secondary">확인</button>
 								
 								<!--취소가능 -->

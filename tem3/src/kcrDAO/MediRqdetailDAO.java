@@ -13,11 +13,13 @@ public class MediRqdetailDAO extends DAO {
 	// 진료이력
 	//( 진료이력목록을 통해 볼 수 있으므로 mctt_stt 진료상태가 후(Y)인지는 사전에 필터링되어 있음 )
 	public mediRqdetailDTO selectOne(int rqstNo) {
+		
 		mediRqdetailDTO dto = new mediRqdetailDTO();
+		
+		String sql = "SELECT * " 
+				+ " FROM MEDIRQDETAIL "
+				+ " where RQST_NO = ? ";
 		try {
-			String sql = "SELECT * " 
-					+ " FROM MEDIRQDETAIL "
-					+ " where RQST_NO = ? ";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, rqstNo);
 			rs = pstmt.executeQuery();
@@ -42,6 +44,12 @@ public class MediRqdetailDAO extends DAO {
 				dto.setArtrSub(rs.getString("ARTR_SUB"));
 				System.out.println("select된 진료신청정보 " + dto.toString());
 			}
+			
+			
+			
+			
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -53,25 +61,25 @@ public class MediRqdetailDAO extends DAO {
 	// 예상대기인원수 구하는 프로시저 호출
 	public int getNoOfWaiting(String hosId, int rqstNo) {
 		int NoOfWaiting = 0;
-		String call = "{ call waiting_sel( ? , ? ) }";
-				//inout파라미터 처리방법 알아보기. 아래 파라미터
-		//설정방법과 out값 얻는 방법도 알아봐야 혀....
+		String call = "{ call waiting_sel( ? , ?, ? ) }";
 		try {
 			cstmt = conn.prepareCall(call);
 			
-			// Out parameter의 Type설정
-			cstmt.registerOutParameter(1, java.sql.Types.INTEGER);
-
 			// IN parameter설정
 			cstmt.setString(1, hosId);
 			cstmt.setInt(2, rqstNo);
+			
+			// Out parameter의 Type설정
+			cstmt.registerOutParameter(1, java.sql.Types.VARCHAR);
+			cstmt.registerOutParameter(3, java.sql.Types.INTEGER);
 			
 			// CallableStatement실행
 			cstmt.executeUpdate();
 			
 			
 			// Out parameter의 값을 얻고, 출력한다.
-			System.out.println("NoOfWaiting : "+ cstmt.getInt(1));
+			System.out.println("hosId: " + cstmt.getString(1) 
+			+ ", NoOfWaiting : "+ cstmt.getInt(3));
 
 		} catch (SQLException e) {
 			e.printStackTrace();

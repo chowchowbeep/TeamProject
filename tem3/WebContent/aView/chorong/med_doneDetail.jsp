@@ -8,6 +8,12 @@
 <script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css">
+<style>
+button {
+margin: 5px;
+}
+
+</style>
 <%@ include file="/layout/sick_menu.jsp"%>
 
 <!-- 컨텐츠 위치 -->
@@ -76,12 +82,8 @@
 
 										<!-- 예약일 경우에만 표시 -->
 										<c:if test="${dto.rqstTy == 'D002'}">
-											<div>
-												진료날짜 :${dto.resDt }
-											</div>
-											<div>
-												진료시간 :${dto.resTm }
-											</div>
+											<div>진료날짜 :${dto.resDt }</div>
+											<div>진료시간 :${dto.resTm }</div>
 										</c:if>
 									</div>
 
@@ -94,19 +96,21 @@
 							<!-- 선택한 진료신청항목의 진료신청번호를 전송_ 리뷰등록시 값 넘겨야 함 -->
 							<input type="hidden" id="rqstNo" name="rqstNo"
 								value="${dto.hosId}">
-							<!-- 재접수시 필요한 값 넘김 -->
+							<!-- 신고, 리뷰, 재접수시 필요한 값 넘김 -->
 							<input type="hidden" id="id" name="id" value="${id }">
 							<!-- 로그인중인 아이디 -->
 
 							<!-- 신청폼푸터 // 제출 및 기타 버튼 위치-->
 							<div class="card-footer">
-								<button onclick="toList()" 
-								class="btn btn-secondary mx-auto">목록</button>
-								<button onclick="toReview()" 
-								class="btn btn-secondary float-right" style="margin-left: 10px;">리뷰등록</button>
-								<button onclick="toRequest()"
-									class="btn btn-secondary float-right">재접수</button>
-								
+								<div class="row">
+									<button onclick="toList()" class="btn btn-secondary col">목록<br>으로</button>
+									<button onclick="toReport()"
+										class="btn btn-secondary col">병원<br>신고</button>
+									<button onclick="toReview()"
+										class="btn btn-secondary col">리뷰<br>등록</button>
+									<button onclick="toRequest()"
+										class="btn btn-secondary col">재접수</button>
+								</div>
 								<!-- 현재 선택한 병원의 상세정보 페이지로 이동. 
 								hospital member의 hos id를 파라미터를 가지고 가야함. -->
 							</div>
@@ -141,6 +145,10 @@
 <script>
 	function toList() {
 		frm.action = "SMedADoneList.do";
+		frm.submit();
+	}
+	function toReport() {
+		frm.action = "SDeclaration.do";
 		frm.submit();
 	}
 	function toReview() {

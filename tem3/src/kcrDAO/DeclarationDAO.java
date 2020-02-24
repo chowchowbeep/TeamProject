@@ -21,8 +21,10 @@ public class DeclarationDAO extends DAO{
 			pstmt.setString(2, dto.getHosId());
 			pstmt.setString(3, dto.getDecCont());
 			
-			pstmt.executeUpdate();
-			
+			r = pstmt.executeUpdate();
+			System.out.println("==========================");
+			System.out.println(r+ "건의 신고내용 입력완료");
+			System.out.println("==========================");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

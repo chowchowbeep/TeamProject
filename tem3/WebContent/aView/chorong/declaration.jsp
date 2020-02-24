@@ -59,9 +59,9 @@
 											<input type="hidden" id="hosId" name="hosId" value="hos1">
 											<br>
 											<label for="decCont">신고내용</label>
-											<textarea id="decCont" class="form-control" 
+											<textarea id="decCont" name="decCont" class="form-control" 
 											style="height:180px;"
-											name="decCont" placeholder="신고내용을 입력해주세요 "></textarea>
+											placeholder="신고내용을 입력해주세요 "></textarea>
 											
 										</div>
 									</div>
@@ -113,10 +113,10 @@
 <script>
 	//신고내용입력 여부 체크
 
-	//도착예상시간 선택가능값 제어 후 전달
+	
 	function decFormSubmit() {
 		alert("신고가 완료되었습니다.");//alert을 모달창으로 수정할 것. 
-		frm.action = "SDeclaration.do"; //접수신청처리 후  결과페이지로
+		frm.action = "SDeclarationInsert.do"; 
 		frm.submit();
 	}
 </script>
