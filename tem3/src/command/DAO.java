@@ -13,10 +13,19 @@ public class DAO {
 	protected CallableStatement cstmt;
 	protected ResultSet rs;
 
+	
+	//아카이버 문제로 일시 사용 정지
+//	protected String driver = "oracle.jdbc.driver.OracleDriver";
+//	protected String url = "jdbc:oracle:thin:@39.116.34.40:1523:mdb";
+//	protected String user = "pro";
+//	protected String passwd = "pro";
+	
+	//임시 사용_ 익스프레스 에디션 hr
 	protected String driver = "oracle.jdbc.driver.OracleDriver";
-	protected String url = "jdbc:oracle:thin:@39.116.34.40:1523:mdb";
-	protected String user = "pro";
-	protected String passwd = "pro";
+	protected String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	protected String user = "hr";
+	protected String passwd = "hr";
+
 
 	protected DAO() {
 		try {

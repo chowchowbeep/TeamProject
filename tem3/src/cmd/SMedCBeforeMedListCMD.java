@@ -25,7 +25,7 @@ public class SMedCBeforeMedListCMD implements Command {
 		//S23 진료신청현황 리스트(취소) 페이지
 		
 		// String id = request.getParameter("id"); 
-		//로그인중인 아이디를 받아오도록// 나중에 세션으로 변경
+		//로그인중인 아이디를 받아오도록// 나중에 세션으로 수정
 		String id = "sic1"; //가상의 파라미터
 		String type = "cancel";
 		

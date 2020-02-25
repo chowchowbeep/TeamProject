@@ -10,12 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import kcrDAO.XXHosInfoDAO;
 import kcrDAO.MediRqListItemDAO;
-import kcrDAO.XXMediRqstDAO;
-import lastdto.hosMemberDTO;
 import lastdto.mediRqListItemDTO;
-import lastdto.mediRqstDTO;
 
 public class SMedTBeforeMedListCMD implements Command {
 
@@ -25,7 +21,7 @@ public class SMedTBeforeMedListCMD implements Command {
 		//S20 진료신청현황 리스트(접수) 페이지
 		
 		// String id = request.getParameter("id"); 
-		//로그인중인 아이디를 받아오도록// 나중에 세션으로 변경
+		//로그인중인 아이디를 받아오도록// 나중에 세션으로 수정
 		String id = "sic1"; //가상의 파라미터
 		
 		String type = "tmr";

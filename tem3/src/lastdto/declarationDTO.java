@@ -5,19 +5,18 @@ import java.sql.SQLException;
 import kty.DAO;
 
 public class declarationDTO {
-	private int decNo;		//신고번호
+	private int decNo;		//신고번호_dec_seq
 	private String sicId;	//회원id
 	private String hosId; 	//병원id
 	private String decCont; //신고내용
-	private Date  decDttm;  //신고일시
-	private String decStt;  //처리상태
+	private Date  decDttm;  //신고일시_default sysdate
+	private String decStt;  //처리상태_default n, ck n,y
 	
 	
 	//생성자
 	public declarationDTO() {
 		super();
 	}
-	
 	
 	
 	public declarationDTO(int decNo, String sicId, String decCont, Date decDttm, String decStt, String hosId) {

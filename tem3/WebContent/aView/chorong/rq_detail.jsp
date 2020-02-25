@@ -48,7 +48,7 @@
 							<div class="card-body">
 
 								<div class="row">
-									<div class="col-sm-6">
+									<div class="col-sm-12">
 
 
 										<c:if test="${dto.rqstTy == 'D001'}">
@@ -91,17 +91,17 @@
 										<!-- 접수일 경우에만 표시  -->
 										<c:if test="${dto.rqstTy == 'D001'}">
 											<div>도착예상시간 : ${dto.ifTime }</div>
-											<div>예상대기인원수 :</div>
+											<div>예상대기인원수 :${noOfWaiting}</div>
 											<!-- 크게 표시 -->
 										</c:if>
 
 										<!-- 예약일 경우에만 표시 -->
 										<c:if test="${dto.rqstTy == 'D002'}">
 											<div>
-												진료날짜 :${dto.resDt }
+												진료날짜 : ${dto.resDt }
 											</div>
 											<div>
-												진료시간 :${dto.resTm }
+												진료시간 : ${dto.resTm }
 											</div>
 										</c:if>
 
@@ -139,15 +139,16 @@
 									</div>
 								</div>
 							</div>
-							<input type="hidden" id="rqstNo" name="rqstNo" value="${rqstNo}">
+							<input type="hidden" id="rqstNo" name="rqstNo" value="${dto.rqstNo}">
 							<!-- 선택한 진료신청항목의 진료신청번호를 전송_ 취소할 때 값 넘겨야 함 -->
-							<input type="hidden" id="id" name="id" value="${id }">
+							<input type="hidden" id="id" name="id" value="${dto.sicId }">
 							<!-- 로그인중인 아이디 -->
 
 
 							<!-- 신청폼푸터 //2. 예약/접수취소 버튼 -->
 							<div class="card-footer">
-								<button onclick="toBeforeMedList()" class="btn btn-secondary">확인</button>
+							<!-- 확인버튼 누르면 다시 목록보기(뒤로가기) -->
+								<input type="button" onclick="window.history.back()" class="btn btn-secondary" value="확인">
 								<!-- 진료상태가 진료완료가 아닌 경우(진료전인경우)_ list 가져올때 이미 필터링 됨
 								+  진료타입이 병원취소이거나 환자취소가 아닌경우-->
 								<c:if
