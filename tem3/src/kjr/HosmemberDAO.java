@@ -7,7 +7,7 @@ import java.util.List;
 import lastdto.hosMemberDTO;
 import kty.DAO;
 
-public class HosmemberDAO extends DAO {
+public class HosmemberDAO extends testDAO {
 	String sql = "";
 	public ArrayList<hosMemberDTO> select(){ //전체 조회
 		ArrayList<hosMemberDTO> list = new ArrayList<>();

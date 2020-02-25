@@ -4,9 +4,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import lastdto.bookmarkDTO;
-import kty.DAO;
 
-public class BookmarkDAO extends DAO {
+public class BookmarkDAO extends testDAO {
 	String sql;
 	public ArrayList<bookmarkDTO> select(String id) {
 		ArrayList<bookmarkDTO> list = new ArrayList<>();

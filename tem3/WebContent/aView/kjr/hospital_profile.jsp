@@ -15,7 +15,6 @@
 <script>
 
 </script>
-
 </head>
 <body>
 	<div class="container" >
@@ -36,13 +35,13 @@
 
 			<form>
 				<div class="form-group">
-					<label for="hospital_name">병원명 </label><input type="text"
-						class="form-control" id="hospital_name"
-						aria-describedby="emailHelp">
+					<label for="hospital_name">병원명 </label>
+					<input type="text" class="form-control" id="hospital_name"
+						aria-describedby="emailHelp" readonly>
 				</div>
 				<div class="form-group">
 					<label for="hospital_name">병원ID</label> <input type="text"
-						class="form-control" id="phone">
+						class="form-control" id="phone" readonly>
 				</div>
 
 				<div class="form-group">

@@ -7,7 +7,7 @@ import lastdto.sickMemberDTO;
 import kty.DAO;
 
 
-public class sicMemberDAO extends DAO {
+public class sicMemberDAO extends testDAO {
 	public static String sql;
 	//전체리스트
 			public ArrayList<sickMemberDTO> select(){

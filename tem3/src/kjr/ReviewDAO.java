@@ -8,7 +8,7 @@ import lastdto.reviewDTO;
 import lastdto.reviewListDTO;
 
 
-public class ReviewDAO extends DAO{
+public class ReviewDAO extends testDAO{
 	String sql;
 	public boolean insert(reviewDTO dto) {
 		boolean a =true;
@@ -55,4 +55,12 @@ public class ReviewDAO extends DAO{
 		}
 		return list;
 	}
+	
+	public boolean Delete(int rvNo){
+		boolean a = true;
+		
+		
+		return a;
+	}
+	
 }

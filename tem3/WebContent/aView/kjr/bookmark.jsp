@@ -8,11 +8,22 @@
 <title>Insert title here</title>
 <%@ include file="../../layout/sick_head.jsp" %>
 <%@ include file="../../layout/sick_menu.jsp" %>
-<link rel="stylesheet" href="cssList.css">
+<script>
+	$(function() { //ready == window.load 와 같은 이벤트
+		
+		
+	})
+</script>
+<style>
+	.mar{
+		margin: 10px 0px;
+	}
+</style>
 </head>
+
 <body>
 	<div class="container">
-		<div class="card text-center topmg">
+		<div class="card text-center">
 			<div class="card" style="margin: 5px;">
 				<div class="card-header text-left">관심병원</div>
 				<div class="card-body">
@@ -25,7 +36,6 @@
 								<th scope="col">버튼</th>
 							</tr>
 						</thead>
-
 						<tbody>
 							<c:forEach var="li" items="${starList }">
 								<!-- var:변수명 item:collection객체 end정의가없으면 item크기의-1 -->
@@ -37,6 +47,7 @@
 							</c:forEach>
 						</tbody>
 					</table>
+					
 				</div>
 			</div>
 		</div>
