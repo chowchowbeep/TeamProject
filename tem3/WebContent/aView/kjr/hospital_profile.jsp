@@ -37,42 +37,31 @@
 				<div class="form-group">
 					<label for="hospital_name">병원명 </label>
 					<input type="text" class="form-control" id="hospital_name"
-						aria-describedby="emailHelp" readonly>
+						aria-describedby="emailHelp" readonly value="${list.hosName }">
 				</div>
 				<div class="form-group">
-					<label for="hospital_name">병원ID</label> <input type="text"
-						class="form-control" id="phone" readonly>
+					<label for="hospital_name">병원ID</label> 
+					<input type="text" class="form-control" id="phone" readonly value="${list.hosId }">
 				</div>
-
-				<div class="form-group">
-					<label for="hospital_name">병원PW</label> <input type="text"
-						class="form-control" id="phone">
-				</div>
-
 
 				<div class="form-group">
 					<label for="addr">주소</label>
 					<div class="input-group mb-3">
-						<input type="text" id="addr" class="form-control" placeholder="주소"
-							aria-label="주소" aria-describedby="button-addon2">
-
+						<input type="text" id="addr" class="form-control" placeholder="주소" aria-label="주소" aria-describedby="button-addon2" value="${list.hosAddr }">
 						<div class="input-group-append">
-							<button class="btn btn-outline-secondary" type="button"
-								id="button-addon2">주소입력</button>
-
+							<button class="btn btn-outline-secondary" type="button" id="button-addon2">주소입력</button>
 						</div>
-
 					</div>
 
 					<div class="form-group">
-						<label for="hospital_name">전화번호</label> <input type="text"
-							class="form-control" id="phone">
+						<label for="hospital_name">전화번호</label> 
+						<input type="text" class="form-control" id="phone" value="${list.hosPhone }">
 					</div>
 
 					<div class="form-group">
 						<label for="hospital_name">사업자등록번호</label>
 						<div></div>
-						<input type="text" class="form-control" id="phone">
+						<input type="text" class="form-control" id="phone" value="${list.hosBizno }">
 					</div>
 
 					<div class="row">
@@ -107,7 +96,6 @@
 										<option>
 									</select>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-sm">
@@ -116,9 +104,6 @@
 								<div>
 									<select class="form-control">
 										<option>Default select</option>
-										
-										
-										
 									</select>
 								</div>
 							</div>
