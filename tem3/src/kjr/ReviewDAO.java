@@ -34,7 +34,7 @@ public class ReviewDAO extends testDAO{
 	
 	public ArrayList<reviewListDTO> select(String sicId){
 		ArrayList<reviewListDTO> list = new ArrayList<reviewListDTO>();
-		sql= " SELECT sic_id,hos_id,star_point,rv_cont, "+
+		sql= " SELECT rv_no,sic_id,hos_id,star_point,rv_cont, "+
 			 " (select HOS_NAME from hos_member hm where hm.HOS_ID = rv.HOS_ID )name " + 
 			 " FROM review rv WHERE SIC_ID= ? "+
 			 " order by rv.RV_NO desc";
@@ -47,7 +47,9 @@ public class ReviewDAO extends testDAO{
 				int star = rs.getInt("star_point");
 				String rvCont = rs.getString("rv_cont");
 				String hosName = rs.getString("name");
-				reviewListDTO dto = new reviewListDTO(hosId, star, rvCont, hosName);
+				int rvNo = rs.getInt("RV_NO");
+				reviewListDTO dto = new reviewListDTO(rvNo,sicId,hosId, star, rvCont, hosName);
+				
 				list.add(dto);
 			}
 		} catch (SQLException e) {
@@ -57,7 +59,19 @@ public class ReviewDAO extends testDAO{
 	}
 	
 	public boolean Delete(int rvNo){
+		reviewListDTO dto = new reviewListDTO();
 		boolean a = true;
+		sql="delete from review where RV_NO=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1,rvNo);
+		int	n = pstmt.executeUpdate();
+			if(n==0) {
+				a = false;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 		
 		return a;

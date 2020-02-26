@@ -9,7 +9,7 @@
 <%@ include file="../../layout/sick_menu.jsp" %>
 <script>
 	$(function() { //ready == window.load 와 같은 이벤트
-	/*	$("tbody").on("click","tr",function(){
+		$("tbody").on("click","tr",function(){
 			var id = $(this).attr("id");
 			$("#frm").append("<input type='text' name='hosId' id='hosId' value='"+id+"'>");
 			document.frm.action="SHospitalInfo.do"
@@ -17,10 +17,12 @@
 			document.frm.submit();
 			submit();
 		});
-	*/
+	
 	//span태그를 누르면 상세정보가아니라 삭제되는 내용만 나와야함 ㅜㅜㅜ 지금 이벤트 중첩됨 ㅜ ㅜ
 	
 		$("tbody").on("click","span",function(){
+			console.log($(this).attr('name'));
+			var thisTr = (this).closest("tr");
 			//id값의 글번호를 받아와서 dao에서 delete작업하고 결과 리턴받아서 if문으로 삭제 alert 띄우기
 			$.ajax("/tem3/ajax/ReviewDeleteAjaxCMD.do", {
 				type:"POST",
@@ -30,14 +32,15 @@
 			})
 				.done(function(data) {
 					if(data){
+						thisTr.remove();
 						alert("삭제되었습니다.");
+						
 					}else{
 						alert("다시 삭제해주세요.");
 					}
 					location.href="SReviewMylist.do";//내가쓴리뷰페이지로이동
 				})
 		});
-		
 	})
 </script>
 <style>
@@ -75,12 +78,12 @@
 								<th scope="col" style="width: 40px">Label</th>
 							</tr>
 						</thead>
-
+						
 						<tbody>
 							<c:forEach items="${list }" var="list">
 			                    <tr id="${list.hosId }" name="${list.rvNo }">
-			                      <td>${list.hosName } 이름</td>
-			                      <td class="text-left">${list.rvCont }[내용]</td>
+			                      <td>${list.hosName }</td>
+			                      <td class="text-left">${list.rvCont }</td>
 			                      <td>
 			                        <div>
 			                          <div>
@@ -131,11 +134,14 @@
 			                          </div>
 			                        </div>
 			                      </td>
-			                      <td><span class="badge bg-danger">삭제</span></td>
+			                      <td>
+			                      	<span class="badge bg-danger" name="${list.rvNo }">삭제</span>
+			                      </td>
 			                    </tr>
 			                    </c:forEach>
 						</tbody>
 					</table>
+					
 				</div>
 			</div>
 		</div>

@@ -18,6 +18,16 @@ public class reviewListDTO {
 		this.rvCont = rvCont;
 		this.hosName = hosName;
 	}
+	
+	public reviewListDTO(int rvNo, String sicId, String hosId, int starPoint, String rvCont, String hosName) {
+		super();
+		this.rvNo = rvNo;
+		this.sicId = sicId;
+		this.hosId = hosId;
+		this.starPoint = starPoint;
+		this.rvCont = rvCont;
+		this.hosName = hosName;
+	}
 	public int getRvNo() {
 		return rvNo;
 	}

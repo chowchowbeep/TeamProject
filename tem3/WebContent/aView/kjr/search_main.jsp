@@ -40,7 +40,6 @@ div .hiden {
 			$(".selectActive").removeClass("selectActive");
 			$(this).addClass("selectActive");
 			cateFrm.cate.value="";
-
 		});
 		$("#subBtn").bind("click", function() {//지하철명 클릭 시 밑에 ctDiv출력
 			$("#areaDiv").addClass("hiden");
@@ -49,7 +48,6 @@ div .hiden {
 			$(".selectActive").removeClass("selectActive");
 			$(this).addClass("selectActive");
 			cateFrm.cate.value="s";
-
 		});
 		$("#ctBtn").bind("click", function() {//카테고리 클릭 시 밑에 ctDiv출력
 			$("#areaDiv").addClass("hiden");
