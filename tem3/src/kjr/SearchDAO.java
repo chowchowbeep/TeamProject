@@ -7,7 +7,7 @@ import kty.DAO;
 import lastdto.hosMemberDTO;
 import lastdto.sListCodeDTO;
 
-public class SearchDAO extends DAO {
+public class SearchDAO extends testDAO {
 	String sql;
 	public ArrayList<hosMemberDTO> select(sListCodeDTO cdto){
 		ArrayList<hosMemberDTO> list = new ArrayList<>();

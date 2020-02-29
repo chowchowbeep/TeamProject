@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import lastdto.healthInfoDTO;
 import kty.DAO;
 
-public class HealthInfoDAO extends DAO{
+public class HealthInfoDAO extends testDAO{
 	String sql;
 	//단건조회
 	public healthInfoDTO select(String id){

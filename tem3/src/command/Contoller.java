@@ -84,6 +84,7 @@ import cmd.SsearchMainCMD;
 import cmd.TestCMD;
 import kjr.ajax.CategoriAjaxCMD;
 import kjr.ajax.LocaseachAjaxCMD;
+import kjr.ajax.ReviewDeleteAjaxCMD;
 import kjr.ajax.ReviewInsrtAjaxCMD;
 import kjr.cmd.SearchListCMD;
 import kjr.cmd.SickMainCMD;
@@ -268,6 +269,8 @@ public class Contoller extends HttpServlet {
 		 * cont.put("/ajax/UpdateUsers.do", new UpdateUsers()); cont.put("/Upload.do",
 		 * new FileUpload()); cont.put("/GetDeptCnt.do", new GetDeptCnt());
 		 */
+		
+		cont.put("/ajax/ReviewDeleteAjaxCMD.do", new ReviewDeleteAjaxCMD()); // 지역코드 가져오는 ajax
 		cont.put("/ajax/LocaseachAjaxCMD.do", new LocaseachAjaxCMD()); // 지역코드 가져오는 ajax
 		cont.put("/ajax/CategoriAjaxCMD.do", new CategoriAjaxCMD()); // 카테고리코드 가져오는 ajax
 		cont.put("/ajax/ReviewInsrtAjaxCMD.do", new ReviewInsrtAjaxCMD()); // 리뷰 insert여부를 가져오는 ajax

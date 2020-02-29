@@ -32,7 +32,6 @@ $(function() {
 	
 	function insertCheck(){
 		var formData = $("#reviewFrm").serialize();
-		
 		$.ajax("/tem3/ajax/ReviewInsrtAjaxCMD.do", {
 			type:"POST",
 			dataType : "json",

@@ -25,8 +25,6 @@
 		<div class="row">
 			<div class="mb-3 col" style="margin: 20px 0px;">
 				<button type="button" class="btn btn-primary btn-lg btn-block">병원</button>
-				
-				
 			</div>
 			<div class="mb-3 col" style="margin: 20px 0px;">
 				<button type="button" class="btn btn-primary btn-lg btn-block">약국</button>
