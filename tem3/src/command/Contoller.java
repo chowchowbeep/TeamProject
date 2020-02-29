@@ -217,13 +217,6 @@ public class Contoller extends HttpServlet {
 	//	cont.put("/.do", new CMD()); //위젯
 		
 	
-/*		cont.put("/ajax/DeleteUsers.do", new DeleteUsers());
-		cont.put("/ajax/GetUsers.do", new GetUsers());
-		cont.put("/ajax/InsertUsers.do", new InsertUsers());
-		cont.put("/ajax/UpdateUsers.do", new UpdateUsers());
-		cont.put("/Upload.do", new FileUpload());
-		cont.put("/GetDeptCnt.do", new GetDeptCnt());
-*/
 		cont.put("/ajax/LocaseachAjaxCMD.do", new LocaseachAjaxCMD()); //지역코드 가져오는 ajax
 		cont.put("/ajax/CategoriAjaxCMD.do", new CategoriAjaxCMD()); //카테고리코드 가져오는 ajax
 
@@ -245,13 +238,12 @@ public class Contoller extends HttpServlet {
 		cont.put("/SInsertRes.do", new SInsertResCMD()); // 예약신청 입력처리 로직
 		cont.put("/SInsertTmr.do", new SInsertTmrCMD()); // 접수신청 입력처리 로직
 
-		cont.put("/SRqDone.do", new SRqDoneCMD()); // S29 진료신청 완료 페이지(접수/예약)로 이동
-
 		cont.put("/SBookmark.do", new SBookmarkCMD()); // S30 관심병원 리스트 페이지
 		cont.put("/SSickMediaList.do", new SSickMediaListCMD()); // S31 기록물-기록물 리스트페이지
 		cont.put("/SSickDocuList.do", new SSickDocuListCMD()); // S32 서류-기록물 리스트페이지 
 		cont.put("/SSickDetailList.do", new SSickDetailListCMD()); // S34 기록물 상세 페이지
 		cont.put("/SSickUpload.do", new SSickUploadCMD()); // S35 기록물 업로드 페이지
+		
 		cont.put("/SDeclaration.do", new SDeclarationCMD()); //S36 병원 신고 페이지로 이동
 		cont.put("/SDeclarationInsert.do", new SDeclarationInsertCMD()); // 병원신고처리 //
 		// cont.put("/.do", new CMD()); // 알림아이콘
