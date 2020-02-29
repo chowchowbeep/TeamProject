@@ -9,13 +9,12 @@
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Font Awesome -->
-<link rel="stylesheet" href="/tem3/plugins/fontawesome-free/css/all.min.css">
+<link rel="stylesheet"
+	href="/tem3/plugins/fontawesome-free/css/all.min.css">
 <!-- Ionicons -->
 <link rel="stylesheet"
 	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-<!-- Tempusdominus Bbootstrap 4 -->
-<link rel="stylesheet"
-	href="/tem3/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+
 <!-- iCheck -->
 <link rel="stylesheet"
 	href="/tem3/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
@@ -26,20 +25,30 @@
 <!-- overlayScrollbars -->
 <link rel="stylesheet"
 	href="/tem3/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-<!-- Daterange picker -->
-<link rel="stylesheet"
-	href="/tem3/plugins/daterangepicker/daterangepicker.css">
+<!-- <!-- Daterange picker --> -->
+<!-- <link rel="stylesheet" -->
+<!-- 	href="/tem3/plugins/daterangepicker/daterangepicker.css"> -->
 <!-- summernote -->
-<link rel="stylesheet" href="/tem3/plugins/summernote/summernote-bs4.css">
+<link rel="stylesheet"
+	href="/tem3/plugins/summernote/summernote-bs4.css">
 <!-- Google Font: Source Sans Pro -->
 <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
 	rel="stylesheet">
-<link rel="stylesheet"	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!-- Tempusdominus Bbootstrap 4 -->
+<link rel="stylesheet"
+	href="/tem3/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+
+
 <!-- jQuery -->
 <script src="/tem3/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="/tem3/plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- jQuery Ajax -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
 	$.widget.bridge('uibutton', $.ui.button)
@@ -78,8 +87,3 @@
 	(<head></head> 내 <script></script>입력할 사람은 입력하고,)
 	그 밑에 topMenu파일 include한 후에
 	그 밑에 자기페이지 컨텐츠 삽입하세요 -->
-
-
-
-
-

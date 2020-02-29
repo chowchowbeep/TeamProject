@@ -20,7 +20,7 @@ public class SRqDetailCMD implements Command {
 		// 나중에 세션값 받아오는 것으로 수정할 것
 		String sicId = request.getParameter("id");	
 		int rqstNo = Integer.parseInt(request.getParameter("rqstNo"));
-
+		
 		MediRqdetailDAO dao1 = new MediRqdetailDAO();
 		MediRqdetailDAO dao2 = new MediRqdetailDAO();
 		mediRqdetailDTO dto = new mediRqdetailDTO();

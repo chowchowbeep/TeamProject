@@ -10,9 +10,16 @@
 	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css">
 <style>
 button {
-margin: 5px;
+	margin: 5px;
 }
 
+.label {
+	font-weight: bold;
+}
+
+.item {
+	padding: 5px 0px 5px 5px;
+}
 </style>
 <%@ include file="/layout/sick_menu.jsp"%>
 
@@ -55,35 +62,52 @@ margin: 5px;
 
 								<div class="row">
 									<div class="col-sm-12">
-										<div>병원명 : ${dto.hosName }</div>
-										<div>주소 : ${dto.hosAddr }</div>
-										<div>병원연락처 : ${dto.hosPhone }</div>
-										<div>담당의사 : ${dto.artrName }</div>
+										<div class="item">
+											<span class="label">병원명 : </span>${dto.hosName }</div>
+										<div class="item">
+											<span class="label">주소 : </span>${dto.hosAddr }</div>
+										<div class="item">
+											<span class="label">병원연락처 : </span>${dto.hosPhone }</div>
+										<div class="item">
+											<span class="label">담당의사 : </span>${dto.artrName }</div>
 
 										<c:if test="${dto.artrSub == 'CS10'}">
-											<div>진료과목 : 내과</div>
+											<div class="item">
+												<span class="label">진료과목 : </span>내과
+											</div>
 										</c:if>
 										<c:if test="${dto.artrSub == 'CS20'}">
-											<div>진료과목 : 소아과</div>
+											<div class="item">
+												<span class="label">진료과목 : </span>소아과
+											</div>
 										</c:if>
 										<c:if test="${dto.artrSub == 'CS30'}">
-											<div>진료과목 : 외과</div>
+											<div class="item">
+												<span class="label">진료과목 : </span>외과
+											</div>
 										</c:if>
 										<c:if test="${dto.artrSub == 'CS40'}">
-											<div>진료과목 : 정형외과</div>
+											<div class="item">
+												<span class="label">진료과목 : </span>정형외과
+											</div>
 										</c:if>
 										<c:if test="${dto.artrSub == 'CS50'}">
-											<div>진료과목 : 치과</div>
+											<div class="item">
+												<span class="label">진료과목 : </span>치과
+											</div>
 										</c:if>
 
 
-										<div>의사선생님께 한 마디 : ${dto.msg }</div>
+										<div class="item">
+											<span class="label">의사선생님께 한 마디 : </span>${dto.msg }</div>
 
 
 										<!-- 예약일 경우에만 표시 -->
 										<c:if test="${dto.rqstTy == 'D002'}">
-											<div>진료날짜 :${dto.resDt }</div>
-											<div>진료시간 :${dto.resTm }</div>
+											<div class="item">
+												<span class="label">진료날짜 : </span>${dto.resDt }</div>
+											<div class="item">
+												<span class="label">진료예약시간 : </span>${dto.resTm }</div>
 										</c:if>
 									</div>
 
@@ -91,25 +115,31 @@ margin: 5px;
 								</div>
 							</div>
 
-
-							<input type="hidden" id="rqstNo" name="rqstNo" value="${rqstNo}">
 							<!-- 선택한 진료신청항목의 진료신청번호를 전송_ 리뷰등록시 값 넘겨야 함 -->
-							<input type="hidden" id="rqstNo" name="rqstNo"
-								value="${dto.hosId}">
+							<input type="hidden" id="rqstNo" name="rqstNo" value="${rqstNo}">
+
 							<!-- 신고, 리뷰, 재접수시 필요한 값 넘김 -->
+							<input type="hidden" id="hosId" name="hosId" value="${dto.hosId}">
+
+							<!-- 로그인중인 아이디 _세션으로 수정예정-->
 							<input type="hidden" id="id" name="id" value="${id }">
-							<!-- 로그인중인 아이디 -->
+
 
 							<!-- 신청폼푸터 // 제출 및 기타 버튼 위치-->
 							<div class="card-footer">
 								<div class="row">
-									<button onclick="toList()" class="btn btn-secondary col">목록<br>으로</button>
-									<button onclick="toReport()"
-										class="btn btn-secondary col">병원<br>신고</button>
-									<button onclick="toReview()"
-										class="btn btn-secondary col">리뷰<br>등록</button>
-									<button onclick="toRequest()"
-										class="btn btn-secondary col">재접수</button>
+									<button onclick="toList()" class="btn btn-secondary col">
+										목록<br>으로
+									</button>
+									<button onclick="toReport()" class="btn btn-secondary col">
+										병원<br>신고
+									</button>
+									<button onclick="toReview()" class="btn btn-secondary col">
+										리뷰<br>등록
+									</button>
+									<button onclick="toRequest()" class="btn btn-secondary col">
+										다시<br>접수
+									</button>
 								</div>
 								<!-- 현재 선택한 병원의 상세정보 페이지로 이동. 
 								hospital member의 hos id를 파라미터를 가지고 가야함. -->

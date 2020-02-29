@@ -9,10 +9,34 @@
 	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css">
 <%@ include file="/layout/sick_menu.jsp"%>
 
+
+<!-- 모달 -->
+<div class="modal" id="modal" role="dialog"
+	aria-labelledby="modalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 id="modalLabel" class="modal-title"></h5>
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body" id="modalBody"></div>
+			<div class="modal-footer">
+				<button id="closeModalBtn" type="button" class="btn btn-secondary"
+					data-dismiss="modal">확인</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
 <!-- 컨텐츠 위치 -->
 <!-- Content Wrapper. Contains page content -->
 <form id="frm" name="frm" method="post">
-
 	<div class="content-wrapper">
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
@@ -51,73 +75,79 @@
 								<div class="row">
 									<div class="col-sm-12">
 										<div class="form-group">
-											<label for="hosId">병원명</label> 
+											<label for="hosId">병원명</label>
 											<!-- 병원id값, 병원이름 가져오기. 병원id value 수정하기 -->
 											<!-- param.name test해보기 -->
-											<input type="text"
-												class="form-control" value="병원1${dto.hosName}" readonly>
-											<input type="hidden" id="hosId" name="hosId" value="hos1">
-											<br>
-											<label for="decCont">신고내용</label>
-											<textarea id="decCont" name="decCont" class="form-control" 
-											style="height:180px;"
-											placeholder="신고내용을 입력해주세요 "></textarea>
-											
+											<input type="text" class="form-control"
+												value="병원1${dto.hosName}" readonly> <input
+												type="hidden" id="hosId" name="hosId" value="hos1">
+											<br> <label for="decCont">신고내용</label>
+											<textarea id="decCont" name="decCont" class="form-control"
+												style="height: 180px;" placeholder="신고내용을 입력해주세요 "></textarea>
+
 										</div>
 									</div>
 								</div>
 							</div>
 							<!-- /.card-body 끝 신청폼바디-->
+
+
+
+
+							<!-- 신청폼푸터 // 제출 및 기타 버튼 위치 -->
+							<!-- 클릭시 신고완료 알림 창 띄운 후 상세 페이지로 이동 -->
+							<div class="card-footer">
+								<input type="hidden" id="id" name="id" value="sic1">
+								<!-- 로그인중인 아이디(임시로 sic1로 설정) 나중에 수정-->
+								<input type="reset" class="btn btn-secondary" value="초기화">
+								<button onclick="decFormCheck()"
+									class="btn btn-secondary float-right">신고하기</button>
+							</div>
+
+
 						</div>
 
 
-
-
-						<!-- 신청폼푸터 // 제출 및 기타 버튼 위치 -->
-						<!-- 클릭시 신고완료 알림 창 띄운 후 상세 페이지로 이동 -->
-						<div class="card-footer">
-							<input type="hidden" id="id" name="id" value="sic1">
-							<!-- 로그인중인 아이디(임시로 sic1로 설정) 나중에 수정-->
-							<input type="reset" class="btn btn-secondary" value="초기화">
-							<input type="submit" class="btn btn-secondary float-right"
-								value="신고하기" onclick="decFormSubmit()">
-						</div>
 					</div>
+					<!--/.col (left) -->
 
-
-
+					<!-- right column -->
+					<div class="col-md-6"></div>
+					<!--/.col (right) -->
 				</div>
-				<!--/.col (left) -->
-
-
-
-
-				<!-- right column -->
-				<div class="col-md-6"></div>
-				<!--/.col (right) -->
+				<!-- /.row -->
 			</div>
-			<!-- /.row -->
-	</div>
-	<!-- /.container-fluid -->
-	</section>
-	<!-- /.content -->
+			<!-- /.container-fluid -->
+		</section>
+		<!-- /.content -->
 	</div>
 	<!-- /.content-wrapper -->
 </form>
 
 <%@ include file="/layout/all_footer.jsp"%>
 
-
-
-<!-- 유효성 체크 및 값 넘기기 -->
 <script>
-	//신고내용입력 여부 체크
-
-	
-	function decFormSubmit() {
-		alert("신고가 완료되었습니다.");//alert을 모달창으로 수정할 것. 
-		frm.action = "SDeclarationInsert.do"; 
-		frm.submit();
+	//유효성 체크 및 값 넘기기
+	function decFormCheck() {
+		var cont = $("#decCont").val();
+		var noContHead = "내용없음";
+		var noContCont = "신고내용을 입력해 주세요.";
+		var submittedHead = "제출완료";
+		var submitted = "신고가 완료되었습니다.";
+		if (cont == null || cont == "") {
+			event.preventDefault();
+			$('#modal').modal(); // 내용없음 모달 
+			$("#modalLabel").html(noContHead);
+			$("#modalBody").html(noContCont);
+			
+		} else {
+			event.preventDefault();
+			$('#modal').modal(); // 신고완료 모달
+			$("#modalLabel").html(submittedHead);
+			$("#modalBody").html(submitted);
+			frm.action = "SDeclarationInsert.do";
+			frm.submit();
+		}
 	}
 </script>
 </body>

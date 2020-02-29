@@ -67,6 +67,14 @@ public class declarationDTO {
 	public void setDecStt(String decStt) {
 		this.decStt = decStt;
 	}
+
+
+	@Override
+	public String toString() {
+		return "declarationDTO [decNo=" + decNo + ", sicId=" + sicId + ", hosId=" + hosId + ", decCont=" + decCont
+				+ ", decDttm=" + decDttm + ", decStt=" + decStt + "]";
+	}
+	
 	
 
 }

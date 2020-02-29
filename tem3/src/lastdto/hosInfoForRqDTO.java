@@ -7,7 +7,7 @@ public class hosInfoForRqDTO {
 	private String hosId;
 	private String hosName;
 	private String hosAddr;
-	private String bizTime; //(예약시 필요)
+	private String bizTime; //(예약)
 	
 	//hos_schedule 
 	private String[] hosHldy; //to_char필요 //(예약)

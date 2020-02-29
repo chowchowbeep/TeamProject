@@ -68,7 +68,7 @@
 											<tr class="toRqDetail" id="${list.rqstNo}">
 												<!-- 목록 행 클릭시 상세정보로 이동 -->
 
-												<td>${list.rqstNo}${list.rqstDttm}</td>
+												<td>${list.rqstDttm}</td>
 
 												<td>${list.hosName}</td>
 

@@ -31,8 +31,8 @@ public class SMedTBeforeMedListCMD implements Command {
 		list = dao.selectAll(id, type);
 		
 		
-		request.setAttribute("list", list);
 		request.setAttribute("id", id);
+		request.setAttribute("list", list);
 		
 		String path ="aView/chorong/med_TbeforeMedList.jsp";
 		

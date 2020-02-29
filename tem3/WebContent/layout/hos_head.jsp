@@ -13,9 +13,6 @@
 <!-- Ionicons -->
 <link rel="stylesheet"
 	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-<!-- Tempusdominus Bbootstrap 4 -->
-<link rel="stylesheet"
-	href="/tem3/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
 <!-- iCheck -->
 <link rel="stylesheet"
 	href="/tem3/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
@@ -26,16 +23,18 @@
 <!-- overlayScrollbars -->
 <link rel="stylesheet"
 	href="/tem3/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-<!-- Daterange picker -->
-<link rel="stylesheet"
-	href="/tem3/plugins/daterangepicker/daterangepicker.css">
+<!-- <!-- Daterange picker --> -->
+<!-- <link rel="stylesheet" -->
+<!-- 	href="/tem3/plugins/daterangepicker/daterangepicker.css"> -->
 <!-- summernote -->
 <link rel="stylesheet" href="/tem3/plugins/summernote/summernote-bs4.css">
 <!-- Google Font: Source Sans Pro -->
 <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
 	rel="stylesheet">
-
+<!-- Tempusdominus Bbootstrap 4 -->
+<link rel="stylesheet"
+	href="/tem3/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
 
 
 
@@ -47,6 +46,9 @@
 <script src="/tem3/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="/tem3/plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- jQuery Ajax -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
 	$.widget.bridge('uibutton', $.ui.button)

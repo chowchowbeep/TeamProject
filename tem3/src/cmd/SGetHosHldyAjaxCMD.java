@@ -8,16 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
 
-public class SDeclarationCMD implements Command {
+public class SGetHosHldyAjaxCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		//S36 병원 신고 페이지로 이동
-		
-		String path="aView/chorong/declaration.jsp";
-		return path;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -26,8 +26,6 @@ public class SInsertResCMD implements Command {
 		MediRqdetailDAO dao2 = new MediRqdetailDAO(); //최신신청건select
 		
 		
-		
-		
 		mediRqdetailDTO InDto = new mediRqdetailDTO();
 		mediRqdetailDTO dto = new mediRqdetailDTO();
 
@@ -79,13 +77,12 @@ public class SInsertResCMD implements Command {
 		// 결과페이지 출력을 위한 부분_ 가장최근 insert된 상세내용 가져와서 넘기기
 		dto = dao2.getHotRqst(sicId);
 		System.out.println("가져온dto ="+dto);
-		
 
-		request.setAttribute("dto", dto);
 		request.setAttribute("id", sicId);
-
+		request.setAttribute("dto", dto);
+		request.setAttribute("isRqDonePage", "yes"); //rq_detail에서 신청완료페이지표시, 신청내용상세페이지 표시를 결정
 		
-		String path = "aView/chorong/rq_done.jsp";
+		String path = "aView/chorong/rq_detail.jsp";
 		return path;
 	}
 

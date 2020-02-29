@@ -18,7 +18,7 @@ public class MediRqdetailDAO extends DAO {
 		
 		String sql = "SELECT * " 
 				+ " FROM MEDIRQDETAIL "
-				+ " where RQST_NO = ? ";
+				+ " WHERE RQST_NO = ? ";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, rqstNo);
@@ -44,11 +44,6 @@ public class MediRqdetailDAO extends DAO {
 				dto.setArtrSub(rs.getString("ARTR_SUB"));
 				System.out.println("select된 진료신청정보 " + dto.toString());
 			}
-			
-			
-			
-			
-			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -198,11 +193,11 @@ public class MediRqdetailDAO extends DAO {
 	public mediRqdetailDTO getHotRqst(String sicId) {
 		mediRqdetailDTO dto = new mediRqdetailDTO();
 		try {
-			String sql = "SELECT rownum, r.* " 
-					+ " FROM MEDIRQDETAIL r "
-					+ " where SIC_ID = ? "
-					+ " and rownum = 1"
-					+ " order by RQST_NO desc ";
+			String sql = "SELECT ROWNUM, R.* " 
+					+ " FROM MEDIRQDETAIL R "
+					+ " WHERE SIC_ID = ? "
+					+ " AND ROWNUM = 1"
+					+ " ORDER BY RQST_NO DESC ";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, sicId);
 			rs = pstmt.executeQuery();
@@ -263,79 +258,5 @@ public class MediRqdetailDAO extends DAO {
 
 		return r;
 	}
-	
-	
-	
-	
-	
-//	//최신 신청건의 rqstNo가져오기
-//	public int getHotRqstNo(String sicId) {
-//		int rqstNo = 0;
-//		try {
-//			String sql = "select rownum, a.* " 
-//					+ "from medi_rqst a " 
-//					+ "where a.sic_id = ? " 
-//					+ "and rownum=1 "
-//					+ "order by a.rqst_no desc";
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setString(1, sicId);
-//			rs = pstmt.executeQuery();
-//			if (rs.next()) {
-//				rqstNo = rs.getInt("RQST_NO");
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			close();
-//		}
-//		return rqstNo;
-//	}
-	
-	
-	
-	
-//  //진료신청취소는 위의 프로시저로 처리
-//	 // 진료신청취소 _ //진료신청의 진료타입을 환자취소로
-//	public int cancelRq(int rqstNo) {
-//		int r = 0;
-//		String sql;
-//
-//		sql = "update medi_rqst " + "set " + "rqst_ty = 'D004' " + "where rqst_no = ?";
-//		try {
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setInt(1, rqstNo);
-//			r = pstmt.executeUpdate();
-//			System.out.println(r + "건 취소완료");
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			close();
-//		}
-//
-//		return r;
-//	}
-//
-//	//진료신청취소 _ 취소시 상태정보도 진료 전/후 없이 취소로 변경
-//	public int ChangeMcttStt(int rqstNo) {
-//		int r = 0;
-//		String sql;
-//
-//		sql = "update medi_info " + "set " + "mctt_stt = 0 " + "where rqst_no =?";
-//		try {
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setInt(1, rqstNo);
-//			r = pstmt.executeUpdate();
-//			System.out.println(r + "건 취소완료");
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			close();
-//		}
-//		return r;
-//	}
-
-
 
 }

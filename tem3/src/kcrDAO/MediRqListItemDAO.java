@@ -17,31 +17,31 @@ public class MediRqListItemDAO extends DAO {
 		String sql = null;
 		if (type == "all") { // 전체목록
 			sql= "SELECT * " +
-					" from MEDIRQLISTITEM "  +
-					" where not MCTT_STT = 'Y' " +  //진료완료가 아닌 경우
-					" and SIC_ID = ? " + 					
-					" order by RQST_NO desc";
+					" FROM MEDIRQLISTITEM "  +
+					" WHERE NOT MCTT_STT = 'Y' " +  //진료완료가 아닌 경우
+					" AND SIC_ID = ? " + 					
+					" ORDER BY RQST_NO DESC";
 		} else if (type == "tmr") {// 접수목록
 			sql = "SELECT * " +
-					" from MEDIRQLISTITEM "  +
-					" where not MCTT_STT = 'Y' " +  //진료완료가 아닌 경우
-					" and RQST_TY = 'D001' " +  //접수인 경우
-					" and SIC_ID = ? " + 					
-					" order by RQST_NO desc";
+					" FROM MEDIRQLISTITEM "  +
+					" WHERE NOT MCTT_STT = 'Y' " +  //진료완료가 아닌 경우
+					" AND RQST_TY = 'D001' " +  //접수인 경우
+					" AND SIC_ID = ? " + 					
+					" ORDER BY RQST_NO DESC";
 		} else if (type == "res") {// 예약목록
 			sql = "SELECT * " +
-					" from MEDIRQLISTITEM "  +
-					" where not MCTT_STT = 'Y' " +  //진료완료가 아닌 경우
-					" and RQST_TY = 'D002' " +  //예약인 경우
-					" and SIC_ID = ? " + 					
-					" order by RQST_NO desc";
+					" FROM MEDIRQLISTITEM "  +
+					" WHERE NOT MCTT_STT = 'Y' " +  //진료완료가 아닌 경우
+					" AND RQST_TY = 'D002' " +  //예약인 경우
+					" AND SIC_ID = ? " + 					
+					" ORDER BY RQST_NO DESC";
 		} else if (type == "cancel") {// 취소목록" 
 			sql = "SELECT * " +
-					" from MEDIRQLISTITEM "  +
-					" where not MCTT_STT = 'Y' " +  //진료완료가 아닌 경우
-					" and RQST_TY in ('D003', 'D004') " +  //취소인 경우
-					" and SIC_ID = ? " + 					
-					" order by RQST_NO desc";
+					" FROM MEDIRQLISTITEM "  +
+					" WHERE NOT MCTT_STT = 'Y' " +  //진료완료가 아닌 경우
+					" AND RQST_TY IN ('D003', 'D004') " +  //취소인 경우
+					" AND SIC_ID = ? " + 					
+					" ORDER BY RQST_NO DESC";
 		}
 
 		try {
@@ -75,24 +75,24 @@ public class MediRqListItemDAO extends DAO {
 		String sql = null;
 		if (type == "all") { // 전체목록
 			sql =   "SELECT * " +
-					" from MEDIRQLISTITEM "  +
-					" where MCTT_STT = 'Y' " +  //진료완료가 아닌 경우
-					" and SIC_ID = ? " + 					
-					" order by RQST_NO desc"; 
+					" FROM MEDIRQLISTITEM "  +
+					" WHERE MCTT_STT = 'Y' " +  //진료완료가 아닌 경우
+					" AND SIC_ID = ? " + 					
+					" ORDER BY RQST_NO DESC"; 
 		} else if (type == "tmr") {// 접수목록
 			sql = "SELECT * " +
-					" from MEDIRQLISTITEM "  +
-					" where MCTT_STT = 'Y' " +  //진료완료가 아닌 경우
-					" and SIC_ID = ? " + 	
-					" and RQST_TY = 'D001'" + //접수인경우
-					" order by RQST_NO desc";  
+					" FROM MEDIRQLISTITEM "  +
+					" WHERE MCTT_STT = 'Y' " +  //진료완료가 아닌 경우
+					" AND SIC_ID = ? " + 	
+					" AND RQST_TY = 'D001'" + //접수인경우
+					" ORDER BY RQST_NO DESC";  
 		} else if (type == "res") {// 예약목록
 			sql =  "SELECT * " +
-					" from MEDIRQLISTITEM "  +
-					" where MCTT_STT = 'Y' " +  //진료완료가 아닌 경우
-					" and SIC_ID = ? " + 	
-					" and RQST_TY = 'D002'" + //예약인경우
-					" order by RQST_NO desc";  
+					" FROM MEDIRQLISTITEM "  +
+					" WHERE MCTT_STT = 'Y' " +  //진료완료가 아닌 경우
+					" AND SIC_ID = ? " + 	
+					" AND RQST_TY = 'D002'" + //예약인경우
+					" ORDER BY RQST_NO DESC";  
 		}
 		try {
 			pstmt = conn.prepareStatement(sql);
