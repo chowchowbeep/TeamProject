@@ -18,7 +18,7 @@ public class ShospitalInfoForTestCMD implements Command {
 		
 		//병원상세페이지 테스트용 으로 이동
 		
-		String hosId  = "hos2"; // 이전 페이지에서 값 받아와야 함. 수정필요. 
+		String hosId  = "hos1"; // 이전 페이지에서 값 받아와야 함. 수정필요. 
 		
 		hosMemberDTO dto = new hosMemberDTO();
 		TestForRqDAO dao = new TestForRqDAO();

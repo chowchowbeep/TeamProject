@@ -18,6 +18,120 @@
 }
 </style>
 <%@ include file="/layout/sick_menu.jsp"%>
+<script>
+	$(document).ready(function() {
+		console.log("접수,예약완료페이지");
+		getRqstInfo();
+		getNoOfWaiting();
+	});
+
+	// 가장최근 insert한 값 가져오거나,
+	function getHotRqstInfo() {
+		var sicId = $("[name='id']").val();
+		var identifier = "getHotRqstInfo";
+		console.log(sicId + ", " + identifier);
+		var dataResult;
+		$.ajax({
+			url : "ajax/SGetRqstInfo.do",
+			dataType : "json",
+			data : {
+				sicId : sicId,
+				identifier : identifier
+			},
+			async : false, //값 return 위해서  비동기x
+			success : function(result) {
+				console.log(result);
+			}
+		})
+	}
+
+	//  목록에서 넘겨받은 rqstNo에 해당하는 건 가져오기
+	function getRqstDetail() {
+		var rqstNo = $("[name='rqstNo']").val();
+		console.log(rqstNo);
+		var dataResult;
+		$.ajax({
+			url : "ajax/SGetRqstInfo.do",
+			dataType : "json",
+			data : {
+				rqstNo : rqstNo
+			},
+			success : function(result) {
+				console.log(result);
+			}
+		})
+	}
+
+	function showRqInfo() {
+		//진료신청상태
+		//병원명
+		//주소
+		//병원연락처
+		//담당의사
+		//진료과목
+		if (result.artrSub == 'CS10') {
+			var artrSubVal = '내과';
+		}
+		if (result.artrSub == 'CS20') {
+			var artrSubVal = '소아과';
+		}
+		if (result.artrSub == 'CS30') {
+			var artrSubVal = '외과';
+		}
+		if (result.artrSub == 'CS40') {
+			var artrSubVal = '정형외과';
+		}
+		if (result.artrSub == 'CS50') {
+			var artrSubVal = '치과';
+		}
+
+		//의사선생님께 한 마디
+
+		//아래는 공통사항아니므로 개별적으로 붙이기 
+
+		if (result.rqstTy == 'D001') {
+			// 접수일 경우 도착예정시간과 예상 대기 인원수 출력
+			var ifTime = "<div class='item'>도착예정시간 : <span id = 'ifTime'>"
+					+ result.ifTime + "</span></div>";
+			var noOfWaiting = "<div class='item'>예상대기 인원수 : <span id = 'noOfWaiting'></span></div>";
+			$("#itemsWrapper")
+			// 접수일 경우 예상대기 인원수 (태그만 생성하고 값은 함수 호출해서 불러오기)
+			.append(ifTime).append();
+		}
+		if (result.rqstTy == 'D002') {
+			//예약일 경우 예약일자
+			var resDt = 
+			var resTm = 
+			
+			//예약일 경우 예약시간
+			
+			
+		}
+		
+		
+
+	}
+
+	// 	function getNoOfWaiting() {
+	// 		var sicId = $("[name='id']").val();
+	// 		consol.log(sicId);
+	// 		var dataResult;
+	// 		$.ajax({
+	// 			url : "ajax/SGetWaitingCnt.do.do",
+	// 			dataType : "json",
+	// 			data : {
+	// 				hosId : hosId,
+	// 				sicId : sicId
+	// 			},
+	// 			success : function(result) {
+	// 				console.log(result.noOfWaiting);
+	//				//대기인원수표시하기.
+	// 				$("#noOfWaiting").text(reslut.noOfWaiting);
+	// 			}
+	// 		})
+	// 	}
+<!-- </script> -->
+
 
 <form id="frm" name="frm" method="post">
 	<!-- 컨텐츠 위치 -->
@@ -62,92 +176,97 @@
 							<div class="card-body">
 
 								<div class="row">
-									<div class="col-sm-12">
+									<div class="col-sm-12" id="itemsWrapper">
 
 
 										<c:if test="${dto.rqstTy == 'D001'}">
 											<div class="item">
-												<span class="label">진료신청상태 : </span>접수
+												<span class="label">진료신청상태 : </span><span>접수</span>
 											</div>
 										</c:if>
 										<c:if test="${dto.rqstTy == 'D002'}">
 											<div class="item">
-												<span class="label">진료신청상태 : </span>예약
+												<span class="label">진료신청상태 : </span><span>예약</span>
 											</div>
 										</c:if>
 										<c:if test="${dto.rqstTy == 'D003'}">
 											<div class="item">
-												<span class="label">진료신청상태 : </span>병원취소
+												<span class="label">진료신청상태 : </span><span>병원취소</span>
 											</div>
 										</c:if>
 										<c:if test="${dto.rqstTy == 'D004'}">
 											<div class="item">
-												<span class="label">진료신청상태 : </span>환자취소
+												<span class="label">진료신청상태 : </span><span>환자취소</span>
 											</div>
 										</c:if>
 
 										<div class="item">
-											<span class="label">병원명 : </span>${dto.hosName }</div>
+											<span class="label">병원명 : </span><span></span>
+										</div>
 										<div class="item">
-											<span class="label">주소 : </span>${dto.hosAddr }</div>
+											<span class="label">주소 : </span><span></span>
+										</div>
 										<div class="item">
-											<span class="label">병원연락처 : </span>${dto.hosPhone }</div>
+											<span class="label">병원연락처 : </span><span></span>
+										</div>
 										<div class="item">
-											<span class="label">담당의사 : </span>${dto.artrName }</div>
+											<span class="label">담당의사 : </span><span></span>
+										</div>
 
 										<c:if test="${dto.artrSub == 'CS10'}">
 											<div class="item">
-												<span class="label">진료과목 : </span>내과
+												<span class="label">진료과목 : </span><span>내과</span>
 											</div>
 										</c:if>
 										<c:if test="${dto.artrSub == 'CS20'}">
 											<div class="item">
-												<span class="label">진료과목 : </span>소아과
+												<span class="label">진료과목 : </span><span>소아과</span>
 											</div>
 										</c:if>
 										<c:if test="${dto.artrSub == 'CS30'}">
 											<div class="item">
-												<span class="label">진료과목 : </span>외과
+												<span class="label">진료과목 : </span><span>외과</span>
 											</div>
 										</c:if>
 										<c:if test="${dto.artrSub == 'CS40'}">
 											<div class="item">
-												<span class="label">진료과목 : </span>정형외과
+												<span class="label">진료과목 : </span><span>정형외과</span>
 											</div>
 										</c:if>
 										<c:if test="${dto.artrSub == 'CS50'}">
 											<div class="item">
-												<span class="label">진료과목 : </span>치과
+												<span class="label">진료과목 : </span><span>치과</span>
 											</div>
 										</c:if>
 
 
 										<div class="item">
-											<span class="label">의사선생님께 한 마디 : </span>${dto.msg }</div>
+											<span class="label">의사선생님께 한 마디 : </span><span>${dto.msg }</span>
+										</div>
 
 										<!-- 접수일 경우에만 표시 -->
 										<c:if test="${dto.rqstTy == 'D001'}">
 											<div class="item">
-												<span class="label">도착예상시간 : </span>${dto.ifTime }</div>
+												<span class="label">도착예상시간 : </span><span>${dto.ifTime }</span>
+											</div>
 											<div class="item">
-												<span class="label">예상대기인원수 : </span>${noOfWaiting}</div>
+												<span class="label">예상대기인원수 : </span><span id="noOfWaiting"></span>
+											</div>
 											<!-- 크게 표시 -->
 										</c:if>
 
 										<!-- 예약일 경우에만 표시 -->
 										<c:if test="${dto.rqstTy == 'D002'}">
 											<div class="item">
-												<span class="label">진료날짜 : </span>${dto.resDt }
+												<span class="label">진료날짜 : </span><span>${dto.resDt }</span>
 											</div>
 											<div class="item">
-												<span class="label">진료시간 : </span>${dto.resTm }
+												<span class="label">진료시간 : </span><span>${dto.resTm }</span>
 											</div>
 										</c:if>
 
 
 									</div>
-
-
 								</div>
 							</div>
 						</div>
@@ -160,7 +279,6 @@
 								</h3>
 							</div>
 							<div class="card-body">
-
 								<div class="row">
 									<div class="col-sm-12">
 										<div class="item">
@@ -178,22 +296,23 @@
 									</div>
 								</div>
 							</div>
-							<input type="hidden" id="rqstNo" name="rqstNo"
-								value="${dto.rqstNo}">
+
+							<!-- 어느페이지에서든 공통으로 넘겨받음. but 세션 작업 후 수정 -->
+							<input type="hidden" id="id" name="id" value="${Id}">
+
 							<!-- 선택한 진료신청항목의 진료신청번호를 전송_ 취소할 때 값 넘겨야 함 -->
-							<input type="hidden" id="id" name="id" value="${dto.sicId}">
-							<!-- 로그인중인 아이디 -->
-
-
 							<!-- 신청폼푸터 //2. 예약/접수취소 버튼 -->
 							<div class="card-footer">
-
 								<c:choose>
 									<c:when test="${isRqDonePage =='yes'}">
-										<!-- 신청완료페이지인 경우 -->
+										<!-- 신청완료페이지인 경우_value값 ajax로 받아와서 설정 -->
+										<input type="hidden" id="rqstNo" name="rqstNo">
 										<button onclick="toBeforeMedList()" class="btn btn-secondary">확인</button>
 									</c:when>
 									<c:otherwise>
+										<!-- 진료신청현황상세페이지인 경우_SRqDetail.do거치면서 파라미터로 가져옴 -->
+										<input type="hidden" id="rqstNo" name="rqstNo"
+											value="${rqstNo }">
 										<input type="reset" onclick="javascript:history.go(-1)"
 											class="btn btn-secondary" value="확인">
 									</c:otherwise>
@@ -212,23 +331,13 @@
 							</div>
 						</div>
 					</div>
-
-
+					<!--/.col (left) -->
 				</div>
-				<!--/.col (left) -->
-
-
-
-
-				<!-- right column -->
-				<div class="col-md-12"></div>
-				<!--/.col (right) -->
+				<!-- /.row -->
 			</div>
-			<!-- /.row -->
-	</div>
-	<!-- /.container-fluid -->
-	</section>
-	<!-- /.content -->
+			<!-- /.container-fluid -->
+		</section>
+		<!-- /.content -->
 	</div>
 	<!-- /.content-wrapper -->
 </form>

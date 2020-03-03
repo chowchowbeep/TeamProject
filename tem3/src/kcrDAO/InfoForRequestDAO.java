@@ -8,6 +8,7 @@ import command.DAO;
 import lastdto.artrInfoDTO;
 import lastdto.artrScheduleDTO;
 import lastdto.hosScheduleDTO;
+import lastdto.mediRqstDTO;
 
 public class InfoForRequestDAO extends DAO {
 
@@ -15,9 +16,10 @@ public class InfoForRequestDAO extends DAO {
 	public String getHosNow(String hosId) {
 		System.out.println(hosId);
 		String bizStt = "N";
-		String sql = "SELECT s.biz_stt FROM hos_stt "
-				+ " WHERE h.hos_id = ? " 
-				+ " and biz_stt == 'Y'"; // 체크 제약조건 대소문자 확인 후 수정 //당일 휴일아니라도 현재상태가 영업중상태가 아니면 접수불가
+		String sql = "SELECT biz_stt "
+				+ " FROM hos_stt " 
+				+ " WHERE hos_id = ? "
+				+ " and biz_stt = 'Y'"; // 체크 제약조건 대소문자
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, hosId);
@@ -36,62 +38,14 @@ public class InfoForRequestDAO extends DAO {
 		return bizStt;
 	}
 
-	// 병원별 휴일목록 가져오기
-	public List<hosScheduleDTO> hosHldyList(String hosId) {
-		List<hosScheduleDTO> list = new ArrayList<>();
-		
-		String sql = "select hos_id, hos_hldy"
-				+ " from hos_schedule"
-				+ " werhe hos_id = ?" ; 
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, hosId);
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				hosScheduleDTO dto = new hosScheduleDTO();
-				dto.setHosId(rs.getString("hos_id"));
-				dto.setHosHldy(rs.getString("hos_hldy"));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return list;
-	}
-
-	// 의사별 휴일목록_ 
-	public List<artrScheduleDTO> drHldyList(int artrNo, String hosId){
-		List<artrScheduleDTO> list = new ArrayList<artrScheduleDTO>();
-		String sql = "select artr_no, hos_id, to_char(artr_hldy, 'yyyymmdd)'"
-				+ " from artr_schedule"
-				+ " where artr_no = ?"
-				+ " and hos_id = ? "
-				+ " order by artr_hldy desc";
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, artrNo);
-			pstmt.setString(2, hosId);
-			rs = pstmt.executeQuery();
-			while(rs.next()) {
-				artrScheduleDTO dto = new artrScheduleDTO();
-				dto.setArtrNo(artrNo);
-				dto.setHosId(rs.getString("hos_id"));
-				dto.setArtrHldy(rs.getString("artrssHldy"));
-				list.add(dto);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return list;
-	}
-	
-	
 	// 병원별 의사목록
 	public List<artrInfoDTO> getArtrInfoForTmr(String hosId) {
 		System.out.println(hosId);
 		List<artrInfoDTO> list = new ArrayList<artrInfoDTO>();
-		String sql = "select * " + " from artr_info " + " where hos_id = ?" + " order by artr_no";
+		String sql = "select * " 
+				+ " from artr_info " 
+				+ " where hos_id = ?" 
+				+ " order by artr_no";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, hosId);
@@ -112,4 +66,111 @@ public class InfoForRequestDAO extends DAO {
 		}
 		return list;
 	}
+	
+
+	
+	// 의사별 휴일목록
+	public List<artrScheduleDTO> drHldyList(int artrNo) {
+		List<artrScheduleDTO> list = new ArrayList<artrScheduleDTO>();
+		String sql = "select artr_no, to_char(artr_hldy, 'yyyymmdd') artr_hldy" 
+				+ " from artr_schedule" 
+				+ " where artr_no = ?"
+				+ " and artr_hldy >= sysdate"
+				+ " order by artr_hldy desc";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, artrNo);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				artrScheduleDTO dto = new artrScheduleDTO();
+				dto.setArtrNo(artrNo);
+				dto.setArtrHldy(rs.getString("artr_hldy"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	
+	// 당일 휴일인 의사번호목록 
+		public List<artrScheduleDTO> getDrNotOnDutyList(String hosId) {
+			List<artrScheduleDTO> list = new ArrayList<artrScheduleDTO>();
+			String sql = "select hos_id, artr_no, "+
+					" to_char(artr_hldy, 'yyyymmdd') artr_hldy" + 
+					" from artr_schedule" + 
+					" where hos_id = ?" + 
+					" and artr_hldy = to_char(sysdate, 'yyyymmdd')";
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, hosId);
+				rs = pstmt.executeQuery();
+				while (rs.next()) {
+					artrScheduleDTO dto = new artrScheduleDTO();
+					dto.setArtrNo(rs.getInt("artr_no"));
+					list.add(dto);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return list;
+		}
+
+	// 병원별 휴일목록 가져오기
+	public List<hosScheduleDTO> hosHldyList(String hosId) {
+		List<hosScheduleDTO> list = new ArrayList<>();
+
+		String sql = "select hos_id, to_char(hos_hldy,'yyyymmdd') hos_hldy" 
+				+ " from hos_schedule" 
+				+ " where hos_id = ?"
+				+ " and hos_hldy >= sysdate"
+				+ " order by hos_hldy desc";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, hosId);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				hosScheduleDTO dto = new hosScheduleDTO();
+				dto.setHosId(hosId);
+				dto.setHosHldy(rs.getString("hos_hldy"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list;
+	}
+	
+	// 선택한날짜에, 선택한 의사앞으로 예약된 시간이 있는지 확인_ datepicker값 넘김 형태 확인 후 
+	public String[] getUnselectableTime(String hosId, String resDt, int artrNo){
+		String[] unselectableTimeList = null;
+		String sql = "select hos_id," + 
+				" to_char(res_dttm, 'yyyymmdd')" + 
+				" ,to_char(res_dttm, 'hh24mi')" + 
+				" from medi_rqst" + 
+				" where hos_id = ? " + 
+				" and to_char(res_dttm, 'yyyymmdd') = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, hosId);
+			pstmt.setString(2, resDt);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				String reservedTime = null;
+				unselectableTimeList[rs.getRow()-1] = reservedTime;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return unselectableTimeList;
+	}
+	
+	
+	
+	
 }

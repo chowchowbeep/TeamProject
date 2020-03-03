@@ -16,7 +16,7 @@ public class STmrRequestCMD implements Command {
 		
 		// S28,29통합 진료신청페이지로 이동
 		
-		// 병원 상세정보 페이지에서 파라미터로 가져오는 값 
+		// 병원 상세정보 페이지에서 파라미터로 가져오는 값 //세션으로 수정
 		String sidId = request.getParameter("sicId");
 		
 		//getParameter()호출없이 그대로 받아서 페이지에 출력할 

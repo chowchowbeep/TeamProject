@@ -148,14 +148,14 @@ public class MediRqdetailDAO extends DAO {
 					+ "(RQST_NO, SIC_ID, HOS_ID, RES_DTTM, " 
 					+ "ARTR_NO, RQST_TY, DCRY_NO, MSG) "
 					+ "values " 
-					+ "(RQST_SEQ.nextval, ?, ?, TO_DATE( ? , 'YYYYMMDDHH24MISS'), " 
+					+ "(RQST_SEQ.nextval, ?, ?, TO_DATE( ? , 'YYYYMMDDHH24MI'), " 
 					+ "?, 'D002', ? ,?)"; // D002 예약
 		} else { // 기록물을 선택하지 않은 경우를 위해서
 			sql = "insert into MEDI_RQST " 
 					+ "(RQST_NO, SIC_ID, HOS_ID, RES_DTTM, " 
 					+ "ARTR_NO, RQST_TY, MSG) "
 					+ "values " 
-					+ "(RQST_SEQ.nextval, ?, ?, TO_DATE( ? , 'YYYYMMDDHH24MISS'), " 
+					+ "(RQST_SEQ.nextval, ?, ?, TO_DATE( ? , 'YYYYMMDDHH24MI'), " 
 					+ "?, 'D002', ?)"; // D002 예약
 		}
 		try {
@@ -163,7 +163,7 @@ public class MediRqdetailDAO extends DAO {
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, dto.getSicId());
 				pstmt.setString(2, dto.getHosId());
-				pstmt.setString(3, dto.getResDt()+ dto.getResTm()); //"20201122"+"185511" 
+				pstmt.setString(3, dto.getResDt()+ dto.getResTm()); //"20201122"+"1855" 
 				pstmt.setInt(4, dto.getArtrNo());
 				pstmt.setInt(5, dto.getDcryNo());
 				pstmt.setString(6, dto.getMsg());
@@ -175,7 +175,6 @@ public class MediRqdetailDAO extends DAO {
 				pstmt.setInt(4, dto.getArtrNo());
 				pstmt.setString(5, dto.getMsg());
 			}
-
 			r = pstmt.executeUpdate();
 			System.out.println(r + "건 입력완료");
 
