@@ -10,7 +10,7 @@ import command.Command;
 import kcrDAO.InfoForRequestDAO;
 import net.sf.json.JSONObject;
 
-public class SCheckForTmrAjaxCMD implements Command {
+public class SGetHosStt implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
@@ -29,7 +29,7 @@ public class SCheckForTmrAjaxCMD implements Command {
 		} else { 
 			//System.out.println("=======접수불가=======");
 			jsonObj.put("TmrOk", "NotOk");
-			}
+		}
 		String result = jsonObj.toString();
 		System.out.println(result);
 		return "ajax:" + result;

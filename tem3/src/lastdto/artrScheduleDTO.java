@@ -1,6 +1,5 @@
 package lastdto;
 
-import java.sql.Date;
 
 public class artrScheduleDTO {
 	private int hyNum; // 휴일번호
