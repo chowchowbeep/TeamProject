@@ -36,18 +36,23 @@
 		});
 		
 		function clickBtnFunc(btnId){
-			if(btnId==="startBtn"){
-				console.log("if에서 startBtn");
-			}else if(btnId==="endBtn"){
-				console.log("if에서 endBtn");
-			}
+			
 			
 			//ajax로 update처리하기 
-			$.ajax({
-				url:"",
-				data:{bizStt:btnId},
-			})
+			$.ajax("/tem3/ajax/HosSttAjaxCMD.do",{
+				dataType : "json",
+				data:{bizStt :btnId}
+			}).done(function(data) {
+				if(btnId==="startBtn"){
+					window.alert("영업 등록 하였습니다.");
+				}else if(btnId==="endBtn"){
+					window.alert("영업 마감 하였습니다.");
+				}
+				
+			});
+			
 		}
+		
 		//영업 마감 버튼 클릭 -> (DB) 마감시간 값 입력&영업상태 값 마감으로 변경
 
 		//접수신청순으로 전부 출력(진료신청번호, 이름, (접-도착예정시간)(예-예약시간),의사)

@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import kjr.ReviewDAO;
-import lastdto.reviewDTO;
+import lastdto.hosSttDTO;
+import kjr.HosSttDAO;
 import net.sf.json.JSONArray;
 
 public class HosSttAjaxCMD implements Command {
@@ -16,15 +16,24 @@ public class HosSttAjaxCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		String hosId ="hos2"; //세션에서 hosId 받아오는거 추가
-		
+		System.out.println("?????????????????????????????뭐야 안넘어가냐?");
+		String hosId ="hos3"; //세션에서 hosId 받아오는거 추가
+		String bizStt = request.getParameter("bizStt");
+		if(bizStt.equals("startBtn")) {
+			bizStt = "Y";
+		}else {
+			bizStt = "N";
+		}
+		hosSttDTO dto = new hosSttDTO();
+		dto.setHosId(hosId);
+		dto.setBizStt(bizStt);
 		//update 작업 
-		//boolean checkInsert = dao.insert(dto);
+		HosSttDAO dao = new HosSttDAO();
+		boolean checkUpdate = dao.Update(dto);
 		
 		
 		
-		return "ajax:" ;//+ JSONArray.fromObject(list);
+		return "ajax:" + JSONArray.fromObject(checkUpdate);
 	}
 
 }
