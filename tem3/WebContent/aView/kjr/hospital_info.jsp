@@ -10,6 +10,19 @@
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b450fd1e475fcbb9f2bb640be5a6f4a8"></script>
 <%@ include file="../../layout/sick_head.jsp" %>
 <%@ include file="../../layout/sick_menu.jsp" %>
+<script>
+$(function() {
+	$("#STmrRequest").on("click", function() {
+		location.href='STmrRequest.do';
+	});
+	
+	$("#SResRequest").on("click", function() {
+		location.href='SResRequest.do';
+	});
+	
+}
+);
+</script>
 </head>
 <body>
 	<div class="container">
@@ -37,17 +50,17 @@
 
 			<div class="card" style="margin: 5px;">
 				<div class="card-body">
-					<p>전화번호:$()</p>
-					<p>주소:$()</p>
-					<p>진료시간:$()</p>
-					<p>사업자등록번호:$()</p>
+					<p>전화번호:${list.hosPhone}</p>
+					<p>주소:${list.hosAddr}</p>
+					<p>진료시간:${list.hosBizTime}</p>
+					<p>사업자등록번호:${list.hosBizno}</p>
 					<P>검색코드</P>
 				</div>
 			</div>
 
-			<button type="button" class="btn btn-primary btn-lg btn-block">당일
+			<button type="button" class="btn btn-primary btn-lg btn-block" id="STmrRequest">당일
 				접수</button>
-			<button type="button" class="btn btn-primary btn-lg btn-block">예약
+			<button type="button" class="btn btn-primary btn-lg btn-block" id="SResRequest">예약
 				신청</button>
 		</div>
 	</div>
