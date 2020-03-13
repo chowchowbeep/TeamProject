@@ -11,7 +11,7 @@ function toBeforeMedList() {
 
 
 // 신청현황상세 혹은 신청완료 페이지에서 진료신청 취소할 경우
-function cancelRes() {
+function cancelRq() {
 	var chCancel = confirm("진료신청을 취소하시겠습니까?");
 	if (chCancel == true) {
 		alert("진료신청이 취소되었습니다."); //취소시 확인알림팝업뜨고 

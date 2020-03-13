@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import kcrDAO.DeclarationDAO;
+import kcr.DeclarationDAO;
 import lastdto.declarationDTO;
 
 public class SDeclarationInsertCMD implements Command {

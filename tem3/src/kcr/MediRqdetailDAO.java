@@ -1,4 +1,4 @@
-package kcrDAO;
+package kcr;
 
 import java.sql.SQLException;
 
@@ -56,7 +56,7 @@ public class MediRqdetailDAO extends DAO {
 	// 예상대기인원수 구하는 프로시저 호출
 	public int getNoOfWaiting(String hosId, int rqstNo) {
 		int NoOfWaiting = 0;
-		String call = "{ call waiting_sel( ? , ?, ? ) }";
+		String call = "{call waiting_sel(?,?,?)}";
 		try {
 			cstmt = conn.prepareCall(call);
 			
@@ -69,12 +69,13 @@ public class MediRqdetailDAO extends DAO {
 			cstmt.registerOutParameter(3, java.sql.Types.INTEGER);
 			
 			// CallableStatement실행
-			cstmt.executeUpdate();
+			cstmt.executeQuery();
 			
-			
+			String outHosId = cstmt.getString(1);
+			NoOfWaiting = cstmt.getInt(3);
 			// Out parameter의 값을 얻고, 출력한다.
-			System.out.println("hosId: " + cstmt.getString(1) 
-			+ ", NoOfWaiting : "+ cstmt.getInt(3));
+			System.out.println("fromDAO    "+"hosId: " +  outHosId
+			+ ", NoOfWaiting : "+ NoOfWaiting);
 
 		} catch (SQLException e) {
 			e.printStackTrace();

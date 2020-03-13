@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import kcrDAO.InfoForRequestDAO;
+import kcr.InfoForRequestDAO;
 import lastdto.artrScheduleDTO;
 import net.sf.json.JSONArray;
 

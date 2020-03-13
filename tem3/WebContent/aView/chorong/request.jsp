@@ -43,7 +43,8 @@ label.error {
 </style>
 <script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
 <script>
-<!-- 예약일 경우 -->
+
+// 예약일 경우 
 <c:if test="${rqType == 'Res'}">
 		$(document).ready(function() {
 			console.log("res");
@@ -65,11 +66,11 @@ label.error {
 			
 		});
 </c:if>
-<!-- //예약 -->
 
 
 
-<!-- 접수일 경우 -->
+
+// 접수일 경우
 <c:if test="${rqType == 'Tmr'}">
 		$(document).ready(function() {
 			console.log("tmr");
@@ -78,7 +79,7 @@ label.error {
 			ctrlDrNotOnDuty();
 		});
 </c:if>
-<!-- //접수 -->
+
 
 	//1차 접수제한, 제출시 영업상태확인위한 값(영업상태) 가져오기 // 제출시 한번 더 필요. 아래 모달도.
 	function getHosStt() {

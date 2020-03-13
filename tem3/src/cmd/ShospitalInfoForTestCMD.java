@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import kcrDAO.TestForRqDAO;
+import kcr.TestForRqDAO;
 import lastdto.hosMemberDTO;
 
 public class ShospitalInfoForTestCMD implements Command {

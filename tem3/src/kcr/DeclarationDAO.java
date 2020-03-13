@@ -1,4 +1,4 @@
-package kcrDAO;
+package kcr;
 
 import java.sql.SQLException;
 
