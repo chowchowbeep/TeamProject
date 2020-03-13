@@ -29,7 +29,30 @@
 	$(function() { //ready == window.load 와 같은 이벤트
 
 		//영업 등록 버튼 클릭 -> (DB) 오픈시간 값 입력&영업상태 값 진료중으로 변경
-
+	
+		$("#btnDiv").on("click","button",function(){
+			var btnId = $(this).attr("id");
+			clickBtnFunc(btnId)
+		});
+		
+		function clickBtnFunc(btnId){
+			
+			
+			//ajax로 update처리하기 
+			$.ajax("/tem3/ajax/HosSttAjaxCMD.do",{
+				dataType : "json",
+				data:{bizStt :btnId}
+			}).done(function(data) {
+				if(btnId==="startBtn"){
+					window.alert("영업 등록 하였습니다.");
+				}else if(btnId==="endBtn"){
+					window.alert("영업 마감 하였습니다.");
+				}
+				
+			});
+			
+		}
+		
 		//영업 마감 버튼 클릭 -> (DB) 마감시간 값 입력&영업상태 값 마감으로 변경
 
 		//접수신청순으로 전부 출력(진료신청번호, 이름, (접-도착예정시간)(예-예약시간),의사)
@@ -48,12 +71,12 @@
 </head>
 <body>
 	<div class="container">
-		<div class="row">
+		<div class="row" id="btnDiv">
 			<div class="col-sm mar">
-				<button type="button" class="btn btn-primary btn-lg btn-block">영업등록</button>
+				<button type="button" class="btn btn-primary btn-lg btn-block" id="startBtn">영업등록</button>
 			</div>
 			<div class="col-sm mar">
-				<button type="button" class="btn btn-primary btn-lg btn-block">영업마감</button>
+				<button type="button" class="btn btn-primary btn-lg btn-block" id="endBtn">영업마감</button>
 			</div>
 		</div>
 <div class="row">

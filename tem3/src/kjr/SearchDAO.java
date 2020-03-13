@@ -5,10 +5,36 @@ import java.util.ArrayList;
 
 import kty.DAO;
 import lastdto.hosMemberDTO;
+import lastdto.reviewListDTO;
 import lastdto.sListCodeDTO;
+import lastdto.searchDTO;
 
 public class SearchDAO extends testDAO {
 	String sql;
+	//id별로 전체 search코드 검색 ㅎ 
+	public ArrayList<searchDTO> selectAll(String hosId){
+		ArrayList<searchDTO> list = new ArrayList<>();
+		
+		sql= "SELECT * from search where hos_id=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,hosId);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				searchDTO dto = new searchDTO();
+				String code = rs.getString("code");
+				dto.setHosId(hosId);
+				dto.setCode(code);
+				list.add(dto);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 	public ArrayList<hosMemberDTO> select(sListCodeDTO cdto){
 		ArrayList<hosMemberDTO> list = new ArrayList<>();
 		String[] cateCode = cdto.getCateCode();
@@ -17,7 +43,6 @@ public class SearchDAO extends testDAO {
 		String diam= cdto.getDiam();
 		String filter= cdto.getFilter();
 		
-		System.out.println("?????????????????????????????????????????????????????");
 		sql="select * from hos_member where hos_id in"+
 		    "(select hos_id from search " + 
 			"INTERSECT " + 

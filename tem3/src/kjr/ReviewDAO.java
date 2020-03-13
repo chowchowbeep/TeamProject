@@ -9,6 +9,7 @@ import lastdto.reviewListDTO;
 
 
 public class ReviewDAO extends testDAO{
+	ArrayList<reviewListDTO> list = new ArrayList<reviewListDTO>();
 	String sql;
 	public boolean insert(reviewDTO dto) {
 		boolean a =true;
@@ -33,7 +34,7 @@ public class ReviewDAO extends testDAO{
 	}
 	
 	public ArrayList<reviewListDTO> select(String sicId){
-		ArrayList<reviewListDTO> list = new ArrayList<reviewListDTO>();
+		
 		sql= " SELECT rv_no,sic_id,hos_id,star_point,rv_cont, "+
 			 " (select HOS_NAME from hos_member hm where hm.HOS_ID = rv.HOS_ID )name " + 
 			 " FROM review rv WHERE SIC_ID= ? "+
