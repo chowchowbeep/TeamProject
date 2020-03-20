@@ -33,7 +33,7 @@ public class SCancelRqCMD implements Command {
 		dao.CancelAndPenalty(sicId, rqstNo);
 
 		
-		String path = "SMedABeforeMedList.do";
+		String path = "SMedBeforeMedList.do";
 		return path;
 	}
 

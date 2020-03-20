@@ -27,7 +27,7 @@ public class SMedRDoneListCMD implements Command {
 		
 		MediRqListItemDAO dao = new MediRqListItemDAO();
 		List<mediRqListItemDTO> list = new ArrayList<>();
-		list = dao.selectDone(id, type);
+//		list = dao.selectDone(id, type);
 		
 		
 		request.setAttribute("list", list);

@@ -8,6 +8,12 @@ td {
 	text-align: center;
 }
 
+
+h1 {
+	font-weight: 200;
+}
+
+
 .breadcrumb {
 	margin: 0;
 }
@@ -26,6 +32,57 @@ td {
 }
 
 
-h1 {
-	font-weight: 200;
+
+#pills-tab {
+	padding: .3rem 1.5rem;
+	margin-bottom: 1rem;
+	list-style: none;
+	background-color: #e9ecef;
+	border-radius: .25rem;
+}
+
+.nav-link {
+	color: #6c757d;
+}
+
+.nav-pills .nav-link:not(.active):hover {
+ 	color: darkgrey;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+	font-weight: 700;
+	color: #343a40;
+	background-color: transparent;
+}
+
+
+
+.page-link {
+	font-size: 1.2rem;
+	color: #343a40;
+}
+
+.page-link-arrow {
+	font-weight: bold;
+}
+
+.page-link.disabled {
+	color: #dee2e6;
+}
+
+.page-link.active {
+	background-color: #e9ecef;
+}
+
+
+
+.rqDetailLabel::after {
+  content: "\00a0\00a0\00a0\00a0";
+}
+.rqDetailLabel {
+	font-weight: bold;
+}
+.item.rqDetailInfo {
+	padding: 5px 0px 5px 5px;
+	font-weight: lighter;
 }

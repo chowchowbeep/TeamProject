@@ -31,7 +31,7 @@ public class SMedRBeforeMedListCMD implements Command {
 		
 		MediRqListItemDAO dao = new MediRqListItemDAO();
 		List<mediRqListItemDTO> list = new ArrayList<>();
-		list = dao.selectAll(id, type);
+//		list = dao.selectAll(id, type);
 		
 		
 		request.setAttribute("list", list);

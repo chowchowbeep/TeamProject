@@ -7,18 +7,10 @@
 <%@ include file="/layout/sick_head.jsp"%>
 <script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css">
+	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css?ver=4">
 <style>
 button {
 	margin: 5px;
-}
-
-.label {
-	font-weight: bold;
-}
-
-.item {
-	padding: 5px 0px 5px 5px;
 }
 </style>
 <%@ include file="/layout/sick_menu.jsp"%>
@@ -62,52 +54,52 @@ button {
 
 								<div class="row">
 									<div class="col-sm-12">
-										<div class="item">
-											<span class="label">병원명 : </span>${dto.hosName }</div>
-										<div class="item">
-											<span class="label">주소 : </span>${dto.hosAddr }</div>
-										<div class="item">
-											<span class="label">병원연락처 : </span>${dto.hosPhone }</div>
-										<div class="item">
-											<span class="label">담당의사 : </span>${dto.artrName }</div>
+										<div class="item rqDetailInfo">
+											<span class="rqDetailLabel">병원명</span>${dto.hosName }</div>
+										<div class="item rqDetailInfo">
+											<span class="rqDetailLabel">주소</span>${dto.hosAddr }</div>
+										<div class="item rqDetailInfo">
+											<span class="rqDetailLabel">병원연락처</span>${dto.hosPhone }</div>
+										<div class="item rqDetailInfo">
+											<span class="rqDetailLabel">담당의사</span>${dto.artrName }</div>
 
 										<c:if test="${dto.artrSub == 'CS10'}">
-											<div class="item">
-												<span class="label">진료과목 : </span>내과
+											<div class="item rqDetailInfo">
+												<span class="rqDetailLabel">진료과목</span>내과
 											</div>
 										</c:if>
 										<c:if test="${dto.artrSub == 'CS20'}">
-											<div class="item">
-												<span class="label">진료과목 : </span>소아과
+											<div class="item rqDetailInfo">
+												<span class="rqDetailLabel">진료과목</span>소아과
 											</div>
 										</c:if>
 										<c:if test="${dto.artrSub == 'CS30'}">
-											<div class="item">
-												<span class="label">진료과목 : </span>외과
+											<div class="item rqDetailInfo">
+												<span class="rqDetailLabel">진료과목</span>외과
 											</div>
 										</c:if>
 										<c:if test="${dto.artrSub == 'CS40'}">
-											<div class="item">
-												<span class="label">진료과목 : </span>정형외과
+											<div class="item rqDetailInfo">
+												<span class="rqDetailLabel">진료과목</span>정형외과
 											</div>
 										</c:if>
 										<c:if test="${dto.artrSub == 'CS50'}">
-											<div class="item">
-												<span class="label">진료과목 : </span>치과
+											<div class="item rqDetailInfo">
+												<span class="rqDetailLabel">진료과목</span>치과
 											</div>
 										</c:if>
 
 
-										<div class="item">
-											<span class="label">의사선생님께 한 마디 : </span>${dto.msg }</div>
+										<div class="item rqDetailInfo">
+											<span class="rqDetailLabel">의사선생님께 한 마디</span>${dto.msg }</div>
 
 
 										<!-- 예약일 경우에만 표시 -->
 										<c:if test="${dto.rqstTy == 'D002'}">
-											<div class="item">
-												<span class="label">진료날짜 : </span>${dto.resDt }</div>
-											<div class="item">
-												<span class="label">진료예약시간 : </span>${dto.resTm }</div>
+											<div class="item rqDetailInfo">
+												<span class="rqDetailLabel">진료날짜</span>${dto.resDt }</div>
+											<div class="item rqDetailInfo">
+												<span class="rqDetailLabel">진료예약시간</span>${dto.resTm }</div>
 										</c:if>
 									</div>
 
@@ -174,7 +166,7 @@ button {
 <%@ include file="/layout/all_footer.jsp"%>
 <script>
 	function toList() {
-		frm.action = "SMedADoneList.do";
+		frm.action = "SMedDoneList.do";
 		frm.submit();
 	}
 	function toReport() {

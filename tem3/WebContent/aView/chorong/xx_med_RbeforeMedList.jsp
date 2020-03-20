@@ -5,11 +5,18 @@
 <%@ include file="/layout/sick_head.jsp"%>
 <script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css">
+	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css?ver=1">
 <%@ include file="/layout/sick_menu.jsp"%>
 
-<!-- /SMedDoneDetail.do로 진료이력목록조회 -->
-<form id="frm" name="frm" action="SMedDoneDetail.do" method="post">
+
+
+<!--  /c를 타고 들어옴-->
+
+
+<!-- 클릭한 항목의 값을 파라미터로 가지고 가야 함_ 아래 스크립트 참고
+	상세정보-->
+<form id="frm" name="frm" method="post">
+
 	<!-- Content Wrapper. Contains page content -->
 	<div class="content-wrapper">
 		<!-- Content Header (Page header) -->
@@ -17,8 +24,7 @@
 			<div class="container-fluid">
 				<div class="row mb-2">
 					<div class="col-sm-6">
-						<!-- 1. 진료이력 출력 ( 회원Id, 진료상태 완료, 모든진료타입 ) -->
-						<h1 class="m-0 text-dark">진료완료이력</h1>
+						<h1 class="m-0 text-dark">진료신청현황</h1>
 					</div>
 					<!-- /.col -->
 					<div class="col-sm-6">
@@ -36,23 +42,33 @@
 		<!-- /.content-header -->
 
 
+
+
+
+
 		<!-- Main content -->
 		<section class="content">
 			<div class="container-fluid">
-				<div>
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="SMedADoneList.do">전체</a></li>
-						<li class="breadcrumb-item active">접수</li>
-						<li class="breadcrumb-item"><a href="SMedRDoneList.do">예약</a></li>
-					</ol>
-				</div>
-
-				<br>
+				<ul class="nav nav-pills justify-content-center" id="pills-tab"
+					role="tablist">
+					<li class="nav-item"><a class="nav-link "
+						href="SMedABeforeMedList.do" role="tab" 
+						aria-selected="false">전체</a></li>
+					<li class="nav-item"><a class="nav-link active"
+						href="SMedTBeforeMedList.do" role="tab"
+						aria-selected="false">접수</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="SMedRBeforeMedList.do" role="tab"
+						aria-selected="true">예약</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="SMedCBeforeMedList.do" role="tab"
+					aria-selected="false">취소</a></li>
+				</ul>
 				<div class="row">
 					<div class="col-12">
 						<div class="card">
 							<div class="card-body table-responsive p-0">
-
+							
 								<table class="table table table-hover text-wrap">
 									<!-- 3. 항목 선택 시 병원정보 상세조회 페이지로 이동 
 								4. 취소한 이력은 취소표시  -->
@@ -72,8 +88,8 @@
 
 												<td>${list.hosName}</td>
 
-												<td><svg class="bi bi-chevron-right" width="20"
-														height="20" viewBox="0 0 20 20" fill="currentColor"
+												<td><svg class="bi bi-chevron-right" 
+												width="20" height="20" viewBox="0 0 20 20" fill="currentColor"
 														xmlns="http://www.w3.org/2000/svg">
 														<path fill-rule="evenodd"
 															d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"
@@ -83,6 +99,7 @@
 										</c:forEach>
 									</tbody>
 								</table>
+
 							</div>
 						</div>
 						<!-- /.card -->
@@ -90,13 +107,21 @@
 				</div>
 			</div>
 		</section>
+
+		<input type="hidden" id="rqstNo" name="rqstNo">
+		<!-- 선택한 진료신청항목의 진료신청번호를 전송 -->
+		<input type="hidden" id="id" name="id" value="${id }">
+		<!-- 로그인중인 아이디 -->
+
+
+
+		<!-- 
+		이전:"상단바 사이트맵, 상단바 메뉴바"
+		다음:"진료현황 상세 페이지-예약, 진료현황 상세 페이지-당일접수"
+	 -->
 	</div>
-
-
 	<!-- ./wrapper -->
-	<input type="hidden" id="rqstNo" name="rqstNo">
 </form>
-
 <%@ include file="/layout/all_footer.jsp"%>
 <script>
 	$(".toRqDetail").click(function() {
@@ -105,11 +130,11 @@
 		$("#rqstNo").attr("value", rqstNo);
 		console.log("파라미터에 실린 진료신청번호 : " + $("#rqstNo").attr("value"));
 
-		frm.action = "SMedDoneDetail.do"; //진료신청현황 상세 페이지로
+		frm.action = "SRqDetail.do"; //진료신청현황 상세 페이지로
 		frm.submit(); //제출되면 클릭된 행의 신청번호가 파라미터로 실려갑니다.
 	})
 </script>
+
+
 </body>
 </html>
-
-

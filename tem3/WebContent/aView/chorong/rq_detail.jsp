@@ -7,21 +7,11 @@
 <%@ include file="/layout/sick_head.jsp"%>
 <script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js?ver=1"></script>
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css">
+	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css?ver=4">
 <style>
-.label {
-	font-weight: 600;
-}
-
-.item {
-	padding: 5px 0px 5px 5px;
-	font-weight: lighter;
-}
-
 .importantItem {
 	font-size: 1.3rem;
 }
-
 .card-title {
 	font-weight: 400;
 }
@@ -32,11 +22,11 @@
 	$(document).ready(function() {
 		<c:choose>
 			<c:when test="${isRqDonePage =='yes'}">
-				console.log("접수,예약완료페이지");
+				console.log("접수,예약완료페이지에서 왔음");
 				getHotRqstInfo();
 			</c:when>
 			<c:otherwise>
-				console.log("진료신청현황상세페이지");
+				console.log("진료신청현황상세페이지에서 왔음");
 				getRqstDetail();
 			</c:otherwise>
 		</c:choose>
@@ -63,7 +53,8 @@
 
 	//  목록에서 넘겨받은 rqstNo에 해당하는 건 가져오기
 	function getRqstDetail() {
-		var rqstNo = $("[name='rqstNo']").val();
+// 		var rqstNo = $("[name='rqstNo']").val();
+		var rqstNo = ${rqstNo};
 		console.log(rqstNo);
 		var dataResult;
 		$.ajax({
@@ -135,11 +126,11 @@
 
 		if (result.rqstTy == 'D001') {
 			// 접수일 경우 접수일(진료일)
-			var rqstDttm = "<div class='item'><span class='label'>진료신청일자&nbsp;&nbsp;&nbsp;</span><span id = 'rqstDttm'>"
+			var rqstDttm = "<div class='item rqDetailInfo'><span class='rqDetailLabel'>진료신청일자</span><span id = 'rqstDttm'>"
 					+ result.rqstDttm + "</span></div>";
 			$("#itemsWrapper").prepend(rqstDttm);
 			// 접수일 경우 도착예정시간
-			var ifTime = "<div class='item importantItem'><span class='label'>도착예정시간&nbsp;&nbsp;&nbsp;</span><span id = 'ifTime'>"
+			var ifTime = "<div class='item rqDetailInfo importantItem'><span class='rqDetailLabel'>도착예정시간</span><span id = 'ifTime'>"
 					+ result.ifTime + "</span></div>";
 			$("#itemsWrapper").prepend(ifTime);
 			// 접수일 경우 예상대기 인원수
@@ -147,10 +138,10 @@
 		}
 		if (result.rqstTy == 'D002') {
 			//예약일 경우 진료일자
-			var resDt = "<div class='item importantItem'><span class='label'>진료일자&nbsp;&nbsp;&nbsp;</span><span id = 'resDt'>"
+			var resDt = "<div class='item rqDetailInfo importantItem'><span class='rqDetailLabel'>진료일자</span><span id = 'resDt'>"
 					+ result.resDt + "</span></div>";
 			//예약일 경우 진료시간
-			var resTm = "<div class='item importantItem'><span class='label'>진료시간&nbsp;&nbsp;&nbsp;</span><span id = 'resTmS'>"
+			var resTm = "<div class='item rqDetailInfo importantItem'><span class='rqDetailLabel'>진료시간</span><span id = 'resTmS'>"
 					+ result.resTm + "</span></div>";
 			$("#itemsWrapper").prepend(resTm).prepend(resDt);
 		}
@@ -182,11 +173,13 @@
 						//대기인원수표시하기.
 						if ($("#noOfWaiting").length) { //요소 중복생성되지 않게 기 생성 여부확인
 							console.log('갱신')
-							$("#noOfWaiting").html(result.noOfWaiting);
+							$("#noOfWaiting").html(result.noOfWaiting+" 명");
 						} else {
 							console.log('최초로드')
-							var noOfWaiting = "<div class='item importantItem'><span class='label'>대기인원수&nbsp;&nbsp;&nbsp;</span><span id='noOfWaiting'>"
-									+ result.noOfWaiting + " 명 </span></div>";
+							var noOfWaiting = "<div class='item rqDetailInfo importantItem'>"+
+							"<span class='rqDetailLabel'>대기인원수</span>"+
+							"<span id='noOfWaiting'>"
+									+ result.noOfWaiting + " 명</span></div>";
 							$("#itemsWrapper").prepend(noOfWaiting);
 						}
 
@@ -241,24 +234,24 @@
 
 								<div class="row">
 									<div class="col-sm-12" id="itemsWrapper">
-										<div class="item">
-											<span class="label">진료신청상태&nbsp;&nbsp;&nbsp;</span><span
+										<div class="item rqDetailInfo">
+											<span class="rqDetailLabel">진료신청상태</span><span
 												id="rqstTy"></span>
 										</div>
-										<div class="item">
-											<span class="label">병원명&nbsp;&nbsp;&nbsp;</span><span
+										<div class="item rqDetailInfo">
+											<span class="rqDetailLabel">병원명</span><span
 												id="hosName"></span>
 										</div>
-										<div class="item">
-											<span class="label">병원연락처&nbsp;&nbsp;&nbsp;</span><span
+										<div class="item rqDetailInfo">
+											<span class="rqDetailLabel">병원연락처</span><span
 												id="hosPhone"></span>
 										</div>
-										<div class="item">
-											<span class="label">담당의사 및 진료과목&nbsp;&nbsp;&nbsp;</span><span
+										<div class="item rqDetailInfo">
+											<span class="rqDetailLabel">담당의사 및 진료과목</span><span
 												id="artrName"></span>
 										</div>
-										<div class="item">
-											<span class="label">의사선생님께 한 마디&nbsp;&nbsp;&nbsp;</span><span
+										<div class="item rqDetailInfo">
+											<span class="rqDetailLabel">의사선생님께 한 마디</span><span
 												id="msg"></span>
 										</div>
 
@@ -278,16 +271,16 @@
 							<div class="card-body">
 								<div class="row">
 									<div class="col-sm-12">
-										<div class="item">
-											<span class="label"> 1.</span> 병원 내원시 살려죠 서비스를 통해 예약/접수하였다고
+										<div class="item rqDetailInfo">
+											<span class="rqDetailLabel"> 1.</span> 병원 내원시 살려죠 서비스를 통해 예약/접수하였다고
 											알려주세요.
 										</div>
-										<div class="item">
-											<span class="label"> 2.</span> 예약/접수를 취소하실 경우 패널티가 부여됩니다. (3회
+										<div class="item rqDetailInfo">
+											<span class="rqDetailLabel"> 2.</span> 예약/접수를 취소하실 경우 패널티가 부여됩니다. (3회
 											취소시 서비스이용이 제한됩니다.)
 										</div>
-										<div class="item">
-											<span class="label"> 3.</span> 예약/접수는 병원사정으로 인해 취소될 가능성이
+										<div class="item rqDetailInfo">
+											<span class="rqDetailLabel"> 3.</span> 예약/접수는 병원사정으로 인해 취소될 가능성이
 											있습니다.
 										</div>
 									</div>
@@ -306,7 +299,6 @@
 							<div class="card-footer" id="cardFooter">
 								<c:choose>
 									<c:when test="${isRqDonePage =='yes'}">
-										<!-- 신청완료페이지인 경우_rqstNo value값 ajax로 값 받아와서 함수에서 설정 -->
 										<input type="hidden" id="rqstNo" name="rqstNo">
 										<button onclick="toBeforeMedList()" class="btn btn-secondary">확인</button>
 									</c:when>
