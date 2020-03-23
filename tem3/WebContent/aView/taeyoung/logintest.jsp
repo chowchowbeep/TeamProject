@@ -53,11 +53,11 @@
 			<div class="card-body login-card-body">
 				<p class="login-box-msg">로그인 페이지 입니다.</p>
 				<form name="form" method="post"
-					action="../../aView/kjr/sick_main.jsp"
+					action="LoginTest.do"
 					onsubmit="return checkall();">
 					<div class="input-group mb-3">
-						<input type="text" class="form-control" id="form1"
-							placeholder="id">
+						<input type="text" class="form-control" name="id" id="form1"
+							placeholder="id" value="sic1">
 						<div class="input-group-append">
 							<div class="input-group-text">
 								<span class="fas fa-envelope"></span>
