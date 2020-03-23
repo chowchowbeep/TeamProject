@@ -294,8 +294,8 @@
 					<!-- /.col -->
 					<br>
 					<div class="">
-						<button type="submit" class="btn btn-primary btn-block">회원가입
-							확인</button>
+						<button type="submit" class="btn btn-primary btn-block"
+						onclick="location.href='/tem3/aView/taeyoung/logintest.jsp'">회원가입 확인</button>
 
 					</div>
 				</form>

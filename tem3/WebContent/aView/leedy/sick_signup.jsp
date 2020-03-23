@@ -5,13 +5,12 @@
 <script>
 function checkValue() {
 	var frm = document.sickFrm;
+	var idvalue=document.getElementById("sic_id");
+	var pwvalue=document.getElementById("sic_pw");
+	var id=idvalue.value;
+	var pw=pwvalue.value;
 	
 	//회원가입 화면의 입력값들을 검사
-	if (!frm.sic_id.value) {
-		alert("아이디를 입력하세요.");
-		return false;
-	}
-
 	if (frm.idDuplication.value != "idChk") {
 		alert("아이디 중복체크 해주세요.");
 		return false;
@@ -19,6 +18,11 @@ function checkValue() {
 
 	if (!frm.sic_pw.value) {
 		alert("비밀번호를 입력하세요.");
+		return false;
+	}
+	
+	if (!frm.sic_pw_re.value) {
+		alert("확인할 비밀번호를 입력하세요.");
 		return false;
 	}
 
@@ -32,7 +36,6 @@ function checkValue() {
 		return false;
 	}
 
-
 	if (!frm.sic_phone.value) {
 		alert("전화번호를 입력하세요.");
 		return false;
@@ -41,11 +44,19 @@ function checkValue() {
 }
 
 function idCheck(){
+	
+	 var re = /^[a-zA-Z0-9]{4,12}$/ //아이디가 적합한지에 대한 정규식 영문 대/소문자, 숫자 사용 가능 길이는 최소 4 최대 12
 	var id = sickFrm.sic_id.value;
 	if(id == ""){
 		alert("아이디값을 입력 후 확인하세요.");
 		sickFrm.sic_id.focus();
 	} else {
+		 if(!re.test(id)){
+				alert("아이디는 영문 대/소문자, 최소 4자리 최대 12자리로 입력해주세요.");
+				idvalue="";
+				idvalue.focus();
+				return false;
+			}
 		window.open("SSickMemberIdCheckAction.do?sic_id="+id, "sickChkForm",
 		"width=500, height=300 resizable=no, scrollbars=no");
 	}
@@ -141,21 +152,15 @@ function inputIdUnChk() {
          <!-- /.col -->
          <br>
           <div class="">
-            <button type="submit" class="btn btn-primary btn-block">회원가입 확인</button>
+            <button type="submit" class="btn btn-primary btn-block"
+           >회원가입 확인</button>
           </div>
       </form>
 <hr>
       <div class="social-auth-links text-center">
         <p>SNS계정으로 간편하게 회원가입</p>
-            <a href="#" class="btn btn-block btn-warning">
-         
-         카카오톡
-        </a>
-        <a href="#" class="btn btn-block btn-primary">
-         
-         페이스북
-        </a>
-    
+        <a href="#" class="btn btn-block btn-warning"> 카카오톡 </a>
+        <a href="#" class="btn btn-block btn-primary"> 페이스북 </a>
       </div>
 <hr>
       <a href="/tem3/aView/taeyoung/logintest.jsp" class="text-center">이미 아이디가 있으신가요?</a>
