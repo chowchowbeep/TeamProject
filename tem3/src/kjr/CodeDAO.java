@@ -33,9 +33,12 @@ public class CodeDAO extends DAO {
 	public ArrayList<seachCodeJoinDTO> selectAll(String hosId){
 		ArrayList<seachCodeJoinDTO> list = new ArrayList<>();
 		
-		sql= " select s.hos_id,s.code, c.name, c.type " + 
-			 " from search s, code c " + 
-			 " where s.CODE=c.CODE and hos_id=? ";
+		sql=  " select DISTINCT s.code, s.HOS_ID, c.name, c.TYPE "+
+			  " from search s, code c "+
+			  " where s.CODE=c.CODE and hos_id=? ";
+				
+				
+				
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1,hosId);
