@@ -49,8 +49,8 @@ import cmd.SDeclarationCMD;
 import cmd.SDeclarationInsertCMD;
 import cmd.SGetDrListAjaxCMD;
 import cmd.SGetDrNotOnDutyListAjaxCMD;
-import cmd.SGetDrHldlyListAjaxCMD;
-import cmd.SGetHosHldyListAjaxCMD;
+import cmd.SCheckDrHldyAjaxCMD;
+import cmd.SCheckHosHldyAjaxCMD;
 import cmd.SHospitalInfoCMD;
 import cmd.SInsertResCMD;
 import cmd.SInsertTmrCMD;
@@ -84,10 +84,10 @@ import cmd.SSickUploadCMD;
 import cmd.SSickWjqtnCreateCMD;
 import cmd.SSickWjqtnwmdCMD;
 import cmd.STmrRequestCMD;
-import cmd.STmrSelectDcryCMD;
+import cmd.SSelectDcryCMD;
 import cmd.SGetRqstInfoCMD;
 import cmd.SGetModelCMD;
-import cmd.SGetUnselectableTime;
+import cmd.SGetUnselectableTimeAjaxCMD;
 import cmd.SGetWaitingCntCMD;
 import cmd.ShospitalInfoForTestCMD;
 import cmd.SsearchMainCMD;
@@ -212,12 +212,12 @@ public class Contoller extends HttpServlet {
 		
 		cont.put("/ajax/SGetHosStt.do", new SGetHosStt()); //접수가 가능한지 1차검사위한 값(접수)
 		cont.put("/ajax/SGetDrList.do", new SGetDrListAjaxCMD()); //의사리스트 출력(접수예약공통)
-		cont.put("/ajax/SGetDrHldyList.do", new SGetDrHldlyListAjaxCMD()); //의사휴일(접수예약공통)
+		cont.put("/ajax/SCheckDrHldy.do", new SCheckDrHldyAjaxCMD()); //의사휴일체크(예약)
 		cont.put("/ajax/SGetDrNotOnDutyList.do", new SGetDrNotOnDutyListAjaxCMD()); //당일휴일인 의사목록(접수)
-		cont.put("/ajax/SGetHosHldyList.do", new SGetHosHldyListAjaxCMD()); //병원휴일(예약)
-		cont.put("/ajax/SGetUnselectableTime.do", new SGetUnselectableTime()); //병원 영업시간 및 해당 시간 기존 예약건 여부 확인 (예약)
+		cont.put("/ajax/SCheckHosHldy.do", new SCheckHosHldyAjaxCMD()); //병원휴일체크(예약)
+		cont.put("/ajax/SGetUnselectableTime.do", new SGetUnselectableTimeAjaxCMD()); //병원 영업시간 및 해당 시간 기존 예약건 여부 확인 (예약)
 		
-		cont.put("/STmrSelectDcry.do", new STmrSelectDcryCMD()); // S33 (진료신청시)기록물 선택 페이지로 이동
+		cont.put("/STmrSelectDcry.do", new SSelectDcryCMD()); // S33 (진료신청시)기록물 선택 페이지로 이동
 		cont.put("/SInsertRes.do", new SInsertResCMD()); //예약신청 입력처리 후 완료 페이지(접수/예약)로 이동
 		cont.put("/SInsertTmr.do", new SInsertTmrCMD()); //접수신청 입력처리 후 완료 페이지(접수/예약)로 이동
 		//cont.put("/SRqDone.do", new SRqDoneCMD()); //S29 진료신청 완료 페이지(접수/예약)로 이동 => SRqDetail.do
@@ -250,12 +250,12 @@ public class Contoller extends HttpServlet {
 
 		cont.put("/SAroundMap.do", new SAroundMapCMD()); // S23 주변 병원/약국 페이지
 
-		cont.put("/SResRequest.do", new SResRequestCMD()); // S24 예약신청 페이지로 이동
-		cont.put("/STmrRequest.do", new STmrRequestCMD()); // S28 당일접수 신청 페이지로 이동
-		cont.put("/STmrSelectDcry.do", new STmrSelectDcryCMD()); // S33 (진료신청시)기록물 선택 페이지로 이동
+//중복	cont.put("/SResRequest.do", new SResRequestCMD()); // S24 예약신청 페이지로 이동  
+//		cont.put("/STmrRequest.do", new STmrRequestCMD()); // S28 당일접수 신청 페이지로 이동
+//		cont.put("/STmrSelectDcry.do", new SSelectDcryCMD()); // S33 (진료신청시)기록물 선택 페이지로 이동
 
-		cont.put("/SInsertRes.do", new SInsertResCMD()); // 예약신청 입력처리 로직
-		cont.put("/SInsertTmr.do", new SInsertTmrCMD()); // 접수신청 입력처리 로직
+//		cont.put("/SInsertRes.do", new SInsertResCMD()); // 예약신청 입력처리 로직
+//		cont.put("/SInsertTmr.do", new SInsertTmrCMD()); // 접수신청 입력처리 로직
 
 		cont.put("/SBookmark.do", new SBookmarkCMD()); // S30 관심병원 리스트 페이지
 		cont.put("/SSickMediaList.do", new SSickMediaListCMD()); // S31 기록물-기록물 리스트페이지

@@ -60,7 +60,7 @@
 							class="img-circle" alt="User Image"
 							style="width: 70%; height: 70%;"></a>
 						<div style="padding-top: 15px;">
-							<a href="#" class="d-block"><strong>김환자 님!</strong></a>
+							<a href="" class="d-block"><strong>김환자 님!</strong></a>
 							<div style="color: #C2C7D0">건강한 하루되세요</div>
 						</div>
 					</div>
