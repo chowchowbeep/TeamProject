@@ -32,13 +32,13 @@ to {
 </style>
 <%@ include file="/layout/admin_menu.jsp"%>
 
-	<button type="button" class="btn-lg" onclick="location.href='master-search-normal.jsp'">회원 관리</button>
+	<button type="button" class="btn-lg" onclick="location.href='MSearchNormal.do'">회원 관리</button>
 	<br>
 	<br>
-	<button type="button" class="btn-lg" onclick="location.href='master-chart.jsp'">통계 관리</button>
+	<button type="button" class="btn-lg" onclick="location.href='MChart.do'">통계 관리</button>
 	<br>
 	<br>
-	<button type="button" class="btn-lg" onclick="location.href='master-police.jsp'">신고 관리</button>
+	<button type="button" class="btn-lg" onclick="location.href='MPolice.do'">신고 관리</button>
 <br>
 
 <%@ include file="/layout/all_footer.jsp"%>

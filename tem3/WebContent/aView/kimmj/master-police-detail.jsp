@@ -127,22 +127,22 @@ to {
 	<table class = "listbox">
 		<tr>
 			<td class = "info">
-				<b> 회원 ID: </b><%= dto.getSicId() %>
+				<b> 회원 ID: </b>${dto.getSicId()}
 			</td>
 		</tr>
 		<tr>
 			<td class = "info">
-				<b> 신고 대상 병원: </b> <%= dto.getHosId() %>
+				<b> 신고 대상 병원: </b>${dto.getHosId()}
 			</td>
 		</tr>
 		<tr>
 			<td class = "info">
-				<b> 신고일자: </b><%= dto.getDecDttm() %>
+				<b> 신고일자: </b>${dto.getDecDttm()}
 			</td>
 		</tr>
 		<tr>
 			<td class = "info">
-				<b> 신고 내용: </b> <%= dto.getDecCont() %>
+				<b> 신고 내용: </b>${dto.getDecCont()}
 			</td>
 		</tr>
 	</table>

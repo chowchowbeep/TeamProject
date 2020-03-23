@@ -40,9 +40,9 @@ public class hosDAO extends DAO {
 	
 	
 	// 등급별 조회
-	public ArrayList<hosJoinMemberDTO> select(String hos_rank) {
+	public ArrayList<hosJoinMemberDTO> selectrank(String hos_rank) {
 		ArrayList<hosJoinMemberDTO> list = new ArrayList<>();
-		sql = "SELECT * FROM ";
+		sql = "SELECT * FROM hos_member WHERE hos_rank=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -70,9 +70,9 @@ public class hosDAO extends DAO {
 	
 	
 	// 이름 조회
-	public ArrayList<hosJoinMemberDTO> select(String hos_name) {
+	public ArrayList<hosJoinMemberDTO> selectname(String hos_name) {
 		ArrayList<hosJoinMemberDTO> list = new ArrayList<>();
-		sql = "SELECT * FROM hos_member where hos_name=?";
+		sql = "SELECT * FROM hos_member WHERE hos_name=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -100,9 +100,9 @@ public class hosDAO extends DAO {
 	
 	
 	// 전화전호 보회
-	public ArrayList<hosJoinMemberDTO> select(String hos_phone) {
+	public ArrayList<hosJoinMemberDTO> selectph(String hos_phone) {
 		ArrayList<hosJoinMemberDTO> list = new ArrayList<>();
-		sql = "SELECT * FROM hos_member where hos_phone=?";
+		sql = "SELECT * FROM hos_member WHERE hos_phone=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -129,9 +129,9 @@ public class hosDAO extends DAO {
 	
 	
 	// 등급별, 이름 조회
-	public ArrayList<hosJoinMemberDTO> select(String hos_rank, String hos_name) {
+	public ArrayList<hosJoinMemberDTO> selectrankname(String hos_rank, String hos_name) {
 		ArrayList<hosJoinMemberDTO> list = new ArrayList<>();
-		sql = "SELECT * FROM hos_member where hos_rank=? and hos_name=?";
+		sql = "SELECT * FROM hos_member WHERE hos_rank=? AND hos_name=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -158,9 +158,9 @@ public class hosDAO extends DAO {
 	
 	
 	// 등급별, 전화번호 조회
-	public ArrayList<hosJoinMemberDTO> select(String hos_rank, String hos_phone) {
+	public ArrayList<hosJoinMemberDTO> selectrankph(String hos_rank, String hos_phone) {
 		ArrayList<hosJoinMemberDTO> list = new ArrayList<>();
-		sql = "SELECT * FROM hos_member where hos_rank=? and hos_phone=?";
+		sql = "SELECT * FROM hos_member WHERE hos_rank=? AND hos_phone=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -188,9 +188,9 @@ public class hosDAO extends DAO {
 	
 	
 	// 이름, 전화번호 조회
-	public ArrayList<hosJoinMemberDTO> select(String hos_name, String hos_phone) {
+	public ArrayList<hosJoinMemberDTO> selectnameph(String hos_name, String hos_phone) {
 		ArrayList<hosJoinMemberDTO> list = new ArrayList<>();
-		sql = "SELECT * FROM hos_member where hos_name=? and hos_phone=?";
+		sql = "SELECT * FROM hos_member WHERE hos_name=? AND hos_phone=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -217,9 +217,9 @@ public class hosDAO extends DAO {
 	
 	
 	// 등급별, 이름, 전화번호 조회
-	public ArrayList<hosJoinMemberDTO> select(String hos_rank, String hos_name, String hos_phone) {
+	public ArrayList<hosJoinMemberDTO> selectranknameph(String hos_rank, String hos_name, String hos_phone) {
 		ArrayList<hosJoinMemberDTO> list = new ArrayList<>();
-		sql = "SELECT * FROM hos_member WHERE hos_rank=? and hos_name=? and hos_phone=?";
+		sql = "SELECT * FROM hos_member WHERE hos_rank=? AND hos_name=? AND hos_phone=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();

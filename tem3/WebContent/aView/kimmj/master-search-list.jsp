@@ -1,9 +1,18 @@
+<%@page import="kimmj.normalDAO"%>
 <%@page import="lastdto.sickJoinMemberDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/layout/admin_head.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="/layout/admin_head.jsp"%>
+<script>
+	$(document).on("click", ".toMasterSearchNormalDetal", function() {
+		var sicId = $(this).attr("sic_id");
+		console.log(sicId);
+		$("#sicId").attr("value", sicId);
+		frm.submit();
+	});
+</script>
 <style type="text/css">/* Chart.js */
 @
 keyframes chartjs-render-animation {
@@ -98,7 +107,6 @@ to {
 request.setCharacterEncoding("UTF-8");
 String keyField = request.getParameter("keyField");
 String keyWord = request.getParameter("keyWord");
-ArrayList<sickJoinMemberDTO> list = dao.select();
 %>
 
 <div class = "card">
@@ -109,26 +117,32 @@ ArrayList<sickJoinMemberDTO> list = dao.select();
 			</h4>
 		</div>
 	</div>
-	<% for(sickJoinMemberDTO dto : list) { %>
+	<% 
+	ArrayList<sickJoinMemberDTO> list = dao.select();
+	for(sickJoinMemberDTO dto : list) { %>
 	<div class="card-body">
-	<table class = "listbox">
+	<table class = "listbox"
+		onclick = "location.href = 'MSearchListNormal.do';">
 		<tr>
 			<td>
 				<ion-icon name="person-circle-outline" size = "large" 
 				style = "width: 100px; height: 100px; margin: 0px 0px 10px 10px;"></ion-icon>
-				<div class = "name"><b> <%=dto.getSicName() %> </b></div>
+				<div class = "name"><b><%= dto.getSicName()%> </b></div>
 			</td>
 			<td class = "info">
-				<p><b> 회원 ID: </b> <%=dto.getSicId() %> </p>
-				<p><b> 회원 등급: </b> <%=dto.getSicStt() %> </p>
-				<p><b> 패널티 현황: </b> <%=dto.getSicPhone() %> </p>
+				<p><b> 회원 ID: </b><%=dto.getSicId()%> </p>
+				<p><b> 회원 등급: </b><%=dto.getSicStt()%> </p>
+				<p><b> 패널티 현황: </b><%=dto.getStartDttm()%> </p>
 			</td>
 		</tr>
 	</table>
-	<% } %>
+	<input type = "hidden" id = "sicId" name = "sicId">
 	</div>
-</div>
+	</div>
+	<% } %>
+
 
 <%@ include file="/layout/all_footer.jsp"%>
+
 </body>
 </html>

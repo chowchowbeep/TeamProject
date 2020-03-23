@@ -121,7 +121,6 @@ to {
 
 
 <%@ include file="/layout/admin_menu.jsp"%>
-<%  %>
 <div class = "card">
 	<div class = "card-header text-center">
 		<div class = "text-center" style = "padding: 10px 0px 0px 0px">
@@ -130,7 +129,7 @@ to {
 			</h4>
 		</div>
 	</div>
-	<form method = "post" action = "master-search-list.jsp">
+	<form method = "post" action = "MSearchList.do">
 	<div class="card-body">
 		<div class="type">
 			<span class="info-box-small">
@@ -138,7 +137,7 @@ to {
 			</span> 
 			<span class="info-box-box">
 				&nbsp;&nbsp;&nbsp; <input type="radio" name="gener" value="standard">&nbsp;일반
-				&nbsp;&nbsp;&nbsp; <input type="radio" name="gener" value="hospital" onclick="location.href='master-search-hos.jsp';">&nbsp;병원
+				&nbsp;&nbsp;&nbsp; <input type="radio" name="gener" value="hospital" onclick="location.href='MSearchHos.do';">&nbsp;병원
 			</span> 
 			<br> 
 			<br>

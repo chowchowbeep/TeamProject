@@ -10,6 +10,7 @@ public class sickJoinMemberDTO {
 	private int rvNo; // 리뷰 글 번호
 	private int starPoint; // 별점
 	private Date startDttm;	  // 패널티
+	private int decNo;
 	
 	
 	public sickJoinMemberDTO() {
@@ -18,7 +19,7 @@ public class sickJoinMemberDTO {
 
 
 	public sickJoinMemberDTO(String sicId, String sicName, String sicPhone, String sicStt, int rvNo, int starPoint,
-			Date startDttm) {
+			Date startDttm, int decNo) {
 		super();
 		this.sicId = sicId;
 		this.sicName = sicName;
@@ -27,6 +28,7 @@ public class sickJoinMemberDTO {
 		this.rvNo = rvNo;
 		this.starPoint = starPoint;
 		this.startDttm = startDttm;
+		this.decNo = decNo;
 	}
 
 
@@ -97,6 +99,24 @@ public class sickJoinMemberDTO {
 
 	public void setStartDttm(Date startDttm) {
 		this.startDttm = startDttm;
+	}
+
+
+	public int getDecNo() {
+		return decNo;
+	}
+
+
+	public void setDecNo(int decNo) {
+		this.decNo = decNo;
+	}
+
+
+	@Override
+	public String toString() {
+		return "sickJoinMemberDTO [sicId=" + sicId + ", sicName=" + sicName + ", sicPhone=" + sicPhone + ", sicStt="
+				+ sicStt + ", rvNo=" + rvNo + ", starPoint=" + starPoint + ", startDttm=" + startDttm + ", decNo="
+				+ decNo + "]";
 	}
 	
 	

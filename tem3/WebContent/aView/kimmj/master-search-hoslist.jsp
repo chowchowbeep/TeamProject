@@ -1,3 +1,6 @@
+<%@page import="lastdto.hosJoinMemberDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="kimmj.hosDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/layout/admin_head.jsp"%>
@@ -102,19 +105,25 @@ to {
 	</div>
 	<div class="card-body">
 	<table class = "listbox">
+	<% 
+	hosDAO dao = new hosDAO();
+	ArrayList<hosJoinMemberDTO> list = dao.select();
+	for(hosJoinMemberDTO dto : list) { 
+	%>
 		<tr>
 			<td>
 				<ion-icon name="business" size = "large" 
 				style = "width: 100px; height: 100px; margin: 0px 0px 10px 10px;"></ion-icon>
-				<div class = "name"><b> 예담병원 </b></div>
+				<div class = "name"><b><%= dto.getHosName() %></b></div>
 			</td>
 			<td class = "info">
-				<p><b> 회원 ID: </b>sunamanse </p>
-				<p><b> 회원 등급: </b>일반 </p>
-				<p><b> 신고 현황: </b>2회 </p>
+				<p><b> 회원 ID: </b><%= dto.getHosId() %></p>
+				<p><b> 회원 등급: </b><%= dto.getHosRank() %></p>
+				<p><b> 신고 현황: </b><%= dto.getDecNo() %></p>
 			</td>
 		</tr>
 	</table>
+	<% } %>
 	</div>
 </div>
 

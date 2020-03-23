@@ -142,7 +142,7 @@ to {
 		</span>
 		<span class="info-box-box"> 
 			&nbsp;&nbsp;&nbsp;
-		<input type="radio" name="gener" value="standard" onclick="location.href='master-search-normal.jsp';">&nbsp;일반 &nbsp;&nbsp;&nbsp;
+		<input type="radio" name="gener" value="standard" onclick="location.href='MSearchNormal.do';">&nbsp;일반 &nbsp;&nbsp;&nbsp;
 		<input type="radio" name="gener" value="hospital">&nbsp;병원
 		</span>
 		<br><br>
