@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,11 +51,17 @@ $(function() {
 
 			<div class="card" style="margin: 5px;">
 				<div class="card-body">
-					<p>전화번호:${list.hosPhone}</p>
-					<p>주소:${list.hosAddr}</p>
-					<p>진료시간:${list.hosBizTime}</p>
-					<p>사업자등록번호:${list.hosBizno}</p>
-					<P>검색코드</P>
+					<p>전화번호:${ list[0].hosPhone}</p>
+					<p>주소:${list[0].hosAddr}</p>
+					<p>진료시간:${list[0].hosBizTime}</p>
+					<p>사업자등록번호:${list[0].hosBizno}</p>
+					<P>검색코드 <br>
+						<div id="searchWd" name="searchWd">
+						<c:forEach items="wd" var="wd">
+						<button type='button' class='btn btn-outline-info'>${wd.code}</button>
+						</c:forEach>
+						</div>
+					
 				</div>
 			</div>
 

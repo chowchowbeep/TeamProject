@@ -54,7 +54,7 @@ public class HosmemberDAO extends DAO {
 				dto.setHosLng(rs.getInt("HOS_LNG"));
 				dto.setHosBizTime(rs.getString("BIZ_TIME"));
 				list.add(dto);		
-				
+				System.out.println();
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

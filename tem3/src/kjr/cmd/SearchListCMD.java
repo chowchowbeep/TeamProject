@@ -37,10 +37,11 @@ public class SearchListCMD implements Command {
 		if(hosName!=null && !hosName.isEmpty()) { //병원이름으로 검색했을경우
 			//if(sCodeDTO.getOderby()!=null&&!sCodeDTO.getOderby().isEmpty())이거 왜 넣어놓은거지? 일단 적어둠ㅋㅋ 
 			hosList = hosDAO.select(hosName); //병원이름으로 병원정보 검색
-			System.out.println("1.hosName 제대로넘어옴"+hosName);
+			System.out.println("1.hosName으로 검색"+hosName);
 		}else {				//태그(지역,지하철,카테고리)로 검색했을경우
+			System.out.println("키워드검색");
 			hosList = keywdDAO.select(sCodeDTO); //지역, 카테고리 코드로 병원 정보를 가져옴
-			System.out.println("1.hosName 실패"+hosName);
+			
 	}	
 		
 		

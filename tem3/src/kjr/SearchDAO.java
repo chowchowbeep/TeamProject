@@ -42,7 +42,7 @@ public class SearchDAO extends DAO {
 		String orderby = cdto.getOderby();
 		String diam= cdto.getDiam();
 		String filter= cdto.getFilter();
-		
+		System.out.println("우ㅡ아아;나얼;ㅇ ;낭ㅁ악!!!!!!!!!");
 		sql="select * from hos_member where hos_id in"+
 		    "(select hos_id from search " + 
 			"INTERSECT " + 
@@ -77,9 +77,10 @@ public class SearchDAO extends DAO {
 			sql += "and hos_id in (select HOS_ID from search " + 
 			"where code = ? ))";
 		}
-		if(orderby!=null) {
+		
 			sql +="order by hos_name";
-		}
+		
+		System.out.println("sql은?"+sql);
 		try {
 			int cnt=1;
 			pstmt = conn.prepareStatement(sql);
