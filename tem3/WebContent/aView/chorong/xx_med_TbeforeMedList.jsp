@@ -10,7 +10,7 @@
 
 
 
-<!--  /c를 타고 들어옴-->
+<!--  /SMedTBeforeMedList.do를 타고 들어옴-->
 
 
 <!-- 클릭한 항목의 값을 파라미터로 가지고 가야 함_ 아래 스크립트 참고
@@ -49,25 +49,21 @@
 		<!-- Main content -->
 		<section class="content">
 			<div class="container-fluid">
-
-
-				<div>
-					<!-- 2. 진료 타입별로 선택해서 조회 가능한 기능     -->
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="SMedABeforeMedList.do">전체</a></li>
-						<li class="breadcrumb-item"><a href="SMedTBeforeMedList.do">접수</a></li>
-						<li class="breadcrumb-item active">예약</li>
-						<li class="breadcrumb-item"><a href="SMedCBeforeMedList.do">취소</a></li>
-					</ol>
-
-				</div>
-
-				<br>
+				<ul class="nav nav-pills justify-content-center" id="pills-tab"
+					role="tablist">
+					<li class="nav-item"><a class="nav-link "
+						href="SMedABeforeMedList.do" role="tab" aria-selected="false">전체</a></li>
+					<li class="nav-item"><a class="nav-link active"
+						href="SMedTBeforeMedList.do" role="tab" aria-selected="true">접수</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="SMedRBeforeMedList.do" role="tab" aria-selected="false">예약</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="SMedCBeforeMedList.do" role="tab" aria-selected="false">취소</a></li>
+				</ul>
 				<div class="row">
 					<div class="col-12">
 						<div class="card">
 							<div class="card-body table-responsive p-0">
-							
 								<table class="table table table-hover text-wrap">
 									<!-- 3. 항목 선택 시 병원정보 상세조회 페이지로 이동 
 								4. 취소한 이력은 취소표시  -->
@@ -87,8 +83,8 @@
 
 												<td>${list.hosName}</td>
 
-												<td><svg class="bi bi-chevron-right" 
-												width="20" height="20" viewBox="0 0 20 20" fill="currentColor"
+												<td><svg class="bi bi-chevron-right" width="20"
+														height="20" viewBox="0 0 20 20" fill="currentColor"
 														xmlns="http://www.w3.org/2000/svg">
 														<path fill-rule="evenodd"
 															d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"
@@ -98,6 +94,7 @@
 										</c:forEach>
 									</tbody>
 								</table>
+
 
 							</div>
 						</div>

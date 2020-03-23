@@ -55,8 +55,12 @@ import cmd.SInsertResCMD;
 import cmd.SInsertTmrCMD;
 import cmd.SMedABeforeMedListCMD;
 import cmd.SMedADoneListCMD;
+import cmd.SMedBeforeMedListCMD;
 import cmd.SMedCBeforeMedListCMD;
 import cmd.SMedDoneDetailCMD;
+import cmd.SMedDoneListCMD;
+import cmd.SMedListAjaxCMD;
+import cmd.SMedListPagingCMD;
 import cmd.SMedRBeforeMedListCMD;
 import cmd.SMedRDoneListCMD;
 import cmd.SMedTBeforeMedListCMD;
@@ -125,7 +129,7 @@ public class Contoller extends HttpServlet {
 		
 //		cont.put("/MMenubar.do", new MMenubarCMD()); //관리자 메뉴바페이지로 이동
 //		cont.put("/HMenubar.do", new HMenubarCMD()); //병원회원 메뉴바페이지로 이동
-//		cont.put("/SMenubar.do", new SMenubarCMD()); //일반회원 메뉴바페이지로 이동
+//		cont.put("/ajax/SMenubar.do", new SMenubarCMD()); //일반회원 메뉴바페이지로 이동
 		
 		//병원회원관련 페이지
 	//	cont.put("/HhosSignup.do", new HosSignupCMD());
@@ -176,25 +180,32 @@ public class Contoller extends HttpServlet {
 		
 		cont.put("/SReviewWrite.do", new SReviewWriteCMD()); //S17 리뷰 작성 페이지
 		cont.put("/SReviewMylist.do", new SReviewMylistCMD()); //S18 내가 쓴 리뷰 리스트 페이지
+<<<<<<< HEAD
 		cont.put("/SSickHealModify.do", new SSickHealModifyCMD()); //S19 건강정보 수정 페이지로 이동
 		// cont.put("/SSickHealModifyGo.do", new SSickHealModifyGoCMD()); //건강정보 수정 DB 처리
+=======
+		cont.put("/SSickHealModify.do", new SSickHealModifyCMD()); //S19 건강정보 수정 페이지
+
+>>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject
 		
-		
+//		cont.put("/SMedADoneList.do", new SMedADoneListCMD()); //S16 진료이력 리스트(전체) 페이지로 이동
+//		cont.put("/SMedTDoneList.do", new SMedTDoneListCMD()); //S16 진료이력 리스트(접수) 페이지로 이동
+//		cont.put("/SMedRDoneList.do", new SMedRDoneListCMD()); //S16 진료이력 리스트(예약) 페이지로 이동
+
+		cont.put("/SCancelRq.do", new SCancelRqCMD()); //진료신청 취소처리 로직
+
 		cont.put("/SMedDoneDetail.do", new SMedDoneDetailCMD()); // 진료이력 상세 페이지로 이동
-		cont.put("/SMedADoneList.do", new SMedADoneListCMD()); //S16 진료이력 리스트(전체) 페이지로 이동
-		cont.put("/SMedTDoneList.do", new SMedTDoneListCMD()); //S16 진료이력 리스트(접수) 페이지로 이동
-		cont.put("/SMedRDoneList.do", new SMedRDoneListCMD()); //S16 진료이력 리스트(예약) 페이지로 이동
-		
 		cont.put("/SRqDetail.do", new SRqDetailCMD()); //S21 진료신청 완료/현황 상세/취소 페이지로 이동
 		cont.put("/ajax/SGetRqstInfo.do", new SGetRqstInfoCMD()); //S21 진료신청 완료/현황 상세/취소 페이지에 값 가져오기
 		cont.put("/ajax/SGetWaitingCnt.do", new SGetWaitingCntCMD()); // 진료신청상세 내용에 대기자수 표시 추가(시간별로 변화하게)		
 		
-		cont.put("/SMedTBeforeMedList.do", new SMedTBeforeMedListCMD()); //S20 진료신청현황 리스트(접수) 페이지로 이동
-		cont.put("/SMedRBeforeMedList.do", new SMedRBeforeMedListCMD()); //S22 진료신청현황 리스트(예약) 페이지로 이동
-		cont.put("/SMedCBeforeMedList.do", new SMedCBeforeMedListCMD()); //S23 진료신청현황 리스트(취소) 페이지로 이동
-		cont.put("/SMedABeforeMedList.do", new SMedABeforeMedListCMD()); //S27 진료신청현황 리스트(전체) 페이지로 이동
-		
-		cont.put("/SCancelRq.do", new SCancelRqCMD()); //진료신청 취소처리 로직
+		cont.put("/SMedDoneList.do", new SMedDoneListCMD()); //S16 진료이력 리스트 페이지로 이동
+		cont.put("/ajax/SMedListAjax.do", new SMedListAjaxCMD()); //S27 진료신청현황(진료신청,진료완료 모두) 리스트 페이지로 이동
+		cont.put("/ajax/SMedListPaging.do", new SMedListPagingCMD()); // 진료신청목록(진료신청,진료완료 모두) 전체 항목수 가져오기
+		cont.put("/SMedBeforeMedList.do", new SMedBeforeMedListCMD()); //S27 진료신청현황 리스트 페이지로 이동
+//		cont.put("/SMedTBeforeMedList.do", new SMedTBeforeMedListCMD()); //S20 진료신청현황 리스트(접수) 페이지로 이동
+//		cont.put("/SMedRBeforeMedList.do", new SMedRBeforeMedListCMD()); //S22 진료신청현황 리스트(예약) 페이지로 이동
+//		cont.put("/SMedCBeforeMedList.do", new SMedCBeforeMedListCMD()); //S23 진료신청현황 리스트(취소) 페이지로 이동
 		
 		cont.put("/SAroundMap.do", new SAroundMapCMD()); //S23 주변 병원/약국 페이지
 		cont.put("/ShospitalInfoForTest.do", new ShospitalInfoForTestCMD()); //test용페이지(병원상세페이지로 이동)
@@ -203,7 +214,7 @@ public class Contoller extends HttpServlet {
 		
 		cont.put("/ajax/SGetHosStt.do", new SGetHosStt()); //접수가 가능한지 1차검사위한 값(접수)
 		cont.put("/ajax/SGetDrList.do", new SGetDrListAjaxCMD()); //의사리스트 출력(접수예약공통)
-		cont.put("/ajax/SGetDrHldyList.do", new SGetDrHldlyListAjaxCMD()); //의사휴일(접수예약공통)
+		cont.put("/ajax/SGetDrHldyList.do", new SGetDrHldlyListAjaxCMD()); //의사휴일(예약)
 		cont.put("/ajax/SGetDrNotOnDutyList.do", new SGetDrNotOnDutyListAjaxCMD()); //당일휴일인 의사목록(접수)
 		cont.put("/ajax/SGetHosHldyList.do", new SGetHosHldyListAjaxCMD()); //병원휴일(예약)
 		cont.put("/ajax/SGetUnselectableTime.do", new SGetUnselectableTime()); //병원 영업시간 및 해당 시간 기존 예약건 여부 확인 (예약)
@@ -211,8 +222,7 @@ public class Contoller extends HttpServlet {
 		cont.put("/STmrSelectDcry.do", new STmrSelectDcryCMD()); // S33 (진료신청시)기록물 선택 페이지로 이동
 		cont.put("/SInsertRes.do", new SInsertResCMD()); //예약신청 입력처리 후 완료 페이지(접수/예약)로 이동
 		cont.put("/SInsertTmr.do", new SInsertTmrCMD()); //접수신청 입력처리 후 완료 페이지(접수/예약)로 이동
-		
-		//cont.put("/SRqDone.do", new SRqDoneCMD()); //S29 진료신청 완료 페이지(접수/예약)로 이동
+		//cont.put("/SRqDone.do", new SRqDoneCMD()); //S29 진료신청 완료 페이지(접수/예약)로 이동 => SRqDetail.do
 		
 		cont.put("/SBookmark.do", new SBookmarkCMD()); //S30 관심병원 리스트 페이지
 		cont.put("/SSickMediaList.do", new SSickMediaListCMD()); //S31 기록물-기록물 리스트페이지
@@ -232,12 +242,11 @@ public class Contoller extends HttpServlet {
 		cont.put("/ajax/LocaseachAjaxCMD.do", new LocaseachAjaxCMD()); //지역코드 가져오는 ajax
 		cont.put("/ajax/CategoriAjaxCMD.do", new CategoriAjaxCMD()); //카테고리코드 가져오는 ajax
 
-		cont.put("/SRqDetail.do", new SRqDetailCMD()); // S21 진료신청현황 상세/취소 페이지로 이동
 
-		cont.put("/SMedTBeforeMedList.do", new SMedTBeforeMedListCMD()); // S20 진료신청현황 리스트(접수) 페이지로 이동
-		cont.put("/SMedRBeforeMedList.do", new SMedRBeforeMedListCMD()); // S22 진료신청현황 리스트(예약) 페이지로 이동
-		cont.put("/SMedCBeforeMedList.do", new SMedCBeforeMedListCMD()); // S23 진료신청현황 리스트(취소) 페이지로 이동
-		cont.put("/SMedABeforeMedList.do", new SMedABeforeMedListCMD()); // S27 진료신청현황 리스트(전체) 페이지로 이동
+//		cont.put("/SMedTBeforeMedList.do", new SMedTBeforeMedListCMD()); // S20 진료신청현황 리스트(접수) 페이지로 이동
+//		cont.put("/SMedRBeforeMedList.do", new SMedRBeforeMedListCMD()); // S22 진료신청현황 리스트(예약) 페이지로 이동
+//		cont.put("/SMedCBeforeMedList.do", new SMedCBeforeMedListCMD()); // S23 진료신청현황 리스트(취소) 페이지로 이동
+//		cont.put("/SMedABeforeMedList.do", new SMedABeforeMedListCMD()); // S27 진료신청현황 리스트(전체) 페이지로 이동
 
 		cont.put("/SCancelRq.do", new SCancelRqCMD()); // 진료신청 취소처리 로직
 
@@ -273,8 +282,8 @@ public class Contoller extends HttpServlet {
 		 * cont.put("/ajax/UpdateUsers.do", new UpdateUsers()); cont.put("/Upload.do",
 		 * new FileUpload()); cont.put("/GetDeptCnt.do", new GetDeptCnt());
 		 */
-		cont.put("/ajax/HosSttAjaxCMD.do", new HosSttAjaxCMD()); // 병원상태 업데이트하는 ajax
-		cont.put("/ajax/ReviewDeleteAjaxCMD.do", new ReviewDeleteAjaxCMD()); // ?? 삭제하는 ajax
+		
+		cont.put("/ajax/ReviewDeleteAjaxCMD.do", new ReviewDeleteAjaxCMD()); // 지역코드 가져오는 ajax
 		cont.put("/ajax/LocaseachAjaxCMD.do", new LocaseachAjaxCMD()); // 지역코드 가져오는 ajax
 		cont.put("/ajax/CategoriAjaxCMD.do", new CategoriAjaxCMD()); // 카테고리코드 가져오는 ajax
 		cont.put("/ajax/ReviewInsrtAjaxCMD.do", new ReviewInsrtAjaxCMD()); // 리뷰 insert여부를 가져오는 ajax

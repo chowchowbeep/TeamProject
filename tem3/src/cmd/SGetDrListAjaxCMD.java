@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import kcrDAO.InfoForRequestDAO;
+import kcr.InfoForRequestDAO;
 import lastdto.artrInfoDTO;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import kcrDAO.MediRqListItemDAO;
+import kcr.MediRqListItemDAO;
 import lastdto.mediRqListItemDTO;
 
 public class SMedABeforeMedListCMD implements Command {
@@ -28,7 +28,7 @@ public class SMedABeforeMedListCMD implements Command {
 
 		MediRqListItemDAO dao = new MediRqListItemDAO();
 		List<mediRqListItemDTO> list = new ArrayList<>();
-		list = dao.selectAll(id, type);
+//		list = dao.selectAll(id, type);
 		
 		
 		request.setAttribute("list", list);

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import kcrDAO.MediRqdetailDAO;
+import kcr.MediRqdetailDAO;
 import lastdto.mediRqdetailDTO;
 import net.sf.json.JSONObject;
 
@@ -17,10 +17,11 @@ public class SGetWaitingCntCMD implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String hosId = request.getParameter("hosId");
+		String hosId = request.getParameter("hosId"); //
 		int rqstNo = Integer.parseInt(request.getParameter("rqstNo"));
+		System.out.println(hosId+", "+rqstNo);
 		
-		MediRqdetailDAO dao = new MediRqdetailDAO(); // 예상대기인원수 호출용
+		MediRqdetailDAO dao = new MediRqdetailDAO();
 		JSONObject jsonObj = new JSONObject();
 
 		// 예상대기인원수 표시 프로시저 콜 //수정필요

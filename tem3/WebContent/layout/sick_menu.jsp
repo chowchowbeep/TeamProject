@@ -76,11 +76,11 @@
 						<li class="nav-header"><small><strong>일반회원
 									메뉴</strong></small></li>
 
-						<li class="nav-item"><a href="SMedABeforeMedList.do"
+						<li class="nav-item"><a href="SMedBeforeMedList.do"
 							class="nav-link">
 								<p>진료신청현황</p>
 						</a></li>
-						<li class="nav-item"><a href="SMedADoneList.do"
+						<li class="nav-item"><a href="SMedDoneList.do"
 							class="nav-link">
 								<p>진료완료이력</p>
 						</a></li>

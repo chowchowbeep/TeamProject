@@ -5,10 +5,10 @@
 <%@ include file="/layout/sick_head.jsp"%>
 <script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css">
+	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css?ver=2">
 <%@ include file="/layout/sick_menu.jsp"%>
 
-<!-- /SMedADoneList.do로 진료이력목록조회 -->
+<!-- /SMedDoneList.do로 진료이력목록조회 -->
 <form id="frm" name="frm" action="SMedDoneDetail.do" method="post">
 	<!-- Content Wrapper. Contains page content -->
 	<div class="content-wrapper">
@@ -23,8 +23,8 @@
 					<!-- /.col -->
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right">
-							<li class="breadcrumb-item active">홈</li>
-							<li class="breadcrumb-item">일반회원</li>
+							<li class="breadcrumb-item">홈</li>
+							<li class="breadcrumb-item active">일반회원</li>
 						</ol>
 					</div>
 					<!-- /.col -->
@@ -39,15 +39,15 @@
 		<!-- Main content -->
 		<section class="content">
 			<div class="container-fluid">
-				<div>
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item active">전체</li>
-						<li class="breadcrumb-item"><a href="SMedTDoneList.do">접수</a></li>
-						<li class="breadcrumb-item"><a href="SMedRDoneList.do">예약</a></li>
-					</ol>
-				</div>
-
-				<br>
+				<ul class="nav nav-pills justify-content-center" id="pills-tab"
+					role="tablist">
+					<li class="nav-item"><a class="nav-link active"
+						href="SMedADoneList.do" role="tab" aria-selected="true">전체</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="SMedTDoneList.do" role="tab" aria-selected="false">접수</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="SMedRDoneList.do" role="tab" aria-selected="false">예약</a></li>
+				</ul>
 				<div class="row">
 					<div class="col-12">
 						<div class="card">
@@ -107,7 +107,7 @@
 	$(".toRqDetail").click(function() {
 		var rqstNo = $(this).attr("id"); //클릭한 현재 행의 id값(진료신청번호)을 넘길것임
 		console.log(rqstNo);
-		$("#rqstNo").attr("value", rqstNo);
+		$("#rqstNo").attr("value", rqstNo); //클릭한 행의 id값을 input태그의 value로 설정
 		console.log("파라미터에 실린 진료신청번호 : " + $("#rqstNo").attr("value"));
 
 		frm.action = "SMedDoneDetail.do"; //진료신청현황 상세 페이지로

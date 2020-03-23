@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
 import dto.mediRqstDTO;
-import kcrDAO.MediRqdetailDAO;
+import kcr.MediRqdetailDAO;
 import lastdto.mediRqdetailDTO;
 
 public class SCancelRqCMD implements Command {
@@ -33,7 +33,7 @@ public class SCancelRqCMD implements Command {
 		dao.CancelAndPenalty(sicId, rqstNo);
 
 		
-		String path = "SMedABeforeMedList.do";
+		String path = "SMedBeforeMedList.do";
 		return path;
 	}
 

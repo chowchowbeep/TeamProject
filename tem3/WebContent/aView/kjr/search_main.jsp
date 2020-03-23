@@ -77,9 +77,13 @@ div .hiden {
 		
 		
 		function searchNameGo(){
+			if($("#hosName").val()==''){
+				alert("병원명을 입력하세요.");
+			}else{
 			document.nameSearchFrm.action="SSearchList.do"
 			document.nameSearchFrm.method="post";
 			document.nameSearchFrm.submit();
+			}
 		}
 		
 		function searchkeywdGo(){

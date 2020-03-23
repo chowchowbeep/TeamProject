@@ -36,7 +36,11 @@ $(function() { //window load이벤트 생략해서 적은것
 	});
 
 	$("#searchBtn").on("click", function() {
+		if($("#hosName").val()==''){
+			alert("병원명을 입력하세요");
+		}else{
 		searchList();
+		}
 	});
 	
 	

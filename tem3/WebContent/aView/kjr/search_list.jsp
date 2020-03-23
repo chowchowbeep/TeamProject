@@ -19,9 +19,13 @@ $(function() {
 	$("#nameSearchBtn").bind("click",searchNameGo); //병원명으로 상세리스트로 검색
 	
 	function searchNameGo(){
+		if($("#hosName").val()==''){
+			alert("병원명을 입력하세요");
+		}else{
 		document.nameSearchFrm.action="SSearchList.do"
 		document.nameSearchFrm.method="post";
 		document.nameSearchFrm.submit();
+		}
 	};
 
 });

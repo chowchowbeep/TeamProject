@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import kcrDAO.XXHosInfoDAO;
-import kcrDAO.MediRqListItemDAO;
-import kcrDAO.XXMediRqstDAO;
+import kcr.MediRqListItemDAO;
+import kcr.XXHosInfoDAO;
+import kcr.XXMediRqstDAO;
 import lastdto.hosMemberDTO;
 import lastdto.mediRqListItemDTO;
 import lastdto.mediRqstDTO;
@@ -31,7 +31,7 @@ public class SMedRBeforeMedListCMD implements Command {
 		
 		MediRqListItemDAO dao = new MediRqListItemDAO();
 		List<mediRqListItemDTO> list = new ArrayList<>();
-		list = dao.selectAll(id, type);
+//		list = dao.selectAll(id, type);
 		
 		
 		request.setAttribute("list", list);

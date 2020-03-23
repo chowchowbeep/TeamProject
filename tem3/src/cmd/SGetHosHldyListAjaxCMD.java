@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import kcrDAO.InfoForRequestDAO;
+import kcr.InfoForRequestDAO;
 import lastdto.hosScheduleDTO;
 import net.sf.json.JSONArray;
 
@@ -24,7 +24,7 @@ public class SGetHosHldyListAjaxCMD implements Command {
 		InfoForRequestDAO dao = new InfoForRequestDAO();
 		List<hosScheduleDTO> list = new ArrayList<>();
 		
-		list = dao.hosHldyList(hosId); //db값 받아옴
+		list = dao.hosHldyList(hosId); 
 
 		return "ajax:" + JSONArray.fromObject(list);
 	}
