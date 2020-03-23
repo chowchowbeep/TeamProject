@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import kty.DAO;
 import lastdto.cApaDTO;
 
-public class CateDAO extends testDAO {
+public class CateDAO extends DAO {
 	String sql;
 	public ArrayList<cApaDTO> apaSelect() { //wd코드를 부모로가진 키워드 출력
 		ArrayList<cApaDTO> list = new ArrayList<cApaDTO>();

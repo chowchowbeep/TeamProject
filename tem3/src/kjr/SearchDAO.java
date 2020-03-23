@@ -9,7 +9,7 @@ import lastdto.reviewListDTO;
 import lastdto.sListCodeDTO;
 import lastdto.searchDTO;
 
-public class SearchDAO extends testDAO {
+public class SearchDAO extends DAO {
 	String sql;
 	//id별로 전체 search코드 검색 ㅎ 
 	public ArrayList<searchDTO> selectAll(String hosId){
@@ -78,7 +78,7 @@ public class SearchDAO extends testDAO {
 			"where code = ? ))";
 		}
 		if(orderby!=null) {
-			sql +="order by ";
+			sql +="order by hos_name";
 		}
 		try {
 			int cnt=1;
@@ -102,6 +102,7 @@ public class SearchDAO extends testDAO {
 				dto.setHosLng(rs.getInt("HOS_LNG"));
 				dto.setHosBizTime(rs.getString("BIZ_TIME"));
 				list.add(dto);	
+				System.out.println("list에들어가는hosname값"+rs.getString("HOS_NAME"));
 			}		
 		} catch (SQLException e) {
 			e.printStackTrace();
