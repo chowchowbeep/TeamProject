@@ -37,7 +37,23 @@
 				<div class="card-body">
 
 					<div class="form-group row">
-						<label for="inputHstcs" class="col-sm-2 col-form-label">병력</label>
+						<label for="inputHstcs" class="col-sm-2 col-form-label">과거병력</label>
+						<div class="col-sm-10">
+							<select class="form-control select2" style="width: 100%;"
+								id="inputHstcs">
+								<option selected="selected">당뇨</option>
+								<option>저혈압</option>
+								<option>고혈압</option>
+								<option>빈혈</option>
+								<option>위염</option>
+								<option>위암</option>
+								<option>간암</option>
+								<option>폐암</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inputHstcs" class="col-sm-2 col-form-label">현재지병</label>
 						<div class="col-sm-10">
 							<select class="form-control select2" style="width: 100%;"
 								id="inputHstcs">
@@ -57,14 +73,11 @@
 						<div class="col-sm-10">
 							<select class="form-control select2" style="width: 100%;"
 								id="inputMedi">
-								<option selected="selected">당뇨</option>
-								<option>저혈압</option>
-								<option>고혈압</option>
-								<option>빈혈</option>
-								<option>위염</option>
-								<option>위암</option>
-								<option>간암</option>
-								<option>폐암</option>
+								<option selected="selected">당뇨약</option>
+								<option>수면제</option>
+								<option>혈압약</option>
+								<option>피임약</option>
+								<option>항정신안정제</option>
 							</select>
 						</div>
 					</div>
@@ -107,9 +120,9 @@
 				</div>
 				<!-- /.card-body -->
 				<div class="card-footer  text-center">
-					<button type="submit" class="btn btn-info">완료</button>
+					<button type="submit" class="btn btn-info" onclick="location.href='/tem3/aView/kjr/sick_main.jsp'">수정완료</button>
 					<!-- cancel에는 button type reset? -->
-					<button type="reset" class="btn btn-default">Cancel</button>
+					<button type="reset" class="btn btn-default" onclick="location.href='/tem3/aView/kjr/sick_main.jsp'">취소</button>
 				</div>
 				<!-- /.card-footer -->
 			</form>

@@ -4,6 +4,36 @@
 <%@ include file="/layout/hos_head.jsp"%>
 <%@ include file="/layout/hos_menu.jsp"%>
 
+
+<!-- DB에서 수정할 회원 정보 가져오기 -->
+<!-- session. getAttribute -->
+
+
+
+<script>
+function modifyValue(){
+	
+	if(!sickMem.sic_pw.value){
+		alert("변경할 비밀번호를 입력하세요.");
+		sickMem.sic_pw.focus();
+		return false;
+	}
+	
+	if(!sickMem.sic_phone.value){
+		alert("변경할 전화번호를 입력하세요.");
+		sickMem.sic_phone.focus();
+		return false;
+	}
+	
+	return true;
+}
+
+
+</script>
+
+
+</head>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
@@ -35,35 +65,35 @@
 			</div>
 			<!-- /.card-header -->
 			<!-- form start -->
-			<form class="form-horizontal">
+			<form name="sickMem" action="" method="post" onsubmit="" class="form-horizontal">
 				<div class="card-body">
 
 					<div class="form-group row">
 						<label for="callSicId" class="col-sm-2 col-form-label">회원ID</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="callSicId"
-								placeholder="회원ID 불러오기" disabled>
+							<input type="text" class="form-control" id="sic_id" name="sic_id"
+								value="${dto.sic_id }" disabled>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="callSicPw" class="col-sm-2 col-form-label">회원PW</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="callSicPw"
-								placeholder="회원PW 불러오기//PW 수정가능하지 않아?">
+							<input type="text" class="form-control" id="sic_pw" name="sic_pw"
+								placeholder="회원 pw 수정하기">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="callSicName" class="col-sm-2 col-form-label">이름</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="callSicName"
-								placeholder="회원이름 불러오기" disabled>
+							<input type="text" class="form-control" id="sic_name" name="sic_name"
+								value="${dto.sic_name}" disabled>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="callSicPhone" class="col-sm-2 col-form-label">전화번호</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="callSicPhone"
-								placeholder="전화번호 불러오기/수정 가능">
+							<input type="text" class="form-control" id="sic_phone" name="sic_phone"
+								placeholder="회원 전화번호 수정 ">
 						</div>
 					</div>
 
@@ -71,8 +101,8 @@
 						<label for="checkSicStt" class="col-sm-2 col-form-label">패널티
 							상태</label>
 						<div class="col-sm-10">
-							<input type="email" class="form-control" id="checkSicStt"
-								placeholder="패널티 상태 표시" disabled>
+							<input type="email" class="form-control" id="sic_stt" name="sic_stt"
+								value="${dto.sic_stt}" disabled>
 						</div>
 					</div>
 
@@ -80,9 +110,9 @@
 				</div>
 				<!-- /.card-body -->
 				<div class="card-footer  text-center">
-					<button type="submit" class="btn btn-info">수정완료</button>
+					<button type="submit" class="btn btn-info" onclick="location.href='/tem3/aView/taeyoung/logintest.jsp'">수정완료</button>
 					<!-- cancel에는 button type reset? -->
-					<button type="reset" class="btn btn-default">취소</button>
+					<button type="reset" class="btn btn-default" onclick="location.href='/tem3/aView/taeyoung/logintest.jsp'">수정취소</button>
 				</div>
 				<!-- /.card-footer -->
 			</form>
