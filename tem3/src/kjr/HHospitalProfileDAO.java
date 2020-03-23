@@ -3,9 +3,10 @@ package kjr;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import kty.DAO;
 import lastdto.hosMemberDTO;
 
-public class HHospitalProfileDAO extends testDAO {
+public class HHospitalProfileDAO extends DAO {
 	String sql;
 	public hosMemberDTO select(String hosId) {
 		hosMemberDTO dto = new hosMemberDTO();

@@ -8,7 +8,7 @@ import lastdto.reviewDTO;
 import lastdto.reviewListDTO;
 
 
-public class ReviewDAO extends testDAO{
+public class ReviewDAO extends DAO{
 	ArrayList<reviewListDTO> list = new ArrayList<reviewListDTO>();
 	String sql;
 	public boolean insert(reviewDTO dto) {

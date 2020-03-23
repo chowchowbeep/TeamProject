@@ -7,7 +7,7 @@ import java.util.List;
 import lastdto.hosMemberDTO;
 import kty.DAO;
 
-public class HosmemberDAO extends testDAO {
+public class HosmemberDAO extends DAO {
 	String sql = "";
 	public ArrayList<hosMemberDTO> select(){ //전체 조회
 		ArrayList<hosMemberDTO> list = new ArrayList<>();
@@ -69,6 +69,7 @@ public class HosmemberDAO extends testDAO {
 		if(hos!=null) {
 			sql += " where hos_name like ? ";
 		}
+		sql +="order by hos_name";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			if(hos!=null) {
