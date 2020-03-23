@@ -86,6 +86,7 @@ label.error {
 											} else { // 1-1-2. 일치 값 없을 경우 (의사 휴일 아닌 경우)
 												$("#selectedDtInfo").html("병원휴일도 의사휴일도아입니다.");
 												// 해당병원, 해당의사, 선택날짜에 기 예약된 내용 가져오기.
+												var unselectableTime = getUnselectableTime(selectedDt);
 												
 												// #resTmContainer(시간 선택란)를 표시하고, 기 예약된 시간은 disabled처리
 											}
@@ -117,7 +118,7 @@ label.error {
 							// 날짜 선택내용 초기화
 							datepicker.clear();
 // 							// 선택날짜에 대한 휴일, 기예약 정보 비우기
-// 							$("#selectedDtInfo").html("");
+							$("#selectedDtInfo").html("");
 						});
 
 						// 예약_  주말예약불가하도록제어
@@ -181,69 +182,33 @@ label.error {
 							return isDrHldy;
 						}
 						
+						// 예약_ 선택가능한 예약시간 제어. 
+						// 선택한 날짜,의사에 예약되어 있는 시간을 가져옴. 해당 시간은 예약 불가하도록. // 
+						// 의사, 날짜, 시간이 모두 선택되어야 함?
+						// 제출시 한 번 더 검사 
+						function getUnselectableTime(selectedDt){
+							var hosId = $("[name='hosId']").val();
+							var artrNo = $("[name='artrNo']").val();
+							var dataResult;
+							$.ajax({
+								url : "ajax/SGetUnselectableTime.do",
+								dataType : "json",
+								data : {
+									hosId : hosId,
+									artrNo : artrNo,
+									selectedDt : selectedDt
+								},
+								async : false,
+								success : function(result) {
+									console.log(result);
+									dataResult = result;
+								}
+							})
+							return dataResult;
+						}
 						
-// 						// 예약_ 병원휴일목록 가져오기 
-// 						function getSpecialHosHldy() {
-// 							var hosId = $("[name='hosId']").val();
-// 							var dataResult;
-// 							$.ajax({
-// 								url : "ajax/SGetHosHldyList.do",
-// 								dataType : "json",
-// 								data : {
-// 									hosId : hosId
-// 								},
-// 								async : false,
-// 								success : function(result) {
-// 									dataResult = result;
-// 								}
-// 							});
-// 							return dataResult;							
-// 						}
-						
-
-// 						// 예약_의사별 휴일목록
-// 						function getDrHldyList() {
-// 							var artrNo = $("[name='artrNo']").val();
-// 							var dataResult;
-// 							$.ajax({
-// 								url : "ajax/SGetDrHldyList.do",
-// 								dataType : "json",
-// 								data : {
-// 									artrNo : artrNo
-// 								},
-// 								async : false,
-// 								success : function(result) {
-// 									dataResult = result;
-// 								}
-// 							})
-// 							return dataResult;
-// 						}
-
 					}); //-- /.document ready res
 
-
-	// 예약_ 선택가능한 예약시간 제어. 
-	// 선택한 날짜,의사에 예약되어 있는 시간을 가져옴. 해당 시간은 예약 불가하도록. // 
-	// 의사, 날짜, 시간이 모두 선택되어야 함?
-	// 제출시 한 번 더 검사 
-	function getImpossibleTime() {
-		var hosId = $("[name='hosId']").val();
-		var selectedDate = $("[name='resDt']").val(); //날짜값 들어오는 방식 확인
-		var hosBizTime = '${param.hosBizTime}'; //선택가능한 시간 제어시 사용 
-		console.log(hosBizTime); //병원 영업시간은 이전 페이지에서 파라미터로 가져오기.
-		var selectedTime = $("[name='hour']").val()
-				+ $("[name='minute']").val();
-		$.ajax({
-			url : "ajax/SGetUnselectableTime.do",
-			dataType : "json",
-			data : {
-				hosId : hosId
-			},
-			success : function(result) {
-				console.log("already : " + result);
-			}
-		})
-	}
 
 	</c:if>
 
