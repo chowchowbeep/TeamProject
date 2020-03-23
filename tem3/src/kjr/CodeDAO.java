@@ -36,9 +36,6 @@ public class CodeDAO extends DAO {
 		sql=  " select DISTINCT s.code, s.HOS_ID, c.name, c.TYPE "+
 			  " from search s, code c "+
 			  " where s.CODE=c.CODE and hos_id=? ";
-				
-				
-				
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1,hosId);
