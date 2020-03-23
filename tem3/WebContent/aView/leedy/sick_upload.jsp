@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ include file="/layout/hos_head.jsp"%>
-<%@ include file="/layout/hos_menu.jsp"%>
+<%@ include file="/layout/sick_head.jsp"%>
+<%@ include file="/layout/sick_menu.jsp"%>
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">

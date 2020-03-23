@@ -9,8 +9,8 @@
 <link rel="stylesheet" href="cssList.css">
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b450fd1e475fcbb9f2bb640be5a6f4a8"></script>
-<%@ include file="../../layout/sick_head.jsp" %>
-<%@ include file="../../layout/sick_menu.jsp" %>
+<%@ include file="../../layout/hos_head.jsp" %>
+<%@ include file="../../layout/hos_menu.jsp" %>
 <script>
 $(function() {
 	$("#STmrRequest").on("click", function() {
@@ -30,7 +30,7 @@ $(function() {
 
 		<div class="card text-center  topmg">
 			<div class="card" style="margin: 5px;">
-				<div class="card-header ">${hosName } </div>
+				<div class="card-header ">${list[0].hosName } </div>
 				<div class="card-body">
 					<div id="map" style="width: auto; height: 400px;"></div>
 					<!-- 지도담을 영역만들기 -->
@@ -51,15 +51,34 @@ $(function() {
 
 			<div class="card" style="margin: 5px;">
 				<div class="card-body">
-					<p>전화번호:${ list[0].hosPhone}</p>
-					<p>주소:${list[0].hosAddr}</p>
-					<p>진료시간:${list[0].hosBizTime}</p>
-					<p>사업자등록번호:${list[0].hosBizno}</p>
-					<P>검색코드 <br>
+					<p>전화번호 : ${ list[0].hosPhone}</p>
+					<p>주소 : ${list[0].hosAddr}</p>
+					<p>진료시간 : ${list[0].hosBizTime}</p>
+					<p>사업자등록번호 : ${list[0].hosBizno}</p>
 						<div id="searchWd" name="searchWd">
-						<c:forEach items="wd" var="wd">
-						<button type='button' class='btn btn-outline-info'>${wd.code}</button>
-						</c:forEach>
+							
+							<c:forEach items="${codeList }" var="code">
+							<c:if test="${code.value.type eq 'A'}">
+								<button type='button' class='btn btn-outline-info'>${code.value.name}</button>
+							</c:if>
+							</c:forEach>
+							<c:forEach items="${codeList }" var="code">
+							<c:if test="${code.value.type eq 'S'}">
+								<button type='button' class='btn btn-outline-info'>${code.value.name}</button>
+							</c:if>
+							</c:forEach>
+							<br>
+							<c:forEach items="${codeList }" var="code">
+								<c:choose>
+									<c:when test="${code.value.type eq 'A'}"></c:when >
+									<c:when test="${code.value.type eq 'S'}"></c:when >
+									<c:otherwise>
+										<button type='button' class='btn btn-outline-info'>${code.value.name}</button>
+									</c:otherwise>
+							</c:choose>
+							</c:forEach>
+								
+						
 						</div>
 					
 				</div>

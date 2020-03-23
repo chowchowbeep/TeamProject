@@ -11,19 +11,18 @@ import kcr.InfoForRequestDAO;
 import lastdto.mediRqstDTO;
 import net.sf.json.JSONArray;
 
-public class SGetUnselectableTime implements Command {
+public class SGetUnselectableTimeAjaxCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String hosId = request.getParameter("hosId");
-		String resDt = request.getParameter("resDt");
-		int artrNo = Integer.parseInt(request.getParameter("artrNo"));
-		System.out.println(hosId + ", " + resDt);
+		String artrNo = request.getParameter("artrNo");
+		String selectedDt = request.getParameter("selectedDt");
+		System.out.println(hosId + ", " + artrNo + ", " + selectedDt);
 		
 		InfoForRequestDAO dao = new InfoForRequestDAO();
 		
-		String[] unselectableTimeList = dao.getUnselectableTime(hosId, resDt, artrNo); //db값 받아옴
 
 		return "ajax:" + JSONArray.fromObject(unselectableTimeList);
 	}
