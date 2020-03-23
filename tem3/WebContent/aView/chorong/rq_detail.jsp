@@ -5,15 +5,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ include file="/layout/sick_head.jsp"%>
-<script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js?ver=1"></script>
+<script
+	src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js?ver=1"></script>
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css?ver=4">
+	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css?ver=5">
 <style>
 .importantItem {
 	font-size: 1.3rem;
-}
-.card-title {
-	font-weight: 400;
 }
 </style>
 <%@ include file="/layout/sick_menu.jsp"%>
@@ -235,24 +233,20 @@
 								<div class="row">
 									<div class="col-sm-12" id="itemsWrapper">
 										<div class="item rqDetailInfo">
-											<span class="rqDetailLabel">진료신청상태</span><span
-												id="rqstTy"></span>
+											<span class="rqDetailLabel">진료신청상태</span><span id="rqstTy"></span>
 										</div>
 										<div class="item rqDetailInfo">
-											<span class="rqDetailLabel">병원명</span><span
-												id="hosName"></span>
+											<span class="rqDetailLabel">병원명</span><span id="hosName"></span>
 										</div>
 										<div class="item rqDetailInfo">
-											<span class="rqDetailLabel">병원연락처</span><span
-												id="hosPhone"></span>
+											<span class="rqDetailLabel">병원연락처</span><span id="hosPhone"></span>
 										</div>
 										<div class="item rqDetailInfo">
 											<span class="rqDetailLabel">담당의사 및 진료과목</span><span
 												id="artrName"></span>
 										</div>
 										<div class="item rqDetailInfo">
-											<span class="rqDetailLabel">의사선생님께 한 마디</span><span
-												id="msg"></span>
+											<span class="rqDetailLabel">의사선생님께 한 마디</span><span id="msg"></span>
 										</div>
 
 
@@ -272,16 +266,16 @@
 								<div class="row">
 									<div class="col-sm-12">
 										<div class="item rqDetailInfo">
-											<span class="rqDetailLabel"> 1.</span> 병원 내원시 살려죠 서비스를 통해 예약/접수하였다고
-											알려주세요.
+											<span class="rqDetailLabel"> 1.</span> 병원 내원시 살려죠 서비스를 통해
+											예약/접수하였다고 알려주세요.
 										</div>
 										<div class="item rqDetailInfo">
-											<span class="rqDetailLabel"> 2.</span> 예약/접수를 취소하실 경우 패널티가 부여됩니다. (3회
-											취소시 서비스이용이 제한됩니다.)
+											<span class="rqDetailLabel"> 2.</span> 예약/접수를 취소하실 경우 패널티가
+											부여됩니다. (3회 취소시 서비스이용이 제한됩니다.)
 										</div>
 										<div class="item rqDetailInfo">
-											<span class="rqDetailLabel"> 3.</span> 예약/접수는 병원사정으로 인해 취소될 가능성이
-											있습니다.
+											<span class="rqDetailLabel"> 3.</span> 예약/접수는 병원사정으로 인해 취소될
+											가능성이 있습니다.
 										</div>
 									</div>
 								</div>
@@ -325,7 +319,18 @@
 </form>
 
 <%@ include file="/layout/all_footer.jsp"%>
+<script>
 
+//진료신청 취소할 경우
+function cancelRq() {
+	var chCancel = confirm("진료신청을 취소하시겠습니까?");
+	if (chCancel == true) {
+		alert("진료신청이 취소되었습니다."); //취소시 확인알림팝업뜨고 
+		frm.action = "SCancelRq.do";//취소처리 후 목록페이지로 
+		frm.submit(); 
+	}
+}
+</script>
 </body>
 </html>
 

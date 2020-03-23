@@ -7,7 +7,7 @@
 <%@ include file="/layout/sick_head.jsp"%>
 <script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css?ver=4">
+	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css?ver=5">
 <style>
 button {
 	margin: 5px;
