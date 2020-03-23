@@ -3,9 +3,10 @@ package kjr;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import kty.DAO;
 import lastdto.bookmarkDTO;
 
-public class BookmarkDAO extends testDAO {
+public class BookmarkDAO extends DAO {
 	String sql;
 	public ArrayList<bookmarkDTO> select(String id) {
 		ArrayList<bookmarkDTO> list = new ArrayList<>();

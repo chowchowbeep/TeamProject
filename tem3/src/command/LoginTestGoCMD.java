@@ -1,4 +1,4 @@
-package cmd;
+package command;
 
 import java.io.IOException;
 
@@ -6,14 +6,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import command.Command;
-
-public class STmrSelectDcryCMD implements Command {
+public class LoginTestGoCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String path ="aView/chorong/tmr_selectDcry.jsp"; //S33 (진료신청시)기록물 선택 페이지 초
+		String path = "/aView/taeyoung/logintest.jsp";
 		
 		return path;
 	}

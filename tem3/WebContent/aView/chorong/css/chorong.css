@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+.card-title {
+	font-weight: 400;
+    margin-bottom: 0;
+}
+
 div.card-body {
 	font-size: 0.9rem;
 }

@@ -12,21 +12,30 @@ import command.Command;
 import kcr.InfoForRequestDAO;
 import lastdto.artrScheduleDTO;
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
-public class SGetDrHldlyListAjaxCMD implements Command {
+public class SCheckDrHldyAjaxCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int artrNo = Integer.parseInt(request.getParameter("artrNo"));
-		System.out.println(artrNo);
+		String artrNo = request.getParameter("artrNo");
+		String selectedDt = request.getParameter("selectedDt");
+		boolean checkDrHldy;
+		
+		System.out.println("at cmd"+artrNo+","+selectedDt);
 		
 		InfoForRequestDAO dao = new InfoForRequestDAO();
-		List<artrScheduleDTO> list = new ArrayList<>();
+		JSONObject jsonObj = new JSONObject();
 		
-		list = dao.drHldyList(artrNo); //db값 받아옴
+		checkDrHldy = dao.checkDrHldy(artrNo, selectedDt); 
+		
+		jsonObj.put("checkDrHldy", checkDrHldy);
+		String isDrHldy = jsonObj.toString();
+		
+		System.out.println("의사휴일?"+isDrHldy);
 
-		return "ajax:" + JSONArray.fromObject(list);
+		return "ajax:" + isDrHldy;
 	}
 
 }

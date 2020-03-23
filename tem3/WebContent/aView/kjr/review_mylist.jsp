@@ -9,6 +9,7 @@
 <%@ include file="../../layout/sick_menu.jsp" %>
 <script>
 	$(function() { //ready == window.load 와 같은 이벤트
+		//클릭시 hosid값을 가진 채 hosInfo페이지로 이동
 		$("tbody").on("click","tr",function(){
 			var id = $(this).attr("id");
 			$("#frm").append("<input type='text' name='hosId' id='hosId' value='"+id+"'>");
@@ -18,8 +19,8 @@
 			submit();
 		});
 	
-	//span태그를 누르면 상세정보가아니라 삭제되는 내용만 나와야함 ㅜㅜㅜ 지금 이벤트 중첩됨 ㅜ ㅜ
 	
+		//삭제작업
 		$("tbody").on("click","span",function(){
 			console.log($(this).attr('name'));
 			var thisTr = (this).closest("tr");

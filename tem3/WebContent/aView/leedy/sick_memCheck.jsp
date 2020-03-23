@@ -5,28 +5,7 @@
 <%@ include file="/layout/sick_menu.jsp"%>
 
 
-<!-- DB에서 수정할 회원 정보 가져오기 -->
-<!-- session. getAttribute -->
-
-
-
 <script>
-function modifyValue(){
-	
-	if(!sickMem.sic_pw.value){
-		alert("변경할 비밀번호를 입력하세요.");
-		sickMem.sic_pw.focus();
-		return false;
-	}
-	
-	if(!sickMem.sic_phone.value){
-		alert("변경할 전화번호를 입력하세요.");
-		sickMem.sic_phone.focus();
-		return false;
-	}
-	
-	return true;
-}
 
 
 </script>
@@ -41,7 +20,7 @@ function modifyValue(){
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1>sick_memModify</h1>
+					<h1>sick_memCheck</h1>
 				</div>
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
@@ -61,11 +40,11 @@ function modifyValue(){
 
 		<div class="card card-info">
 			<div class="card-header  card text-center">
-				<h3 class="card-title">회원정보 수정 페이지</h3>
+				<h3 class="card-title">회원정보 확인 페이지</h3>
 			</div>
 			<!-- /.card-header -->
 			<!-- form start -->
-			<form name="sickMem" action="SSickMemModifyGo.do" method="post" onsubmit="" class="form-horizontal">
+			<form name="sickChk" action="SSickMemModify.do" method="post" onsubmit="" class="form-horizontal">
 				<div class="card-body">
 
 					<div class="form-group row">
@@ -75,14 +54,7 @@ function modifyValue(){
 								value="${dto.sicId }" disabled>
 						</div>
 					</div>
-					<div class="form-group row">
-						<label for="callSicPw" class="col-sm-2 col-form-label">회원PW</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control" id="sic_pw" name="sic_pw"
-								placeholder="회원 pw 수정하기">
-						</div>
-					</div>
-					<div class="form-group row">
+									<div class="form-group row">
 						<label for="callSicName" class="col-sm-2 col-form-label">이름</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="sic_name" name="sic_name"
@@ -93,16 +65,22 @@ function modifyValue(){
 						<label for="callSicPhone" class="col-sm-2 col-form-label">전화번호</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="sic_phone" name="sic_phone"
-								placeholder="회원 전화번호 수정 ">
+								value="${dto.sicPhone}" disabled>
 						</div>
 					</div>
 
 					<div class="form-group row">
-						<label for="checkSicStt" class="col-sm-2 col-form-label">회원상태
-							상태</label>
+						<label for="checkSicStt" class="col-sm-2 col-form-label">회원상태</label>
 						<div class="col-sm-10">
 							<input type="email" class="form-control" id="sic_stt" name="sic_stt"
 								value="${dto.sicStt}" disabled>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="checkSicStt" class="col-sm-2 col-form-label">로그인 방법</label>
+						<div class="col-sm-10">
+							<input type="email" class="form-control" id="sic_login" name="sic_login"
+								value="${dto.sicLogin}" disabled>
 						</div>
 					</div>
 
@@ -110,9 +88,9 @@ function modifyValue(){
 				</div>
 				<!-- /.card-body -->
 				<div class="card-footer  text-center">
-					<button type="submit" class="btn btn-info" onclick="location.href='/tem3/aView/leedy/sick_memCheck.jsp'">수정완료</button>
+					<button type="submit" class="btn btn-info" onclick="location.href='/tem3/aView/leedy/sick_memModify.jsp'">수정하기</button>
 					<!-- cancel에는 button type reset? -->
-					<button type="reset" class="btn btn-default" onclick="location.href='/tem3/aView/kjr/sick_main.jsp'">수정취소</button>
+					<button type="reset" class="btn btn-default" onclick="location.href='/tem3/aView/kjr/sick_main.jsp'">확인</button>
 				</div>
 				<!-- /.card-footer -->
 			</form>

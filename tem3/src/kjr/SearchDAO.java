@@ -9,7 +9,7 @@ import lastdto.reviewListDTO;
 import lastdto.sListCodeDTO;
 import lastdto.searchDTO;
 
-public class SearchDAO extends testDAO {
+public class SearchDAO extends DAO {
 	String sql;
 	//id별로 전체 search코드 검색 ㅎ 
 	public ArrayList<searchDTO> selectAll(String hosId){
@@ -42,7 +42,7 @@ public class SearchDAO extends testDAO {
 		String orderby = cdto.getOderby();
 		String diam= cdto.getDiam();
 		String filter= cdto.getFilter();
-		
+		System.out.println("우ㅡ아아;나얼;ㅇ ;낭ㅁ악!!!!!!!!!");
 		sql="select * from hos_member where hos_id in"+
 		    "(select hos_id from search " + 
 			"INTERSECT " + 
@@ -77,9 +77,10 @@ public class SearchDAO extends testDAO {
 			sql += "and hos_id in (select HOS_ID from search " + 
 			"where code = ? ))";
 		}
-		if(orderby!=null) {
-			sql +="order by ";
-		}
+		
+			sql +="order by hos_name";
+		
+		System.out.println("sql은?"+sql);
 		try {
 			int cnt=1;
 			pstmt = conn.prepareStatement(sql);
@@ -102,6 +103,7 @@ public class SearchDAO extends testDAO {
 				dto.setHosLng(rs.getInt("HOS_LNG"));
 				dto.setHosBizTime(rs.getString("BIZ_TIME"));
 				list.add(dto);	
+				System.out.println("list에들어가는hosname값"+rs.getString("HOS_NAME"));
 			}		
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -2,9 +2,10 @@ package kjr;
 
 import java.sql.SQLException;
 
+import kty.DAO;
 import lastdto.hosSttDTO;
 
-public class HosSttDAO extends testDAO {
+public class HosSttDAO extends DAO {
 	public boolean Update(hosSttDTO dto) {
 		boolean a = true;
 		int n = 0 ;

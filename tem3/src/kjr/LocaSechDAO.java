@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import lastdto.locaSechDTO;
 import kty.DAO;
 
-public class LocaSechDAO extends testDAO {
+public class LocaSechDAO extends DAO {
 	String sql;
 	public ArrayList<locaSechDTO> select() { //지역관련 키워드 전체출력
 		ArrayList<locaSechDTO> list = new ArrayList<locaSechDTO>();

@@ -6,8 +6,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- 부트스트랩4 -->
-<%@ include file="../../layout/sick_head.jsp" %>
-<%@ include file="../../layout/sick_menu.jsp" %>
+<%@ include file="../../layout/hos_head.jsp" %>
+<%@ include file="../../layout/hos_menu.jsp" %>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"

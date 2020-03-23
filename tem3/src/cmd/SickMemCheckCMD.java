@@ -7,25 +7,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import kjr.sicMemberDAO;
 import lastdto.sickMemberDTO;
+import leedy.sickMemberDAO;
 
-public class SSickMemModifyCMD implements Command {
+public class SickMemCheckCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String id = (String)request.getSession().getAttribute("sic_id");
-
+		//id가 세션이어야 함
+		//String id = request.getParameter("id");
+		
+		
+		String id = "sosick";
+		
 		sickMemberDTO dto;
-		sicMemberDAO dao = new sicMemberDAO();
-
+		sickMemberDAO dao = new sickMemberDAO();
+	
+		
 		dto = dao.select(id);
-		request.setAttribute("dto", dto);
+		request.setAttribute("dto",dto);
 
-		String path = "aView/leedy/sick_memModify.jsp"; // S3 회원정보 수정 페이지
-
+		String path="aView/leedy/sick_memCheck.jsp";
 		return path;
 	}
 
