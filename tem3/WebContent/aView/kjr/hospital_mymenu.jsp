@@ -54,6 +54,15 @@
 				<div class="card" style="margin: 5px;">
 					<div class="card-header">진료과목</div>
 					<div class="card-body"> 
+					<c:forEach items="${codeList }" var="code">
+							<c:choose>
+									<c:when test="${code.type eq 'A'}"></c:when >
+									<c:when test="${code.type eq 'S'}"></c:when >
+									<c:otherwise>
+										<button type='button' class='btn btn-outline-info'>${code.name}</button>
+									</c:otherwise>
+							</c:choose>
+					</c:forEach>
 						서치리스트에서 밑에 그 해시태그처럼 나오게하면 될듯 ㅎㅎ
 						진료과목 태그로 보여주기
 					<p><a href="#" class="btn btn-primary">진료과목 추가 및 수정</a></p>
