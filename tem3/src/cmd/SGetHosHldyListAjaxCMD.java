@@ -24,7 +24,7 @@ public class SGetHosHldyListAjaxCMD implements Command {
 		InfoForRequestDAO dao = new InfoForRequestDAO();
 		List<hosScheduleDTO> list = new ArrayList<>();
 		
-		list = dao.hosHldyList(hosId); //db값 받아옴
+		list = dao.hosHldyList(hosId); 
 
 		return "ajax:" + JSONArray.fromObject(list);
 	}
