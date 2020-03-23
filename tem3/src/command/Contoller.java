@@ -220,7 +220,7 @@ public class Contoller extends HttpServlet {
 		cont.put("/ajax/SCheckHosHldy.do", new SCheckHosHldyAjaxCMD()); //병원휴일체크(예약)
 		cont.put("/ajax/SGetUnselectableTime.do", new SGetUnselectableTimeAjaxCMD()); //병원 영업시간 및 해당 시간 기존 예약건 여부 확인 (예약)
 		
-		cont.put("/STmrSelectDcry.do", new SSelectDcryCMD()); // S33 (진료신청시)기록물 선택 페이지로 이동
+		cont.put("/SSelectDcry.do", new SSelectDcryCMD()); // S33 (진료신청시)기록물 선택 페이지로 이동
 		cont.put("/SInsertRes.do", new SInsertResCMD()); //예약신청 입력처리 후 완료 페이지(접수/예약)로 이동
 		cont.put("/SInsertTmr.do", new SInsertTmrCMD()); //접수신청 입력처리 후 완료 페이지(접수/예약)로 이동
 		//cont.put("/SRqDone.do", new SRqDoneCMD()); //S29 진료신청 완료 페이지(접수/예약)로 이동 => SRqDetail.do
