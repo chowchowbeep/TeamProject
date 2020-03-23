@@ -10,7 +10,7 @@ import kty.DAO;
 public class sicMemberDAO extends DAO {
 	public static String sql;
 	//전체리스트
-	/*		public ArrayList<sickMemberDTO> select(){
+			public ArrayList<sickMemberDTO> select(){
 				ArrayList<sickMemberDTO> list = new ArrayList<>();
 				sql="SELECT * FROM Sick_Member";
 				try {
@@ -31,7 +31,7 @@ public class sicMemberDAO extends DAO {
 				}
 				return list;
 			}
-			*/
+			
 			// 환자iD로 정보가져오기.
 		public sickMemberDTO select(String id) {
 			sickMemberDTO dto = new sickMemberDTO();
