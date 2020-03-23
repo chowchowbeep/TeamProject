@@ -204,7 +204,7 @@ public class Contoller extends HttpServlet {
 		
 		cont.put("/ajax/SGetHosStt.do", new SGetHosStt()); //접수가 가능한지 1차검사위한 값(접수)
 		cont.put("/ajax/SGetDrList.do", new SGetDrListAjaxCMD()); //의사리스트 출력(접수예약공통)
-		cont.put("/ajax/SGetDrHldyList.do", new SGetDrHldlyListAjaxCMD()); //의사휴일(접수예약공통)
+		cont.put("/ajax/SGetDrHldyList.do", new SGetDrHldlyListAjaxCMD()); //의사휴일(예약)
 		cont.put("/ajax/SGetDrNotOnDutyList.do", new SGetDrNotOnDutyListAjaxCMD()); //당일휴일인 의사목록(접수)
 		cont.put("/ajax/SGetHosHldyList.do", new SGetHosHldyListAjaxCMD()); //병원휴일(예약)
 		cont.put("/ajax/SGetUnselectableTime.do", new SGetUnselectableTime()); //병원 영업시간 및 해당 시간 기존 예약건 여부 확인 (예약)

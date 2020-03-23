@@ -58,8 +58,20 @@ label.error {
 							inline : true,
 							minDate : new Date(),
 							maxDate : mxdate,
-							disableNavWhenOutOfRange : true
+							disableNavWhenOutOfRange : true,
+							onSelect : function onSelect(formattedDate, date, inst) {
+								// 날짜값 변경시 해당일자 예약스케줄(선택일이 병원휴일이거나 의사휴일이 아닌경우
+								//_휴일이라면 예약된 시간 선택하지 못하도록 disabled처리) 가져옴. 
+								// 해당 내용을 달력 아래 노출 + 기 예약된 시간은 선택하지 못하도록 disabled처리
+								
+							}
+							
 						})
+						
+						
+						
+						
+						
 						// 달력 생성
 						var datepicker = $('#resDt').data('datepicker');
 
@@ -81,15 +93,10 @@ label.error {
 							datepicker.clear();
 						});
 
-						// 날짜값 변경시 해당일자 예약스케줄 가져옴. 
-						// 해당 내용을 달력 아래 노출 + 기 예약된 시간은 선택하지 못하도록 disabled처리
-						$("#resDt").change(function() {
-						    var currentVal = $(this).val();
-						    getSpecialHosHldy();
-						    getImpossibleTime();
-							alert($(this).val());
-						});
-
+						
+						
+						
+						
 						// 예약_  주말예약불가하도록제어
 						function ctrlRegularHosHldy() {
 							// 토, 일 disabled 처리
