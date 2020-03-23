@@ -34,9 +34,42 @@ public class hosDAO extends DAO {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} finally {
+				close();
 			}
 			return list;
 		}
+	
+	
+	// 단건 조회
+	public hosJoinMemberDTO selectone(String hos_id) {
+		hosJoinMemberDTO dto = new hosJoinMemberDTO();
+		sql = "";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, hos_id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				dto.setHosName("hos_name");
+				dto.setHosId("hos_ID");
+				dto.setHosBizno("hos_bizno");
+				dto.setHosPhone("hos_Phone");
+				dto.setHosRank("hos_rank");
+				dto.setHosStart("biz_start");
+				dto.setHosLast("biz_last");
+				dto.setDecNo(rs.getInt("dec_no"));
+				dto.setDecStt("dec_stt");
+				dto.setDecDttm(rs.getDate("dec_dttm"));
+				dto.setRvNo(rs.getInt("rv_no"));
+				dto.setStarPoint(rs.getInt("star_point"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return dto;
+	}
 	
 	
 	// 등급별 조회
@@ -63,6 +96,8 @@ public class hosDAO extends DAO {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} finally {
+				close();
 			}
 			return list;
 		}
@@ -93,6 +128,8 @@ public class hosDAO extends DAO {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} finally {
+				close();
 			}
 			return list;
 		}
@@ -123,6 +160,8 @@ public class hosDAO extends DAO {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} finally {
+				close();
 			}
 			return list;
 		}
@@ -151,6 +190,8 @@ public class hosDAO extends DAO {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} finally {
+				close();
 			}
 			return list;
 		}
@@ -180,6 +221,8 @@ public class hosDAO extends DAO {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} finally {
+				close();
 			}
 			return list;
 		}
@@ -210,6 +253,8 @@ public class hosDAO extends DAO {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} finally {
+				close();
 			}
 			return list;
 		}
@@ -238,6 +283,8 @@ public class hosDAO extends DAO {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} finally {
+				close();
 			}
 			return list;
 		}

@@ -168,6 +168,16 @@ public class hosJoinMemberDTO {
 	public void setStarPoint(int starPoint) {
 		this.starPoint = starPoint;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "hosJoinMemberDTO [hosId=" + hosId + ", hosBizno=" + hosBizno + ", hosName=" + hosName + ", hosPhone="
+				+ hosPhone + ", hosAddr=" + hosAddr + ", hosStart=" + hosStart + ", hosLast=" + hosLast + ", hosRank="
+				+ hosRank + ", decNo=" + decNo + ", decStt=" + decStt + ", decDttm=" + decDttm + ", rvCount=" + rvCount
+				+ ", starPoint=" + starPoint + "]";
+	}
 	
 	
 	

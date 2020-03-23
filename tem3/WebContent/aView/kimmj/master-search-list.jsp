@@ -6,7 +6,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="/layout/admin_head.jsp"%>
 <script>
-	$(document).on("click", ".toMasterSearchNormalDetal", function() {
+	$(document).on("click", ".toMasterSearchListNormal", function() {
 		var sicId = $(this).attr("sic_id");
 		console.log(sicId);
 		$("#sicId").attr("value", sicId);
