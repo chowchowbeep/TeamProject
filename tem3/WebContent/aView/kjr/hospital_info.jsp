@@ -9,8 +9,8 @@
 <link rel="stylesheet" href="cssList.css">
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b450fd1e475fcbb9f2bb640be5a6f4a8"></script>
-<%@ include file="../../layout/sick_head.jsp" %>
-<%@ include file="../../layout/sick_menu.jsp" %>
+<%@ include file="../../layout/hos_head.jsp" %>
+<%@ include file="../../layout/hos_menu.jsp" %>
 <script>
 $(function() {
 	$("#STmrRequest").on("click", function() {

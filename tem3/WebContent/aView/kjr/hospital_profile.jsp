@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<%@ include file="../../layout/sick_head.jsp"%>
-<%@ include file="../../layout/sick_menu.jsp"%>
+<%@ include file="../../layout/hos_head.jsp"%>
+<%@ include file="../../layout/hos_menu.jsp"%>
 <!-- 마이메뉴 페이지 -->
 <!-- 부트스트랩4 -->
 <script type="text/javascript"
