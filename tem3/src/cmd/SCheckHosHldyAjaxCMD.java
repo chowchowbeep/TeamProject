@@ -12,21 +12,30 @@ import command.Command;
 import kcr.InfoForRequestDAO;
 import lastdto.hosScheduleDTO;
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
-public class SGetHosHldyListAjaxCMD implements Command {
+public class SCheckHosHldyAjaxCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String hosId = request.getParameter("hosId");
-		System.out.println(hosId);
+		String selectedDt = request.getParameter("selectedDt");
+		boolean checkHosHldy;
+		
+		System.out.println("at cmd"+hosId+","+selectedDt);
 		
 		InfoForRequestDAO dao = new InfoForRequestDAO();
-		List<hosScheduleDTO> list = new ArrayList<>();
+		JSONObject jsonObj = new JSONObject();
 		
-		list = dao.hosHldyList(hosId); 
+		checkHosHldy = dao.checkHosHldy(hosId, selectedDt); 
+		
+		jsonObj.put("checkHosHldy", checkHosHldy);
+		String isHosHldy = jsonObj.toString();
+		
+		System.out.println("병원휴일?"+checkHosHldy);
 
-		return "ajax:" + JSONArray.fromObject(list);
+		return "ajax:" + isHosHldy;
 	}
 
 }

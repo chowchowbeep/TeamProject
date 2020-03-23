@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +8,8 @@
 <title>Insert title here</title>
 <!-- 마이메뉴 페이지 -->
 <!-- 부트스트랩4 -->
-<%@ include file="../../layout/sick_head.jsp" %>
-<%@ include file="../../layout/sick_menu.jsp" %>
+<%@ include file="../../layout/hos_head.jsp" %>
+<%@ include file="../../layout/hos_menu.jsp" %>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
@@ -54,17 +55,31 @@
 				<div class="card" style="margin: 5px;">
 					<div class="card-header">진료과목</div>
 					<div class="card-body"> 
-						서치리스트에서 밑에 그 해시태그처럼 나오게하면 될듯 ㅎㅎ
-						진료과목 태그로 보여주기
-					<p><a href="#" class="btn btn-primary">진료과목 추가 및 수정</a></p>
+					<c:forEach items="${codeList }" var="code">
+							<c:choose>
+									<c:when test="${code.type eq 'SUB'}">
+										<button type='button' class='btn btn-outline-info'>${code.name}</button>
+									</c:when>
+									<c:otherwise></c:otherwise>
+							</c:choose>
+					</c:forEach>
+					<br>
+					<br><a href="#" class="btn btn-primary">진료과목 추가 및 수정</a>
 					</div>
 				</div>
 				
 				<div class="card" style="margin: 5px;">
 					<div class="card-header">증상</div>
 					<div class="card-body"> 
-						서치리스트에서 밑에 그 해시태그처럼 나오게하면 될듯 ㅎㅎ
-						진료과목 태그로 보여주기
+						<c:forEach items="${codeList }" var="code">
+							<c:choose>
+									<c:when test="${code.type eq 'APA'}">
+										<button type='button' class='btn btn-outline-info'>${code.name}</button>
+									</c:when>
+									<c:otherwise></c:otherwise>
+							</c:choose>
+					</c:forEach>
+					<br><br>
 					<p><a href="#" class="btn btn-primary">증상 추가 및 수정</a></p>
 					</div>
 				</div>
@@ -72,8 +87,15 @@
 				<div class="card" style="margin: 5px;">
 					<div class="card-header ">테마</div>
 					<div class="card-body"> 
-						서치리스트에서 밑에 그 해시태그처럼 나오게하면 될듯 ㅎㅎ
-						진료과목 태그로 보여주기
+					<c:forEach items="${codeList }" var="code">
+							<c:choose>
+									<c:when test="${code.type eq 'TEMA'}">
+										<button type='button' class='btn btn-outline-info'>${code.name}</button>
+									</c:when>
+									<c:otherwise></c:otherwise>
+							</c:choose>
+					</c:forEach>
+					<br><br>
 					<p><a href="#" class="btn btn-primary">테마 추가 및 수정</a></p>
 					</div>
 				</div>

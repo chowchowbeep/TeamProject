@@ -12,7 +12,7 @@ function toBeforeMedList() {
 // 기록물 리스트 불러와서 값 넘기기 
 function toAddDcry() {
 	//기록물리스트 가져올 수 있는 파라미터값 같이 넘기기 
-	window.open("STmrSelectDcry.do", "selDcry", "width=350, height=550");
+	window.open("SSelectDcry.do", "selDcry", "width=350, height=550");
 }
 
 ////진료신청 취소할 경우
