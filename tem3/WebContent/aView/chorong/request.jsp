@@ -40,6 +40,11 @@ label.error {
 .form-control {
 	font-size: 0.9rem;
 }
+
+#selectedDtInfo {
+	padding-bottom: 0.9rem;
+	color: red;
+}
 </style>
 <script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
 <script>
@@ -53,25 +58,45 @@ label.error {
 						// 예약날짜선택 달력 기본설정
 						var mxdate = new Date();
 						mxdate.setDate(mxdate.getDate() + 90); //오늘자로부터 90일 후 까지만 예약가능하도록
-						$('#resDt').datepicker({
-							language : 'ko',
-							inline : true,
-							minDate : new Date(),
-							maxDate : mxdate,
-							disableNavWhenOutOfRange : true,
-							onSelect : function onSelect(formattedDate, date, inst) {
-								// 날짜값 변경시 해당일자 예약스케줄(선택일이 병원휴일이거나 의사휴일이 아닌경우
-								//_휴일이라면 예약된 시간 선택하지 못하도록 disabled처리) 가져옴. 
-								// 해당 내용을 달력 아래 노출 + 기 예약된 시간은 선택하지 못하도록 disabled처리
-								
-							}
-							
-						})
-						
-						
-						
-						
-						
+						$('#resDt').datepicker(
+								{
+									language : 'ko',
+									inline : true,
+									minDate : new Date(),
+									maxDate : mxdate,
+									disableNavWhenOutOfRange : true,
+									onSelect : function onSelect(formattedDate,
+											date, inst) {
+										var selectedDt = formattedDate.replace(/\//gi,"");
+										$("#selectedDtInfo").html("날짜선택됨"+selectedDt);
+										
+										// 1. 선택한 날짜의 값을 파라미터로 넘겨서 병원휴일테이블에서 일치하는 값이 있는지 확인
+										// 일치 값 있을 경우 #selectedDtInfo에 병원휴일입니다. 안내.
+										
+										// 병원휴일 여부 가져오기
+										var isHosHldy = checkHosHldy(selectedDt).checkHosHldy;
+										
+										if(isHosHldy == true){ 
+											$("#selectedDtInfo").html("병원휴일입니다.");
+										} else {
+											// 1-1. 병원휴일 아닐경우, 의사휴일 가져오기.
+											var isDrHldy = checkDrHldy(selectedDt).checkDrHldy;
+											if(isDrHldy == true) { // 1-1-1. 일치 값 있을 경우 (의사휴일일 경우)
+												$("#selectedDtInfo").html("의사휴일입니다. 다른 날짜를 선택해주세요");
+											} else { // 1-1-2. 일치 값 없을 경우 (의사 휴일 아닌 경우)
+												$("#selectedDtInfo").html("병원휴일도 의사휴일도아입니다.");
+												// 해당병원, 해당의사, 선택날짜에 기 예약된 내용 가져오기.
+												
+												// #resTmContainer(시간 선택란)를 표시하고, 기 예약된 시간은 disabled처리
+											}
+											
+											
+										}
+										
+									}
+
+								})
+
 						// 달력 생성
 						var datepicker = $('#resDt').data('datepicker');
 
@@ -91,12 +116,10 @@ label.error {
 
 							// 날짜 선택내용 초기화
 							datepicker.clear();
+// 							// 선택날짜에 대한 휴일, 기예약 정보 비우기
+// 							$("#selectedDtInfo").html("");
 						});
 
-						
-						
-						
-						
 						// 예약_  주말예약불가하도록제어
 						function ctrlRegularHosHldy() {
 							// 토, 일 disabled 처리
@@ -107,7 +130,7 @@ label.error {
 											// 값을 받아와서 disabledDays 배열에 삽입할 것. 
 											// (요구사항 정의되지 않은 부분.여기서는 토,일요일 정기휴일로 가정함)
 											//쉼표연산자 왼->오 순으로 평가하여 마지막 연산자의 값 반환
-											if (cellType == 'day') { //현재 셀 타입이 day일 경우
+											if (cellType == 'day') { //현재 셀 타입이 day일 경우resTmContainer
 												var disabledDays = [ 0, 6 ];
 												var day = date.getDay(), isDisabled = disabledDays
 														.indexOf(day) != -1;
@@ -118,61 +141,86 @@ label.error {
 										}
 									})
 						}
-
-						// 예약
-						function getSpecialHosHldy() {
+						// 예약_ 선택한 날짜가 병원휴일인지 확인
+						function checkHosHldy(selectedDt) {
 							var hosId = $("[name='hosId']").val();
-							$
-									.ajax({
-										url : "ajax/SGetHosHldyList.do",
-										dataType : "json",
-										data : {
-											hosId : hosId
-										},
-										async : false,
-										success : function(result) {
-											$
-													.each(
-															result,
-															function(idx, item) {
-																console
-																		.log("HOS HLDY["
-																				+ idx
-																				+ "]"
-																				+ " : "
-																				+ item.hosHldy);
-																var yyyyHldy = item.hosHldy.slice(0,4);
-																console.log("년"+ yyyyHldy);
-																var mmHldy = item.hosHldy.slice(4,6);
-																console.log("월"+ mmHldy);
-																var ddHldy = item.hosHldy.slice(6,8);
-																console.log("일"+ ddHldy);
-																
-															})
-										}
-									});
+							var isHosHldy;
+							$.ajax({
+								url : "ajax/SCheckHosHldy.do",
+								dataType : "json",
+								data : {
+									hosId : hosId,
+									selectedDt : selectedDt
+								},
+								async : false,
+								success : function(result) {
+									console.log(result);
+									isHosHldy = result;
+								}
+							});
+							return isHosHldy;
 						}
+						
+						// 예약_ 선택한 날짜가 의사휴일인지 확인
+						function checkDrHldy(selectedDt) {
+							var artrNo = $("[name='artrNo']").val();
+							var isDrHldy;
+							$.ajax({
+								url : "ajax/SCheckDrHldy.do",
+								dataType : "json",
+								data : {
+									artrNo : artrNo,
+									selectedDt : selectedDt
+								},
+								async : false,
+								success : function(result) {
+									isDrHldy = result;
+									console.log(isDrHldy);
+								}
+							});
+							return isDrHldy;
+						}
+						
+						
+// 						// 예약_ 병원휴일목록 가져오기 
+// 						function getSpecialHosHldy() {
+// 							var hosId = $("[name='hosId']").val();
+// 							var dataResult;
+// 							$.ajax({
+// 								url : "ajax/SGetHosHldyList.do",
+// 								dataType : "json",
+// 								data : {
+// 									hosId : hosId
+// 								},
+// 								async : false,
+// 								success : function(result) {
+// 									dataResult = result;
+// 								}
+// 							});
+// 							return dataResult;							
+// 						}
+						
+
+// 						// 예약_의사별 휴일목록
+// 						function getDrHldyList() {
+// 							var artrNo = $("[name='artrNo']").val();
+// 							var dataResult;
+// 							$.ajax({
+// 								url : "ajax/SGetDrHldyList.do",
+// 								dataType : "json",
+// 								data : {
+// 									artrNo : artrNo
+// 								},
+// 								async : false,
+// 								success : function(result) {
+// 									dataResult = result;
+// 								}
+// 							})
+// 							return dataResult;
+// 						}
 
 					}); //-- /.document ready res
 
-	// 	// 예약_의사별 휴일목록
-	// 	function getDrHldyList() {
-	// 		var artrNo = $("[name='artrNo']").val();
-	// 		$.ajax({
-	// 			url : "ajax/SGetDrHldyList.do",
-	// 			dataType : "json",
-	// 			data : {
-	// 				artrNo : artrNo
-	// 			},
-	// 			success : function(result) {
-	// 				$.each(result,
-	// 						function(idx, item) {
-	// 							console.log("DR HLDY[" + idx + "]" + " : "
-	// 									+ item.artrHldy);
-	// 						});
-	// 			}
-	// 		})
-	// 	}
 
 	// 예약_ 선택가능한 예약시간 제어. 
 	// 선택한 날짜,의사에 예약되어 있는 시간을 가져옴. 해당 시간은 예약 불가하도록. // 
@@ -197,7 +245,6 @@ label.error {
 		})
 	}
 
-	// datepicker 관련 __ 접수, 예약모두 오늘부터 가능. 병원휴일은 선택하지 못하게 disabled
 	</c:if>
 
 	// 접수일 경우
@@ -414,6 +461,7 @@ label.error {
 												<label for="resDt">예약날짜 선택</label> <br> <input
 													type="text" id="resDt" name="resDt" class="form-control">
 											</div>
+											<div id="selectedDtInfo"></div>
 											<div class="form-group" id="resTmContainer"
 												style="display: none;">
 												<label for="resTm">예약시간 선택</label> <br> <select

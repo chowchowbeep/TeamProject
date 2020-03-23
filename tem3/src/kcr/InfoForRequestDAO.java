@@ -38,6 +38,53 @@ public class InfoForRequestDAO extends DAO {
 		return bizStt;
 	}
 
+	//병원 휴일 확인
+	public boolean checkHosHldy(String hosId, String selectedDt) {
+		System.out.println("at DAO "+hosId+","+selectedDt);
+		boolean checkHosHldy = false;
+		String sql = "select hos_id, hos_hldy" + 
+				" from hos_schedule" + 
+				" where hos_id = ?" + 
+				" and to_char(hos_hldy, 'yyyymmdd') = ?";
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, hosId);
+			pstmt.setString(2, selectedDt);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				checkHosHldy = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return checkHosHldy;
+	}
+	// 의사 휴일 확인
+	public boolean checkDrHldy(String artrNo, String selectedDt) {
+		boolean checkArtrHldy = false;
+		String sql = "select hos_id, artr_hldy" + 
+				" from artr_schedule" + 
+				" where artr_no = ?" + 
+				" and to_char(artr_hldy, 'yyyymmdd') = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, artrNo);
+			pstmt.setString(2, selectedDt);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				checkArtrHldy = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return checkArtrHldy;
+	}
+	
 	// 병원별 의사목록
 	public List<artrInfoDTO> getArtrInfoForTmr(String hosId) {
 		System.out.println(hosId);
