@@ -1,3 +1,5 @@
+<%@page import="lastdto.hosJoinMemberDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/layout/admin_head.jsp"%>
@@ -126,7 +128,7 @@ to {
 </style>
 
 <%@ include file="/layout/admin_menu.jsp"%>
-<form>
+
 <div class = "card">
 	<div class = "card-header text-center">
 		<div class = "text-center" style = "padding: 10px 0px 0px 0px">
@@ -135,6 +137,7 @@ to {
 			</h4>
 		</div>
 	</div>
+	<form method = "post" action = "MSearchHoslist.do">
 	<div class="card-body">
 		<div class="type">
 		<span class="info-box-small"> 
@@ -178,8 +181,9 @@ to {
 		<button type = "submit" class = "btn btn-block btn-warning"><b>검색</b></button>
 	</div>
 </div>
-</div>
 </form>
+</div>
+
 <%@ include file="/layout/all_footer.jsp"%>
 </body>
 </html>

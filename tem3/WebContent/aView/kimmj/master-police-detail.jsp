@@ -3,6 +3,7 @@
 <%@page import="kimmj.decDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="/layout/admin_head.jsp"%>
  <script language="javascript">
  	function popup() {
@@ -108,8 +109,7 @@ to {
 </style>
 
 <%@ include file="/layout/admin_menu.jsp"%>
-<% request.setCharacterEncoding("utf-8"); %>
-<jsp:useBean id="dec" class="lastdto.declarationDTO"/>
+<jsp:useBean id="dao" class="kimmj.decDAO"/>
 <div class = "card">
 	<div class = "card-header text-center">
 		<div class = "text-center" style = "padding: 10px 0px 0px 0px">
@@ -118,31 +118,26 @@ to {
 			</h4>
 		</div>
 	</div>
-	<% 
-	decDAO dao = new decDAO();
-	ArrayList<declarationDTO> list = dao.select();
-	for(declarationDTO dto : list) { 
-	%>
 	<div class="card-body">
 	<table class = "listbox">
 		<tr>
 			<td class = "info">
-				<b> 회원 ID: </b>${dto.getSicId()}
+				<b> 회원 ID: </b>${dto.sicId}
 			</td>
 		</tr>
 		<tr>
 			<td class = "info">
-				<b> 신고 대상 병원: </b>${dto.getHosId()}
+				<b> 신고 대상 병원: </b>${dto.hosId}
 			</td>
 		</tr>
 		<tr>
 			<td class = "info">
-				<b> 신고일자: </b>${dto.getDecDttm()}
+				<b> 신고일자: </b>${dto.decDttm}
 			</td>
 		</tr>
 		<tr>
 			<td class = "info">
-				<b> 신고 내용: </b>${dto.getDecCont()}
+				<b> 신고 내용: </b>${dto.decCont}
 			</td>
 		</tr>
 	</table>
@@ -152,15 +147,13 @@ to {
 	<br>
 	<br>
 	<div>
-	
 		<button type = "button" class = "btn btn-block btn-warning"
 		onclick = "location.href = 'javascript:popup()'"> 
-		${ dto.getPrd() } <b>처리</b> </button>
+		<b>처리</b> </button>
 		<button type = "button" class = "btn btn-block btn-warning"
-		onclick = "location.href = 'master-police.jsp';"> <b>목록</b> </button>
+		onclick = "location.href = 'MPolice.do';"> <b>목록</b> </button>
 	</div>
 	</div>
-	<% } %>
 </div>
 
 <%@ include file="/layout/all_footer.jsp"%>

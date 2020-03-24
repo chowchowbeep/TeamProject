@@ -10,7 +10,7 @@ public class decDAO extends DAO {
 	
 	public ArrayList<declarationDTO> select() {
 		ArrayList<declarationDTO> list = new ArrayList<>();
-		sql = "SELECT * FROM declaration";
+		sql = "SELECT sic_id, hos_id, dec_dttm from declaration";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -23,9 +23,35 @@ public class decDAO extends DAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close();
 		}
 		return list;
 	}
+	
+	
+	public declarationDTO selectone(String hos_id) {
+		declarationDTO dto = new declarationDTO();
+		sql = "SELECT sic_id, hos_id, dec_dttm, dec_cont from declaration";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				dto.setSicId(rs.getString("sic_id"));
+				dto.setHosId(rs.getString("hos_id"));
+				dto.setDecDttm(rs.getDate("dec_dttm"));
+				dto.setDecCont(rs.getString("dec_cont"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return dto;
+	}
+	
+	
+	
 	
 	
 	public String getprd() {

@@ -103,7 +103,12 @@ to {
 </style>
 
 <%@ include file="/layout/admin_menu.jsp"%>
-
+<jsp:useBean id="dao" class="kimmj.hosDAO" />
+<%
+request.setCharacterEncoding("UTF-8");
+String keyField = request.getParameter("keyField");
+String keyWord = request.getParameter("keyWord");
+%>
 <div class = "card">
 	<div class = "card-header text-center">
 		<div class = "text-center" style = "padding: 10px 0px 0px 0px">
@@ -112,17 +117,18 @@ to {
 			</h4>
 		</div>
 	</div>
-	<div class="card-body">
-	<table class = "listbox">
+	
 	<% 
-	hosDAO dao = new hosDAO();
 	ArrayList<hosJoinMemberDTO> list = dao.select();
 	for(hosJoinMemberDTO dto : list) { 
 	%>
+	<div class="card-body">
+	<table class = "listbox"
+		   onclick = "location.href = 'MSearchHoslistHos.do?hosId=<%= dto.getHosId() %>';">
 		<tr>
 			<td>
 				<ion-icon name="business" size = "large" 
-				style = "width: 100px; height: 100px; margin: 0px 0px 10px 10px;"></ion-icon>
+				style = "width: 70px; height: 70px; margin: 0px 0px 10px 20px;"></ion-icon>
 				<div class = "name"><b><%= dto.getHosName() %></b></div>
 			</td>
 			<td class = "info">
@@ -133,9 +139,9 @@ to {
 		</tr>
 	</table>
 	<input type = "hidden" id = "hosId" name = "hosId">
-	<% } %>
 	</div>
 </div>
+<% } %>
 
 <%@ include file="/layout/all_footer.jsp"%>
 </body>
