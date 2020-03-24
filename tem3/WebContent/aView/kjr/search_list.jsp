@@ -58,6 +58,18 @@ $(function() {
 				<button type="button" class="btn btn-primary btn-lg btn-block">상세조건</button>
 			</div>
 		</div>
+		<c:if test="${empty hosList }">
+			<div class="card" style="margin: 5px;">
+				<div class="col-md-12">
+					<div class="card-body text-center">
+						<p class="card-text">검색결과가 없습니다.</p>
+						<p></p>
+						<a href="SSearchMain.do" class="btn btn-primary">지역 및 카테고리로 검색하기</a>
+					</div>
+				</div>
+				 	
+			</div>
+		</c:if>
 		
 		<!-- 병원리스트출력 검색마다 추가되도록 이벤트가 발생해야함 -->
 		<!--  for:each  -->

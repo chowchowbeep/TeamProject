@@ -91,6 +91,8 @@ public class normalDAO extends DAO {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} finally {
+				close();
 			}
 			return list;
 		}
@@ -117,6 +119,8 @@ public class normalDAO extends DAO {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} finally {
+				close();
 			}
 			return list;
 		}
@@ -143,6 +147,8 @@ public class normalDAO extends DAO {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} finally {
+				close();
 			}
 			return list;
 		}
@@ -169,6 +175,8 @@ public class normalDAO extends DAO {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} finally {
+				close();
 			}
 			return list;
 		}
@@ -195,6 +203,8 @@ public class normalDAO extends DAO {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} finally {
+				close();
 			}
 			return list;
 		}
@@ -221,6 +231,8 @@ public class normalDAO extends DAO {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} finally {
+				close();
 			}
 			return list;
 		}
@@ -245,6 +257,8 @@ public class normalDAO extends DAO {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} finally {
+				close();
 			}
 			return list;
 		}

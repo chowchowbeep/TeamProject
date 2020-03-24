@@ -40,7 +40,7 @@
 
 		<div class="card card-info">
 			<div class="card-header  card text-center">
-				<h3 class="card-title">회원정보 확인 페이지</h3>
+				<h3 class="card-title">회원정보 확인</h3>
 			</div>
 			<!-- /.card-header -->
 			<!-- form start -->
@@ -51,21 +51,21 @@
 						<label for="callSicId" class="col-sm-2 col-form-label">회원ID</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="sic_id" name="sic_id"
-								value="${dto.sicId }" disabled>
+								value="${dto.sicId }" readonly	>
 						</div>
 					</div>
 									<div class="form-group row">
 						<label for="callSicName" class="col-sm-2 col-form-label">이름</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="sic_name" name="sic_name"
-								value="${dto.sicName}" disabled>
+								value="${dto.sicName}" readonly>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="callSicPhone" class="col-sm-2 col-form-label">전화번호</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="sic_phone" name="sic_phone"
-								value="${dto.sicPhone}" disabled>
+								value="${dto.sicPhone}" readonly>
 						</div>
 					</div>
 
@@ -73,7 +73,7 @@
 						<label for="checkSicStt" class="col-sm-2 col-form-label">회원상태</label>
 						<div class="col-sm-10">
 							<input type="email" class="form-control" id="sic_stt" name="sic_stt"
-								value="${dto.sicStt}" disabled>
+								value="${dto.sicStt}" readonly>
 						</div>
 					</div>
 					<div class="form-group row">
@@ -88,7 +88,7 @@
 				</div>
 				<!-- /.card-body -->
 				<div class="card-footer  text-center">
-					<button type="submit" class="btn btn-info" onclick="location.href='/tem3/aView/leedy/sick_memModify.jsp'">수정하기</button>
+					<button type="submit" class="btn btn-info" >수정하기</button>
 					<!-- cancel에는 button type reset? -->
 					<button type="reset" class="btn btn-default" onclick="location.href='/tem3/aView/kjr/sick_main.jsp'">확인</button>
 				</div>

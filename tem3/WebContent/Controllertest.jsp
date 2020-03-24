@@ -11,6 +11,8 @@
 </head>
 <body>
 <div>
+
+<p/><button onclick="location.href='LoginTestGo.do'">로그인 테스트 페이지로 이동</button>
 <h3 id="m">관리자 컨트롤러 테스트</h3>
 <button onclick="location.href='MMain.do'">관리자 메인페이지로 이동</button> 
 <p/><button onclick="location.href='MSearchNormal.do'">회원검색(일반회원) 페이지로 이동</button>

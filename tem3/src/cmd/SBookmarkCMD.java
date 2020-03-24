@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
 import kjr.BookmarkDAO;
+import kjr.HHospitalProfileDAO;
 import lastdto.bookmarkDTO;
 
 public class SBookmarkCMD implements Command {
@@ -18,6 +19,7 @@ public class SBookmarkCMD implements Command {
 			throws ServletException, IOException {
 		String path ="aView/kjr/bookmark.jsp"; //S30 관심병원 리스트 페이지
 		BookmarkDAO bookDAO = new BookmarkDAO();
+		HHospitalProfileDAO hosDAO = new HHospitalProfileDAO();
 		String id = "sic3";
 		ArrayList<bookmarkDTO> list = bookDAO.select(id);
 		request.setAttribute("starList", list);

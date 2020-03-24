@@ -24,14 +24,18 @@ public class SSickMemberModifyGoCMD implements Command {
 		
 		dto.setSicPw(request.getParameter("sic_pw"));
 		dto.setSicPhone(request.getParameter("sic_phone"));
+		dto.setSicId(request.getParameter("sic_id"));
 		System.out.println(dto.toString());
 		
+		
+		//수정된 회원정보 DB에 넘기고 dto 통째로 넘겨서 화면에 뿌림
 		int r = dao.sickMemUpdate(dto);
+		request.setAttribute("dto", dto);
 		
 		
 		//인덱스페이지에서 버튼 눌렀을 때
 		
-		return "aView/taeyoung/logintest.jsp";
+		return "redirect:SSickMemCheck.do";
 	}
 
 }

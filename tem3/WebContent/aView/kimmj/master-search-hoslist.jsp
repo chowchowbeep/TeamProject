@@ -3,7 +3,16 @@
 <%@page import="kimmj.hosDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="/layout/admin_head.jsp"%>
+<script>
+	$(document).on("click", ".toMasterSearchHoslistHos", function() {
+		var hosId = $(this).attr("hos_id");
+		console.log(hosId);
+		$("#hosId").attr("value", hosId);
+		frm.submit();
+	});
+</script>
 <style type="text/css">/* Chart.js */
 @
 keyframes chartjs-render-animation {
@@ -123,6 +132,7 @@ to {
 			</td>
 		</tr>
 	</table>
+	<input type = "hidden" id = "hosId" name = "hosId">
 	<% } %>
 	</div>
 </div>

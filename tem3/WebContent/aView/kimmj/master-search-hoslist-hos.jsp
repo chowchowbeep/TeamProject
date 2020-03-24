@@ -3,6 +3,7 @@
 <%@page import="kimmj.hosDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="/layout/admin_head.jsp"%>
 <style type="text/css">/* Chart.js */
 @
@@ -94,7 +95,7 @@ to {
 </style>
 
 <%@ include file="/layout/admin_menu.jsp"%>
-
+<jsp:useBean id="dao" class="kimmj.hosDAO" />
 <div class = "card">
 	<div class = "card-header text-center">
 		<div class = "text-center" style = "padding: 10px 0px 0px 0px">
@@ -105,39 +106,33 @@ to {
 	</div>
 	<div class="card-body">
 		<table cellpadding = "5px" class = "listbox">
-	<% 
-	hosDAO dao = new hosDAO();
-	ArrayList<hosJoinMemberDTO> list = dao.select();
-	for(hosJoinMemberDTO dto : list) { 
-	%>
 			<tr>
 				<td>
 				<ion-icon name="business" size = "large" 
 				style = "width: 100px; height: 100px; margin: 0px 0px 10px 10px;"></ion-icon>
-				<div class = "name"><b><%= dto.getHosName() %></b></div>
+				<div class = "name"><b>${dto.hosName }</b></div>
 			</td>
 			<td class = "info">
-				<p><b> 회원 ID: </b><%= dto.getHosId() %></p>
-				<p><b> 회원 등급: </b><%= dto.getHosRank() %> </p>
-				<p><b> 연락처: </b><%= dto.getHosPhone() %></p>
-				<p><b> 주소: </b><%= dto.getHosAddr() %></p>
-				<p><b> 진료 시간: </b><%= dto.getHosStart() %> ~ <%= dto.getHosLast() %></p>
+				<p><b> 회원 ID: </b>${dto.hosId }</p>
+				<p><b> 회원 등급: </b>${dto.hosRank }</p>
+				<p><b> 연락처: </b>${dto.hosPhone }</p>
+				<p><b> 주소: </b>${dto.hosAddr }</p>
+				<p><b> 진료 시간: </b>${dto.hosStart} ~ ${dto.hosLast}</p>
 			</td>
 		</tr>
 		<tr>
-			<td colspan = "2"> <b>&nbsp;&nbsp;&nbsp;사업자 등록번호: </b><%= dto.getHosBizno() %>
+			<td colspan = "2"> <b>&nbsp;&nbsp;&nbsp;사업자 등록번호: </b>${dto.hosBizno }
 			</td>
 		</tr>
 		<tr>
-			<td colspan = "2"> <b>&nbsp;&nbsp;&nbsp;신고 현황: </b><%= dto.getDecNo() %><br>
+			<td colspan = "2"> <b>&nbsp;&nbsp;&nbsp;신고 현황: </b>${dto.decNo }<br>
 			</td>
 			</tr>
 		<tr>
-			<td colspan = "2"> <b>&nbsp;&nbsp;&nbsp;리뷰 현황: </b><%= dto.getRvCount() %><br>
+			<td colspan = "2"> <b>&nbsp;&nbsp;&nbsp;리뷰 현황: </b>${dto.rvCount }<br>
 			</td>
 		</tr>
 	</table>
-	<% } %>
 	</div>
 </div>
 

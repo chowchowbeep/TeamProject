@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kjr.sicMemberDAO;
 import lastdto.sickMemberDTO;
+import leedy.sickMemberDAO;
 
 public class LoginTestCMD implements Command {
 
@@ -18,7 +19,7 @@ public class LoginTestCMD implements Command {
 		String id = request.getParameter("id");
 		
 		sickMemberDTO dto;
-		sicMemberDAO dao = new sicMemberDAO();
+		sickMemberDAO dao = new sickMemberDAO();
 		
 		dto = dao.select(id);
 		request.getSession().setAttribute("sic_id", dto.getSicId());
