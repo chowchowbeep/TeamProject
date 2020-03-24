@@ -13,7 +13,7 @@ public class HHospitalUploadCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String path ="aView/leedy/hospital_upload.jsp"; //
+		String path ="aView/leedy/hospital_upload.jsp"; //기록물 업로드 페이지로 이동
 		
 		return path;
 	}

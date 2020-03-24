@@ -33,8 +33,8 @@
 				</div>
 				<!-- /.card-header -->
 
-				<form role="form" method="post" enctype="multipart/form-data"
-					action="../taeyoung/medi_detail.jsp" class="form-horizontal">
+				<form name="hosUpload" id="hosUpload" method="post" enctype="multipart/form-data"
+					action="HHospitalUpload.do" class="form-horizontal">
 					<div class="card-body">
 						<div class="form-group">
 							<label for="exampleInputEmail1">파일 타입</label>
@@ -43,18 +43,18 @@
 								<!-- radio -->
 								<div class="form-group">
 									<div class="form-check">
-										<input class="form-check-input" type="radio" name="radio1"
-											id="exampleInputEmail1"> <label
+										<input class="form-check-input" type="radio" name="hosImage"
+											checked id="hosImage" > <label
 											class="form-check-label" for="">사진</label>
 									</div>
 									<div class="form-check">
-										<input class="form-check-input" type="radio" name="radio1"
-											id="exampleInputEmail1"> <label
+										<input class="form-check-input" type="radio" name="hosVideo"
+											id="hosVideo"  > <label
 											class="form-check-label" for="">동영상</label>
 									</div>
 									<div class="form-check">
-										<input class="form-check-input" type="radio" name="radio1"
-											checked id="exampleInputEmail1"> <label
+										<input class="form-check-input" type="radio" name="hosDocu"
+											 id="hosDocu"  > <label
 											class="form-check-label" for="">문서</label>
 									</div>
 								</div>
@@ -65,7 +65,7 @@
 						<div class="input-group">
 							<div class="custom-file">
 								<input type="file" class="custom-file-input"
-									id="exampleInputFile">
+									id="file" name="file">
 								<!-- data-browse="찾기" 사용하면 버튼 내용값 바꿀 수 있음 -->
 								<label class="custom-file-label" for="exampleInputFile"
 									data-browse="찾기"></label>
@@ -126,7 +126,7 @@
 					</div>
 					<!-- /.card-body -->
 					<div class="card-footer  text-center">
-							<button type="submit" class="btn btn-info">업로드 완료</button>
+							<input type="submit" class="btn btn-info" value="업로드">
 						</div>
 				</form>
 

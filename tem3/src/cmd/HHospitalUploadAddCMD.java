@@ -8,14 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
 
-public class HHospitalInquiryCMD implements Command {
+public class HHospitalUploadAddCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String path ="aView/leedy/hospital_inquiry.jsp";  //기록물 조회 페이지로 이동
-		
-		return path;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

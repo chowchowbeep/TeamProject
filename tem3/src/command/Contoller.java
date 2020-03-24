@@ -149,7 +149,9 @@ public class Contoller extends HttpServlet {
 		cont.put("/HMediReserve.do", new HMediReserveCMD()); //(예약)진료신청 현황 리스트 페이지 로 이동
 		cont.put("/HMediDetail.do", new HMediDetailCMD()); //진료상세정보  페이지 로 이동
 		cont.put("/HHospitalUpload.do", new HHospitalUploadCMD()); //기록물 업로드 페이지  로 이동
+		//cont.put("/HHospitalUploadAdd.do", new HHospitalUploadAddCMD()); //기록물 업로드 DB 처리
 		cont.put("/HHospitalInquiry.do", new HHospitalInquiryCMD()); //기록물 조회 페이지  로 이동
+		
 		cont.put("/HSickSearch.do", new HSickSearchCMD()); //H8 회원정보 검색 페이지  로 이동
 		cont.put("/HSickSearchList.do", new HSickSearchListCMD()); //H9 회원정보 검색 리스트 페이지  로 이동
 		cont.put("/HSickSearchDetail.do", new HSickSearchDetailCMD()); //H10 회원정보 검색 결과 상세 페이지  로 이동
