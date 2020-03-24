@@ -25,7 +25,7 @@ div .hiden {
   #divall a:hover{
  	 background-color:green;
   }
-  .mar{margin:3px;}
+  .mar{margin:2px;}
 </style>
 
 
