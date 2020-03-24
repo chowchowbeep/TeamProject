@@ -5,17 +5,9 @@
 <%@ include file="/layout/sick_head.jsp"%>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css">
-
 <!-- datepicker css-->
 <link href="<%=request.getContextPath()%>/dist/css/datepicker.min.css"
 	rel="stylesheet" type="text/css">
-<!-- datepicker js-->
-<script src="<%=request.getContextPath()%>/dist/js/datepicker.min.js"></script>
-<!-- datepicker_ Include korean language -->
-<script
-	src="<%=request.getContextPath()%>/dist/js/i18n/datepicker.ko.js"></script>
-
-
 <style>
 #hosAddr, #hosName, #hosBizTime {
 	background-color: white;
@@ -45,8 +37,23 @@ label.error {
 	padding-bottom: 0.9rem;
 	color: red;
 }
+#resTmContainer {
+	display : none;
+}
 </style>
+	
+	
+<!-- datepicker js-->
+<script src="<%=request.getContextPath()%>/dist/js/datepicker.min.js"></script>
+<!-- datepicker_ Include korean language -->
+<script
+	src="<%=request.getContextPath()%>/dist/js/i18n/datepicker.ko.js"></script>
 <script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
+
+
+
+
+<!-- SHospitalInfo.do -> STmrRequest.do or SResRequest.do -->
 <script>
 	// 예약일 경우 
 	<c:if test="${rqType == 'Res'}">
@@ -67,6 +74,8 @@ label.error {
 									disableNavWhenOutOfRange : true,
 									onSelect : function onSelect(formattedDate,
 											date, inst) {
+										$("#resTm").val(""); //날짜 변경했으므로 선택시간도 초기화
+										
 										var selectedDt = formattedDate.replace(/\//gi,"");
 										$("#selectedDtInfo").html("날짜선택됨"+selectedDt);
 										
@@ -77,23 +86,46 @@ label.error {
 										var isHosHldy = checkHosHldy(selectedDt).checkHosHldy;
 										
 										if(isHosHldy == true){ 
-											$("#selectedDtInfo").html("병원휴일입니다.");
+											$("#selectedDtInfo").html("병원휴일입니다. 다른날짜를 선택해주세요.");
+											$(".resTmInit").prop("disabled",true); //시간 선택할 수 없도록
+										
 										} else {
 											// 1-1. 병원휴일 아닐경우, 의사휴일 가져오기.
 											var isDrHldy = checkDrHldy(selectedDt).checkDrHldy;
 											if(isDrHldy == true) { // 1-1-1. 일치 값 있을 경우 (의사휴일일 경우)
-												$("#selectedDtInfo").html("의사휴일입니다. 다른 날짜를 선택해주세요");
+												$("#selectedDtInfo").html("의사휴일입니다. 다른 날짜를 선택해주세요.");
+												$(".resTmInit").prop("disabled",true); //시간 선택할 수 없도록
+											
 											} else { // 1-1-2. 일치 값 없을 경우 (의사 휴일 아닌 경우)
 												$("#selectedDtInfo").html("병원휴일도 의사휴일도아입니다.");
-												// 해당병원, 해당의사, 선택날짜에 기 예약된 내용 가져오기.
-												var unselectableTime = getUnselectableTime(selectedDt);
+												$(".resTmInit").prop("disabled",false); // 다른 날짜를 선택해서 이미 disabled ture되었을 경우를 대비하여 
 												
-												// #resTmContainer(시간 선택란)를 표시하고, 기 예약된 시간은 disabled처리
+												// 예약시간옵션목록 가져오기 
+												var resTmOptions = []; 
+												$("#resTm option").each(function() {
+													resTmOptions.push($(this).text());
+												})
+												console.log("시간옵션"+resTmOptions);
+												
+												// 해당병원, 해당의사, 선택날짜에 기 예약된 내용 가져와서 예약된 시간은 선택못하도록 disabled처리
+												var ReservedRqList = getAlreayReseved(selectedDt); 
+												$.each(ReservedRqList, function(idx, item){
+													console.log(item.resTm);
+													$.each(resTmOptions, function(idx, Opt) {
+														if(item.resTm == Opt){ // 옵션목록에서  기예약된 시간과 동일한 값이 있으면 해당 옵션은 예약못하게 
+															$("option[value=Opt]").prop("disabled",true);
+														}
+													})
+													
+												
+												})
+												
+												
+												// #resTmContainer(시간 선택란)를 표시하고, 기 예약된 시간일 경우 disabled
+												$("#resTmContainer").show();
+												
 											}
-											
-											
 										}
-										
 									}
 
 								})
@@ -186,7 +218,7 @@ label.error {
 						// 선택한 날짜,의사에 예약되어 있는 시간을 가져옴. 해당 시간은 예약 불가하도록. // 
 						// 의사, 날짜, 시간이 모두 선택되어야 함?
 						// 제출시 한 번 더 검사 
-						function getUnselectableTime(selectedDt){
+						function getAlreayReseved(selectedDt){
 							var hosId = $("[name='hosId']").val();
 							var artrNo = $("[name='artrNo']").val();
 							var dataResult;
@@ -345,7 +377,6 @@ label.error {
 	</div>
 </div>
 
-
 <!-- form시작 -->
 <form id="frm" name="frm" method="post" class="cmxform">
 	<!-- 컨텐츠 위치 -->
@@ -395,20 +426,20 @@ label.error {
 										<div class="checkSelected">
 											<div class="form-group ">
 												<label for="hosId">병원명 </label> <input type="hidden"
-													id="hosId" name="hosId" value="${param.hosId}"> <input
+													id="hosId" name="hosId" value="${paramValues.hosId[0]}"> <input
 													type="text" id="hosName" name="hosName"
-													class="form-control" value="${param.hosId}${param.hosName}"
+													class="form-control" value="${paramValues.hosId[0]}${paramValues.hosName[0]}"
 													readonly>
 											</div>
 											<div class="form-group">
 												<label for="hosAddr">주&nbsp;&nbsp;&nbsp;&nbsp;소 </label>
 												<textarea id="hosAddr" name="hosAddr" class="form-control"
-													readonly>${param.hosAddr}</textarea>
+													readonly>${paramValues.hosAddr[0]}</textarea>
 											</div>
 											<div class="form-group">
 												<label for="hosBizTime">진료시간</label> <input type="text"
 													id="hosBizTime" name="hosBizTime" class="form-control"
-													value="${param.hosBizTime}" readonly>
+													value="${paramValues.hosBizTime[0]}" readonly>
 											</div>
 										</div>
 										<div class="form-group" id="artrNoWrapper">
@@ -421,24 +452,21 @@ label.error {
 
 									<div class="col-sm">
 										<c:if test="${rqType=='Res'}">
-											<div class="form-group" id="resDtContainer"
-												style="display: none;">
+											<div class="form-group" id="resDtContainer" style="display: none;">
 												<label for="resDt">예약날짜 선택</label> <br> <input
 													type="text" id="resDt" name="resDt" class="form-control">
 											</div>
 											<div id="selectedDtInfo"></div>
-											<div class="form-group" id="resTmContainer"
-												style="display: none;">
-												<label for="resTm">예약시간 선택</label> <br> <select
-													class="custom-select" id="resTm" name="resTm" size="5">
-													<c:forEach var="i"
-														begin="${fn:substring(param.hosBizTime, 0, 2)}"
-														end="${fn:substring(param.hosBizTime, 6, 8)-1}">
-														<!-- 진료종료시간 30분전까지 예약가능하도록 -->
-														<option value="${i>9?i:'0'}${i>9?'':i}:00">${i>9?i:'0'}${i>9?'':i}:00</option>
-														<option value="${i>9?i:'0'}${i>9?'':i}:30">${i>9?i:'0'}${i>9?'':i}:30</option>
-													</c:forEach>
-												</select>
+											<div class="form-group" id="resTmContainer"> 
+ 												<label for="resTm">예약시간 선택</label> <br> <select
+ 													class="custom-select" id="resTm" name="resTm" size="5">  
+  													<c:forEach var="i"
+   														begin="${fn:substring(paramValues.hosBizTime[0], 0, 2)}"  
+   														end="${fn:substring(paramValues.hosBizTime[0], 6, 8)-1}">  
+   														<option value="${i>9?i:'0'}${i>9?'':i}:00" class="resTmInit">${i>9?i:'0'}${i>9?'':i}:00</option>  
+   														<option value="${i>9?i:'0'}${i>9?'':i}:30" class="resTmInit">${i>9?i:'0'}${i>9?'':i}:30</option>  
+   													</c:forEach>
+  												</select>  
 											</div>
 										</c:if>
 
@@ -473,7 +501,7 @@ label.error {
 							<!-- /.card-body 끝 신청폼바디-->
 
 							<div class="card-footer">
-								<input type="hidden" id="id" name="id" value="${param.sicId }">
+								<input type="hidden" id="id" name="id" value="sic1">
 								<!-- 로그인중인 아이디(임시로 sic1로 설정) 나중에 수정-->
 								<input type="reset" class="btn btn-secondary" value="초기화">
 								<c:if test="${rqType=='Res'}">

@@ -9,20 +9,26 @@
 <link rel="stylesheet" href="cssList.css">
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b450fd1e475fcbb9f2bb640be5a6f4a8"></script>
-<%@ include file="../../layout/hos_head.jsp" %>
-<%@ include file="../../layout/hos_menu.jsp" %>
+<%@ include file="../../layout/hos_head.jsp"%>
+<%@ include file="../../layout/hos_menu.jsp"%>
 <script>
-$(function() {
-	$("#STmrRequest").on("click", function() {
-		location.href='STmrRequest.do';
+	$(function() {
+		$("#STmrRequest").on("click", function() {
+// 			input hidden 파라미터 한꺼번에 넘기기. __ 초롱 수정
+					frm.action = 'STmrRequest.do';
+					frm.submit();
+					
+// 			location.href = 'STmrRequest.do';
+		});
+
+		$("#SResRequest").on("click", function() {
+					frm.action = 'SResRequest.do';
+					frm.submit();
+					
+// 			location.href = 'SResRequest.do';
+		});
+
 	});
-	
-	$("#SResRequest").on("click", function() {
-		location.href='SResRequest.do';
-	});
-	
-}
-);
 </script>
 </head>
 <body>
@@ -30,7 +36,7 @@ $(function() {
 
 		<div class="card text-center  topmg">
 			<div class="card" style="margin: 5px;">
-				<div class="card-header ">${list[0].hosName } </div>
+				<div class="card-header ">${list[0].hosName }</div>
 				<div class="card-body">
 					<div id="map" style="width: auto; height: 400px;"></div>
 					<!-- 지도담을 영역만들기 -->
@@ -55,39 +61,45 @@ $(function() {
 					<p>주소 : ${list[0].hosAddr}</p>
 					<p>진료시간 : ${list[0].hosBizTime}</p>
 					<p>사업자등록번호 : ${list[0].hosBizno}</p>
-						<div id="searchWd" name="searchWd">
-							
-							<c:forEach items="${codeList }" var="code">
+					<div id="searchWd" name="searchWd">
+						<c:forEach items="${codeList }" var="code">
 							<c:if test="${code.value.type eq 'A'}">
 								<button type='button' class='btn btn-outline-info'>${code.value.name}</button>
 							</c:if>
-							</c:forEach>
-							<c:forEach items="${codeList }" var="code">
+						</c:forEach>
+						<c:forEach items="${codeList }" var="code">
 							<c:if test="${code.value.type eq 'S'}">
 								<button type='button' class='btn btn-outline-info'>${code.value.name}</button>
 							</c:if>
-							</c:forEach>
-							<br>
-							<c:forEach items="${codeList }" var="code">
-								<c:choose>
-									<c:when test="${code.value.type eq 'A'}"></c:when >
-									<c:when test="${code.value.type eq 'S'}"></c:when >
-									<c:otherwise>
-										<button type='button' class='btn btn-outline-info'>${code.value.name}</button>
-									</c:otherwise>
+						</c:forEach>
+						<br>
+						<c:forEach items="${codeList }" var="code">
+							<c:choose>
+								<c:when test="${code.value.type eq 'A'}"></c:when>
+								<c:when test="${code.value.type eq 'S'}"></c:when>
+								<c:otherwise>
+									<button type='button' class='btn btn-outline-info'>${code.value.name}</button>
+								</c:otherwise>
 							</c:choose>
-							</c:forEach>
-								
-						
-						</div>
-					
+						</c:forEach>
+
+
+					</div>
+
 				</div>
 			</div>
+			<!-- STmrRequest.do와 SResRequest.do로 파라미터 넘기기 위한 부분 // 초롱 수정 -->
+			<form id="frm" name="frm" method="post">
+				<input type="hidden" name="hosId" value="${list[0].hosId}"></input>
+				<input type="hidden" name="hosName" value="${list[0].hosName}"></input>
+				<input type="hidden" name="hosAddr" value="${list[0].hosAddr}"></input>
+				<input type="hidden" name="hosBizTime" value="${list[0].hosBizTime}"></input>
+			</form>
 
-			<button type="button" class="btn btn-primary btn-lg btn-block" id="STmrRequest">당일
-				접수</button>
-			<button type="button" class="btn btn-primary btn-lg btn-block" id="SResRequest">예약
-				신청</button>
+			<button type="button" class="btn btn-primary btn-lg btn-block"
+				id="STmrRequest">당일 접수</button>
+			<button type="button" class="btn btn-primary btn-lg btn-block"
+				id="SResRequest">예약 신청</button>
 		</div>
 	</div>
 </body>

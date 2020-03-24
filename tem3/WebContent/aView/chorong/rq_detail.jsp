@@ -5,8 +5,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ include file="/layout/sick_head.jsp"%>
-<script
-	src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js?ver=1"></script>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css?ver=5">
 <style>

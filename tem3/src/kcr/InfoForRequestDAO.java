@@ -8,6 +8,7 @@ import command.DAO;
 import lastdto.artrInfoDTO;
 import lastdto.artrScheduleDTO;
 import lastdto.hosScheduleDTO;
+import lastdto.mediRqdetailDTO;
 import lastdto.mediRqstDTO;
 
 public class InfoForRequestDAO extends DAO {
@@ -19,7 +20,7 @@ public class InfoForRequestDAO extends DAO {
 		String sql = "SELECT biz_stt "
 				+ " FROM hos_stt " 
 				+ " WHERE hos_id = ? "
-				+ " and biz_stt = 'Y'"; // 체크 제약조건 대소문자
+				+ " and biz_stt = 'Y'";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, hosId);
@@ -140,30 +141,36 @@ public class InfoForRequestDAO extends DAO {
 		
 		
 		
-	// 선택한날짜에, 선택한 의사앞으로 예약된 시간이 있는지 확인_ datepicker값 넘김 형태 확인 후 
-	public String[] getUnselectableTime(String hosId, String resDt, int artrNo){
-		String[] unselectableTimeList = null;
+	// 해당병원, 선택한날짜에, 선택한 의사앞으로 예약된 시간이 있는지 확인_ datepicker값 넘김 형태 확인 후 
+	public List<mediRqdetailDTO> getAlreayReseved(String hosId, String artrNo, String selectedDt){
+		List<mediRqdetailDTO> list = new ArrayList<>();  
 		String sql = "select hos_id," + 
-				" to_char(res_dttm, 'yyyymmdd')" + 
-				" ,to_char(res_dttm, 'hh24mi')" + 
+				" to_char(res_dttm, 'yyyymmdd') res_dt" + 
+				" ,to_char(res_dttm, 'hh24:mi') res_tm" + 
 				" from medi_rqst" + 
 				" where hos_id = ? " + 
+				" and artr_no = ? " +
 				" and to_char(res_dttm, 'yyyymmdd') = ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, hosId);
-			pstmt.setString(2, resDt);
+			pstmt.setString(2, artrNo);
+			pstmt.setString(3, selectedDt);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				String reservedTime = null;
-				unselectableTimeList[rs.getRow()-1] = reservedTime;
-			}
+				mediRqdetailDTO dto = new mediRqdetailDTO();
+				dto.setHosId(rs.getString("hos_id"));
+				dto.setResDt(rs.getString("res_dt"));
+				dto.setResTm(rs.getString("res_tm"));
+				System.out.println("===================atDAO:"+dto.toString());
+				list.add(dto);	
+				}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
-		return unselectableTimeList;
+		return list;
 	}
 	
 	

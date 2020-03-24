@@ -79,6 +79,10 @@
 						<li class="nav-header"><small><strong>일반회원
 									메뉴</strong></small></li>
 
+						<li class="nav-item"><a href="SSickMain.do"
+							class="nav-link">
+								<p>메인화면</p>
+						</a></li>
 						<li class="nav-item"><a href="SMedBeforeMedList.do"
 							class="nav-link">
 								<p>진료신청현황</p>
@@ -91,12 +95,12 @@
 							class="nav-link">
 								<p>병원검색</p>
 						</a></li>
-						<li class="nav-item"><a href="SAroundMap.do" class="nav-link">
-								<p>주변병원/약국 조회</p>
-						</a></li>
-						<li class="nav-item"><a href="#" class="nav-link">
-								<p>약정보조회_미정</p>
-						</a></li>
+<!-- 						<li class="nav-item"><a href="SAroundMap.do" class="nav-link"> -->
+<!-- 								<p>주변병원/약국 조회</p> -->
+<!-- 						</a></li> -->
+<!-- 						<li class="nav-item"><a href="#" class="nav-link"> -->
+<!-- 								<p>약정보조회_미정</p> -->
+<!-- 						</a></li> -->
 						<li class="nav-item"><a href="SReviewMylist.do"
 							class="nav-link">
 								<p>내가 쓴 리뷰</p>
@@ -110,26 +114,15 @@
 							class="nav-link">
 								<p>의료 기록물</p>
 						</a></li>
-						<li class="nav-item"><a href="로그인페이지"
+						
+						<c:if test="로그인중인 경우(세션id값이 있는 경우)">
+						<li class="nav-item"><a href="로그아웃처리하는 .do"
 							class="nav-link d-block text-center" style="padding: 20px;">
 								<p>
-									<small><strong>로그인_미정</strong></small>
-								</p>
-						</a></li>
-						<c:if test="로그인상태가 아닌경우">
-						<li class="nav-item"><a href="로그인페이지"
-							class="nav-link d-block text-center" style="padding: 20px;">
-								<p>
-									<small><strong>로그인_미정</strong></small>
+									<small><strong>로그아웃</strong></small>
 								</p>
 						</a></li>
 						</c:if>
-						<li class="nav-item"><a href="로그아웃페이지"
-							class="nav-link d-block text-center" style="padding: 20px;">
-								<p>
-									<small><strong>로그아웃_미정</strong></small>
-								</p>
-						</a></li>
 					</ul>
 
 
