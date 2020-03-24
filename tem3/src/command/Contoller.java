@@ -94,6 +94,7 @@ import cmd.ShospitalInfoForTestCMD;
 import cmd.SickMemCheckCMD;
 import cmd.SsearchMainCMD;
 import cmd.TestCMD;
+import kjr.ajax.BookmarkDeleteAjaxCMD;
 import kjr.ajax.CategoriAjaxCMD;
 import kjr.ajax.HosSttAjaxCMD;
 import kjr.ajax.LocaseachAjaxCMD;
@@ -284,7 +285,8 @@ public class Contoller extends HttpServlet {
 		 * new FileUpload()); cont.put("/GetDeptCnt.do", new GetDeptCnt());
 		 */
 		
-		cont.put("/ajax/ReviewDeleteAjaxCMD.do", new ReviewDeleteAjaxCMD()); // 지역코드 가져오는 ajax
+		cont.put("/ajax/BookmarkDeleteAjaxCMD.do", new BookmarkDeleteAjaxCMD()); //관심병원 삭제하는 ajax
+		cont.put("/ajax/ReviewDeleteAjaxCMD.do", new ReviewDeleteAjaxCMD()); //리뷰삭제하는 ajax
 		cont.put("/ajax/LocaseachAjaxCMD.do", new LocaseachAjaxCMD()); // 지역코드 가져오는 ajax
 		cont.put("/ajax/CategoriAjaxCMD.do", new CategoriAjaxCMD()); // 카테고리코드 가져오는 ajax
 		cont.put("/ajax/ReviewInsrtAjaxCMD.do", new ReviewInsrtAjaxCMD()); // 리뷰 insert여부를 가져오는 ajax
