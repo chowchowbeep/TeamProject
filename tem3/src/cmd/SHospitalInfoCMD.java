@@ -47,7 +47,8 @@ public class SHospitalInfoCMD implements Command {
 		}
 		BookmarkDAO bookDAO = new BookmarkDAO();
 		int cnt = bookDAO.select(sicId, hosId);
-		System.out.println(cnt);
+		System.out.println("hosInfo에서 cnt값"+cnt);
+		
 		request.setAttribute("cnt",cnt);//관심병원체크
 		request.setAttribute("list",list);//병원정보
 		request.setAttribute("wdList",wdDto);//검색코드
