@@ -9,17 +9,6 @@
 <%@ include file="../../layout/sick_menu.jsp" %>
 <script>
 	$(function() { //ready == window.load 와 같은 이벤트
-		//클릭시 hosid값을 가진 채 hosInfo페이지로 이동
-		$("tbody").on("click","tr",function(){
-			var id = $(this).attr("id");
-			$("#frm").append("<input type='text' name='hosId' id='hosId' value='"+id+"'>");
-			document.frm.action="SHospitalInfo.do"
-			document.frm.method="post";
-			document.frm.submit();
-			submit();
-		});
-	
-	
 		//삭제작업
 		$("tbody").on("click","span",function(){
 			console.log($(this).attr('name'));
@@ -42,6 +31,19 @@
 					location.href="SReviewMylist.do";//내가쓴리뷰페이지로이동
 				})
 		});
+		
+		//클릭시 hosid값을 가진 채 hosInfo페이지로 이동
+		$("tbody").on("click","tr",function(){
+			var id = $(this).attr("id");
+			$("#frm").append("<input type='text' name='hosId' id='hosId' value='"+id+"'>");
+			document.frm.action="SHospitalInfo.do"
+			document.frm.method="post";
+			document.frm.submit();
+			submit();
+		});
+	
+	
+		
 	})
 </script>
 <style>

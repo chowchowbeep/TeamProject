@@ -31,6 +31,29 @@
 <script>
 
 	$(function() {//ready == window.load 와 같은 이벤트
+		
+		//삭제작업
+		$("tbody").on("click","th",function(){
+			console.log($(this).attr('name'));
+			var thisTr = (this).closest("tr");
+			//id값의 글번호를 받아와서 dao에서 delete작업하고 결과 리턴받아서 if문으로 삭제 alert 띄우기
+			$.ajax("/tem3/ajax/BookmarkDeleteAjaxCMD.do", {
+				type:"POST",
+				dataType : "json",
+				data : {hosId : $(this).attr("name")
+				}
+			})
+				.done(function(data) {
+					if(data){
+						thisTr.remove();
+						alert("삭제되었습니다.");
+					}else{
+						alert("다시 삭제해주세요.");
+					}
+					location.href="SBookmark.do";//내가쓴리뷰페이지로이동
+				})
+		});
+		
 		$("tbody").on("click","tr",function(){
 			var id = $(this).attr("id");
 			$("#frm").append("<input type='text' name='hosId' id='hosId' value='"+id+"'>");
@@ -55,13 +78,21 @@
 							</tr>
 						</thead>
 						<tbody>
+							<c:if test="${empty starList }">
+								<tr>
+									 <td colspan="2">
+									 	<p> 등록된 관심병원이 없습니다.</p>
+									</td>
+								</tr>
+							</c:if>
 							<c:forEach var="li" items="${starList }">
 								<!-- var:변수명 item:collection객체 end정의가없으면 item크기의-1 -->
-								<tr id="${li.hosId }">
-									<th scope="row">★</th>
-									<td>${li.hosId }</td>
+								<tr>
+									<th scope="row" name="${li.hosId }">★</th>
+									<td>${li.name }</td>
 								</tr>
 							</c:forEach>
+							
 						</tbody>
 					</table>
 					
