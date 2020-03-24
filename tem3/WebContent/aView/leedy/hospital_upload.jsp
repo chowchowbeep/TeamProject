@@ -33,7 +33,7 @@
 				</div>
 				<!-- /.card-header -->
 
-				<form name="hosUpload" id="hosUpload" method="post" enctype="multipart/form-data"
+				<form name="hosUp" method="post" enctype="multipart/form-data"
 					action="HHospitalUpload.do" class="form-horizontal">
 					<div class="card-body">
 						<div class="form-group">
@@ -43,18 +43,18 @@
 								<!-- radio -->
 								<div class="form-group">
 									<div class="form-check">
-										<input class="form-check-input" type="radio" name="hosImage"
-											checked id="hosImage" > <label
+										<input class="form-check-input" type="radio" name="file_type"
+											checked id="file_type" > <label
 											class="form-check-label" for="">사진</label>
 									</div>
 									<div class="form-check">
-										<input class="form-check-input" type="radio" name="hosVideo"
-											id="hosVideo"  > <label
+										<input class="form-check-input" type="radio" name="file_type"
+											id="file_type"  > <label
 											class="form-check-label" for="">동영상</label>
 									</div>
 									<div class="form-check">
-										<input class="form-check-input" type="radio" name="hosDocu"
-											 id="hosDocu"  > <label
+										<input class="form-check-input" type="radio" name="file_type"
+											 id="file_type"  > <label
 											class="form-check-label" for="">문서</label>
 									</div>
 								</div>
