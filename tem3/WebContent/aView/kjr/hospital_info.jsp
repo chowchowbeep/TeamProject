@@ -6,11 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="cssList.css">
+<link rel="stylesheet" href="../aView/kjr/cssList.css">
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b450fd1e475fcbb9f2bb640be5a6f4a8"></script>
-<%@ include file="../../layout/hos_head.jsp"%>
-<%@ include file="../../layout/hos_menu.jsp"%>
+<%@ include file="../../layout/sick_head.jsp" %>
+<%@ include file="../../layout/sick_menu.jsp" %>
 <script>
 	$(function() {
 		$("#STmrRequest").on("click", function() {
@@ -29,14 +29,27 @@
 		});
 
 	});
+	
+}
+);
 </script>
+<style>
+  .btnMar{margin:2px;}
+</style>
 </head>
 <body>
 	<div class="container">
 
 		<div class="card text-center  topmg">
 			<div class="card" style="margin: 5px;">
-				<div class="card-header ">${list[0].hosName }</div>
+				<div class="card-header ">
+				<c:if test="${cnt eq '0' }"><!-- 노관심병원이면 까만별 -->
+					<img src="images/star-off-big.png"> &nbsp; &nbsp;
+				</c:if>
+				<c:if test="${cnt eq '1' }"><!-- 관심병원이면 반짝별 -->
+					<img src="images/star-on-big.png"> &nbsp; &nbsp;
+				</c:if>
+				${list[0].hosName } </div>
 				<div class="card-body">
 					<div id="map" style="width: auto; height: 400px;"></div>
 					<!-- 지도담을 영역만들기 -->
@@ -64,28 +77,28 @@
 					<div id="searchWd" name="searchWd">
 						<c:forEach items="${codeList }" var="code">
 							<c:if test="${code.value.type eq 'A'}">
-								<button type='button' class='btn btn-outline-info'>${code.value.name}</button>
+								<button type='button' class='btn btn-outline-info btnMar'>${code.value.name}</button>
 							</c:if>
-						</c:forEach>
-						<c:forEach items="${codeList }" var="code">
+							</c:forEach>
+							<c:forEach items="${codeList }" var="code">
 							<c:if test="${code.value.type eq 'S'}">
-								<button type='button' class='btn btn-outline-info'>${code.value.name}</button>
+								<button type='button' class='btn btn-outline-info btnMar'>${code.value.name}</button>
 							</c:if>
-						</c:forEach>
-						<br>
-						<c:forEach items="${codeList }" var="code">
-							<c:choose>
-								<c:when test="${code.value.type eq 'A'}"></c:when>
-								<c:when test="${code.value.type eq 'S'}"></c:when>
-								<c:otherwise>
-									<button type='button' class='btn btn-outline-info'>${code.value.name}</button>
-								</c:otherwise>
+							</c:forEach>
+							<br>
+							<c:forEach items="${codeList }" var="code">
+								<c:choose>
+									<c:when test="${code.value.type eq 'A'}"></c:when >
+									<c:when test="${code.value.type eq 'S'}"></c:when >
+									<c:otherwise>
+										<button type='button' class='btn btn-outline-info btnMar'>${code.value.name}</button>
+									</c:otherwise>
 							</c:choose>
-						</c:forEach>
-
-
-					</div>
-
+							</c:forEach>
+								
+						
+						</div>
+					
 				</div>
 			</div>
 			<!-- STmrRequest.do와 SResRequest.do로 파라미터 넘기기 위한 부분 // 초롱 수정 -->
@@ -96,11 +109,17 @@
 				<input type="hidden" name="hosBizTime" value="${list[0].hosBizTime}"></input>
 			</form>
 
-			<button type="button" class="btn btn-primary btn-lg btn-block"
-				id="STmrRequest">당일 접수</button>
-			<button type="button" class="btn btn-primary btn-lg btn-block"
-				id="SResRequest">예약 신청</button>
+			<button type="button" class="btn btn-primary btn-lg btn-block" id="STmrRequest">당일
+				접수</button>
+			<button type="button" class="btn btn-primary btn-lg btn-block" id="SResRequest">예약
+				신청</button>
 		</div>
 	</div>
+	
+	
+	
+	
+
+
 </body>
 </html>

@@ -1,8 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/layout/hos_head.jsp"%>
-
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
+//주소검색
+$(function(){
+	$("#addrBtn").on("click",function(){
+		new daum.Postcode({
+	        oncomplete: function(data) {
+	        	var addr = data.address;
+	        	document.getElementById("hos_addr").value = addr;
+	            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
+	            // 예제를 참고하여 다양한 활용법을 확인해 보세요.
+	        }
+	    }).open();
+		
+	})
+})
+
 	function checkValue() {
 		var form = document.hosFrm;
 		
@@ -144,11 +159,9 @@
 				<form name="hosFrm" action="HHospitalSignup.do" method="post"
 					onsubmit="return checkValue()">
 					<div class="input-group mb-3">
-						<input type="text" class="form-control" name="hos_id" id="hos_id"
-							onkeydown="inputIdUnChk()" placeholder="아이디"> 
-							<input type="button" id="idChk" name="idChk" value="중복확인"
-							onclick="idCheck()"> 
-							<input type="hidden"name="idDuplication" id="idDuplication" value="idUnchk"> 
+						<input type="text" class="form-control" name="hos_id" id="hos_id"onkeydown="inputIdUnChk()" placeholder="아이디"> 
+						<input type="button" id="idChk" name="idChk" value="중복확인" onclick="idCheck()"> 
+						<input type="hidden"name="idDuplication" id="idDuplication" value="idUnchk"> 
 						<div class="input-group-append">
 							<div class="input-group-text"></div>
 						</div>
@@ -174,13 +187,16 @@
 							<div class="input-group-text"></div>
 						</div>
 					</div>
+					
 					<div class="input-group mb-3">
-						<input type="text" class="form-control" name="hos_addr"
-							id="hos_addr" placeholder="주소">
+						<input type="text" class="form-control" name="hos_addr"	id="hos_addr" placeholder="주소">
+						<input type="button" id="addrBtn" name="addrBtn" value="주소입력"> 
 						<div class="input-group-append">
 							<div class="input-group-text"></div>
 						</div>
 					</div>
+					
+					
 					<div class="input-group mb-3">
 						<input type="text" class="form-control" name="hos_bizno_1"
 							id="hos_bizno_1" onkeydown="inputBizNoUnChk()" placeholder="사업자번호">-

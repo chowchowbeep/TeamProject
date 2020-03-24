@@ -49,8 +49,7 @@
 
 	//  목록에서 넘겨받은 rqstNo에 해당하는 건 가져오기
 	function getRqstDetail() {
-// 		var rqstNo = $("[name='rqstNo']").val();
-		var rqstNo = ${rqstNo};
+		var rqstNo = $("[name='rqstNo']").val();
 		console.log(rqstNo);
 		var dataResult;
 		$.ajax({

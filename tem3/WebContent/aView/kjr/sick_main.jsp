@@ -9,7 +9,11 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b450fd1e475fcbb9f2bb640be5a6f4a8"></script>
 <%@ include file="../../layout/sick_head.jsp" %>
 <%@ include file="../../layout/sick_menu.jsp" %>
-<link rel="stylesheet" href="cssList.css">
+<link rel= "stylesheet" type="text/css" href="aView/kjr/cssList.css">
+<style>
+.btnMar { margin:2px }
+</style>
+
 <script>
 
 
@@ -59,14 +63,33 @@ function searchList(){
 
 		<div class="card text-center  topmg">
 			<div class="card" style="margin: 5px;">
-				<div class="card-header text-left">건강정보</div>
+				<div class="card-header text-left"> {세션에서 이름정보 가져오기}님의 건강정보</div>
 				<div class="card-body">
-				${hIndto.sicId } <br>
-				${hIndto.chrdis }<br>
-				${hIndto.hstcs } <br>
-				${hIndto.bdp }	 <br>
-				${hIndto.allrgy }<br>
-				${hIndto.htEtc } <br>
+				
+					<c:forEach items="${hIndto}" var="dto">
+						<c:if test="${dto.type eq 'BL'}"><!-- 혈액형 -->
+							<button type='button' class='btn btn-outline-info btnMar'>${dto.name }</button>
+						</c:if>
+					</c:forEach>
+					<br>
+					<c:forEach items="${hIndto}" var="dto">
+						<c:if test="${dto.type eq 'YK'}"><!-- 약 -->
+							<button type='button' class='btn btn-outline-info btnMar'>${dto.name }</button>
+						</c:if>
+					</c:forEach>
+					<br>
+					<c:forEach items="${hIndto}" var="dto">
+						<c:if test="${dto.type eq 'AR'}"><!-- 알레르기 -->
+							 <button type='button' class='btn btn-outline-info btnMar'>${dto.name }</button>
+						</c:if>
+					</c:forEach>
+					<br>
+					<c:forEach items="${hIndto}" var="dto">
+						<c:if test="${dto.type eq 'SI'}"><!-- 지병 -->
+							<button type='button' class='btn btn-outline-info btnMar'>${dto.name }</button>	 
+						</c:if>
+					</c:forEach>
+			
 					<p class="card-text">
 					
 					</p>
@@ -90,23 +113,85 @@ function searchList(){
 				
 			</div>
 		</div>
-		
+
+
+		<form name="frm" id="frm" class="hiden"></form>
+		<script>
+			$(function() {//ready == window.load 와 같은 이벤트
+
+				//삭제작업
+				$("tbody").on("click", "th", function() {
+					console.log($(this).attr('name'));
+					var thisTr = (this).closest("tr");
+					//id값의 글번호를 받아와서 dao에서 delete작업하고 결과 리턴받아서 if문으로 삭제 alert 띄우기
+					$.ajax("/tem3/ajax/BookmarkDeleteAjaxCMD.do", {
+						type : "POST",
+						dataType : "json",
+						data : {
+							hosId : $(this).attr("name")
+						}
+					}).done(function(data) {
+						if (data) {
+							thisTr.remove();
+							alert("삭제되었습니다.");
+						} else {
+							alert("다시 삭제해주세요.");
+						}
+						location.href = "SBookmark.do";//내가쓴리뷰페이지로이동
+					})
+				});
+
+				$("tbody")
+						.on(
+								"click",
+								"tr",
+								function() {
+									var id = $(this).attr("id");
+									$("#frm")
+											.append(
+													"<input type='text' name='hosId' id='hosId' value='"+id+"'>");
+									document.frm.action = "SHospitalInfo.do";
+									document.frm.method = "post";
+									document.frm.submit();
+									submit();
+								});
+			});
+		</script>
 
 		<div class="card text-center" style="margin: 20px 0px;">
-			<div class="card-header text-left" id="bokkmarkA">최근 등록한 관심병원</div>
+			<div class="card-header text-left" id="bokkmarkA">관심병원 리스트</div>
 			<div class="card-body">
-					<div id="map" style="width: auto; height: 400px;"></div>
-					<!-- 지도담을 영역만들기 -->
-					<script>
-						var container = document.getElementById('map');
-						var options = {
-							center : new kakao.maps.LatLng(33.450701,126.570667),
-							level : 3
-						};
-						var map = new kakao.maps.Map(container, options);
-					</script>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th scope="col">★</th>
+							<th scope="col">병원명</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:if test="${empty starList }">
+							<tr>
+								<td colspan="2">
+									<p>등록된 관심병원이 없습니다.</p>
+								</td>
+							</tr>
+						</c:if>
+						<c:forEach var="li" items="${starList }">
+							<!-- var:변수명 item:collection객체 end정의가없으면 item크기의-1 -->
+							<tr>
+								<th scope="row" name="${li.hosId }">★</th>
+								<td>${li.name }</td>
+							</tr>
+						</c:forEach>
+
+					</tbody>
+				</table>
+
 			</div>
 		</div>
+
+
+
 
 
 		<div class="card mb-3 " style="margin: 20px 0px;">
