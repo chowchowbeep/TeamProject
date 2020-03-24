@@ -19,7 +19,7 @@ public class SickMemCheckCMD implements Command {
 		//String id = request.getParameter("id");
 		
 		
-		String id = "sosick";
+		String id = "sic1";
 		
 		sickMemberDTO dto;
 		sickMemberDAO dao = new sickMemberDAO();

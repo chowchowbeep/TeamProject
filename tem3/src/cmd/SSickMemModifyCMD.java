@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import command.Command;
 import kjr.sicMemberDAO;
 import lastdto.sickMemberDTO;
+import leedy.sickMemberDAO;
 
 public class SSickMemModifyCMD implements Command {
 
@@ -19,7 +20,7 @@ public class SSickMemModifyCMD implements Command {
 		String id = (String)request.getSession().getAttribute("sic_id");
 
 		sickMemberDTO dto;
-		sicMemberDAO dao = new sicMemberDAO();
+		sickMemberDAO dao = new sickMemberDAO();
 
 		dto = dao.select(id);
 		request.setAttribute("dto", dto);

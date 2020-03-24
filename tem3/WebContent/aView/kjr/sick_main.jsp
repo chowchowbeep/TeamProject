@@ -52,7 +52,7 @@ $(function() { //window load이벤트 생략해서 적은것
 
 //검색버튼클릭시 리스트페이지로 넘어가게 함
 function searchList(){
-	document.searchFrm.action="SSearchList.do"
+	document.searchFrm.action="SSearchList.do";
 	document.searchFrm.method="post";
 	document.searchFrm.submit();
 }

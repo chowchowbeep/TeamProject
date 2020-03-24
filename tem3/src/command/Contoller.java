@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cmd.AllloginCMD;
 import cmd.HDoctorAddCMD;
 import cmd.HDoctorAddVerifyCMD;
 import cmd.HDoctorlistCMD;
@@ -188,14 +189,14 @@ public class Contoller extends HttpServlet {
 		cont.put("/SReviewMylist.do", new SReviewMylistCMD()); //S18 내가 쓴 리뷰 리스트 페이지
 
 		cont.put("/SSickHealModify.do", new SSickHealModifyCMD()); //S19 건강정보 수정 페이지로 이동
-		// cont.put("/SSickHealModifyGo.do", new SSickHealModifyGoCMD()); //건강정보 수정 DB 처리
+		cont.put("/SSickHealModifyGo.do", new SSickHealModifyGoCMD()); //건강정보 수정 DB 처리
 
 		
 //		cont.put("/SMedADoneList.do", new SMedADoneListCMD()); //S16 진료이력 리스트(전체) 페이지로 이동
 //		cont.put("/SMedTDoneList.do", new SMedTDoneListCMD()); //S16 진료이력 리스트(접수) 페이지로 이동
 //		cont.put("/SMedRDoneList.do", new SMedRDoneListCMD()); //S16 진료이력 리스트(예약) 페이지로 이동
 
-		cont.put("/SCancelRq.do", new SCancelRqCMD()); //진료신청 취소k처리 로직
+		cont.put("/SCancelRq.do", new SCancelRqCMD()); //진료신청 취소처리 로직
 
 		cont.put("/SMedDoneDetail.do", new SMedDoneDetailCMD()); // 진료이력 상세 페이지로 이동
 		cont.put("/SRqDetail.do", new SRqDetailCMD()); //S21 진료신청 완료/현황 상세/취소 페이지로 이동
@@ -236,9 +237,9 @@ public class Contoller extends HttpServlet {
 	//	cont.put("/.do", new CMD()); // 알림아이콘
 		
 		//공통
-	//	cont.put("/Alllogin.do", new AllloginCMD()); //로그인 페이지
+		cont.put("/Alllogin.do", new AllloginCMD()); //로그인 페이지
 	//	cont.put("/.do", new CMD()); //로그아웃 페이지
-	//	cont.put("/.do", new CMD()); //오류페이지
+//		cont.put("/.do", new CMD()); //오류페이지
 	//	cont.put("/.do", new CMD()); //위젯
 		
 	

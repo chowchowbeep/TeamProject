@@ -12,6 +12,11 @@ public class sickMemberDTO {
 	public sickMemberDTO() {
 		super();
 	}
+	@Override
+	public String toString() {
+		return "sickMemberDTO [sicId=" + sicId + ", sicPw=" + sicPw + ", sicName=" + sicName + ", sicPhone=" + sicPhone
+				+ ", sicStt=" + sicStt + ", sicLogin=" + sicLogin + "]";
+	}
 	public sickMemberDTO(String sicId, String sicPw, String sicName, String sicPhone,String sicStt,	String sicLogin) {
 		super();
 		this.sicId = sicId;

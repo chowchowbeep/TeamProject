@@ -12,13 +12,22 @@
 <%@ include file="../../layout/sick_head.jsp" %>
 <%@ include file="../../layout/sick_menu.jsp" %>
 <script>
-$(function() {
-	$("#STmrRequest").on("click", function() {
-		location.href='STmrRequest.do';
-	});
-	
-	$("#SResRequest").on("click", function() {
-		location.href='SResRequest.do';
+	$(function() {
+		$("#STmrRequest").on("click", function() {
+// 			input hidden 파라미터 한꺼번에 넘기기. __ 초롱 수정
+					frm.action = 'STmrRequest.do';
+					frm.submit();
+					
+// 			location.href = 'STmrRequest.do';
+		});
+
+		$("#SResRequest").on("click", function() {
+					frm.action = 'SResRequest.do';
+					frm.submit();
+					
+// 			location.href = 'SResRequest.do';
+		});
+
 	});
 	
 }
@@ -65,9 +74,8 @@ $(function() {
 					<p>주소 : ${list[0].hosAddr}</p>
 					<p>진료시간 : ${list[0].hosBizTime}</p>
 					<p>사업자등록번호 : ${list[0].hosBizno}</p>
-						<div id="searchWd" name="searchWd">
-							
-							<c:forEach items="${codeList }" var="code">
+					<div id="searchWd" name="searchWd">
+						<c:forEach items="${codeList }" var="code">
 							<c:if test="${code.value.type eq 'A'}">
 								<button type='button' class='btn btn-outline-info btnMar'>${code.value.name}</button>
 							</c:if>
@@ -93,6 +101,13 @@ $(function() {
 					
 				</div>
 			</div>
+			<!-- STmrRequest.do와 SResRequest.do로 파라미터 넘기기 위한 부분 // 초롱 수정 -->
+			<form id="frm" name="frm" method="post">
+				<input type="hidden" name="hosId" value="${list[0].hosId}"></input>
+				<input type="hidden" name="hosName" value="${list[0].hosName}"></input>
+				<input type="hidden" name="hosAddr" value="${list[0].hosAddr}"></input>
+				<input type="hidden" name="hosBizTime" value="${list[0].hosBizTime}"></input>
+			</form>
 
 			<button type="button" class="btn btn-primary btn-lg btn-block" id="STmrRequest">당일
 				접수</button>
