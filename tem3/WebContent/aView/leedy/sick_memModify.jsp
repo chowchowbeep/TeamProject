@@ -5,17 +5,24 @@
 <%@ include file="/layout/sick_menu.jsp"%>
 
 
-<!-- DB에서 수정할 회원 정보 가져오기 -->
-<!-- session. getAttribute -->
-
-
-
 <script>
 function modifyValue(){
-	
+
+//정보수정 화면의 입력값 검사	
 	if(!sickMem.sic_pw.value){
 		alert("변경할 비밀번호를 입력하세요.");
 		sickMem.sic_pw.focus();
+		return false;
+	}
+	if(!sickMem.sic_pw_re.value){
+		alert("확인할 비밀번호를 입력하세요.");
+		sickMem.sic_pw_re.focus();
+		return false;
+	}
+	
+	if(sickMem.sic_pw.value != sickMem.sic_pw_re.value){
+		alert("비밀번호를 동일하게 입력하세요.");
+		sickMem.sic_pw_re.focus();
 		return false;
 	}
 	
@@ -61,25 +68,32 @@ function modifyValue(){
 
 		<div class="card card-info">
 			<div class="card-header  card text-center">
-				<h3 class="card-title">회원정보 수정 페이지</h3>
+				<h3 class="card-title">회원정보 수정</h3>
 			</div>
 			<!-- /.card-header -->
 			<!-- form start -->
-			<form name="sickMem" action="SSickMemModifyGo.do" method="post" onsubmit="" class="form-horizontal">
+			<form name="sickMem" action="SSickMemModifyGo.do" method="post" onsubmit="return modifyValue()" class="form-horizontal">
 				<div class="card-body">
 
 					<div class="form-group row">
 						<label for="callSicId" class="col-sm-2 col-form-label">회원ID</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="sic_id" name="sic_id"
-								value="${dto.sicId }" disabled>
+								value="${dto.sicId }" readonly>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="callSicPw" class="col-sm-2 col-form-label">회원PW</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="sic_pw" name="sic_pw"
+							<input type="password" class="form-control" id="sic_pw" name="sic_pw"
 								placeholder="회원 pw 수정하기">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="callSicPw" class="col-sm-2 col-form-label">수정 PW확인</label>
+						<div class="col-sm-10">
+							<input type="password" class="form-control" id="sic_pw_re" name="sic_pw_re"
+								placeholder="pw 확인하기" >
 						</div>
 					</div>
 					<div class="form-group row">
@@ -110,9 +124,9 @@ function modifyValue(){
 				</div>
 				<!-- /.card-body -->
 				<div class="card-footer  text-center">
-					<button type="submit" class="btn btn-info" onclick="location.href='/tem3/aView/leedy/sick_memCheck.jsp'">수정완료</button>
+					<button type="submit" class="btn btn-info" >수정완료</button>
 					<!-- cancel에는 button type reset? -->
-					<button type="reset" class="btn btn-default" onclick="location.href='/tem3/aView/kjr/sick_main.jsp'">수정취소</button>
+					<button type="button" class="btn btn-default" onclick="javascript:history.go(-1)">수정취소</button>
 				</div>
 				<!-- /.card-footer -->
 			</form>

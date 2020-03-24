@@ -186,7 +186,7 @@ public class Contoller extends HttpServlet {
 		cont.put("/SReviewMylist.do", new SReviewMylistCMD()); //S18 내가 쓴 리뷰 리스트 페이지
 
 		cont.put("/SSickHealModify.do", new SSickHealModifyCMD()); //S19 건강정보 수정 페이지로 이동
-		// cont.put("/SSickHealModifyGo.do", new SSickHealModifyGoCMD()); //건강정보 수정 DB 처리
+		cont.put("/SSickHealModifyGo.do", new SSickHealModifyGoCMD()); //건강정보 수정 DB 처리
 
 		
 //		cont.put("/SMedADoneList.do", new SMedADoneListCMD()); //S16 진료이력 리스트(전체) 페이지로 이동
