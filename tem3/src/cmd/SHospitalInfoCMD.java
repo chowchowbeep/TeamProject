@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
+import kjr.BookmarkDAO;
 import kjr.CodeDAO;
 import kjr.HosmemberDAO;
 import kjr.SearchDAO;
@@ -22,8 +23,9 @@ public class SHospitalInfoCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String path ="aView/kjr/hospital_info.jsp"; //S8 병원정보 상세조회 페이지
-		String hosId = "hos1"; //request.getParameter("hosId");
+		String path = "aView/kjr/hospital_info.jsp"; //S8 병원정보 상세조회 페이지
+		String sicId = "sic1";//세션에서 가져오기
+		String hosId = "hos4"; //request.getParameter("hosId");
 		System.out.println("shospital인포~~ "+hosId);
 		//id로 병원정보 가져오기
 		HosmemberDAO hosDao = new HosmemberDAO();
@@ -43,9 +45,14 @@ public class SHospitalInfoCMD implements Command {
 			
 			codeList.put(key.getCode(),value);
 		}
+		BookmarkDAO bookDAO = new BookmarkDAO();
+		int cnt = bookDAO.select(sicId, hosId);
+		System.out.println(cnt);
+		request.setAttribute("cnt",cnt);//관심병원체크
 		request.setAttribute("list",list);//병원정보
 		request.setAttribute("wdList",wdDto);//검색코드
 		request.setAttribute("codeList",codeList);//코드정보
+		
 		
 		return path;
 	}

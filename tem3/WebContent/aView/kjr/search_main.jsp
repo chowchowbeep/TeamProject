@@ -25,7 +25,7 @@ div .hiden {
   #divall a:hover{
  	 background-color:green;
   }
-  .mar{margin:3px;}
+  .mar{margin:2px;}
 </style>
 
 
@@ -231,7 +231,7 @@ div .hiden {
 				<div class="card-body">
 					<div class="row">
 						<div id="areaDivMain" class="col-4">
-							<a class="list-group-item list-group-item-action" id="LS00">서울 지역명</a>
+							<a class="list-group-item list-group-item-action" id="LS00">서울</a>
 							<a class="list-group-item list-group-item-action" id="LB00">부산</a>
 							<a class="list-group-item list-group-item-action" id="LD00">대구</a>
 						</div>
@@ -253,7 +253,7 @@ div .hiden {
 				<div class="card-body">
 					<div class="row">
 						<div id="subDivMain" class="col-4">
-							<a class="list-group-item list-group-item-action" id="LS00">서울  지하철</a>
+							<a class="list-group-item list-group-item-action" id="LS00">서울</a>
 							<a class="list-group-item list-group-item-action" id="LB00">부산</a>
 							<a class="list-group-item list-group-item-action" id="LD00">대구</a>
 						</div>

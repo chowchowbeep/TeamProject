@@ -18,6 +18,19 @@ public class hosMemberDTO {
 
 
 	public hosMemberDTO(String hosId, String hosBizno, String hosName, String hosPhone, String hosPw, String hosAddr,
+			String hosBizTime) {
+		super();
+		this.hosId = hosId;
+		this.hosBizno = hosBizno;
+		this.hosName = hosName;
+		this.hosPhone = hosPhone;
+		this.hosPw = hosPw;
+		this.hosAddr = hosAddr;
+		this.hosBizTime = hosBizTime;
+	}
+
+
+	public hosMemberDTO(String hosId, String hosBizno, String hosName, String hosPhone, String hosPw, String hosAddr,
 			int hosLat, int hosLng, String hosBizTime) {
 		super();
 		this.hosId = hosId;

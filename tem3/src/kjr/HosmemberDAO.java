@@ -141,4 +141,23 @@ public class HosmemberDAO extends DAO {
 		return list;
 	}
 	
+	
+	public void update(hosMemberDTO dto) {
+		sql=" update hos_member set HOS_BIZNO=?,HOS_NAME=?,HOS_PHONE=?,HOS_PW=?,HOS_ADDR=?,BIZ_TIME=? where hos_id=? ";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,dto.getHosBizno());
+			pstmt.setString(2,dto.getHosName());
+			pstmt.setString(3,dto.getHosPhone());
+			pstmt.setString(4,dto.getHosPw());
+			pstmt.setString(5,dto.getHosAddr());
+			pstmt.setString(6,dto.getHosBizTime());
+			pstmt.setString(7,dto.getHosId());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}close();
+	
+	}
+	
 }

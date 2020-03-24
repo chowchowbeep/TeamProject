@@ -31,6 +31,7 @@ import cmd.HMediWjqtnCMD;
 import cmd.HSickSearchCMD;
 import cmd.HSickSearchDetailCMD;
 import cmd.HSickSearchListCMD;
+import cmd.HhosModifyCMD;
 import cmd.MChartCMD;
 import cmd.MChartDetailCMD;
 import cmd.MPoliceCMD;
@@ -286,6 +287,7 @@ public class Contoller extends HttpServlet {
 		 * new FileUpload()); cont.put("/GetDeptCnt.do", new GetDeptCnt());
 		 */
 		
+		cont.put("/HhosModifyCMD.do", new HhosModifyCMD()); //관심병원 삭제하는 ajax
 		cont.put("/ajax/BookmarkDeleteAjaxCMD.do", new BookmarkDeleteAjaxCMD()); //관심병원 삭제하는 ajax
 		cont.put("/ajax/ReviewDeleteAjaxCMD.do", new ReviewDeleteAjaxCMD()); //리뷰삭제하는 ajax
 		cont.put("/ajax/LocaseachAjaxCMD.do", new LocaseachAjaxCMD()); // 지역코드 가져오는 ajax

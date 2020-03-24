@@ -30,6 +30,25 @@ public class BookmarkDAO extends DAO {
 
 	}
 	
+	public int select(String sicId,String hosId) {
+		sql = "select count(*) cnt from bookmark where sic_id=? and hos_id=? ";
+		int cnt=0;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,sicId);
+			pstmt.setString(2,hosId);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				cnt= rs.getInt("cnt");
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return cnt;
+
+	}
+	
 	public boolean Delete(String sicId, String hosId){
 		bookmarkDTO dto = new bookmarkDTO();
 		boolean a = true;
