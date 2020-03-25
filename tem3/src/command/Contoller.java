@@ -94,6 +94,7 @@ import cmd.SGetUnselectableTimeAjaxCMD;
 import cmd.SGetWaitingCntCMD;
 import cmd.ShospitalInfoForTestCMD;
 import cmd.SickMemCheckCMD;
+import cmd.SreviewBoardCMD;
 import cmd.SsearchMainCMD;
 import cmd.TestCMD;
 import kjr.ajax.BookmarkDeleteAjaxCMD;
@@ -290,6 +291,7 @@ public class Contoller extends HttpServlet {
 		 * new FileUpload()); cont.put("/GetDeptCnt.do", new GetDeptCnt());
 		 */
 		
+		cont.put("/SreviewBoardCMD.do", new SreviewBoardCMD());//리뷰게시판 아이프레임
 		cont.put("/HhosModifyCMD.do", new HhosModifyCMD()); //
 		cont.put("/ajax/BookmarkInsertAjaxCMD.do", new BookmarkInsertAjaxCMD()); //관심병원 등록하는 ajax
 		cont.put("/ajax/BookmarkDeleteAjaxCMD.do", new BookmarkDeleteAjaxCMD()); //관심병원 삭제하는 ajax
