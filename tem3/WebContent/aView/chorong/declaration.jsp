@@ -98,7 +98,7 @@
 							<!-- 클릭시 신고완료 알림 창 띄운 후 상세 페이지로 이동 -->
 							<div class="card-footer">
 								<input type="reset" class="btn btn-secondary" value="초기화">
-								<button onclick="decFormCheck()"
+								<button type="button" onclick="decFormCheck()"
 									class="btn btn-secondary float-right">신고하기</button>
 							</div>
 
@@ -143,10 +143,13 @@
 			$('#modal').modal(); // 신고완료 모달
 			$("#modalLabel").html(submittedHead);
 			$("#modalBody").html(submitted);
-			frm.action = "SDeclarationInsert.do";
-			frm.submit();
+			
 		}
 	}
+	$("#closeModalBtn").on("click", function(){
+		frm.action = "SDeclarationInsert.do";
+		frm.submit();
+	})	;
 </script>
 </body>
 </html>
