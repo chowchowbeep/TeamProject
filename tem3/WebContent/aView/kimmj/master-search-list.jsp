@@ -122,7 +122,7 @@ String keyWord = request.getParameter("keyWord");
 	for(sickJoinMemberDTO dto : list) { %>
 	<div class="card-body">
 	<table class = "listbox"
-		onclick = "location.href = 'MSearchListNormal.do';">
+		onclick = "location.href = 'MSearchListNormal.do?sicId=<%= dto.getSicId()%>';">
 		<tr>
 			<td>
 				<ion-icon name="person-circle-outline" size = "large" 

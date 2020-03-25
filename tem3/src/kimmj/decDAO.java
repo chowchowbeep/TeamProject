@@ -30,17 +30,19 @@ public class decDAO extends DAO {
 	}
 	
 	
-	public declarationDTO selectone(String hos_id) {
+	public declarationDTO selectone(String sic_id) {
 		declarationDTO dto = new declarationDTO();
-		sql = "SELECT sic_id, hos_id, dec_dttm, dec_cont from declaration";
+		sql = "SELECT sic_id, hos_id, dec_dttm, dec_cont, dec_no from declaration where sic_id=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, sic_id);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				dto.setSicId(rs.getString("sic_id"));
 				dto.setHosId(rs.getString("hos_id"));
 				dto.setDecDttm(rs.getDate("dec_dttm"));
 				dto.setDecCont(rs.getString("dec_cont"));
+				dto.setDecNo(rs.getInt("dec_no"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -54,15 +56,13 @@ public class decDAO extends DAO {
 	
 	
 	
-	public String getprd() {
-		String decyn = null;
+	public int getprd(String p_no, String hos_id) {
+		int decyn = 0;
 		try {
-			cstmt = conn.prepareCall("{call y_dec(?,?,?)}");
-			cstmt.setInt(1, rs.getInt("dec_no"));
-			cstmt.setString(2, rs.getString("hos_id"));
-			cstmt.registerOutParameter(3, java.sql.Types.VARCHAR);
-			cstmt.executeQuery();
-			decyn = cstmt.getString(3);
+			cstmt = conn.prepareCall("{call y_dec(?,?)}");
+			cstmt.setString(1, hos_id);
+			cstmt.setString(2, p_no);
+			decyn = cstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

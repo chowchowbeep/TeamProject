@@ -14,15 +14,15 @@
 	$(function() {
 		$("#STmrRequest").on("click", function() {
 // 			input hidden 파라미터 한꺼번에 넘기기. __ 초롱 수정
-					frm.action = 'STmrRequest.do';
-					frm.submit();
+				frm.action = 'STmrRequest.do';
+				frm.submit();
 					
 // 			location.href = 'STmrRequest.do';
 		});
 
 		$("#SResRequest").on("click", function() {
-					frm.action = 'SResRequest.do';
-					frm.submit();
+				frm.action = 'SResRequest.do';
+				frm.submit();
 					
 // 			location.href = 'SResRequest.do';
 		});
@@ -71,6 +71,21 @@
 			}
 		});
 		
+		function calcHeight(){
+			var the_height=
+				 document.getElementById('the_iframe').contentWindow.
+				 document.body.scrollHeight;//ifram대상의 스크롤 높이를 가져옴 
+
+				 
+				 document.getElementById('the_iframe').height=
+				 the_height; //ifram대상의 스크롤높이로 이 페이지 높이를 변경함 
+
+				 //document.getElementById('the_iframe').scrolling = "no";
+				 document.getElementById('the_iframe').style.overflow = "hidden";
+		}
+		
+		
+		
 	});
 	
 </script>
@@ -112,7 +127,7 @@
 
 			<div class="card" style="margin: 5px;">
 				<div class="card-body">
-					<div id="hId"name="${list[0].hosId}" class="hiden"></div>
+					<div id="hId" name="${list[0].hosId}" class="hiden"></div>
 					<p>전화번호 : ${ list[0].hosPhone}</p>
 					<p>주소 : ${list[0].hosAddr}</p>
 					<p>진료시간 : ${list[0].hosBizTime}</p>
@@ -157,10 +172,11 @@
 			<button type="button" class="btn btn-primary btn-lg btn-block" id="SResRequest">예약
 				신청</button>
 		</div>
+		<iframe src="SreviewBoardCMD.do?hosId=${list[0].hosId}&currentPage=1"  
+		frameborder="0" id="the_iframe" onload="calcHeight()" 
+		style="overflow-x:hidden; overflow:auto; width:100%; min-height:500px;">
+		</iframe>	
 	</div>
-	
-	
-	
 	
 
 
