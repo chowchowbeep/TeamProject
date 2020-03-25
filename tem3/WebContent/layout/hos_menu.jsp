@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<style>
+	#toMain {
+		color: black;
+		text-decoration:none;
+	}
+</style>
 <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-
-
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -23,7 +27,9 @@
 
 			<form class="form-inline mx-auto">
 				<div class="input-group input-group-sm" style="font-size: 30px;">
-					SALLYEOJYO</div>
+					<a href="HHospitalMain.do" id="toMain">SALLYEOJYO</a>
+				</div>
+				<!-- 병원 메인화면으로 이동 -->
 			</form>
 
 
@@ -80,8 +86,12 @@
 							class="nav-link">
 								<p>마이메뉴</p>
 						</a></li>
+						<li class="nav-item"><a href="HHospitalMain.do"
+							class="nav-link">
+								<p>메인</p>
+						</a></li>
 						<li class="nav-item"><a href="HMediAll.do" class="nav-link">
-								<p>진료현황</p>
+								<p>진료신청현황</p>
 						</a></li>
 						<li class="nav-item"><a href="HSickSearch.do"
 							class="nav-link">
@@ -91,24 +101,19 @@
 							class="nav-link">
 								<p>의사목록 관리</p>
 						</a></li>
-						<li class="nav-item"><a href="#" class="nav-link">
-								<p>병원휴일 관리_미정</p>
-						</a></li>
-						<li class="nav-item"><a href="#" class="nav-link">
-								<p>의사휴일 관리_미정</p>
-						</a></li>
+						<!-- 						<li class="nav-item"><a href="#" class="nav-link"> -->
+						<!-- 								<p>병원휴일 관리_미정</p> -->
+						<!-- 						</a></li> -->
+						<!-- 						<li class="nav-item"><a href="#" class="nav-link"> -->
+						<!-- 								<p>의사휴일 관리_미정</p> -->
+						<!-- 						</a></li> -->
 
 
-						<li class="nav-item"><a href="로그인페이지"
-							class="nav-link d-block text-center" style="padding: 20px;">
-								<p>
-									<small><strong>로그인_미정</strong></small>
-								</p>
-						</a></li>
+
 						<li class="nav-item"><a href="로그아웃페이지"
 							class="nav-link d-block text-center" style="padding: 20px;">
 								<p>
-									<small><strong>로그아웃_미정</strong></small>
+									<small><strong>로그아웃</strong></small>
 								</p>
 						</a></li>
 					</ul>

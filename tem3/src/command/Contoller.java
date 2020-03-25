@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cmd.AllloginCMD;
+import cmd.ToLoginPageCMD;
 import cmd.HDoctorAddCMD;
 import cmd.HDoctorAddVerifyCMD;
 import cmd.HDoctorlistCMD;
@@ -32,6 +32,9 @@ import cmd.HSickSearchCMD;
 import cmd.HSickSearchDetailCMD;
 import cmd.HSickSearchListCMD;
 import cmd.HhosModifyCMD;
+import cmd.LoginCheckAjaxCMD;
+import cmd.LoginOkCMD;
+import cmd.LogoutCMD;
 import cmd.MChartCMD;
 import cmd.MChartDetailCMD;
 import cmd.MPoliceCMD;
@@ -46,33 +49,29 @@ import cmd.MasterSearchNormalCMD;
 import cmd.SAroundMapCMD;
 import cmd.SBookmarkCMD;
 import cmd.SCancelRqCMD;
-import cmd.SGetHosStt;
+import cmd.SCheckDrHldyAjaxCMD;
+import cmd.SCheckHosHldyAjaxCMD;
 import cmd.SDeclarationCMD;
 import cmd.SDeclarationInsertCMD;
 import cmd.SGetDrListAjaxCMD;
 import cmd.SGetDrNotOnDutyListAjaxCMD;
-import cmd.SCheckDrHldyAjaxCMD;
-import cmd.SCheckHosHldyAjaxCMD;
+import cmd.SGetHosStt;
+import cmd.SGetRqstInfoCMD;
+import cmd.SGetUnselectableTimeAjaxCMD;
+import cmd.SGetWaitingCntCMD;
 import cmd.SHospitalInfoCMD;
 import cmd.SInsertResCMD;
 import cmd.SInsertTmrCMD;
-import cmd.SMedABeforeMedListCMD;
-import cmd.SMedADoneListCMD;
 import cmd.SMedBeforeMedListCMD;
-import cmd.SMedCBeforeMedListCMD;
 import cmd.SMedDoneDetailCMD;
 import cmd.SMedDoneListCMD;
 import cmd.SMedListAjaxCMD;
 import cmd.SMedListPagingCMD;
-import cmd.SMedRBeforeMedListCMD;
-import cmd.SMedRDoneListCMD;
-import cmd.SMedTBeforeMedListCMD;
-import cmd.SMedTDoneListCMD;
 import cmd.SResRequestCMD;
 import cmd.SReviewMylistCMD;
 import cmd.SReviewWriteCMD;
 import cmd.SRqDetailCMD;
-import cmd.SRqDoneCMD;
+import cmd.SSelectDcryCMD;
 import cmd.SSickDetailListCMD;
 import cmd.SSickDocuListCMD;
 import cmd.SSickHealModifyCMD;
@@ -87,18 +86,12 @@ import cmd.SSickUploadCMD;
 import cmd.SSickWjqtnCreateCMD;
 import cmd.SSickWjqtnwmdCMD;
 import cmd.STmrRequestCMD;
-import cmd.SSelectDcryCMD;
-import cmd.SGetRqstInfoCMD;
-import cmd.SGetModelCMD;
-import cmd.SGetUnselectableTimeAjaxCMD;
-import cmd.SGetWaitingCntCMD;
 import cmd.ShospitalInfoForTestCMD;
 import cmd.SickMemCheckCMD;
 import cmd.SsearchMainCMD;
 import cmd.TestCMD;
 import kjr.ajax.BookmarkDeleteAjaxCMD;
 import kjr.ajax.CategoriAjaxCMD;
-import kjr.ajax.HosSttAjaxCMD;
 import kjr.ajax.LocaseachAjaxCMD;
 import kjr.ajax.ReviewDeleteAjaxCMD;
 import kjr.ajax.ReviewInsrtAjaxCMD;
@@ -237,8 +230,10 @@ public class Contoller extends HttpServlet {
 	//	cont.put("/.do", new CMD()); // 알림아이콘
 		
 		//공통
-		cont.put("/Alllogin.do", new AllloginCMD()); //로그인 페이지
-	//	cont.put("/.do", new CMD()); //로그아웃 페이지
+		cont.put("/ToLoginPage.do", new ToLoginPageCMD()); //로그인 페이지로 이동
+		cont.put("/ajax/LoginCheck.do", new LoginCheckAjaxCMD()); //비밀번호, id매칭확인 위함
+		cont.put("/LoginOk.do", new LoginOkCMD()); //로그인 처리 후 메인으로 이동
+		cont.put("/Logout.do", new LogoutCMD()); //로그아웃처리 후 로그아웃 안내 페이지로 이동
 //		cont.put("/.do", new CMD()); //오류페이지
 	//	cont.put("/.do", new CMD()); //위젯
 		
