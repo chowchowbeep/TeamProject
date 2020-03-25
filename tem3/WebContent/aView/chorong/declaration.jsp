@@ -11,8 +11,7 @@
 
 
 <!-- 모달 -->
-<div class="modal" id="modal" role="dialog"
-	aria-labelledby="modalLabel">
+<div class="modal" id="modal" role="dialog" aria-labelledby="modalLabel">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -24,7 +23,7 @@
 			</div>
 			<div class="modal-body" id="modalBody"></div>
 			<div class="modal-footer">
-				<button id="closeModalBtn" type="button" class="btn btn-secondary"
+				<button id="submitOkBtn" type="button" class="btn btn-secondary"
 					data-dismiss="modal">확인</button>
 			</div>
 		</div>
@@ -130,26 +129,25 @@
 		var cont = $("#decCont").val();
 		var noContHead = "내용없음";
 		var noContCont = "신고내용을 입력해 주세요.";
-		var submittedHead = "제출완료";
-		var submitted = "신고가 완료되었습니다.";
+		var submittedHead = "신고하시겠습니까?";
+		var submitted = "신고를 완료합니다.";
 		if (cont == null || cont == "") {
 			event.preventDefault();
 			$('#modal').modal(); // 내용없음 모달 
 			$("#modalLabel").html(noContHead);
 			$("#modalBody").html(noContCont);
-			
+
 		} else {
 			event.preventDefault();
 			$('#modal').modal(); // 신고완료 모달
 			$("#modalLabel").html(submittedHead);
 			$("#modalBody").html(submitted);
-			
 		}
 	}
-	$("#closeModalBtn").on("click", function(){
+	$("#submitOkBtn").on("click", function() {
 		frm.action = "SDeclarationInsert.do";
 		frm.submit();
-	})	;
+	});
 </script>
 </body>
 </html>

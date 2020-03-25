@@ -17,14 +17,14 @@
 <script>
 	$(document).ready(function() {
 		<c:choose>
-			<c:when test="${isRqDonePage =='yes'}">
-				console.log("접수,예약완료페이지에서 왔음");
-				getHotRqstInfo();
-			</c:when>
-			<c:otherwise>
-				console.log("진료신청현황상세페이지에서 왔음");
-				getRqstDetail();
-			</c:otherwise>
+		<c:when test="${isRqDonePage =='yes'}">
+		console.log("접수,예약완료페이지에서 왔음");
+		getHotRqstInfo();
+		</c:when>
+		<c:otherwise>
+		console.log("진료신청현황상세페이지에서 왔음");
+		getRqstDetail();
+		</c:otherwise>
 		</c:choose>
 	});
 
@@ -120,10 +120,14 @@
 		console.log(hosId);
 
 		if (result.rqstTy == 'D001') {
+			// 접수일 경우 접수시간
+			var rqstTm = "<div class='item rqDetailInfo'><span class='rqDetailLabel'>진료신청시간</span><span id = 'rqstTm'>"
+					+ result.rqstTm + "</span></div>";
+			$("#itemsWrapper").prepend(rqstTm);
 			// 접수일 경우 접수일(진료일)
-			var rqstDttm = "<div class='item rqDetailInfo'><span class='rqDetailLabel'>진료신청일자</span><span id = 'rqstDttm'>"
-					+ result.rqstDttm + "</span></div>";
-			$("#itemsWrapper").prepend(rqstDttm);
+			var rqstDt = "<div class='item rqDetailInfo'><span class='rqDetailLabel'>진료신청일자</span><span id = 'rqstDt'>"
+					+ result.rqstDt + "</span></div>";
+			$("#itemsWrapper").prepend(rqstDt);
 			// 접수일 경우 도착예정시간
 			var ifTime = "<div class='item rqDetailInfo importantItem'><span class='rqDetailLabel'>도착예정시간</span><span id = 'ifTime'>"
 					+ result.ifTime + "</span></div>";
@@ -153,34 +157,37 @@
 		var hoshosid = $("#hosId").val();
 		var rqstNo = $("#rqstNo").val();
 		console.log(hoshosid + "," + rqstNo + "to get NoOfWaiting");
-		setInterval(function(){
-		$
-				.ajax({
-					type : "POST",
-					url : "ajax/SGetWaitingCnt.do",
-					dataType : "json",
-					data : {
-						hosId : hoshosid,
-						rqstNo : rqstNo
-					},
-					success : function(result) {
-						console.log("대기인원수" + result.noOfWaiting);
-						//대기인원수표시하기.
-						if ($("#noOfWaiting").length) { //요소 중복생성되지 않게 기 생성 여부확인
-							console.log('갱신')
-							$("#noOfWaiting").html(result.noOfWaiting+" 명");
-						} else {
-							console.log('최초로드')
-							var noOfWaiting = "<div class='item rqDetailInfo importantItem'>"+
-							"<span class='rqDetailLabel'>대기인원수</span>"+
-							"<span id='noOfWaiting'>"
-									+ result.noOfWaiting + " 명</span></div>";
-							$("#itemsWrapper").prepend(noOfWaiting);
-						}
+		setInterval(
+				function() {
+					$
+							.ajax({
+								type : "POST",
+								url : "ajax/SGetWaitingCnt.do",
+								dataType : "json",
+								data : {
+									hosId : hoshosid,
+									rqstNo : rqstNo
+								},
+								success : function(result) {
+									console.log("대기인원수" + result.noOfWaiting);
+									//대기인원수표시하기.
+									if ($("#noOfWaiting").length) { //요소 중복생성되지 않게 기 생성 여부확인
+										console.log('갱신')
+										$("#noOfWaiting").html(
+												result.noOfWaiting + " 명");
+									} else {
+										console.log('최초로드')
+										var noOfWaiting = "<div class='item rqDetailInfo importantItem'>"
+												+ "<span class='rqDetailLabel'>대기인원수</span>"
+												+ "<span id='noOfWaiting'>"
+												+ result.noOfWaiting
+												+ " 명</span></div>";
+										$("#itemsWrapper").prepend(noOfWaiting);
+									}
 
-					}
-				})
-		},1000);
+								}
+							})
+				}, 1000);
 	}
 </script>
 
@@ -287,19 +294,11 @@
 							<!-- 선택한 진료신청항목의 진료신청번호를 전송_ 취소할 때 값 넘겨야 함 -->
 							<!-- 신청폼푸터 //2. 예약/접수취소 버튼 -->
 							<div class="card-footer" id="cardFooter">
-								<c:choose>
-									<c:when test="${isRqDonePage =='yes'}">
-										<input type="hidden" id="rqstNo" name="rqstNo">
-										<button onclick="toBeforeMedList()" class="btn btn-secondary">확인</button>
-									</c:when>
-									<c:otherwise>
-										<!-- 진료신청현황상세페이지인 경우_SRqDetail.do거치면서 파라미터로 가져옴 -->
-										<input type="hidden" id="rqstNo" name="rqstNo"
-											value="${rqstNo }">
-										<input type="reset" onclick="javascript:history.go(-1)"
-											class="btn btn-secondary" value="확인">
-									</c:otherwise>
-								</c:choose>
+								<!-- 진료신청현황상세페이지인 경우_SRqDetail.do거치면서 파라미터로 가져옴 -->
+								<input type="hidden" id="rqstNo" name="rqstNo"
+									value="${rqstNo }">
+								<button type="button" onclick="toBeforeMedList()"
+									class="btn btn-secondary">확인</button>
 							</div>
 						</div>
 					</div>
@@ -312,26 +311,57 @@
 		<!-- /.content -->
 	</div>
 	<!-- /.content-wrapper -->
+
+
+	<!-- 모달 -->
+	<div class="modal" id="modal" role="dialog"
+		aria-labelledby="modalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 id="modalLabel" class="modal-title"></h5>
+				</div>
+				<div class="modal-body" id="modalBody"></div>
+				<div class="modal-footer">
+					<button type="button" id="notCancel" type="button"
+						class="btn btn-secondary" data-dismiss="modal" aria-label="Close">취소</button>
+					<button type="button" id="confirmCancel" class="btn btn-secondary">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </form>
 
 <%@ include file="/layout/all_footer.jsp"%>
 <script>
-//진료신청 완료페이지에서 확인버튼 누를 경우
-//진료신청현황 리스트 페이지로 이동 
-function toBeforeMedList() {
-	frm.action = "SMedBeforeMedList.do";
-	frm.submit();
-}
-
-//진료신청 취소할 경우
-function cancelRq() {
-	var chCancel = confirm("진료신청을 취소하시겠습니까?");
-	if (chCancel == true) {
-		alert("진료신청이 취소되었습니다."); //취소시 확인알림팝업뜨고 
-		frm.action = "SCancelRq.do";//취소처리 후 목록페이지로 
-		frm.submit(); 
+	//진료신청 완료페이지에서 확인버튼 누를 경우
+	//진료신청현황 리스트 페이지로 이동 
+	function toBeforeMedList() {
+		frm.action = "SMedBeforeMedList.do";
+		frm.submit();
 	}
-}
+
+	//진료신청 취소할 경우
+	function cancelRq() {
+		$(".modal").modal({
+			keyboard : false,
+			backdrop : 'static'
+		});
+		event.preventDefault();
+		$("#modalBody").text("진료신청을 취소하시겠습니까?");
+	}
+	$("#confirmCancel").on("click", function() {
+		$(".modal-footer").empty();
+		$(".modal-footer").append('<button id="cancelDone" type="button" class="btn btn-secondary">확인</button>');
+		var cancelDone = "진료신청을 취소합니다.";
+		$("#modalBody").text(cancelDone);
+		
+		$("#cancelDone").on("click",function(){
+			frm.action = "SCancelRq.do";//취소처리 후 목록페이지로 
+			frm.submit();
+		});
+	});
+	
 </script>
 </body>
 </html>

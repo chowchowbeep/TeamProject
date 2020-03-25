@@ -101,6 +101,11 @@ button {
 											<div class="item rqDetailInfo">
 												<span class="rqDetailLabel">진료예약시간</span>${dto.resTm }</div>
 										</c:if>
+										<!-- 접수일 경우에만 표시 -->
+										<c:if test="${dto.rqstTy == 'D001'}">
+											<div class="item rqDetailInfo">
+												<span class="rqDetailLabel">진료일자</span>${dto.rqstDt }</div>
+										</c:if>
 									</div>
 
 
