@@ -141,7 +141,6 @@ String keyWord = request.getParameter("keyWord");
 	</div>
 	<% } %>
 
-
 <%@ include file="/layout/all_footer.jsp"%>
 
 </body>

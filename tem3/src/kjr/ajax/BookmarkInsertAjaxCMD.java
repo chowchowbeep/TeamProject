@@ -8,22 +8,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
 import kjr.BookmarkDAO;
-import kjr.ReviewDAO;
 import net.sf.json.JSONArray;
 
-public class BookmarkDeleteAjaxCMD implements Command {
+public class BookmarkInsertAjaxCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String sicId = "sic1"; //세션에서 값 가져오기
 		String hosId = request.getParameter("hosId");
-		System.out.println("넘어왔니? 딜리트~~"+hosId);
+		System.out.println("넘어왔니? 인설트~~~ "+hosId);
 		
 		BookmarkDAO dao = new BookmarkDAO();
 		System.out.println(hosId);
 		//delete작업 
-		boolean checkDelete = dao.Delete(sicId,hosId);
+		boolean checkDelete = dao.Insert(sicId,hosId);
 		
 		return "ajax:"+ JSONArray.fromObject(checkDelete);
 	}
