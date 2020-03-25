@@ -40,7 +40,7 @@ function modifyValue(){
 
 
 </head>
-
+<body>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
@@ -144,3 +144,5 @@ function modifyValue(){
 <!-- ./wrapper -->
 
 <%@ include file="/layout/all_footer.jsp"%>
+</body>
+</html>

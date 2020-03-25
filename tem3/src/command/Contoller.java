@@ -23,6 +23,7 @@ import cmd.HHospitalMymenuCMD;
 import cmd.HHospitalProfileCMD;
 import cmd.HHospitalSignupActionCMD;
 import cmd.HHospitalSignupCMD;
+import cmd.HHospitalUploadAddCMD;
 import cmd.HHospitalUploadCMD;
 import cmd.HMediAllCMD;
 import cmd.HMediDetailCMD;
@@ -149,8 +150,8 @@ public class Contoller extends HttpServlet {
 		cont.put("/HMediWjqtn.do", new HMediWjqtnCMD()); //(당일접수)진료신청 현황 리스트 페이지 로 이동
 		cont.put("/HMediReserve.do", new HMediReserveCMD()); //(예약)진료신청 현황 리스트 페이지 로 이동
 		cont.put("/HMediDetail.do", new HMediDetailCMD()); //진료상세정보  페이지 로 이동
-		cont.put("/HHospitalUpload.do", new HHospitalUploadCMD()); //기록물 업로드 페이지  로 이동
-		//cont.put("/HHospitalUploadAdd.do", new HHospitalUploadAddCMD()); //기록물 업로드 DB 처리
+		cont.put("/HHospitalUpload.do", new HHospitalUploadCMD()); //기록물 업로드 페이지로 이동+로그인한 아이디에 대한 정보 같이 보냄
+		cont.put("/HHospitalUploadAdd.do", new HHospitalUploadAddCMD()); //기록물 업로드 DB처리
 		cont.put("/HHospitalInquiry.do", new HHospitalInquiryCMD()); //기록물 조회 페이지  로 이동
 		
 		cont.put("/HSickSearch.do", new HSickSearchCMD()); //H8 회원정보 검색 페이지  로 이동

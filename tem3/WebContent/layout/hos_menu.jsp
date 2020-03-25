@@ -93,7 +93,6 @@
 						</a></li>
 						<li class="nav-item"><a href="#" class="nav-link">
 								<p>병원휴일 관리_미정</p>
-						</a></li>
 						<li class="nav-item"><a href="#" class="nav-link">
 								<p>의사휴일 관리_미정</p>
 						</a></li>

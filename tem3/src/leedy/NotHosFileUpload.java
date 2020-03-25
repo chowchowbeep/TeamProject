@@ -15,15 +15,15 @@ import org.apache.tomcat.util.http.fileupload.FileItem;
 import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
-@WebServlet("/HosFileUpload")
-public class HosFileUpload extends HttpServlet {
+@WebServlet("/NotHosFileUpload")
+public class NotHosFileUpload extends HttpServlet {
 	private final String UPLOAD_DIRECTORY = "C:/abc";
 	//private static final long serialVersionUID = 1L;
    
 	
 	
 	
-    public HosFileUpload() {
+    public NotHosFileUpload() {
         super();
         // TODO Auto-generated constructor stub
     }
