@@ -71,9 +71,6 @@ function inputIdUnChk() {
 	document.sickFrm.idDuplication.value = "idUnchk";
 }
 </script>
-
-
-
 </head>
 <body class="hold-transition register-page">
 <iframe width=0 height=0 name="sickChkForm" style="display: none;"></iframe>

@@ -5,16 +5,54 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+//파일 업로드를 수행할 수 있게 해주는 클래스
+import com.oreilly.servlet.MultipartRequest;
+// 이름이 똑같은 파일의 경우, 이름이 중복되지 않게 해주는 클래스 
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import command.Command;
+import lastdto.docuFileDTO;
+import lastdto.docuInfoDTO;
+import leedy.HosFileUploadDAO;
 
 public class HHospitalUploadAddCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		return null;
+		docuFileDTO dto1 = new docuFileDTO(); //docuFile
+		docuInfoDTO dto2 = new docuInfoDTO(); //docuInfo
+		HosFileUploadDAO dao = new HosFileUploadDAO();
+		
+		
+		String fileType ="";
+		String directory = request.getSession().getServletContext().getRealPath("/upload");
+		System.out.println(directory);
+		//"C:/Users/Da yeon/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps/tem3/upload/";
+		int maxsize = 1024 * 1024 * 100; // 첨부파일 최대 용량 설정(bite) 10MB
+		String encoding = "UTF-8";
+
+		MultipartRequest multi = new MultipartRequest(request, directory, maxsize, encoding, new DefaultFileRenamePolicy());
+
+		String fileName = multi.getOriginalFileName("file");
+		String fileRealName = multi.getFilesystemName("file");
+		System.out.println("파일명: "+fileName);
+		System.out.println("실제 파일명: "+fileRealName);
+
+		//파라미터 받아오기
+		
+		fileType=multi.getParameter("fileType");
+		
+		dto1.setFileName(fileName);
+		dto1.setFileType(fileType);
+	
+	
+		
+		
+		dao.insertFile(dto1);
+
+		
+		return "redirect:HMediDetail.do";
 	}
 
 }

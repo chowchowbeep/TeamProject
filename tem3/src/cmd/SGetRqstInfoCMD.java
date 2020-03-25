@@ -21,7 +21,7 @@ public class SGetRqstInfoCMD implements Command {
 		mediRqdetailDTO dto = new mediRqdetailDTO();
 		int rqstNo = 0;
 		String identifier = null;
-		String sicId = request.getParameter("sicId");
+		String sicId = (String) request.getSession().getAttribute("memberId");
 		identifier = request.getParameter("identifier"); // 가장최근 insert한 값을 필요로 할 때 넘김
 		System.out.println(sicId + ", " + identifier + "=====================");
 		try {

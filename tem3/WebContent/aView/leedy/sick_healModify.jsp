@@ -2,7 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/layout/hos_head.jsp"%>
 <%@ include file="/layout/hos_menu.jsp"%>
-
+</head>
+<body>
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
@@ -158,3 +159,6 @@
 <!-- ./wrapper -->
 
 <%@ include file="/layout/all_footer.jsp"%>
+
+</body>
+</html>

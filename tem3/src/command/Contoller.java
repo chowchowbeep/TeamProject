@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cmd.AllloginCMD;
+import cmd.ToLoginPageCMD;
 import cmd.HDoctorAddCMD;
 import cmd.HDoctorAddVerifyCMD;
 import cmd.HDoctorlistCMD;
@@ -23,6 +23,7 @@ import cmd.HHospitalMymenuCMD;
 import cmd.HHospitalProfileCMD;
 import cmd.HHospitalSignupActionCMD;
 import cmd.HHospitalSignupCMD;
+import cmd.HHospitalUploadAddCMD;
 import cmd.HHospitalUploadCMD;
 import cmd.HMediAllCMD;
 import cmd.HMediDetailCMD;
@@ -32,6 +33,9 @@ import cmd.HSickSearchCMD;
 import cmd.HSickSearchDetailCMD;
 import cmd.HSickSearchListCMD;
 import cmd.HhosModifyCMD;
+import cmd.LoginCheckAjaxCMD;
+import cmd.LoginOkCMD;
+import cmd.LogoutCMD;
 import cmd.MChartCMD;
 import cmd.MChartDetailCMD;
 import cmd.MPoliceCMD;
@@ -47,33 +51,29 @@ import cmd.MasterSearchNormalCMD;
 import cmd.SAroundMapCMD;
 import cmd.SBookmarkCMD;
 import cmd.SCancelRqCMD;
-import cmd.SGetHosStt;
+import cmd.SCheckDrHldyAjaxCMD;
+import cmd.SCheckHosHldyAjaxCMD;
 import cmd.SDeclarationCMD;
 import cmd.SDeclarationInsertCMD;
 import cmd.SGetDrListAjaxCMD;
 import cmd.SGetDrNotOnDutyListAjaxCMD;
-import cmd.SCheckDrHldyAjaxCMD;
-import cmd.SCheckHosHldyAjaxCMD;
+import cmd.SGetHosStt;
+import cmd.SGetRqstInfoCMD;
+import cmd.SGetUnselectableTimeAjaxCMD;
+import cmd.SGetWaitingCntCMD;
 import cmd.SHospitalInfoCMD;
 import cmd.SInsertResCMD;
 import cmd.SInsertTmrCMD;
-import cmd.SMedABeforeMedListCMD;
-import cmd.SMedADoneListCMD;
 import cmd.SMedBeforeMedListCMD;
-import cmd.SMedCBeforeMedListCMD;
 import cmd.SMedDoneDetailCMD;
 import cmd.SMedDoneListCMD;
 import cmd.SMedListAjaxCMD;
 import cmd.SMedListPagingCMD;
-import cmd.SMedRBeforeMedListCMD;
-import cmd.SMedRDoneListCMD;
-import cmd.SMedTBeforeMedListCMD;
-import cmd.SMedTDoneListCMD;
 import cmd.SResRequestCMD;
 import cmd.SReviewMylistCMD;
 import cmd.SReviewWriteCMD;
 import cmd.SRqDetailCMD;
-import cmd.SRqDoneCMD;
+import cmd.SSelectDcryCMD;
 import cmd.SSickDetailListCMD;
 import cmd.SSickDocuListCMD;
 import cmd.SSickHealModifyCMD;
@@ -88,18 +88,14 @@ import cmd.SSickUploadCMD;
 import cmd.SSickWjqtnCreateCMD;
 import cmd.SSickWjqtnwmdCMD;
 import cmd.STmrRequestCMD;
-import cmd.SSelectDcryCMD;
-import cmd.SGetRqstInfoCMD;
-import cmd.SGetModelCMD;
-import cmd.SGetUnselectableTimeAjaxCMD;
-import cmd.SGetWaitingCntCMD;
 import cmd.ShospitalInfoForTestCMD;
 import cmd.SickMemCheckCMD;
+import cmd.SreviewBoardCMD;
 import cmd.SsearchMainCMD;
 import cmd.TestCMD;
 import kjr.ajax.BookmarkDeleteAjaxCMD;
+import kjr.ajax.BookmarkInsertAjaxCMD;
 import kjr.ajax.CategoriAjaxCMD;
-import kjr.ajax.HosSttAjaxCMD;
 import kjr.ajax.LocaseachAjaxCMD;
 import kjr.ajax.ReviewDeleteAjaxCMD;
 import kjr.ajax.ReviewInsrtAjaxCMD;
@@ -150,8 +146,8 @@ public class Contoller extends HttpServlet {
 		cont.put("/HMediWjqtn.do", new HMediWjqtnCMD()); //(당일접수)진료신청 현황 리스트 페이지 로 이동
 		cont.put("/HMediReserve.do", new HMediReserveCMD()); //(예약)진료신청 현황 리스트 페이지 로 이동
 		cont.put("/HMediDetail.do", new HMediDetailCMD()); //진료상세정보  페이지 로 이동
-		cont.put("/HHospitalUpload.do", new HHospitalUploadCMD()); //기록물 업로드 페이지  로 이동
-		//cont.put("/HHospitalUploadAdd.do", new HHospitalUploadAddCMD()); //기록물 업로드 DB 처리
+		cont.put("/HHospitalUpload.do", new HHospitalUploadCMD()); //기록물 업로드 페이지로 이동+로그인한 아이디에 대한 정보 같이 보냄
+		cont.put("/HHospitalUploadAdd.do", new HHospitalUploadAddCMD()); //기록물 업로드 DB처리
 		cont.put("/HHospitalInquiry.do", new HHospitalInquiryCMD()); //기록물 조회 페이지  로 이동
 		
 		cont.put("/HSickSearch.do", new HSickSearchCMD()); //H8 회원정보 검색 페이지  로 이동
@@ -240,8 +236,10 @@ public class Contoller extends HttpServlet {
 	//	cont.put("/.do", new CMD()); // 알림아이콘
 		
 		//공통
-		cont.put("/Alllogin.do", new AllloginCMD()); //로그인 페이지
-	//	cont.put("/.do", new CMD()); //로그아웃 페이지
+		cont.put("/ToLoginPage.do", new ToLoginPageCMD()); //로그인 페이지로 이동
+		cont.put("/ajax/LoginCheck.do", new LoginCheckAjaxCMD()); //비밀번호, id매칭확인 위함
+		cont.put("/LoginOk.do", new LoginOkCMD()); //로그인 처리 후 메인으로 이동
+		cont.put("/Logout.do", new LogoutCMD()); //로그아웃처리 후 로그아웃 안내 페이지로 이동
 //		cont.put("/.do", new CMD()); //오류페이지
 	//	cont.put("/.do", new CMD()); //위젯
 		
@@ -290,7 +288,9 @@ public class Contoller extends HttpServlet {
 		 * new FileUpload()); cont.put("/GetDeptCnt.do", new GetDeptCnt());
 		 */
 		
-		cont.put("/HhosModifyCMD.do", new HhosModifyCMD()); //관심병원 삭제하는 ajax
+		cont.put("/SreviewBoardCMD.do", new SreviewBoardCMD());//리뷰게시판 아이프레임
+		cont.put("/HhosModifyCMD.do", new HhosModifyCMD()); //
+		cont.put("/ajax/BookmarkInsertAjaxCMD.do", new BookmarkInsertAjaxCMD()); //관심병원 등록하는 ajax
 		cont.put("/ajax/BookmarkDeleteAjaxCMD.do", new BookmarkDeleteAjaxCMD()); //관심병원 삭제하는 ajax
 		cont.put("/ajax/ReviewDeleteAjaxCMD.do", new ReviewDeleteAjaxCMD()); //리뷰삭제하는 ajax
 		cont.put("/ajax/LocaseachAjaxCMD.do", new LocaseachAjaxCMD()); // 지역코드 가져오는 ajax

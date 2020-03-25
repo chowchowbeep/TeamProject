@@ -2,6 +2,7 @@ package kjr;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import kty.DAO;
 import lastdto.reviewDTO;
@@ -59,6 +60,8 @@ public class ReviewDAO extends DAO{
 		return list;
 	}
 	
+	
+	
 	public boolean Delete(int rvNo){
 		reviewListDTO dto = new reviewListDTO();
 		boolean a = true;
@@ -77,5 +80,93 @@ public class ReviewDAO extends DAO{
 		
 		return a;
 	}
+	
+	// 게시글 수 조회
+		public int getBoardCnt(String hosId) {
+			int cnt =0;
+			String sql ="select count(*) cnt " + 
+						"from review " + 
+						"where hos_id=? " + 
+						"order by rv_no desc";
+		
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1,hosId);
+				rs = pstmt.executeQuery();
+				if (rs.next()) {
+					cnt = rs.getInt("cnt");
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			return cnt;
+		}
+		
+	//페이지별로 4줄씩 리뷰 출력 
+		public ArrayList<reviewListDTO> selectHos(String hosId, int startNum, int endNum){
+			 sql = "select * from ( " + 
+			 		"select row_number() over(order by rv_no desc) num ,SIC_ID,HOS_ID,STAR_POINT,RV_CONT," + 
+			 		"(select sc.SIC_NAME from sick_member sc where sc.SIC_ID = rv.SIC_ID )name  " + 
+			 		"from review rv " + 
+			 		"where hos_id=?)where num BETWEEN ? and ? ";
+			
+			System.out.println("sql은?  "+sql);
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1,hosId);
+				pstmt.setInt(2,startNum);
+				pstmt.setInt(3,endNum);
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					String sicId = rs.getString("sic_id");
+					int star = rs.getInt("star_point");
+					String rvCont = rs.getString("rv_cont");
+					String hosName = rs.getString("name");
+					int rvNo = rs.getInt("num");
+					reviewListDTO dto = new reviewListDTO(rvNo,sicId,hosId, star, rvCont, hosName);
+					
+					list.add(dto);
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			return list;
+			
+		}
+		
+		//리뷰전체출력
+		public ArrayList<reviewListDTO> selectHosAll(String hosId){
+			
+			sql= " select row_number() over(order by rv_no desc) num,SIC_ID,HOS_ID,STAR_POINT,RV_CONT, "+
+				 " (select sc.SIC_NAME from sick_member sc where sc.SIC_ID = rv.SIC_ID )name " + 
+				 " from review rv "+
+				 " where hos_id=? ";
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1,hosId);
+				rs = pstmt.executeQuery();
+				while (rs.next()) {
+					String sicId = rs.getString("sic_id");
+					int star = rs.getInt("star_point");
+					String rvCont = rs.getString("rv_cont");
+					String hosName = rs.getString("name");
+					int rvNo = rs.getInt("num");
+					reviewListDTO dto = new reviewListDTO(rvNo,sicId,hosId, star, rvCont, hosName);
+					
+					list.add(dto);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return list;
+		}
 	
 }

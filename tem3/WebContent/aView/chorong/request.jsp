@@ -18,10 +18,9 @@ input.error, textarea.error, select.error {
 }
 
 label.error {
-	color: #f53800;
-	font-weight: 400;
-	font-size: 0.9em;
-	margin: 5px;
+	color: #ff6a00;
+ 	font-size: 0.9em;
+	padding-top: 0.9rem;
 }
 
 .datepicker {
@@ -34,6 +33,8 @@ label.error {
 }
 
 #selectedDtInfo {
+ 	font-weight: 700;
+ 	font-size: 0.9em; 
 	padding-bottom: 0.9rem;
 	color: #ff6a00;
 }
@@ -82,8 +83,8 @@ label.error {
 												
 												var selectedDt = formattedDate
 														.replace(/\//gi, "");
-												$("#selectedDtInfo").html(
-														"날짜선택됨" + selectedDt);
+// 												$("#selectedDtInfo").html(
+// 														"날짜선택됨" + selectedDt);
 
 												// 1. 선택한 날짜의 값을 파라미터로 넘겨서 병원휴일테이블에서 일치하는 값이 있는지 확인
 												// 일치 값 있을 경우 #selectedDtInfo에 병원휴일입니다. 안내.
@@ -110,9 +111,7 @@ label.error {
 																true); //시간 선택할 수 없도록
 
 													} else { // 1-1-2. 일치 값 없을 경우 (의사 휴일 아닌 경우)
-														$("#selectedDtInfo")
-																.html(
-																		"병원휴일도 의사휴일도아입니다. 시간선택하세요");
+														$("#selectedDtInfo").empty();
 														$(".resTmInit").prop(
 																"disabled",
 																false); // 다른 날짜를 선택해서 이미 disabled ture되었을 경우를 대비하여 
@@ -220,7 +219,6 @@ label.error {
 		// 접수가능시간 체크
 		var hosStt = getHosStt();
 		controlTmr(hosStt);
-
 		// 휴일인 의사 disabled처리
 		ctrlDrNotOnDuty();
 	});
@@ -541,8 +539,6 @@ label.error {
 							</div>
 							<!-- /.card-body 끝 신청폼바디-->
 							<div class="card-footer">
-								<input type="hidden" id="id" name="id" value="sic1">
-								<!-- 로그인중인 아이디(임시로 sic1로 설정) 나중에 수정-->
 								<input type="reset" class="btn btn-secondary" value="초기화">
 								<c:if test="${rqType=='Res'}">
 									<input type="submit" class="btn btn-secondary float-right"

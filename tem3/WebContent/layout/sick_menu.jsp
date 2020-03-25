@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<style>
+	#toMain {
+		color: black;
+		text-decoration:none;
+	}
+</style>
 <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 </head>
 
@@ -21,7 +27,8 @@
 
 
 			<form class="form-inline mx-auto">
-				<div class="input-group input-group-sm" style="font-size: 30px;">SALLYEOJYO</div>
+				<div class="input-group input-group-sm" style="font-size: 30px;">
+				<a href="SSickMain.do" id="toMain">SALLYEOJYO</a></div>
 			</form>
 
 
@@ -81,7 +88,7 @@
 
 						<li class="nav-item"><a href="SSickMain.do"
 							class="nav-link">
-								<p>메인화면</p>
+								<p>메인</p>
 						</a></li>
 						<li class="nav-item"><a href="SMedBeforeMedList.do"
 							class="nav-link">
@@ -103,7 +110,7 @@
 <!-- 						</a></li> -->
 						<li class="nav-item"><a href="SReviewMylist.do"
 							class="nav-link">
-								<p>내가 쓴 리뷰</p>
+								<p>리뷰</p>
 						</a></li>
 
 						<li class="nav-item"><a href="SSickWjqtnwmd.do"
@@ -115,14 +122,13 @@
 								<p>의료 기록물</p>
 						</a></li>
 						
-						<c:if test="로그인중인 경우(세션id값이 있는 경우)">
 						<li class="nav-item"><a href="로그아웃처리하는 .do"
 							class="nav-link d-block text-center" style="padding: 20px;">
 								<p>
 									<small><strong>로그아웃</strong></small>
 								</p>
 						</a></li>
-						</c:if>
+						<!-- 세션없을 경우. 로그인 중이 아닐 경우 로그인이 필요합니다. 표시 필요? -->
 					</ul>
 
 

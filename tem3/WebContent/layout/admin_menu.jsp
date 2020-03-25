@@ -71,19 +71,19 @@
 						<li class="nav-header"><small><strong>ADMIN
 									MENU</strong></small></li>
 
-						<li class="nav-item"><a href="../../MMain.do" class="nav-link">
+						<li class="nav-item"><a href="MMain.do" class="nav-link">
 								<p>메인</p>
 						</a></li>
-						<li class="nav-item"><a href="../../MSearchHos.do" class="nav-link">
+						<li class="nav-item"><a href="MSearchHos.do" class="nav-link">
 								<p>병원회원검색</p>
 						</a></li>
-						<li class="nav-item"><a href="../../MSearchNormal.do" class="nav-link">
+						<li class="nav-item"><a href="MSearchNormal.do" class="nav-link">
 								<p>일반회원검색</p>
 						</a></li>
-						<li class="nav-item"><a href="../../MChart.do" class="nav-link">
+						<li class="nav-item"><a href="MChart.do" class="nav-link">
 								<p>통계관리</p>
 						</a></li>
-						<li class="nav-item"><a href="../../MPolice.do"
+						<li class="nav-item"><a href="MPolice.do"
 							class="nav-link">
 								<p>신고리스트</p>
 						</a></li>

@@ -9,6 +9,14 @@ public class docuFileDTO {
 		super();
 		
 	}
+	
+	public docuFileDTO(int dcryNo, String fileName, String fileType) {
+		super();
+		this.dcryNo = dcryNo;
+		this.fileName = fileName;
+		this.fileType = fileType;
+	}
+	
 	public int getDcryNo() {
 		return dcryNo;
 	}

@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ page import="java.io.File" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="/layout/hos_head.jsp"%>
 <%@ include file="/layout/hos_menu.jsp"%>
+</head>
+<!-- 업로드시 저장할 이미지 폴더 물리적 주소 -->
+<!-- C:\Users\Da yeon\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\tem3\upload -->
 
 	<!-- Content Wrapper. Contains page content -->
 	<div class="content-wrapper">
@@ -23,7 +27,8 @@
 			</div>
 			<!-- /.container-fluid -->
 		</section>
-
+		
+	
 		<!-- Main content -->
 		<section class="content">
 
@@ -49,7 +54,7 @@
 									</div>
 									<div class="form-check">
 										<input class="form-check-input" type="radio" name="file_type"
-											id="file_type"  > <label
+											id="file_type" > <label
 											class="form-check-label" for="">동영상</label>
 									</div>
 									<div class="form-check">
@@ -75,15 +80,16 @@
 
 
 						<div class="form-group row">
-							<label for="callArtrNo" class="col-sm-2 col-form-label">의사</label>
+							<label for="callArtrNo" class="col-sm-2 col-form-label" >의사</label>
 							<div class="col-sm-10">
 								<select class="form-control select2" style="width: 100%;"
-									id="callArtrNo">
+									id="artr_no" name="artr_no">
 									<option>의사를 선택하세요</option>
-									<option>조선아</option>
-									<option>김민정</option>
-									<option>김주련</option>
-
+									 <!-- list에 있는 거 다 뽑아내는 반복문 -->
+									<c:forEach items="${list }" var="artrList"><!-- items는 request에서 setAttr로  값을 넘길 var은 변수 -->
+									<option value="${artrList.artrNo}">${artrList.artrName }</option>
+									
+									</c:forEach>
 								</select>
 							</div>
 						</div>
@@ -135,7 +141,7 @@
 		</section>
 
 
-
+<div>
 		<!-- Control Sidebar -->
 		<aside class="control-sidebar control-sidebar-dark">
 			<!-- Control sidebar content goes here -->
@@ -144,4 +150,5 @@
 	</div>
 	<!-- ./wrapper -->
 <%@ include file="/layout/all_footer.jsp"%>
-
+</body>
+</html>
