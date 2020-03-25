@@ -7,9 +7,9 @@
 <%@ include file="/layout/admin_head.jsp"%>
 <script>
 	$(document).on("click", ".toMasterPoliceDetail", function() {
-		var hosId = $(this).attr("hos_id");
-		console.log(hosId);
-		$("#hosId").attr("value", hosId);
+		var sicId = $(this).attr("sic_id");
+		console.log(sicId);
+		$("#sicId").attr("value", sicId);
 		frm.submit();
 	});
 </script>
@@ -133,7 +133,7 @@ String keyWord = request.getParameter("keyWord");
 	for(declarationDTO dto : list) { 
 	%>
 	<div class="card-body">
-	<table class = "listbox" onclick = "location.href = 'MPoliceDetail.do';">
+	<table class = "listbox" onclick = "location.href = 'MPoliceDetail.do?sicId=<%= dto.getSicId()%>';">
 
 		<tr>
 			<td class = "info">
@@ -151,7 +151,7 @@ String keyWord = request.getParameter("keyWord");
 			</td>
 		</tr>
 	</table>
-	<input type = "hidden" id = "hosId" name = "hosId">
+	<input type = "hidden" id = "sicId" name = "sicId">
 	</div>
 </div>
 <% } %>

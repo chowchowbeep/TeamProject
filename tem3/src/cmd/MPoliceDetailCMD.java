@@ -15,16 +15,22 @@ public class MPoliceDetailCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String hosId = "hos1";
+		String sicId = request.getParameter("sicId");
 		decDAO dao = new decDAO();
 		declarationDTO dto = new declarationDTO();
-		dto = dao.selectone(hosId);
+		dto = dao.selectone(sicId);
 		
 		request.setAttribute("dto", dto);
-		request.setAttribute("hosId", hosId);
-
+		request.setAttribute("sicId", sicId);
+		
+		
+	
+		
+	
 		String path ="aView/kimmj/master-police-detail.jsp"; //
 		return path;
+		
+		
 	}
 	
 	

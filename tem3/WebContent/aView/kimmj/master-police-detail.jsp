@@ -7,10 +7,11 @@
 <%@ include file="/layout/admin_head.jsp"%>
  <script language="javascript">
  	function popup() {
- 		var url = "decPOPUP.html";
- 		var name = "decpop";
- 		var option = "width = 270px, height = 50px, top = 150px, location = no, toolbar = no, menubar = no, directories = no, status = no";
- 		window.open(url, name, option);
+ 		alert('신고 처리가 완료되었습니다');
+ 		//var url = "decPOPUP.html";
+ 		//var name = "decpop";
+ 		//var option = "width = 270px, height = 50px, top = 150px, location = no, toolbar = no, menubar = no, directories = no, status = no";
+ 		//window.open(url, name, option);
  	}
  </script>
 <style type="text/css">/* Chart.js */
@@ -148,14 +149,35 @@ to {
 	<br>
 	<div>
 		<button type = "button" class = "btn btn-block btn-warning"
-		onclick = "location.href = 'javascript:popup()'"> 
+		onclick = "manageDec()"> 
 		<b>처리</b> </button>
 		<button type = "button" class = "btn btn-block btn-warning"
 		onclick = "location.href = 'MPolice.do';"> <b>목록</b> </button>
 	</div>
 	</div>
 </div>
+<script>
+var decNo = '${dto.decNo}';
+console.log(decNo);
+var hosId = '${dto.hosId}';
+console.log(hosId);
 
+	function manageDec() {
+		$.ajax({
+			type : "POST",
+			url : "ajax/MPoliceDetailTwo.do",
+			dataType : "json",
+			data : {
+				"p_no" : decNo,
+				"hos_id" : hosId
+			},
+			success : function(result) {
+				console.log(result+"rows DML완료");
+				alert("신고 처리 완료")
+			}
+		})
+	}
+</script>
 <%@ include file="/layout/all_footer.jsp"%>
 </body>
 </html>

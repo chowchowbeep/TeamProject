@@ -36,6 +36,7 @@ import cmd.MChartCMD;
 import cmd.MChartDetailCMD;
 import cmd.MPoliceCMD;
 import cmd.MPoliceDetailCMD;
+import cmd.MPoliceDetailTwoAjaxCMD;
 import cmd.MSearchHosCMD;
 import cmd.MSearchHoslistCMD;
 import cmd.MSearchHoslistHosCMD;
@@ -132,7 +133,7 @@ public class Contoller extends HttpServlet {
 		cont.put("/MChartDetail.do", new MChartDetailCMD()); //통계관리 상세페이지로 이동
 		cont.put("/MPolice.do", new MPoliceCMD()); //신고 리스트 페이지로 이동
 		cont.put("/MPoliceDetail.do", new MPoliceDetailCMD()); //상세-신고 페이지로 이동
-		
+		cont.put("/ajax/MPoliceDetailTwo.do", new MPoliceDetailTwoAjaxCMD());
 //		cont.put("/MMenubar.do", new MMenubarCMD()); //관리자 메뉴바페이지로 이동
 //		cont.put("/HMenubar.do", new HMenubarCMD()); //병원회원 메뉴바페이지로 이동
 //		cont.put("/ajax/SMenubar.do", new SMenubarCMD()); //일반회원 메뉴바페이지로 이동
