@@ -91,6 +91,7 @@ import cmd.SickMemCheckCMD;
 import cmd.SsearchMainCMD;
 import cmd.TestCMD;
 import kjr.ajax.BookmarkDeleteAjaxCMD;
+import kjr.ajax.BookmarkInsertAjaxCMD;
 import kjr.ajax.CategoriAjaxCMD;
 import kjr.ajax.LocaseachAjaxCMD;
 import kjr.ajax.ReviewDeleteAjaxCMD;
@@ -143,7 +144,9 @@ public class Contoller extends HttpServlet {
 		cont.put("/HMediReserve.do", new HMediReserveCMD()); //(예약)진료신청 현황 리스트 페이지 로 이동
 		cont.put("/HMediDetail.do", new HMediDetailCMD()); //진료상세정보  페이지 로 이동
 		cont.put("/HHospitalUpload.do", new HHospitalUploadCMD()); //기록물 업로드 페이지  로 이동
+		//cont.put("/HHospitalUploadAdd.do", new HHospitalUploadAddCMD()); //기록물 업로드 DB 처리
 		cont.put("/HHospitalInquiry.do", new HHospitalInquiryCMD()); //기록물 조회 페이지  로 이동
+		
 		cont.put("/HSickSearch.do", new HSickSearchCMD()); //H8 회원정보 검색 페이지  로 이동
 		cont.put("/HSickSearchList.do", new HSickSearchListCMD()); //H9 회원정보 검색 리스트 페이지  로 이동
 		cont.put("/HSickSearchDetail.do", new HSickSearchDetailCMD()); //H10 회원정보 검색 결과 상세 페이지  로 이동
@@ -282,7 +285,8 @@ public class Contoller extends HttpServlet {
 		 * new FileUpload()); cont.put("/GetDeptCnt.do", new GetDeptCnt());
 		 */
 		
-		cont.put("/HhosModifyCMD.do", new HhosModifyCMD()); //관심병원 삭제하는 ajax
+		cont.put("/HhosModifyCMD.do", new HhosModifyCMD()); //
+		cont.put("/ajax/BookmarkInsertAjaxCMD.do", new BookmarkInsertAjaxCMD()); //관심병원 등록하는 ajax
 		cont.put("/ajax/BookmarkDeleteAjaxCMD.do", new BookmarkDeleteAjaxCMD()); //관심병원 삭제하는 ajax
 		cont.put("/ajax/ReviewDeleteAjaxCMD.do", new ReviewDeleteAjaxCMD()); //리뷰삭제하는 ajax
 		cont.put("/ajax/LocaseachAjaxCMD.do", new LocaseachAjaxCMD()); // 지역코드 가져오는 ajax

@@ -15,7 +15,6 @@ public class MSearchListNormalCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-//		String sicId = (request.getParameter("sic_id"));
 		String sicId = "sic1";
 		normalDAO dao = new normalDAO();
 		sickJoinMemberDTO dto = new sickJoinMemberDTO();

@@ -8,8 +8,7 @@ public class hosJoinMemberDTO {
 	private String hosName;    // 병원명
 	private String hosPhone;	// 전화번호
 	private String hosAddr;    // 주소
-	private String hosStart;	// 영업 시작 시간
-	private String hosLast;    // 영업 마감 시간
+	private String hosBizTime;	// 영업 시간
 	private String hosRank;    // 병원 등급
 	private int decNo;	 // 신고 번호
 	private String decStt;	  // 신고 처리 상태
@@ -25,7 +24,7 @@ public class hosJoinMemberDTO {
 	
 
 	public hosJoinMemberDTO(String hosId, String hosBizno, String hosName, String hosPhone, String hosAddr,
-			String hosStart, String hosLast, String hosRank, int decNo, String decStt, Date decDttm, int rvCount,
+			String hosBizTime, String hosRank, int decNo, String decStt, Date decDttm, int rvCount,
 			int starPoint) {
 		super();
 		this.hosId = hosId;
@@ -33,8 +32,7 @@ public class hosJoinMemberDTO {
 		this.hosName = hosName;
 		this.hosPhone = hosPhone;
 		this.hosAddr = hosAddr;
-		this.hosStart = hosStart;
-		this.hosLast = hosLast;
+		this.hosBizTime = hosBizTime;
 		this.hosRank = hosRank;
 		this.decNo = decNo;
 		this.decStt = decStt;
@@ -83,22 +81,6 @@ public class hosJoinMemberDTO {
 
 	public void setHosAddr(String hosAddr) {
 		this.hosAddr = hosAddr;
-	}
-
-	public String getHosStart() {
-		return hosStart;
-	}
-
-	public void setHosStart(String hosStart) {
-		this.hosStart = hosStart;
-	}
-
-	public String getHosLast() {
-		return hosLast;
-	}
-
-	public void setHosLast(String hosLast) {
-		this.hosLast = hosLast;
 	}
 
 	public String getHosRank() {
@@ -171,14 +153,33 @@ public class hosJoinMemberDTO {
 
 
 
+	public String getHosBizTime() {
+		return hosBizTime;
+	}
+
+
+
+	public void setHosBizTime(String hosBizTime) {
+		this.hosBizTime = hosBizTime;
+	}
+
+
+
+	public void setRvCount(int rvCount) {
+		this.rvCount = rvCount;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "hosJoinMemberDTO [hosId=" + hosId + ", hosBizno=" + hosBizno + ", hosName=" + hosName + ", hosPhone="
-				+ hosPhone + ", hosAddr=" + hosAddr + ", hosStart=" + hosStart + ", hosLast=" + hosLast + ", hosRank="
-				+ hosRank + ", decNo=" + decNo + ", decStt=" + decStt + ", decDttm=" + decDttm + ", rvCount=" + rvCount
-				+ ", starPoint=" + starPoint + "]";
+				+ hosPhone + ", hosAddr=" + hosAddr + ", hosBizTime=" + hosBizTime + ", hosRank=" + hosRank + ", decNo="
+				+ decNo + ", decStt=" + decStt + ", decDttm=" + decDttm + ", rvCount=" + rvCount + ", starPoint="
+				+ starPoint + "]";
 	}
-	
+
+
 	
 	
 }

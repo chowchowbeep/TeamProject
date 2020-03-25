@@ -32,7 +32,7 @@ public class BookmarkDAO extends DAO {
 	
 	public int select(String sicId,String hosId) {
 		sql = "select count(*) cnt from bookmark where sic_id=? and hos_id=? ";
-		int cnt=0;
+		int cnt=2;
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1,sicId);
@@ -40,13 +40,33 @@ public class BookmarkDAO extends DAO {
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				cnt= rs.getInt("cnt");
-				
+				System.out.println("sql후 cnt값"+cnt);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return cnt;
 
+	}
+	
+	public boolean Insert(String sicId, String hosId){
+		bookmarkDTO dto = new bookmarkDTO();
+		boolean a = true;
+		sql="insert into Bookmark (sic_Id,hos_Id) VALUES (?,?) ";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,sicId);
+			pstmt.setString(2,hosId);
+		int	n = pstmt.executeUpdate();
+			if(n==0) {
+				a = false;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return a;
 	}
 	
 	public boolean Delete(String sicId, String hosId){

@@ -3,7 +3,16 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="/layout/admin_head.jsp"%>
+<script>
+	$(document).on("click", ".toMasterPoliceDetail", function() {
+		var hosId = $(this).attr("hos_id");
+		console.log(hosId);
+		$("#hosId").attr("value", hosId);
+		frm.submit();
+	});
+</script>
 <style type="text/css">/* Chart.js */
 @
 keyframes chartjs-render-animation {
@@ -105,8 +114,12 @@ to {
 </style>
 
 <%@ include file="/layout/admin_menu.jsp"%>
-<% request.setCharacterEncoding("utf-8"); %>
-<jsp:useBean id="dec" class="lastdto.declarationDTO"/>
+<jsp:useBean id="dao" class="kimmj.decDAO"/>
+<%
+request.setCharacterEncoding("UTF-8");
+String keyField = request.getParameter("keyField");
+String keyWord = request.getParameter("keyWord");
+%>
 <div class = "card">
 	<div class = "card-header text-center">
 		<div class = "text-center" style = "padding: 10px 0px 0px 0px">
@@ -115,13 +128,13 @@ to {
 			</h4>
 		</div>
 	</div>
-	<div class="card-body">
-	<table class = "listbox" onclick = "location.href = 'master-police-detail.jsp';">
 	<% 
-	decDAO dao = new decDAO();
 	ArrayList<declarationDTO> list = dao.select();
 	for(declarationDTO dto : list) { 
 	%>
+	<div class="card-body">
+	<table class = "listbox" onclick = "location.href = 'MPoliceDetail.do';">
+
 		<tr>
 			<td class = "info">
 				<b> 회원 ID: </b> <%= dto.getSicId() %>
@@ -138,10 +151,10 @@ to {
 			</td>
 		</tr>
 	</table>
-	<% } %>
+	<input type = "hidden" id = "hosId" name = "hosId">
 	</div>
-	<br>
 </div>
+<% } %>
 
 <%@ include file="/layout/all_footer.jsp"%>
 </body>

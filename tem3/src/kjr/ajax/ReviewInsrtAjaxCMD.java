@@ -31,8 +31,6 @@ public class ReviewInsrtAjaxCMD implements Command {
 				reviewDTO dto = new reviewDTO(sicId,hosId,star,contents);
 				//insert작업 
 				boolean checkInsert = dao.insert(dto);
-				
-
 		
 				return "ajax:" + JSONArray.fromObject(checkInsert);
 	}

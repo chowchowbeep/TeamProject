@@ -12,19 +12,20 @@ public class hosDAO extends DAO {
 	// 전체 리스트
 	public ArrayList<hosJoinMemberDTO> select() {
 		ArrayList<hosJoinMemberDTO> list = new ArrayList<>();
-		sql = "SELECT * FROM hos_member";
+		sql = "SELECT h.hos_name, h.hos_id, h.hos_bizno, h.hos_phone, h.biz_time, d.dec_no, d.dec_stt, d.dec_dttm, r.rv_no, r.star_point, hh.hos_rank " +
+			  "FROM hos_member h, declaration d, review r, hos_stt hh " +
+			  "where h.hos_id=d.hos_id and h.hos_id=r.hos_id and h.hos_id=hh.hos_id ";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				hosJoinMemberDTO dto = new hosJoinMemberDTO();
-				dto.setHosName("hos_name");
-				dto.setHosId("hos_ID");
-				dto.setHosBizno("hos_bizno");
-				dto.setHosPhone("hos_Phone");
-				dto.setHosRank("hos_rank");
-				dto.setHosStart("biz_start");
-				dto.setHosLast("biz_last");
+				dto.setHosName(rs.getString("hos_name"));
+				dto.setHosId(rs.getString("hos_ID"));
+				dto.setHosBizno(rs.getString("hos_bizno"));
+				dto.setHosPhone(rs.getString("hos_Phone"));
+				dto.setHosRank(rs.getString("hos_rank"));
+				dto.setHosBizTime(rs.getString("biz_time"));
 				dto.setDecNo(rs.getInt("dec_no"));
 				dto.setDecStt("dec_stt");
 				dto.setDecDttm(rs.getDate("dec_dttm"));
@@ -43,20 +44,23 @@ public class hosDAO extends DAO {
 	
 	// 단건 조회
 	public hosJoinMemberDTO selectone(String hos_id) {
+		System.out.println("at dao" +hos_id);
 		hosJoinMemberDTO dto = new hosJoinMemberDTO();
-		sql = "";
+		sql = "SELECT h.hos_name, h.hos_id, h.hos_bizno, h.hos_phone, h.biz_time, d.dec_no, d.dec_stt, d.dec_dttm, r.rv_no, r.star_point, hh.hos_rank " +
+			  "FROM hos_member h, declaration d, review r, hos_stt hh " +
+			  "where h.hos_id=d.hos_id and h.hos_id=r.hos_id and h.hos_id=hh.hos_id "
+			  + "and h.hos_id=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, hos_id);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				dto.setHosName("hos_name");
-				dto.setHosId("hos_ID");
-				dto.setHosBizno("hos_bizno");
-				dto.setHosPhone("hos_Phone");
-				dto.setHosRank("hos_rank");
-				dto.setHosStart("biz_start");
-				dto.setHosLast("biz_last");
+				dto.setHosName(rs.getString("hos_name"));
+				dto.setHosId(rs.getString("hos_ID"));
+				dto.setHosBizno(rs.getString("hos_bizno"));
+				dto.setHosPhone(rs.getString("hos_Phone"));
+				dto.setHosRank(rs.getString("hos_rank"));
+				dto.setHosBizTime(rs.getString("biz_time"));
 				dto.setDecNo(rs.getInt("dec_no"));
 				dto.setDecStt("dec_stt");
 				dto.setDecDttm(rs.getDate("dec_dttm"));
@@ -85,8 +89,7 @@ public class hosDAO extends DAO {
 				dto.setHosId("hos_ID");
 				dto.setHosBizno("hos_bizno");
 				dto.setHosPhone("hos_Phone");
-				dto.setHosStart("biz_start");
-				dto.setHosLast("biz_last");
+				dto.setHosBizTime("biz_time");
 				dto.setDecNo(rs.getInt("dec_no"));
 				dto.setDecStt("dec_stt");
 				dto.setDecDttm(rs.getDate("dec_dttm"));
@@ -117,8 +120,7 @@ public class hosDAO extends DAO {
 				dto.setHosBizno("hos_bizno");
 				dto.setHosPhone("hos_Phone");
 				dto.setHosRank("hos_rank");
-				dto.setHosStart("biz_start");
-				dto.setHosLast("biz_last");
+				dto.setHosBizTime("biz_time");
 				dto.setDecNo(rs.getInt("dec_no"));
 				dto.setDecStt("dec_stt");
 				dto.setDecDttm(rs.getDate("dec_dttm"));
@@ -149,8 +151,7 @@ public class hosDAO extends DAO {
 				dto.setHosId("hos_ID");
 				dto.setHosBizno("hos_bizno");
 				dto.setHosRank("hos_rank");
-				dto.setHosStart("biz_start");
-				dto.setHosLast("biz_last");
+				dto.setHosBizTime("biz_time");
 				dto.setDecNo(rs.getInt("dec_no"));
 				dto.setDecStt("dec_stt");
 				dto.setDecDttm(rs.getDate("dec_dttm"));
@@ -179,8 +180,7 @@ public class hosDAO extends DAO {
 				dto.setHosId("hos_ID");
 				dto.setHosBizno("hos_bizno");
 				dto.setHosPhone("hos_Phone");
-				dto.setHosStart("biz_start");
-				dto.setHosLast("biz_last");
+				dto.setHosBizTime("biz_time");
 				dto.setDecNo(rs.getInt("dec_no"));
 				dto.setDecStt("dec_stt");
 				dto.setDecDttm(rs.getDate("dec_dttm"));
@@ -210,8 +210,7 @@ public class hosDAO extends DAO {
 				dto.setHosName("hos_name");
 				dto.setHosId("hos_ID");
 				dto.setHosBizno("hos_bizno");
-				dto.setHosStart("biz_start");
-				dto.setHosLast("biz_last");
+				dto.setHosBizTime("biz_time");
 				dto.setDecNo(rs.getInt("dec_no"));
 				dto.setDecStt("dec_stt");
 				dto.setDecDttm(rs.getDate("dec_dttm"));
@@ -242,8 +241,7 @@ public class hosDAO extends DAO {
 				dto.setHosId("hos_ID");
 				dto.setHosBizno("hos_bizno");
 				dto.setHosRank("hos_rank");
-				dto.setHosStart("biz_start");
-				dto.setHosLast("biz_last");
+				dto.setHosBizTime("biz_time");
 				dto.setDecNo(rs.getInt("dec_no"));
 				dto.setDecStt("dec_stt");
 				dto.setDecDttm(rs.getDate("dec_dttm"));
@@ -272,8 +270,7 @@ public class hosDAO extends DAO {
 				hosJoinMemberDTO dto = new hosJoinMemberDTO();
 				dto.setHosId("hos_ID");
 				dto.setHosBizno("hos_bizno");
-				dto.setHosStart("biz_start");
-				dto.setHosLast("biz_last");
+				dto.setHosBizTime("biz_time");
 				dto.setDecNo(rs.getInt("dec_no"));
 				dto.setDecStt("dec_stt");
 				dto.setDecDttm(rs.getDate("dec_dttm"));

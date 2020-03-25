@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../aView/kjr/cssList.css">
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b450fd1e475fcbb9f2bb640be5a6f4a8"></script>
 <%@ include file="../../layout/sick_head.jsp" %>
@@ -28,26 +27,69 @@
 // 			location.href = 'SResRequest.do';
 		});
 
+		
+		$("img").on("click",function(){
+			
+			//반짝별작업
+			var img = $("#img").attr("name");
+			
+			if(img=='0'){
+				console.log($("#hId").attr("name"));
+				$.ajax("/tem3/ajax/BookmarkInsertAjaxCMD.do", {
+					type:"POST",
+					dataType : "json",
+					data : {hosId : $("#hId").attr("name")
+					}
+				})
+					.done(function(data) {
+						if(data){
+							alert("관심병원으로 등록되었습니다.");
+						}else{
+							alert("다시 클릭해주세요..");
+						}
+						location.href="SHospitalInfo.do";
+					})
+			}else{
+				console.log("1111");
+				//까망별작업
+					console.log("으아아아악 1111로넘어감~~~");
+					$.ajax("/tem3/ajax/BookmarkDeleteAjaxCMD.do", {
+						type:"POST",
+						dataType : "json",
+						data : {hosId : $("#hId").attr("name")
+						}
+					})
+						.done(function(data) {
+							if(data){
+								alert("해제되었습니다..");
+							}else{
+								alert("다시 클릭해주세요..");
+							}
+							location.href="SHospitalInfo.do";
+						})
+				
+			}
+		});
+		
 	});
 	
-}
-);
 </script>
 <style>
   .btnMar{margin:2px;}
+  .hiden{display: none;}
 </style>
 </head>
 <body>
 	<div class="container">
-
+	
 		<div class="card text-center  topmg">
 			<div class="card" style="margin: 5px;">
 				<div class="card-header ">
 				<c:if test="${cnt eq '0' }"><!-- 노관심병원이면 까만별 -->
-					<img src="images/star-off-big.png"> &nbsp; &nbsp;
+					<img src="images/star-off-big.png" id="img" name="${cnt}"> &nbsp; &nbsp;
 				</c:if>
 				<c:if test="${cnt eq '1' }"><!-- 관심병원이면 반짝별 -->
-					<img src="images/star-on-big.png"> &nbsp; &nbsp;
+					<img src="images/star-on-big.png" id="img" name="${cnt}"> &nbsp; &nbsp;
 				</c:if>
 				${list[0].hosName } </div>
 				<div class="card-body">
@@ -70,6 +112,7 @@
 
 			<div class="card" style="margin: 5px;">
 				<div class="card-body">
+					<div id="hId"name="${list[0].hosId}" class="hiden"></div>
 					<p>전화번호 : ${ list[0].hosPhone}</p>
 					<p>주소 : ${list[0].hosAddr}</p>
 					<p>진료시간 : ${list[0].hosBizTime}</p>
