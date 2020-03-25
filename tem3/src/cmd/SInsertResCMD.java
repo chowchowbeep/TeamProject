@@ -20,8 +20,11 @@ public class SInsertResCMD implements Command {
 		MediRqdetailDAO dao = new MediRqdetailDAO(); //신청내용insert
 		mediRqdetailDTO dto = new mediRqdetailDTO();
 
-		// 나중에 세션값 받아오는 것으로 수정할 것
-		String sicId = request.getParameter("id");
+		// 세션객체에 저장된 id값 받아오기
+		String sicId = (String) request.getSession().getAttribute("memberId");
+		dto.setSicId(sicId);
+		System.out.println("세션확인 memberId="+sicId);
+		
 		dto.setSicId(sicId);
 
 		dto.setHosId(request.getParameter("hosId"));

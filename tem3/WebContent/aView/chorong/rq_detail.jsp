@@ -280,8 +280,7 @@
 
 
 
-							<!-- 어느페이지에서든 공통으로 넘겨받음. but 세션 작업 후 수정 -->
-							<input type="hidden" id="id" name="id" value="${id}">
+
 							<!-- 예상대기 인원수 인자 가져오고 넘길 때 사용 //result.hosId롤 대체? -->
 							<input type="hidden" id="hosId" name="hosId">
 
@@ -317,6 +316,12 @@
 
 <%@ include file="/layout/all_footer.jsp"%>
 <script>
+//진료신청 완료페이지에서 확인버튼 누를 경우
+//진료신청현황 리스트 페이지로 이동 
+function toBeforeMedList() {
+	frm.action = "SMedBeforeMedList.do";
+	frm.submit();
+}
 
 //진료신청 취소할 경우
 function cancelRq() {

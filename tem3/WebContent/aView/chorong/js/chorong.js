@@ -1,14 +1,5 @@
 
 
-
-// 진료신청 완료페이지에서 확인버튼 누를 경우
-// 진료신청현황 리스트 페이지로 이동 
-function toBeforeMedList() {
-	frm.action = "SMedBeforeMedList.do";
-	frm.submit();
-}
-
-
 // 기록물 리스트 불러와서 값 넘기기 
 function toAddDcry() {
 	//기록물리스트 가져올 수 있는 파라미터값 같이 넘기기 

@@ -111,9 +111,7 @@ label.error {
 																true); //시간 선택할 수 없도록
 
 													} else { // 1-1-2. 일치 값 없을 경우 (의사 휴일 아닌 경우)
-// 														$("#selectedDtInfo")
-// 																.html(
-// 																		"병원휴일도 의사휴일도아입니다. 시간선택하세요");
+														$("#selectedDtInfo").empty();
 														$(".resTmInit").prop(
 																"disabled",
 																false); // 다른 날짜를 선택해서 이미 disabled ture되었을 경우를 대비하여 
@@ -221,7 +219,6 @@ label.error {
 		// 접수가능시간 체크
 		var hosStt = getHosStt();
 		controlTmr(hosStt);
-
 		// 휴일인 의사 disabled처리
 		ctrlDrNotOnDuty();
 	});
