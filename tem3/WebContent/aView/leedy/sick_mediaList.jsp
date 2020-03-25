@@ -3,7 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ include file="/layout/hos_head.jsp"%>
 <%@ include file="/layout/hos_menu.jsp"%>
+</head>
 
+<body>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
@@ -179,3 +181,6 @@
 
 
 <%@ include file="/layout/all_footer.jsp"%>
+
+</body>
+</html>

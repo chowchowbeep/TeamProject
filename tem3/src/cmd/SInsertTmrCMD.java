@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import command.Command;
 import kcr.MediRqdetailDAO;
 import lastdto.mediRqdetailDTO;
-import lastdto.mediRqstDTO;
 
 public class SInsertTmrCMD implements Command {
 
@@ -20,10 +19,12 @@ public class SInsertTmrCMD implements Command {
 		// 접수신청 입력처리 로직
 		MediRqdetailDAO dao = new MediRqdetailDAO();
 		mediRqdetailDTO dto = new mediRqdetailDTO();
-
-		// 나중에 세션값 받아오는 것으로 수정할 것
-		String sicId = request.getParameter("id");
+		
+		
+		// 세션객체에 저장된 id값 받아오기
+		String sicId = (String) request.getSession().getAttribute("memberId");
 		dto.setSicId(sicId);
+		System.out.println("세션확인 memberId="+sicId);
 
 		int drNo = Integer.parseInt(request.getParameter("artrNo"));
 		dto.setArtrNo(drNo);

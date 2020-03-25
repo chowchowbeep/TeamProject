@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
 
-public class AllloginCMD implements Command {
+public class ToLoginPageCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		return null;
+		String path = "/aView/chorong/login.jsp";
+		return path;
 	}
 
 }

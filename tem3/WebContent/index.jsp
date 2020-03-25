@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
- window.location.replace("${pageContext.request.contextPath}/LoginTestGo.do");
+ window.location.replace("${pageContext.request.contextPath}/ToLoginPage.do");
 </script>
 </head>
 <body>

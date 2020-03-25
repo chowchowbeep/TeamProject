@@ -11,7 +11,7 @@
 <!-- /SMedDoneList.do로 진료이력목록조회 -->
 
 <script>
-	var id = '${id}'; //추후 수정.
+	var id = '<%=(String) request.getSession().getAttribute("memberId")%>'; 
 	var doneStatus = '${doneStatus}'; // 진료 전인지 후인지
 
 	$(document).ready(function() {
@@ -342,8 +342,6 @@
 
 				<input type="hidden" id="rqstNo" name="rqstNo">
 				<!-- 선택한 진료신청항목의 진료신청번호를 전송 -->
-				<input type="hidden" id="id" name="id" value="${id }">
-				<!-- 로그인중인 아이디 추후수정_세션-->
 			</div>
 		</section>
 

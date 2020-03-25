@@ -28,13 +28,14 @@ public class MediRqdetailDAO extends DAO {
 				dto.setSicId(rs.getString("SIC_ID"));
 				dto.setRqstDttm(rs.getString("RQST_DTTM"));//신청날짜
 				dto.setHosId(rs.getString("HOS_ID"));
+				dto.setHosId(rs.getString("HOS_ID"));
 				dto.setResDt(rs.getString("RES_DT"));//예약날짜
 				dto.setResTm(rs.getString("RES_TM"));//예약시간
 				dto.setArtrNo(rs.getInt("ARTR_NO"));
 				dto.setRqstTy(rs.getString("RQST_TY"));
 				dto.setMsg(rs.getString("MSG"));
 				dto.setDcryNo(rs.getInt("DCRY_NO"));
-				dto.setIfTime(rs.getString("IFTIME"));				
+				dto.setIfTime(rs.getString("IFTIME"));		
 
 				dto.setHosName(rs.getString("HOS_NAME"));
 				dto.setHosPhone(rs.getString("HOS_PHONE"));

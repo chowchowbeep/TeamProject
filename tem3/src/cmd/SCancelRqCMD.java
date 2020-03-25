@@ -19,8 +19,7 @@ public class SCancelRqCMD implements Command {
 		
 		//취소처리후 목록페이지로 이동시킴
 		
-		//값받아오기 rqstNo/ id세션객체 수정
-		String sicId = request.getParameter("id");
+		String sicId = (String) request.getSession().getAttribute("memberId");
 		int rqstNo = Integer.parseInt(request.getParameter("rqstNo"));
 		System.out.println("받아온 진료신청번호 = "+ rqstNo+", 환자id= "+sicId);
 		

@@ -6,13 +6,9 @@
 
 
 <script>
-
-
 </script>
-
-
 </head>
-
+<body>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
@@ -108,3 +104,6 @@
 <!-- ./wrapper -->
 
 <%@ include file="/layout/all_footer.jsp"%>
+
+</body>
+</html>

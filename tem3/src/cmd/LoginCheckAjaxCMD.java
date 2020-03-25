@@ -7,20 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
+import net.sf.json.JSONArray;
 
-public class SMedBeforeMedListCMD implements Command {
+public class LoginCheckAjaxCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-//		String id = request.getParameter("id"); 
-		String id = (String) request.getSession().getAttribute("memberId");
-
-		request.setAttribute("id", id);
-		request.setAttribute("doneStatus", "before");
-		
-		String path = "aView/chorong/medList.jsp";
-		return path;
+		return "ajax:" ;
 	}
 
 }

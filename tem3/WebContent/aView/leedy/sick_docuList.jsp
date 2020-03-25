@@ -3,7 +3,8 @@
 
 <%@ include file="/layout/sick_head.jsp"%>
 <%@ include file="/layout/sick_menu.jsp"%>
-
+</head>
+<body>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
@@ -150,4 +151,5 @@
 
 
 <%@ include file="/layout/all_footer.jsp"%>
-
+</body>
+</html>
