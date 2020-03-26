@@ -28,7 +28,7 @@ public class SickMemCheckCMD implements Command {
 		dto = dao.select(id);
 		request.setAttribute("dto",dto);
 
-		String path="redirect:SSickMain.do";
+		String path="aView/leedy/sick_memCheck.jsp";
 		
 		return path;
 	}

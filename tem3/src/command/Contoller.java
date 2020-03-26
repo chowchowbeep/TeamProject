@@ -129,7 +129,7 @@ public class Contoller extends HttpServlet {
 		cont.put("/MChartDetail.do", new MChartDetailCMD()); //통계관리 상세페이지로 이동
 		cont.put("/MPolice.do", new MPoliceCMD()); //신고 리스트 페이지로 이동
 		cont.put("/MPoliceDetail.do", new MPoliceDetailCMD()); //상세-신고 페이지로 이동
-		cont.put("/ajax/MPoliceDetailTwo.do", new MPoliceDetailTwoAjaxCMD());
+		cont.put("/ajax/MPoliceDetailTwo.do", new MPoliceDetailTwoAjaxCMD()); //신고건처리 ajax
 //		cont.put("/MMenubar.do", new MMenubarCMD()); //관리자 메뉴바페이지로 이동
 //		cont.put("/HMenubar.do", new HMenubarCMD()); //병원회원 메뉴바페이지로 이동
 //		cont.put("/ajax/SMenubar.do", new SMenubarCMD()); //일반회원 메뉴바페이지로 이동
@@ -228,10 +228,14 @@ public class Contoller extends HttpServlet {
 		//cont.put("/SRqDone.do", new SRqDoneCMD()); //S29 진료신청 완료 페이지(접수/예약)로 이동 => SRqDetail.do
 		
 		cont.put("/SBookmark.do", new SBookmarkCMD()); //S30 관심병원 리스트 페이지
+		//기록물 조회페이지
 		cont.put("/SSickMediaList.do", new SSickMediaListCMD()); //S31 기록물-기록물 리스트페이지
-		cont.put("/SSickDocuList.do", new SSickDocuListCMD()); //S32 서류-기록물 리스트페이지 
-		cont.put("/SSickDetailList.do", new SSickDetailListCMD()); //S34 기록물 상세 페이지
-		cont.put("/SSickUpload.do", new SSickUploadCMD()); //S35 기록물 업로드 페이지
+
+//		cont.put("/SSickDocuList.do", new SSickDocuListCMD()); //S32 서류-기록물 리스트페이지 
+//		cont.put("/SSickDetailList.do", new SSickDetailListCMD()); //S34 기록물 상세 페이지
+		cont.put("/SSickUpload.do", new SSickUploadCMD()); //S35 기록물 업로드 페이지로 이동+로그인한 아이디에 대한 정보 같이 보냄
+//		cont.put("/SSickUploadAdd.do", new SSickUploadAddCMD()); //기록물 업로드 DB처리
+		
 	//	cont.put("/S.do", new CMD()); //S36 병원 신고 페이지
 	//	cont.put("/.do", new CMD()); // 알림아이콘
 		
@@ -264,11 +268,11 @@ public class Contoller extends HttpServlet {
 //		cont.put("/SInsertRes.do", new SInsertResCMD()); // 예약신청 입력처리 로직
 //		cont.put("/SInsertTmr.do", new SInsertTmrCMD()); // 접수신청 입력처리 로직
 
-		cont.put("/SBookmark.do", new SBookmarkCMD()); // S30 관심병원 리스트 페이지
-		cont.put("/SSickMediaList.do", new SSickMediaListCMD()); // S31 기록물-기록물 리스트페이지
-		cont.put("/SSickDocuList.do", new SSickDocuListCMD()); // S32 서류-기록물 리스트페이지 
-		cont.put("/SSickDetailList.do", new SSickDetailListCMD()); // S34 기록물 상세 페이지
-		cont.put("/SSickUpload.do", new SSickUploadCMD()); // S35 기록물 업로드 페이지
+//중복		cont.put("/SBookmark.do", new SBookmarkCMD()); // S30 관심병원 리스트 페이지
+//		cont.put("/SSickMediaList.do", new SSickMediaListCMD()); // S31 기록물-기록물 리스트페이지
+//		cont.put("/SSickDocuList.do", new SSickDocuListCMD()); // S32 서류-기록물 리스트페이지 
+//		cont.put("/SSickDetailList.do", new SSickDetailListCMD()); // S34 기록물 상세 페이지
+//		cont.put("/SSickUpload.do", new SSickUploadCMD()); // S35 기록물 업로드 페이지
 		
 		cont.put("/SDeclaration.do", new SDeclarationCMD()); //S36 병원 신고 페이지로 이동
 		cont.put("/SDeclarationInsert.do", new SDeclarationInsertCMD()); // 병원신고처리 후 목록으로

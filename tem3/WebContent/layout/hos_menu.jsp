@@ -101,14 +101,7 @@
 							class="nav-link">
 								<p>의사목록 관리</p>
 						</a></li>
-						<li class="nav-item"><a href="#" class="nav-link">
-								<p>병원휴일 관리_미정</p>
-						<li class="nav-item"><a href="#" class="nav-link">
-								<p>의사휴일 관리_미정</p>
-						</a></li>
-
-
-						<li class="nav-item"><a href="로그아웃페이지"
+						<li class="nav-item"><a id="logout" href="Logout.do"
 							class="nav-link d-block text-center" style="padding: 20px;">
 								<p>
 									<small><strong>로그아웃</strong></small>
