@@ -24,7 +24,7 @@ public class LogoutCMD implements Command {
 			System.out.println("로그인 상태가 아님");
 		}
 		
-		String path = null;
+		String path = "/ToLoginPage.do";
 		return path;
 	}
 
