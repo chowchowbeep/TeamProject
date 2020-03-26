@@ -15,7 +15,7 @@ public class MSearchListNormalCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String sicId = "sic1";
+		String sicId = request.getParameter("sicId");
 		normalDAO dao = new normalDAO();
 		sickJoinMemberDTO dto = new sickJoinMemberDTO();
 		dto = dao.selectone(sicId);
@@ -27,8 +27,6 @@ public class MSearchListNormalCMD implements Command {
 		
 		
 		String path ="aView/kimmj/master-search-list-normal.jsp";  //M2 일반회원 정보 검색	 결과 상세 페이지
-		
-		
 		return path;
 	}
 

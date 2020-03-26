@@ -9,30 +9,21 @@ import javax.servlet.http.HttpServletResponse;
 import command.Command;
 import kimmj.decDAO;
 import lastdto.declarationDTO;
+import net.sf.json.JSONArray;
 
-public class MPoliceDetailCMD implements Command {
+public class MPoliceDetailTwoAjaxCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String sicId = request.getParameter("sicId");
 		decDAO dao = new decDAO();
-		declarationDTO dto = new declarationDTO();
-		dto = dao.selectone(sicId);
+		String p_no = request.getParameter("p_no");
+		String hos_id = request.getParameter("hos_id");
+		int decyn = dao.getprd(p_no, hos_id);
 		
-		request.setAttribute("dto", dto);
-		request.setAttribute("sicId", sicId);
-		
-		
-	
-		
-	
-		String path ="aView/kimmj/master-police-detail.jsp"; //
+
+		String path ="ajax:" + JSONArray.fromObject(decyn);
 		return path;
-		
-		
 	}
-	
-	
 
 }

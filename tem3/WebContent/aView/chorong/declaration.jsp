@@ -11,8 +11,7 @@
 
 
 <!-- 모달 -->
-<div class="modal" id="modal" role="dialog"
-	aria-labelledby="modalLabel">
+<div class="modal" id="modal" role="dialog" aria-labelledby="modalLabel">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -24,7 +23,7 @@
 			</div>
 			<div class="modal-body" id="modalBody"></div>
 			<div class="modal-footer">
-				<button id="closeModalBtn" type="button" class="btn btn-secondary"
+				<button id="submitOkBtn" type="button" class="btn btn-secondary"
 					data-dismiss="modal">확인</button>
 			</div>
 		</div>
@@ -79,8 +78,8 @@
 											<!-- 병원id값, 병원이름 가져오기. 병원id value 수정하기 -->
 											<!-- param.name test해보기 -->
 											<input type="text" class="form-control"
-												value="병원1${dto.hosName}" readonly> <input
-												type="hidden" id="hosId" name="hosId" value="hos1">
+												value="${param.hosName}" readonly> <input
+												type="hidden" id="hosId" name="hosId" value="${param.hosId}">
 											<br> <label for="decCont">신고내용</label>
 											<textarea id="decCont" name="decCont" class="form-control"
 												style="height: 180px;" placeholder="신고내용을 입력해주세요 "></textarea>
@@ -97,10 +96,8 @@
 							<!-- 신청폼푸터 // 제출 및 기타 버튼 위치 -->
 							<!-- 클릭시 신고완료 알림 창 띄운 후 상세 페이지로 이동 -->
 							<div class="card-footer">
-								<input type="hidden" id="id" name="id" value="sic1">
-								<!-- 로그인중인 아이디(임시로 sic1로 설정) 나중에 수정-->
 								<input type="reset" class="btn btn-secondary" value="초기화">
-								<button onclick="decFormCheck()"
+								<button type="button" onclick="decFormCheck()"
 									class="btn btn-secondary float-right">신고하기</button>
 							</div>
 
@@ -132,23 +129,25 @@
 		var cont = $("#decCont").val();
 		var noContHead = "내용없음";
 		var noContCont = "신고내용을 입력해 주세요.";
-		var submittedHead = "제출완료";
-		var submitted = "신고가 완료되었습니다.";
+		var submittedHead = "신고하시겠습니까?";
+		var submitted = "신고를 완료합니다.";
 		if (cont == null || cont == "") {
 			event.preventDefault();
 			$('#modal').modal(); // 내용없음 모달 
 			$("#modalLabel").html(noContHead);
 			$("#modalBody").html(noContCont);
-			
+
 		} else {
 			event.preventDefault();
 			$('#modal').modal(); // 신고완료 모달
 			$("#modalLabel").html(submittedHead);
 			$("#modalBody").html(submitted);
-			frm.action = "SDeclarationInsert.do";
-			frm.submit();
 		}
 	}
+	$("#submitOkBtn").on("click", function() {
+		frm.action = "SDeclarationInsert.do";
+		frm.submit();
+	});
 </script>
 </body>
 </html>

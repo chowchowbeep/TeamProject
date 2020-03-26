@@ -14,7 +14,7 @@ public class SMedBeforeMedListCMD implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 //		String id = request.getParameter("id"); 
-		String id = "sic1"; // 가상의 파라미터 
+		String id = (String) request.getSession().getAttribute("memberId");
 
 		request.setAttribute("id", id);
 		request.setAttribute("doneStatus", "before");
