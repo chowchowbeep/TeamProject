@@ -65,19 +65,18 @@
 								</div>
 							</div>
 						</div>
-						<label for="exampleInputFile">파일선택</label>
+						<label for="file">파일선택</label>
 						<!-- 파일 선택시 사용할 form 태그 <form method="post" enctype="multipart/form-data" action="../FileUpload.do"> -->
 						<div class="input-group">
 							<div class="custom-file">
 								<input type="file" class="custom-file-input"
 									id="file" name="file">
 								<!-- data-browse="찾기" 사용하면 버튼 내용값 바꿀 수 있음 -->
-								<label class="custom-file-label" for="exampleInputFile"
+								<label class="custom-file-label" for="file"
 									data-browse="찾기"></label>
 							</div>
 
 						</div>
-
 
 						<div class="form-group row">
 							<label for="callArtrNo" class="col-sm-2 col-form-label" >의사</label>
@@ -142,6 +141,13 @@
 
 
 <div>
+
+<!-- bs-custom-file-input -->
+<script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	  bsCustomFileInput.init();
+	});</script>
 		<!-- Control Sidebar -->
 		<aside class="control-sidebar control-sidebar-dark">
 			<!-- Control sidebar content goes here -->

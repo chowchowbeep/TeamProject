@@ -29,6 +29,7 @@ public class SickMemCheckCMD implements Command {
 		request.setAttribute("dto",dto);
 
 		String path="aView/leedy/sick_memCheck.jsp";
+		
 		return path;
 	}
 

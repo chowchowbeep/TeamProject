@@ -38,13 +38,14 @@ public class HosFileUploadDAO extends DAO{
 		return list;
 	}
 	
-	
+	//파일을 업로드 할 때 사용하는 메소드
 	public int insertFile(docuFileDTO dto1, docuInfoDTO dto2) {
 		int n = 0;
 		String sql1 = "insert into docu_file(dcry_no,file_type,file_name) "
 				+" values(dcry_seq.nextval, ?, ?)"; //docuFile용 sql
-		String sql2 = "insert into docu_info(artr_no,dcry_dttm,dcry_etc) "
+		String sql2 = "insert into docu_info(artr_no,dcry_dttm,dcry_etc,) "
 				+" values(?, ?, ?)"; //docuInfo용 sql
+	
 		try {
 			pstmt = conn.prepareStatement(sql1);
 			pstmt.setString(1, dto1.getFileName());

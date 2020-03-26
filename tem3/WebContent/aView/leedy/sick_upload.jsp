@@ -35,9 +35,6 @@
 					
 
 						<div class="card-body text-center " style="border: none;">
-							<p>촬영 또는 업로드를 해주세요</p>
-						
-							<a class="btn btn-app"> <i class="fas fa-camera"></i> 촬영</a> 
 							<a class="btn btn-app col-2"> <i class="fas fa-edit "><div class="custom-file" style="font-size:0.88em">업로드
 									<input type="file" class="custom-file-input"
 										id="exampleInputFile">
@@ -56,7 +53,9 @@
 					
 					<!-- /.card -->
 					<!-- form start -->
-					<form class="form-horizontal">
+					<form name="sickUp" method="post" enctype="multipart/form-data"
+					action="SSickUpload.do" class="form-horizontal">
+					
 						<div class="card-body">
 
 							<div class="form-group row">
