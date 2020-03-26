@@ -61,6 +61,6 @@ public class HHospitalSignupCMD implements Command {
 		int n = dao.searchInsert(list);
 		
 //인덱스페이지에서 버튼 눌렀을 때 회원
-		return "aView/taeyoung/logintest.jsp";
+		return "redirect:ToLoginPage.do";
 	}
 }

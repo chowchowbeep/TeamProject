@@ -82,7 +82,7 @@ public class ReviewDAO extends DAO{
 	}
 	
 	// 게시글 수 조회
-		public int getBoardCnt(String hosId) {
+		public double getBoardCnt(String hosId) {
 			int cnt =0;
 			String sql ="select count(*) cnt " + 
 						"from review " + 
@@ -107,7 +107,7 @@ public class ReviewDAO extends DAO{
 		
 	//페이지별로 4줄씩 리뷰 출력 
 		public ArrayList<reviewListDTO> selectHos(String hosId, int startNum, int endNum){
-			 sql = "select * from ( " + 
+			 sql =  "select * from ( " + 
 			 		"select row_number() over(order by rv_no desc) num ,SIC_ID,HOS_ID,STAR_POINT,RV_CONT," + 
 			 		"(select sc.SIC_NAME from sick_member sc where sc.SIC_ID = rv.SIC_ID )name  " + 
 			 		"from review rv " + 

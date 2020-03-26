@@ -463,7 +463,7 @@ label.error {
 													id="hosId" name="hosId" value="${paramValues.hosId[0]}">
 												<input type="text" id="hosName" name="hosName"
 													class="form-control"
-													value="${paramValues.hosId[0]}${paramValues.hosName[0]}"
+													value="${paramValues.hosName[0]}"
 													readonly>
 											</div>
 											<div class="form-group">

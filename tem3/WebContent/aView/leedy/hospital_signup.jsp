@@ -317,7 +317,7 @@ $(function(){
 				</form>
 				<br>
 				<hr>
-				<a href="/tem3/aView/taeyoung/logintest.jsp" class="text-center">이미
+				<a href="ToLoginPage.do" class="text-center">이미
 					아이디가 있으신가요?</a>
 			</div>
 			<!-- /.form-box -->

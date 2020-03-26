@@ -7,9 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import dto.mediRqstDTO;
 import kcr.MediRqdetailDAO;
-import lastdto.mediRqdetailDTO;
 
 public class SCancelRqCMD implements Command {
 

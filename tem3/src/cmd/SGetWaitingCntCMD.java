@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
 import kcr.MediRqdetailDAO;
-import lastdto.mediRqdetailDTO;
 import net.sf.json.JSONObject;
 
 public class SGetWaitingCntCMD implements Command {

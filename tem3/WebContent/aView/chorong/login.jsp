@@ -83,7 +83,7 @@
 			return false;
 		}
 		//수정필요
-		if($("radio[name='memberType']:checked").length = 0){
+		if($("input[name='memberType']:checked").length == 0){
 			alert("회원유형을 선택해주세요.");                    
 			memberType.focus();
 			event.preventDefault(); 

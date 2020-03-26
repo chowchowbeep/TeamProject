@@ -19,7 +19,7 @@
 					</div>
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right">
-							<li class="breadcrumb-item"><a href="#">홈</a></li>
+							<li class="breadcrumb-item">홈</li>
 							<li class="breadcrumb-item active">병원회원</li>
 						</ol>
 					</div>
@@ -34,7 +34,7 @@
 
 			<div class="card card-info">
 				<div class="card-header  card text-center">
-					<h3 class="card-title">진료 기록물 업로드</h3>
+					<h3 class="card-title">진료기록물 업로드</h3>
 				</div>
 				<!-- /.card-header -->
 
@@ -42,7 +42,7 @@
 					action="HHospitalUpload.do" class="form-horizontal">
 					<div class="card-body">
 						<div class="form-group">
-							<label for="exampleInputEmail1">파일 타입</label>
+							<label for="file_type">파일 타입</label>
 
 							<div class="col-sm-6">
 								<!-- radio -->
@@ -65,19 +65,18 @@
 								</div>
 							</div>
 						</div>
-						<label for="exampleInputFile">파일선택</label>
+						<label for="file">파일선택</label>
 						<!-- 파일 선택시 사용할 form 태그 <form method="post" enctype="multipart/form-data" action="../FileUpload.do"> -->
 						<div class="input-group">
 							<div class="custom-file">
 								<input type="file" class="custom-file-input"
 									id="file" name="file">
 								<!-- data-browse="찾기" 사용하면 버튼 내용값 바꿀 수 있음 -->
-								<label class="custom-file-label" for="exampleInputFile"
+								<label class="custom-file-label" for="file"
 									data-browse="찾기"></label>
 							</div>
 
 						</div>
-
 
 						<div class="form-group row">
 							<label for="callArtrNo" class="col-sm-2 col-form-label" >의사</label>
@@ -141,13 +140,15 @@
 		</section>
 
 
-<div>
-		<!-- Control Sidebar -->
-		<aside class="control-sidebar control-sidebar-dark">
-			<!-- Control sidebar content goes here -->
-		</aside>
-		<!-- /.control-sidebar -->
-	</div>
+
+<!-- bs-custom-file-input -->
+<script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	  bsCustomFileInput.init();
+	});</script>
+		
+
 	<!-- ./wrapper -->
 <%@ include file="/layout/all_footer.jsp"%>
 </body>
