@@ -19,9 +19,9 @@ public class LoginOkCMD implements Command {
 		String path = null;
 
 		if (memberType.equals("hosMember")) {
-			path = "/HHospitalMain.do";
+			path = "HHospitalMain.do";
 		} else if (memberType.equals("sickMember")) {
-			path = "/SSickMain.do";
+			path = "SSickMain.do";
 		}
 		
 //		HttpSession session = request.getSession();

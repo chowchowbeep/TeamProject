@@ -306,9 +306,7 @@ public class Contoller extends HttpServlet {
 		String uri = request.getRequestURI();
 		String context = request.getContextPath();
 		String path = uri.substring(context.length());
-		System.out.println("uri정보:" + uri);
-		System.out.println("context정보:" + context);
-		System.out.println("path정보:" + path);
+		System.out.println("==========path정보:" + path);
 		Command command = cont.get(path); // 이동할 path를 받음
 		if (command != null) {
 			String page = command.execute(request, response); // 해당패스를 처리할 클래스안에서 처리후)

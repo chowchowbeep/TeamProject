@@ -87,7 +87,7 @@ $(function() {
 							<p class="card-text">${list.hosAddr }</p>
 							<p>전화번호 : ${list.hosPhone }</p>
 							<p>진료 시간 :${list.hosBizTime }</p>
-							<a href="SHospitalInfo.do" class="btn btn-primary">접수 예약 및 상세페이지</a>
+							<a href="SHospitalInfo.do?hosId=${list.hosId}" class="btn btn-primary">접수 예약 및 상세페이지</a>
 						</div>
 					</div>
 				</div>

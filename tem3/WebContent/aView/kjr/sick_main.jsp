@@ -63,7 +63,7 @@ function searchList(){
 
 		<div class="card text-center  topmg">
 			<div class="card" style="margin: 5px;">
-				<div class="card-header text-left"> {세션에서 이름정보 가져오기}님의 건강정보</div>
+				<div class="card-header text-center"> ${dto.sicName }님의 건강정보</div>
 				<div class="card-body">
 				
 					<c:forEach items="${hIndto}" var="dto">

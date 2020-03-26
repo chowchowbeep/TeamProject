@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import command.Command;
 import kjr.BookmarkDAO;
@@ -24,8 +25,11 @@ public class SHospitalInfoCMD implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String path = "aView/kjr/hospital_info.jsp"; //S8 병원정보 상세조회 페이지
-		String sicId = "sic1";//세션에서 가져오기
-		String hosId = "hos4"; //request.getParameter("hosId");
+		HttpSession session = request.getSession(true);
+		String sessionId = (String)session.getAttribute("memberId");
+		
+		String sicId = sessionId;//세션에서 가져오기
+		String hosId = request.getParameter("hosId");
 		System.out.println("shospital인포~~ "+hosId);
 		//id로 병원정보 가져오기
 		HosmemberDAO hosDao = new HosmemberDAO();

@@ -71,6 +71,9 @@
 </head>
 <body>
 	<div class="container">
+	<div class="mar text-center">
+	${hosId }님 어서오세요
+	</div>
 		<div class="row" id="btnDiv">
 			<div class="col-sm mar">
 				<button type="button" class="btn btn-primary btn-lg btn-block" id="startBtn">영업등록</button>

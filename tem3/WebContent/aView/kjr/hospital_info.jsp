@@ -170,7 +170,7 @@
 			<button type="button" class="btn btn-primary btn-lg btn-block" id="SResRequest">예약
 				신청</button>
 		</div>
-		<iframe src="SreviewBoardCMD.do?hosId=${list[0].hosId}&currentPage=1"  
+		<iframe src="SreviewBoardCMD.do?hosId=${list[0].hosId}&currentPage=1&nowblock=1"  
 		frameborder="0" id="the_iframe" onload="calcHeight()" 
 		style="overflow-x:hidden; overflow:auto; width:100%; min-height:500px;">
 		</iframe>	
