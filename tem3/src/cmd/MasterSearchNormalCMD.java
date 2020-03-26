@@ -17,6 +17,7 @@ public class MasterSearchNormalCMD implements Command {
 		
 		
 		
+		
 		return path;
 	}
 
