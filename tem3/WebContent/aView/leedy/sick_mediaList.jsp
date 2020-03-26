@@ -35,17 +35,9 @@
 
 			<div class="card table-responsive pad card text-center">
 				<div class="btn-group btn-group-toggle">
-					<label class="btn btn-secondary active"> <input
-						type="radio" name="options" id="option1" autocomplete="off"
-						checked
-						onclick="location.href='/tem3/aView/leedy/sick_mediaList.jsp'">
+					<label class="btn btn-secondary active">
 						기록물
-					</label> <label class="btn btn-secondary"> <input type="radio"
-						name="options" id="option2" autocomplete="off"
-						onclick="location.href='/tem3/aView/leedy/sick_docuList.jsp'">
-						서류
-					</label>
-
+					</label> 
 				</div>
 			</div>
 
