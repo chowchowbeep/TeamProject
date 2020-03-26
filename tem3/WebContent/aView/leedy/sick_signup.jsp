@@ -160,7 +160,7 @@ function inputIdUnChk() {
         <a href="#" class="btn btn-block btn-primary"> 페이스북 </a>
       </div>
 <hr>
-      <a href="/tem3/aView/taeyoung/logintest.jsp" class="text-center">이미 아이디가 있으신가요?</a>
+      <a href="ToLoginPage.do" class="text-center">이미 아이디가 있으신가요?</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

@@ -34,7 +34,7 @@ public class SSickSignupCMD implements Command {
 		int r=dao.sickInsert(dto);
 		
 		//인덱스페이지에서 버튼 눌렀을 때
-		return "aView/taeyoung/logintest.jsp";
+		return "redirect:ToLoginPage.do";
 	}
 
 }
