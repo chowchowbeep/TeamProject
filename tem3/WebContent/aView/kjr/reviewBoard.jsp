@@ -86,13 +86,18 @@
                   </tbody>
                 </table>
                 <br>
-                ${totalpage }
+               ${vo.progress }
+                ${ifTest}
                 <ul class="pagination pagination-sm m-0 float-right">
-                  <li class="page-item"><a class="page-link" href="SreviewBoardCMD.do">&laquo;</a></li>
-                  <c:forEach begin="1" end="${totalpage }" step="1"  var="i">
-               	   <li class="page-item"><a class="page-link" href='SreviewBoardCMD.do?currentPage=${i }&hosId=${param.hosId}'>${i }</a></li>
+                <c:if test="${vo.progress }>0">
+                 "ABCDASD"
+                </c:if>
+                  <c:forEach begin="${vo.btnStart }" end="${vo.displayPage }" step="1"  var="i">
+               	   <li class="page-item"><a class="page-link" href="SreviewBoardCMD.do?currentPage=${i }&hosId=${param.hosId}">${i }</a></li>
                   </c:forEach>
-                  <li class="page-item"><a class="page-link" href="SreviewBoardCMD.do">&raquo;</a></li>
+                   <c:if test="${ifTest}">
+                  <li class="page-item"><a class="page-link" href="SreviewBoardCMD.do?currentPage=${vo.next*2 }&hosId=${param.hosId}">&raquo;</a></li>
+                </c:if>
                 </ul>
               </div>
               <!-- /.card-body -->
