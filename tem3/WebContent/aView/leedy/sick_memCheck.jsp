@@ -86,7 +86,7 @@
 				<div class="card-footer  text-center">
 					<button type="submit" class="btn btn-info" >수정하기</button>
 					<!-- cancel에는 button type reset? -->
-					<button type="reset" class="btn btn-default" onclick="location.href='/tem3/aView/kjr/sick_main.jsp'">확인</button>
+					<button type="reset" class="btn btn-default" onclick="location.href='SSickMain.do'">확인</button>
 				</div>
 				<!-- /.card-footer -->
 			</form>
