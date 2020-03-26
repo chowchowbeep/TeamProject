@@ -14,7 +14,7 @@
 				</div>
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="#">홈</a></li>
+						<li class="breadcrumb-item">홈</li>
 						<li class="breadcrumb-item active">일반회원</li>
 					</ol>
 				</div>

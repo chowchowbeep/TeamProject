@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
-<%@ include file="/layout/hos_head.jsp"%>
-<%@ include file="/layout/hos_menu.jsp"%>
+<%@ include file="/layout/sick_head.jsp"%>
+<%@ include file="/layout/sick_menu.jsp"%>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
 				</div>
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="#">홈</a></li>
+						<li class="breadcrumb-item">홈</li>
 						<li class="breadcrumb-item active">일반회원</li>
 					</ol>
 				</div>
@@ -73,7 +73,7 @@
 							</div>
 							<div class="modal-body">
 								<img class="mw-100 mh-100"
-									src="${pageContext.request.contextPath}/pages/forms/nyang.jpg">사진
+									src="${pageContext.request.contextPath}/upload/고양.jpg">사진
 								파일이 떠용
 							</div>
 							<div class="modal-footer">
@@ -95,7 +95,7 @@
 									<a href="sick_detailList.jsp" data-toggle="modal"
 										data-target="#exampleModal"> 
 							
-										<img src="nyang.jpg"
+										<img src="${pageContext.request.contextPath}/upload/고양.jpg"
 										class="card-img" alt="..."></a>
 								</div>
 								<div class="col-md-8">
@@ -117,7 +117,7 @@
 							<div class="row no-gutters">
 								<div class="col-md-4 ">
 									<a href="sick_detailList.jsp" data-toggle="modal"
-										data-target="#exampleModal"> <img src="nyang.jpg"
+										data-target="#exampleModal"> <img src="${pageContext.request.contextPath}/upload/고양.jpg"
 										class="card-img" alt="..."></a>
 								</div>
 								<div class="col-md-8">
@@ -139,7 +139,7 @@
 							<div class="row no-gutters">
 								<div class="col-md-4 ">
 									<a href="sick_detailList.jsp" data-toggle="modal"
-										data-target="#exampleModal"> <img src="nyang.jpg"
+										data-target="#exampleModal"> <img src="${pageContext.request.contextPath}/upload/고양.jpg"
 										class="card-img" alt="..."></a>
 								</div>
 								<div class="col-md-8">
