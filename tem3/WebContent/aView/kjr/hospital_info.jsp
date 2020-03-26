@@ -153,8 +153,6 @@
 									</c:otherwise>
 							</c:choose>
 							</c:forEach>
-								
-						
 						</div>
 					
 				</div>
