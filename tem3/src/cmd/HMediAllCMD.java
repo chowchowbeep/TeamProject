@@ -22,6 +22,7 @@ public class HMediAllCMD implements Command {
 		Medi_allDAO dao = new Medi_allDAO();
 		List<mediListDTO> list = dao.selectList(id);
 		
+		
 		request.setAttribute("list", list);
 		return path;
 	}

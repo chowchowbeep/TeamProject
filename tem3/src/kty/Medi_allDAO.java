@@ -11,7 +11,7 @@ public class Medi_allDAO extends DAO {
 			public List<mediListDTO> selectList(String hosId) {
 				List<mediListDTO> list = new ArrayList<mediListDTO>();
 				try {
-					String sql = "SELECT RQST_TY, RQST_DTTM, SIC_NAME, ARTR_NAME" + 
+					String sql = "SELECT RQST_TY, RQST_DTTM, SIC_NAME, ARTR_NAME, SIC_PHONE" + 
 								" FROM MEDI_List where hos_id=?";
 					pstmt = conn.prepareStatement(sql);
 					pstmt.setString(1, hosId);
@@ -22,6 +22,7 @@ public class Medi_allDAO extends DAO {
 						dto.setRqstDttm(rs.getDate("RQST_DTTM"));
 						dto.setSicName(rs.getString("SIC_NAME"));
 						dto.setArtrName(rs.getString("ARTR_NAME"));
+						dto.setSicPhone(rs.getString("SIC_PHONE"));
 						list.add(dto);
 					}
 				} catch (Exception e) {

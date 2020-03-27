@@ -102,7 +102,7 @@
 							<td>일반취소</td>
 						</c:when>
 					</c:choose>
-                  <td><a href="HMediDetail.do?rqst_no=${dto.rqstNo }" class="text-muted">${dto.sicName}</a><span class="badge bg-warning">NEW</span></td>
+                  <td><a href="HMediDetail.do?rqstNo=${dto.rqstNo }&sicName=${dto.sicName }&sicPhone=${dto.sicPhone}" class="text-muted">${dto.sicName}</a><span class="badge bg-warning">NEW</span></td>
                   <td>${dto.rqstDttm}</td>
                   <td>
                     <i class="fas fa-search">${dto.artrName}</i>
