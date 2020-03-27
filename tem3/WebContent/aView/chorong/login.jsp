@@ -51,9 +51,9 @@
 							<a href="forgot-password.html">아이디/비밀번호 찾기</a>
 						</p>
 						<p class="mb-0">
-						<a href="<%=request.getContextPath()%>/SSickSignupAction.do"
+						<a href="SSickSignupAction.do"
 							class="text-center">일반회원가입</a>&nbsp;&nbsp; <a
-							href="<%=request.getContextPath()%>/HHospitalSignupAction.do"
+							href="HHospitalSignupAction.do"
 							class="text-center">병원회원가입</a>
 					</p>
 					</div>

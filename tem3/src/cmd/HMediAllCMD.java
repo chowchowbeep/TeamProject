@@ -17,9 +17,12 @@ public class HMediAllCMD implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		 //(전체)진료신청 현황 리스트 페이지 로 이동
+		String id = (String) request.getSession().getAttribute("memberId");
 		String path ="aView/taeyoung/medi_all.jsp"; 
 		Medi_allDAO dao = new Medi_allDAO();
-		List<mediListDTO> list = dao.selectList();
+		List<mediListDTO> list = dao.selectList(id);
+		
+		
 		request.setAttribute("list", list);
 		return path;
 	}

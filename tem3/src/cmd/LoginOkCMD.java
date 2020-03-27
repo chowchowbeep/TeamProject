@@ -16,13 +16,19 @@ public class LoginOkCMD implements Command {
 			throws ServletException, IOException {
 		String memberType = request.getParameter("memberType");
 		String id = request.getParameter("id");
+		System.out.println("=======================loginOkCMD+++++"+memberType);	
+		System.out.println("=======================loginOkCMD+++++"+id);	
+
 		String path = null;
 
-		if (memberType.equals("hosMember")) {
-			path = "/HHospitalMain.do";
+		if (memberType.equals("sickMember") && id.equals("admin")) { //관리자메인이동 임시
+			path = "MMain.do"; 
+		} else if (memberType.equals("hosMember")) {
+			path = "HHospitalMain.do";
 		} else if (memberType.equals("sickMember")) {
-			path = "/SSickMain.do";
-		}
+			path = "SSickMain.do";
+		} 
+			
 		
 //		HttpSession session = request.getSession();
 //		if (session.isNew() || session.getAttribute("memberId") == null) {

@@ -30,6 +30,37 @@
 5. 접수증 페이지 이동 기능
 */
 $(function() { //window load이벤트 생략해서 적은것
+	//삭제작업
+	$("tbody").on("click","th",function(){
+		console.log($(this).attr('name'));
+		var thisTr = (this).closest("tr");
+		//id값의 글번호를 받아와서 dao에서 delete작업하고 결과 리턴받아서 if문으로 삭제 alert 띄우기
+		$.ajax("/tem3/ajax/BookmarkDeleteAjaxCMD.do", {
+			type:"POST",
+			dataType : "json",
+			data : {hosId : $(this).attr("name")
+			}
+		})
+			.done(function(data) {
+				if(data){
+					thisTr.remove();
+					alert("삭제되었습니다.");
+				}else{
+					alert("다시 삭제해주세요.");
+				}
+				location.href="SBookmark.do";//내가쓴리뷰페이지로이동
+			})
+	});
+	
+	$("tbody").on("click","tr",function(){
+		var id = $(this).attr("id");
+		$("#frm").append("<input type='text' name='hosId' id='hosId' value='"+id+"'>");
+		document.frm.action="SHospitalInfo.do";
+		document.frm.method="post";
+		document.frm.submit();
+		submit();
+	});
+	
 	//건강정보수정 페이지로이동
 	$("#edit").on("click", function() {
 		location.href='SSickHealModify.do';
@@ -63,7 +94,7 @@ function searchList(){
 
 		<div class="card text-center  topmg">
 			<div class="card" style="margin: 5px;">
-				<div class="card-header text-left"> {세션에서 이름정보 가져오기}님의 건강정보</div>
+				<div class="card-header text-center"> ${dto.sicName }님의 건강정보</div>
 				<div class="card-body">
 				
 					<c:forEach items="${hIndto}" var="dto">
@@ -106,7 +137,7 @@ function searchList(){
 				<div class="input-group mb-3">
 					<input type="text" class="form-control"	placeholder="병원명" name="hosName" id="hosName">
 					<div class="input-group-append">
-						<button class="btn btn-outline-secondary" type="submit" id="searchBtn"><i class="fas fa-search"></i></button>
+						<button class="btn btn-outline-secondary" type="button" id="searchBtn"><i class="fas fa-search"></i></button>
 					</div>
 				</div>
 			</form>

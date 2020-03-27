@@ -102,12 +102,10 @@
 							<td>일반취소</td>
 						</c:when>
 					</c:choose>
-                  <td>${dto.sicName}<span class="badge bg-warning">NEW</span></td>
+                  <td><a href="HMediDetail.do?rqstNo=${dto.rqstNo }&sicName=${dto.sicName }&sicPhone=${dto.sicPhone}" class="text-muted">${dto.sicName}</a><span class="badge bg-warning">NEW</span></td>
                   <td>${dto.rqstDttm}</td>
                   <td>
-                    <a href="#" class="text-muted">
                     <i class="fas fa-search">${dto.artrName}</i>
-                      </a>
                   </td>
                 </tr>
                 </c:forEach>
@@ -129,10 +127,10 @@
 <%@ include file="/layout/all_footer.jsp"%>
 
 <script>
-	$("tr").click(function() {
-		console.log("click");
-		location.href = "${pageContext.request.contextPath}/ ";
-	})
+// 	$("tr").click(function() {
+// 		console.log("click");
+// 		location.href = "${pageContext.request.contextPath}/ ";
+// 	})
 </script>
 </body>
 </html>

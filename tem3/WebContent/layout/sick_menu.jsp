@@ -122,7 +122,7 @@
 								<p>의료 기록물</p>
 						</a></li>
 						
-						<li class="nav-item"><a href="로그아웃처리하는 .do"
+						<li class="nav-item"><a href="Logout.do"
 							class="nav-link d-block text-center" style="padding: 20px;">
 								<p>
 									<small><strong>로그아웃</strong></small>

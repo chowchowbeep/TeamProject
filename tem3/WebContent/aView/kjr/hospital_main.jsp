@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -31,8 +32,8 @@
 		//영업 등록 버튼 클릭 -> (DB) 오픈시간 값 입력&영업상태 값 진료중으로 변경
 	
 		$("#btnDiv").on("click","button",function(){
-			var btnId = $(this).attr("id");
-			clickBtnFunc(btnId)
+			var stt = $(this).attr("name");
+			clickBtnFunc(stt);
 		});
 		
 		function clickBtnFunc(btnId){
@@ -53,12 +54,36 @@
 			
 		}
 		
-		//영업 마감 버튼 클릭 -> (DB) 마감시간 값 입력&영업상태 값 마감으로 변경
-
-		//접수신청순으로 전부 출력(진료신청번호, 이름, (접-도착예정시간)(예-예약시간),의사)
-
-		//SYSDATE의 예약시간순으로 당일진료리스트 출력 (타이머가능하면 사용 )
-		//예약시간이 지났음에도 도착하지않은경우 취소상태로 변경시킬수있었으면좋겠다.
+		$("tbody").on("click","span",function(){
+			var stt=$(this).attr("name");
+			var thisTr = (this).closest("form");
+			console.log(thisTr);
+			
+			$.ajax("/tem3/ajax/sttUpdateAjaxCMD.do", {
+				type:"POST",
+				dataType : "json",
+				data : formData
+			})
+				.done(function(data) {
+					if(data){
+						if(){
+							alert("완료되었습니다.");
+						}else if(){
+							alert("취소되었습니다.");
+						}
+						
+					}else{
+						alert("다시 시도해주세요.");
+					}
+					location.href="HHospitalMainCMD.do";//내가쓴리뷰페이지로이동
+				})
+			
+			
+			
+			
+			
+			
+		})
 
 	})
 </script>
@@ -71,6 +96,9 @@
 </head>
 <body>
 	<div class="container">
+	<div class="mar text-center">
+	${hosId }님 어서오세요
+	</div>
 		<div class="row" id="btnDiv">
 			<div class="col-sm mar">
 				<button type="button" class="btn btn-primary btn-lg btn-block" id="startBtn">영업등록</button>
@@ -85,20 +113,29 @@
 				<div class="card" style="margin: 5px;">
 					<div class="card-header text-left">접수현황</div>
 					<div class="card-body">
-						<table class="table table-hover">
+						<table class="table table-hover" >
 							<thead>
 								<tr>
 									<th scope="col">#</th>
-									<th scope="col">이름(ID)</th>
-									<th scope="col">예상도착시간</th>
+									<th scope="col" width="100px">이름(ID)</th>
+									<th scope="col"width="80px"padding="0px"margin="0px">예상시간</th>
+									<th scope="col"width="80px">접수처리</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<th scope="row">1</th>
-									<td>Mark</td>
-									<td>10분뒤</td>
-								</tr>
+							
+								<c:forEach items="${mediList }" var="list">
+										<tr id="${list.no }">
+											<th scope="row">${list.num }</th>
+											<td id="${list.sicId }" name="sicId" >${list.sicName }<br>(${list.sicId })</td>
+											<td>${list.resTime }</td>
+											<td> 
+												<span class="badge bg-success" name="Y">접수완료</span>
+												<span class="badge bg-danger" name="N">예약취소</span>
+											</td>
+										</tr>
+								</c:forEach>
+							
 							</tbody>
 						</table>
 					</div>
@@ -115,16 +152,23 @@
 							<thead>
 								<tr>
 									<th scope="col">#</th>
-									<th scope="col">이름(ID)</th>
-									<th scope="col">예약시간</th>
+									<th scope="col" width="100px">이름(ID)</th>
+									<th scope="col"width="80px"padding="0px"margin="0px">예상시간</th>
+									<th scope="col"width="80px">예약처리</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<th scope="row">1</th>
-									<td>Mark</td>
-									<td>10:00</td>
-								</tr>
+								<c:forEach items="${yeList }" var="list">
+										<tr id="${list.no }">
+											<th scope="row">${list.num }</th>
+											<td id="${list.sicId }" name="sicId" >${list.sicName }<br>(${list.sicId })</td>
+											<td>${list.resTime }</td>
+											<td> 
+												<span class="badge bg-success" name="Y">진료완료</span>
+												<span class="badge bg-danger" name="N">예약취소</span>
+											</td>
+										</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>

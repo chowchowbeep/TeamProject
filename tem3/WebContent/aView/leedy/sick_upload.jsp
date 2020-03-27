@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/layout/sick_head.jsp"%>
 <%@ include file="/layout/sick_menu.jsp"%>
 
@@ -37,7 +37,7 @@
 					<!-- /.card -->
 					<!-- form start -->
 					<form name="sickUp" method="post" enctype="multipart/form-data"
-					action="SSickUpload.do" class="form-horizontal">
+					action="SSickUploadAdd.do" class="form-horizontal">
 					
 						<div class="card-body">
 
@@ -105,11 +105,11 @@
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="inputDrcyEtc" class="col-sm-2 col-form-label">비고</label>
+								<label for="drcy_etc" class="col-sm-2 col-form-label">비고</label>
 								<div class="col-sm-10">
 
 									<textarea class="form-control" rows="3"
-										placeholder="비고사항을 적어보세요" id="inputDrcyEtc"></textarea>
+										placeholder="비고사항을 적어보세요" id="drcy_etc"></textarea>
 
 								</div>
 							</div>
@@ -119,7 +119,7 @@
 						</div>
 						<!-- /.card-body -->
 						<div class="card-footer  text-center">
-							<button type="submit" class="btn btn-info">업로드 완료</button>
+							<input type="submit" class="btn btn-info" value="업로드">
 							<!-- cancel에는 button type reset? -->
 
 						</div>
@@ -127,10 +127,6 @@
 					</form>
 				</div>
 				</section>
-
-
-
-
 				<!-- Control Sidebar -->
 				<aside class="control-sidebar control-sidebar-dark">
 					<!-- Control sidebar content goes here -->
@@ -145,13 +141,8 @@
 <script type="text/javascript">
 $(document).ready(function () {
 	  bsCustomFileInput.init();
-	});</script>
-	
-	
+	});</script>	
 	
 <%@ include file="/layout/all_footer.jsp"%>
-
-
-
 </body>
 </html>

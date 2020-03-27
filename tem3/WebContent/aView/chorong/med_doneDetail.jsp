@@ -63,6 +63,8 @@ button {
 										<div class="item rqDetailInfo">
 											<span class="rqDetailLabel">담당의사</span>${dto.artrName }</div>
 
+										
+										<!-- 코드테이블 완성 후 수정할 것. -->
 										<c:if test="${dto.artrSub == 'CS10'}">
 											<div class="item rqDetailInfo">
 												<span class="rqDetailLabel">진료과목</span>내과

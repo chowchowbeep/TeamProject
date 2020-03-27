@@ -9,11 +9,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	
+</script>
 </head>
 <body>
 <div class="card" style="margin: 5px;">
               <div class="card-header">
-                <h3 class="card-title">Bordered Table</h3>
+                <h3 class="card-title">리뷰페이지</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -85,21 +88,26 @@
                   	</c:forEach>
                   </tbody>
                 </table>
-                <br>
-               ${vo.progress }
-                ${ifTest}
-                <ul class="pagination pagination-sm m-0 float-right">
-                <c:if test="${vo.progress }>0">
-                 "ABCDASD"
-                </c:if>
-                  <c:forEach begin="${vo.btnStart }" end="${vo.displayPage }" step="1"  var="i">
-               	   <li class="page-item"><a class="page-link" href="SreviewBoardCMD.do?currentPage=${i }&hosId=${param.hosId}">${i }</a></li>
-                  </c:forEach>
-                   <c:if test="${ifTest}">
-                  <li class="page-item"><a class="page-link" href="SreviewBoardCMD.do?currentPage=${vo.next*2 }&hosId=${param.hosId}">&raquo;</a></li>
-                </c:if>
-                </ul>
-              </div>
+			<br>
+			<button type="button" class="btn btn-primary btn-lg" id="write"	onclick="parent.location.href='SReviewWrite.do?hosId=${param.hosId}'">글쓰기</button>
+			<ul class="pagination pagination-sm m-0 float-right">
+				<c:if test="${proIF }">
+					<li class="page-item"><a class="page-link"
+						href="SreviewBoardCMD.do?currentPage=${vo.progress }&hosId=${param.hosId}&nowblock=${vo.nowblock-1}">&laquo;</a></li>
+				</c:if>
+				<c:forEach begin="${vo.btnStart }" end="${vo.btnStart+vo.displayPage-1 }" step="1"
+					var="i">
+					<c:if test="${i<=vo.totalPage  }">
+						<li class="page-item"><a class="page-link"
+							href="SreviewBoardCMD.do?currentPage=${i }&hosId=${param.hosId}&nowblock=${vo.nowblock}">${i }</a></li>
+					</c:if>
+				</c:forEach>
+				<c:if test="${nextIF}">
+					<li class="page-item"><a class="page-link"
+						href="SreviewBoardCMD.do?currentPage=${vo.next }&hosId=${param.hosId}&nowblock=${vo.nowblock+1}">&raquo;</a></li>
+				</c:if>
+			</ul>
+		</div>
               <!-- /.card-body -->
               
             <!-- /.card -->

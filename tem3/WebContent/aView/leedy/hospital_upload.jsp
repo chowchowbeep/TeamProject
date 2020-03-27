@@ -28,6 +28,7 @@
 			<!-- /.container-fluid -->
 		</section>
 		
+		<img  src="">
 	
 		<!-- Main content -->
 		<section class="content">
@@ -39,7 +40,7 @@
 				<!-- /.card-header -->
 
 				<form name="hosUp" method="post" enctype="multipart/form-data"
-					action="HHospitalUpload.do" class="form-horizontal">
+					action="HHospitalUploadAdd.do" class="form-horizontal">
 					<div class="card-body">
 						<div class="form-group">
 							<label for="file_type">파일 타입</label>
@@ -50,17 +51,17 @@
 									<div class="form-check">
 										<input class="form-check-input" type="radio" name="file_type"
 											checked id="file_type" > <label
-											class="form-check-label" for="">사진</label>
+											class="form-check-label" for="" value="F001">사진</label>
 									</div>
 									<div class="form-check">
 										<input class="form-check-input" type="radio" name="file_type"
 											id="file_type" > <label
-											class="form-check-label" for="">동영상</label>
+											class="form-check-label" for="" value="F002">동영상</label>
 									</div>
 									<div class="form-check">
 										<input class="form-check-input" type="radio" name="file_type"
 											 id="file_type"  > <label
-											class="form-check-label" for="">문서</label>
+											class="form-check-label" for="" value="F003">문서</label>
 									</div>
 								</div>
 							</div>
@@ -78,20 +79,6 @@
 
 						</div>
 
-						<div class="form-group row">
-							<label for="callArtrNo" class="col-sm-2 col-form-label" >의사</label>
-							<div class="col-sm-10">
-								<select class="form-control select2" style="width: 100%;"
-									id="artr_no" name="artr_no">
-									<option>의사를 선택하세요</option>
-									 <!-- list에 있는 거 다 뽑아내는 반복문 -->
-									<c:forEach items="${list }" var="artrList"><!-- items는 request에서 setAttr로  값을 넘길 var은 변수 -->
-									<option value="${artrList.artrNo}">${artrList.artrName }</option>
-									
-									</c:forEach>
-								</select>
-							</div>
-						</div>
 
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">발급일자</label>
@@ -99,17 +86,17 @@
 
 								<div class="row">
 									<div class="col-4">
-										<input type="text" class="form-control" id="inputYear">
+										<input type="text" class="form-control" id="inputYear" name="inputYear">
 
 									</div>
 									<label for="inputYear" class="col-1 col-form-label">년</label>
 									<div class="col-2">
-										<input type="text" class="form-control" id="inputMonth">
+										<input type="text" class="form-control" id="inputMonth" name="inputMonth">
 
 									</div>
 									<label for="inputMonth" class="col-1 col-form-label">월</label>
 									<div class="col-2">
-										<input type="text" class="form-control" id="inputDay">
+										<input type="text" class="form-control" id="inputDay"  name="inputDay">
 
 									</div>
 									<label for="inputDay" class="col-1 col-form-label">일</label>
@@ -122,11 +109,14 @@
 							<div class="col-sm-10">
 
 								<textarea class="form-control" rows="3"
-									placeholder="비고사항을 적어보세요" id="inputDrcyEtc"></textarea>
+									placeholder="비고사항을 적어보세요" name="dcry_etc"></textarea>
 
 							</div>
 						</div>
-
+ 	<input type="hidden" name="sic_id" value="${param.sic_id }">
+						<input type="hidden" name="hos_id" value="${param.hos_id }">
+						<input type="hidden" name="artr_no" value="${param.artr_no }"> 
+<input type="hidden" name="rqst_no" value="${param.rqst_no }"> 
 						
 					</div>
 					<!-- /.card-body -->

@@ -7,18 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
-import lastdto.healthInfoDTO;
-import leedy.sickHealthModifyDAO;
 
-public class SSickHealModifyGoCMD implements Command {
+public class SSickUploadAddCMD implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		healthInfoDTO dto = new healthInfoDTO();
-		sickHealthModifyDAO dao = new sickHealthModifyDAO();
-		
+		// TODO Auto-generated method stub
 		return null;
 	}
 
