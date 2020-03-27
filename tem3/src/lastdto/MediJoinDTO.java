@@ -1,17 +1,45 @@
 package lastdto;
 
 public class MediJoinDTO {
+	int num;
 	int no;//진료번호
 	String stt; //진료상태 기본N 진료완료(접수완료시)Y로 변경
 	String sicId;
 	String sicName;
 	String hosId;
 	String resTime;//접수시간
-	
+	  
 	
 	public MediJoinDTO() {
 		super();
 	}
+
+
+
+	public int getNum() {
+		return num;
+	}
+
+
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
+
+
+	public MediJoinDTO(int num, int no, String stt, String sicId, String sicName, String hosId, String resTime) {
+		super();
+		this.num = num;
+		this.no = no;
+		this.stt = stt;
+		this.sicId = sicId;
+		this.sicName = sicName;
+		this.hosId = hosId;
+		this.resTime = resTime;
+	}
+
+
 
 	public int getNo() {
 		return no;
@@ -49,20 +77,13 @@ public class MediJoinDTO {
 	public void setResTime(String resTime) {
 		this.resTime = resTime;
 	}
-	public MediJoinDTO(int no, String stt, String sicId, String sicName, String hosId, String resTime) {
-		super();
-		this.no = no;
-		this.stt = stt;
-		this.sicId = sicId;
-		this.sicName = sicName;
-		this.hosId = hosId;
-		this.resTime = resTime;
-	}
+
 	@Override
 	public String toString() {
-		return "MediJoinDTO [no=" + no + ", stt=" + stt + ", sicId=" + sicId + ", sicName=" + sicName + ", hosId="
-				+ hosId + ", resTime=" + resTime + "]";
+		return "MediJoinDTO [num=" + num + ", no=" + no + ", stt=" + stt + ", sicId=" + sicId + ", sicName=" + sicName
+				+ ", hosId=" + hosId + ", resTime=" + resTime + "]";
 	}
+
 	
 	
 	
