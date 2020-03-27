@@ -106,7 +106,7 @@ function searchList(){
 				<div class="input-group mb-3">
 					<input type="text" class="form-control"	placeholder="병원명" name="hosName" id="hosName">
 					<div class="input-group-append">
-						<button class="btn btn-outline-secondary" type="submit" id="searchBtn"><i class="fas fa-search"></i></button>
+						<button class="btn btn-outline-secondary" type="button" id="searchBtn"><i class="fas fa-search"></i></button>
 					</div>
 				</div>
 			</form>

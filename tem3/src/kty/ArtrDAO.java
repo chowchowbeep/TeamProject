@@ -27,12 +27,13 @@ public class ArtrDAO extends DAO {
 	}
 	
 	//전체리스트
-	public List<artrInfoDTO> selectList() {
+	public List<artrInfoDTO> selectList(String hosId) {
 		List<artrInfoDTO> list = new ArrayList<artrInfoDTO>();
 		try {
-			String sql = "select * from ARTR_INFO order by ARTR_NO ";
+			String sql = "select * from ARTR_INFO WHERE HOS_ID = ? order by ARTR_NO ";
 			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery(sql);
+			pstmt.setString(1, hosId);
+			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				artrInfoDTO dto = new artrInfoDTO();
 				dto.setArtrNo(rs.getInt("ARTR_NO"));
