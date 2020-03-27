@@ -18,12 +18,7 @@
 				<div class="col-sm-6">
 					<h1>sick_memCheck</h1>
 				</div>
-				<div class="col-sm-6">
-					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item">홈</li>
-						<li class="breadcrumb-item active">일반회원</li>
-					</ol>
-				</div>
+			
 			</div>
 		</div>
 		<!-- /.container-fluid -->
