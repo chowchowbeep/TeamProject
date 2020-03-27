@@ -11,7 +11,7 @@ public class sickMemberDAO extends DAO{
 			public sickMemberDTO select(String id) {
 				System.out.println("id");
 				sickMemberDTO dto = new sickMemberDTO();
-				String sql = "SELECT * FROM Sick_Member where sic_id = ?";
+				String sql = "select s.*, (select name from code where code=s.sic_stt) sicSttNm, (select name from code where code=s.sic_login) sicLoginNm from sick_member s where sic_id= ?";
 				try {
 				
 					pstmt = conn.prepareStatement(sql);
@@ -25,6 +25,9 @@ public class sickMemberDAO extends DAO{
 						dto.setSicStt(rs.getString("SIC_STT"));
 						dto.setSicLogin(rs.getString("SIC_LOGIN"));
 						dto.setSicPw(rs.getString("SIC_PW"));
+						dto.setSicSttNm(rs.getString("SICSTTNM"));
+						dto.setSicLoginNm(rs.getString("SICLOGINNM"));
+						
 					}
 				} catch (SQLException e) {
 					e.printStackTrace();

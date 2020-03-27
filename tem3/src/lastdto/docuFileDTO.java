@@ -17,6 +17,11 @@ public class docuFileDTO {
 		this.fileType = fileType;
 	}
 	
+	@Override
+	public String toString() {
+		return "docuFileDTO [dcryNo=" + dcryNo + ", fileName=" + fileName + ", fileType=" + fileType + "]";
+	}
+
 	public int getDcryNo() {
 		return dcryNo;
 	}
