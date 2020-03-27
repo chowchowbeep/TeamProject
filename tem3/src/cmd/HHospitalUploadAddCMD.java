@@ -27,6 +27,8 @@ public class HHospitalUploadAddCMD implements Command {
 				.getServletContext().
 				getRealPath("/upload");
 				//"C:/Users/Da yeon/git/TeamProject/tem3/WebContent/upload";
+	
+		//톰캣위치
 		System.out.println(directory);
 		int maxsize = 1024 * 1024 * 100; // 첨부파일 최대 용량 설정(bite) 10MB
 		String encoding = "UTF-8";
@@ -42,6 +44,7 @@ public class HHospitalUploadAddCMD implements Command {
 		String hosId = multi.getParameter("hos_id");
 		int artrNo = Integer.parseInt(multi.getParameter("artr_no"));
 		System.out.println("여기는 업로드~ "+sicId+artrNo+hosId);
+	
 		
 		//파라미터 받아오기
 		String fileType = multi.getParameter("file_type");
