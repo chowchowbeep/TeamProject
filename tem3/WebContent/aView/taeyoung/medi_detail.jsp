@@ -66,7 +66,7 @@
 			<br>
 			<div class="text-center">
 
-				<a href="HHospitalUpload.do?sic_id=${dto.sicId }&hos_id=${dto.hosId}" class="btn btn-secondary">진료기록물 발급</a>&nbsp;&nbsp;&nbsp; 
+				<a href="HHospitalUpload.do?sic_id=${dto.sicId }&hos_id=${dto.hosId}&artr_no=${dto.artrNo }" class="btn btn-secondary">진료기록물 발급</a>&nbsp;&nbsp;&nbsp; 
 				<a href="HHospitalInquiry.do"
 					class="btn btn-secondary">진료기록물 조회 </a>
 

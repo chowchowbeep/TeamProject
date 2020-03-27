@@ -18,11 +18,11 @@ public class HMediDetailCMD implements Command {
 
 		int rqstNo = Integer.parseInt(request.getParameter("rqstNo"));
 		
-		
 		MediRqdetailDAO dao = new MediRqdetailDAO();
 		mediRqdetailDTO dto = dao.selectOne(rqstNo);
 		
 		request.setAttribute("dto", dto);
+		System.out.println("at HMediDetailCMD"+dto.toString());
 		
 		String path ="aView/taeyoung/medi_detail.jsp"; //진료상세정보  페이지 로 이동
 		return path;
