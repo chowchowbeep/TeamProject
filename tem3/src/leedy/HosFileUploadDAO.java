@@ -44,7 +44,7 @@ public class HosFileUploadDAO extends DAO{
 		String sql1 = "insert into docu_file(dcry_no,file_name,file_type) "
 				+" values((select nvl(max(dcry_no),0)+1 from docu_file), ?, ?)"; //docuFile용 sql
 		String sql2 = "insert into docu_info(artr_no,dcry_dttm,dcry_etc,dcry_no,sic_id, hos_id) "
-				+" values(?, (to_date(?, 'YYYYMMDD'), ?, (select nvl(max(dcry_no),0)+1 from docu_info), ?, ?)"; //docuInfo용 sql
+				+" values(?, (to_date(?, 'YYYYMMDD')), ?, (select nvl(max(dcry_no),0)+1 from docu_info), ?, ?)"; //docuInfo용 sql
 	
 		try {
 			pstmt = conn.prepareStatement(sql1);
