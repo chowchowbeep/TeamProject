@@ -15,7 +15,7 @@
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="#">홈</a></li>
-						<li class="breadcrumb-item active">진료현황</li>
+						<li class="breadcrumb-item active">진료신청현황</li>
 					</ol>
 				</div>
 			</div>
@@ -66,7 +66,7 @@
 			<br>
 			<div class="text-center">
 
-				<a href="HHospitalUpload.do?sic_id=${dto.sicId }&hos_id=${dto.hosId}&artr_no=${dto.artrNo }" class="btn btn-secondary">진료기록물 발급</a>&nbsp;&nbsp;&nbsp; 
+				<a href="HHospitalUpload.do?sic_id=${dto.sicId }&hos_id=${dto.hosId}&artr_no=${dto.artrNo }&rqst_no=${dto.rqstNo}" class="btn btn-secondary">진료기록물 발급</a>&nbsp;&nbsp;&nbsp; 
 				<a href="HHospitalInquiry.do"
 					class="btn btn-secondary">진료기록물 조회 </a>
 

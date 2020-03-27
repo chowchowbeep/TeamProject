@@ -43,7 +43,6 @@ public class MediRqdetailDAO extends DAO {
 
 				dto.setArtrName(rs.getString("ARTR_NAME"));
 				dto.setArtrSub(rs.getString("ARTR_SUB"));
-				System.out.println("select된 진료신청정보 " + dto.toString());
 			}
 			
 		} catch (Exception e) {
