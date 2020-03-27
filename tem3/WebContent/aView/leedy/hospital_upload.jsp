@@ -100,17 +100,17 @@
 
 								<div class="row">
 									<div class="col-4">
-										<input type="text" class="form-control" id="inputYear">
+										<input type="text" class="form-control" id="inputYear" name="inputYear">
 
 									</div>
 									<label for="inputYear" class="col-1 col-form-label">년</label>
 									<div class="col-2">
-										<input type="text" class="form-control" id="inputMonth">
+										<input type="text" class="form-control" id="inputMonth" name="inputMonth">
 
 									</div>
 									<label for="inputMonth" class="col-1 col-form-label">월</label>
 									<div class="col-2">
-										<input type="text" class="form-control" id="inputDay">
+										<input type="text" class="form-control" id="inputDay"  name="inputDay">
 
 									</div>
 									<label for="inputDay" class="col-1 col-form-label">일</label>
@@ -127,6 +127,7 @@
 
 							</div>
 						</div>
+						<input type="hidden" name="sic_id" value="${sic_id }">
 
 						
 					</div>

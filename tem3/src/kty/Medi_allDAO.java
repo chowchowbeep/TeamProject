@@ -8,13 +8,14 @@ import lastdto.mediListDTO;
 public class Medi_allDAO extends DAO {
 
 		//예약 & 접수
-			public List<mediListDTO> selectList() {
+			public List<mediListDTO> selectList(String hosId) {
 				List<mediListDTO> list = new ArrayList<mediListDTO>();
 				try {
 					String sql = "SELECT RQST_TY, RQST_DTTM, SIC_NAME, ARTR_NAME" + 
-								" FROM MEDI_LIST";
+								" FROM MEDI_List where hos_id=?";
 					pstmt = conn.prepareStatement(sql);
-					rs = pstmt.executeQuery(sql);
+					pstmt.setString(1, hosId);
+					rs = pstmt.executeQuery();
 					while (rs.next()) {
 						mediListDTO dto = new mediListDTO();
 						dto.setRqstTy(rs.getString("RQST_TY"));

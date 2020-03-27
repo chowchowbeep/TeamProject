@@ -1,5 +1,6 @@
 package cmd;
 
+import java.io.File;
 import java.io.IOException;
 
 
@@ -33,24 +34,24 @@ public class HHospitalUploadAddCMD implements Command {
 
 		ServletContext context = getServletContext(); //어플리케이션에 대한 정보를 ServletContext 객체가 갖게 됨
 		
-		
 		docuFileDTO dto1 = new docuFileDTO(); //docuFile
 		docuInfoDTO dto2 = new docuInfoDTO(); //docuInfo
 		HosFileUploadDAO dao = new HosFileUploadDAO();
 		
-
 		//파라미터 받아오기
 		String fileType = multi.getParameter("file_type");
 		//String fileName = multi.getParameter("file");
-		String fileName = multi.getFilesystemName("file"); //업로드한 파일
-		String originFileName = multi.getOriginalFileName("file");
-		String fileExtend = fileName.substring(fileName.lastIndexOf(".")+1); 
+		String fileName = multi.getFilesystemName("file"); //업로드한 파일이름
+		String originFileName = multi.getOriginalFileName("file"); //서버에 저장된 파일 이름
+	//	String fileExtend = fileName.substring(fileName.lastIndexOf(".")+1); //파일 확장자
+	//	File fileObj = multi.getFile("file");//파일 객체 받아오기
+		
 		
 		int artrNo = Integer.parseInt(multi.getParameter("artr_no"));
-		String dcryDttm = request.getParameter("inputYear")
-				+request.getParameter("inputMonth")
-				+request.getParameter("inputDay");
-		String dcryEtc = request.getParameter("drcy_etc");
+		String dcryDttm = multi.getParameter("inputYear")
+				+multi.getParameter("inputMonth")
+				+multi.getParameter("inputDay");
+		String dcryEtc = multi.getParameter("drcy_etc");
 		
 		System.out.println(fileType);
 		System.out.println(fileName);
@@ -59,7 +60,8 @@ public class HHospitalUploadAddCMD implements Command {
 		System.out.println(dcryEtc);
 		
 		dto1.setFileType(fileType);
-		dto1.setFileName(fileName);
+		dto1.setFileName(originFileName);
+	
 		dto2.setDcryNo(artrNo);
 		dto2.setDcryDttm(dcryDttm);
 		dto2.setDcryEtc(dcryEtc);
@@ -71,7 +73,7 @@ public class HHospitalUploadAddCMD implements Command {
 	}
 
 	private ServletContext getServletContext() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
