@@ -45,7 +45,7 @@ public class HHospitalUploadAddCMD implements Command {
 		int artrNo = Integer.parseInt(request.getParameter("artr_no"));
 		String dcryDttm = request.getParameter("inputYear")
 				+request.getParameter("inputMonth")
-				+request.getParameter("inputDay"); //형변환 필요
+				+request.getParameter("inputDay");
 		String dcryEtc = request.getParameter("drcy_etc");
 		
 		System.out.println(fileType);
