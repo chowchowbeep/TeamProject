@@ -73,8 +73,8 @@
 			</div>
 			<br>
 			<div class="text-center">
-				<a href="#" class="btn btn-lg btn-info">진료 완료 </a>&nbsp; 
-				<a href="#" class="btn btn-lg btn-info">진료 취소 </a>
+				<a href="#" class="btn btn-lg btn-secondary">진료 완료 </a>&nbsp; 
+				<a href="#" class="btn btn-lg btn-secondary">진료 취소 </a>
 			</div>
 		</div>
 	</section>

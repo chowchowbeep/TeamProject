@@ -157,7 +157,7 @@
 
 		<!-- 좌측 햄버거메뉴 내용 -->
 		<!-- Main Sidebar Container -->
-		<aside class="main-sidebar sidebar-dark-primary elevation-4">
+		<aside class="main-sidebar sidebar-dark-secondary elevation-4">
 			<!-- Brand Logo -->
 			<a href="index3.html" class="brand-link"> <img
 				src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo"

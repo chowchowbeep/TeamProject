@@ -41,14 +41,14 @@
 			<!-- 지역|카테고리버튼 -->
 		<div class="row">
 			<div class="mb-3 col" style="margin: 20px 0px;">
-				<button type="button" class="btn btn-primary btn-lg btn-block" 	data-toggle="dropdown" data-activates='dropdown1' id="area">지역</button>
+				<button type="button" class="btn btn-secondary btn-lg btn-block" 	data-toggle="dropdown" data-activates='dropdown1' id="area">지역</button>
 				<div class="dropdown-menu"  id='dropdown1' class='dropdown-content'>
 					 <a class="dropdown-item" href="search_addr.jsp">지역명</a>
 					 <a class="dropdown-item" href="search_sub.jsp">지하철명</a>
 				</div>
 			</div>
 			<div class="mb-3 col" style="margin: 20px 0px;">
-				<button type="button" class="btn btn-primary btn-lg btn-block">카테고리</button>
+				<button type="button" class="btn btn-secondary btn-lg btn-block">카테고리</button>
 			</div>
 		</div>
 		
@@ -64,8 +64,8 @@
 		
 		<div id="list-addr2" class="col-4">
   			<a class="list-group-item list-group-item-action" id="LDA0">동성로,시청</a>
-  			<button type="button" class="btn btn-primary btn-lg btn-block">카테고리 선택</button>
-  			<button type="button" class="btn btn-primary btn-lg btn-block">이 조건으로 검색</button>
+  			<button type="button" class="btn btn-secondary btn-lg btn-block">카테고리 선택</button>
+  			<button type="button" class="btn btn-secondary btn-lg btn-block">이 조건으로 검색</button>
 		</div>
 		
 		

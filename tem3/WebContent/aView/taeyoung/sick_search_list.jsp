@@ -74,7 +74,7 @@ cursor:pointer;
                     </tbody>
                 </table>
               </div>
-			<button type="submit" class="btn btn-block btn-info">목록가기</button>
+			<button type="submit" class="btn btn-block btn-secondary">목록가기</button>
        </form>
 		<!-- /.card-body -->
             </div>

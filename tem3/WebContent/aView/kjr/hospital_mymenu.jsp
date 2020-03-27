@@ -48,7 +48,7 @@
 							<h5 class="card-title">병원명 ${list.hosName }</h5>
 							<p class="card-text">주소 ${list.hosAddr }</p>
 							<p>전화번호 : ${list.hosPhone }</p>
-							<a href="HHospitalProfile.do" class="btn btn-primary">병원회원수정페이지</a>
+							<a href="HHospitalProfile.do" class="btn btn-secondary">병원회원수정페이지</a>
 						</div>
 					</div>
 				</div>
@@ -64,13 +64,13 @@
 					<c:forEach items="${codeList }" var="code">
 							<c:choose>
 									<c:when test="${code.type eq 'SUB'}">
-										<button type='button' class='btn btn-outline-info'>${code.name}</button>
+										<button type='button' class='btn btn-outline-secondary'>${code.name}</button>
 									</c:when>
 									<c:otherwise></c:otherwise>
 							</c:choose>
 					</c:forEach>
 					<br>
-					<br><a href="#" class="btn btn-primary">진료과목 추가 및 수정</a>
+					<br><a href="#" class="btn btn-secondary">진료과목 추가 및 수정</a>
 					</div>
 				</div>
 				
@@ -80,13 +80,13 @@
 						<c:forEach items="${codeList }" var="code">
 							<c:choose>
 									<c:when test="${code.type eq 'APA'}">
-										<button type='button' class='btn btn-outline-info'>${code.name}</button>
+										<button type='button' class='btn btn-outline-secondary'>${code.name}</button>
 									</c:when>
 									<c:otherwise></c:otherwise>
 							</c:choose>
 					</c:forEach>
 					<br><br>
-					<p><a href="#" class="btn btn-primary">증상 추가 및 수정</a></p>
+					<p><a href="#" class="btn btn-secondary">증상 추가 및 수정</a></p>
 					</div>
 				</div>
 				
@@ -96,13 +96,13 @@
 					<c:forEach items="${codeList }" var="code">
 							<c:choose>
 									<c:when test="${code.type eq 'TEMA'}">
-										<button type='button' class='btn btn-outline-info'>${code.name}</button>
+										<button type='button' class='btn btn-outline-secondary'>${code.name}</button>
 									</c:when>
 									<c:otherwise></c:otherwise>
 							</c:choose>
 					</c:forEach>
 					<br><br>
-					<p><a href="#" class="btn btn-primary">테마 추가 및 수정</a></p>
+					<p><a href="#" class="btn btn-secondary">테마 추가 및 수정</a></p>
 					</div>
 				</div>
 			</div>
@@ -115,15 +115,15 @@
 				</ul>
 				<div id="tabs-medi">
 					<p>진료과목</p>
-					<a href="#" class="btn btn-primary">카테고리수정페이지로 이동</a>
+					<a href="#" class="btn btn-secondary">카테고리수정페이지로 이동</a>
 				</div>
 				<div id="tabs-sic">
 					<p>증상</p>
-					<a href="#" class="btn btn-primary">카테고리수정페이지로 이동</a>
+					<a href="#" class="btn btn-secondary">카테고리수정페이지로 이동</a>
 				</div>
 				<div id="tabs-theme">
 					<p>테마</p>
-					<a href="#" class="btn btn-primary">카테고리수정페이지로 이동</a>
+					<a href="#" class="btn btn-secondary">카테고리수정페이지로 이동</a>
 				</div>
 			</div>
 		 -->
@@ -132,7 +132,7 @@
 
 	<!-- 3.병원회원정보 수정버튼: 병원회원수정페이지로 이동-->
 	<div class="card mb-3 " style="margin: 15px;">
-		<button type="button" class="btn btn-primary btn-lg btn-block" id="HDoctorlist">
+		<button type="button" class="btn btn-secondary btn-lg btn-block" id="HDoctorlist">
 			의사리스트페이지 
 		</button>
 	</div>
@@ -141,7 +141,7 @@
 		
 	<!-- 6. 진료현황리스트페이지 로 이동  -->
 	<div class="card mb-3 " style="margin: 15px;">
-		<button type="button" class="btn btn-primary btn-lg btn-block" id="HMediAll">
+		<button type="button" class="btn btn-secondary btn-lg btn-block" id="HMediAll">
 			진료현황리스트
 		</button>
 	</div>

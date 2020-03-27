@@ -28,7 +28,7 @@
 	<!-- Main content -->
 	<section class="content">
 
-		<div class="card card-info">
+		<div class="card card-secondary">
 
 			<!-- /.card-header -->
 			<!-- form start -->

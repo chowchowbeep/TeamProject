@@ -27,7 +27,7 @@
 
 			<form class="form-inline mx-auto">
 				<div class="input-group input-group-sm" style="font-size: 30px;">
-					<a href="HHospitalMain.do" id="toMain">SALLYEOJYO</a>
+					<a href="HHospitalMain.do" id="toMain">HELLO DOCTOR</a>
 				</div>
 				<!-- 병원 메인화면으로 이동 -->
 			</form>
@@ -50,12 +50,12 @@
 
 		<!-- 햄버거메뉴 내용 -->
 		<!-- Main Sidebar Container -->
-		<aside class="main-sidebar sidebar-dark-primary elevation-4">
+		<aside class="main-sidebar sidebar-dark-secondary elevation-4">
 			<!-- Brand Logo -->
 			<a href="#" class="brand-link"> <img
 				src="/tem3/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
 				class="brand-image img-circle elevation-3" style="opacity: .8">
-				<span class="brand-text font-weight-light">SALLYEOJYO</span>
+				<span class="brand-text font-weight-light">HELLO DOCTOR</span>
 			</a>
 
 			<!-- Sidebar -->

@@ -45,14 +45,14 @@
 			<!-- 지역|카테고리버튼 -->
 		<div class="row">
 			<div class="mb-3 col mar">
-				<button type="button" class="btn btn-primary btn-lg btn-block" 	data-toggle="dropdown" data-activates='dropdown1' id="area">지역</button>
+				<button type="button" class="btn btn-secondary btn-lg btn-block" 	data-toggle="dropdown" data-activates='dropdown1' id="area">지역</button>
 				<div class="dropdown-menu"  id='dropdown1' class='dropdown-content'>
 					 <a class="dropdown-item" href="search_addr.jsp">지역명</a>
 					 <a class="dropdown-item" href="search_sub.jsp">지하철명</a>
 				</div>
 			</div>
 			<div class="mb-3 col mar">
-				<button type="button" class="btn btn-primary btn-lg btn-block">카테고리</button>
+				<button type="button" class="btn btn-secondary btn-lg btn-block">카테고리</button>
 			</div>
 		</div>
 
@@ -185,11 +185,11 @@
 		</div>
 
 		<div>
-			<button type="button" class="btn btn-primary btn-lg btn-block mar">지역 조건 추가하기</button>
+			<button type="button" class="btn btn-secondary btn-lg btn-block mar">지역 조건 추가하기</button>
 		</div> 
 
 		<div>
-			<button type="button" class="btn btn-primary btn-lg btn-block mar">이 조건으로 검색하기</button>
+			<button type="button" class="btn btn-secondary btn-lg btn-block mar">이 조건으로 검색하기</button>
 		</div>
 
 

@@ -66,7 +66,7 @@ function modifyValue(){
 	<!-- Main content -->
 	<section class="content">
 
-		<div class="card card-info">
+		<div class="card card-secondary">
 			<div class="card-header  card text-center">
 				<h3 class="card-title">회원정보 수정</h3>
 			</div>
@@ -124,7 +124,7 @@ function modifyValue(){
 				</div>
 				<!-- /.card-body -->
 				<div class="card-footer  text-center">
-					<button type="submit" class="btn btn-info" >수정완료</button>
+					<button type="submit" class="btn btn-secondary" >수정완료</button>
 					<!-- cancel에는 button type reset? -->
 					<button type="button" class="btn btn-default" onclick="javascript:history.go(-1)">수정취소</button>
 				</div>

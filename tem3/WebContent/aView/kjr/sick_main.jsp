@@ -99,32 +99,32 @@ function searchList(){
 				
 					<c:forEach items="${hIndto}" var="dto">
 						<c:if test="${dto.type eq 'BL'}"><!-- 혈액형 -->
-							<button type='button' class='btn btn-outline-info btnMar'>${dto.name }</button>
+							<button type='button' class='btn btn-outline-secondary btnMar'>${dto.name }</button>
 						</c:if>
 					</c:forEach>
 					<br>
 					<c:forEach items="${hIndto}" var="dto">
 						<c:if test="${dto.type eq 'YK'}"><!-- 약 -->
-							<button type='button' class='btn btn-outline-info btnMar'>${dto.name }</button>
+							<button type='button' class='btn btn-outline-secondary btnMar'>${dto.name }</button>
 						</c:if>
 					</c:forEach>
 					<br>
 					<c:forEach items="${hIndto}" var="dto">
 						<c:if test="${dto.type eq 'AR'}"><!-- 알레르기 -->
-							 <button type='button' class='btn btn-outline-info btnMar'>${dto.name }</button>
+							 <button type='button' class='btn btn-outline-secondary btnMar'>${dto.name }</button>
 						</c:if>
 					</c:forEach>
 					<br>
 					<c:forEach items="${hIndto}" var="dto">
 						<c:if test="${dto.type eq 'SI'}"><!-- 지병 -->
-							<button type='button' class='btn btn-outline-info btnMar'>${dto.name }</button>	 
+							<button type='button' class='btn btn-outline-secondary btnMar'>${dto.name }</button>	 
 						</c:if>
 					</c:forEach>
 			
 					<p class="card-text">
 					
 					</p>
-					<a href="#" class="btn btn-primary" id="edit">건강정보수정</a>
+					<a href="#" class="btn btn-secondary" id="edit">건강정보수정</a>
 				</div>
 			</div>
 		</div>
@@ -226,7 +226,7 @@ function searchList(){
 
 
 		<div class="card mb-3 " style="margin: 20px 0px;">
-			<button type="button" class="btn btn-primary btn-lg btn-block" id="WjqtnwmdBtn">접수증 관리</button>
+			<button type="button" class="btn btn-secondary btn-lg btn-block" id="WjqtnwmdBtn">접수증 관리</button>
 		</div>
 
 

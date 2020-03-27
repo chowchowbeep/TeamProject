@@ -158,7 +158,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-secondary elevation-4">
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
       <img src="../../dist/img/AdminLTELogo.png"
@@ -229,7 +229,7 @@
               <p>
                 Layout Options
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+                <span class="badge badge-secondary right">6</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -435,7 +435,7 @@
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Calendar
-                <span class="badge badge-info right">2</span>
+                <span class="badge badge-secondary right">2</span>
               </p>
             </a>
           </li>
@@ -705,7 +705,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon far fa-circle text-info"></i>
+              <i class="nav-icon far fa-circle text-secondary"></i>
               <p>Informational</p>
             </a>
           </li>
@@ -1063,7 +1063,7 @@
             </div>
             <!-- /.card -->
 
-            <div class="card card-info">
+            <div class="card card-secondary">
               <div class="card-header">
                 <h3 class="card-title">Color & Time Picker</h3>
               </div>
@@ -1113,7 +1113,7 @@
           </div>
           <!-- /.col (left) -->
           <div class="col-md-6">
-            <div class="card card-primary">
+            <div class="card card-secondary">
               <div class="card-header">
                 <h3 class="card-title">Date picker</h3>
               </div>
@@ -1177,20 +1177,20 @@
                   <div class="col-sm-6">
                     <!-- checkbox -->
                     <div class="form-group clearfix">
-                      <div class="icheck-primary d-inline">
-                        <input type="checkbox" id="checkboxPrimary1" checked>
-                        <label for="checkboxPrimary1">
+                      <div class="icheck-secondary d-inline">
+                        <input type="checkbox" id="checkboxsecondary1" checked>
+                        <label for="checkboxsecondary1">
                         </label>
                       </div>
-                      <div class="icheck-primary d-inline">
-                        <input type="checkbox" id="checkboxPrimary2">
-                        <label for="checkboxPrimary2">
+                      <div class="icheck-secondary d-inline">
+                        <input type="checkbox" id="checkboxsecondary2">
+                        <label for="checkboxsecondary2">
                         </label>
                       </div>
-                      <div class="icheck-primary d-inline">
-                        <input type="checkbox" id="checkboxPrimary3" disabled>
-                        <label for="checkboxPrimary3">
-                          Primary checkbox
+                      <div class="icheck-secondary d-inline">
+                        <input type="checkbox" id="checkboxsecondary3" disabled>
+                        <label for="checkboxsecondary3">
+                          secondary checkbox
                         </label>
                       </div>
                     </div>
@@ -1198,20 +1198,20 @@
                   <div class="col-sm-6">
                     <!-- radio -->
                     <div class="form-group clearfix">
-                      <div class="icheck-primary d-inline">
-                        <input type="radio" id="radioPrimary1" name="r1" checked>
-                        <label for="radioPrimary1">
+                      <div class="icheck-secondary d-inline">
+                        <input type="radio" id="radiosecondary1" name="r1" checked>
+                        <label for="radiosecondary1">
                         </label>
                       </div>
-                      <div class="icheck-primary d-inline">
-                        <input type="radio" id="radioPrimary2" name="r1">
-                        <label for="radioPrimary2">
+                      <div class="icheck-secondary d-inline">
+                        <input type="radio" id="radiosecondary2" name="r1">
+                        <label for="radiosecondary2">
                         </label>
                       </div>
-                      <div class="icheck-primary d-inline">
-                        <input type="radio" id="radioPrimary3" name="r1" disabled>
-                        <label for="radioPrimary3">
-                          Primary radio
+                      <div class="icheck-secondary d-inline">
+                        <input type="radio" id="radiosecondary3" name="r1" disabled>
+                        <label for="radiosecondary3">
+                          secondary radio
                         </label>
                       </div>
                     </div>

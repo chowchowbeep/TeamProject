@@ -101,10 +101,10 @@
 	</div>
 		<div class="row" id="btnDiv">
 			<div class="col-sm mar">
-				<button type="button" class="btn btn-primary btn-lg btn-block" id="startBtn">영업등록</button>
+				<button type="button" class="btn btn-secondary btn-lg btn-block" id="startBtn">영업등록</button>
 			</div>
 			<div class="col-sm mar">
-				<button type="button" class="btn btn-primary btn-lg btn-block" id="endBtn">영업마감</button>
+				<button type="button" class="btn btn-secondary btn-lg btn-block" id="endBtn">영업마감</button>
 			</div>
 		</div>
 <div class="row">

@@ -33,7 +33,7 @@
 		<!-- Main content -->
 		<section class="content">
 
-			<div class="card card-info">
+			<div class="card card-secondary">
 				<div class="card-header  card text-center">
 					<h3 class="card-title">진료기록물 업로드</h3>
 				</div>
@@ -121,7 +121,7 @@
 					</div>
 					<!-- /.card-body -->
 					<div class="card-footer  text-center">
-							<input type="submit" class="btn btn-info" value="업로드">
+							<input type="submit" class="btn btn-secondary" value="업로드">
 						</div>
 				</form>
 

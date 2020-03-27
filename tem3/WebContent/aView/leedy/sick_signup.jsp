@@ -136,7 +136,7 @@ function inputIdUnChk() {
         </div>
         <div class="row">
           <div class="">
-            <div class="icheck-primary">
+            <div class="icheck-secondary">
               <input type="checkbox" id="agreeTerms" name="agreeTerms" value="agree">
               <label for="agreeTerms">
                 <a href="#">이용약관</a> 및  <a href="#">개인정보취급방침</a>에 동의합니다.
@@ -149,7 +149,7 @@ function inputIdUnChk() {
          <!-- /.col -->
          <br>
           <div class="">
-            <button type="submit" class="btn btn-primary btn-block"
+            <button type="submit" class="btn btn-secondary btn-block"
            >회원가입 확인</button>
           </div>
       </form>

@@ -82,7 +82,7 @@ $(function() {
 						</select>
 					</div>
 				</div>
-				<input id="inpBtn" type="button"value="수정완료" class="btn btn-primary btn-lg btn-block">
+				<input id="inpBtn" type="button"value="수정완료" class="btn btn-secondary btn-lg btn-block">
 			</form>
 		</div>
 	
