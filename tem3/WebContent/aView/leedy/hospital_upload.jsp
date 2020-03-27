@@ -51,17 +51,17 @@
 									<div class="form-check">
 										<input class="form-check-input" type="radio" name="file_type"
 											checked id="file_type" > <label
-											class="form-check-label" for="">사진</label>
+											class="form-check-label" for="" value="F001">사진</label>
 									</div>
 									<div class="form-check">
 										<input class="form-check-input" type="radio" name="file_type"
 											id="file_type" > <label
-											class="form-check-label" for="">동영상</label>
+											class="form-check-label" for="" value="F002">동영상</label>
 									</div>
 									<div class="form-check">
 										<input class="form-check-input" type="radio" name="file_type"
 											 id="file_type"  > <label
-											class="form-check-label" for="">문서</label>
+											class="form-check-label" for="" value="F003">문서</label>
 									</div>
 								</div>
 							</div>
@@ -79,20 +79,6 @@
 
 						</div>
 
-						<div class="form-group row">
-							<label for="callArtrNo" class="col-sm-2 col-form-label" >의사</label>
-							<div class="col-sm-10">
-								<select class="form-control select2" style="width: 100%;"
-									id="artr_no" name="artr_no">
-									<option>의사를 선택하세요</option>
-									 <!-- list에 있는 거 다 뽑아내는 반복문 -->
-									<c:forEach items="${list }" var="artrList"><!-- items는 request에서 setAttr로  값을 넘길 var은 변수 -->
-									<option value="${artrList.artrNo}">${artrList.artrName }</option>
-									
-									</c:forEach>
-								</select>
-							</div>
-						</div>
 
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">발급일자</label>
@@ -123,12 +109,14 @@
 							<div class="col-sm-10">
 
 								<textarea class="form-control" rows="3"
-									placeholder="비고사항을 적어보세요" id="drcy_etc"></textarea>
+									placeholder="비고사항을 적어보세요" name="dcry_etc"></textarea>
 
 							</div>
 						</div>
-						<input type="hidden" name="sic_id" value="${sic_id }">
-
+ 	<input type="hidden" name="sic_id" value="${param.sic_id }">
+						<input type="hidden" name="hos_id" value="${param.hos_id }">
+						<input type="hidden" name="artr_no" value="${param.artr_no }"> 
+<input type="hidden" name="rqst_no" value="${param.rqst_no }"> 
 						
 					</div>
 					<!-- /.card-body -->

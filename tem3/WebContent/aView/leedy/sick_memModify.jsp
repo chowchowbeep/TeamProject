@@ -116,7 +116,7 @@ function modifyValue(){
 							상태</label>
 						<div class="col-sm-10">
 							<input type="email" class="form-control" id="sic_stt" name="sic_stt"
-								value="${dto.sicStt}" disabled>
+								value="${dto.sicSttNm}" disabled>
 						</div>
 					</div>
 

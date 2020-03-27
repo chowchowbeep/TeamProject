@@ -63,6 +63,12 @@ public class docuInfoDTO {
 		this.hosId = hosId;
 	}
 
+	@Override
+	public String toString() {
+		return "docuInfoDTO [dcryNo=" + dcryNo + ", sicId=" + sicId + ", dcryDttm=" + dcryDttm + ", dcryEtc=" + dcryEtc
+				+ ", artrNo=" + artrNo + ", hosId=" + hosId + "]";
+	}
+
 	
 
 }

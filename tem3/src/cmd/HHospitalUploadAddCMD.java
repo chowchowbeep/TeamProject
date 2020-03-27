@@ -38,6 +38,11 @@ public class HHospitalUploadAddCMD implements Command {
 		docuInfoDTO dto2 = new docuInfoDTO(); //docuInfo
 		HosFileUploadDAO dao = new HosFileUploadDAO();
 		
+		String sicId = multi.getParameter("sic_id");
+		String hosId = multi.getParameter("hos_id");
+		int artrNo = Integer.parseInt(multi.getParameter("artr_no"));
+		System.out.println("여기는 업로드~ "+sicId+artrNo+hosId);
+		
 		//파라미터 받아오기
 		String fileType = multi.getParameter("file_type");
 		//String fileName = multi.getParameter("file");
@@ -47,29 +52,36 @@ public class HHospitalUploadAddCMD implements Command {
 	//	File fileObj = multi.getFile("file");//파일 객체 받아오기
 		
 		
-		int artrNo = Integer.parseInt(multi.getParameter("artr_no"));
-		String dcryDttm = multi.getParameter("inputYear")
-				+multi.getParameter("inputMonth")
-				+multi.getParameter("inputDay");
-		String dcryEtc = multi.getParameter("drcy_etc");
+		// int artrNo = Integer.parseInt(multi.getParameter("artr_no"));
+		String y = multi.getParameter("inputYear");
+		String m =multi.getParameter("inputMonth");
+		String d = multi.getParameter("inputDay");
+		String dcryDttm = y+m+d;
+		String dcryEtc = multi.getParameter("dcry_etc");
+		String rqstNo = multi.getParameter("rqst_no");
+		System.out.println("dcryEtc addCMD에서 "+dcryEtc);
 		
-		System.out.println(fileType);
-		System.out.println(fileName);
-		System.out.println(artrNo);
-		System.out.println(dcryDttm);
-		System.out.println(dcryEtc);
-		
+//		System.out.println(fileName);
+//		System.out.println(artrNo);
+//		System.out.println(dcryDttm);
+//		System.out.println(dcryEtc);
+//		
 		dto1.setFileType(fileType);
 		dto1.setFileName(originFileName);
 	
-		dto2.setDcryNo(artrNo);
+		dto2.setArtrNo(artrNo);
 		dto2.setDcryDttm(dcryDttm);
 		dto2.setDcryEtc(dcryEtc);
+		dto2.setHosId(hosId);
+		dto2.setSicId(sicId);
+		
+		System.out.println(dto1.toString());
+		System.out.println(dto2.toString());
 	
 		int a = dao.insertFile(dto1, dto2);
-		
-		
-		return "redirect:HMediDetail.do";
+		request.setAttribute("rqstNo", rqstNo);
+
+		return "redirect:HMediDetail.do?rqstNo="+rqstNo;
 	}
 
 	private ServletContext getServletContext() {
