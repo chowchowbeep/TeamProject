@@ -103,12 +103,6 @@ to {
 </style>
 
 <%@ include file="/layout/admin_menu.jsp"%>
-<jsp:useBean id="dao" class="kimmj.normalDAO" />
-<%
-request.setCharacterEncoding("UTF-8");
-String keyField = request.getParameter("keyField");
-String keyWord = request.getParameter("keyWord");
-%>
 
 <div class = "card">
    <div class = "card-header text-center">
@@ -119,7 +113,7 @@ String keyWord = request.getParameter("keyWord");
       </div>
    </div>
    <% 
-   ArrayList<sickJoinMemberDTO> list = dao.select();
+   ArrayList<sickJoinMemberDTO> list = (ArrayList<sickJoinMemberDTO>)request.getAttribute("list");
    for(sickJoinMemberDTO dto : list) { %>
    <div class="card-body">
    <table class = "listbox"

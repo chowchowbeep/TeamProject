@@ -68,40 +68,93 @@ public class normalDAO extends DAO {
 			System.out.println("at dao"+dto.toString());
 			return dto;
 		}
-		
-	
 	
 	// 조건 조회
-	public ArrayList<sickJoinMemberDTO> getMemberList(String memStatus, String name, String phone ) {
-		ArrayList<sickJoinMemberDTO> list = new ArrayList<>();
+	public ArrayList<sickJoinMemberDTO> search(String memStatus, String name, String phone) {
+		ArrayList<sickJoinMemberDTO> list = new ArrayList<sickJoinMemberDTO>();
+		int index = 1;
 		try {
-			String sql = "SELECT * FROM sick_member ";
-			if (memStatus != null && !memStatus.equals("") && !phone.equals("")) {
-				sql += "WHERE " + name.trim() + " LIKE '%" + phone.trim() + "%' ";
-			} else {
-				sql += "order by sick_id";
-			} st = conn.createStatement();
-			  rs = st.executeQuery(sql);
-			  
-			  while(rs.next()) {
+				sql = "select sic_id, sic_name, sic_Phone, sic_stt, " +
+					  "(select count(rv_no) from review r where r.sic_id=s.sic_id) rv_no, " +
+					  "(select start_dttm from penalty p where p.id=s.sic_id) start_dttm " +
+	                  "from sick_member s where 1=1 ";
+					  if(memStatus!=null&&!memStatus.equals("all")) {
+						 sql += "and s.sic_stt = ?";
+					  	} 
+					  if(name!=null&&!name.equals("")) {
+						 sql += "and s.sic_name = ?";
+					  	}
+					  if(phone!=null&&!phone.equals("")) {
+						 sql += "and s.sic_phone = ?";
+					  	}
+			  pstmt = conn.prepareStatement(sql);
+			  	  if(memStatus!=null&&!memStatus.equals("all")) {
+			  		  pstmt.setString(index++, memStatus);
+			  	  }
+			  	  if(name!=null&&!name.equals("")) {
+					 pstmt.setString(index++, name);
+				  }
+				  if(phone!=null&&!phone.equals("")) {
+					 pstmt.setString(index++, phone);
+				  }
+				  System.out.println(sql);
+				  System.out.println(memStatus+"=====");
+			  rs = pstmt.executeQuery();
+			  while (rs.next()) {
 				  sickJoinMemberDTO dto = new sickJoinMemberDTO();
-				  	dto.setSicName(rs.getString("sic_name"));
-				  	dto.setSicId(rs.getString("sic_id"));
-				  	dto.setSicStt(rs.getString("sic_stt"));
-				  	dto.setSicPhone(rs.getString("sic_phone"));
-				  	dto.setStartDttm(rs.getDate("start_dttm"));
-				  	dto.setDecNo(rs.getInt("dec_no"));
-				  	dto.setRvNo(rs.getInt("rv_no"));
-				  	
-				  	list.add(dto);
-			  	}
+				    dto.setSicId(rs.getString("sic_id"));
+					dto.setSicName(rs.getString("sic_name"));
+					dto.setSicPhone(rs.getString("sic_Phone"));
+					dto.setSicStt(rs.getString("sic_stt"));
+					dto.setRvNo(rs.getInt("rv_no"));
+					dto.setStartDttm(rs.getDate("start_dttm"));
+					list.add(dto);
+			  }
 			  } catch (SQLException e) {
-				  
+				  e.printStackTrace();
 			  } finally {
-				  close();
-			  } return list;
+			  close();
+		} return list;
 	}
 }
+	
+	
+	
+	
+	
+	
+	
+//	// 조건 조회
+//	public ArrayList<sickJoinMemberDTO> getMemberList(String memStatus, String name, String phone ) {
+//		ArrayList<sickJoinMemberDTO> list = new ArrayList<>();
+//		try {
+//			String sql = "SELECT * FROM sick_member ";
+//			if (memStatus != null && !memStatus.equals("") && !phone.equals("")) {
+//				sql += "WHERE " + name.trim() + " LIKE '%" + phone.trim() + "%' ";
+//			} else {
+//				sql += "order by sick_id";
+//			} st = conn.createStatement();
+//			  rs = st.executeQuery(sql);
+//			  
+//			  while(rs.next()) {
+//				  sickJoinMemberDTO dto = new sickJoinMemberDTO();
+//				  	dto.setSicName(rs.getString("sic_name"));
+//				  	dto.setSicId(rs.getString("sic_id"));
+//				  	dto.setSicStt(rs.getString("sic_stt"));
+//				  	dto.setSicPhone(rs.getString("sic_phone"));
+//				  	dto.setStartDttm(rs.getDate("start_dttm"));
+//				  	dto.setDecNo(rs.getInt("dec_no"));
+//				  	dto.setRvNo(rs.getInt("rv_no"));
+//				  	
+//				  	list.add(dto);
+//			  	}
+//			  } catch (SQLException e) {
+//				  
+//			  } finally {
+//				  close();
+//			  } return list;
+//	}
+//}
 	
 	
 	
