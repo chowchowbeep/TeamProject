@@ -20,6 +20,16 @@
 		frm.submit();
 	}
 </script>
+<%
+	normalDAO dao = new normalDAO();
+	ArrayList<sickJoinMemberDTO> list = new ArrayList<sickJoinMemberDTO>();
+	ArrayList<sickJoinMemberDTO> searchlist = (ArrayList<sickJoinMemberDTO>)request.getAttribute("list");
+	if (searchlist == null) {
+		list = dao.select();
+	} else {
+		list = searchlist;
+	}
+%>
 <style type="text/css">/* Chart.js */
 @
 keyframes chartjs-render-animation {
@@ -131,7 +141,7 @@ to {
 
 
 <%@ include file="/layout/admin_menu.jsp"%>
-<jsp:useBean id="dao" class="kimmj.normalDAO" />
+
 
 <div class = "card">
 	<div class = "card-header text-center">
@@ -160,8 +170,8 @@ to {
 			</span> 
 			<span class="info-box-box"> &nbsp;&nbsp;&nbsp; 
 			<input type="radio" name="ckck" value="all">&nbsp;전체
-				&nbsp;&nbsp;&nbsp; <input type="radio" name="memStatus" value="standard">&nbsp;일반
-				&nbsp;&nbsp;&nbsp; <input type="radio" name="memStatus" value="police">&nbsp;제재
+				&nbsp;&nbsp;&nbsp; <input type="radio" name="memStatus" value="J">&nbsp;일반
+				&nbsp;&nbsp;&nbsp; <input type="radio" name="memStatus" value="P">&nbsp;제재
 			</span> 
 			<br>
 		</div>

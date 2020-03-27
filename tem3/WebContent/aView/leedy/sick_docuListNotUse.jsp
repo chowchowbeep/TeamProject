@@ -67,7 +67,7 @@
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary"
 									data-dismiss="modal">확인</button>
-									 <button type="button" class="btn btn-primary">다운로드</button>
+									 <button type="button" class="btn btn-secondary">다운로드</button>
 
 							</div>
 						</div>

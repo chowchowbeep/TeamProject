@@ -52,7 +52,7 @@
 	<div class="container">
 		<!-- Main content -->
 		<section class="content">
-			<div class="card card-info">
+			<div class="card card-secondary">
 				<div class="card-header  card text-center">
 					<h3 class="card-title">회원정보 확인 페이지</h3>
 				</div>
@@ -158,14 +158,14 @@
 								</div>
 							</div>
 					<div class="text-center">
-						<button type="button" class="btn btn-info" id="timeCencle">취소</button>
+						<button type="button" class="btn btn-secondary" id="timeCencle">취소</button>
 					</div>
 					</div>	
 						
 					</div>
 					<!-- /.card-body -->
 					<div class="card-footer  text-center">
-						<button type="submit" class="btn btn-info">수정하기</button>
+						<button type="submit" class="btn btn-secondary">수정하기</button>
 					</div>
 					<!-- /.card-footer -->
 				</form>

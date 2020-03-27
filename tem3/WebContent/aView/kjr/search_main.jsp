@@ -105,8 +105,8 @@ div .hiden {
 				$("#dataInpFrm").find('#'+thisAttr)[0].remove();
 			}else{
 				$(this).addClass("selectActive");
-				$("#dataFrm").append("<button type='button' class='btn mar btn-outline-info' id='"+thisAttr+"' name='cateCode' value='"+thisAttr+"'>"+thisVal);
-				$("#dataInpFrm").append("<input type='text' class='btn mar btn-outline-info' id='"+thisAttr+"' name='cateCode' value='"+thisAttr+"'>");
+				$("#dataFrm").append("<button type='button' class='btn mar btn-outline-secondary' id='"+thisAttr+"' name='cateCode' value='"+thisAttr+"'>"+thisVal);
+				$("#dataInpFrm").append("<input type='text' class='btn mar btn-outline-secondary' id='"+thisAttr+"' name='cateCode' value='"+thisAttr+"'>");
 			}
 			
 		};
@@ -126,8 +126,8 @@ div .hiden {
 				$(this).removeClass("selectActive");
 			}else{
 				$(this).addClass("selectActive");
-				$("#dataFrm").append("<button type='button' class='btn mar btn-outline-info' id='areaCode' name='areaCode' value='"+thisAttr+"'>"+thisVal);
-				$("#dataInpFrm").append("<input type='text' class='btn mar btn-outline-info' id='areaCode' name='areaCode' value='"+thisAttr+"'>");
+				$("#dataFrm").append("<button type='button' class='btn mar btn-outline-secondary' id='areaCode' name='areaCode' value='"+thisAttr+"'>"+thisVal);
+				$("#dataInpFrm").append("<input type='text' class='btn mar btn-outline-secondary' id='areaCode' name='areaCode' value='"+thisAttr+"'>");
 			}
 			
 		};
@@ -210,15 +210,15 @@ div .hiden {
 		<!-- 지역|카테고리버튼 -->
 		<div class="row">
 			<div class="mb-4 col" style="margin: 20px 0px;">
-				<button type="button" class="btn btn-primary btn-lg btn-block"
+				<button type="button" class="btn btn-secondary btn-lg btn-block"
 					id="areaBtn">지역명</button>
 			</div>
 			<div class="mb-4 col" style="margin: 20px 0px;">
-				<button type="button" class="btn btn-primary btn-lg btn-block"
+				<button type="button" class="btn btn-secondary btn-lg btn-block"
 					id="subBtn">지하철명</button>
 			</div>
 			<div class="mb-4 col" style="margin: 20px 0px;">
-				<button type="button" class="btn btn-primary btn-lg btn-block"
+				<button type="button" class="btn btn-secondary btn-lg btn-block"
 					id="ctBtn">카테고리</button>
 			</div>
 		</div>
@@ -296,7 +296,7 @@ div .hiden {
 				</form>
 			</div>
 			<div class="col-3">
-				<button type="button" class="btn btn-primary btn-lg fl"	id="codeSearchedBtn" >선택한 조건으로 검색</button>
+				<button type="button" class="btn btn-secondary btn-lg fl"	id="codeSearchedBtn" >선택한 조건으로 검색</button>
 			</div>
 		</div>
 		<div class="hiden">

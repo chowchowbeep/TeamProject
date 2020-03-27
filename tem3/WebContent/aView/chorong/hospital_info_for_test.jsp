@@ -56,9 +56,9 @@
 
 
 				<button type="button" id="tmrRq"
-					class="btn btn-primary btn-lg btn-block">당일접수</button>
+					class="btn btn-secondary btn-lg btn-block">당일접수</button>
 				<button type="button" id="resRq"
-					class="btn btn-primary btn-lg btn-block">예약신청</button>
+					class="btn btn-secondary btn-lg btn-block">예약신청</button>
 		
 		</div>
 	</form>

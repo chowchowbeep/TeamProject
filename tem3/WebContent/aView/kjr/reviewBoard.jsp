@@ -89,7 +89,7 @@
                   </tbody>
                 </table>
 			<br>
-			<button type="button" class="btn btn-primary btn-lg" id="write"	onclick="parent.location.href='SReviewWrite.do?hosId=${param.hosId}'">글쓰기</button>
+			<button type="button" class="btn btn-secondary btn-lg" id="write"	onclick="parent.location.href='SReviewWrite.do?hosId=${param.hosId}'">글쓰기</button>
 			<ul class="pagination pagination-sm m-0 float-right">
 				<c:if test="${proIF }">
 					<li class="page-item"><a class="page-link"

@@ -103,12 +103,6 @@ to {
 </style>
 
 <%@ include file="/layout/admin_menu.jsp"%>
-<jsp:useBean id="dao" class="kimmj.hosDAO" />
-<%
-request.setCharacterEncoding("UTF-8");
-String keyField = request.getParameter("keyField");
-String keyWord = request.getParameter("keyWord");
-%>
 <div class = "card">
 	<div class = "card-header text-center">
 		<div class = "text-center" style = "padding: 10px 0px 0px 0px">
@@ -119,7 +113,7 @@ String keyWord = request.getParameter("keyWord");
 	</div>
 	
 	<% 
-	ArrayList<hosJoinMemberDTO> list = dao.select();
+	ArrayList<hosJoinMemberDTO> list = (ArrayList<hosJoinMemberDTO>)request.getAttribute("list");
 	for(hosJoinMemberDTO dto : list) { 
 	%>
 	<div class="card-body">

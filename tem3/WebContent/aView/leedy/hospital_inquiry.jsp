@@ -32,7 +32,7 @@
 					<!-- left column -->
 					<div class="col-md-6">
 						<!-- general form elements -->
-						<div class="card card-primary ">
+						<div class="card card-secondary ">
 							<div class="card-header card text-center">
 								<h1 class="card-title">진료 기록물 조회</h1>
 							</div>

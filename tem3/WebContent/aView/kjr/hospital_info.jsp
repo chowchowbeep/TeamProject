@@ -135,12 +135,12 @@
 					<div id="searchWd" name="searchWd">
 						<c:forEach items="${codeList }" var="code">
 							<c:if test="${code.value.type eq 'A'}">
-								<button type='button' class='btn btn-outline-info btnMar'>${code.value.name}</button>
+								<button type='button' class='btn btn-outline-secondary btnMar'>${code.value.name}</button>
 							</c:if>
 							</c:forEach>
 							<c:forEach items="${codeList }" var="code">
 							<c:if test="${code.value.type eq 'S'}">
-								<button type='button' class='btn btn-outline-info btnMar'>${code.value.name}</button>
+								<button type='button' class='btn btn-outline-secondary btnMar'>${code.value.name}</button>
 							</c:if>
 							</c:forEach>
 							<br>
@@ -149,7 +149,7 @@
 									<c:when test="${code.value.type eq 'A'}"></c:when >
 									<c:when test="${code.value.type eq 'S'}"></c:when >
 									<c:otherwise>
-										<button type='button' class='btn btn-outline-info btnMar'>${code.value.name}</button>
+										<button type='button' class='btn btn-outline-secondary btnMar'>${code.value.name}</button>
 									</c:otherwise>
 							</c:choose>
 							</c:forEach>
@@ -165,9 +165,9 @@
 				<input type="hidden" name="hosBizTime" value="${list[0].hosBizTime}"></input>
 			</form>
 
-			<button type="button" class="btn btn-primary btn-lg btn-block" id="STmrRequest">당일
+			<button type="button" class="btn btn-secondary btn-lg btn-block" id="STmrRequest">당일
 				접수</button>
-			<button type="button" class="btn btn-primary btn-lg btn-block" id="SResRequest">예약
+			<button type="button" class="btn btn-secondary btn-lg btn-block" id="SResRequest">예약
 				신청</button>
 		</div>
 		<iframe src="SreviewBoardCMD.do?hosId=${list[0].hosId}&currentPage=1&nowblock=1"  

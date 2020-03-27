@@ -30,6 +30,37 @@
 5. 접수증 페이지 이동 기능
 */
 $(function() { //window load이벤트 생략해서 적은것
+	//삭제작업
+	$("tbody").on("click","th",function(){
+		console.log($(this).attr('name'));
+		var thisTr = (this).closest("tr");
+		//id값의 글번호를 받아와서 dao에서 delete작업하고 결과 리턴받아서 if문으로 삭제 alert 띄우기
+		$.ajax("/tem3/ajax/BookmarkDeleteAjaxCMD.do", {
+			type:"POST",
+			dataType : "json",
+			data : {hosId : $(this).attr("name")
+			}
+		})
+			.done(function(data) {
+				if(data){
+					thisTr.remove();
+					alert("삭제되었습니다.");
+				}else{
+					alert("다시 삭제해주세요.");
+				}
+				location.href="SBookmark.do";//내가쓴리뷰페이지로이동
+			})
+	});
+	
+	$("tbody").on("click","tr",function(){
+		var id = $(this).attr("id");
+		$("#frm").append("<input type='text' name='hosId' id='hosId' value='"+id+"'>");
+		document.frm.action="SHospitalInfo.do";
+		document.frm.method="post";
+		document.frm.submit();
+		submit();
+	});
+	
 	//건강정보수정 페이지로이동
 	$("#edit").on("click", function() {
 		location.href='SSickHealModify.do';
@@ -68,32 +99,32 @@ function searchList(){
 				
 					<c:forEach items="${hIndto}" var="dto">
 						<c:if test="${dto.type eq 'BL'}"><!-- 혈액형 -->
-							<button type='button' class='btn btn-outline-info btnMar'>${dto.name }</button>
+							<button type='button' class='btn btn-outline-secondary btnMar'>${dto.name }</button>
 						</c:if>
 					</c:forEach>
 					<br>
 					<c:forEach items="${hIndto}" var="dto">
 						<c:if test="${dto.type eq 'YK'}"><!-- 약 -->
-							<button type='button' class='btn btn-outline-info btnMar'>${dto.name }</button>
+							<button type='button' class='btn btn-outline-secondary btnMar'>${dto.name }</button>
 						</c:if>
 					</c:forEach>
 					<br>
 					<c:forEach items="${hIndto}" var="dto">
 						<c:if test="${dto.type eq 'AR'}"><!-- 알레르기 -->
-							 <button type='button' class='btn btn-outline-info btnMar'>${dto.name }</button>
+							 <button type='button' class='btn btn-outline-secondary btnMar'>${dto.name }</button>
 						</c:if>
 					</c:forEach>
 					<br>
 					<c:forEach items="${hIndto}" var="dto">
 						<c:if test="${dto.type eq 'SI'}"><!-- 지병 -->
-							<button type='button' class='btn btn-outline-info btnMar'>${dto.name }</button>	 
+							<button type='button' class='btn btn-outline-secondary btnMar'>${dto.name }</button>	 
 						</c:if>
 					</c:forEach>
 			
 					<p class="card-text">
 					
 					</p>
-					<a href="#" class="btn btn-primary" id="edit">건강정보수정</a>
+					<a href="#" class="btn btn-secondary" id="edit">건강정보수정</a>
 				</div>
 			</div>
 		</div>
@@ -195,7 +226,7 @@ function searchList(){
 
 
 		<div class="card mb-3 " style="margin: 20px 0px;">
-			<button type="button" class="btn btn-primary btn-lg btn-block" id="WjqtnwmdBtn">접수증 관리</button>
+			<button type="button" class="btn btn-secondary btn-lg btn-block" id="WjqtnwmdBtn">접수증 관리</button>
 		</div>
 
 

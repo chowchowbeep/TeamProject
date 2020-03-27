@@ -12,9 +12,9 @@ public class hosDAO extends DAO {
 	// 전체 리스트
 	public ArrayList<hosJoinMemberDTO> select() {
 		ArrayList<hosJoinMemberDTO> list = new ArrayList<>();
-		sql = "SELECT h.hos_name, h.hos_id, h.hos_bizno, h.hos_phone, h.biz_time, d.dec_no, d.dec_stt, d.dec_dttm, r.rv_no, r.star_point, hh.hos_rank " +
-			  "FROM hos_member h, declaration d, review r, hos_stt hh " +
-			  "where h.hos_id=d.hos_id and h.hos_id=r.hos_id and h.hos_id=hh.hos_id ";
+		sql = "SELECT h.hos_name, h.hos_id, h.hos_bizno, h.hos_phone, h.biz_time, hh.hos_rank " +
+			  "FROM hos_member h, hos_stt hh " +
+			  "where h.hos_id=hh.hos_id ";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -26,11 +26,11 @@ public class hosDAO extends DAO {
 				dto.setHosPhone(rs.getString("hos_Phone"));
 				dto.setHosRank(rs.getString("hos_rank"));
 				dto.setHosBizTime(rs.getString("biz_time"));
-				dto.setDecNo(rs.getInt("dec_no"));
-				dto.setDecStt("dec_stt");
-				dto.setDecDttm(rs.getDate("dec_dttm"));
-				dto.setRvNo(rs.getInt("rv_no"));
-				dto.setStarPoint(rs.getInt("star_point"));
+				//dto.setDecNo(rs.getInt("dec_no"));
+				//dto.setDecStt("dec_stt");
+				//dto.setDecDttm(rs.getDate("dec_dttm"));
+				//dto.setRvNo(rs.getInt("rv_no"));
+				//dto.setStarPoint(rs.getInt("star_point"));
 				list.add(dto);
 				}
 			} catch (SQLException e) {

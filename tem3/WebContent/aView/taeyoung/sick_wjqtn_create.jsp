@@ -25,7 +25,7 @@
 			</section>
 				 
 		 <div class="col-md-3">
-            <div class="card card-info">
+            <div class="card card-secondary">
               <div class="card-header">
                 <h3 class="card-title"></h3><!-- title -->
               </div>
@@ -83,7 +83,7 @@
                       </div>
                     </div>
                   </div>
-					<button type="submit" class="btn btn-block btn-info">접수증 생성하기</button>     
+					<button type="submit" class="btn btn-block btn-secondary">접수증 생성하기</button>     
                 </form>
               </div>
               <!-- /.card-body -->

@@ -22,11 +22,11 @@ public class LoginOkCMD implements Command {
 		String path = null;
 
 		if (memberType.equals("sickMember") && id.equals("admin")) { //관리자메인이동 임시
-			path = "MMain.do"; 
+			path = "redirect:MMain.do"; 
 		} else if (memberType.equals("hosMember")) {
-			path = "HHospitalMain.do";
+			path = "redirect:HHospitalMain.do";
 		} else if (memberType.equals("sickMember")) {
-			path = "SSickMain.do";
+			path = "redirect:SSickMain.do";
 		} 
 			
 		
