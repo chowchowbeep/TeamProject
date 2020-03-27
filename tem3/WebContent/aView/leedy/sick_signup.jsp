@@ -153,12 +153,7 @@ function inputIdUnChk() {
            >회원가입 확인</button>
           </div>
       </form>
-<hr>
-      <div class="social-auth-links text-center">
-        <p>SNS계정으로 간편하게 회원가입</p>
-        <a href="#" class="btn btn-block btn-warning"> 카카오톡 </a>
-        <a href="#" class="btn btn-block btn-primary"> 페이스북 </a>
-      </div>
+
 <hr>
       <a href="ToLoginPage.do" class="text-center">이미 아이디가 있으신가요?</a>
     </div>

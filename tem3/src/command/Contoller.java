@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cmd.ToLoginPageCMD;
 import cmd.HDoctorAddCMD;
 import cmd.HDoctorAddVerifyCMD;
 import cmd.HDoctorlistCMD;
@@ -74,8 +73,6 @@ import cmd.SReviewMylistCMD;
 import cmd.SReviewWriteCMD;
 import cmd.SRqDetailCMD;
 import cmd.SSelectDcryCMD;
-import cmd.SSickDetailListCMD;
-import cmd.SSickDocuListCMD;
 import cmd.SSickHealModifyCMD;
 import cmd.SSickHealModifyGoCMD;
 import cmd.SSickMediaListCMD;
@@ -84,6 +81,7 @@ import cmd.SSickMemberIdCheckActionCMD;
 import cmd.SSickMemberModifyGoCMD;
 import cmd.SSickSignupActionCMD;
 import cmd.SSickSignupCMD;
+import cmd.SSickUploadAddCMD;
 import cmd.SSickUploadCMD;
 import cmd.SSickWjqtnCreateCMD;
 import cmd.SSickWjqtnwmdCMD;
@@ -93,6 +91,7 @@ import cmd.SickMemCheckCMD;
 import cmd.SreviewBoardCMD;
 import cmd.SsearchMainCMD;
 import cmd.TestCMD;
+import cmd.ToLoginPageCMD;
 import kjr.ajax.BookmarkDeleteAjaxCMD;
 import kjr.ajax.BookmarkInsertAjaxCMD;
 import kjr.ajax.CategoriAjaxCMD;
@@ -230,11 +229,12 @@ public class Contoller extends HttpServlet {
 		cont.put("/SBookmark.do", new SBookmarkCMD()); //S30 관심병원 리스트 페이지
 		//기록물 조회페이지
 		cont.put("/SSickMediaList.do", new SSickMediaListCMD()); //S31 기록물-기록물 리스트페이지
-
+		cont.put("/SSickUpload.do", new SSickUploadCMD()); //S35 기록물 업로드 페이지로 이동+로그인한 아이디에 대한 정보 같이 보냄
+		cont.put("/SSickUploadAdd.do", new SSickUploadAddCMD()); //기록물 업로드 DB처리
 //		cont.put("/SSickDocuList.do", new SSickDocuListCMD()); //S32 서류-기록물 리스트페이지 
 //		cont.put("/SSickDetailList.do", new SSickDetailListCMD()); //S34 기록물 상세 페이지
-		cont.put("/SSickUpload.do", new SSickUploadCMD()); //S35 기록물 업로드 페이지로 이동+로그인한 아이디에 대한 정보 같이 보냄
-//		cont.put("/SSickUploadAdd.do", new SSickUploadAddCMD()); //기록물 업로드 DB처리
+
+	
 		
 	//	cont.put("/S.do", new CMD()); //S36 병원 신고 페이지
 	//	cont.put("/.do", new CMD()); // 알림아이콘

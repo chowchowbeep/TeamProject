@@ -28,6 +28,7 @@
 			<!-- /.container-fluid -->
 		</section>
 		
+		<img  src="">
 	
 		<!-- Main content -->
 		<section class="content">
@@ -39,7 +40,7 @@
 				<!-- /.card-header -->
 
 				<form name="hosUp" method="post" enctype="multipart/form-data"
-					action="HHospitalUpload.do" class="form-horizontal">
+					action="HHospitalUploadAdd.do" class="form-horizontal">
 					<div class="card-body">
 						<div class="form-group">
 							<label for="file_type">파일 타입</label>
@@ -99,17 +100,17 @@
 
 								<div class="row">
 									<div class="col-4">
-										<input type="text" class="form-control" id="inputYear">
+										<input type="text" class="form-control" id="inputYear" name="inputYear">
 
 									</div>
 									<label for="inputYear" class="col-1 col-form-label">년</label>
 									<div class="col-2">
-										<input type="text" class="form-control" id="inputMonth">
+										<input type="text" class="form-control" id="inputMonth" name="inputMonth">
 
 									</div>
 									<label for="inputMonth" class="col-1 col-form-label">월</label>
 									<div class="col-2">
-										<input type="text" class="form-control" id="inputDay">
+										<input type="text" class="form-control" id="inputDay"  name="inputDay">
 
 									</div>
 									<label for="inputDay" class="col-1 col-form-label">일</label>
@@ -122,10 +123,11 @@
 							<div class="col-sm-10">
 
 								<textarea class="form-control" rows="3"
-									placeholder="비고사항을 적어보세요" id="inputDrcyEtc"></textarea>
+									placeholder="비고사항을 적어보세요" id="drcy_etc"></textarea>
 
 							</div>
 						</div>
+						<input type="hidden" name="sic_id" value="${sic_id }">
 
 						
 					</div>
