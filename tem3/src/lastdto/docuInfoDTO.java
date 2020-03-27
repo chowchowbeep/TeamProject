@@ -5,7 +5,7 @@ import java.sql.Date;
 public class docuInfoDTO {
 	private int dcryNo; // 파일번호
 	private String sicId; // 회원id
-	private Date dcryDttm; // 발급일자
+	private String dcryDttm; // 발급일자
 	private String dcryEtc; // 비고
 	private int artrNo; // 의사번호
 	private String hosId; // 병원id
@@ -13,16 +13,6 @@ public class docuInfoDTO {
 	// 생성자
 	public docuInfoDTO() {
 		super();
-	}
-
-	public docuInfoDTO(int dcryNo, String sicId, Date dcryDttm, String dcryEtc, int artrNo, String hosId) {
-		super();
-		this.dcryNo = dcryNo;
-		this.sicId = sicId;
-		this.dcryDttm = dcryDttm;
-		this.dcryEtc = dcryEtc;
-		this.artrNo = artrNo;
-		this.hosId = hosId;
 	}
 
 	public int getDcryNo() {
@@ -41,11 +31,11 @@ public class docuInfoDTO {
 		this.sicId = sicId;
 	}
 
-	public Date getDcryDttm() {
+	public String getDcryDttm() {
 		return dcryDttm;
 	}
 
-	public void setDcryDttm(Date dcryDttm) {
+	public void setDcryDttm(String dcryDttm) {
 		this.dcryDttm = dcryDttm;
 	}
 
@@ -72,5 +62,7 @@ public class docuInfoDTO {
 	public void setHosId(String hosId) {
 		this.hosId = hosId;
 	}
+
+	
 
 }

@@ -28,6 +28,7 @@
 			<!-- /.container-fluid -->
 		</section>
 		
+		<img  src="">
 	
 		<!-- Main content -->
 		<section class="content">
@@ -39,7 +40,7 @@
 				<!-- /.card-header -->
 
 				<form name="hosUp" method="post" enctype="multipart/form-data"
-					action="HHospitalUpload.do" class="form-horizontal">
+					action="HHospitalUploadAdd.do" class="form-horizontal">
 					<div class="card-body">
 						<div class="form-group">
 							<label for="file_type">파일 타입</label>
@@ -122,7 +123,7 @@
 							<div class="col-sm-10">
 
 								<textarea class="form-control" rows="3"
-									placeholder="비고사항을 적어보세요" id="inputDrcyEtc"></textarea>
+									placeholder="비고사항을 적어보세요" id="drcy_etc"></textarea>
 
 							</div>
 						</div>
