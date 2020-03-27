@@ -40,9 +40,13 @@ public class HHospitalUploadAddCMD implements Command {
 		
 
 		//파라미터 받아오기
-		String fileType = request.getParameter("file_type");
-		String fileName = request.getParameter("file");
-		int artrNo = Integer.parseInt(request.getParameter("artr_no"));
+		String fileType = multi.getParameter("file_type");
+		//String fileName = multi.getParameter("file");
+		String fileName = multi.getFilesystemName("file"); //업로드한 파일
+		String originFileName = multi.getOriginalFileName("file");
+		String fileExtend = fileName.substring(fileName.lastIndexOf(".")+1); 
+		
+		int artrNo = Integer.parseInt(multi.getParameter("artr_no"));
 		String dcryDttm = request.getParameter("inputYear")
 				+request.getParameter("inputMonth")
 				+request.getParameter("inputDay");
