@@ -35,6 +35,11 @@
 	table{
 		text-align:center;
 	}
+	
+	th,td {
+		padding: 10px 3px !important;
+		font-size:0.9em;
+	}
 </style>
 
 <%@ include file="/layout/hos_menu.jsp"%>
@@ -57,31 +62,17 @@
   <!---- Main content ----------------------------->
     <section class="content">
       <div class="container-fluid">
-         <div class="dropdown">
-			전체&nbsp;<i class="fas fa-caret-down"></i><!-- 화살표 -->
-			<!-- <i class="fas fa-bars"></i>  줄 세개-->
- 		 <div class="dropdown-content">
-    		<a href="${pageContext.request.contextPath}/HMediAll.do">전체</a>
-    		<a href="${pageContext.request.contextPath}/HMediWjqtn.do">당일 접수</a>
-   			<a href="${pageContext.request.contextPath}/HMediReserve.do">예약</a>
- 		 </div>
-		</div><br>
 		
         <div class="row">
         <div class="col-12" >
             <div class="card">
-              <div class="card-header border-0">
-                <h3 class="card-title"><!-- 제목 --></h3>
-                <div class="card-tools">
-                </div>
-              </div>
          <div class="card-body table-responsive p-0">
          <table class="table table-striped table-valign-middle">
            <thead>
              <tr>
-             <th>진료</th>
+               <th>진료</th>
                <th>이름</th>
-               <th>접수시간</th>
+               <th>신청일자</th>
                <th>담당의</th>
              </tr>
             </thead>
@@ -102,10 +93,10 @@
 							<td>일반취소</td>
 						</c:when>
 					</c:choose>
-                  <td><a href="HMediDetail.do?rqstNo=${dto.rqstNo }&sicName=${dto.sicName }&sicPhone=${dto.sicPhone}" class="text-muted">${dto.sicName}</a><span class="badge bg-warning">NEW</span></td>
+                  <td><a href="HMediDetail.do?rqstNo=${dto.rqstNo }&sicName=${dto.sicName }&sicPhone=${dto.sicPhone}" class="text-muted">${dto.sicName}</a></td>
                   <td>${dto.rqstDttm}</td>
                   <td>
-                    <i class="fas fa-search">${dto.artrName}</i>
+                    ${dto.artrName}
                   </td>
                 </tr>
                 </c:forEach>
