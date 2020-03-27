@@ -15,7 +15,7 @@
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="#">홈</a></li>
-						<li class="breadcrumb-item active">진료현황</li>
+						<li class="breadcrumb-item active">진료신청현황</li>
 					</ol>
 				</div>
 			</div>

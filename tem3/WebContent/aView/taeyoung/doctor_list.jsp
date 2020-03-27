@@ -51,7 +51,6 @@
                   <thead>
             		<tr>
             		<th>번호</th>
-            		<th>id</th>
             		<th>이름</th>
             		<th>과목</th>
             		<th></th>
@@ -59,7 +58,6 @@
             	<c:forEach items="${list}" var="dto">
                     <tr>
       			      <td>${dto.artrNo}</td>
-      			      <td>${dto.hosId}</td>
                       <td>${dto.artrName}</td>
  			        <c:choose>
 						<c:when test="${dto.artrSub =='CS10'}">
