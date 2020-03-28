@@ -5,7 +5,7 @@
 <%@ include file="/layout/sick_head.jsp"%>
 <script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css?ver=2">
+	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css?ver=3">
 <%@ include file="/layout/sick_menu.jsp"%>
 
 <!-- /SMedDoneList.do로 진료이력목록조회 -->
@@ -19,13 +19,6 @@
 					<div class="col-sm-6">
 						<!-- 1. 진료이력 출력 ( 회원Id, 진료상태 완료, 모든진료타입 ) -->
 						<h1 class="m-0 text-dark">진료완료이력</h1>
-					</div>
-					<!-- /.col -->
-					<div class="col-sm-6">
-						<ol class="breadcrumb float-sm-right">
-							<li class="breadcrumb-item">홈</li>
-							<li class="breadcrumb-item active">일반회원</li>
-						</ol>
 					</div>
 					<!-- /.col -->
 				</div>
