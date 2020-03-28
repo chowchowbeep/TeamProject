@@ -8,7 +8,7 @@ import java.io.InputStream;
 import oracle.jdbc.driver.*;
 
 
-public class DontTouchThis {
+public class NotNot {
 	
 	 public String searchNEvalInfoListExtListFile(String[] criteria) throws JEJBException
 	 {

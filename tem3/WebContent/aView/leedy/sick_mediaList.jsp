@@ -22,9 +22,6 @@
       </div><!-- /.container-fluid -->
     </div><!-- /.content-header -->
 
-
-
-
 	<!-- Main content -->
 	<section class="content">
 
@@ -43,11 +40,7 @@
 
 			<form role="form" method="post" enctype="multipart/form-data"
 				action="" class="form-horizontal">
-
-
-
 				<!-- Modal -->
-
 				<div class="modal fade" id="exampleModal" tabindex="-1"
 					role="dialog" aria-labelledby="exampleModalLabel"
 					aria-hidden="true">
@@ -74,8 +67,6 @@
 						</div>
 					</div>
 				</div>
-
-
 				<div class="card-body">
 					<div>
 						<div class="card mb-3 abc" style="max-width: 750px; float: left;">
@@ -92,7 +83,7 @@
 										<h4 class="card-title">이다연</h4>
 										<br>
 										<p class="card-text">
-											기록물분류: CT <br> 발급병원: 예담내과 <br> 발급일자: 20200101
+											발급병원:  <br> 담당의사:  <br> 발급일자: 
 										</p>
 										<p class="card-text">
 											<small class="text-muted">1시간 전</small>
@@ -101,75 +92,18 @@
 								</div>
 							</div>
 						</div>
-
-						<div class="card mb-3 abc" style="max-width: 750px; float: right;">
-							<div class="row no-gutters">
-								<div class="col-md-4 ">
-									<a href="sick_detailList.jsp" data-toggle="modal"
-										data-target="#exampleModal"> <img src="${pageContext.request.contextPath}/upload/고양.jpg"
-										class="card-img" alt="..."></a>
-								</div>
-								<div class="col-md-8">
-									<div class="card-body">
-										<h4 class="card-title">이다연</h4>
-										<br>
-										<p class="card-text">
-											기록물분류: X-ray <br> 발급병원: 예담외과 <br> 발급일자: 20200101
-										</p>
-										<p class="card-text">
-											<small class="text-muted">어제</small>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="card mb-3 abc" style="max-width: 750px; float: right;">
-							<div class="row no-gutters">
-								<div class="col-md-4 ">
-									<a href="sick_detailList.jsp" data-toggle="modal"
-										data-target="#exampleModal"> <img src="${pageContext.request.contextPath}/upload/고양.jpg"
-										class="card-img" alt="..."></a>
-								</div>
-								<div class="col-md-8">
-									<div class="card-body">
-										<h4 class="card-title">이다연</h4>
-										<br>
-										<p class="card-text">
-											기록물분류: X-ray <br> 발급병원: 예담외과 <br> 발급일자: 20200101
-										</p>
-										<p class="card-text">
-											<small class="text-muted">어제</small>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-
-
-
 					</div>
-
 				</div>
-
 			</form>
 		</div>
 	</section>
-
-
 	<!-- Control Sidebar -->
 	<aside class="control-sidebar control-sidebar-dark">
 		<!-- Control sidebar content goes here -->
 	</aside>
 	<!-- /.control-sidebar -->
-
-
 	<!-- ./wrapper -->
 </div>
-
-
-
 <%@ include file="/layout/all_footer.jsp"%>
-
 </body>
 </html>

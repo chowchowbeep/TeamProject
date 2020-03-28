@@ -10,7 +10,7 @@ import dto.DocumentPdfFileDto;
 
 import kty.DAO;
 
-public class FileDownDAO extends DAO {
+public class NotFileDownDAO extends DAO {
 
 	public static String sql;
 	
