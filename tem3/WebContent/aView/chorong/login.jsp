@@ -6,7 +6,7 @@
 <body class="hold-transition login-page">
 	<div class="login-box">
 		<div class="login-logo">
-			<p>살려죠</p>
+			<p><strong>HELLO DOCTOR</strong></p>
 		</div>
 		<!-- /.login-logo -->
 		<div class="card">
