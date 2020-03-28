@@ -6,7 +6,7 @@
 
 <%@ include file="/layout/sick_head.jsp"%>
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css?ver=5">
+	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css?ver=6">
 <style>
 .importantItem {
 	font-size: 1.3rem;
@@ -210,12 +210,6 @@
 							</c:otherwise>
 						</c:choose>
 					</div>
-					<div class="col-sm-6">
-						<ol class="breadcrumb float-sm-right">
-							<li class="breadcrumb-item"><a href="#">홈</a></li>
-							<li class="breadcrumb-item active">일반회원</li>
-						</ol>
-					</div>
 				</div>
 			</div>
 			<!-- /.container-fluid -->
@@ -270,7 +264,7 @@
 								<div class="row">
 									<div class="col-sm-12">
 										<div class="item rqDetailInfo">
-											<span class="rqDetailLabel"> 1.</span> 병원 내원시 살려죠 서비스를 통해
+											<span class="rqDetailLabel"> 1.</span> 병원 내원시 헬로닥터 서비스를 통해
 											예약/접수하였다고 알려주세요.
 										</div>
 										<div class="item rqDetailInfo">

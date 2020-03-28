@@ -2,10 +2,11 @@
 	pageEncoding="UTF-8"%>
 
 <style>
-#toMain {
-	color: black;
-	text-decoration: none;
-}
+	#toMain {
+		color: black;
+		text-decoration:none;
+		font-weight:200;
+	}
 </style>
 <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 

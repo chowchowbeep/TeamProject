@@ -4,7 +4,7 @@
 
 <%@ include file="/layout/sick_head.jsp"%>
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css?ver=3">
+	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css?ver=4">
 <script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
 
 <!-- /SMedBeforeMedList.do로 진료신청목록조회-->
@@ -276,13 +276,6 @@
 						<c:if test="${doneStatus=='after'}">
 							<h1 class="m-0 text-dark">진료완료이력</h1>
 						</c:if>
-					</div>
-					<!-- /.col -->
-					<div class="col-sm-6">
-						<ol class="breadcrumb float-sm-right">
-							<li class="breadcrumb-item">홈</li>
-							<li class="breadcrumb-item active">일반회원</li>
-						</ol>
 					</div>
 					<!-- /.col -->
 				</div>

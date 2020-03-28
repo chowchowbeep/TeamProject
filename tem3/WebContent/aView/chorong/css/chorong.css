@@ -14,27 +14,22 @@ td {
 }
 
 
-h1 {
-	font-weight: 200;
-}
+/* .breadcrumb { */
+/* 	margin: 0; */
+/* } */
 
+/* .breadcrumb-item.active { */
+/* 	color: #343a40; */
+/* 	font-weight: 700; */
+/* } */
 
-.breadcrumb {
-	margin: 0;
-}
+/* .breadcrumb-item { */
+/* 	color: #6c757d; */
+/* } */
 
-.breadcrumb-item.active {
-	color: #343a40;
-	font-weight: 700;
-}
-
-.breadcrumb-item {
-	color: #6c757d;
-}
-
-.breadcrumb-item a {
-	color: #6c757d;
-}
+/* .breadcrumb-item a { */
+/* 	color: #6c757d; */
+/* } */
 
 
 
@@ -61,7 +56,7 @@ h1 {
 }
 
 
-
+/* 페이지버튼 */
 .page-link {
 	font-size: 1.2rem;
 	color: #343a40;
@@ -80,7 +75,7 @@ h1 {
 }
 
 
-
+/* 상세내역 항목 */
 .rqDetailLabel::after {
   content: "\00a0\00a0\00a0\00a0";
 }
