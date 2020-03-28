@@ -8,7 +8,11 @@ public class hosJoinMemberDTO {
 	private String hosName;    // 병원명
 	private String hosPhone;	// 전화번호
 	private String hosAddr;    // 주소
+<<<<<<< HEAD
+	private String bizTime;		// 영업 시간
+=======
 	private String hosBizTime;	// 영업 시간
+>>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject
 	private String hosRank;    // 병원 등급
 	private int decNo;	 // 신고 번호
 	private String decStt;	  // 신고 처리 상태
@@ -21,18 +25,25 @@ public class hosJoinMemberDTO {
 		super();
 	}
 
-	
 
 	public hosJoinMemberDTO(String hosId, String hosBizno, String hosName, String hosPhone, String hosAddr,
+<<<<<<< HEAD
+			String bizTime, String hosRank, int decNo, String decStt, Date decDttm, int rvCount, int starPoint) {
+=======
 			String hosBizTime, String hosRank, int decNo, String decStt, Date decDttm, int rvCount,
 			int starPoint) {
+>>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject
 		super();
 		this.hosId = hosId;
 		this.hosBizno = hosBizno;
 		this.hosName = hosName;
 		this.hosPhone = hosPhone;
 		this.hosAddr = hosAddr;
+<<<<<<< HEAD
+		this.bizTime = bizTime;
+=======
 		this.hosBizTime = hosBizTime;
+>>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject
 		this.hosRank = hosRank;
 		this.decNo = decNo;
 		this.decStt = decStt;
@@ -42,55 +53,77 @@ public class hosJoinMemberDTO {
 	}
 
 
-
 	public String getHosId() {
 		return hosId;
 	}
+
 
 	public void setHosId(String hosId) {
 		this.hosId = hosId;
 	}
 
+
 	public String getHosBizno() {
 		return hosBizno;
 	}
+
 
 	public void setHosBizno(String hosBizno) {
 		this.hosBizno = hosBizno;
 	}
 
+
 	public String getHosName() {
 		return hosName;
 	}
+
 
 	public void setHosName(String hosName) {
 		this.hosName = hosName;
 	}
 
+
 	public String getHosPhone() {
 		return hosPhone;
 	}
+
 
 	public void setHosPhone(String hosPhone) {
 		this.hosPhone = hosPhone;
 	}
 
+
 	public String getHosAddr() {
 		return hosAddr;
 	}
+
 
 	public void setHosAddr(String hosAddr) {
 		this.hosAddr = hosAddr;
 	}
 
+<<<<<<< HEAD
+
+	public String getBizTime() {
+		return bizTime;
+	}
+
+
+	public void setBizTime(String bizTime) {
+		this.bizTime = bizTime;
+	}
+
+
+=======
+>>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject
 	public String getHosRank() {
 		return hosRank;
 	}
 
+
 	public void setHosRank(String hosRank) {
 		this.hosRank = hosRank;
 	}
-
 
 
 	public int getDecNo() {
@@ -98,11 +131,9 @@ public class hosJoinMemberDTO {
 	}
 
 
-
 	public void setDecNo(int decNo) {
 		this.decNo = decNo;
 	}
-
 
 
 	public String getDecStt() {
@@ -110,11 +141,9 @@ public class hosJoinMemberDTO {
 	}
 
 
-
 	public void setDecStt(String decStt) {
 		this.decStt = decStt;
 	}
-
 
 
 	public Date getDecDttm() {
@@ -122,11 +151,9 @@ public class hosJoinMemberDTO {
 	}
 
 
-
 	public void setDecDttm(Date decDttm) {
 		this.decDttm = decDttm;
 	}
-
 
 
 	public int getRvCount() {
@@ -134,11 +161,9 @@ public class hosJoinMemberDTO {
 	}
 
 
-
-	public void setRvNo(int rvCount) {
+	public void setRvCount(int rvCount) {
 		this.rvCount = rvCount;
 	}
-
 
 
 	public int getStarPoint() {
@@ -146,12 +171,13 @@ public class hosJoinMemberDTO {
 	}
 
 
-
 	public void setStarPoint(int starPoint) {
 		this.starPoint = starPoint;
 	}
 
 
+<<<<<<< HEAD
+=======
 
 	public String getHosBizTime() {
 		return hosBizTime;
@@ -171,15 +197,22 @@ public class hosJoinMemberDTO {
 
 
 
+>>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject
 	@Override
 	public String toString() {
 		return "hosJoinMemberDTO [hosId=" + hosId + ", hosBizno=" + hosBizno + ", hosName=" + hosName + ", hosPhone="
+<<<<<<< HEAD
+				+ hosPhone + ", hosAddr=" + hosAddr + ", bizTime=" + bizTime + ", hosRank=" + hosRank + ", decNo="
+=======
 				+ hosPhone + ", hosAddr=" + hosAddr + ", hosBizTime=" + hosBizTime + ", hosRank=" + hosRank + ", decNo="
+>>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject
 				+ decNo + ", decStt=" + decStt + ", decDttm=" + decDttm + ", rvCount=" + rvCount + ", starPoint="
 				+ starPoint + "]";
 	}
 
 
 	
-	
 }
+
+
+

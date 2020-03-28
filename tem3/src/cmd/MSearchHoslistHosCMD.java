@@ -19,8 +19,7 @@ public class MSearchHoslistHosCMD implements Command {
 		hosDAO dao = new hosDAO();
 		hosJoinMemberDTO dto = new hosJoinMemberDTO();
 		dto = dao.selectone(hosId);
-		System.out.println("at cmd"+dto.toString());
-		
+
 		request.setAttribute("dto", dto);
 		request.setAttribute("hosId", hosId);
 		
