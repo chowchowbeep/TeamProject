@@ -17,9 +17,7 @@ public class SSickMemModifyCMD implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		//String id = (String)request.getSession().getAttribute("sic_id");
-
-		 String id = "sic1";
+		String id = (String)request.getSession().getAttribute("memberId");
 		sickMemberDTO dto;
 		sickMemberDAO dao = new sickMemberDAO();
 

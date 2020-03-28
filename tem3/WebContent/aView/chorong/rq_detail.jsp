@@ -111,8 +111,6 @@
 
 		// 취소신청시 필요한 rqstNo를 input value로
 		$("#rqstNo").val(result.rqstNo);
-		var rqNo = $("#rqstNo").val();
-		console.log(rqNo);
 
 		// 예상대기인원수 프로시저 콜 인자로 필요한 hosId값
 		$("#hosId").val(result.hosId);
