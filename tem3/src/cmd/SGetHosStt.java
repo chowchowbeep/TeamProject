@@ -16,7 +16,7 @@ public class SGetHosStt implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String hosId = request.getParameter("hosId");
-		//System.out.println("=====ajax요청시 넘기는 데이터: "+hosId+"=======");
+		System.out.println("=====at getHosStt, hosId: "+hosId+"=======");
 		
 		InfoForRequestDAO dao = new InfoForRequestDAO();
 		JSONObject jsonObj = new JSONObject();

@@ -16,9 +16,10 @@ public class HDoctorlistCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String hosId = (String) request.getSession().getAttribute("memberId");
 		String path ="aView/taeyoung/doctor_list.jsp"; //의사리스트 페이지로 이동
 		ArtrDAO dao = new ArtrDAO();
-		List<artrInfoDTO> list = dao.selectList();
+		List<artrInfoDTO> list = dao.selectList(hosId);
 		request.setAttribute("list", list);
 		return path;
 	}

@@ -6,12 +6,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DAO {
 	protected Connection conn;
 	protected PreparedStatement pstmt;
 	protected CallableStatement cstmt;
 	protected ResultSet rs;
+	protected Statement st;
 
 	protected String driver = "oracle.jdbc.driver.OracleDriver";
 	protected String url = "jdbc:oracle:thin:@39.116.34.40:1523:mdb";

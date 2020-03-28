@@ -1,28 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
-<%@ include file="/layout/hos_head.jsp"%>
-<%@ include file="/layout/hos_menu.jsp"%>
+<%@ include file="/layout/sick_head.jsp"%>
+<%@ include file="/layout/sick_menu.jsp"%>
+</head>
 
+<body>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
-	<section class="content-header">
-		<div class="container-fluid">
-			<div class="row mb-2">
-				<div class="col-sm-6">
-					<h1>sick_mediaList</h1>
-				</div>
-				<div class="col-sm-6">
-					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="#">홈</a></li>
-						<li class="breadcrumb-item active">일반회원</li>
-					</ol>
-				</div>
-			</div>
-		</div>
-		<!-- /.container-fluid -->
-	</section>
+
+	 <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">진료기록물 조회</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div><!-- /.content-header -->
+
 
 
 
@@ -33,17 +32,9 @@
 
 			<div class="card table-responsive pad card text-center">
 				<div class="btn-group btn-group-toggle">
-					<label class="btn btn-secondary active"> <input
-						type="radio" name="options" id="option1" autocomplete="off"
-						checked
-						onclick="location.href='/tem3/aView/leedy/sick_mediaList.jsp'">
+					<label class="btn btn-secondary active">
 						기록물
-					</label> <label class="btn btn-secondary"> <input type="radio"
-						name="options" id="option2" autocomplete="off"
-						onclick="location.href='/tem3/aView/leedy/sick_docuList.jsp'">
-						서류
-					</label>
-
+					</label> 
 				</div>
 			</div>
 
@@ -71,13 +62,13 @@
 							</div>
 							<div class="modal-body">
 								<img class="mw-100 mh-100"
-									src="${pageContext.request.contextPath}/pages/forms/nyang.jpg">사진
+									src="${pageContext.request.contextPath}/upload/고양.jpg">사진
 								파일이 떠용
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary"
 									data-dismiss="modal">확인</button>
-								<button type="button" class="btn btn-primary"
+								<button type="button" class="btn btn-secondary"
 									onclick="location.href='fileCall.jsp'">다운로드</button>
 							</div>
 						</div>
@@ -93,7 +84,7 @@
 									<a href="sick_detailList.jsp" data-toggle="modal"
 										data-target="#exampleModal"> 
 							
-										<img src="nyang.jpg"
+										<img src="${pageContext.request.contextPath}/upload/고양.jpg"
 										class="card-img" alt="..."></a>
 								</div>
 								<div class="col-md-8">
@@ -115,7 +106,7 @@
 							<div class="row no-gutters">
 								<div class="col-md-4 ">
 									<a href="sick_detailList.jsp" data-toggle="modal"
-										data-target="#exampleModal"> <img src="nyang.jpg"
+										data-target="#exampleModal"> <img src="${pageContext.request.contextPath}/upload/고양.jpg"
 										class="card-img" alt="..."></a>
 								</div>
 								<div class="col-md-8">
@@ -137,7 +128,7 @@
 							<div class="row no-gutters">
 								<div class="col-md-4 ">
 									<a href="sick_detailList.jsp" data-toggle="modal"
-										data-target="#exampleModal"> <img src="nyang.jpg"
+										data-target="#exampleModal"> <img src="${pageContext.request.contextPath}/upload/고양.jpg"
 										class="card-img" alt="..."></a>
 								</div>
 								<div class="col-md-8">
@@ -179,3 +170,6 @@
 
 
 <%@ include file="/layout/all_footer.jsp"%>
+
+</body>
+</html>

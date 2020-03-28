@@ -49,15 +49,27 @@ $(function() {
 		
 		<div class="row">
 			<div class="mb-3 col-4" style="margin: 20px 0px;">
-				<button type="button" class="btn btn-primary btn-lg btn-block">랭킹순</button>
+				<button type="button" class="btn btn-secondary btn-lg btn-block">랭킹순</button>
 			</div>
 			<div class="mb-3 col-4" style="margin: 20px 0px;">
-				<button type="button" class="btn btn-primary btn-lg btn-block">거리순</button>
+				<button type="button" class="btn btn-secondary btn-lg btn-block">거리순</button>
 			</div>
 			<div class="mb-3 col-4" style="margin: 20px 0px;">
-				<button type="button" class="btn btn-primary btn-lg btn-block">상세조건</button>
+				<button type="button" class="btn btn-secondary btn-lg btn-block">상세조건</button>
 			</div>
 		</div>
+		<c:if test="${empty hosList }">
+			<div class="card" style="margin: 5px;">
+				<div class="col-md-12">
+					<div class="card-body text-center">
+						<p class="card-text">검색결과가 없습니다.</p>
+						<p></p>
+						<a href="SSearchMain.do" class="btn btn-secondary">지역 및 카테고리로 검색하기</a>
+					</div>
+				</div>
+				 	
+			</div>
+		</c:if>
 		
 		<!-- 병원리스트출력 검색마다 추가되도록 이벤트가 발생해야함 -->
 		<!--  for:each  -->
@@ -75,7 +87,7 @@ $(function() {
 							<p class="card-text">${list.hosAddr }</p>
 							<p>전화번호 : ${list.hosPhone }</p>
 							<p>진료 시간 :${list.hosBizTime }</p>
-							<a href="SHospitalInfo.do" class="btn btn-primary">접수 예약 및 상세페이지</a>
+							<a href="SHospitalInfo.do?hosId=${list.hosId}" class="btn btn-secondary">접수 예약 및 상세페이지</a>
 						</div>
 					</div>
 				</div>

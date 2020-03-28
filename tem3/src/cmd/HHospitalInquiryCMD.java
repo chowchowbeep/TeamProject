@@ -13,7 +13,7 @@ public class HHospitalInquiryCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String path ="aView/leedy/hospital_inquiry.jsp";  //기록물 조회 페이지  로 이동
+		String path ="aView/leedy/hospital_inquiry.jsp";  //기록물 조회 페이지로 이동
 		
 		return path;
 	}

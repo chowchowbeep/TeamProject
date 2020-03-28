@@ -17,8 +17,7 @@ public class SDeclarationInsertCMD implements Command {
 			throws ServletException, IOException {
 		// 병원신고 처리
 
-		// 나중에 세션값 받아오는 것으로 수정할 것
-		String sicId = request.getParameter("id");
+		String sicId = (String) request.getSession().getAttribute("memberId");
 		String hosId = request.getParameter("hosId");
 		String decCont = request.getParameter("decCont");
 
@@ -35,9 +34,7 @@ public class SDeclarationInsertCMD implements Command {
 		
 		dao.declaration(dto);
 
-		request.setAttribute("id", sicId); // 추후수정__ 세션으로
-
-		String path = "redirect:SMedADoneList.do";
+		String path = "redirect:SMedDoneList.do";
 
 		return path;
 	}

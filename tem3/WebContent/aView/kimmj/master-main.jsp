@@ -22,7 +22,7 @@ to {
 	height: 100px;
 	align: center;
 	margin: 40px 70px 10px 70px;
-	font-size: 25px;
+	font-size: 25px;    
 }
 
 .ionicon {

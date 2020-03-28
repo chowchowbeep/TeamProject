@@ -1,3 +1,4 @@
+<%@page import="kimmj.normalDAO"%>
 <%@page import="lastdto.sickJoinMemberDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -9,7 +10,26 @@
 		document.searchFrm.method="post";
 		document.searchFrm.submit();
 	}
+	
+	
+	function search_detail(frm) {
+		if (frm.keyWord.value=="") {
+			frm.keyWord.focus();
+			return;
+		}
+		frm.submit();
+	}
 </script>
+<%
+	normalDAO dao = new normalDAO();
+	ArrayList<sickJoinMemberDTO> list = new ArrayList<sickJoinMemberDTO>();
+	ArrayList<sickJoinMemberDTO> searchlist = (ArrayList<sickJoinMemberDTO>)request.getAttribute("list");
+	if (searchlist == null) {
+		list = dao.select();
+	} else {
+		list = searchlist;
+	}
+%>
 <style type="text/css">/* Chart.js */
 @
 keyframes chartjs-render-animation {
@@ -121,6 +141,8 @@ to {
 
 
 <%@ include file="/layout/admin_menu.jsp"%>
+
+
 <div class = "card">
 	<div class = "card-header text-center">
 		<div class = "text-center" style = "padding: 10px 0px 0px 0px">
@@ -148,8 +170,8 @@ to {
 			</span> 
 			<span class="info-box-box"> &nbsp;&nbsp;&nbsp; 
 			<input type="radio" name="ckck" value="all">&nbsp;전체
-				&nbsp;&nbsp;&nbsp; <input type="radio" name="ckck" value="standard">&nbsp;일반
-				&nbsp;&nbsp;&nbsp; <input type="radio" name="ckck" value="police">&nbsp;제재
+				&nbsp;&nbsp;&nbsp; <input type="radio" name="memStatus" value="J">&nbsp;일반
+				&nbsp;&nbsp;&nbsp; <input type="radio" name="memStatus" value="P">&nbsp;제재
 			</span> 
 			<br>
 		</div>
@@ -159,16 +181,15 @@ to {
 			</span>
 		</div>
 		<div class="list">
-			<span class="listof"> 회원명&nbsp;&nbsp;&nbsp; <input type="text">
+			<span class="listof"> 회원명&nbsp;&nbsp;&nbsp; <input type="text" name="name">
 			</span>
 		</div>
 		<div class="list">
-			<span class="listof2"> 전화번호&nbsp;&nbsp;&nbsp; <input
-				type="text">
+			<span class="listof2"> 전화번호&nbsp;&nbsp;&nbsp; <input type="text" name="phone">
 			</span>
 		</div>
 		<div class="search">
-			<button type="submit" class="btn btn-block btn-warning">
+			<button type="submit" class="btn btn-block btn-warning"  onclick="search_detail(frm)">
 				<b>검색</b>
 			</button>
 		</div>

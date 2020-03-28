@@ -15,7 +15,7 @@ public class SMedListPagingCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String id = request.getParameter("id"); // 가상의 파라미터
+		String id = (String) request.getSession().getAttribute("memberId");
 		String type = request.getParameter("type");
 		String doneStatus = request.getParameter("doneStatus");
 		System.out.println("타입파라미터;"+type+", 진료완료여부"+doneStatus+ ", id:"+id);

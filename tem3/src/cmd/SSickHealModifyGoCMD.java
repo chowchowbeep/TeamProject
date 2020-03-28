@@ -19,11 +19,6 @@ public class SSickHealModifyGoCMD implements Command {
 		healthInfoDTO dto = new healthInfoDTO();
 		sickHealthModifyDAO dao = new sickHealthModifyDAO();
 		
-		
-		
-		
-		
-		
 		return null;
 	}
 

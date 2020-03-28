@@ -26,7 +26,8 @@ public class MediRqdetailDAO extends DAO {
 			if (rs.next()) {
 				dto.setRqstNo(rs.getInt("RQST_NO"));
 				dto.setSicId(rs.getString("SIC_ID"));
-				dto.setRqstDttm(rs.getString("RQST_DTTM"));//신청날짜
+				dto.setRqstDt(rs.getString("RQST_DT"));//신청날짜
+				dto.setRqstTm(rs.getString("RQST_TM"));//신청날짜
 				dto.setHosId(rs.getString("HOS_ID"));
 				dto.setResDt(rs.getString("RES_DT"));//예약날짜
 				dto.setResTm(rs.getString("RES_TM"));//예약시간
@@ -34,7 +35,7 @@ public class MediRqdetailDAO extends DAO {
 				dto.setRqstTy(rs.getString("RQST_TY"));
 				dto.setMsg(rs.getString("MSG"));
 				dto.setDcryNo(rs.getInt("DCRY_NO"));
-				dto.setIfTime(rs.getString("IFTIME"));				
+				dto.setIfTime(rs.getString("IFTIME"));		
 
 				dto.setHosName(rs.getString("HOS_NAME"));
 				dto.setHosPhone(rs.getString("HOS_PHONE"));
@@ -42,7 +43,6 @@ public class MediRqdetailDAO extends DAO {
 
 				dto.setArtrName(rs.getString("ARTR_NAME"));
 				dto.setArtrSub(rs.getString("ARTR_SUB"));
-				System.out.println("select된 진료신청정보 " + dto.toString());
 			}
 			
 		} catch (Exception e) {
@@ -204,7 +204,8 @@ public class MediRqdetailDAO extends DAO {
 			if (rs.next()) {
 				dto.setRqstNo(rs.getInt("RQST_NO"));
 				dto.setSicId(rs.getString("SIC_ID"));
-				dto.setRqstDttm(rs.getString("RQST_DTTM"));//신청날짜
+				dto.setRqstDt(rs.getString("RQST_DT"));//신청날짜
+				dto.setRqstTm(rs.getString("RQST_TM"));//신청날짜
 				dto.setHosId(rs.getString("HOS_ID"));
 				dto.setResDt(rs.getString("RES_DT"));//예약날짜
 				dto.setResTm(rs.getString("RES_TM"));//예약시간

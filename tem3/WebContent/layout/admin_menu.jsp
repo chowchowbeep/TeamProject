@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<style>
+#toMain {
+	color: black;
+	text-decoration: none;
+}
+</style>
 <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 
 </head>
@@ -21,14 +28,15 @@
 
 			<form class="form-inline mx-auto">
 				<div class="input-group input-group-sm" style="font-size: 30px;">
-					SALLYEOJYO</div>
+					<a href="MMain.do" id="toMain">HELLO DOCTOR</a>
+				</div>
 			</form>
 
 
 
 			<!-- Right navbar links -->
 			<ul class="navbar-nav">
-			
+
 				<li class="nav-item"><a class="nav-link" data-widget="pushmenu"
 					href="#"> <i class="fas fa-bars"></i>
 				</a></li>
@@ -39,12 +47,12 @@
 
 		<!-- 햄버거메뉴 내용 -->
 		<!-- Main Sidebar Container -->
-		<aside class="main-sidebar sidebar-dark-primary elevation-4">
+		<aside class="main-sidebar sidebar-dark-secondary elevation-4">
 			<!-- Brand Logo -->
 			<a href="#" class="brand-link"> <img
 				src="/tem3/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
 				class="brand-image img-circle elevation-3" style="opacity: .8">
-				<span class="brand-text font-weight-light">SALLYEOJYO</span>
+				<span class="brand-text font-weight-light">HELLO DOCTOR</span>
 			</a>
 
 			<!-- Sidebar -->
@@ -71,21 +79,27 @@
 						<li class="nav-header"><small><strong>ADMIN
 									MENU</strong></small></li>
 
-						<li class="nav-item"><a href="../../MMain.do" class="nav-link">
+						<li class="nav-item"><a href="MMain.do" class="nav-link">
 								<p>메인</p>
 						</a></li>
-						<li class="nav-item"><a href="../../MSearchHos.do" class="nav-link">
+						<li class="nav-item"><a href="MSearchHos.do" class="nav-link">
 								<p>병원회원검색</p>
 						</a></li>
-						<li class="nav-item"><a href="../../MSearchNormal.do" class="nav-link">
+						<li class="nav-item"><a href="MSearchNormal.do"
+							class="nav-link">
 								<p>일반회원검색</p>
 						</a></li>
-						<li class="nav-item"><a href="../../MChart.do" class="nav-link">
-								<p>통계관리</p>
-						</a></li>
-						<li class="nav-item"><a href="../../MPolice.do"
-							class="nav-link">
+						<!-- 						<li class="nav-item"><a href="MChart.do" class="nav-link"> -->
+						<!-- 								<p>통계관리</p> -->
+						<!-- 						</a></li> -->
+						<li class="nav-item"><a href="MPolice.do" class="nav-link">
 								<p>신고리스트</p>
+						</a></li>
+						<li class="nav-item"><a id="logout" href="Logout.do"
+							class="nav-link d-block text-center" style="padding: 20px;">
+								<p>
+									<small><strong>로그아웃</strong></small>
+								</p>
 						</a></li>
 
 					</ul>

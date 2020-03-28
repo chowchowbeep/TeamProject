@@ -6,7 +6,7 @@
 
 </head>
 <body class="hold-transition sidebar-mini">
-	<%@ include file="../../0_hos_layout_header.jsp"%>
+
 	<!-- Content Wrapper. Contains page content -->
 	<div class="content-wrapper">
 		<!-- Content Header (Page header) -->
@@ -120,6 +120,5 @@
 	</div>
 	<!-- ./wrapper -->
 
-	<%@ include file="../../0_all_layout_footer.jsp"%>
 </body>
 </html>

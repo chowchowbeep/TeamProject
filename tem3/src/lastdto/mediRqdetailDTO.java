@@ -4,7 +4,8 @@ public class mediRqdetailDTO {
 	//medi_rqst
 	private int rqstNo; // 진료신청번호
 	private String sicId; // 회원id
-	private String rqstDttm; // 신청일시
+	private String rqstDt; // 신청일자
+	private String rqstTm; // 신청일시
 	private String hosId; // 병원id
 	private String resDt; // 예약일자
 	private String resTm; // 예약시간
@@ -48,12 +49,20 @@ public class mediRqdetailDTO {
 		this.sicId = sicId;
 	}
 
-	public String getRqstDttm() {
-		return rqstDttm;
+	public String getRqstDt() {
+		return rqstDt;
 	}
 
-	public void setRqstDttm(String rqstDttm) {
-		this.rqstDttm = rqstDttm;
+	public void setRqstDt(String rqstDt) {
+		this.rqstDt = rqstDt;
+	}
+
+	public String getRqstTm() {
+		return rqstTm;
+	}
+
+	public void setRqstTm(String rqstTm) {
+		this.rqstTm = rqstTm;
 	}
 
 	public String getHosId() {
@@ -170,13 +179,12 @@ public class mediRqdetailDTO {
 
 	@Override
 	public String toString() {
-		return "mediRqdetailDTO [rqstNo=" + rqstNo + ", sicId=" + sicId + ", rqstDttm=" + rqstDttm + ", hosId=" + hosId
-				+ ", resDt=" + resDt + ", resTm=" + resTm + ", artrNo=" + artrNo + ", rqstTy=" + rqstTy + ", msg=" + msg
-				+ ", dcryNo=" + dcryNo + ", ifTime=" + ifTime + ", hosName=" + hosName + ", hosPhone=" + hosPhone
-				+ ", hosAddr=" + hosAddr + ", artrName=" + artrName + ", artrSub=" + artrSub + ", mcttStt=" + mcttStt
-				+ "]";
+		return "mediRqdetailDTO [rqstNo=" + rqstNo + ", sicId=" + sicId + ", rqstDt=" + rqstDt + ", rqstTm=" + rqstTm
+				+ ", hosId=" + hosId + ", resDt=" + resDt + ", resTm=" + resTm + ", artrNo=" + artrNo + ", rqstTy="
+				+ rqstTy + ", msg=" + msg + ", dcryNo=" + dcryNo + ", ifTime=" + ifTime + ", hosName=" + hosName
+				+ ", hosPhone=" + hosPhone + ", hosAddr=" + hosAddr + ", artrName=" + artrName + ", artrSub=" + artrSub
+				+ ", mcttStt=" + mcttStt + "]";
 	}
-
 	
 	
 	

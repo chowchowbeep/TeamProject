@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import command.Command;
 import lastdto.hosMemberDTO;
@@ -20,6 +21,8 @@ public class SearchListCMD implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String path ="aView/kjr/search_list.jsp"; //S7 검색 결과 리스트 페이지
+		HttpSession session = request.getSession(true);
+		String sessionId = (String)session.getAttribute("memberId"); 
 		
 		ArrayList<hosMemberDTO> hosList = new ArrayList<>();
 		HosmemberDAO hosDAO = new HosmemberDAO();

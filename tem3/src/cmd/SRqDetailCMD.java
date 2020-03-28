@@ -17,11 +17,10 @@ public class SRqDetailCMD implements Command {
 			throws ServletException, IOException {
 		// S21 진료신청현황 상세/취소 페이지(접수/예약)
 
-		// 나중에 세션값 받아오는 것으로 수정할 것
-		String sicId = request.getParameter("id");	
+		String sicId = (String) request.getSession().getAttribute("memberId");
 		int rqstNo = Integer.parseInt(request.getParameter("rqstNo"));
 		
-		request.setAttribute("id", sicId); //추후수정__ 세션으로
+		request.setAttribute("id", sicId);
 		request.setAttribute("rqstNo", rqstNo);
 		
 		String path = "aView/chorong/rq_detail.jsp";

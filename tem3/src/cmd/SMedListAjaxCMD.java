@@ -22,8 +22,7 @@ public class SMedListAjaxCMD implements Command {
 		// S27 진료신청현황 리스트(전체) 페이지
 
 		
-		// 로그인중인 아이디를 받아오도록// 나중에 세션으로 수정
-		String id = request.getParameter("id"); // 가상의 파라미터
+		String id = (String) request.getSession().getAttribute("memberId");
 		String type = request.getParameter("type");
 		String firstIndex = request.getParameter("firstIndex");
 		String lastIndex = request.getParameter("lastIndex");

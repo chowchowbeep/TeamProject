@@ -162,7 +162,7 @@
 		</div>
 
 		<div>
-			<button type="button" class="btn btn-primary btn-lg btn-block mar">이 조건으로 검색하기</button>
+			<button type="button" class="btn btn-secondary btn-lg btn-block mar">이 조건으로 검색하기</button>
 		</div>
 
 

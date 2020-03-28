@@ -19,8 +19,8 @@ public class ReviewInsrtAjaxCMD implements Command {
 			throws ServletException, IOException {
 		String path="";
 		//값 받아오기
-				String hosId ="hos2"; //request.getParameter("hosId"); hosid받아오는거 추가
-				String sicId ="sic3"; //request.getParameter("sicId"); 유저id 받아우는 거 추가
+				String hosId ="hos4"; //request.getParameter("hosId"); hosid받아오는거 추가
+				String sicId ="sic1"; //request.getParameter("sicId"); 유저id 받아우는 거 추가
 				String contents = request.getParameter("contents");
 				
 				String st = request.getParameter("star");
@@ -31,8 +31,6 @@ public class ReviewInsrtAjaxCMD implements Command {
 				reviewDTO dto = new reviewDTO(sicId,hosId,star,contents);
 				//insert작업 
 				boolean checkInsert = dao.insert(dto);
-				
-
 		
 				return "ajax:" + JSONArray.fromObject(checkInsert);
 	}

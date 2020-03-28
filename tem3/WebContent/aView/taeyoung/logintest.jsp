@@ -75,14 +75,14 @@
 					</div>
 					<div class="row">
 						<div class="col-8">
-							<div class="icheck-primary">
+							<div class="icheck-secondary">
 								<input type="checkbox" id="remember"> <label
 									for="remember"> check </label>
 							</div>
 						</div>
 						<!-- /.col -->
 						<div class="col-4">
-							<button type="submit" class="btn btn-primary btn-block">로그인</button>
+							<button type="submit" class="btn btn-secondary btn-block">로그인</button>
 						</div>
 						<!-- /.col -->
 					</div>

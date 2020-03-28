@@ -18,7 +18,7 @@ button {
 <!-- 컨텐츠 위치 -->
 
 <!-- Content Wrapper. Contains page content -->
-<form id="frm" name="frm" method="post">
+
 	<div class="content-wrapper">
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
@@ -63,6 +63,8 @@ button {
 										<div class="item rqDetailInfo">
 											<span class="rqDetailLabel">담당의사</span>${dto.artrName }</div>
 
+										
+										<!-- 코드테이블 완성 후 수정할 것. -->
 										<c:if test="${dto.artrSub == 'CS10'}">
 											<div class="item rqDetailInfo">
 												<span class="rqDetailLabel">진료과목</span>내과
@@ -101,20 +103,23 @@ button {
 											<div class="item rqDetailInfo">
 												<span class="rqDetailLabel">진료예약시간</span>${dto.resTm }</div>
 										</c:if>
+										<!-- 접수일 경우에만 표시 -->
+										<c:if test="${dto.rqstTy == 'D001'}">
+											<div class="item rqDetailInfo">
+												<span class="rqDetailLabel">진료일자</span>${dto.rqstDt }</div>
+										</c:if>
 									</div>
 
 
 								</div>
 							</div>
 
-							<!-- 선택한 진료신청항목의 진료신청번호를 전송_ 리뷰등록시 값 넘겨야 함 -->
+							<form id="frm" name="frm" method="post">
+<!-- 							선택한 진료신청항목의 진료신청번호를 전송_ 리뷰등록시 값 넘겨야 함 -->
 							<input type="hidden" id="rqstNo" name="rqstNo" value="${rqstNo}">
-
-							<!-- 신고, 리뷰, 재접수시 필요한 값 넘김 -->
+<!-- 							신고, 리뷰, 재접수시 필요한 값 넘김 -->
 							<input type="hidden" id="hosId" name="hosId" value="${dto.hosId}">
-
-							<!-- 로그인중인 아이디 _세션으로 수정예정-->
-							<input type="hidden" id="id" name="id" value="${id }">
+							<input type="hidden" id="hosName" name="hosName" value="${dto.hosName}">
 
 
 							<!-- 신청폼푸터 // 제출 및 기타 버튼 위치-->
@@ -136,6 +141,7 @@ button {
 								<!-- 현재 선택한 병원의 상세정보 페이지로 이동. 
 								hospital member의 hos id를 파라미터를 가지고 가야함. -->
 							</div>
+							</form>
 
 
 
@@ -160,7 +166,7 @@ button {
 	</div>
 	<!-- /.content-wrapper -->
 
-</form>
+
 
 
 <%@ include file="/layout/all_footer.jsp"%>

@@ -10,7 +10,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12" >
-            <div class="card card-info">
+            <div class="card card-secondary">
               <div class="card-header">
                 <h3 class="card-title">
                 	<i class="fas fa-user-plus" style="margin-left:280px;"></i></h3>
@@ -48,7 +48,7 @@
          </div>
          <!-- /.card-body -->
      <div class="card-footer">
-       <button type="submit" class="btn btn-info">등록</button>
+       <button type="submit" class="btn btn-secondary">등록</button>
         <a class="btn btn-default float-right" href="${pageContext.request.contextPath}/HDoctorList.do">취소</a>
      </div>
      <!-- /.card-footer -->

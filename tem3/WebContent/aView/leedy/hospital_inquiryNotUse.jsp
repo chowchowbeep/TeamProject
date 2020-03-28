@@ -4,7 +4,8 @@
 
 <%@ include file="/layout/hos_head.jsp"%>
 <%@ include file="/layout/hos_menu.jsp"%>
-
+</head>
+<body>
 	<div class="content-wrapper">
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
@@ -15,7 +16,7 @@
 					</div>
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right">
-							<li class="breadcrumb-item"><a href="#">홈</a></li>
+							<li class="breadcrumb-item">홈</li>
 							<li class="breadcrumb-item active">병원회원</li>
 						</ol>
 					</div>
@@ -31,7 +32,7 @@
 					<!-- left column -->
 					<div class="col-md-6">
 						<!-- general form elements -->
-						<div class="card card-primary ">
+						<div class="card card-secondary ">
 							<div class="card-header card text-center">
 								<h1 class="card-title">진료 기록물 조회</h1>
 							</div>
@@ -112,3 +113,5 @@
 
 <%@ include file="/layout/all_footer.jsp"%>
 
+</body>
+</html>

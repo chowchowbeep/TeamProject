@@ -3,6 +3,7 @@ package lastdto;
 public class bookmarkDTO {
 	private String sicId; // 회원ID
 	private String hosId; // 병원ID
+	private String name; //  병원이름
 
 	// 생성자
 	public bookmarkDTO() {
@@ -13,6 +14,14 @@ public class bookmarkDTO {
 		super();
 		this.sicId = sicId;
 		this.hosId = hosId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getSicId() {

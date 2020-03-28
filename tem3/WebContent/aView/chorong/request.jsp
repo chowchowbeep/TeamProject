@@ -5,17 +5,9 @@
 <%@ include file="/layout/sick_head.jsp"%>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/aView/chorong/css/chorong.css">
-
 <!-- datepicker css-->
 <link href="<%=request.getContextPath()%>/dist/css/datepicker.min.css"
 	rel="stylesheet" type="text/css">
-<!-- datepicker js-->
-<script src="<%=request.getContextPath()%>/dist/js/datepicker.min.js"></script>
-<!-- datepicker_ Include korean language -->
-<script
-	src="<%=request.getContextPath()%>/dist/js/i18n/datepicker.ko.js"></script>
-
-
 <style>
 #hosAddr, #hosName, #hosBizTime {
 	background-color: white;
@@ -26,10 +18,9 @@ input.error, textarea.error, select.error {
 }
 
 label.error {
-	color: #f53800;
-	font-weight: 400;
-	font-size: 0.9em;
-	margin: 5px;
+	color: #ff6a00;
+ 	font-size: 0.9em;
+	padding-top: 0.9rem;
 }
 
 .datepicker {
@@ -42,11 +33,29 @@ label.error {
 }
 
 #selectedDtInfo {
+ 	font-weight: 700;
+ 	font-size: 0.9em; 
 	padding-bottom: 0.9rem;
-	color: red;
+	color: #ff6a00;
+}
+
+.resTmInit:disabled::after {
+	content: "(예약불가)";
 }
 </style>
+
+
+<!-- datepicker js-->
+<script src="<%=request.getContextPath()%>/dist/js/datepicker.min.js"></script>
+<!-- datepicker_ Include korean language -->
+<script
+	src="<%=request.getContextPath()%>/dist/js/i18n/datepicker.ko.js"></script>
 <script src="<%=request.getContextPath()%>/aView/chorong/js/chorong.js"></script>
+
+
+
+
+<!-- SHospitalInfo.do -> STmrRequest.do or SResRequest.do -->
 <script>
 	// 예약일 경우 
 	<c:if test="${rqType == 'Res'}">
@@ -58,45 +67,101 @@ label.error {
 						// 예약날짜선택 달력 기본설정
 						var mxdate = new Date();
 						mxdate.setDate(mxdate.getDate() + 90); //오늘자로부터 90일 후 까지만 예약가능하도록
-						$('#resDt').datepicker(
-								{
-									language : 'ko',
-									inline : true,
-									minDate : new Date(),
-									maxDate : mxdate,
-									disableNavWhenOutOfRange : true,
-									onSelect : function onSelect(formattedDate,
-											date, inst) {
-										var selectedDt = formattedDate.replace(/\//gi,"");
-										$("#selectedDtInfo").html("날짜선택됨"+selectedDt);
-										
-										// 1. 선택한 날짜의 값을 파라미터로 넘겨서 병원휴일테이블에서 일치하는 값이 있는지 확인
-										// 일치 값 있을 경우 #selectedDtInfo에 병원휴일입니다. 안내.
-										
-										// 병원휴일 여부 가져오기
-										var isHosHldy = checkHosHldy(selectedDt).checkHosHldy;
-										
-										if(isHosHldy == true){ 
-											$("#selectedDtInfo").html("병원휴일입니다.");
-										} else {
-											// 1-1. 병원휴일 아닐경우, 의사휴일 가져오기.
-											var isDrHldy = checkDrHldy(selectedDt).checkDrHldy;
-											if(isDrHldy == true) { // 1-1-1. 일치 값 있을 경우 (의사휴일일 경우)
-												$("#selectedDtInfo").html("의사휴일입니다. 다른 날짜를 선택해주세요");
-											} else { // 1-1-2. 일치 값 없을 경우 (의사 휴일 아닌 경우)
-												$("#selectedDtInfo").html("병원휴일도 의사휴일도아입니다.");
-												// 해당병원, 해당의사, 선택날짜에 기 예약된 내용 가져오기.
-												var unselectableTime = getUnselectableTime(selectedDt);
+						var mndate = new Date();
+						mndate.setDate(mndate.getDate() + 1);
+						$('#resDt')
+								.datepicker(
+										{
+											language : 'ko',
+											inline : true,
+											minDate : mndate,
+											maxDate : mxdate,
+											disableNavWhenOutOfRange : true,
+											onSelect : function onSelect(
+													formattedDate, date, inst) {
+												$("#resTm").val(""); //날짜 변경했으므로 선택시간도 초기화
 												
-												// #resTmContainer(시간 선택란)를 표시하고, 기 예약된 시간은 disabled처리
-											}
-											
-											
-										}
-										
-									}
+												var selectedDt = formattedDate
+														.replace(/\//gi, "");
+// 												$("#selectedDtInfo").html(
+// 														"날짜선택됨" + selectedDt);
 
-								})
+												// 1. 선택한 날짜의 값을 파라미터로 넘겨서 병원휴일테이블에서 일치하는 값이 있는지 확인
+												// 일치 값 있을 경우 #selectedDtInfo에 병원휴일입니다. 안내.
+
+												// 병원휴일 여부 가져오기
+												var isHosHldy = checkHosHldy(selectedDt).checkHosHldy;
+
+												if (isHosHldy == true) {
+													$("#selectedDtInfo")
+															.html(
+																	"병원휴일입니다. 다른날짜를 선택해주세요.");
+													$(".resTmInit").prop(
+															"disabled", true); //시간 선택할 수 없도록
+
+												} else {
+													// 1-1. 병원휴일 아닐경우, 의사휴일 가져오기.
+													var isDrHldy = checkDrHldy(selectedDt).checkDrHldy;
+													if (isDrHldy == true) { // 1-1-1. 일치 값 있을 경우 (의사휴일일 경우)
+														$("#selectedDtInfo")
+																.html(
+																		"의사휴일입니다. 담당의사 혹은 날짜를 변경해주세요.");
+														$(".resTmInit").prop(
+																"disabled",
+																true); //시간 선택할 수 없도록
+
+													} else { // 1-1-2. 일치 값 없을 경우 (의사 휴일 아닌 경우)
+														$("#selectedDtInfo").empty();
+														$(".resTmInit").prop(
+																"disabled",
+																false); // 다른 날짜를 선택해서 이미 disabled ture되었을 경우를 대비하여 
+
+														// 예약시간옵션목록 가져오기 
+														var resTmOptions = [];
+														$("#resTm option")
+																.each(
+																		function() {
+																			resTmOptions
+																					.push($(
+																							this)
+																							.text());
+																		})
+														// 해당병원, 해당의사, 선택날짜에 기 예약된 내용 가져와서 예약된 시간은 선택못하도록 disabled처리
+														var ReservedRqList = getAlreayReseved(selectedDt);
+														$
+																.each(
+																		ReservedRqList,
+																		function(
+																				idx,
+																				item) {
+																			console
+																					.log("each사용. 기예약 시간"
+																							+ item.resTm);
+																			$
+																					.each(
+																							resTmOptions,
+																							function(
+																									idx,
+																									Opt) {
+																								console
+																										.log(Opt);
+																								if (item.resTm == Opt) { // 옵션목록에서  기예약된 시간과 동일한 값이 있으면 해당 옵션은 예약못하게 
+																									$(
+																											"option[value='"
+																													+ Opt
+																													+ "']")
+																											.prop(
+																													"disabled",
+																													true);
+																								}
+																							})
+																		})
+
+													}
+												}
+											}
+
+										}) // ./datepicker
 
 						// 달력 생성
 						var datepicker = $('#resDt').data('datepicker');
@@ -117,7 +182,7 @@ label.error {
 
 							// 날짜 선택내용 초기화
 							datepicker.clear();
-// 							// 선택날짜에 대한 휴일, 기예약 정보 비우기
+							// 							// 선택날짜에 대한 휴일, 기예약 정보 비우기
 							$("#selectedDtInfo").html("");
 						});
 
@@ -142,73 +207,8 @@ label.error {
 										}
 									})
 						}
-						// 예약_ 선택한 날짜가 병원휴일인지 확인
-						function checkHosHldy(selectedDt) {
-							var hosId = $("[name='hosId']").val();
-							var isHosHldy;
-							$.ajax({
-								url : "ajax/SCheckHosHldy.do",
-								dataType : "json",
-								data : {
-									hosId : hosId,
-									selectedDt : selectedDt
-								},
-								async : false,
-								success : function(result) {
-									console.log(result);
-									isHosHldy = result;
-								}
-							});
-							return isHosHldy;
-						}
-						
-						// 예약_ 선택한 날짜가 의사휴일인지 확인
-						function checkDrHldy(selectedDt) {
-							var artrNo = $("[name='artrNo']").val();
-							var isDrHldy;
-							$.ajax({
-								url : "ajax/SCheckDrHldy.do",
-								dataType : "json",
-								data : {
-									artrNo : artrNo,
-									selectedDt : selectedDt
-								},
-								async : false,
-								success : function(result) {
-									isDrHldy = result;
-									console.log(isDrHldy);
-								}
-							});
-							return isDrHldy;
-						}
-						
-						// 예약_ 선택가능한 예약시간 제어. 
-						// 선택한 날짜,의사에 예약되어 있는 시간을 가져옴. 해당 시간은 예약 불가하도록. // 
-						// 의사, 날짜, 시간이 모두 선택되어야 함?
-						// 제출시 한 번 더 검사 
-						function getUnselectableTime(selectedDt){
-							var hosId = $("[name='hosId']").val();
-							var artrNo = $("[name='artrNo']").val();
-							var dataResult;
-							$.ajax({
-								url : "ajax/SGetUnselectableTime.do",
-								dataType : "json",
-								data : {
-									hosId : hosId,
-									artrNo : artrNo,
-									selectedDt : selectedDt
-								},
-								async : false,
-								success : function(result) {
-									console.log(result);
-									dataResult = result;
-								}
-							})
-							return dataResult;
-						}
-						
-					}); //-- /.document ready res
 
+					}); //-- /.document ready res
 
 	</c:if>
 
@@ -219,7 +219,6 @@ label.error {
 		// 접수가능시간 체크
 		var hosStt = getHosStt();
 		controlTmr(hosStt);
-
 		// 휴일인 의사 disabled처리
 		ctrlDrNotOnDuty();
 	});
@@ -267,6 +266,26 @@ label.error {
 			history.go(-1);
 		})
 	}
+
+	// 접수_선택한 병원의 의사 중 휴일이 오늘인 의사가 있다면 해당 의사옵션은 disabled처리
+	function ctrlDrNotOnDuty() {
+		var hosId = $("[name='hosId']").val();
+		$.ajax({
+			url : "ajax/SGetDrNotOnDutyList.do",
+			dataType : "json",
+			data : {
+				hosId : hosId
+			},
+			success : function(result) {
+				$.each(result, function(idx, item) {
+					console.log(item.artrNo + "번 의사 쉬는날 ");
+					$("select option[value=" + item.artrNo + "]").prop(
+							'disabled', true).append(" - 휴무");
+				});
+			}
+		})
+	}
+
 	// 공통_병원별 의사목록 옵션노출
 	function getDrList() {
 		var hosId = $("[name='hosId']").val();
@@ -304,23 +323,70 @@ label.error {
 			}
 		})
 	}
-	// 접수_선택한 병원의 의사 중 휴일이 오늘인 의사가 있다면 해당 의사옵션은 disabled처리
-	function ctrlDrNotOnDuty() {
+
+	// 예약_ 선택한 날짜가 병원휴일인지 확인
+	function checkHosHldy(selectedDt) {
 		var hosId = $("[name='hosId']").val();
+		var isHosHldy;
 		$.ajax({
-			url : "ajax/SGetDrNotOnDutyList.do",
+			url : "ajax/SCheckHosHldy.do",
 			dataType : "json",
 			data : {
-				hosId : hosId
+				hosId : hosId,
+				selectedDt : selectedDt
 			},
+			async : false,
 			success : function(result) {
-				$.each(result, function(idx, item) {
-					console.log(item.artrNo + "번 의사 쉬는날 ");
-					$("select option[value=" + item.artrNo + "]").prop(
-							'disabled', true).append(" - 휴무");
-				});
+				console.log(result);
+				isHosHldy = result;
+			}
+		});
+		return isHosHldy;
+	}
+
+	// 예약_ 선택한 날짜가 의사휴일인지 확인
+	function checkDrHldy(selectedDt) {
+		var artrNo = $("[name='artrNo']").val();
+		var isDrHldy;
+		$.ajax({
+			url : "ajax/SCheckDrHldy.do",
+			dataType : "json",
+			data : {
+				artrNo : artrNo,
+				selectedDt : selectedDt
+			},
+			async : false,
+			success : function(result) {
+				isDrHldy = result;
+				console.log(isDrHldy);
+			}
+		});
+		return isDrHldy;
+	}
+
+	// 예약_ 선택가능한 예약시간 제어. 
+	// 선택한 날짜,의사에 예약되어 있는 시간을 가져옴. 해당 시간은 예약 불가하도록. // 
+	// 의사, 날짜, 시간이 모두 선택되어야 함?
+	// 제출시 한 번 더 검사 
+	function getAlreayReseved(selectedDt) {
+		var hosId = $("[name='hosId']").val();
+		var artrNo = $("[name='artrNo']").val();
+		var dataResult;
+		$.ajax({
+			url : "ajax/SGetUnselectableTime.do",
+			dataType : "json",
+			data : {
+				hosId : hosId,
+				artrNo : artrNo,
+				selectedDt : selectedDt
+			},
+			async : false,
+			success : function(result) {
+				console.log(result);
+				dataResult = result;
 			}
 		})
+		return dataResult;
 	}
 </script>
 
@@ -344,7 +410,6 @@ label.error {
 		</div>
 	</div>
 </div>
-
 
 <!-- form시작 -->
 <form id="frm" name="frm" method="post" class="cmxform">
@@ -395,20 +460,21 @@ label.error {
 										<div class="checkSelected">
 											<div class="form-group ">
 												<label for="hosId">병원명 </label> <input type="hidden"
-													id="hosId" name="hosId" value="${param.hosId}"> <input
-													type="text" id="hosName" name="hosName"
-													class="form-control" value="${param.hosId}${param.hosName}"
+													id="hosId" name="hosId" value="${paramValues.hosId[0]}">
+												<input type="text" id="hosName" name="hosName"
+													class="form-control"
+													value="${paramValues.hosName[0]}"
 													readonly>
 											</div>
 											<div class="form-group">
 												<label for="hosAddr">주&nbsp;&nbsp;&nbsp;&nbsp;소 </label>
 												<textarea id="hosAddr" name="hosAddr" class="form-control"
-													readonly>${param.hosAddr}</textarea>
+													readonly>${paramValues.hosAddr[0]}</textarea>
 											</div>
 											<div class="form-group">
 												<label for="hosBizTime">진료시간</label> <input type="text"
 													id="hosBizTime" name="hosBizTime" class="form-control"
-													value="${param.hosBizTime}" readonly>
+													value="${paramValues.hosBizTime[0]}" readonly>
 											</div>
 										</div>
 										<div class="form-group" id="artrNoWrapper">
@@ -427,16 +493,16 @@ label.error {
 													type="text" id="resDt" name="resDt" class="form-control">
 											</div>
 											<div id="selectedDtInfo"></div>
-											<div class="form-group" id="resTmContainer"
-												style="display: none;">
+											<div class="form-group" id="resTmContainer">
 												<label for="resTm">예약시간 선택</label> <br> <select
 													class="custom-select" id="resTm" name="resTm" size="5">
 													<c:forEach var="i"
-														begin="${fn:substring(param.hosBizTime, 0, 2)}"
-														end="${fn:substring(param.hosBizTime, 6, 8)-1}">
-														<!-- 진료종료시간 30분전까지 예약가능하도록 -->
-														<option value="${i>9?i:'0'}${i>9?'':i}:00">${i>9?i:'0'}${i>9?'':i}:00</option>
-														<option value="${i>9?i:'0'}${i>9?'':i}:30">${i>9?i:'0'}${i>9?'':i}:30</option>
+														begin="${fn:substring(paramValues.hosBizTime[0], 0, 2)}"
+														end="${fn:substring(paramValues.hosBizTime[0], 6, 8)-1}">
+														<option value="${i>9?i:'0'}${i>9?'':i}:00"
+															class="resTmInit">${i>9?i:'0'}${i>9?'':i}:00</option>
+														<option value="${i>9?i:'0'}${i>9?'':i}:30"
+															class="resTmInit">${i>9?i:'0'}${i>9?'':i}:30</option>
 													</c:forEach>
 												</select>
 											</div>
@@ -463,18 +529,16 @@ label.error {
 										</div>
 										<div class="form-group" id="dcryNoWrapper">
 											<label for="dcryNo">진료시 의료진이 참고할 기록물 첨부</label><br> <input
-												type="button" class="btn btn-default" id="dcryNo"
-												name="dcryNo" value="기록물 업로드" onclick="toAddDcry()">
+												type="button" class="btn btn-default text-center"
+												id="dcryNo" name="dcryNo" value="기록물 업로드"
+												onclick="toAddDcry()">
 										</div>
 									</div>
 								</div>
 								<!-- /. row -->
 							</div>
 							<!-- /.card-body 끝 신청폼바디-->
-
 							<div class="card-footer">
-								<input type="hidden" id="id" name="id" value="${param.sicId }">
-								<!-- 로그인중인 아이디(임시로 sic1로 설정) 나중에 수정-->
 								<input type="reset" class="btn btn-secondary" value="초기화">
 								<c:if test="${rqType=='Res'}">
 									<input type="submit" class="btn btn-secondary float-right"
@@ -550,6 +614,11 @@ label.error {
 </c:if>
 <c:if test="${rqType == 'Res' }">
 	<script>
+// 		// just for the demos, avoids form submit
+// 		jQuery.validator.setDefaults({
+// 			debug : true,
+// 			success : "valid"
+// 		});
 		// 예약신청폼 유효성체크
 		$(function() {
 			$("#frm").validate({
@@ -582,11 +651,40 @@ label.error {
 					}
 				},
 				submitHandler : function(frm) {
-					frm.action = "SInsertRes.do";
-					frm.submit(); //유효성 검사를 통과시 전송
-				}
-			});
-		});
+					var selectedResDt = $("[name='resDt']").val();
+					var selectedResTm = $("[name='resTm']").val();
+
+					var isDrHldy = checkDrHldy(selectedResDt).checkDrHldy;
+					console.log("end:" + isDrHldy)
+					var isHosHldy = checkHosHldy(selectedResDt).checkHosHldy;
+					console.log("end:" + isHosHldy)
+					var ReservedRqList = getAlreayReseved(selectedResDt);
+					console.log("end:" + ReservedRqList)
+
+					// 선택정보가가 병원휴일에 해당하지 않고, 선택한 의사의 휴일도 아니고, 선택한 날짜의 기 예약된 시간도 아닐 경우 submit가능
+					if (isHosHldy == false && isDrHldy == false) {
+						$.each(ReservedRqList, function(idx, item) {
+							console.log("each사용. 기예약 시간" + item.resTm);
+							if(item == null || item == undefined || item =="") {
+								console.log("엥엥");
+								frm.action = "SInsertRes.do";
+								frm.submit(); //유효성 검사를 통과시 전송
+							} 
+							if (item.resTm == selectedResTm) {
+								alert("진료신청이 불가합니다. 신청정보를 다시 선택해주세요.");
+								return;
+							}
+						})
+						console.log("엥엥");
+								frm.action = "SInsertRes.do";
+								frm.submit(); //유효성 검사를 통과시 전송
+					} else {
+						alert("진료신청이 불가합니다. 신청정보를 다시 선택해주세요.");
+						return;
+					}
+				} 
+			}); //validate
+		});//function
 	</script>
 </c:if>
 

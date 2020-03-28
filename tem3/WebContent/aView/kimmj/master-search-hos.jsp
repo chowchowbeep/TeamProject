@@ -1,3 +1,6 @@
+<%@page import="kimmj.hosDAO"%>
+<%@page import="lastdto.hosJoinMemberDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/layout/admin_head.jsp"%>
@@ -7,7 +10,25 @@
 		document.searchFrm.method="post";
 		document.searchFrm.submit();
 	}
+	
+	function search_detail(frm) {
+		if (frm.keyWord.value=="") {
+			frm.keyWord.focus();
+			return;
+		}
+		frm.submit();
+	}
 </script>
+<%
+	hosDAO dao = new hosDAO();
+	ArrayList<hosJoinMemberDTO> list = new ArrayList<hosJoinMemberDTO>();
+	ArrayList<hosJoinMemberDTO> searchlist = (ArrayList<hosJoinMemberDTO>)request.getAttribute("list");
+	if (searchlist == null) {
+		list = dao.select();
+	} else {
+		list = searchlist;
+	}
+%>
 <style type="text/css">/* Chart.js */
 @
 keyframes chartjs-render-animation {
@@ -126,7 +147,7 @@ to {
 </style>
 
 <%@ include file="/layout/admin_menu.jsp"%>
-<form>
+
 <div class = "card">
 	<div class = "card-header text-center">
 		<div class = "text-center" style = "padding: 10px 0px 0px 0px">
@@ -135,6 +156,7 @@ to {
 			</h4>
 		</div>
 	</div>
+	<form method = "post" action = "MSearchHoslist.do">
 	<div class="card-body">
 		<div class="type">
 		<span class="info-box-small"> 
@@ -153,11 +175,11 @@ to {
 		</span>
 		<span class="info-box-box"> 
 			&nbsp;&nbsp;&nbsp;
-		<input type="radio" name="ckck" value="all" checked>&nbsp;전체 &nbsp;&nbsp;&nbsp;
-		<input type="radio" name="ckck" value="standard">&nbsp;우수 &nbsp;&nbsp;&nbsp;
+		<input type="radio" name="memStatus" value="all" checked>&nbsp;전체 &nbsp;&nbsp;&nbsp;
+		<input type="radio" name="memStatus" value="A">&nbsp;우수 &nbsp;&nbsp;&nbsp;
 		<br><br>
-		<input type="radio" name="ckck" value="hospital" class = "input">&nbsp;일반 &nbsp;&nbsp;&nbsp;
-		<input type="radio" name="ckck" value="hospital">&nbsp;제재
+		<input type="radio" name="memStatus" value="B" class = "input">&nbsp;일반 &nbsp;&nbsp;&nbsp;
+		<input type="radio" name="memStatus" value="C">&nbsp;제재
 		</span>
 		<br>
 	</div>
@@ -168,18 +190,19 @@ to {
 	</div>
 	<div class = "list">
 		<span class = "listof"> 병원명&nbsp;&nbsp;&nbsp;
-		<input type = "text"> </span>
+		<input type = "text" name = "name"> </span>
 	</div>
 	<div class = "list">
 		<span class = "listof2"> 전화번호&nbsp;&nbsp;&nbsp;
-		<input type = "text"> </span>
+		<input type = "text" name = "phone"> </span>
 	</div>
 	<div class = "search">
-		<button type = "submit" class = "btn btn-block btn-warning"><b>검색</b></button>
+		<button type = "submit" class = "btn btn-block btn-warning" onclick = "search_detail(frm)"><b>검색</b></button>
 	</div>
 </div>
-</div>
 </form>
+</div>
+
 <%@ include file="/layout/all_footer.jsp"%>
 </body>
 </html>

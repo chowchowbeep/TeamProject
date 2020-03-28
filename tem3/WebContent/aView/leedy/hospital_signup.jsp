@@ -1,8 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/layout/hos_head.jsp"%>
-
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
+//주소검색
+$(function(){
+	$("#addrBtn").on("click",function(){
+		new daum.Postcode({
+	        oncomplete: function(data) {
+	        	var addr = data.address;
+	        	document.getElementById("hos_addr").value = addr;
+	            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
+	            // 예제를 참고하여 다양한 활용법을 확인해 보세요.
+	        }
+	    }).open();
+		
+	})
+})
+
 	function checkValue() {
 		var form = document.hosFrm;
 		
@@ -144,11 +159,9 @@
 				<form name="hosFrm" action="HHospitalSignup.do" method="post"
 					onsubmit="return checkValue()">
 					<div class="input-group mb-3">
-						<input type="text" class="form-control" name="hos_id" id="hos_id"
-							onkeydown="inputIdUnChk()" placeholder="아이디"> 
-							<input type="button" id="idChk" name="idChk" value="중복확인"
-							onclick="idCheck()"> 
-							<input type="hidden"name="idDuplication" id="idDuplication" value="idUnchk"> 
+						<input type="text" class="form-control" name="hos_id" id="hos_id"onkeydown="inputIdUnChk()" placeholder="아이디"> 
+						<input type="button" id="idChk" name="idChk" value="중복확인" onclick="idCheck()"> 
+						<input type="hidden"name="idDuplication" id="idDuplication" value="idUnchk"> 
 						<div class="input-group-append">
 							<div class="input-group-text"></div>
 						</div>
@@ -174,13 +187,16 @@
 							<div class="input-group-text"></div>
 						</div>
 					</div>
+					
 					<div class="input-group mb-3">
-						<input type="text" class="form-control" name="hos_addr"
-							id="hos_addr" placeholder="주소">
+						<input type="text" class="form-control" name="hos_addr"	id="hos_addr" placeholder="주소">
+						<input type="button" id="addrBtn" name="addrBtn" value="주소입력"> 
 						<div class="input-group-append">
 							<div class="input-group-text"></div>
 						</div>
 					</div>
+					
+					
 					<div class="input-group mb-3">
 						<input type="text" class="form-control" name="hos_bizno_1"
 							id="hos_bizno_1" onkeydown="inputBizNoUnChk()" placeholder="사업자번호">-
@@ -211,49 +227,49 @@
 						<div class="col sm-3">
 
 							<div class="btn-group-toggle mb-3" data-toggle="buttons">
-								<label class="btn btn-primary"> <input type="checkbox"
+								<label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" value="CS10"
 									name="code">내과
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CS20">소아과
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CS30">외과
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CS40">정형외과
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CS50">치과
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CK10">메스꺼움
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CK20">두통
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CK30">항문쓰림
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CK40">심장두근거림
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CK50">숨가쁨
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CT10">여의사진료
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CT20">응급실
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CT30">야간진료
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CT40">건강검진
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CT50">금연클리닉
 								</label>
@@ -281,7 +297,7 @@
 
 					<div class="row">
 						<div class="">
-							<div class="icheck-primary">
+							<div class="icheck-secondary">
 								<input type="checkbox" id="agreeTerms" name="agreeTerms"
 									value="agree"> <label for="agreeTerms"> <a
 									href="#">이용약관</a> 및 <a href="#">개인정보취급방침</a>에 동의합니다.
@@ -294,14 +310,14 @@
 					<!-- /.col -->
 					<br>
 					<div class="">
-						<button type="submit" class="btn btn-primary btn-block"
-						onclick="location.href='/tem3/aView/taeyoung/logintest.jsp'">회원가입 확인</button>
+						<button type="submit" class="btn btn-secondary btn-block" 
+						>회원가입 확인</button>
 
 					</div>
 				</form>
 				<br>
 				<hr>
-				<a href="/tem3/aView/taeyoung/logintest.jsp" class="text-center">이미
+				<a href="ToLoginPage.do" class="text-center">이미
 					아이디가 있으신가요?</a>
 			</div>
 			<!-- /.form-box -->

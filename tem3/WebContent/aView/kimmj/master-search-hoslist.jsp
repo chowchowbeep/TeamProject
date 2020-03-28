@@ -115,8 +115,7 @@ to {
 	<div class="card-body">
 	<table class = "listbox">
 	<% 
-	hosDAO dao = new hosDAO();
-	ArrayList<hosJoinMemberDTO> list = dao.select();
+	ArrayList<hosJoinMemberDTO> list = (ArrayList<hosJoinMemberDTO>)request.getAttribute("list");
 	for(hosJoinMemberDTO dto : list) { 
 	%>
 		<tr>

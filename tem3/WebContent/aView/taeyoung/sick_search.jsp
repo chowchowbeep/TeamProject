@@ -32,7 +32,7 @@
       <div class="container-fluid">
         <div class="row">
                   <div class="col-12" >
-            <div class="card card-info">
+            <div class="card card-secondary">
               <div class="card-header">
                 <h3 class="card-title"></h3><!-- "" -->
               </div>
@@ -74,7 +74,7 @@
                 <!-- /.card-body -->
                 <!-- /.card-footer -->
               <div class="card-footer text-center">
-                  <button type="submit" class="btn btn-info">검색</button>
+                  <button type="submit" class="btn btn-secondary">검색</button>
                 </div>
         
               </form>
