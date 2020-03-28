@@ -12,7 +12,10 @@ public class hosDAO extends DAO {
 	// 전체 리스트
 	public ArrayList<hosJoinMemberDTO> select() {
 		ArrayList<hosJoinMemberDTO> list = new ArrayList<>();
-		sql = "SELECT * FROM hos_member";
+		sql = "SELECT hos_name, hos_id, "
+				+ " (SELECT hos_rank FROM hos_stt s WHERE h.hos_id=s.hos_id) hos_rank, "
+				+ " (SELECT dec_no FROM decalaration d WHERE h.hos_id=d.hos_id) dec_no "
+				+ "FROM hos_member h";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -20,16 +23,8 @@ public class hosDAO extends DAO {
 				hosJoinMemberDTO dto = new hosJoinMemberDTO();
 				dto.setHosName("hos_name");
 				dto.setHosId("hos_ID");
-				dto.setHosBizno("hos_bizno");
-				dto.setHosPhone("hos_Phone");
 				dto.setHosRank("hos_rank");
-				dto.setHosStart("biz_start");
-				dto.setHosLast("biz_last");
 				dto.setDecNo(rs.getInt("dec_no"));
-				dto.setDecStt("dec_stt");
-				dto.setDecDttm(rs.getDate("dec_dttm"));
-				dto.setRvNo(rs.getInt("rv_no"));
-				dto.setStarPoint(rs.getInt("star_point"));
 				list.add(dto);
 				}
 			} catch (SQLException e) {
@@ -55,13 +50,13 @@ public class hosDAO extends DAO {
 				dto.setHosBizno("hos_bizno");
 				dto.setHosPhone("hos_Phone");
 				dto.setHosRank("hos_rank");
-				dto.setHosStart("biz_start");
-				dto.setHosLast("biz_last");
+				dto.setBizTime("biz_time");
 				dto.setDecNo(rs.getInt("dec_no"));
 				dto.setDecStt("dec_stt");
 				dto.setDecDttm(rs.getDate("dec_dttm"));
-				dto.setRvNo(rs.getInt("rv_no"));
+				dto.setRvCount(rs.getInt("rv_no"));
 				dto.setStarPoint(rs.getInt("star_point"));
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -85,44 +80,12 @@ public class hosDAO extends DAO {
 				dto.setHosId("hos_ID");
 				dto.setHosBizno("hos_bizno");
 				dto.setHosPhone("hos_Phone");
-				dto.setHosStart("biz_start");
-				dto.setHosLast("biz_last");
-				dto.setDecNo(rs.getInt("dec_no"));
-				dto.setDecStt("dec_stt");
-				dto.setDecDttm(rs.getDate("dec_dttm"));
-				dto.setRvNo(rs.getInt("rv_no"));
-				dto.setStarPoint(rs.getInt("star_point"));
-				list.add(dto);
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				close();
-			}
-			return list;
-		}
-	
-	
-	
-	// 이름 조회
-	public ArrayList<hosJoinMemberDTO> selectname(String hos_name) {
-		ArrayList<hosJoinMemberDTO> list = new ArrayList<>();
-		sql = "SELECT * FROM hos_member WHERE hos_name=?";
-		try {
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			while(rs.next()) {
-				hosJoinMemberDTO dto = new hosJoinMemberDTO();
-				dto.setHosId("hos_ID");
-				dto.setHosBizno("hos_bizno");
-				dto.setHosPhone("hos_Phone");
 				dto.setHosRank("hos_rank");
-				dto.setHosStart("biz_start");
-				dto.setHosLast("biz_last");
+				dto.setBizTime("biz_time");
 				dto.setDecNo(rs.getInt("dec_no"));
 				dto.setDecStt("dec_stt");
 				dto.setDecDttm(rs.getDate("dec_dttm"));
-				dto.setRvNo(rs.getInt("rv_no"));
+				dto.setRvCount(rs.getInt("rv_no"));
 				dto.setStarPoint(rs.getInt("star_point"));
 				list.add(dto);
 				}
@@ -136,158 +99,6 @@ public class hosDAO extends DAO {
 	
 	
 	
-	// 전화전호 보회
-	public ArrayList<hosJoinMemberDTO> selectph(String hos_phone) {
-		ArrayList<hosJoinMemberDTO> list = new ArrayList<>();
-		sql = "SELECT * FROM hos_member WHERE hos_phone=?";
-		try {
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			while(rs.next()) {
-				hosJoinMemberDTO dto = new hosJoinMemberDTO();
-				dto.setHosName("hos_name");
-				dto.setHosId("hos_ID");
-				dto.setHosBizno("hos_bizno");
-				dto.setHosRank("hos_rank");
-				dto.setHosStart("biz_start");
-				dto.setHosLast("biz_last");
-				dto.setDecNo(rs.getInt("dec_no"));
-				dto.setDecStt("dec_stt");
-				dto.setDecDttm(rs.getDate("dec_dttm"));
-				dto.setRvNo(rs.getInt("rv_no"));
-				dto.setStarPoint(rs.getInt("star_point"));
-				list.add(dto);
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				close();
-			}
-			return list;
-		}
-	
-	
-	// 등급별, 이름 조회
-	public ArrayList<hosJoinMemberDTO> selectrankname(String hos_rank, String hos_name) {
-		ArrayList<hosJoinMemberDTO> list = new ArrayList<>();
-		sql = "SELECT * FROM hos_member WHERE hos_rank=? AND hos_name=?";
-		try {
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			while(rs.next()) {
-				hosJoinMemberDTO dto = new hosJoinMemberDTO();
-				dto.setHosId("hos_ID");
-				dto.setHosBizno("hos_bizno");
-				dto.setHosPhone("hos_Phone");
-				dto.setHosStart("biz_start");
-				dto.setHosLast("biz_last");
-				dto.setDecNo(rs.getInt("dec_no"));
-				dto.setDecStt("dec_stt");
-				dto.setDecDttm(rs.getDate("dec_dttm"));
-				dto.setRvNo(rs.getInt("rv_no"));
-				dto.setStarPoint(rs.getInt("star_point"));
-				list.add(dto);
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				close();
-			}
-			return list;
-		}
-	
-	
-	
-	// 등급별, 전화번호 조회
-	public ArrayList<hosJoinMemberDTO> selectrankph(String hos_rank, String hos_phone) {
-		ArrayList<hosJoinMemberDTO> list = new ArrayList<>();
-		sql = "SELECT * FROM hos_member WHERE hos_rank=? AND hos_phone=?";
-		try {
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			while(rs.next()) {
-				hosJoinMemberDTO dto = new hosJoinMemberDTO();
-				dto.setHosName("hos_name");
-				dto.setHosId("hos_ID");
-				dto.setHosBizno("hos_bizno");
-				dto.setHosStart("biz_start");
-				dto.setHosLast("biz_last");
-				dto.setDecNo(rs.getInt("dec_no"));
-				dto.setDecStt("dec_stt");
-				dto.setDecDttm(rs.getDate("dec_dttm"));
-				dto.setRvNo(rs.getInt("rv_no"));
-				dto.setStarPoint(rs.getInt("star_point"));
-				list.add(dto);
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				close();
-			}
-			return list;
-		}
-	
-	
-	
-	
-	// 이름, 전화번호 조회
-	public ArrayList<hosJoinMemberDTO> selectnameph(String hos_name, String hos_phone) {
-		ArrayList<hosJoinMemberDTO> list = new ArrayList<>();
-		sql = "SELECT * FROM hos_member WHERE hos_name=? AND hos_phone=?";
-		try {
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			while(rs.next()) {
-				hosJoinMemberDTO dto = new hosJoinMemberDTO();
-				dto.setHosId("hos_ID");
-				dto.setHosBizno("hos_bizno");
-				dto.setHosRank("hos_rank");
-				dto.setHosStart("biz_start");
-				dto.setHosLast("biz_last");
-				dto.setDecNo(rs.getInt("dec_no"));
-				dto.setDecStt("dec_stt");
-				dto.setDecDttm(rs.getDate("dec_dttm"));
-				dto.setRvNo(rs.getInt("rv_no"));
-				dto.setStarPoint(rs.getInt("star_point"));
-				list.add(dto);
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				close();
-			}
-			return list;
-		}
-	
-	
-	
-	// 등급별, 이름, 전화번호 조회
-	public ArrayList<hosJoinMemberDTO> selectranknameph(String hos_rank, String hos_name, String hos_phone) {
-		ArrayList<hosJoinMemberDTO> list = new ArrayList<>();
-		sql = "SELECT * FROM hos_member WHERE hos_rank=? AND hos_name=? AND hos_phone=?";
-		try {
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			while(rs.next()) {
-				hosJoinMemberDTO dto = new hosJoinMemberDTO();
-				dto.setHosId("hos_ID");
-				dto.setHosBizno("hos_bizno");
-				dto.setHosStart("biz_start");
-				dto.setHosLast("biz_last");
-				dto.setDecNo(rs.getInt("dec_no"));
-				dto.setDecStt("dec_stt");
-				dto.setDecDttm(rs.getDate("dec_dttm"));
-				dto.setRvNo(rs.getInt("rv_no"));
-				dto.setStarPoint(rs.getInt("star_point"));
-				list.add(dto);
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				close();
-			}
-			return list;
-		}
 }
 
 

@@ -17,9 +17,6 @@ public class MSearchHoslistCMD implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String path ="aView/kimmj/master-search-hoslist.jsp"; //
-		hosDAO dao = new hosDAO();
-		List<hosJoinMemberDTO> list = dao.select();
-		request.setAttribute("list", list);
 		return path;
 	}
    
