@@ -18,18 +18,18 @@ public class HHospitalUploadCMD implements Command {
 			throws ServletException, IOException {
 		
 		//System.out.println("닷두우우우우우우우우우ㅜ우웅우우우우ㅜ우우");
-		HosFileUploadDAO dao = new HosFileUploadDAO();
-		artrInfoDTO dto = new artrInfoDTO();
+		//HosFileUploadDAO dao = new HosFileUploadDAO();
+		//artrInfoDTO dto = new artrInfoDTO();
 		
-		String hosId = "hos1"; //세션에서 받아와야 하는데 없으니까 임의로 사용자 지정했음
+		//String hosId = "hos1"; //세션에서 받아와야 하는데 없으니까 임의로 사용자 지정했음
 		
 		//request.setAttribute("sic_id", request.getParameter("sic_id"));
-	//	request.setAttribute("hos_id", request.getParameter("hos_id"));
+	//	request.setAttribute("hos_id", request.getParameter("memberId"));
 		
 		//사용하려는 DAO의 메소드
-		ArrayList<artrInfoDTO> list = new ArrayList<artrInfoDTO>();
-		list = dao.selectArtr(hosId);
-		request.setAttribute("list", list); //앞에 것 jsp에서 부를 이름, 뒤에건 dao 값을 넘길 변수
+		//ArrayList<artrInfoDTO> list = new ArrayList<artrInfoDTO>();
+		//list = dao.selectArtr(hosId);
+		//request.setAttribute("list", list); //앞에 것 jsp에서 부를 이름, 뒤에건 dao 값을 넘길 변수
 		
 		String path ="aView/leedy/hospital_upload.jsp"; //기록물 업로드 페이지로 이동
 		

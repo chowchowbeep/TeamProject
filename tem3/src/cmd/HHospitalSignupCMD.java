@@ -20,8 +20,6 @@ public class HHospitalSignupCMD implements Command {
 			throws ServletException, IOException {
 		
 
-
-		String sicId = (String) request.getSession().getAttribute("memberId");	
 		List<searchDTO> list = new ArrayList<>();
 		hosMemberDTO hdto = new hosMemberDTO();
 		hosSignupDAO dao = new hosSignupDAO();
