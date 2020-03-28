@@ -83,7 +83,7 @@
 						<li class="nav-item"><a href="HMediAll.do" class="nav-link">
 								<p>진료신청현황</p>
 						</a></li>
-						<li class="nav-item"><a href="HSickSearch.do"
+						<li class="nav-item"><a href="#"
 							class="nav-link">
 								<p>회원정보 검색</p>
 						</a></li>

@@ -17,15 +17,15 @@ public class SickMemCheckCMD implements Command {
 			throws ServletException, IOException {
 		//id가 세션이어야 함
 		//String id = request.getParameter("id");
+		String sicId = (String) request.getSession().getAttribute("memberId");
 		
-		
-		String id = "sic1";
+//		String id = "sic1";
 		
 		sickMemberDTO dto;
 		sickMemberDAO dao = new sickMemberDAO();
 	
 		
-		dto = dao.select(id);
+		dto = dao.select(sicId);
 		request.setAttribute("dto",dto);
 
 		String path="aView/leedy/sick_memCheck.jsp";
