@@ -19,7 +19,11 @@ import lastdto.docuInfoDTO;
 import leedy.HosFileUploadDAO;
 
 public class HHospitalUploadAddCMD implements Command {
-
+	
+	
+// String sicId = (String) request.getSession().getAttribute("memberId");
+	
+	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

@@ -16,6 +16,7 @@ public class HHospitalSignupActionCMD implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		
 		String path = "aView/leedy/hospital_signup.jsp";
 			
 	return path;

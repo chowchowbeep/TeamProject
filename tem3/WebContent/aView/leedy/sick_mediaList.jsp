@@ -74,7 +74,6 @@
 								<div class="col-md-4">
 									<a href="sick_detailList.jsp" data-toggle="modal"
 										data-target="#exampleModal"> 
-							
 										<img src="${pageContext.request.contextPath}/upload/고양.jpg"
 										class="card-img" alt="..."></a>
 								</div>
