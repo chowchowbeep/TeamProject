@@ -5,6 +5,7 @@
 	#toMain {
 		color: black;
 		text-decoration:none;
+		font-weight:200;
 	}
 </style>
 <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
@@ -69,8 +70,8 @@
                with font-awesome or any other icon font library -->
 
 
-						<li class="nav-header"><small><strong>일반회원
-									메뉴</strong></small></li>
+						<li class="nav-header"><h5><strong>일반회원
+									메뉴</strong></h5></li>
 						
 						<li class="nav-item"><a href="SSickMain.do"
 							class="nav-link">
@@ -113,14 +114,17 @@
 							class="nav-link">
 								<p>의료 기록물</p>
 						</a></li>
-						
 						<li class="nav-item"><a href="Logout.do"
-							class="nav-link d-block text-center" style="padding: 20px;">
-								<p>
-									<small><strong>로그아웃</strong></small>
-								</p>
+							class="nav-link">
+								<p>로그아웃</p>
 						</a></li>
-						<!-- 세션없을 경우. 로그인 중이 아닐 경우 로그인이 필요합니다. 표시 필요? -->
+						
+<!-- 						<li class="nav-item"><a href="Logout.do" -->
+<!-- 							class="nav-link d-block text-center" style="padding: 20px;"> -->
+<!-- 								<p> -->
+<!-- 									<small><strong></strong></small> -->
+<!-- 								</p> -->
+<!-- 						</a></li> -->
 					</ul>
 
 

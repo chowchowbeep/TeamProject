@@ -19,7 +19,10 @@ import lastdto.docuInfoDTO;
 import leedy.HosFileUploadDAO;
 
 public class HHospitalUploadAddCMD implements Command {
+	
+	
 
+	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

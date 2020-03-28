@@ -4,6 +4,7 @@
 	#toMain {
 		color: black;
 		text-decoration:none;
+		font-weight:200;
 	}
 </style>
 <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
@@ -90,11 +91,9 @@
 							class="nav-link">
 								<p>의사목록 관리</p>
 						</a></li>
-						<li class="nav-item"><a id="logout" href="Logout.do"
-							class="nav-link d-block text-center" style="padding: 20px;">
-								<p>
-									<small><strong>로그아웃</strong></small>
-								</p>
+						<li class="nav-item"><a href="Logout.do"
+							class="nav-link">
+								<p>로그아웃</p>
 						</a></li>
 					</ul>
 

@@ -20,7 +20,6 @@ public class HHospitalSignupCMD implements Command {
 			throws ServletException, IOException {
 		
 
-			
 		List<searchDTO> list = new ArrayList<>();
 		hosMemberDTO hdto = new hosMemberDTO();
 		hosSignupDAO dao = new hosSignupDAO();
