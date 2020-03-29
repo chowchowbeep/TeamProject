@@ -55,26 +55,26 @@ public class NotFileDownDAO extends DAO {
 
 		//한건조회 리스트
 		
-		public DocumentInfoDto sel4(String no){
-			DocumentInfoDto dto = new DocumentInfoDto();
-			sql="SELECT * FROM DOCU_INFO WHERE DCRY_NO= ? ";
-			try {
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1,no);
-				
-				rs = pstmt.executeQuery();
-				while (rs.next()) {
-					
-					dto.setSicId(rs.getString("SIC_ID"));
-					dto.setDcryDttm(rs.getDate("DCRY_DTTM"));
-					dto.setDcryEtc(rs.getString("DCRY_ETC"));
-					dto.setArtrNo(rs.getInt("ARTR_NO"));
-					dto.setHosId(rs.getString("HOS_ID"));
-						}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			return dto;
-		}
+//		public DocumentInfoDto sel4(String no){
+//			DocumentInfoDto dto = new DocumentInfoDto();
+//			sql="SELECT * FROM DOCU_INFO WHERE DCRY_NO= ? ";
+//			try {
+//				pstmt = conn.prepareStatement(sql);
+//				pstmt.setString(1,no);
+//				
+//				rs = pstmt.executeQuery();
+//				while (rs.next()) {
+//					
+//					dto.setSicId(rs.getString("SIC_ID"));
+//					dto.setDcryDttm(rs.getDate("DCRY_DTTM"));
+//					dto.setDcryEtc(rs.getString("DCRY_ETC"));
+//					dto.setArtrNo(rs.getInt("ARTR_NO"));
+//					dto.setHosId(rs.getString("HOS_ID"));
+//						}
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			}
+//			return dto;
+//		}
 
 }
