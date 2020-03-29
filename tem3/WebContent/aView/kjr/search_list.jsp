@@ -9,11 +9,11 @@
 <%@ include file="../../layout/sick_menu.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <style>
-.mar {
-	margin: 10px 0px;
+  .topMar { margin:10px };
+  .hiden {
+	display: none
 }
 </style>
-<link rel="stylesheet" href="cssList.css">
 <script>
 $(function() { 
 	$("#nameSearchBtn").bind("click",searchNameGo); //병원명으로 상세리스트로 검색
@@ -36,6 +36,7 @@ $(function() {
 </head>
 
 <body>
+<div class="content-wrapper">
 	<div class="container">
 		<form id="nameSearchFrm" name="nameSearchFrm">
 		<div class="input-group mb-3 topmg">
@@ -47,14 +48,14 @@ $(function() {
 		</div>
 		</form>
 		
-		<div class="row">
-			<div class="mb-3 col-4" style="margin: 20px 0px;">
+		<div class="row hiden">
+			<div class="mb-3 col BTNpadmar" style="margin: 2px 2px; padding-right:0px; padding-left:0px; ">
 				<button type="button" class="btn btn-secondary btn-lg btn-block">랭킹순</button>
 			</div>
-			<div class="mb-3 col-4" style="margin: 20px 0px;">
+			<div class="mb-3 col BTNpadmar" style="margin: 2px 2px; padding-right:0px; padding-left:0px; ">
 				<button type="button" class="btn btn-secondary btn-lg btn-block">거리순</button>
 			</div>
-			<div class="mb-3 col-4" style="margin: 20px 0px;">
+			<div class="mb-3 col BTNpadmar" style="margin: 2px 2px; padding-right:0px; padding-left:0px; ">
 				<button type="button" class="btn btn-secondary btn-lg btn-block">상세조건</button>
 			</div>
 		</div>
@@ -62,9 +63,9 @@ $(function() {
 			<div class="card" style="margin: 5px;">
 				<div class="col-md-12">
 					<div class="card-body text-center">
-						<p class="card-text">검색결과가 없습니다.</p>
+						<p class="card-text"> <strong>검색결과가 없습니다.</strong></p>
 						<p></p>
-						<a href="SSearchMain.do" class="btn btn-secondary">지역 및 카테고리로 검색하기</a>
+						<a href="SSearchMain.do" class="btn btn-secondary">지역 및 카테고리로<br>다시 검색하기</a>
 					</div>
 				</div>
 				 	
@@ -94,5 +95,7 @@ $(function() {
 			</div>
 		</c:forEach>
 	</div>
+</div>
+<%@ include file="../../layout/all_footer.jsp"%>
 </body>
 </html>

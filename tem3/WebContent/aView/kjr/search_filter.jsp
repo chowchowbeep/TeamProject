@@ -33,6 +33,7 @@
 </style>
 </head>
 <body>
+<div class="content-wrapper">
 	<div class="container">
 		<div class="mar">
 		<div id="tabs" style="margin: 5px;"
@@ -169,7 +170,7 @@
 
 		</div>	
 	</div>
-	
+</div>	
 	
 	
 </body>

@@ -95,18 +95,21 @@
 </style>
 </head>
 <body>
+<div class="content-wrapper">
 	<div class="container">
 	
 		<div class="card text-center  topmg">
 			<div class="card" style="margin: 5px;">
-				<div class="card-header ">
-				<c:if test="${cnt eq '0' }"><!-- 노관심병원이면 까만별 -->
-					<img src="images/star-off-big.png" id="img" name="${cnt}"> &nbsp; &nbsp;
-				</c:if>
-				<c:if test="${cnt eq '1' }"><!-- 관심병원이면 반짝별 -->
-					<img src="images/star-on-big.png" id="img" name="${cnt}"> &nbsp; &nbsp;
-				</c:if>
-				${list[0].hosName } </div>
+				<div class="card-header text-center">
+					<c:if test="${cnt eq '0' }"><!-- 노관심병원이면 까만별 -->
+						<img src="images/star-off-big.png" id="img" name="${cnt}"> &nbsp; &nbsp;
+					</c:if>
+					<c:if test="${cnt eq '1' }"><!-- 관심병원이면 반짝별 -->
+						<img src="images/star-on-big.png" id="img" name="${cnt}"> &nbsp; &nbsp;
+					</c:if>
+					<strong>${list[0].hosName }</strong>
+				</div>
+				 </div>
 				<div class="card-body">
 					<div id="map" style="width: auto; height: 400px;"></div>
 					<!-- 지도담을 영역만들기 -->
@@ -126,10 +129,11 @@
 
 
 			<div class="card" style="margin: 5px;">
-				<div class="card-body">
-					<div id="hId" name="${list[0].hosId}" class="hiden"></div>
+				<div class="card-body text-center" style="font-weight: 700;">
+					<div id="hId" name="${list[0].hosId}" class="hiden" ></div>
 					<p>전화번호 : ${ list[0].hosPhone}</p>
-					<p>주소 : ${list[0].hosAddr}</p>
+					<p>주소 <br>
+					 ${list[0].hosAddr}</p>
 					<p>진료시간 : ${list[0].hosBizTime}</p>
 					<p>사업자등록번호 : ${list[0].hosBizno}</p>
 					<div id="searchWd" name="searchWd">
@@ -177,6 +181,7 @@
 	</div>
 	
 
-
+</div>
+<%@ include file="../../layout/all_footer.jsp"%>
 </body>
 </html>

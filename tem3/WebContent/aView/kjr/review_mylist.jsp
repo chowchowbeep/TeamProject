@@ -59,17 +59,20 @@
  	 background-color:green;
   }
   .mar{margin:3px;}
+.topMar { margin:10px 5px };
+.btnMar { margin:2px };
 </style>
 </head>
 
 <body>
+<div class="content-wrapper">
 	<form name="frm" id="frm" class="hiden">
 		
 	</form>
-	<div class="container">
+	<div class="container topMar">
 		<div class="card text-center">
 			<div class="card" style="margin: 5px;">
-				<div class="card-header text-left">내가 작성한 리뷰 리스트</div>
+				<div class="card-header text-center"><strong>내가 작성한 리뷰 리스트</strong></div>
 				<div class="card-body">
 
 					<table class="table table-hover">
@@ -149,7 +152,7 @@
 			</div>
 		</div>
 	</div>
-
-
+</div>
+<%@ include file="../../layout/all_footer.jsp"%>
 </body>
 </html>

@@ -19,6 +19,12 @@
 		margin : 2px;
 		
 	}
+	.hiden{
+	 display: none;
+	}
+  	.topMar { margin:10px };
+  	body { background-color:#F4F6F9};
+  	
 	</style>
 <script>
 	$(function() {
@@ -28,131 +34,150 @@
 		$("#HMediAll").bind("click", function() {
 			location.href='HMediAll.do';
 		});
+		
+		$("ul").on("click","a", function() {
+			
+			var divId = $(this).attr('name');
+			$("#"+divId).removeClass("hiden");
+			if(divId=='tabs-medi'){
+				$("#tabs-sic").addClass("hiden");
+				$("#tabs-theme").addClass("hiden");
+			}
+			if(divId=='tabs-sic'){
+				$("#tabs-medi").addClass("hiden");
+				$("#tabs-theme").addClass("hiden");
+			}
+			if(divId=='tabs-theme'){
+				$("#tabs-medi").addClass("hiden");
+				$("#tabs-sic").addClass("hiden");
+			}
+
+		});
+		
 	});
 </script>
 
 </head>
 <body>
+<div class="content-wrapper">
 	<!-- 1.병원회원정보 간략하게 출력 -->
 	<div class="container">
-	
-		<div class="container">
-			<div class="card" style="margin: 5px;">
-				<div class="row no-gutters">
-					<div class="col-md-4">
-						<img src="img/캡처.PNG" style="max-width: 540px;" class="card-img"
-						alt="프로필사진">
-					</div>
-					<div class="col-md-8">
-						<div class="card-body">
-							<h5 class="card-title">병원명 ${list.hosName }</h5>
-							<p class="card-text">주소 ${list.hosAddr }</p>
-							<p>전화번호 : ${list.hosPhone }</p>
-							<a href="HHospitalProfile.do" class="btn btn-secondary">병원회원수정페이지</a>
+			<!-- 병원회원 수정페이지 컨테이너 -->
+			<div class="container">
+				<div class="card" style="margin: 5px;">
+					<div class="card-header text-center"><strong>회원 정보</strong></div>
+					<div class="card-body text-center">
+						<p style="font-weight: 400;">
+							<small><strong>병원명</strong></small>
+							<br>
+							${list.hosName }
+						</p>
+						
+						<p style="font-weight: 400;">
+							<small><strong>주 소</strong></small>
+							<br>
+							 ${list.hosAddr }
+						</p>
+						
+						<p style="font-weight: 400;">
+							<small><strong>전화번호</strong></small>
+							<br>
+							${list.hosPhone }
+						</p>
+						<div class="text-center">
+							<a href="HHospitalProfile.do" class="btn btn-secondary">회원정보 수정</a>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-
-	<!--2. 등록한 카테고리 아이콘으로 출력 -->
-		<div class="container text-center">
-			<div class="card" style="margin: 5px;">
-				<div class="card" style="margin: 5px;">
-					<div class="card-header">진료과목</div>
-					<div class="card-body"> 
-					<c:forEach items="${codeList }" var="code">
-							<c:choose>
-									<c:when test="${code.type eq 'SUB'}">
-										<button type='button' class='btn btn-outline-secondary'>${code.name}</button>
-									</c:when>
-									<c:otherwise></c:otherwise>
-							</c:choose>
-					</c:forEach>
-					<br>
-					<br><a href="#" class="btn btn-secondary">진료과목 추가 및 수정</a>
-					</div>
-				</div>
-				
-				<div class="card" style="margin: 5px;">
-					<div class="card-header">증상</div>
-					<div class="card-body"> 
-						<c:forEach items="${codeList }" var="code">
-							<c:choose>
-									<c:when test="${code.type eq 'APA'}">
-										<button type='button' class='btn btn-outline-secondary'>${code.name}</button>
-									</c:when>
-									<c:otherwise></c:otherwise>
-							</c:choose>
-					</c:forEach>
-					<br><br>
-					<p><a href="#" class="btn btn-secondary">증상 추가 및 수정</a></p>
-					</div>
-				</div>
-				
-				<div class="card" style="margin: 5px;">
-					<div class="card-header ">테마</div>
-					<div class="card-body"> 
-					<c:forEach items="${codeList }" var="code">
-							<c:choose>
-									<c:when test="${code.type eq 'TEMA'}">
-										<button type='button' class='btn btn-outline-secondary'>${code.name}</button>
-									</c:when>
-									<c:otherwise></c:otherwise>
-							</c:choose>
-					</c:forEach>
-					<br><br>
-					<p><a href="#" class="btn btn-secondary">테마 추가 및 수정</a></p>
-					</div>
-				</div>
-			</div>
-		<!-- tabs가 적용이 안되서 주석처리함 
-			<div id="tabs" style="margin: 5px;" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
-				<ul>
-					<li><a href="#tabs-medi">진료과목</a></li>
-					<li><a href="#tabs-sic">증상</a></li>
-					<li><a href="#tabs-theme">테마</a></li>
-				</ul>
-				<div id="tabs-medi">
-					<p>진료과목</p>
-					<a href="#" class="btn btn-secondary">카테고리수정페이지로 이동</a>
-				</div>
-				<div id="tabs-sic">
-					<p>증상</p>
-					<a href="#" class="btn btn-secondary">카테고리수정페이지로 이동</a>
-				</div>
-				<div id="tabs-theme">
-					<p>테마</p>
-					<a href="#" class="btn btn-secondary">카테고리수정페이지로 이동</a>
-				</div>
-			</div>
-		 -->
-	</div>
-
-
-	<!-- 3.병원회원정보 수정버튼: 병원회원수정페이지로 이동-->
-	<div class="card mb-3 " style="margin: 15px;">
-		<button type="button" class="btn btn-secondary btn-lg btn-block" id="HDoctorlist">
-			의사리스트페이지 
-		</button>
-	</div>
+			<!-- 병원회원 수정페이지 컨테이너 종료 -->
 	
-			
-		
-	<!-- 6. 진료현황리스트페이지 로 이동  -->
-	<div class="card mb-3 " style="margin: 15px;">
-		<button type="button" class="btn btn-secondary btn-lg btn-block" id="HMediAll">
-			진료현황리스트
-		</button>
+		<!--2. 등록한 카테고리 아이콘으로 출력 -->
+			<div class="container text-center">
+				<div class="card mb-3" style="margin: 5px;">
+					<!-- tabs가 적용이 안되서 주석처리함 -->
+					<div class="card" style="margin: 5px;">
+						<div class="card-header text-center"><strong>키워드 정보</strong></div>
+						<!-- card body 시작 -->
+						<div class="card-body">
+							<div id="tabs" class="ui-tabs ui-corner-all ">
+								<ul class="nav nav-pills justify-content-center" id="pills-tab" role="tablist" style="font-weight: 700;">
+									<li class="nav-item">
+										<a class="nav-link listTab" id="all" href="#tabs-medi" role="tab" style="padding:3px" name="tabs-medi">ㅣ진료과목ㅣ</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link listTab" id="tmr" href="#tabs-sic" role="tab"style="padding:3px"name="tabs-sic">ㅣ증상ㅣ</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link listTab" id="res" href="#tabs-theme" role="tab" name="tabs-theme"style="padding:3px">ㅣ테마ㅣ</a>
+									</li>
+								</ul>
+							</div>	
+								
+							<div id="tabs-medi">
+								<p>진료과목</p>
+								<c:forEach items="${codeList }" var="code">
+									<c:choose>
+										<c:when test="${code.type eq 'SUB'}">
+											<button type='button' class='btn btn-outline-secondary'>${code.name}</button>
+										</c:when>
+										<c:otherwise></c:otherwise>
+									</c:choose>
+								</c:forEach>
+								<br>
+								<a href="#"  class="btn btn-secondary">추가 및 변경</a>
+							</div>
+							
+							<div id="tabs-sic" class="hiden">
+								<p>증상</p>
+								<c:forEach items="${codeList }" var="code">
+									<c:choose>
+										<c:when test="${code.type eq 'APA'}">
+											<button type='button' class='btn btn-outline-secondary'>${code.name}</button>
+										</c:when>
+										<c:otherwise></c:otherwise>
+									</c:choose>
+								</c:forEach>
+								<br>
+								<a href="#"  class="btn btn-secondary">추가 및 변경</a>
+							</div>
+							<div id="tabs-theme" class="hiden">
+								<p>테마</p>
+								<c:forEach items="${codeList }" var="code">
+									<c:choose>
+										<c:when test="${code.type eq 'TEMA'}">
+											<button type='button' class='btn btn-outline-secondary'>${code.name}</button>
+										</c:when>
+										<c:otherwise></c:otherwise>
+									</c:choose>
+								</c:forEach>
+								<br>	
+								<a href="#"  class="btn btn-secondary">추가 및 변경</a>
+							</div>
+						</div>
+						<!-- card body 종료 -->
+					</div>
+					<!--  탭스가안대서 주석처리햇던 영역 마지막  --> 
+				</div>
+				<!-- card종료 -->
+		</div>
+		<!-- 등록아이콘 컨테이너 종료 -->
+		<!-- 5. 의사리스트페이지 로 이동  -->
+		<div class="mb-3 " style="margin: 15px;">
+			<button type="button" class="btn btn-secondary btn-lg btn-block" id="HDoctorlist">
+				의사 리스트 
+			</button>
+		</div>
+		<!-- 진료현황리스트페이지 로 이동  -->
+		<div class="mb-3 " style="margin: 15px;">
+			<button type="button" class="btn btn-secondary btn-lg btn-block" id="HMediAll">
+				진료 현황 리스트
+			</button>
+		</div>
 	</div>
-
-</div>
-	<!-- 
-4. 카테고리 수정버튼 : 카테고리수정페이지 로이동
-5. 의사리스트페이지 로 이동 
-6. 진료현황리스트페이지 로 이동  -->
-
-
-
+	<!-- 컨테이너종료 -->
+</div> 
+<!-- class="content-wrapper" 종료-->
+<%@ include file="../../layout/all_footer.jsp"%>
 </body>
 </html>

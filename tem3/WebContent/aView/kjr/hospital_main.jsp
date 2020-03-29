@@ -25,7 +25,6 @@
 	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 	crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<link rel="stylesheet" href="cssList.css">
 <script>
 	$(function() { //ready == window.load 와 같은 이벤트
 
@@ -66,9 +65,9 @@
 			})
 				.done(function(data) {
 					if(data){
-						if(){
+						if(stt=='Y'){
 							alert("완료되었습니다.");
-						}else if(){
+						}else if(stt=='N'){
 							alert("취소되었습니다.");
 						}
 						
@@ -91,92 +90,103 @@
 	.mar{
 		margin: 10px 0px;
 	}
+	.topMar { margin:10px 5px };
+	a{ color:#6C757D ;
+	}
+	a:link  { color:#6C757D;}
+	a:hover { color:#007bff}
+	a:active { 	color:#6C757D}
+	a:visited  { 	color:#6C757D}
 	
 </style>
 </head>
 <body>
-	<div class="container">
-	<div class="mar text-center">
-	${hosId }님 어서오세요
-	</div>
-		<div class="row" id="btnDiv">
-			<div class="col-sm mar">
-				<button type="button" class="btn btn-secondary btn-lg btn-block" id="startBtn">영업등록</button>
+<div class="content-wrapper">
+	<div class="container topMar">
+		<div class="col-sm mar">
+			<button type="button" class="btn btn-secondary btn-lg btn-block" id="startBtn">영업등록</button>
+		</div>
+		<div class="col-sm mar">
+			<button type="button" class="btn btn-secondary btn-lg btn-block" id="endBtn">영업마감</button>
+		</div>
+		<div class="row">
+			<div class="col-sm ">
+					<div class="card text-center" style="margin:0px 0px 10px 0px">
+						<div class="card" style="margin: 5px;padding: 0px;">
+							<div class="card-header text-center" name="jj"><strong>접수현황</strong></div>
+							<div class="card-body" style="padding:5px">
+								<table class="table table-hover" >
+									<thead>
+										<tr>
+											<th scope="col" width="5px">#</th>
+											<th scope="col" width="100px">이름(ID)</th>
+											<th scope="col"width="80px"padding="0px"margin="0px">예상시간</th>
+											<th scope="col"width="80px">접수처리</th>
+										</tr>
+									</thead>
+									<tbody>
+									
+										<c:forEach items="${mediList }" var="list">
+												<tr id="${list.no }">
+													<th scope="row">${list.num }</th>
+													<td id="${list.sicId }" name="sicId" >${list.sicName }<br>(${list.sicId })</td>
+													<td>${list.resTime }</td>
+													<td> 
+														<span class="badge bg-success" name="Y">접수완료</span>
+														<span class="badge bg-danger" name="N">예약취소</span>
+													</td>
+												</tr>
+										</c:forEach>
+									
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
 			</div>
-			<div class="col-sm mar">
-				<button type="button" class="btn btn-secondary btn-lg btn-block" id="endBtn">영업마감</button>
+					
+			<div class="col-sm ">
+					<div class="card text-center">
+						<div class="card" style="margin: 5px;">
+							<div class="card-header text-center" name="yy"><strong>예약현황</strong></div>
+		
+							<div class="card-body" style="padding:5px">
+								<table class="table table-hover">
+									<thead>
+										<tr>
+											<th scope="col" width="5px">#</th>
+											<th scope="col" width="100px">이름(ID)</th>
+											<th scope="col"width="80px" style="margin: 5px;">예상시간</th>
+											<th scope="col"width="80px">예약처리</th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach items="${yeList }" var="list">
+												<tr id="${list.no }">
+													<th scope="row">${list.num }</th>
+													<td id="${list.sicId }" name="sicId" >${list.sicName }<br>(${list.sicId })</td>
+													<td>${list.resTime }</td>
+													<td> 
+														<span class="badge bg-success" name="Y">진료완료</span>
+														<span class="badge bg-danger" name="N">예약취소</span>
+													</td>
+												</tr>
+										</c:forEach>
+									</tbody>
+								</table>
+							</div>
+		
+						</div>
+					</div>
 			</div>
 		</div>
-<div class="row">
-	<div class="col-sm">
-			<div class="card text-center" style="margin:0px 0px 10px 0px">
-				<div class="card" style="margin: 5px;">
-					<div class="card-header text-left">접수현황</div>
-					<div class="card-body">
-						<table class="table table-hover" >
-							<thead>
-								<tr>
-									<th scope="col">#</th>
-									<th scope="col" width="100px">이름(ID)</th>
-									<th scope="col"width="80px"padding="0px"margin="0px">예상시간</th>
-									<th scope="col"width="80px">접수처리</th>
-								</tr>
-							</thead>
-							<tbody>
-							
-								<c:forEach items="${mediList }" var="list">
-										<tr id="${list.no }">
-											<th scope="row">${list.num }</th>
-											<td id="${list.sicId }" name="sicId" >${list.sicName }<br>(${list.sicId })</td>
-											<td>${list.resTime }</td>
-											<td> 
-												<span class="badge bg-success" name="Y">접수완료</span>
-												<span class="badge bg-danger" name="N">예약취소</span>
-											</td>
-										</tr>
-								</c:forEach>
-							
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-	</div>
-	<div class="col-sm">
-			<div class="card text-center">
-				<div class="card" style="margin: 5px;">
-					<div class="card-header text-left">예약현황</div>
-
-					<div class="card-body">
-						<table class="table table-hover">
-							<thead>
-								<tr>
-									<th scope="col">#</th>
-									<th scope="col" width="100px">이름(ID)</th>
-									<th scope="col"width="80px"padding="0px"margin="0px">예상시간</th>
-									<th scope="col"width="80px">예약처리</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${yeList }" var="list">
-										<tr id="${list.no }">
-											<th scope="row">${list.num }</th>
-											<td id="${list.sicId }" name="sicId" >${list.sicName }<br>(${list.sicId })</td>
-											<td>${list.resTime }</td>
-											<td> 
-												<span class="badge bg-success" name="Y">진료완료</span>
-												<span class="badge bg-danger" name="N">예약취소</span>
-											</td>
-										</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-					</div>
-
-				</div>
-			</div>
-</div>
-</div>
+		<div class="text-right"style="text-align:right">
+		<a href="#jj"><strong>접수현황 ㅣ  </strong></a> 
+		<a href="#yy"><strong>예약현황 ㅣ  </strong></a> 
+		<a href="#startBtn"><strong>top &nbsp;</strong></a>
 		</div>
+	</div>
+</div>
+<%@ include file="../../layout/all_footer.jsp"%>
 </body>
 </html>

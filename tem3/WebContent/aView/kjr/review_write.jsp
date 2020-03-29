@@ -52,43 +52,47 @@ $(function() {
 });
 </script>
 <style>
-	.mar{
-		margin: 10px 0px;
-	}
-	
+  .topMar { margin:10px };
+  .hiden {
+	display: none
+}
 </style>
 </head>
 <body>
-
-	<div class="container">
-	<p class="text-center mar"> 병원 리뷰 작성 </p>
-		<div class="card mb-8">
-			<form style="padding:10px" id="reviewFrm" name="reviewFrm" >
-				<div class="form-group">
-					<label for="hospital_name">내용</label>
-					<textarea class="form-control" id="contents" name="contents" rows="10"></textarea>
-				</div>
-
-				<div class="form-group">
-					<label for="hospital_name">별점</label>
-					<div>
-						<select class="form-control" name="star" id="star">
-							<option value="0">☆☆☆☆☆</option>
-							<option value="1">★☆☆☆☆</option>
-							<option value="2">★★☆☆☆</option>
-							<option value="3">★★★☆☆</option>
-							<option value="4">★★★★☆</option>
-							<option value="5">★★★★★</option>
-						</select>
+<div class="content-wrapper">
+	<div class="container topMar">
+		
+		<div class="card mb-3">
+			<div class="card-header text-center">
+				<strong>리뷰 작성</strong> 
+			</div>	
+			<div class="card-body">
+				<form style="padding:10px" id="reviewFrm" name="reviewFrm" >
+					<div class="form-group">
+						<label for="hospital_name">내용</label>
+						<textarea class="form-control" id="contents" name="contents" rows="10"></textarea>
 					</div>
-				</div>
-				<input id="inpBtn" type="button"value="수정완료" class="btn btn-secondary btn-lg btn-block">
-			</form>
+	
+					<div class="form-group">
+						<label for="hospital_name">별점</label>
+						<div>
+							<select class="form-control" name="star" id="star">
+								<option value="0">☆☆☆☆☆</option>
+								<option value="1">★☆☆☆☆</option>
+								<option value="2">★★☆☆☆</option>
+								<option value="3">★★★☆☆</option>
+								<option value="4">★★★★☆</option>
+								<option value="5">★★★★★</option>
+							</select>
+						</div>
+					</div>
+					<input id="inpBtn" type="button"value="등록하기" class="btn btn-secondary btn-lg btn-block">
+				</form>
+			</div>
 		</div>
 	
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
- 		 <span aria-hidden="true">&times;</span>
-	</button>
 	</div>
+</div>
+<%@ include file="../../layout/all_footer.jsp"%>
 </body>
 </html>

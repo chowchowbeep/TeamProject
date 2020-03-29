@@ -20,12 +20,15 @@ div .hiden {
  .fl{ float:rigth; overflow:auto;
  }
   .selectActive {
-  	background-color:green;
+  	background-color:#EAEAEA;
   }
   #divall a:hover{
- 	 background-color:green;
+ 	 background-color:#EAEAEA ;
   }
   .mar{margin:2px;}
+  .topMar { margin:10px };
+  
+  
 </style>
 
 
@@ -47,15 +50,15 @@ div .hiden {
 			$("#ctDiv").addClass("hiden");
 			$(".selectActive").removeClass("selectActive");
 			$(this).addClass("selectActive");
-			cateFrm.cate.value="s";
-		});
-		$("#ctBtn").bind("click", function() {//카테고리 클릭 시 밑에 ctDiv출력
+			cateFrm.cate.value="S";
 			$("#areaDiv").addClass("hiden");
 			$("#subDiv").addClass("hiden");
+		});
+		$("#ctBtn").bind("click", function() {//카테고리 클
 			$("#ctDiv").removeClass("hiden");
 			$(".selectActive").removeClass("selectActive");
 			$(this).addClass("selectActive");
-			cateFrm.cate.value="c";
+			cateFrm.cate.value="C";
 		});
 	
 		$("#nameSearchBtn").bind("click",searchNameGo); //병원명으로 상세리스트로 검색
@@ -189,6 +192,7 @@ div .hiden {
 
 </head>
 <body>
+<div class="content-wrapper">
 	<form id="searchFrm">
 		<input type="hidden" value="" id="areaInp"> <input
 			type="hidden" value="" id="subInp"> <input type="hidden"
@@ -196,7 +200,7 @@ div .hiden {
 			id="ct2Inp"> <input type="hidden" value="" id="ct3Inp">
 	</form>
 
-	<div class="container">
+	<div class="container topMar">
 	<form id="nameSearchFrm" name="nameSearchFrm">
 		<div class="input-group mb-3 topmg">
 				<input type="text" class="form-control"	placeholder="병원명" name="hosName" id="hosName">
@@ -209,15 +213,15 @@ div .hiden {
 
 		<!-- 지역|카테고리버튼 -->
 		<div class="row">
-			<div class="mb-4 col" style="margin: 20px 0px;">
-				<button type="button" class="btn btn-secondary btn-lg btn-block"
+			<div class="mb-3 col" style="margin: 20px 2px;padding-right:0px; padding-left:0px; ">
+				<button type="button" class="btn btn-secondary btn-lg btn-block" style=" margin: 0px 0px; padding-right:0px; padding-left:0px;"
 					id="areaBtn">지역명</button>
 			</div>
-			<div class="mb-4 col" style="margin: 20px 0px;">
+			<div class="mb-3 col" style="margin: 20px 2px;padding-right:0px; padding-left:0px; ">
 				<button type="button" class="btn btn-secondary btn-lg btn-block"
 					id="subBtn">지하철명</button>
 			</div>
-			<div class="mb-4 col" style="margin: 20px 0px;">
+			<div class="mb-3 col" style="margin: 20px 2px;padding-right:0px; padding-left:0px; ">
 				<button type="button" class="btn btn-secondary btn-lg btn-block"
 					id="ctBtn">카테고리</button>
 			</div>
@@ -235,9 +239,8 @@ div .hiden {
 							<a class="list-group-item list-group-item-action" id="LB00">부산</a>
 							<a class="list-group-item list-group-item-action" id="LD00">대구</a>
 						</div>
-						<div id="areaDivAddr2" class="col-4">
+						<div id="areaDivAddr2" class="col-8 hiden">
 						</div>
-						<div id="btnDiv" class="col-4 hiden"></div>
 					</div>
 				</div>
 			</div>
@@ -280,24 +283,19 @@ div .hiden {
 							<a class="list-group-item list-group-item-action" id="sub">증상</a>
 							<a class="list-group-item list-group-item-action" id="tema">테마</a>
 						</div>
-						<div id="ctDivMain2" class="col-4 hiden">
-						</div>
-						<div id="" class="col-4 hiden">
+						<div id="ctDivMain2" class="col-8 hiden">
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-		<div class="row">
-			<div id="dataDiv" class="col-9">
-				<form id="dataFrm" name="dataFrm">
-				
-				</form>
-			</div>
-			<div class="col-3">
-				<button type="button" class="btn btn-secondary btn-lg fl"	id="codeSearchedBtn" >선택한 조건으로 검색</button>
-			</div>
+		<div id="dataDiv" class="col-9">
+			<form id="dataFrm" name="dataFrm">
+			</form>
+		</div>
+		<div class="col-12 text-center">
+			<button type="button" class="btn btn-secondary btn-lg fl"	id="codeSearchedBtn" >선택한 조건으로 검색</button>
 		</div>
 		<div class="hiden">
 		<form id="dataInpFrm" name="dataInpFrm">
@@ -310,5 +308,7 @@ div .hiden {
 
 
 	</div>
+</div>
+<%@ include file="../../layout/all_footer.jsp"%>
 </body>
 </html>

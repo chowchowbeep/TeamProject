@@ -9,9 +9,9 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b450fd1e475fcbb9f2bb640be5a6f4a8"></script>
 <%@ include file="../../layout/sick_head.jsp" %>
 <%@ include file="../../layout/sick_menu.jsp" %>
-<link rel= "stylesheet" type="text/css" href="aView/kjr/cssList.css">
 <style>
-.btnMar { margin:2px }
+.topMar { margin:10px 5px };
+.btnMar { margin:2px };
 </style>
 
 <script>
@@ -90,11 +90,12 @@ function searchList(){
 </script>
 </head>
 <body>
-	<div class="container">
+<div class="content-wrapper">
+	<div class="container topMar">
 
 		<div class="card text-center  topmg">
 			<div class="card" style="margin: 5px;">
-				<div class="card-header text-center"> ${dto.sicName }님의 건강정보</div>
+				<div class="card-header text-center"><strong> ${dto.sicName }님의 건강정보</strong></div>
 				<div class="card-body">
 				
 					<c:forEach items="${hIndto}" var="dto">
@@ -131,7 +132,7 @@ function searchList(){
 
 
 		<div class="card text-center" style="margin: 20px 0px;">
-			<div class="card-header text-left">병원검색</div>
+			<div class="card-header text-center"><strong>병원검색</strong></div>
 			<div class="card-body">
 			<form name="searchFrm">
 				<div class="input-group mb-3">
@@ -190,7 +191,7 @@ function searchList(){
 		</script>
 
 		<div class="card text-center" style="margin: 20px 0px;">
-			<div class="card-header text-left" id="bokkmarkA">관심병원 리스트</div>
+			<div class="card-header text-center" id="bokkmarkA"><strong>관심병원 리스트</strong></div>
 			<div class="card-body">
 				<table class="table table-hover">
 					<thead>
@@ -232,6 +233,7 @@ function searchList(){
 
 
 	</div>
-
+</div>
+<%@ include file="../../layout/all_footer.jsp"%>
 </body>
 </html>
