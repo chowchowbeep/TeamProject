@@ -64,6 +64,7 @@
 		});
 	});
 </script>
+<div class="content-wrapper">
 	<div class="container">
 		<div class="card text-center">
 			<div class="card" style="margin: 5px;">
@@ -100,7 +101,8 @@
 			</div>
 		</div>
 	</div>
-
+</div>
+<%@ include file="../../layout/all_footer.jsp"%>
 
 </body>
 </html>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package lastdto;
 
 import java.sql.Date;
@@ -172,3 +173,223 @@ public class hosJoinMemberDTO {
 	
 
 }
+=======
+package lastdto;
+
+import java.sql.Date;
+
+public class hosJoinMemberDTO {
+	private String hosId;	// 병원 ID
+	private String hosBizno;	// 사업자 등록번호
+	private String hosName;    // 병원명
+	private String hosPhone;	// 전화번호
+	private String hosAddr;    // 주소
+<<<<<<< HEAD
+	private String bizTime;		// 영업 시간
+=======
+	private String hosBizTime;	// 영업 시간
+>>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject
+	private String hosRank;    // 병원 등급
+	private int decNo;	 // 신고 번호
+	private String decStt;	  // 신고 처리 상태
+	private Date decDttm;	// 신고일시
+	private int rvCount;	// 리뷰 개수
+	private int starPoint;	  // 리뷰 별점
+	
+		
+	public hosJoinMemberDTO() {
+		super();
+	}
+
+
+	public hosJoinMemberDTO(String hosId, String hosBizno, String hosName, String hosPhone, String hosAddr,
+<<<<<<< HEAD
+			String bizTime, String hosRank, int decNo, String decStt, Date decDttm, int rvCount, int starPoint) {
+=======
+			String hosBizTime, String hosRank, int decNo, String decStt, Date decDttm, int rvCount,
+			int starPoint) {
+>>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject
+		super();
+		this.hosId = hosId;
+		this.hosBizno = hosBizno;
+		this.hosName = hosName;
+		this.hosPhone = hosPhone;
+		this.hosAddr = hosAddr;
+<<<<<<< HEAD
+		this.bizTime = bizTime;
+=======
+		this.hosBizTime = hosBizTime;
+>>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject
+		this.hosRank = hosRank;
+		this.decNo = decNo;
+		this.decStt = decStt;
+		this.decDttm = decDttm;
+		this.rvCount = rvCount;
+		this.starPoint = starPoint;
+	}
+
+
+	public String getHosId() {
+		return hosId;
+	}
+
+
+	public void setHosId(String hosId) {
+		this.hosId = hosId;
+	}
+
+
+	public String getHosBizno() {
+		return hosBizno;
+	}
+
+
+	public void setHosBizno(String hosBizno) {
+		this.hosBizno = hosBizno;
+	}
+
+
+	public String getHosName() {
+		return hosName;
+	}
+
+
+	public void setHosName(String hosName) {
+		this.hosName = hosName;
+	}
+
+
+	public String getHosPhone() {
+		return hosPhone;
+	}
+
+
+	public void setHosPhone(String hosPhone) {
+		this.hosPhone = hosPhone;
+	}
+
+
+	public String getHosAddr() {
+		return hosAddr;
+	}
+
+
+	public void setHosAddr(String hosAddr) {
+		this.hosAddr = hosAddr;
+	}
+
+<<<<<<< HEAD
+
+	public String getBizTime() {
+		return bizTime;
+	}
+
+
+	public void setBizTime(String bizTime) {
+		this.bizTime = bizTime;
+	}
+
+
+=======
+>>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject
+	public String getHosRank() {
+		return hosRank;
+	}
+
+
+	public void setHosRank(String hosRank) {
+		this.hosRank = hosRank;
+	}
+
+
+	public int getDecNo() {
+		return decNo;
+	}
+
+
+	public void setDecNo(int decNo) {
+		this.decNo = decNo;
+	}
+
+
+	public String getDecStt() {
+		return decStt;
+	}
+
+
+	public void setDecStt(String decStt) {
+		this.decStt = decStt;
+	}
+
+
+	public Date getDecDttm() {
+		return decDttm;
+	}
+
+
+	public void setDecDttm(Date decDttm) {
+		this.decDttm = decDttm;
+	}
+
+
+	public int getRvCount() {
+		return rvCount;
+	}
+
+
+	public void setRvCount(int rvCount) {
+		this.rvCount = rvCount;
+	}
+
+
+	public int getStarPoint() {
+		return starPoint;
+	}
+
+
+	public void setStarPoint(int starPoint) {
+		this.starPoint = starPoint;
+	}
+
+
+<<<<<<< HEAD
+=======
+
+	public String getHosBizTime() {
+		return hosBizTime;
+	}
+
+
+
+	public void setHosBizTime(String hosBizTime) {
+		this.hosBizTime = hosBizTime;
+	}
+
+
+
+	public void setRvCount(int rvCount) {
+		this.rvCount = rvCount;
+	}
+
+
+
+>>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject
+	@Override
+	public String toString() {
+		return "hosJoinMemberDTO [hosId=" + hosId + ", hosBizno=" + hosBizno + ", hosName=" + hosName + ", hosPhone="
+<<<<<<< HEAD
+				+ hosPhone + ", hosAddr=" + hosAddr + ", bizTime=" + bizTime + ", hosRank=" + hosRank + ", decNo="
+=======
+				+ hosPhone + ", hosAddr=" + hosAddr + ", hosBizTime=" + hosBizTime + ", hosRank=" + hosRank + ", decNo="
+>>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject
+				+ decNo + ", decStt=" + decStt + ", decDttm=" + decDttm + ", rvCount=" + rvCount + ", starPoint="
+				+ starPoint + "]";
+	}
+
+
+	
+}
+
+
+
+>>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject

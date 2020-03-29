@@ -1,69 +1,159 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
-<body>
-
-
-
-<input type="text" id="sample5_address" placeholder="주소">
-<input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
-<div id="map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
-
-<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b450fd1e475fcbb9f2bb640be5a6f4a8&libraries=services"></script>
+<!-- 마이메뉴 페이지 -->
+<!-- 부트스트랩4 -->
+<%@ include file="../../layout/hos_head.jsp" %>
+<%@ include file="../../layout/hos_menu.jsp" %>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+	<style>
+	.btn{
+		margin : 2px;
+		
+	}
+	.hiden{
+	 display: none;
+	}
+  	.topMar { margin:10px };
+  	body { background-color:#F4F6F9};
+  	
+	</style>
 <script>
-    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-        mapOption = {
-            center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
-            level: 5 // 지도의 확대 레벨
-        };
-
-    //지도를 미리 생성
-    var map = new daum.maps.Map(mapContainer, mapOption);
-    //주소-좌표 변환 객체를 생성
-    var geocoder = new daum.maps.services.Geocoder();
-    //마커를 미리 생성
-    var marker = new daum.maps.Marker({
-        position: new daum.maps.LatLng(37.537187, 127.005476),
-        map: map
-    });
-
-
-    function sample5_execDaumPostcode() {
-        new daum.Postcode({
-            oncomplete: function(data) {
-                var addr = data.address; // 최종 주소 변수
-
-                // 주소 정보를 해당 필드에 넣는다.
-                document.getElementById("sample5_address").value = addr;
-                // 주소로 상세 정보를 검색
-                geocoder.addressSearch(data.address, function(results, status) {
-                    // 정상적으로 검색이 완료됐으면
-                    if (status === daum.maps.services.Status.OK) {
-
-                        var result = results[0]; //첫번째 결과의 값을 활용
-
-                        // 해당 주소에 대한 좌표를 받아서
-                        var coords = new daum.maps.LatLng(result.y, result.x);
-                        console.log(coords);
-                        // 지도를 보여준다.
-                        mapContainer.style.display = "block";
-                        map.relayout();
-                        // 지도 중심을 변경한다.
-                        map.setCenter(coords);
-                        // 마커를 결과값으로 받은 위치로 옮긴다.
-                        marker.setPosition(coords)
-                    }
-                });
-            }
-        }).open();
-    }
+	$(function() {
+		$("#HDoctorlist").bind("click", function() {
+			location.href='HDoctorlist.do';
+		});
+		$("#HMediAll").bind("click", function() {
+			location.href='HMediAll.do';
+		});
+	});
 </script>
 
+</head>
+<body>
+<div class="content-wrapper">
+	<!-- 1.병원회원정보 간략하게 출력 -->
+	<div class="container">
+			<!-- 병원회원 수정페이지 컨테이너 -->
+			<div class="container">
+				<div class="card" style="margin: 5px;">
+					<div class="card-header text-center"><strong>회원 정보</strong></div>
+					<div class="card-body text-center">
+						<p style="font-weight: 400;">
+							<small><strong>병원명</strong></small>
+							<br>
+							${list.hosName }
+						</p>
+						
+						<p style="font-weight: 400;">
+							<small><strong>주 소</strong></small>
+							<br>
+							 ${list.hosAddr }
+						</p>
+						
+						<p style="font-weight: 400;">
+							<small><strong>전화번호</strong></small>
+							<br>
+							${list.hosPhone }
+						</p>
+						<div class="text-center">
+							<a href="HHospitalProfile.do" class="btn btn-secondary">회원정보 수정</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 병원회원 수정페이지 컨테이너 종료 -->
+	
+		<!--2. 등록한 카테고리 아이콘으로 출력 -->
+			<div class="container text-center">
+				<div class="card mb-3" style="margin: 5px;">
+					<!-- tabs가 적용이 안되서 주석처리함 -->
+					<div class="card" style="margin: 5px;">
+						<div class="card-header text-center"><strong>키워드 정보</strong></div>
+						<!-- card body 시작 -->
+						<div class="card-body">
+							<div id="tabs" style="margin: 5px;" class="ui-tabs ui-corner-all ">
+								<ul class="nav nav-pills justify-content-center" id="pills-tab" role="tablist" style="font-weight: 700;">
+									<li class="nav-item">
+										<a class="nav-link listTab" id="all" href="#tabs-medi" role="tab">ㅣ진료과목ㅣ</a>
+									</li>
+									<li class="nav-item"><a class="nav-link listTab" id="tmr" href="#tabs-sic" role="tab">ㅣ증상ㅣ</a></li>
+									<li class="nav-item"><a class="nav-link listTab" id="res" href="#tabs-theme" role="tab">ㅣ테마ㅣ</a></li>
+								</ul>
+							</div>	
+								
+							<div id="tabs-medi">
+								<p>진료과목</p>
+								<c:forEach items="${codeList }" var="code">
+									<c:choose>
+										<c:when test="${code.type eq 'SUB'}">
+											<button type='button' class='btn btn-outline-secondary'>${code.name}</button>
+										</c:when>
+										<c:otherwise></c:otherwise>
+									</c:choose>
+								</c:forEach>
+								<br>
+								<a href="#"  class="btn btn-secondary">추가 및 변경</a>
+							</div>
+							
+							<div id="tabs-sic">
+								<p>증상</p>
+								<c:forEach items="${codeList }" var="code">
+									<c:choose>
+										<c:when test="${code.type eq 'APA'}">
+											<button type='button' class='btn btn-outline-secondary'>${code.name}</button>
+										</c:when>
+										<c:otherwise></c:otherwise>
+									</c:choose>
+								</c:forEach>
+								<br>
+								<a href="#"  class="btn btn-secondary">추가 및 변경</a>
+							</div>
+							<div id="tabs-theme">
+								<p>테마</p>
+								<c:forEach items="${codeList }" var="code">
+									<c:choose>
+										<c:when test="${code.type eq 'TEMA'}">
+											<button type='button' class='btn btn-outline-secondary'>${code.name}</button>
+										</c:when>
+										<c:otherwise></c:otherwise>
+									</c:choose>
+								</c:forEach>
+								<br>	
+								<a href="#"  class="btn btn-secondary">추가 및 변경</a>
+							</div>
+						</div>
+						<!-- card body 종료 -->
+					</div>
+					<!--  탭스가안대서 주석처리햇던 영역 마지막  --> 
+				</div>
+				<!-- card종료 -->
+		</div>
+		<!-- 등록아이콘 컨테이너 종료 -->
+		<!-- 5. 의사리스트페이지 로 이동  -->
+		<div class="mb-3 " style="margin: 15px;">
+			<button type="button" class="btn btn-secondary btn-lg btn-block" id="HDoctorlist">
+				의사 리스트 
+			</button>
+		</div>
+		<!-- 진료현황리스트페이지 로 이동  -->
+		<div class="mb-3 " style="margin: 15px;">
+			<button type="button" class="btn btn-secondary btn-lg btn-block" id="HMediAll">
+				진료 현황 리스트
+			</button>
+		</div>
+	</div>
+	<!-- 컨테이너종료 -->
+</div> 
+<!-- class="content-wrapper" 종료-->
+<%@ include file="../../layout/all_footer.jsp"%>
 </body>
 </html>

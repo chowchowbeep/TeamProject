@@ -11,6 +11,20 @@
 <%@ include file="../../layout/sick_head.jsp" %>
 <%@ include file="../../layout/sick_menu.jsp" %>
 <script>
+function calcHeight(){
+	var the_height=
+		 document.getElementById('the_iframe').contentWindow.
+		 document.body.scrollHeight;//ifram대상의 스크롤 높이를 가져옴 
+
+		 
+		 document.getElementById('the_iframe').height=
+			 the_height; //ifram대상의 스크롤높이로 이 페이지 높이를 변경함 
+
+		 document.getElementById('the_iframe').scrolling = "no";
+		 document.getElementById('the_iframe').style.overflow = "hidden";
+		 
+		 console.log(the_height);
+}
 	$(function() {
 		$("#STmrRequest").on("click", function() {
 // 			input hidden 파라미터 한꺼번에 넘기기. __ 초롱 수정
@@ -32,7 +46,6 @@
 			
 			//반짝별작업
 			var img = $("#img").attr("name");
-			
 			if(img=='0'){
 				console.log($("#hId").attr("name"));
 				$.ajax("/tem3/ajax/BookmarkInsertAjaxCMD.do", {
@@ -47,7 +60,7 @@
 						}else{
 							alert("다시 클릭해주세요..");
 						}
-						location.href="SHospitalInfo.do";
+						location.href="SHospitalInfo.do?hosId="+$("#hId").attr("name");
 					})
 			}else{
 				console.log("1111");
@@ -65,26 +78,11 @@
 							}else{
 								alert("다시 클릭해주세요..");
 							}
-							location.href="SHospitalInfo.do";
+							location.href="SHospitalInfo.do?hosId="+$("#hId").attr("name");
 						})
 				
 			}
 		});
-		
-		function calcHeight(){
-			var the_height=
-				 document.getElementById('the_iframe').contentWindow.
-				 document.body.scrollHeight;//ifram대상의 스크롤 높이를 가져옴 
-
-				 
-				 document.getElementById('the_iframe').height=
-				 the_height; //ifram대상의 스크롤높이로 이 페이지 높이를 변경함 
-
-				 //document.getElementById('the_iframe').scrolling = "no";
-				 document.getElementById('the_iframe').style.overflow = "hidden";
-		}
-		
-		
 		
 	});
 	
@@ -95,19 +93,32 @@
 </style>
 </head>
 <body>
+<!-- wrapper시작 -->
+<div class="content-wrapper">
+	<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1> 병원 상세정보 </h1>
+					</div>
+				</div>
+			</div>
+	<!-- /.container-fzluid -->
+		</section>
 	<div class="container">
-	
+		<!-- card시작 -->
 		<div class="card text-center  topmg">
 			<div class="card" style="margin: 5px;">
-				<div class="card-header ">
-				<c:if test="${cnt eq '0' }"><!-- 노관심병원이면 까만별 -->
-					<img src="images/star-off-big.png" id="img" name="${cnt}"> &nbsp; &nbsp;
-				</c:if>
-				<c:if test="${cnt eq '1' }"><!-- 관심병원이면 반짝별 -->
-					<img src="images/star-on-big.png" id="img" name="${cnt}"> &nbsp; &nbsp;
-				</c:if>
-				${list[0].hosName } </div>
-				<div class="card-body">
+				<div class="card-header text-center">
+					<c:if test="${cnt eq '0' }"><!-- 노관심병원이면 까만별 -->
+						<img src="images/star-off-big.png" id="img" name="${cnt}"> &nbsp; &nbsp;
+					</c:if>
+					<c:if test="${cnt eq '1' }"><!-- 관심병원이면 반짝별 -->
+						<img src="images/star-on-big.png" id="img" name="${cnt}"> &nbsp; &nbsp;
+					</c:if>
+					<strong>${list[0].hosName }</strong>
+				</div>
+				<div class="card-body text-center" style="font-weight: 700;">
 					<div id="map" style="width: auto; height: 400px;"></div>
 					<!-- 지도담을 영역만들기 -->
 					<script>
@@ -120,16 +131,10 @@
 
 						var map = new kakao.maps.Map(container, options);
 					</script>
-				</div>
-			</div>
-
-
-
-			<div class="card" style="margin: 5px;">
-				<div class="card-body">
-					<div id="hId" name="${list[0].hosId}" class="hiden"></div>
+					<div id="hId" name="${list[0].hosId}" class="hiden" ></div>
 					<p>전화번호 : ${ list[0].hosPhone}</p>
-					<p>주소 : ${list[0].hosAddr}</p>
+					<p>주소 <br>
+					 ${list[0].hosAddr}</p>
 					<p>진료시간 : ${list[0].hosBizTime}</p>
 					<p>사업자등록번호 : ${list[0].hosBizno}</p>
 					<div id="searchWd" name="searchWd">
@@ -137,24 +142,23 @@
 							<c:if test="${code.value.type eq 'A'}">
 								<button type='button' class='btn btn-outline-secondary btnMar'>${code.value.name}</button>
 							</c:if>
-							</c:forEach>
-							<c:forEach items="${codeList }" var="code">
+						</c:forEach>
+						<c:forEach items="${codeList }" var="code">
 							<c:if test="${code.value.type eq 'S'}">
 								<button type='button' class='btn btn-outline-secondary btnMar'>${code.value.name}</button>
 							</c:if>
-							</c:forEach>
+						</c:forEach>
 							<br>
-							<c:forEach items="${codeList }" var="code">
-								<c:choose>
+						<c:forEach items="${codeList }" var="code">
+							<c:choose>
 									<c:when test="${code.value.type eq 'A'}"></c:when >
 									<c:when test="${code.value.type eq 'S'}"></c:when >
 									<c:otherwise>
 										<button type='button' class='btn btn-outline-secondary btnMar'>${code.value.name}</button>
 									</c:otherwise>
 							</c:choose>
-							</c:forEach>
-						</div>
-					
+						</c:forEach>
+					</div>
 				</div>
 			</div>
 			<!-- STmrRequest.do와 SResRequest.do로 파라미터 넘기기 위한 부분 // 초롱 수정 -->
@@ -165,18 +169,17 @@
 				<input type="hidden" name="hosBizTime" value="${list[0].hosBizTime}"></input>
 			</form>
 
-			<button type="button" class="btn btn-secondary btn-lg btn-block" id="STmrRequest">당일
-				접수</button>
-			<button type="button" class="btn btn-secondary btn-lg btn-block" id="SResRequest">예약
-				신청</button>
-		</div>
-		<iframe src="SreviewBoardCMD.do?hosId=${list[0].hosId}&currentPage=1&nowblock=1"  
-		frameborder="0" id="the_iframe" onload="calcHeight()" 
-		style="overflow-x:hidden; overflow:auto; width:100%; min-height:500px;">
-		</iframe>	
-	</div>
-	
-
-
+			<button type="button" class="btn btn-secondary btn-lg btn-block" id="STmrRequest">당일 접수</button>
+			<button type="button" class="btn btn-secondary btn-lg btn-block" id="SResRequest">예약 신청</button>
+			<!-- ifram시작 -->
+			<iframe src="SreviewBoardCMD.do?hosId=${list[0].hosId}&currentPage=1&nowblock=1"  
+			frameborder="0" id="the_iframe" onload="calcHeight()" 
+			style="overflow-x:hidden; overflow:auto; width:100%;">
+			</iframe><!-- ifram종료 -->	
+		</div><!-- card종료 -->
+			
+	</div><!-- 컨테이너종료 -->
+</div><!-- wrapper종료 -->
+<%@ include file="../../layout/all_footer.jsp"%>
 </body>
 </html>

@@ -38,6 +38,22 @@
 						<div class="card-body">
 							<div class="row">
 								<div class="col-sm-12" id="itemsWrapper">
+									<c:if test="${dto.rqstTy =='D001' }">
+										<div class="item rqDetailInfo importantItem">
+											<span class="rqDetailLabel">진료신청시간</span><span id="rqstDt">${dto.rqstDt}</span>
+										</div>
+										<div class="item rqDetailInfo importantItem">
+											<span class="rqDetailLabel">도착예정시간</span><span id="rqstTm">${dto.rqstTm}</span>
+										</div>
+									</c:if>
+									<c:if test="${dto.rqstTy =='D002' }">
+										<div class="item rqDetailInfo importantItem">
+											<span class="rqDetailLabel">예약진료일자</span><span id="resDt">${dto.resDt}</span>
+										</div>
+										<div class="item rqDetailInfo importantItem">
+											<span class="rqDetailLabel">예약진료시간</span><span id="resTm">${dto.resTm}</span>
+										</div>
+									</c:if>
 									<div class="item rqDetailInfo">
 										<span class="rqDetailLabel">진료신청타입</span>
 										<c:choose>
@@ -61,32 +77,17 @@
 									<div class="item rqDetailInfo">
 										<span class="rqDetailLabel">전화번호</span><span id="hosName">${param.sicPhone}</span>
 									</div>
-										<div class="item rqDetailInfo">
-											<span class="rqDetailLabel">진료신청일</span><span id="rqstDt">${dto.rqstDt}</span>
-										</div>
-									<c:if test="${dto.rqstTy =='D001' }">	
-										<div class="item rqDetailInfo">
-											<span class="rqDetailLabel">진료신청시간</span><span id="rqstDt">${dto.rqstDt}</span>
-										</div>
-										<div class="item rqDetailInfo">
-											<span class="rqDetailLabel">도착예정시간</span><span id="rqstTm">${dto.rqstTm}</span>
-										</div>
-									</c:if>
-									<c:if test="${dto.rqstTy =='D002' }">
-										<div class="item rqDetailInfo">
-											<span class="rqDetailLabel">예약진료일자</span><span id="resDt">${dto.resDt}</span>
-										</div>
-										<div class="item rqDetailInfo">
-											<span class="rqDetailLabel">예약진료시간</span><span id="resTm">${dto.resTm}</span>
-										</div>
-									</c:if>
 									<div class="item rqDetailInfo">
-										<span class="rqDetailLabel">담당의사</span><span
-											id="artrName">${dto.artrName }</span>
+										<span class="rqDetailLabel">담당의사</span><span id="artrName">${dto.artrName }</span>
 									</div>
 									<div class="item rqDetailInfo">
-										<span class="rqDetailLabel">진료과목</span><span
-											id="artrSub"><c:choose><c:when test="${dto.artrSub }"></c:when></span>
+										<span class="rqDetailLabel">진료과목</span><span id="artrSub"><c:choose>
+												<c:when test="${dto.artrSub == 'CS10'}">내과</c:when>
+												<c:when test="${dto.artrSub == 'CS20'}">소아과</c:when>
+												<c:when test="${dto.artrSub == 'CS30'}">외과</c:when>
+												<c:when test="${dto.artrSub == 'CS40'}">정형외과</c:when>
+												<c:when test="${dto.artrSub == 'CS50'}">치과</c:when>
+											</c:choose></span>
 									</div>
 									<div class="item rqDetailInfo">
 										<span class="rqDetailLabel">의사선생님께 한 마디</span><span id="msg">${dto.msg }</span>
