@@ -24,7 +24,7 @@
 	ArrayList<hosJoinMemberDTO> list = new ArrayList<hosJoinMemberDTO>();
 	ArrayList<hosJoinMemberDTO> searchlist = (ArrayList<hosJoinMemberDTO>)request.getAttribute("list");
 	if (searchlist == null) {
-		list = dao.select();
+		list = list;
 	} else {
 		list = searchlist;
 	}

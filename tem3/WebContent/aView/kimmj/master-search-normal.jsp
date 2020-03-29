@@ -25,7 +25,7 @@
 	ArrayList<sickJoinMemberDTO> list = new ArrayList<sickJoinMemberDTO>();
 	ArrayList<sickJoinMemberDTO> searchlist = (ArrayList<sickJoinMemberDTO>)request.getAttribute("list");
 	if (searchlist == null) {
-		list = dao.select();
+		list = list;
 	} else {
 		list = searchlist;
 	}

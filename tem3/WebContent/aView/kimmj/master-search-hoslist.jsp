@@ -112,12 +112,14 @@ to {
 			</h4>
 		</div>
 	</div>
-	<div class="card-body">
-	<table class = "listbox">
 	<% 
 	ArrayList<hosJoinMemberDTO> list = (ArrayList<hosJoinMemberDTO>)request.getAttribute("list");
 	for(hosJoinMemberDTO dto : list) { 
 	%>
+	<div class="card-body">
+	<table class = "listbox"
+		onclick = "location.href = 'MSearchHoslistHos.do?hosID=<%=dto.getHosId()%>';">
+
 		<tr>
 			<td>
 				<ion-icon name="business" size = "large" 
@@ -132,9 +134,10 @@ to {
 		</tr>
 	</table>
 	<input type = "hidden" id = "hosId" name = "hosId">
-	<% } %>
+	
 	</div>
 </div>
+<% } %>
 
 <%@ include file="/layout/all_footer.jsp"%>
 </body>

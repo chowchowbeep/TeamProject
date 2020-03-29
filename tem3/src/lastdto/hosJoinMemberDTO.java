@@ -8,11 +8,7 @@ public class hosJoinMemberDTO {
 	private String hosName;    // 병원명
 	private String hosPhone;	// 전화번호
 	private String hosAddr;    // 주소
-<<<<<<< HEAD
 	private String bizTime;		// 영업 시간
-=======
-	private String hosBizTime;	// 영업 시간
->>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject
 	private String hosRank;    // 병원 등급
 	private int decNo;	 // 신고 번호
 	private String decStt;	  // 신고 처리 상태
@@ -27,23 +23,14 @@ public class hosJoinMemberDTO {
 
 
 	public hosJoinMemberDTO(String hosId, String hosBizno, String hosName, String hosPhone, String hosAddr,
-<<<<<<< HEAD
 			String bizTime, String hosRank, int decNo, String decStt, Date decDttm, int rvCount, int starPoint) {
-=======
-			String hosBizTime, String hosRank, int decNo, String decStt, Date decDttm, int rvCount,
-			int starPoint) {
->>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject
 		super();
 		this.hosId = hosId;
 		this.hosBizno = hosBizno;
 		this.hosName = hosName;
 		this.hosPhone = hosPhone;
 		this.hosAddr = hosAddr;
-<<<<<<< HEAD
 		this.bizTime = bizTime;
-=======
-		this.hosBizTime = hosBizTime;
->>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject
 		this.hosRank = hosRank;
 		this.decNo = decNo;
 		this.decStt = decStt;
@@ -102,7 +89,6 @@ public class hosJoinMemberDTO {
 		this.hosAddr = hosAddr;
 	}
 
-<<<<<<< HEAD
 
 	public String getBizTime() {
 		return bizTime;
@@ -114,8 +100,6 @@ public class hosJoinMemberDTO {
 	}
 
 
-=======
->>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject
 	public String getHosRank() {
 		return hosRank;
 	}
@@ -176,43 +160,15 @@ public class hosJoinMemberDTO {
 	}
 
 
-<<<<<<< HEAD
-=======
-
-	public String getHosBizTime() {
-		return hosBizTime;
-	}
-
-
-
-	public void setHosBizTime(String hosBizTime) {
-		this.hosBizTime = hosBizTime;
-	}
-
-
-
-	public void setRvCount(int rvCount) {
-		this.rvCount = rvCount;
-	}
-
-
-
->>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject
 	@Override
 	public String toString() {
 		return "hosJoinMemberDTO [hosId=" + hosId + ", hosBizno=" + hosBizno + ", hosName=" + hosName + ", hosPhone="
-<<<<<<< HEAD
 				+ hosPhone + ", hosAddr=" + hosAddr + ", bizTime=" + bizTime + ", hosRank=" + hosRank + ", decNo="
-=======
-				+ hosPhone + ", hosAddr=" + hosAddr + ", hosBizTime=" + hosBizTime + ", hosRank=" + hosRank + ", decNo="
->>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject
 				+ decNo + ", decStt=" + decStt + ", decDttm=" + decDttm + ", rvCount=" + rvCount + ", starPoint="
 				+ starPoint + "]";
 	}
-
-
 	
+	
+	
+
 }
-
-
-

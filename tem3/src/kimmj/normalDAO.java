@@ -69,6 +69,8 @@ public class normalDAO extends DAO {
 			return dto;
 		}
 	
+	
+	
 	// 조건 조회
 	public ArrayList<sickJoinMemberDTO> search(String memStatus, String name, String phone) {
 		ArrayList<sickJoinMemberDTO> list = new ArrayList<sickJoinMemberDTO>();
@@ -97,8 +99,6 @@ public class normalDAO extends DAO {
 				  if(phone!=null&&!phone.equals("")) {
 					 pstmt.setString(index++, phone);
 				  }
-				  System.out.println(sql);
-				  System.out.println(memStatus+"=====");
 			  rs = pstmt.executeQuery();
 			  while (rs.next()) {
 				  sickJoinMemberDTO dto = new sickJoinMemberDTO();
@@ -120,44 +120,3 @@ public class normalDAO extends DAO {
 	
 	
 	
-	
-	
-	
-	
-//	// 조건 조회
-//	public ArrayList<sickJoinMemberDTO> getMemberList(String memStatus, String name, String phone ) {
-//		ArrayList<sickJoinMemberDTO> list = new ArrayList<>();
-//		try {
-//			String sql = "SELECT * FROM sick_member ";
-//			if (memStatus != null && !memStatus.equals("") && !phone.equals("")) {
-//				sql += "WHERE " + name.trim() + " LIKE '%" + phone.trim() + "%' ";
-//			} else {
-//				sql += "order by sick_id";
-//			} st = conn.createStatement();
-//			  rs = st.executeQuery(sql);
-//			  
-//			  while(rs.next()) {
-//				  sickJoinMemberDTO dto = new sickJoinMemberDTO();
-//				  	dto.setSicName(rs.getString("sic_name"));
-//				  	dto.setSicId(rs.getString("sic_id"));
-//				  	dto.setSicStt(rs.getString("sic_stt"));
-//				  	dto.setSicPhone(rs.getString("sic_phone"));
-//				  	dto.setStartDttm(rs.getDate("start_dttm"));
-//				  	dto.setDecNo(rs.getInt("dec_no"));
-//				  	dto.setRvNo(rs.getInt("rv_no"));
-//				  	
-//				  	list.add(dto);
-//			  	}
-//			  } catch (SQLException e) {
-//				  
-//			  } finally {
-//				  close();
-//			  } return list;
-//	}
-//}
-	
-	
-	
-	
-
-
