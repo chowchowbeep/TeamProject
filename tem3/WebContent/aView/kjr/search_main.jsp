@@ -26,7 +26,7 @@ div .hiden {
  	 background-color:#EAEAEA ;
   }
   .mar{margin:2px;}
-  .topMar { margin:10px };
+  .topMar { margin:10px 2px };
   
   
 </style>
@@ -45,17 +45,18 @@ div .hiden {
 			cateFrm.cate.value="";
 		});
 		$("#subBtn").bind("click", function() {//지하철명 클릭 시 밑에 ctDiv출력
-			$("#areaDiv").addClass("hiden");
+			console.log($(this));
 			$("#subDiv").removeClass("hiden");
+			$("#areaDiv").addClass("hiden");
 			$("#ctDiv").addClass("hiden");
 			$(".selectActive").removeClass("selectActive");
-			$(this).addClass("selectActive");
 			cateFrm.cate.value="S";
-			$("#areaDiv").addClass("hiden");
-			$("#subDiv").addClass("hiden");
+			console.log(cateFrm.cate.value);
 		});
 		$("#ctBtn").bind("click", function() {//카테고리 클
 			$("#ctDiv").removeClass("hiden");
+			$("#subDiv").addClass("hiden");
+			$("#areaDiv").addClass("hiden");
 			$(".selectActive").removeClass("selectActive");
 			$(this).addClass("selectActive");
 			cateFrm.cate.value="C";
@@ -142,6 +143,7 @@ div .hiden {
 			var pDivId = pDiv.attr("id");//pDiv의 id로 객체확인
 			pDiv.find("a").removeClass("selectActive");//자식태그 가져옴
 			$(this).addClass("selectActive");
+			var cateval = cateFrm.cate.value;
 			pDiv = pDiv.next();//부모div에서 그 다음 객체를 찾음
 			////////////////////////
 			pDiv.removeClass("hiden");
@@ -151,14 +153,14 @@ div .hiden {
 				dataType : "json",
 				data : 
 					{pCode : $(this).attr("id"),
-					cate : cateFrm.cate.value
+					cate : cateval
 					}
 			})
 				.done(function(data) {
 					for (i = 0; i < data.length; i++) {
 						console.log(i);
 						pDiv.append(
-						'<a class="list-group-item list-group-item-action" id='+data[i].locaCode+'>'+ data[i].wd);
+						'<a class="list-group-item list-group-item-action" style="padding:5px" id='+data[i].locaCode+'>'+ data[i].wd);
 						//(자식)appendTo(부모)
 					}
 			});
@@ -173,6 +175,7 @@ div .hiden {
 			////////////////////////
 			pDiv.removeClass("hiden");
 			pDiv.html("");
+			pDiv.next().html("");
 			$.ajax("/tem3/ajax/CategoriAjaxCMD.do", {
 				dataType : "json",
 				data : {wd : $(this).attr("id")}
@@ -180,7 +183,7 @@ div .hiden {
 				.done(function(data) {
 					for (i = 0; i < data.length; i++) {
 						pDiv.append(
-								'<a class="list-group-item list-group-item-action" id='+data[i].code+'>'+ data[i].wd); //(자식)appendTo(부모)
+								'<a class="list-group-item list-group-item-action" style="padding:5px" id='+data[i].code+'>'+ data[i].wd); //(자식)appendTo(부모)
 					}
 			});
 		};
@@ -193,6 +196,16 @@ div .hiden {
 </head>
 <body>
 <div class="content-wrapper">
+	<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1>검색</h1>
+					</div>
+				</div>
+			</div>
+	<!-- /.container-fzluid -->
+		</section>
 	<form id="searchFrm">
 		<input type="hidden" value="" id="areaInp"> <input
 			type="hidden" value="" id="subInp"> <input type="hidden"
@@ -267,10 +280,6 @@ div .hiden {
 					</div>
 				</div>
 			</div>
-			
-			
-			
-			
 		</div>
 
 		<div id="ctDiv" class="hiden">

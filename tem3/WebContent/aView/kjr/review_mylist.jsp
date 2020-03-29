@@ -66,6 +66,16 @@
 
 <body>
 <div class="content-wrapper">
+	<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1> 리뷰 리스트</h1>
+					</div>
+				</div>
+			</div>
+	<!-- /.container-fzluid -->
+		</section>
 	<form name="frm" id="frm" class="hiden">
 		
 	</form>
@@ -80,7 +90,7 @@
 							<tr>
 								<th scope="col" style="width: 100px">병원명</th>
 								<th scope="col">내용</th>
-								<th scope="col" style="width: 40px">★★★★★</th>
+								<th scope="col" style="width: 40px">별점</th>
 								<th scope="col" style="width: 40px">Label</th>
 							</tr>
 						</thead>
@@ -95,46 +105,46 @@
 			                          <div>
 			                         	<c:choose>
 			                         		<c:when test="${list.starPoint eq '1' }">
-			                         			<img src="images/star-on-big.png">
-			                         			<img src="images/star-off-big.png">
-			                         			<img src="images/star-off-big.png">
-			                         			<img src="images/star-off-big.png">
-			                         			<img src="images/star-off-big.png">
+			                         			<img src="images/star-on-small.png">
+			                         			<img src="images/star-off-small.png">
+			                         			<img src="images/star-off-small.png">
+			                         			<img src="images/star-off-small.png">
+			                         			<img src="images/star-off-small.png">
 			                         		</c:when>
 			                         		<c:when test="${list.starPoint eq '2' }">
-												<img src="images/star-on-big.png">
-			                         			<img src="images/star-on-big.png">
-			                         			<img src="images/star-off-big.png">
-			                         			<img src="images/star-off-big.png">
-			                         			<img src="images/star-off-big.png">									
+												<img src="images/star-on-small.png">
+			                         			<img src="images/star-on-small.png">
+			                         			<img src="images/star-off-small.png">
+			                         			<img src="images/star-off-small.png">
+			                         			<img src="images/star-off-small.png">									
 											</c:when>
 			                         		<c:when test="${list.starPoint eq '3' }">
-												<img src="images/star-on-big.png">
-												<img src="images/star-on-big.png">
-			                         			<img src="images/star-on-big.png">
-			                         			<img src="images/star-off-big.png">
-			                         			<img src="images/star-off-big.png">
+												<img src="images/star-on-small.png">
+												<img src="images/star-on-small.png">
+			                         			<img src="images/star-on-small.png">
+			                         			<img src="images/star-off-small.png">
+			                         			<img src="images/star-off-small.png">
 											</c:when>
 			                         		<c:when test="${list.starPoint eq '4' }">
-			                         			<img src="images/star-on-big.png">
-			                         			<img src="images/star-on-big.png">
-												<img src="images/star-on-big.png">
-			                         			<img src="images/star-on-big.png">
-			                         			<img src="images/star-off-big.png">
+			                         			<img src="images/star-on-small.png">
+			                         			<img src="images/star-on-small.png">
+												<img src="images/star-on-small.png">
+			                         			<img src="images/star-on-small.png">
+			                         			<img src="images/star-off-small.png">
 			                         		</c:when>
 			                         		<c:when test="${list.starPoint eq '5' }">
-			                         			<img src="images/star-on-big.png">
-			                         			<img src="images/star-on-big.png">
-			                         			<img src="images/star-on-big.png">
-												<img src="images/star-on-big.png">
-			                         			<img src="images/star-on-big.png">
+			                         			<img src="images/star-on-small.png">
+			                         			<img src="images/star-on-small.png">
+			                         			<img src="images/star-on-small.png">
+												<img src="images/star-on-small.png">
+			                         			<img src="images/star-on-small.png">
 											</c:when>
 			                         		<c:otherwise>
-			                         			<img src="images/star-off-big.png">
-			                         			<img src="images/star-off-big.png">
-			                         			<img src="images/star-off-big.png">
-			                         			<img src="images/star-off-big.png">
-			                         			<img src="images/star-off-big.png">
+			                         			<img src="images/star-off-small.png">
+			                         			<img src="images/star-off-small.png">
+			                         			<img src="images/star-off-small.png">
+			                         			<img src="images/star-off-small.png">
+			                         			<img src="images/star-off-small.png">
 			                         		</c:otherwise>
 			                         	</c:choose>
 			                          </div>

@@ -102,6 +102,16 @@
 </head>
 <body>
 <div class="content-wrapper">
+	<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1> 메인 화면 </h1>
+					</div>
+				</div>
+			</div>
+	<!-- /.container-fzluid -->
+		</section>
 	<div class="container topMar">
 		<div class="col-sm mar">
 			<button type="button" class="btn btn-secondary btn-lg btn-block" id="startBtn">영업등록</button>

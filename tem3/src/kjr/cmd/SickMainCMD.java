@@ -9,9 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import command.Command;
+import lastdto.bookmarkDTO;
 import lastdto.seachCodeJoinDTO;
 import lastdto.sickMemberDTO;
 import leedy.sickMemberDAO;
+import kjr.BookmarkDAO;
+import kjr.HHospitalProfileDAO;
 import kjr.HealthInfoDAO;
 
 public class SickMainCMD implements Command {
@@ -30,15 +33,15 @@ public class SickMainCMD implements Command {
 		sickMemberDAO dao = new sickMemberDAO();
 		sickMemberDTO dto = dao.select(sessionId);
 		ArrayList<seachCodeJoinDTO> hIndto = hInfo.select(sessionId);
-		/*
-		System.out.println("SickMainCMD클래스 sicid : "+hIndto.getSicId());	
-		System.out.println("SickMainCMD클래스 hthtc : "+hIndto.getHtEtc());
-		http://localhost:9099/tem3/SickMain.do
-		*/
+		
+
+		BookmarkDAO bookDAO = new BookmarkDAO();
+		HHospitalProfileDAO hosDAO = new HHospitalProfileDAO();
+		ArrayList<bookmarkDTO> list = bookDAO.select(sicId);
 		
 		request.setAttribute("dto",dto);
 		request.setAttribute("hIndto",hIndto);
-		
+		request.setAttribute("starList", list);
 		
 
 		//병원검색

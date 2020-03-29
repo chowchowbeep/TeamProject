@@ -37,6 +37,16 @@ $(function() {
 
 <body>
 <div class="content-wrapper">
+	<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1>검색결과</h1>
+					</div>
+				</div>
+			</div>
+	<!-- /.container-fzluid -->
+		</section>
 	<div class="container">
 		<form id="nameSearchFrm" name="nameSearchFrm">
 		<div class="input-group mb-3 topmg">
@@ -65,7 +75,7 @@ $(function() {
 					<div class="card-body text-center">
 						<p class="card-text"> <strong>검색결과가 없습니다.</strong></p>
 						<p></p>
-						<a href="SSearchMain.do" class="btn btn-secondary">지역 및 카테고리로<br>다시 검색하기</a>
+						<a href="SsearchMain.do" class="btn btn-secondary">지역 및 카테고리로<br>다시 검색하기</a>
 					</div>
 				</div>
 				 	
@@ -80,15 +90,14 @@ $(function() {
 					<div class="col-md-4 ">
 						<img src="img/캡처.PNG" style="max-width: 540px;" class="card-img"
 							alt="프로필사진">
-							<h5 class="text-center">${list.hosName }</h5>
 					</div>
 					<div class="col-md-8">
 						<div class="card-body">
 							<h5 class="card-title">${list.hosName }</h5>
 							<p class="card-text">${list.hosAddr }</p>
 							<p>전화번호 : ${list.hosPhone }</p>
-							<p>진료 시간 :${list.hosBizTime }</p>
-							<a href="SHospitalInfo.do?hosId=${list.hosId}" class="btn btn-secondary">접수 예약 및 상세페이지</a>
+							<p>진료 시간 : ${list.hosBizTime }</p>
+							<a href="SHospitalInfo.do?hosId=${list.hosId}" class="btn btn-secondary"> 접수 예약 및 상세페이지</a>
 						</div>
 					</div>
 				</div>
