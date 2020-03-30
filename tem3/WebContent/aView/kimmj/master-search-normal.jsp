@@ -92,7 +92,7 @@ to {
 	margin-right: 10px;
 	padding: 7px;
 	border-radius: 10%;
-	background-color: #FFE4B5;
+	background-color: #FFF2BF;
 }
 
 .info-box-content {
@@ -135,7 +135,9 @@ to {
 	width: 150px;
 	height: 60px;
 	font-size: 18px;
-	margin: 40px 0px 0px 110px;
+	margin: 40px 0px 0px 100px;
+	background-color: #FFDD73;
+	border: none;
 }
 </style>
 
@@ -158,7 +160,7 @@ to {
 			<span class="info-box-content"> <b>회원 유형</b> </span>
 			</span> 
 			<span class="info-box-box">
-				&nbsp;&nbsp;&nbsp; <input type="radio" name="gener" value="standard">&nbsp;일반
+				&nbsp;&nbsp;&nbsp; <input type="radio" name="gener" value="standard" checked>&nbsp;일반
 				&nbsp;&nbsp;&nbsp; <input type="radio" name="gener" value="hospital" onclick="location.href='MSearchHos.do';">&nbsp;병원
 			</span> 
 			<br> 

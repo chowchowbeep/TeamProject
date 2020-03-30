@@ -33,24 +33,35 @@ to {
 .info-box-text {
 	font-size: 25px;
 	align: center;
+	margin-top: 10px;
 }
 
 .info-box {
 	width: 200px;
 	margin-left: 75px;
 	margin-right: 75px;
+	margin-top: 100px;
+}
+
+.info-box-two {
+	width: 200px;
+	margin-left: 75px;
+	margin-right: 75px;
 	margin-top: 50px;
 }
 
+.big {
+	margin-bottom: 150px;
+}
 </style>
 <%@ include file="/layout/admin_menu.jsp"%>
 
-
+<div class="big">
      <div class="col-12 col-sm-6 col-md-3" onclick="location.href='MSearchNormal.do'">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">회원 관리</span>
+                <span class="info-box-text"><b>회원 관리</b></span>
               </div>
             </div>
           </div>
@@ -60,11 +71,11 @@ to {
             <div class="info-box mb-3">
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">신고 관리</span>
+                <span class="info-box-text"><b>신고 관리</b></span>
               </div>
             </div>
           </div>
-          
+</div>
  
           
 

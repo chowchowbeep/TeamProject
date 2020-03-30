@@ -77,7 +77,6 @@ to {
 .listbox {
 	width: 270px;
 	height: 200px;
-	border: solid 1px;
 	align: center;
 	margin-left: 30px;
 	padding: 10px;
@@ -92,6 +91,10 @@ to {
 	padding: 10px;
 }
 
+.card-header {
+	 background-color: #FFFFF2;
+}
+
 </style>
 
 <%@ include file="/layout/admin_menu.jsp"%>
@@ -104,34 +107,28 @@ to {
 			</h4>
 		</div>
 	</div>
+	
 	<div class="card-body">
 		<table cellpadding = "5px" class = "listbox">
 			<tr>
 				<td>
 				<ion-icon name="business" size = "large" 
-				style = "width: 80px; height: 80px; margin: 0px 0px 10px 10px;"></ion-icon>
-				<div class = "name"><b>${dto.hosName }</b></div>
-			</td>
-			<td class = "info">
-				<p><b> 회원 ID: </b>${dto.hosId }</p>
-				<p><b> 회원 등급: </b>${dto.hosRank }</p>
-				<p><b> 연락처: </b>${dto.hosPhone }</p>
-				<p><b> 주소: </b>${dto.hosAddr }</p>
-				<p><b> 진료 시간: </b>${dto.bizTime }</p>
-			</td>
-		</tr>
-		<tr>
-			<td colspan = "2"> <b>&nbsp;&nbsp;&nbsp;사업자 등록번호: </b>${dto.hosBizno }
-			</td>
-		</tr>
-		<tr>
-			<td colspan = "2"> <b>&nbsp;&nbsp;&nbsp;신고 현황: </b>${dto.decNo }<br>
+				style = "width: 80px; height: 80px; margin: 0px 0px 10px 95px;"></ion-icon>
+				<div class = "name text-center"><b>${dto.hosName }</b></div>
 			</td>
 			</tr>
-		<tr>
-			<td colspan = "2"> <b>&nbsp;&nbsp;&nbsp;리뷰 현황: </b>${dto.rvCount }<br>
+			<tr>
+			<td class = "info">
+				<p><b> · 회원 ID: </b>${dto.hosId }</p>
+				<p><b> · 회원 등급: </b>${dto.hosRank }</p>
+				<p><b> · 연락처: </b>${dto.hosPhone }</p>
+				<p><b> · 주소: </b>${dto.hosAddr }</p>
+				<p><b> · 진료 시간: </b>${dto.bizTime }</p>
+				<p><b> · 사업자 등록번호: </b>${dto.hosBizno }</p>
+				<p><b> · 신고 현황: </b>${dto.decNo }</p>
+				<p><b> · 리뷰 현황: </b>${dto.rvCount }</p>
 			</td>
-		</tr>
+			</tr>
 	</table>
 	</div>
 </div>
