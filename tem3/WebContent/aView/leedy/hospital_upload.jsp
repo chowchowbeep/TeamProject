@@ -49,7 +49,8 @@
 								<div class="form-check">
 									<input class="form-check-input" type="radio" name="file_type"
 										checked id="file_type"> <label
-										class="form-check-label" for="" value="F001">사진</label>
+										class="form-check-label" for="" 
+										value="F001">사진</label>
 								</div>
 								<div class="form-check">
 									<input class="form-check-input" type="radio" name="file_type"
