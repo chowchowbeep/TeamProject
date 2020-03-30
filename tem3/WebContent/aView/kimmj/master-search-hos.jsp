@@ -86,13 +86,12 @@ to {
 .info-box-small {
 	width: 100px;
 	height: 30px;
-	border: solid 1px;
 	text-align: center;
 	margin-left: 30px;
 	margin-right: 10px;
 	padding: 7px;
-	border-radius: 5%;
-	background-color: #E0F2F7;
+	border-radius: 10%;
+	background-color: #FFE4B5;
 }
 
 .info-box-content {
@@ -160,7 +159,7 @@ to {
 	<div class="card-body">
 		<div class="type">
 		<span class="info-box-small"> 
-		<span class="info-box-content"> 회원 유형 </span>
+		<span class="info-box-content"> <b>회원 유형</b> </span>
 		</span>
 		<span class="info-box-box"> 
 			&nbsp;&nbsp;&nbsp;
@@ -171,7 +170,7 @@ to {
 	</div>
 	<div class="type">
 		<span class="info-box-small"> 
-		<span class="info-box-content"> 회원 등급 </span>
+		<span class="info-box-content"> <b>회원 등급</b> </span>
 		</span>
 		<span class="info-box-box"> 
 			&nbsp;&nbsp;&nbsp;
@@ -185,7 +184,7 @@ to {
 	</div>
 	<div class = "detail">
 		<span class = "info-box-small">
-		<span class = "info-box-content"> 상세 검색 </span>
+		<span class = "info-box-content"> <b>상세 검색</b> </span>
 		</span>
 	</div>
 	<div class = "list">
