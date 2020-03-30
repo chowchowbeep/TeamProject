@@ -16,6 +16,7 @@ public class MSearchHoslistHosCMD implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String hosId = request.getParameter("hosId");
+		System.out.println(hosId);
 		hosDAO dao = new hosDAO();
 		hosJoinMemberDTO dto = new hosJoinMemberDTO();
 		dto = dao.selectone(hosId);

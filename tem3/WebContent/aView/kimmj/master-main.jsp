@@ -33,11 +33,7 @@ to {
 <%@ include file="/layout/admin_menu.jsp"%>
 
 	<button type="button" class="btn-lg" onclick="location.href='MSearchNormal.do'">회원 관리</button>
-	<br>
-	<br>
-	<button type="button" class="btn-lg" onclick="location.href='MChart.do'">통계 관리</button>
-	<br>
-	<br>
+
 	<button type="button" class="btn-lg" onclick="location.href='MPolice.do'">신고 관리</button>
 <br>
 

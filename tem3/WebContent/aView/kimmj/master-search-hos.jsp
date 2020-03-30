@@ -24,7 +24,7 @@
 	ArrayList<hosJoinMemberDTO> list = new ArrayList<hosJoinMemberDTO>();
 	ArrayList<hosJoinMemberDTO> searchlist = (ArrayList<hosJoinMemberDTO>)request.getAttribute("list");
 	if (searchlist == null) {
-		list = list;
+		list = dao.select();
 	} else {
 		list = searchlist;
 	}
@@ -176,10 +176,10 @@ to {
 		<span class="info-box-box"> 
 			&nbsp;&nbsp;&nbsp;
 		<input type="radio" name="memStatus" value="all" checked>&nbsp;전체 &nbsp;&nbsp;&nbsp;
-		<input type="radio" name="memStatus" value="A">&nbsp;우수 &nbsp;&nbsp;&nbsp;
+		<input type="radio" name="memStatus" value="A003">&nbsp;우수 &nbsp;&nbsp;&nbsp;
 		<br><br>
-		<input type="radio" name="memStatus" value="B" class = "input">&nbsp;일반 &nbsp;&nbsp;&nbsp;
-		<input type="radio" name="memStatus" value="C">&nbsp;제재
+		<input type="radio" name="memStatus" value="A001" class = "input">&nbsp;일반 &nbsp;&nbsp;&nbsp;
+		<input type="radio" name="memStatus" value="A002">&nbsp;제재
 		</span>
 		<br>
 	</div>

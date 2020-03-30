@@ -3,13 +3,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ include file="/layout/sick_head.jsp"%>
 <%@ include file="/layout/sick_menu.jsp"%>
+
+
+
+
 </head>
 
 <body>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
-
 	 <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
@@ -25,21 +28,18 @@
 	<!-- Main content -->
 	<section class="content">
 
-		<div class="card">
+		<div class="card card-secondary">
 
-			<div class="card table-responsive pad card text-center">
+			<!-- <div class="card table-responsive pad card text-center">
 				<div class="btn-group btn-group-toggle">
 					<label class="btn btn-secondary active">
 						기록물
 					</label> 
 				</div>
-			</div>
+			</div> -->
 
 			<!-- /.card-header -->
 			<!-- form start -->
-
-			<form role="form" method="post" enctype="multipart/form-data"
-				action="" class="form-horizontal">
 				<!-- Modal -->
 				<div class="modal fade" id="exampleModal" tabindex="-1"
 					role="dialog" aria-labelledby="exampleModalLabel"
@@ -67,33 +67,44 @@
 						</div>
 					</div>
 				</div>
+				<form>
 				<div class="card-body">
-					<div>
-						<div class="card mb-3 abc" style="max-width: 750px; float: left;">
-							<div class="row no-gutters">
-								<div class="col-md-4">
-									<a href="sick_detailList.jsp" data-toggle="modal"
-										data-target="#exampleModal"> 
-										<img src="${pageContext.request.contextPath}/upload/고양.jpg"
-										class="card-img" alt="..."></a>
-								</div>
-								<div class="col-md-8">
-									<div class="card-body">
-										<h4 class="card-title">이다연</h4>
+						<div class="form-group col-mb-6 abc" style=" width: 100%; float: left;">
 										<br>
-										<p class="card-text">
-											발급병원:  <br> 담당의사:  <br> 발급일자: 
+										<p class="card-text ">
+										<c:forEach items="${list }" var="dto">
+										파일: <c:if test="${dto.fileType =='F001'}" >
+											<div class="col-10"> 
+										<img src="${pageContext.request.contextPath}/upload/${dto.fileName}"
+										class="card-img" style="width: 80%" alt="..."> 
+								</div></c:if>
+								<c:if test="${dto.fileType =='F002'}">
+											<input type="text" class="form-control" id="file_type" name="file_type"
+								value="동영상" readonly></c:if>
+								<c:if test="${dto.fileType =='F003'}">
+											<input type="text" class="form-control" id="file_type" name="file_type"
+								value="문서" readonly></c:if>
+								<br>
+										발급병원: 	<input type="text" class="form-control" id="hos_name" name="hos_name"
+								value="${dto.hosName}" readonly	> <br> 
+											담당의사:  <input type="text" class="form-control" id="artr_name" name="artr_name"
+								value="${dto.artrName}" readonly ><br> 
+											발급일자: <input type="text" class="form-control" id="dcry_dttm" name="dcry_dttm"
+								value="${dto.dcryDttm}" readonly><br> 
+									파일 이름: <input type="text" class="form-control" id="file_name" name="file_name"
+								value="${dto.fileName}" readonly>
+							${dto.fileType }
+								
+										</c:forEach>
+									
 										</p>
-										<p class="card-text">
+										<p class="card-text col-md-6">
 											<small class="text-muted">1시간 전</small>
 										</p>
-									</div>
+								
 								</div>
-							</div>
-						</div>
-					</div>
 				</div>
-			</form>
+				</form>
 		</div>
 	</section>
 	<!-- Control Sidebar -->

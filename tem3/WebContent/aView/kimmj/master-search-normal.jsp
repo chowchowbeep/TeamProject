@@ -25,7 +25,7 @@
 	ArrayList<sickJoinMemberDTO> list = new ArrayList<sickJoinMemberDTO>();
 	ArrayList<sickJoinMemberDTO> searchlist = (ArrayList<sickJoinMemberDTO>)request.getAttribute("list");
 	if (searchlist == null) {
-		list = list;
+		list = dao.select();
 	} else {
 		list = searchlist;
 	}
@@ -169,7 +169,7 @@ to {
 			<span class="info-box-content"> 회원 등급 </span>
 			</span> 
 			<span class="info-box-box"> &nbsp;&nbsp;&nbsp; 
-			<input type="radio" name="ckck" value="all">&nbsp;전체
+			<input type="radio" name="ckck" value="all" checked>&nbsp;전체
 				&nbsp;&nbsp;&nbsp; <input type="radio" name="memStatus" value="J">&nbsp;일반
 				&nbsp;&nbsp;&nbsp; <input type="radio" name="memStatus" value="P">&nbsp;제재
 			</span> 

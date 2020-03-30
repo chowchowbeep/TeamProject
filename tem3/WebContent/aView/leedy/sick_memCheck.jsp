@@ -63,14 +63,14 @@
 					<div class="form-group row">
 						<label for="checkSicStt" class="col-sm-2 col-form-label">회원상태</label>
 						<div class="col-sm-10">
-							<input type="email" class="form-control" id="sic_stt" name="sic_stt"
+							<input type="text" class="form-control" id="sic_stt" name="sic_stt"
 								value="${dto.sicSttNm}" readonly>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="checkSicStt" class="col-sm-2 col-form-label">로그인 방법</label>
 						<div class="col-sm-10">
-							<input type="email" class="form-control" id="sic_login" name="sic_login"
+							<input type="text" class="form-control" id="sic_login" name="sic_login"
 								value="${dto.sicLoginNm}" disabled>
 						</div>
 					</div>

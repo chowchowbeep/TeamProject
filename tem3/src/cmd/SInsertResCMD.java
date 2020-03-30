@@ -44,6 +44,7 @@ public class SInsertResCMD implements Command {
 		// 기록물 값이 넘어오지 않은 경우 Exception처리
 		try {
 			int dcNo = Integer.parseInt(request.getParameter("dcryNo"));
+			System.out.println("SInserRes=========================dcNo"+dcNo);
 			dto.setDcryNo(dcNo);
 		} catch (NumberFormatException e) {
 			e.printStackTrace();

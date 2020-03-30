@@ -6,11 +6,21 @@ public class mediaListDTO {
 	private String fileType; //파일타입
 	private String artrName; //의사이름
 	private String hosName; //병원이름
-	
+	private String dcryDttm; // 발급일자
+
+
 	@Override
 	public String toString() {
-		return "mediaList [fileName=" + fileName + ", fileType=" + fileType + ", artrName=" + artrName + ", hosName="
-				+ hosName + "]";
+		return "mediaListDTO [fileName=" + fileName + ", fileType=" + fileType + ", artrName=" + artrName + ", hosName="
+				+ hosName + ", dcryDttm=" + dcryDttm + "]";
+	}
+
+	public String getDcryDttm() {
+		return dcryDttm;
+	}
+
+	public void setDcryDttm(String dcryDttm) {
+		this.dcryDttm = dcryDttm;
 	}
 
 	public String getFileName() {
