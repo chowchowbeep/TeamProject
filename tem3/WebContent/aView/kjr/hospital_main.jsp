@@ -102,7 +102,7 @@
 </head>
 <body>
 <div class="content-wrapper">
-	<div class="container topMar">
+	<div class="container">
 		<div class="col-sm mar">
 			<button type="button" class="btn btn-secondary btn-lg btn-block" id="startBtn">영업등록</button>
 		</div>

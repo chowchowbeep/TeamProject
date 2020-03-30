@@ -40,10 +40,13 @@
 								<div class="col-sm-12" id="itemsWrapper">
 									<c:if test="${dto.rqstTy =='D001' }">
 										<div class="item rqDetailInfo importantItem">
-											<span class="rqDetailLabel">진료신청시간</span><span id="rqstDt">${dto.rqstDt}</span>
+											<span class="rqDetailLabel">진료신청일자</span><span id="rqstDt">${dto.rqstDt}</span>
 										</div>
 										<div class="item rqDetailInfo importantItem">
-											<span class="rqDetailLabel">도착예정시간</span><span id="rqstTm">${dto.rqstTm}</span>
+											<span class="rqDetailLabel">진료신청시각</span><span id="rqstTm">${dto.rqstTm}</span>
+										</div>
+										<div class="item rqDetailInfo importantItem">
+											<span class="rqDetailLabel">도착예정시간</span><span id="ifTime">${dto.ifTime}</span>
 										</div>
 									</c:if>
 									<c:if test="${dto.rqstTy =='D002' }">
@@ -92,6 +95,9 @@
 									<div class="item rqDetailInfo">
 										<span class="rqDetailLabel">의사선생님께 한 마디</span><span id="msg">${dto.msg }</span>
 									</div>
+									<div class="item rqDetailInfo">
+										<span class="rqDetailLabel">첨부한 진료기록물</span><span id="msg"><a href="DcryDetail.do?dcryNo=${dto.dcryNo }">${dto.dcryNo }</a></span>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -108,10 +114,9 @@
 								<button type="button"
 									onclick="location.href='HHospitalUpload.do?sic_id=${dto.sicId }&hos_id=${dto.hosId}&artr_no=${dto.artrNo }&rqst_no=${dto.rqstNo}'"
 									class="btn btn-secondary col">진료기록물 발급</button>
-								&nbsp;
-								<button type="button"
-									onclick="location.href='HHospitalInquiry.do.do?sic_id=${dto.sicId }&hos_id=${dto.hosId}&artr_no=${dto.artrNo }&rqst_no=${dto.rqstNo}'"
-									class="btn btn-secondary col">진료기록물 조회</button>
+<!-- 								<button type="button" -->
+<%-- 									onclick="location.href='HHospitalInquiry.do.do?sic_id=${dto.sicId }&hos_id=${dto.hosId}&artr_no=${dto.artrNo }&rqst_no=${dto.rqstNo}'" --%>
+<!-- 									class="btn btn-secondary col">진료기록물 조회</button> -->
 							</div>
 						</div>
 					</form>

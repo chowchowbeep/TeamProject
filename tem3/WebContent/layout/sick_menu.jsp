@@ -104,12 +104,6 @@
 								<p>리뷰</p>
 						</a></li>
 
-<!-- 접수증 항목 지움 -->
-<!-- 관심병원 리스트 출력 추가 -->
-						<li class="nav-item"><a href="SBookmark.do"
-							class="nav-link">
-								<p>관심병원</p>
-						</a></li>
 						<li class="nav-item"><a href="SSickMediaList.do"
 							class="nav-link">
 								<p>의료 기록물</p>
