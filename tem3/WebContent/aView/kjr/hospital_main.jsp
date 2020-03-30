@@ -102,9 +102,7 @@
 </head>
 <body>
 <div class="content-wrapper">
-<<<<<<< HEAD
 	<div class="container">
-=======
 	<section class="content-header">
 			<div class="container-fluid">
 				<div class="row mb-2">
@@ -116,7 +114,6 @@
 	<!-- /.container-fzluid -->
 		</section>
 	<div class="container topMar">
->>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject.git
 		<div class="col-sm mar">
 			<button type="button" class="btn btn-secondary btn-lg btn-block" id="startBtn">영업등록</button>
 		</div>
@@ -157,47 +154,48 @@
 							</div>
 						</div>
 					</div>
-			</div>
+				</div>
 					
-			<div class="col-sm ">
+				<div class="col-sm ">
 					<div class="card text-center">
 						<div class="card" style="margin: 5px;">
 							<div class="card-header text-center" name="yy"><strong>예약현황</strong></div>
 		
 							<div class="card-body" style="padding:5px">
-								<table class="table table-hover">
-									<thead>
-										<tr>
-											<th scope="col" width="5px">#</th>
-											<th scope="col" width="100px">이름(ID)</th>
-											<th scope="col"width="80px" style="margin: 5px;">예상시간</th>
-											<th scope="col"width="80px">예약처리</th>
-										</tr>
-									</thead>
-									<tbody>
-										<c:forEach items="${yeList }" var="list">
-												<tr id="${list.no }">
-													<th scope="row">${list.num }</th>
-													<td id="${list.sicId }" name="sicId" >${list.sicName }<br>(${list.sicId })</td>
-													<td>${list.resTime }</td>
-													<td> 
-														<span class="badge bg-success" name="Y">진료완료</span>
-														<span class="badge bg-danger" name="N">예약취소</span>
-													</td>
-												</tr>
-										</c:forEach>
-									</tbody>
-								</table>
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th scope="col" width="5px">#</th>
+												<th scope="col" width="100px">이름(ID)</th>
+												<th scope="col"width="80px" style="margin: 5px;">예상시간</th>
+												<th scope="col"width="80px">예약처리</th>
+											</tr>
+										</thead>
+										<tbody>
+											<c:forEach items="${yeList }" var="list">
+													<tr id="${list.no }">
+														<th scope="row">${list.num }</th>
+														<td id="${list.sicId }" name="sicId" >${list.sicName }<br>(${list.sicId })</td>
+														<td>${list.resTime }</td>
+														<td> 
+															<span class="badge bg-success" name="Y">진료완료</span>
+															<span class="badge bg-danger" name="N">예약취소</span>
+														</td>
+													</tr>
+											</c:forEach>
+										</tbody>
+									</table>
+								</div>
+			
 							</div>
-		
 						</div>
-					</div>
+				</div>
 			</div>
-		</div>
-		<div class="text-right"style="text-align:right">
-		<a href="#jj"><strong>접수현황 ㅣ  </strong></a> 
-		<a href="#yy"><strong>예약현황 ㅣ  </strong></a> 
-		<a href="#startBtn"><strong>top &nbsp;</strong></a>
+			<div class="text-right"style="text-align:right">
+			<a href="#jj"><strong>접수현황 ㅣ  </strong></a> 
+			<a href="#yy"><strong>예약현황 ㅣ  </strong></a> 
+			<a href="#startBtn"><strong>top &nbsp;</strong></a>
+			</div>
 		</div>
 	</div>
 </div>

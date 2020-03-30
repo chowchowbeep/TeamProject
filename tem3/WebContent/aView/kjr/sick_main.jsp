@@ -135,7 +135,7 @@ function searchList(){
 					<p class="card-text">
 					
 					</p>
-					<a href="#" class="btn btn-secondary" id="edit">건강정보수정</a>
+					<a href="sicCodeCMD.do" class="btn btn-secondary" id="edit">건강정보수정</a>
 				</div>
 			</div>
 		</div>
@@ -189,17 +189,6 @@ function searchList(){
 
 			</div>
 		</div>
-
-
-
-
-
-		<div class="card mb-3 " style="margin: 20px 0px;">
-			<button type="button" class="btn btn-secondary btn-lg btn-block" id="WjqtnwmdBtn">접수증 관리</button>
-		</div>
-
-
-
 	</div>
 </div>
 <%@ include file="../../layout/all_footer.jsp"%>
