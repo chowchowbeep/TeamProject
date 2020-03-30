@@ -29,13 +29,44 @@ to {
 	fill: currentColor;
 	stroke: currentColor;
 }
+
+.info-box-text {
+	font-size: 25px;
+	align: center;
+}
+
+.info-box {
+	width: 200px;
+	margin-left: 75px;
+	margin-right: 75px;
+	margin-top: 50px;
+}
+
 </style>
 <%@ include file="/layout/admin_menu.jsp"%>
 
-	<button type="button" class="btn-lg" onclick="location.href='MSearchNormal.do'">회원 관리</button>
 
-	<button type="button" class="btn-lg" onclick="location.href='MPolice.do'">신고 관리</button>
-<br>
+     <div class="col-12 col-sm-6 col-md-3" onclick="location.href='MSearchNormal.do'">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text">회원 관리</span>
+              </div>
+            </div>
+          </div>
+
+          
+	<div class="col-12 col-sm-6 col-md-3" onclick="location.href='MPolice.do'">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text">신고 관리</span>
+              </div>
+            </div>
+          </div>
+          
+ 
+          
 
 <%@ include file="/layout/all_footer.jsp"%>
 </body>
