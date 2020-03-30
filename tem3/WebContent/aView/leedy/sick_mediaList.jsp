@@ -98,9 +98,7 @@
 										</c:forEach>
 									
 										</p>
-										<p class="card-text col-md-6">
-											<small class="text-muted">1시간 전</small>
-										</p>
+									
 								
 								</div>
 				</div>
