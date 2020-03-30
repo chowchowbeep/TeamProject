@@ -23,7 +23,7 @@
                 <table class="table table-bordered">
                   <thead>                  
                     <tr>
-                      <th style="width: 100px">이름</th>
+                      <th>이름</th>
                       <th>리뷰 내용</th>
                       <th>별점</th>
                     </tr>
@@ -36,51 +36,51 @@
                   	</c:if>
                   	<c:forEach items="${dto }" var="list">
                   		<tr>
-                  			<td>${list.hosName }</td>
-                  			<td>${list.rvCont }</td>
-                  			<td>
+                  			<td style="box-sizing:initial;text-align: center;">${list.hosName }</td>
+                  			<td >${list.rvCont }</td>
+                  			<td style="text-align: center;">
                   				<c:choose>
 	                         		<c:when test="${list.starPoint eq '1' }">
-	                         			<img src="images/star-on-big.png">
-	                         			<img src="images/star-off-big.png">
-	                         			<img src="images/star-off-big.png">
-	                         			<img src="images/star-off-big.png">
-	                         			<img src="images/star-off-big.png">
+	                         			<img src="images/star-on-small.png">
+	                         			<img src="images/star-off-small.png">
+	                         			<img src="images/star-off-small.png"><br>
+	                         			<img src="images/star-off-small.png">
+	                         			<img src="images/star-off-small.png">
 	                         		</c:when>
 	                         		<c:when test="${list.starPoint eq '2' }">
-										<img src="images/star-on-big.png">
-	                         			<img src="images/star-on-big.png">
-	                         			<img src="images/star-off-big.png">
-	                         			<img src="images/star-off-big.png">
-	                         			<img src="images/star-off-big.png">									
+										<img src="images/star-on-small.png">
+	                         			<img src="images/star-on-small.png">
+	                         			<img src="images/star-off-small.png"><br>
+	                         			<img src="images/star-off-small.png">
+	                         			<img src="images/star-off-small.png">									
 									</c:when>
 	                         		<c:when test="${list.starPoint eq '3' }">
-										<img src="images/star-on-big.png">
-										<img src="images/star-on-big.png">
-	                         			<img src="images/star-on-big.png">
-	                         			<img src="images/star-off-big.png">
-	                         			<img src="images/star-off-big.png">
+										<img src="images/star-on-small.png">
+										<img src="images/star-on-small.png">
+	                         			<img src="images/star-on-small.png"><br>
+	                         			<img src="images/star-off-small.png">
+	                         			<img src="images/star-off-small.png">
 									</c:when>
 	                         		<c:when test="${list.starPoint eq '4' }">
-	                         			<img src="images/star-on-big.png">
-	                         			<img src="images/star-on-big.png">
-										<img src="images/star-on-big.png">
-	                         			<img src="images/star-on-big.png">
-	                         			<img src="images/star-off-big.png">
+	                         			<img src="images/star-on-small.png">
+	                         			<img src="images/star-on-small.png">
+										<img src="images/star-on-small.png"><br>
+	                         			<img src="images/star-on-small.png">
+	                         			<img src="images/star-off-small.png">
 	                         		</c:when>
 	                         		<c:when test="${list.starPoint eq '5' }">
-	                         			<img src="images/star-on-big.png">
-	                         			<img src="images/star-on-big.png">
-	                         			<img src="images/star-on-big.png">
-										<img src="images/star-on-big.png">
-	                         			<img src="images/star-on-big.png">
+	                         			<img src="images/star-on-small.png">
+	                         			<img src="images/star-on-small.png">
+	                         			<img src="images/star-on-small.png"><br>
+										<img src="images/star-on-small.png">
+	                         			<img src="images/star-on-small.png">
 									</c:when>
 	                         		<c:otherwise>
-	                         			<img src="images/star-off-big.png">
-	                         			<img src="images/star-off-big.png">
-	                         			<img src="images/star-off-big.png">
-	                         			<img src="images/star-off-big.png">
-	                         			<img src="images/star-off-big.png">
+	                         			<img src="images/star-off-small.png">
+	                         			<img src="images/star-off-small.png">
+	                         			<img src="images/star-off-small.png"><br>
+	                         			<img src="images/star-off-small.png">
+	                         			<img src="images/star-off-small.png">
 	                         		</c:otherwise>
 		                         </c:choose>
                   			</td>

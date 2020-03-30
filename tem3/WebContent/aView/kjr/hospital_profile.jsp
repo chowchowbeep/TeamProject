@@ -38,6 +38,12 @@
 		});
 		
 		
+		$("#subBtn").on("click",function(){
+		document.frm.action="HhosModifyCMD.do"
+		document.frm.method="post";
+		document.frm.submit();
+		});
+		
 	})//펑션닫음 ㅎ 
 	    
 	</script>
@@ -47,10 +53,20 @@
 .hiden{
 	 display: none;
 }
-  .topMar { margin:10px };
+  .topMar { margin:2px };
 </style>
 <body>
 <div class="content-wrapper">
+	<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1> 회원 정보 수정</h1>
+					</div>
+				</div>
+			</div>
+	<!-- /.container-fzluid -->
+	</section>
 	<div class="container topMar">
 		<div class="card text-center">
 			<div class="card" style="margin: 5px;">
@@ -134,7 +150,7 @@
 												<option value="00" selected> </option>
 												<c:forEach var="i" begin="06" end="18" step="1">
 													<c:forEach var="m" begin="00" end="04" step="3">
-														<option>${i}:${m}0</option>
+														<option><c:if test="${i<10 }">0</c:if>${i}:${m}0</option>
 													</c:forEach>
 												</c:forEach>
 											</select>
@@ -145,7 +161,7 @@
 										<div class="col-sm-10">
 											<select	class="form-control"  id="end" name="end">
 												<option value="00" selected> </option>
-												<c:forEach var="i" begin="00" end="24" step="1">
+												<c:forEach var="i" begin="18" end="24" step="1">
 													<c:forEach var="m" begin="00" end="04" step="3">
 														<option>${i}:${m}0</option>
 													</c:forEach>
@@ -167,7 +183,7 @@
 				</div>
 			</div>
 			<div class="card-footer  text-center">
-				<button type="submit" class="btn btn-secondary">수정하기</button>
+				<button type="button" id="subBtn" class="btn btn-secondary">수정하기</button>
 			</div>
 		</div>
 		<!-- CARD종료 -->

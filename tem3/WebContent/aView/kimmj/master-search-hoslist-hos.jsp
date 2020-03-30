@@ -117,7 +117,7 @@ to {
 				<p><b> 회원 등급: </b>${dto.hosRank }</p>
 				<p><b> 연락처: </b>${dto.hosPhone }</p>
 				<p><b> 주소: </b>${dto.hosAddr }</p>
-				<p><b> 진료 시간: </b>${dto.hosBizTime }</p>
+				<p><b> 진료 시간: </b>${dto.bizTime }</p>
 			</td>
 		</tr>
 		<tr>

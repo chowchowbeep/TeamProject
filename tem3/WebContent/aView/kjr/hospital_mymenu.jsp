@@ -60,6 +60,16 @@
 </head>
 <body>
 <div class="content-wrapper">
+	<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1> 회원정보 </h1>
+					</div>
+				</div>
+			</div>
+	<!-- /.container-fzluid -->
+		</section>
 	<!-- 1.병원회원정보 간략하게 출력 -->
 	<div class="container">
 			<!-- 병원회원 수정페이지 컨테이너 -->
@@ -115,7 +125,7 @@
 							</div>	
 								
 							<div id="tabs-medi">
-								<p>진료과목</p>
+								<br>
 								<c:forEach items="${codeList }" var="code">
 									<c:choose>
 										<c:when test="${code.type eq 'SUB'}">
@@ -124,12 +134,12 @@
 										<c:otherwise></c:otherwise>
 									</c:choose>
 								</c:forEach>
-								<br>
+								<br><br>
 								<a href="#"  class="btn btn-secondary">추가 및 변경</a>
 							</div>
 							
 							<div id="tabs-sic" class="hiden">
-								<p>증상</p>
+								<br>
 								<c:forEach items="${codeList }" var="code">
 									<c:choose>
 										<c:when test="${code.type eq 'APA'}">
@@ -138,11 +148,11 @@
 										<c:otherwise></c:otherwise>
 									</c:choose>
 								</c:forEach>
-								<br>
+								<br><br>
 								<a href="#"  class="btn btn-secondary">추가 및 변경</a>
 							</div>
 							<div id="tabs-theme" class="hiden">
-								<p>테마</p>
+								<br>
 								<c:forEach items="${codeList }" var="code">
 									<c:choose>
 										<c:when test="${code.type eq 'TEMA'}">
@@ -151,7 +161,7 @@
 										<c:otherwise></c:otherwise>
 									</c:choose>
 								</c:forEach>
-								<br>	
+								<br>	<br>
 								<a href="#"  class="btn btn-secondary">추가 및 변경</a>
 							</div>
 						</div>

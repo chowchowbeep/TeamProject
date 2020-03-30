@@ -95,9 +95,11 @@
 									<div class="item rqDetailInfo">
 										<span class="rqDetailLabel">의사선생님께 한 마디</span><span id="msg">${dto.msg }</span>
 									</div>
+									<c:if test="${dto.dcryNo != 0}">
 									<div class="item rqDetailInfo">
-										<span class="rqDetailLabel">첨부한 진료기록물</span><span id="msg"><a href="DcryDetail.do?dcryNo=${dto.dcryNo }">${dto.dcryNo }</a></span>
+										<span class="rqDetailLabel">첨부한 진료기록물</span><span id="msg"><a href="DcryDetail.do?dcryNo=${dto.dcryNo }">확인하기</a></span>
 									</div>
+									</c:if>
 								</div>
 							</div>
 						</div>

@@ -27,7 +27,7 @@ public class MSearchListCMD implements Command {
 	
 		ArrayList<sickJoinMemberDTO> list = dao.search(memStatus, name, phone);
 		request.setAttribute("list", list);
-		System.out.println(list);
+
 		String path ="aView/kimmj/master-search-list.jsp";  //M2 회원검색결과(일반회원) 페이지로 이동
 		return path;
    

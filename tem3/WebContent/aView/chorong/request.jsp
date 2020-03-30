@@ -555,46 +555,68 @@ label.error {
 	</div>
 	<!-- /.content-wrapper -->
 
-
+	<input type="hidden" name="dcryNo" id="dcryNo">
 </form>
 
 
 <%@ include file="/layout/all_footer.jsp"%>
 
 <script>
-	$("#attachFileBtn").on("click", function() {
+	$("#attachFileBtn")
+			.on(
+					"click",
+					function() {
 
-		//모달창에 보유한 진료기록물 목록 표시하기
+						//모달창에 보유한 진료기록물 목록 표시하기
 
-		//기록물 번호를 넘길 input radio 붙이기
-		$("#modalLabel").text("첨부할 기록물을 선택하세요.");
-		$.ajax({
-			url : "ajax/SSelectDcry.do",
-			dataType : "json",
-			success : function(result) {
-				console.log(result);
-				$("<div id='"+result.dcryNo+"'></div>").append(<input type='radio' name='dcryNo' id='dcryNo'>"
-								+result.dcryNo+"<>");
-				
-				result.fileName
-				result.dcryDttm
-				result.dcryEtc
-				result.artrName
-				result.hosName
-				
-				.appendTo();
-				$("#modalBody")
-			}
-		})
+						//기록물 번호를 넘길 input radio 붙이기
+						$("#modalLabel").text("첨부할 기록물을 선택하세요.");
+						$
+								.ajax({
+									url : "ajax/SSelectDcry.do",
+									dataType : "json",
+									success : function(result) {
+										console.log(result);
+										$("#modalBody").empty();
+										$
+												.each(
+														result,
+														function(idx, item) {
+															$("#modalBody")
+																	.append(
+																			"<div id='"+idx+"'>"
+																					+ "<input type='radio' name='modalDcryNo' id='modalDcryNo"+item.dcryNo+"' value='" + item.dcryNo + "'>&nbsp;"
+																					+ "<label for='modalDcryNo"+item.dcryNo+"'>"
+																					+ item.fileName
+																					+ "</label>"
+																					+ "<div>발급일자 : "
+																					+ item.dcryDttm
+																					+ "</div>"
+																					+ "<div>담당의 : "
+																					+ item.artrName
+																					+ "</div>"
+																					+ "<div>발급병원 : "
+																					+ item.hosName
+																					+ "</div><br>"
+																					+ "</div>");
+														})
+									}
+								})
 
-		//모달창 보이기
-		$("#modal").modal({
-			backdrop : 'static',
-			keyboard : false
-		});
-		$("#closeModalBtn").on("click", function() {
-			$("#modal").modal('hide');
-		});
+						//모달창 보이기
+						$("#modal").modal({
+							backdrop : 'static',
+							keyboard : false
+						});
+						$("#closeModalBtn").on("click", function() {
+							$("#modal").modal('hide');
+						});
+					});
+
+	$(document).on('change', "input:radio", function() {
+		console.log("radio선택값" + $(this).val());
+		$("#dcryNo").val($(this).val());
+		console.log("radio에서 받아온 값"+$("#dcryNo").val());
 	});
 </script>
 <script type="text/javascript"
@@ -602,8 +624,8 @@ label.error {
 <script
 	src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 <c:if test="${rqType == 'Tmr' }">
-	<script type="text/javascript">
-		// 접수신청폼 유효성체크
+	<script>
+		//접수신청폼 유효성체크
 		$(function() {
 			$("#frm").validate({
 				rules : {

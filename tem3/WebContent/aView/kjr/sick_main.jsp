@@ -10,8 +10,8 @@
 <%@ include file="../../layout/sick_head.jsp" %>
 <%@ include file="../../layout/sick_menu.jsp" %>
 <style>
-.topMar { margin:10px 5px };
-.btnMar { margin:2px };
+ .topMar { margin:10px 5px };
+ .btnMar { margin:2px };
 </style>
 
 <script>
@@ -53,12 +53,12 @@ $(function() { //window load이벤트 생략해서 적은것
 	});
 	
 	$("tbody").on("click","tr",function(){
-		var id = $(this).attr("id");
-		$("#frm").append("<input type='text' name='hosId' id='hosId' value='"+id+"'>");
+		var id = $(this).attr("name");
+		$("#frm").append("<input type='text' class='hiden' name='hosId' id='hosId' value='"+id+"'>");
 		document.frm.action="SHospitalInfo.do";
 		document.frm.method="post";
 		document.frm.submit();
-		submit();
+		
 	});
 	
 	//건강정보수정 페이지로이동
@@ -91,6 +91,16 @@ function searchList(){
 </head>
 <body>
 <div class="content-wrapper">
+	<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1>메인화면</h1>
+					</div>
+				</div>
+			</div>
+	<!-- /.container-fzluid -->
+		</section>
 	<div class="container topMar">
 
 		<div class="card text-center  topmg">
@@ -147,49 +157,7 @@ function searchList(){
 		</div>
 
 
-		<form name="frm" id="frm" class="hiden"></form>
-		<script>
-			$(function() {//ready == window.load 와 같은 이벤트
-
-				//삭제작업
-				$("tbody").on("click", "th", function() {
-					console.log($(this).attr('name'));
-					var thisTr = (this).closest("tr");
-					//id값의 글번호를 받아와서 dao에서 delete작업하고 결과 리턴받아서 if문으로 삭제 alert 띄우기
-					$.ajax("/tem3/ajax/BookmarkDeleteAjaxCMD.do", {
-						type : "POST",
-						dataType : "json",
-						data : {
-							hosId : $(this).attr("name")
-						}
-					}).done(function(data) {
-						if (data) {
-							thisTr.remove();
-							alert("삭제되었습니다.");
-						} else {
-							alert("다시 삭제해주세요.");
-						}
-						location.href = "SBookmark.do";//내가쓴리뷰페이지로이동
-					})
-				});
-
-				$("tbody")
-						.on(
-								"click",
-								"tr",
-								function() {
-									var id = $(this).attr("id");
-									$("#frm")
-											.append(
-													"<input type='text' name='hosId' id='hosId' value='"+id+"'>");
-									document.frm.action = "SHospitalInfo.do";
-									document.frm.method = "post";
-									document.frm.submit();
-									submit();
-								});
-			});
-		</script>
-
+		<form name="frm" id="frm" style="display:none;"></form>
 		<div class="card text-center" style="margin: 20px 0px;">
 			<div class="card-header text-center" id="bokkmarkA"><strong>관심병원 리스트</strong></div>
 			<div class="card-body">
@@ -210,8 +178,8 @@ function searchList(){
 						</c:if>
 						<c:forEach var="li" items="${starList }">
 							<!-- var:변수명 item:collection객체 end정의가없으면 item크기의-1 -->
-							<tr>
-								<th scope="row" name="${li.hosId }">★</th>
+							<tr name="${li.hosId }">
+								<th scope="row" name="${li.hosId }"><img src="images/star-on-big.png"></th>
 								<td>${li.name }</td>
 							</tr>
 						</c:forEach>

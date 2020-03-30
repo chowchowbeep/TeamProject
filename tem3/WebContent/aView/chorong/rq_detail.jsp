@@ -110,7 +110,11 @@
 		$("#msg").text(result.msg);
 		
 		// 첨부한 진료기록물
-		$("#dcryNo").html("<a href='DcryDetail.do?dcryNo=" + result.dcryNo + "'>" + result.dcryNo + "</a>");
+		if(result.dcryNo != 0){
+			$("#dcryNo").html("<a href='DcryDetail.do?dcryNo=" + result.dcryNo + "'>" + "확인하기</a>");
+		} else {
+			$("#dcryNo").html("해당없음");
+		}
 		
 		// 진료기록물 다건 첨부시(dcry_no 컬럼 데이터타입, dto, dao 모두 수정 필요.)
 // 		var dcryNoOrigin = result.dcryNo;
