@@ -43,6 +43,7 @@ public class MediRqdetailDAO extends DAO {
 
 				dto.setArtrName(rs.getString("ARTR_NAME"));
 				dto.setArtrSub(rs.getString("ARTR_SUB"));
+				System.out.println("at mediRqdetail DAO "+dto.toString());
 			}
 			
 		} catch (Exception e) {

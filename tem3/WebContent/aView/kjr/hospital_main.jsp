@@ -102,6 +102,9 @@
 </head>
 <body>
 <div class="content-wrapper">
+<<<<<<< HEAD
+	<div class="container">
+=======
 	<section class="content-header">
 			<div class="container-fluid">
 				<div class="row mb-2">
@@ -113,6 +116,7 @@
 	<!-- /.container-fzluid -->
 		</section>
 	<div class="container topMar">
+>>>>>>> branch 'master' of https://github.com/chowchowbeep/TeamProject.git
 		<div class="col-sm mar">
 			<button type="button" class="btn btn-secondary btn-lg btn-block" id="startBtn">영업등록</button>
 		</div>

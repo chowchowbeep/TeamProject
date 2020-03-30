@@ -11,6 +11,10 @@
 .importantItem {
 	font-size: 1.3rem;
 }
+
+a {
+	color:#212529;
+}
 </style>
 <%@ include file="/layout/sick_menu.jsp"%>
 
@@ -83,12 +87,12 @@
 		$("#rqstTy").text(rqstTyVal);
 
 		//병원명과 주소
-		$("#hosName").text(result.hosName + " ( " + result.hosAddr + ")");
+		$("#hosName").text(result.hosName + " ( " + result.hosAddr + " )");
 
 		//병원연락처
 		$("#hosPhone").text(result.hosPhone);
 
-		//담당의사 및 진료과목
+		//담당의사 및 진료과목 //추후 코드테이블 이용하여 수정
 		if (result.artrSub == 'CS10') {
 			var artrSubVal = '내과';
 		}
@@ -106,8 +110,25 @@
 		}
 		$("#artrName").text(result.artrName + " ( " + artrSubVal + " ) ");
 
-		//의사선생님께 한 마디
+		// 의사선생님께 한 마디
 		$("#msg").text(result.msg);
+		
+		// 첨부한 진료기록물
+		if(result.dcryNo != 0){
+			$("#dcryNo").html("<a href='DcryDetail.do?dcryNo=" + result.dcryNo + "'>" + "확인하기</a>");
+		} else {
+			$("#dcryNo").html("해당없음");
+		}
+		
+		// 진료기록물 다건 첨부시(dcry_no 컬럼 데이터타입, dto, dao 모두 수정 필요.)
+// 		var dcryNoOrigin = result.dcryNo;
+// 		var dcryNoArray = dcryNoOrigin.split(",");
+// 		for ( var i in dcryNoArray ) {
+// 			if(dcryNoArray[i] != ""{
+// 					$("#rqstNo").append("<a href='SdcryDetail.do?dcryNo=" + dcryNoArray[i] + "'>" + dcryNoArray[i] + " / " + "<a>");
+// 			}
+// 	      }
+		
 
 		// 취소신청시 필요한 rqstNo를 input value로
 		$("#rqstNo").val(result.rqstNo);
@@ -118,18 +139,18 @@
 		console.log(hosId);
 
 		if (result.rqstTy == 'D001') {
-			// 접수일 경우 접수시간
-			var rqstTm = "<div class='item rqDetailInfo'><span class='rqDetailLabel'>진료신청시간</span><span id = 'rqstTm'>"
-					+ result.rqstTm + "</span></div>";
-			$("#itemsWrapper").prepend(rqstTm);
 			// 접수일 경우 접수일(진료일)
 			var rqstDt = "<div class='item rqDetailInfo'><span class='rqDetailLabel'>진료신청일자</span><span id = 'rqstDt'>"
 					+ result.rqstDt + "</span></div>";
 			$("#itemsWrapper").prepend(rqstDt);
-			// 접수일 경우 도착예정시간
-			var ifTime = "<div class='item rqDetailInfo importantItem'><span class='rqDetailLabel'>도착예정시간</span><span id = 'ifTime'>"
-					+ result.ifTime + "</span></div>";
-			$("#itemsWrapper").prepend(ifTime);
+// 			// 접수일 경우 도착예정시간
+// 			var ifTime = "<div class='item rqDetailInfo importantItem'><span class='rqDetailLabel'>도착예정시간</span><span id = 'ifTime'>"
+// 					+ result.ifTime + "</span></div>";
+// 			$("#itemsWrapper").prepend(ifTime);
+			// 접수일 경우 접수시간
+			var rqstTm = "<div class='item rqDetailInfo importantItem'><span class='rqDetailLabel'>진료신청시간</span><span id = 'rqstTm'>"
+					+ result.rqstTm + "</span></div>";
+			$("#itemsWrapper").prepend(rqstTm+ "<span class='item rqDetailInfo importantItem'>" +"( "+result.ifTime+" 도착예정"+" )"+"</span>");
 			// 접수일 경우 예상대기 인원수
 			getNoOfWaiting();
 		}
@@ -244,8 +265,9 @@
 										<div class="item rqDetailInfo">
 											<span class="rqDetailLabel">의사선생님께 한 마디</span><span id="msg"></span>
 										</div>
-
-
+										<div class="item rqDetailInfo">
+											<span class="rqDetailLabel">첨부한 진료기록물</span><span id="dcryNo"></span>
+										</div>
 									</div>
 								</div>
 							</div>

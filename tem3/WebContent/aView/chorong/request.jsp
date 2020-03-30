@@ -19,7 +19,7 @@ input.error, textarea.error, select.error {
 
 label.error {
 	color: #ff6a00;
- 	font-size: 0.9em;
+	font-size: 0.9em;
 	padding-top: 0.9rem;
 }
 
@@ -33,8 +33,8 @@ label.error {
 }
 
 #selectedDtInfo {
- 	font-weight: 700;
- 	font-size: 0.9em; 
+	font-weight: 700;
+	font-size: 0.9em;
 	padding-bottom: 0.9rem;
 	color: #ff6a00;
 }
@@ -80,11 +80,11 @@ label.error {
 											onSelect : function onSelect(
 													formattedDate, date, inst) {
 												$("#resTm").val(""); //날짜 변경했으므로 선택시간도 초기화
-												
+
 												var selectedDt = formattedDate
 														.replace(/\//gi, "");
-// 												$("#selectedDtInfo").html(
-// 														"날짜선택됨" + selectedDt);
+												// 												$("#selectedDtInfo").html(
+												// 														"날짜선택됨" + selectedDt);
 
 												// 1. 선택한 날짜의 값을 파라미터로 넘겨서 병원휴일테이블에서 일치하는 값이 있는지 확인
 												// 일치 값 있을 경우 #selectedDtInfo에 병원휴일입니다. 안내.
@@ -111,7 +111,8 @@ label.error {
 																true); //시간 선택할 수 없도록
 
 													} else { // 1-1-2. 일치 값 없을 경우 (의사 휴일 아닌 경우)
-														$("#selectedDtInfo").empty();
+														$("#selectedDtInfo")
+																.empty();
 														$(".resTmInit").prop(
 																"disabled",
 																false); // 다른 날짜를 선택해서 이미 disabled ture되었을 경우를 대비하여 
@@ -456,8 +457,7 @@ label.error {
 												<label for="hosId">병원명 </label> <input type="hidden"
 													id="hosId" name="hosId" value="${paramValues.hosId[0]}">
 												<input type="text" id="hosName" name="hosName"
-													class="form-control"
-													value="${paramValues.hosName[0]}"
+													class="form-control" value="${paramValues.hosName[0]}"
 													readonly>
 											</div>
 											<div class="form-group">
@@ -522,10 +522,9 @@ label.error {
 												placeholder="증상, 기타사항을 입력해주세요"></textarea>
 										</div>
 										<div class="form-group" id="dcryNoWrapper">
-											<label for="dcryNo">진료시 의료진이 참고할 기록물 첨부</label><br> <input
-												type="button" class="btn btn-default text-center"
-												id="dcryNo" name="dcryNo" value="기록물 업로드"
-												onclick="toAddDcry()">
+											<label for="attachFileBtn">진료시 의료진이 참고할 기록물 첨부</label><br>
+											<button type="button" class="btn btn-defalut text-center col"
+												id="attachFileBtn">기록물 첨부</button>
 										</div>
 									</div>
 								</div>
@@ -555,19 +554,78 @@ label.error {
 		<!-- /.content -->
 	</div>
 	<!-- /.content-wrapper -->
+
+	<input type="hidden" name="dcryNo" id="dcryNo">
 </form>
 
 
 <%@ include file="/layout/all_footer.jsp"%>
 
+<script>
+	$("#attachFileBtn")
+			.on(
+					"click",
+					function() {
 
+						//모달창에 보유한 진료기록물 목록 표시하기
+
+						//기록물 번호를 넘길 input radio 붙이기
+						$("#modalLabel").text("첨부할 기록물을 선택하세요.");
+						$
+								.ajax({
+									url : "ajax/SSelectDcry.do",
+									dataType : "json",
+									success : function(result) {
+										console.log(result);
+										$("#modalBody").empty();
+										$
+												.each(
+														result,
+														function(idx, item) {
+															$("#modalBody")
+																	.append(
+																			"<div id='"+idx+"'>"
+																					+ "<input type='radio' name='modalDcryNo' id='modalDcryNo"+item.dcryNo+"' value='" + item.dcryNo + "'>&nbsp;"
+																					+ "<label for='modalDcryNo"+item.dcryNo+"'>"
+																					+ item.fileName
+																					+ "</label>"
+																					+ "<div>발급일자 : "
+																					+ item.dcryDttm
+																					+ "</div>"
+																					+ "<div>담당의 : "
+																					+ item.artrName
+																					+ "</div>"
+																					+ "<div>발급병원 : "
+																					+ item.hosName
+																					+ "</div><br>"
+																					+ "</div>");
+														})
+									}
+								})
+
+						//모달창 보이기
+						$("#modal").modal({
+							backdrop : 'static',
+							keyboard : false
+						});
+						$("#closeModalBtn").on("click", function() {
+							$("#modal").modal('hide');
+						});
+					});
+
+	$(document).on('change', "input:radio", function() {
+		console.log("radio선택값" + $(this).val());
+		$("#dcryNo").val($(this).val());
+		console.log("radio에서 받아온 값"+$("#dcryNo").val());
+	});
+</script>
 <script type="text/javascript"
 	src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 <c:if test="${rqType == 'Tmr' }">
-	<script type="text/javascript">
-		// 접수신청폼 유효성체크
+	<script>
+		//접수신청폼 유효성체크
 		$(function() {
 			$("#frm").validate({
 				rules : {
@@ -608,76 +666,89 @@ label.error {
 </c:if>
 <c:if test="${rqType == 'Res' }">
 	<script>
-// 		// just for the demos, avoids form submit
-// 		jQuery.validator.setDefaults({
-// 			debug : true,
-// 			success : "valid"
-// 		});
+		// 		// just for the demos, avoids form submit
+		// 		jQuery.validator.setDefaults({
+		// 			debug : true,
+		// 			success : "valid"
+		// 		});
 		// 예약신청폼 유효성체크
 		$(function() {
-			$("#frm").validate({
-				rules : {
-					resDt : {
-						required : true
-					},
-					resTm : {
-						required : true
-					},
-					artrNo : {
-						required : true
-					},
-					msg : {
-						required : true
-					}
-				},
-				messages : {
-					resDt : {
-						required : "달력에서 예약일자를 선택해 주세요."
-					},
-					resTm : {
-						required : "예약시간을 선택해 주세요."
-					},
-					artrNo : {
-						required : "담당의사를 선택해 주세요."
-					},
-					msg : {
-						required : "메세지를 입력해 주세요."
-					}
-				},
-				submitHandler : function(frm) {
-					var selectedResDt = $("[name='resDt']").val();
-					var selectedResTm = $("[name='resTm']").val();
+			$("#frm")
+					.validate(
+							{
+								rules : {
+									resDt : {
+										required : true
+									},
+									resTm : {
+										required : true
+									},
+									artrNo : {
+										required : true
+									},
+									msg : {
+										required : true
+									}
+								},
+								messages : {
+									resDt : {
+										required : "달력에서 예약일자를 선택해 주세요."
+									},
+									resTm : {
+										required : "예약시간을 선택해 주세요."
+									},
+									artrNo : {
+										required : "담당의사를 선택해 주세요."
+									},
+									msg : {
+										required : "메세지를 입력해 주세요."
+									}
+								},
+								submitHandler : function(frm) {
+									var selectedResDt = $("[name='resDt']")
+											.val();
+									var selectedResTm = $("[name='resTm']")
+											.val();
 
-					var isDrHldy = checkDrHldy(selectedResDt).checkDrHldy;
-					console.log("end:" + isDrHldy)
-					var isHosHldy = checkHosHldy(selectedResDt).checkHosHldy;
-					console.log("end:" + isHosHldy)
-					var ReservedRqList = getAlreayReseved(selectedResDt);
-					console.log("end:" + ReservedRqList)
+									var isDrHldy = checkDrHldy(selectedResDt).checkDrHldy;
+									console.log("final check:" + isDrHldy);
+									var isHosHldy = checkHosHldy(selectedResDt).checkHosHldy;
+									console.log("final check:" + isHosHldy);
+									var ReservedRqList = getAlreayReseved(selectedResDt);
+									console
+											.log("final check:"
+													+ ReservedRqList);
 
-					// 선택정보가가 병원휴일에 해당하지 않고, 선택한 의사의 휴일도 아니고, 선택한 날짜의 기 예약된 시간도 아닐 경우 submit가능
-					if (isHosHldy == false && isDrHldy == false) {
-						$.each(ReservedRqList, function(idx, item) {
-							console.log("each사용. 기예약 시간" + item.resTm);
-							if(item == null || item == undefined || item =="") {
-								console.log("엥엥");
-								frm.action = "SInsertRes.do";
-								frm.submit(); //유효성 검사를 통과시 전송
-							} 
-							if (item.resTm == selectedResTm) {
-								alert("진료신청이 불가합니다. 신청정보를 다시 선택해주세요.");
-								return;
-							}
-						})
-						console.log("엥엥");
-								frm.action = "SInsertRes.do";
-								frm.submit(); //유효성 검사를 통과시 전송
-					} else {
-						alert("진료신청이 불가합니다. 신청정보를 다시 선택해주세요.");
-						return;
-					}
-				} 
-			}); //validate
+									// 선택정보가가 병원휴일에 해당하지 않고, 선택한 의사의 휴일도 아니고, 선택한 날짜의 기 예약된 시간도 아닐 경우 submit가능
+									if (isHosHldy == false && isDrHldy == false) {
+										$
+												.each(
+														ReservedRqList,
+														function(idx, item) {
+															console
+																	.log("each사용. 기예약 시간"
+																			+ item.resTm);
+															if (item == null
+																	|| item == undefined
+																	|| item == "") {
+																console
+																		.log("엥엥");
+																frm.action = "SInsertRes.do";
+																frm.submit(); //유효성 검사를 통과시 전송
+															}
+															if (item.resTm == selectedResTm) {
+																alert("진료신청이 불가합니다. 신청정보를 다시 선택해주세요.");
+																return;
+															}
+														})
+										frm.action = "SInsertRes.do";
+										frm.submit(); //유효성 검사를 통과시 전송
+									} else {
+										alert("진료신청이 불가합니다. 신청정보를 다시 선택해주세요.");
+										return;
+									}
+								}
+							}); //validate
 		});//function
 	</script>
 </c:if>
