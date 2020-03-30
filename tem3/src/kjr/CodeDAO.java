@@ -29,7 +29,32 @@ public class CodeDAO extends DAO {
 		}
 		return dto;
 	}
+	
+	
+	
+	
+	public ArrayList<seachCodeJoinDTO> selectAll(){
+		ArrayList<seachCodeJoinDTO> list = new ArrayList<>();
 		
+		sql=  " select * from code order by name";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				seachCodeJoinDTO dto = new seachCodeJoinDTO();
+				dto.setCode(rs.getString("CODE"));
+				dto.setName(rs.getString("NAME"));
+				dto.setType(rs.getString("TYPE"));
+				list.add(dto);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 	public ArrayList<seachCodeJoinDTO> selectAll(String hosId){
 		ArrayList<seachCodeJoinDTO> list = new ArrayList<>();
 		

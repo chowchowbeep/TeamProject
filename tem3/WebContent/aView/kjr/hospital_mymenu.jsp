@@ -135,7 +135,7 @@
 									</c:choose>
 								</c:forEach>
 								<br><br>
-								<a href="#"  class="btn btn-secondary">추가 및 변경</a>
+								<a href="hosCodeCMD.do"  class="btn btn-secondary">추가 및 변경</a>
 							</div>
 							
 							<div id="tabs-sic" class="hiden">
@@ -149,7 +149,7 @@
 									</c:choose>
 								</c:forEach>
 								<br><br>
-								<a href="#"  class="btn btn-secondary">추가 및 변경</a>
+								<a href="hosCodeCMD.do"  class="btn btn-secondary">추가 및 변경</a>
 							</div>
 							<div id="tabs-theme" class="hiden">
 								<br>
@@ -162,7 +162,7 @@
 									</c:choose>
 								</c:forEach>
 								<br>	<br>
-								<a href="#"  class="btn btn-secondary">추가 및 변경</a>
+								<a href="hosCodeCMD.do"  class="btn btn-secondary">추가 및 변경</a>
 							</div>
 						</div>
 						<!-- card body 종료 -->
