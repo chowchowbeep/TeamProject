@@ -11,6 +11,10 @@
 .importantItem {
 	font-size: 1.3rem;
 }
+
+a {
+	color:#212529;
+}
 </style>
 <%@ include file="/layout/sick_menu.jsp"%>
 

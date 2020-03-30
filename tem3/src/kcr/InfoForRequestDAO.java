@@ -187,6 +187,37 @@ public class InfoForRequestDAO extends DAO {
 		}
 		return list;
 	}
+	
+	// 기록물 조회하기
+	public DocuFileNInfoDTO getDcry(int dcryNo) {
+		DocuFileNInfoDTO dto = new DocuFileNInfoDTO();
+		String sql = "SELECT *" + 
+				" FROM SICK_MEDIA" + 
+				" WHERE DCRY_NO = ? ";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, dcryNo);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				dto.setFileName(rs.getString("FILE_NAME"));
+				dto.setFileType(rs.getString("FILE_TYPE"));
+				dto.setDcryNo(rs.getInt("DCRY_NO"));
+				dto.setSicId(rs.getString("SIC_ID"));
+				dto.setArtrNo(rs.getInt("ARTR_NO"));
+				dto.setHosId(rs.getString("HOS_ID"));
+				dto.setDcryDttm(rs.getString("DCRY_DTTM"));
+				dto.setDcryEtc(rs.getString("DCRY_ETC"));
+				dto.setArtrName(rs.getString("ARTR_NAME"));
+				dto.setHosName(rs.getString("HOS_NAME"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return dto;
+	}
+
 
 //	// 병원별 휴일목록 가져오기
 //	public List<hosScheduleDTO> hosHldyList(String hosId) {
