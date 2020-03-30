@@ -52,7 +52,7 @@ public class SInsertTmrCMD implements Command {
 		// 신청내용insert
 		dao.tmrInsert(dto);
 
-		request.setAttribute("id", sicId); // 추후수정__ 세션으로
+		request.setAttribute("id", sicId); // 
 		request.setAttribute("isRqDonePage", "yes"); // rq_detail에서 신청완료페이지표시, 신청내용상세페이지 표시를 결정
 
 		String path = "aView/chorong/rq_detail.jsp";

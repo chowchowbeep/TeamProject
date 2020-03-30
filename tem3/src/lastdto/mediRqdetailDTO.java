@@ -30,7 +30,6 @@ public class mediRqdetailDTO {
 
 	public mediRqdetailDTO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public int getRqstNo() {
