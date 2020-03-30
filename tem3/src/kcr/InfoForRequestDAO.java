@@ -194,7 +194,7 @@ public class InfoForRequestDAO extends DAO {
 		String sql = "SELECT *" + 
 				" FROM SICK_MEDIA" + 
 				" WHERE DCRY_NO = ? ";
-		try {
+		try { 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, dcryNo);
 			rs = pstmt.executeQuery();
