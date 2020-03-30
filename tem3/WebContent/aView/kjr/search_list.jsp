@@ -8,6 +8,7 @@
 <%@ include file="../../layout/sick_head.jsp" %>
 <%@ include file="../../layout/sick_menu.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b450fd1e475fcbb9f2bb640be5a6f4a8&libraries=services"></script>
 <style>
   .topMar { margin:10px };
   .hiden {
@@ -84,12 +85,56 @@ $(function() {
 		
 		<!-- 병원리스트출력 검색마다 추가되도록 이벤트가 발생해야함 -->
 		<!--  for:each  -->
-		<c:forEach items="${hosList}" var="list">
+		<c:forEach items="${hosList}" var="list" varStatus="i">
 			<div class="card" style="margin: 5px;">
 				<div class="row no-gutters">
 					<div class="col-md-4 ">
-						<img src="img/캡처.PNG" style="max-width: 540px;" class="card-img"
-							alt="프로필사진">
+						<div id="map${i.count }" style="width: auto; height: 200px;">1</div>
+						<!-- 지도담을 영역만들기 -->
+						<script>
+						function mapAdrr${i.count}(){
+							// 주소-좌표 변환 객체를 생성합니다
+							var geocoder = new kakao.maps.services.Geocoder();
+							// 주소로 좌표를 검색합니다
+							geocoder.addressSearch('${list.hosAddr}', function(result, status) {
+			
+							    // 정상적으로 검색이 완료됐으면 
+							     if (status === kakao.maps.services.Status.OK) {
+							    	 
+							        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+										console.log(coords);
+							        // 결과값으로 받은 위치를 마커로 표시합니다
+							        var marker = new kakao.maps.Marker({
+							            map: map,
+							            position: coords
+							        });
+							        
+									
+									var container = document.getElementById('map'+${i.count});
+									var options = {
+										center : coords,
+										level : 3
+									};
+			
+									var map = new kakao.maps.Map(container, options);
+									
+	
+							        // 인포윈도우로 장소에 대한 설명을 표시합니다
+							        var infowindow = new kakao.maps.InfoWindow({
+							            content: '<div style="width:150px;text-align:center;padding:6px 0;">${list.hosName}</div>'
+							        });
+							        infowindow.open(map, marker);
+	
+							        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+							        map.setCenter(coords);
+							    }else {
+							    	
+							    } 
+							})
+						}
+						
+						mapAdrr${i.count}();
+						</script>
 					</div>
 					<div class="col-md-8">
 						<div class="card-body">

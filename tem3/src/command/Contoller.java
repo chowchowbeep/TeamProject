@@ -92,6 +92,8 @@ import cmd.SreviewBoardCMD;
 import cmd.SsearchMainCMD;
 import cmd.TestCMD;
 import cmd.ToLoginPageCMD;
+import cmd.hosCodeCMD;
+import cmd.sicCodeCMD;
 import kjr.ajax.BookmarkDeleteAjaxCMD;
 import kjr.ajax.BookmarkInsertAjaxCMD;
 import kjr.ajax.CategoriAjaxCMD;
@@ -291,7 +293,8 @@ public class Contoller extends HttpServlet {
 		 * cont.put("/ajax/UpdateUsers.do", new UpdateUsers()); cont.put("/Upload.do",
 		 * new FileUpload()); cont.put("/GetDeptCnt.do", new GetDeptCnt());
 		 */
-		
+		cont.put("/sicCodeCMD.do", new sicCodeCMD()); //sic코드추가변경
+		cont.put("/hosCodeCMD.do", new hosCodeCMD()); //hos코드추가변경
 		cont.put("/SreviewBoardCMD.do", new SreviewBoardCMD());//리뷰게시판 아이프레임
 		cont.put("/HhosModifyCMD.do", new HhosModifyCMD()); //
 		cont.put("/ajax/BookmarkInsertAjaxCMD.do", new BookmarkInsertAjaxCMD()); //관심병원 등록하는 ajax
