@@ -93,7 +93,7 @@ to {
 
 .name {
 	font-size: 20px;
-	margin-left: 30px;
+
 }
 
 .info {
@@ -116,27 +116,32 @@ to {
 	ArrayList<hosJoinMemberDTO> list = (ArrayList<hosJoinMemberDTO>)request.getAttribute("list");
 	for(hosJoinMemberDTO dto : list) { 
 	%>
-	<div class="card-body">
-	<table class = "listbox"
-		onclick = "location.href = 'MSearchHoslistHos.do?hosId=<%=dto.getHosId()%>';">
-
-		<tr>
-			<td>
+	<table class="table table-bordered"
+		onclick="location.href = 'MSearchHoslistHos.do?hosId=<%=dto.getHosId()%>';">
+		<tbody>
+			<tr>
+				<td style="width: 60px;">
 				<ion-icon name="business" size = "large" 
-				style = "width: 100px; height: 100px; margin: 0px 0px 10px 10px;"></ion-icon>
-				<div class = "name"><b><%= dto.getHosName() %></b></div>
-			</td>
-			<td class = "info">
-				<p><b> 회원 ID: </b><%= dto.getHosId() %></p>
-				<p><b> 회원 등급: </b><%= dto.getHosRank() %></p>
-				<p><b> 신고 현황: </b><%= dto.getDecNo() %></p>
-			</td>
-		</tr>
+            style = "width: 70px; height: 70px; margin: 0px 0px 10px 10px;"></ion-icon>
+					<div class="name">
+						<b><%=dto.getHosName()%> </b>
+					</div></td>
+				<td class="info">
+					<p>
+						<b> 회원 ID: </b><%=dto.getHosId()%>
+					</p>
+					<p>
+						<b> 회원 등급: </b><%=dto.getHosRank()%>
+					</p>
+					<p>
+						<b> 신고 현황: </b><%= dto.getDecNo() %>
+					</p>
+				</td>
+			</tr>
+		</tbody>
 	</table>
-	<input type = "hidden" id = "hosId" name = "hosId">
-	
-	</div>
 </div>
+
 <% } %>
 
 <%@ include file="/layout/all_footer.jsp"%>
