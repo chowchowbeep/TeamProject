@@ -118,7 +118,7 @@ to {
 	%>
 	<div class="card-body">
 	<table class = "listbox"
-		onclick = "location.href = 'MSearchHoslistHos.do?hosID=<%=dto.getHosId()%>';">
+		onclick = "location.href = 'MSearchHoslistHos.do?hosId=<%=dto.getHosId()%>';">
 
 		<tr>
 			<td>

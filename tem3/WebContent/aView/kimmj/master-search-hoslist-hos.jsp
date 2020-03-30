@@ -85,7 +85,7 @@ to {
 
 .name {
 	font-size: 20px;
-	margin-left: 30px;
+	margin-left: 10px;
 }
 
 .info {
@@ -109,7 +109,7 @@ to {
 			<tr>
 				<td>
 				<ion-icon name="business" size = "large" 
-				style = "width: 100px; height: 100px; margin: 0px 0px 10px 10px;"></ion-icon>
+				style = "width: 80px; height: 80px; margin: 0px 0px 10px 10px;"></ion-icon>
 				<div class = "name"><b>${dto.hosName }</b></div>
 			</td>
 			<td class = "info">
