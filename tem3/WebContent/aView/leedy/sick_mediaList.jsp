@@ -93,7 +93,7 @@
 								value="${dto.dcryDttm}" readonly><br> 
 									파일 이름: <input type="text" class="form-control" id="file_name" name="file_name"
 								value="${dto.fileName}" readonly>
-							
+							${dto.fileType }
 								
 										</c:forEach>
 									

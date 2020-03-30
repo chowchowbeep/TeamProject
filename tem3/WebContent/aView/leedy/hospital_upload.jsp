@@ -48,19 +48,19 @@
 							<div class="form-group">
 								<div class="form-check">
 									<input class="form-check-input" type="radio" name="file_type"
-										checked id="file_type"> <label
+										checked id="file_type" value="F001"> <label
 										class="form-check-label" for="" 
-										value="F001">사진</label>
+										>사진</label>
 								</div>
 								<div class="form-check">
 									<input class="form-check-input" type="radio" name="file_type"
-										id="file_type"> <label class="form-check-label"
-										for="" value="F002">동영상</label>
+										id="file_type" value="F002"> <label class="form-check-label"
+										for="" >동영상</label>
 								</div>
 								<div class="form-check">
 									<input class="form-check-input" type="radio" name="file_type"
-										id="file_type"> <label class="form-check-label"
-										for="" value="F003">문서</label>
+										id="file_type" value="F003> <label class="form-check-label"
+										for="" ">문서</label>
 								</div>
 							</div>
 						</div>
