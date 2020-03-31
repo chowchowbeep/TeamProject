@@ -89,7 +89,7 @@ $(function() {
 			<div class="card" style="margin: 5px;">
 				<div class="row no-gutters">
 					<div class="col-md-4 ">
-						<div id="map${i.count }" style="width: auto; height: 200px;">1</div>
+						<div id="map${i.count }" style="width: auto; height: 200px;"></div>
 						<!-- 지도담을 영역만들기 -->
 						<script>
 						function mapAdrr${i.count}(){

@@ -129,10 +129,10 @@
 								<table class="table table-hover" >
 									<thead>
 										<tr>
-											<th scope="col" width="5px">#</th>
-											<th scope="col" width="100px">이름(ID)</th>
-											<th scope="col"width="80px"padding="0px"margin="0px">예상시간</th>
-											<th scope="col"width="80px">접수처리</th>
+											<th scope="col" width="5px" style="padding:2px;margin:2px;">#</th>
+											<th scope="col" width="100px" style="padding:2px;margin:2px;">이름(ID)</th>
+											<th scope="col"width="80px"style="padding:2px;margin:2px;">예상시간</th>
+											<th scope="col"width="80px" style="padding:2px;margin:2px;">접수처리</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -165,10 +165,10 @@
 									<table class="table table-hover">
 										<thead>
 											<tr>
-												<th scope="col" width="5px">#</th>
-												<th scope="col" width="100px">이름(ID)</th>
-												<th scope="col"width="80px" style="margin: 5px;">예상시간</th>
-												<th scope="col"width="80px">예약처리</th>
+												<th scope="col" width="5px" style="padding:2px;margin:2px;">#</th>
+												<th scope="col" width="100px"style="padding:2px;margin:2px;">이름(ID)</th>
+												<th scope="col"width="80px" style="padding:2px;margin:2px;"">예상시간</th>
+												<th scope="col"width="80px"style="padding:2px;margin:2px;">예약처리</th>
 											</tr>
 										</thead>
 										<tbody>
