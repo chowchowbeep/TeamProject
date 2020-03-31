@@ -17,7 +17,6 @@ public class HosSttAjaxCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("aa");
 		HttpSession session = request.getSession(true);
 		String sessionId = (String)session.getAttribute("memberId"); 
 		String hosId =sessionId; 

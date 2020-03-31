@@ -21,7 +21,6 @@ public class BookmarkDeleteAjaxCMD implements Command {
 		String sessionId = (String)session.getAttribute("memberId") ;//세션에서 회원 id를 당겨와서 넣어야함 *현재 임시로 아이디 입력
 		String sicId = sessionId;
 		String hosId = request.getParameter("hosId");
-		System.out.println("넘어왔니? 딜리트~~"+hosId);
 		
 		BookmarkDAO dao = new BookmarkDAO();
 		System.out.println(hosId);

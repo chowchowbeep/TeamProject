@@ -75,10 +75,12 @@ $(function() {
 		<div class="card mb-3">
 			<div class="card-header text-center">
 				<strong>리뷰 작성</strong> 
+				
 			</div>	
 			<div class="card-body">
 				<form style="padding:10px" id="reviewFrm" name="reviewFrm" >
 					<div class="form-group">
+						<input style="display:none" id="hosId" name="${param.hosId}" value="${param.hosId}">
 						<label for="hospital_name">내용</label>
 						<textarea class="form-control" id="contents" name="contents" rows="10"></textarea>
 					</div>
