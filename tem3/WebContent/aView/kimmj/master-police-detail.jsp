@@ -84,11 +84,10 @@ to {
 }
 
 .listbox {
-	width: 270px;
-	height: 140px;
-	border: solid 1px;
-	margin-left: 30px;
+	width: 330px;
+	height: 250px;
 	padding: 10px;
+	border: solid 1px;
 	text-align: center;
 }
 
@@ -105,6 +104,13 @@ to {
 	height: 60px;
 	font-size: 18px;
 	margin-left: 90px;
+	margin-bottom: 20px;
+	background-color: #FFDD73;
+	border: none;
+}
+
+.card-header {
+	 background-color: #FFFFF2;
 }
 
 </style>
@@ -123,30 +129,28 @@ to {
 	<table class = "listbox">
 		<tr>
 			<td class = "info">
-				<b> 회원 ID: </b>${dto.sicId}
+				<b> · 회원 ID: </b>${dto.sicId}
 			</td>
 		</tr>
 		<tr>
 			<td class = "info">
-				<b> 신고 대상 병원: </b>${dto.hosId}
+				<b> · 신고 대상 병원: </b>${dto.hosId}
 			</td>
 		</tr>
 		<tr>
 			<td class = "info">
-				<b> 신고일자: </b>${dto.decDttm}
+				<b> · 신고일자: </b>${dto.decDttm}
 			</td>
 		</tr>
 		<tr>
 			<td class = "info">
-				<b> 신고 내용: </b>${dto.decCont}
+				<b> · 신고 내용: </b>${dto.decCont}
 			</td>
 		</tr>
 	</table>
 	<br>
 	<br>
-	<br>
-	<br>
-	<br>
+
 	<div>
 		<button type = "button" class = "btn btn-block btn-warning"
 		onclick = "manageDec()"> 

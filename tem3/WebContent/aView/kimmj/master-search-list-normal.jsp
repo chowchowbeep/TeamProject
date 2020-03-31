@@ -90,6 +90,10 @@ to {
 	padding: 10px;
 }
 
+.card-header {
+	 background-color: #FFFFF2;
+}
+
 </style>
 
 <%@ include file="/layout/admin_menu.jsp"%>

@@ -99,13 +99,17 @@ to {
 .info {
 	padding: 10px;
 }
+
+.card-header {
+	 background-color: #FFFFF2;
+}
 </style>
 
 <%@ include file="/layout/admin_menu.jsp"%>
 
 <div class="card">
 	<div class="card-header text-center">
-		<div class="text-center" style="padding: 10px 0px 0px 0px">
+		<div class="text-center" style="padding: 10px 0px 0px 0px;">
 			<h4>
 				<b>회원 관리</b>
 			</h4>

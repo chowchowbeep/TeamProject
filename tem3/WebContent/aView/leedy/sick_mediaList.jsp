@@ -93,14 +93,12 @@
 								value="${dto.dcryDttm}" readonly><br> 
 									파일 이름: <input type="text" class="form-control" id="file_name" name="file_name"
 								value="${dto.fileName}" readonly>
-							${dto.fileType }
+						<br>
 								
 										</c:forEach>
 									
 										</p>
-										<p class="card-text col-md-6">
-											<small class="text-muted">1시간 전</small>
-										</p>
+									
 								
 								</div>
 				</div>

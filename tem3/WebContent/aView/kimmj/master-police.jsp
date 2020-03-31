@@ -85,7 +85,6 @@ to {
 .listbox {
 	width: 270px;
 	height: 140px;
-	border: solid 1px;
 	margin-left: 30px;
 	padding: 10px;
 	text-align: center;
@@ -111,6 +110,22 @@ to {
 	color: #747474;
 }
 
+.card-header {
+	 background-color: #FFFFF2;
+}
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1 solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+}
 </style>
 
 <%@ include file="/layout/admin_menu.jsp"%>

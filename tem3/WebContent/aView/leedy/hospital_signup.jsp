@@ -199,13 +199,13 @@ $(function(){
 					
 					<div class="input-group mb-3">
 						<input type="text" class="form-control" name="hos_bizno_1"
-							id="hos_bizno_1" onkeydown="inputBizNoUnChk()" placeholder="사업자번호">-
+							id="hos_bizno_1" onkeydown="inputBizNoUnChk()" placeholder="사업자">-
 								<input type="text" class="form-control" name="hos_bizno_2"
-							id="hos_bizno_2" onkeydown="inputBizNoUnChk()" placeholder="사업자번호">-
+							id="hos_bizno_2" onkeydown="inputBizNoUnChk()" placeholder="번호">-
 								<input type="text" class="form-control" name="hos_bizno_3"
-							id="hos_bizno_3" onkeydown="inputBizNoUnChk()" placeholder="사업자번호">
+							id="hos_bizno_3" onkeydown="inputBizNoUnChk()" placeholder="입력">
 						<input type="button" id="bizChk" name="bizChk" value="중복확인"  
-						onclick="bizNoChk()"> 
+						onclick="bizNoChk()" > 
 						<input type="hidden" name="bizNoDuplication" id="bizNoDuplication"
 							value="bizNoUnchk">
 						<div class="input-group-append">
@@ -214,11 +214,11 @@ $(function(){
 					</div>
 					<div class="input-group mb-3">
 						<input type="text" class="form-control" name="hos_phone_1"
-							id="hos_phone_1" placeholder="전화번호">-
+							id="hos_phone_1" placeholder="전화">-
 							<input type="text" class="form-control" name="hos_phone_2"
-							id="hos_phone_2" placeholder="전화번호">-
+							id="hos_phone_2" placeholder="번호">-
 							<input type="text" class="form-control" name="hos_phone_3"
-							id="hos_phone_3" placeholder="전화번호">
+							id="hos_phone_3" placeholder="입력">
 						<div class="input-group-append">
 							<div class="input-group-text"></div>
 						</div>
