@@ -5,15 +5,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="/layout/admin_head.jsp"%>
- <script language="javascript">
- 	function popup() {
- 		alert('신고 처리가 완료되었습니다');
- 		//var url = "decPOPUP.html";
- 		//var name = "decpop";
- 		//var option = "width = 270px, height = 50px, top = 150px, location = no, toolbar = no, menubar = no, directories = no, status = no";
- 		//window.open(url, name, option);
- 	}
- </script>
+
 <style type="text/css">/* Chart.js */
 @
 keyframes chartjs-render-animation {
@@ -99,6 +91,7 @@ to {
 .info {
 	padding: 10px;
 }
+
 .btn {
 	width: 150px;
 	height: 60px;
@@ -110,56 +103,79 @@ to {
 }
 
 .card-header {
-	 background-color: #FFFFF2;
+	background-color: #FFFFF2;
+}
+
+.btn-small {
+	width: 100px;
+	height: 60px;
+	font-size: 18px;
+	margin-left: 40px;
+	margin-bottom: 20px;
+	background-color: #FFDD73;
+	border: none;
 }
 
 </style>
 
 <%@ include file="/layout/admin_menu.jsp"%>
-<jsp:useBean id="dao" class="kimmj.decDAO"/>
-<div class = "card">
-	<div class = "card-header text-center">
-		<div class = "text-center" style = "padding: 10px 0px 0px 0px">
+<jsp:useBean id="dao" class="kimmj.decDAO" />
+<div class="card">
+	<div class="card-header text-center">
+		<div class="text-center" style="padding: 10px 0px 0px 0px">
 			<h4>
 				<b>신고 관리</b>
 			</h4>
 		</div>
 	</div>
 	<div class="card-body">
-	<table class = "listbox">
-		<tr>
-			<td class = "info">
-				<b> · 회원 ID: </b>${dto.sicId}
-			</td>
-		</tr>
-		<tr>
-			<td class = "info">
-				<b> · 신고 대상 병원: </b>${dto.hosId}
-			</td>
-		</tr>
-		<tr>
-			<td class = "info">
-				<b> · 신고일자: </b>${dto.decDttm}
-			</td>
-		</tr>
-		<tr>
-			<td class = "info">
-				<b> · 신고 내용: </b>${dto.decCont}
-			</td>
-		</tr>
-	</table>
-	<br>
-	<br>
+		<table class="listbox">
+			<tr>
+				<td class="info"><b> · 회원 ID: </b>${dto.sicId}</td>
+			</tr>
+			<tr>
+				<td class="info"><b> · 신고 대상 병원: </b>${dto.hosId}</td>
+			</tr>
+			<tr>
+				<td class="info"><b> · 신고일자: </b>${dto.decDttm}</td>
+			</tr>
+			<tr>
+				<td class="info"><b> · 신고 내용: </b>${dto.decCont}</td>
+			</tr>
+		</table>
+		<br> <br>
 
-	<div>
-		<button type = "button" class = "btn btn-block btn-warning"
-		onclick = "manageDec()"> 
-		<b>처리</b> </button>
-		<button type = "button" class = "btn btn-block btn-warning"
-		onclick = "location.href = 'MPolice.do';"> <b>목록</b> </button>
-	</div>
+		<div>
+			<button type="button" class="btn btn-block btn-warning"
+				onclick="manageDec()">
+				<b>처리</b>
+			</button>
+			<button type="button" class="btn btn-block btn-warning"
+				onclick="location.href = 'MPolice.do';">
+				<b>목록</b>
+			</button>
+		</div>
 	</div>
 </div>
+
+<div class="modal" id="modal" role="dialog" aria-labelledby="modalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 id="modalLabel" class="modal-title"></h5>
+			</div>
+			<div class="modal-body text-center" id="modalBody">신고 처리가 완료되었습니다</div>
+			<div class="modal-footer">
+				<button id="closeModalBtn" type="button" class="btn-small btn-secondary">확인</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
 <script>
 var decNo = '${dto.decNo}';
 console.log(decNo);
@@ -177,10 +193,21 @@ console.log(hosId);
 			},
 			success : function(result) {
 				console.log(result+"rows DML완료");
-				alert("신고 처리 완료")
+				$("#modal").modal({
+					backdrop : 'static',
+					keyboard : false
+				});
+				$("#modal").modal('show');
+				$("#closeModalBtn").on("click", function() {
+					$("#modal").modal('hide');
+				});
+				
 			}
 		})
 	}
+	
+	
+
 </script>
 <%@ include file="/layout/all_footer.jsp"%>
 </body>

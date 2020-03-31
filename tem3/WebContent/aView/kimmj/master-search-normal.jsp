@@ -171,7 +171,7 @@ to {
 			<span class="info-box-content"> <b>회원 등급</b> </span>
 			</span> 
 			<span class="info-box-box"> &nbsp;&nbsp;&nbsp; 
-			<input type="radio" name="ckck" value="all" checked>&nbsp;전체
+			<input type="radio" name="memStatus" value="all">&nbsp;전체
 				&nbsp;&nbsp;&nbsp; <input type="radio" name="memStatus" value="J">&nbsp;일반
 				&nbsp;&nbsp;&nbsp; <input type="radio" name="memStatus" value="P">&nbsp;제재
 			</span> 
