@@ -38,6 +38,7 @@
 		$("ul").on("click","a", function() {
 			
 			var divId = $(this).attr('name');
+			
 			$("#"+divId).removeClass("hiden");
 			if(divId=='tabs-medi'){
 				$("#tabs-sic").addClass("hiden");

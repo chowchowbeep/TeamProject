@@ -45,7 +45,7 @@
 							<div class="col-4 ">진료과목</div> <!-- 왼쪽 -->
 							<div class="col-8">	<!-- 오른쪽 -->
 								<c:forEach items="${list }" var="li">
-									<c:if test="${li.type eq 'SUB' }">
+									<c:if test="${li.type eq 'SUB'}">
 									<div>
 										<input type="checkbox" value="${li.code}"
 											name="SUB" class="chrdis">${li.name}

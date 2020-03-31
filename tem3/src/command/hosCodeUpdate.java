@@ -31,7 +31,6 @@ public class hosCodeUpdate implements Command {
 		String apa="";
 		if(APA != null) {
 			for(int i=0;i<APA.length;i++ ) {
-			
 				apa = APA[i];
 				System.out.println("왜 apa안나오ㅑㄴ구ㅠ ㅠㅠㅠㅠ "+apa);
 				dao.insert(sessionId, apa);
@@ -43,18 +42,18 @@ public class hosCodeUpdate implements Command {
 			for(int i=0;i<TEMA.length;i++ ) {
 				tema = TEMA[i];
 				System.out.println("왜 tema안나오ㅑㄴ구ㅠ ㅠㅠㅠㅠ "+tema);
-				dao.insert(sessionId, apa);
+				dao.insert(sessionId, tema);
 			}
 		}
 		String sub="";
 		if(SUB != null) {
 			for(int i=0;i<SUB.length;i++ ) {
-					sub += SUB[i];
+					sub = SUB[i];
 					System.out.println("왜 sub안나오ㅑㄴ구ㅠ ㅠㅠㅠㅠ "+sub);
 					dao.insert(sessionId, sub);
 			}
 		}
-		return path;
+		return "redirect:"+path;
 	}
 
 
