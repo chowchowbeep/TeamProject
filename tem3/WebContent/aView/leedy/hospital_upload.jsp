@@ -36,9 +36,8 @@
 				<h3 class="card-title">진료기록물 업로드</h3>
 			</div>
 			<!-- /.card-header -->
-
-			<form name="hosUp" method="post" enctype="multipart/form-data"
-				action="HHospitalUploadAdd.do" class="form-horizontal">
+			<!-- 파일 선택시 사용할 form 태그 <form method="post" enctype="multipart/form-data" action="../FileUpload.do"> -->
+			<form name="hosUp" method="post" enctype="multipart/form-data" action="HHospitalUploadAdd.do" class="form-horizontal">
 				<div class="card-body">
 					<div class="form-group">
 						<label for="file_type">파일 타입</label>
@@ -47,20 +46,16 @@
 							<!-- radio -->
 							<div class="form-group">
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="file_type"
-										checked id="file_type" value="F001"> <label
-										class="form-check-label" for="" 
-										>사진</label>
+									<input class="form-check-input" type="radio" name="file_type" checked id="file_type" value="F001"> 
+									<label class="form-check-label">사진</label>
 								</div>
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="file_type"
-										id="file_type" value="F002"> <label class="form-check-label"
-										for="" >동영상</label>
+									<input class="form-check-input" type="radio" name="file_type" id="file_type" value="F002"> 
+									<label class="form-check-label">동영상</label>
 								</div>
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="file_type"
-										id="file_type" value="F003> <label class="form-check-label"
-										for="" ">문서</label>
+									<input class="form-check-input" type="radio" name="file_type" id="file_type" value="F003"> 3
+									<label class="form-check-label">문서</label>
 								</div>
 							</div>
 						</div>
@@ -68,15 +63,12 @@
 
 					<div class="form-group">
 						<label for="file"  class="col-sm-2 col-form-label">파일선택</label>
-						<!-- 파일 선택시 사용할 form 태그 <form method="post" enctype="multipart/form-data" action="../FileUpload.do"> -->
+						
 						<div class="input-group">
 							<div class="custom-file">
-								<input type="file" class="custom-file-input" id="file"
-									name="file">
-								<!-- data-browse="찾기" 사용하면 버튼 내용값 바꿀 수 있음 -->
+								<input type="file" class="custom-file-input" id="file" name="file">
 								<label class="custom-file-label" for="file" data-browse="찾기"></label>
 							</div>
-
 						</div>
 					</div>
 
