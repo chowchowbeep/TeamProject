@@ -25,7 +25,7 @@ public class HealthInfoDAO extends DAO{
 		public void insert(String sessionId,String chrdis,String medi,String bdp,String allrgy) {
 			sql="INSERT INTO health_info VALUES "
 			+ " (?,?,'',?,?,?,'');";
-			System.out.println("sqlinsert"+sql+"----");
+			System.out.println("sqlinsert"+sql+sessionId+chrdis+"----");
 			try {
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1,sessionId);
@@ -33,15 +33,20 @@ public class HealthInfoDAO extends DAO{
 				pstmt.setString(3,medi);
 				pstmt.setString(4,bdp);
 				pstmt.setString(5,allrgy);
-				int a =pstmt.executeUpdate(sql);
-				System.out.println("insert**********************"+a);
+				int	n = pstmt.executeUpdate();
+				if(n==0) {
+					System.out.println("nnnnnnnn"+n);
+				}else {
+					System.out.println("yyyyyyyyy"+n);
+				}
+				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 			}
 		
 		}
 		
-		
+
 		
 	//단건조회
 		public ArrayList<seachCodeJoinDTO> select(String sessionId){
