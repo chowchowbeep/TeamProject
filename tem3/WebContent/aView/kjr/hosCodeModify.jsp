@@ -54,6 +54,7 @@
 								</c:forEach>
 							</div>							
 						</div>
+						<br>
 						<div class="row">							
 							<div class="col-4 ">증상</div> <!-- 왼쪽 -->
 							<div class="col-8">	<!-- 오른쪽 -->
@@ -67,6 +68,7 @@
 								</c:forEach>
 							</div>							
 						</div>
+						<br>
 						<div class="row">							
 							<div class="col-4 ">테마</div> <!-- 왼쪽 -->
 							<div class="col-8">	<!-- 오른쪽 -->
@@ -79,8 +81,6 @@
 									</c:if>
 								</c:forEach>
 								<script>   
-								console.log(${sicCode});
-								console.log(${hosCode});
 									$('.chrdis').val(${hosCode});	
 								</script>
 							</div>							

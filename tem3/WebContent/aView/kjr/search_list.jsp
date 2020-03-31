@@ -59,7 +59,7 @@ $(function() {
 		</div>
 		</form>
 		
-		<div class="row hiden">
+		<div class="row hiden" style="display: none">
 			<div class="mb-3 col BTNpadmar" style="margin: 2px 2px; padding-right:0px; padding-left:0px; ">
 				<button type="button" class="btn btn-secondary btn-lg btn-block">랭킹순</button>
 			</div>
