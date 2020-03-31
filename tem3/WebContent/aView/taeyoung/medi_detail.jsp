@@ -16,6 +16,10 @@
 </style>
 <script>
 	$(document).ready(function() {
+		getMedDoneOk();
+	})
+	
+	function getMedDoneOk() {
 			var rqstNo = ${dto.rqstNo};
 			console.log("rqstNo"+rqstNo);
 			var dataResult;
@@ -35,8 +39,8 @@
 					}
 					
 				}
-		})
-	})
+			})
+		}
 </script>
 <%@ include file="/layout/hos_menu.jsp"%>
 <!-- Content Wrapper. Contains page content -->
@@ -134,10 +138,11 @@
 
 						<div class="card-footer">
 							<div class="row text-center">
-								<button type="button" onclick="location.href='MakeMedDoneStatus.do?'"
+								<button type="button" onclick="MakeMedDoneStatus()"
 									class="btn btn-secondary col">진료완료</button>
 								&nbsp;
-								<button type="button" onclick="" class="btn btn-secondary col">
+								<button type="button" onclick="makeMedCancelStatus()" 
+								class="btn btn-secondary col">
 									진료취소</button>
 							</div>
 							<div class="row text-center">
@@ -157,8 +162,130 @@
 	</section>
 
 </div>
+<!-- 모달 -->
+<div class="modal" id="modal" role="dialog" aria-labelledby="modalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 id="modalLabel" class="modal-title"></h5>
+			</div>
+			<div class="modal-body" id="modalBody"></div>
+			<div class="modal-footer">
+				<button id="closeModalBtn" type="button" class="btn btn-secondary">확인</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 <script>
+	function MakeMedDoneStatus() { 
+		var rqstNo = ${dto.rqstNo};
+		console.log("rqstNo at MakeMedDoneStatus"+rqstNo);
+		getMedDoneOk();
+		$.ajax({
+			type : "POST",
+			url : "ajax/HMakeMedDoneStatus.do",
+			dataType : "json",
+			data : {
+				rqstNo : rqstNo
+			},
+			success : function(result) {
+				console.log("result"+result.ok);
+				if(result.ok == 1){
+					$("#modalLabel").text("처리완료");
+					$("#modalBody").text("진료완료처리되었습니다.");
+					$("#modal").modal({
+						backdrop : 'static',
+						keyboard : false
+					});
+					$("#modal").modal('show');
+					$("#closeModalBtn").on("click", function() {
+						$("#modal").modal('hide');
+					});
+					getMedDoneOk();
+				} else {
+					$("#modalLabel").text("처리실패");
+					$("#modalBody").text("운영자에게 문의해주세요.");
+					$("#modal").modal({
+						backdrop : 'static',
+						keyboard : false
+					});
+					$("#modal").modal('show');
+					$("#closeModalBtn").on("click", function() {
+						$("#modal").modal('hide');
+					});
+				}
+			}
+			,
+			error: function() {
+				$("#modalLabel").text("처리실패");
+				$("#modalBody").text("운영자에게 문의해주세요.");
+				$("#modal").modal({
+					backdrop : 'static',
+					keyboard : false
+				});
+				$("#modal").modal('show');
+				$("#closeModalBtn").on("click", function() {
+					$("#modal").modal('hide');
+				});
+			}
+			
+		})
+	}
+
+	function makeMedCancelStatus(){
+		var rqstNo = ${dto.rqstNo};
+		console.log("rqstNo at makeMedCancelStatus"+rqstNo);
+		$.ajax({
+			type : "POST",
+			url : "ajax/makeMedCancelStatus.do",
+			dataType : "json",
+			data : {
+				rqstNo : rqstNo
+			},
+			success : function(result) {
+				console.log("result"+result);
+				console.log("result.ok"+result.ok);
+				if(result.ok == 2){
+					$("#modalLabel").text("처리완료");
+					$("#modalBody").text("진료취소처리되었습니다.");;
+					$("#modal").modal({
+						backdrop : 'static',
+						keyboard : false
+					});
+					$("#modal").modal('show');
+					$("#closeModalBtn").on("click", function() {
+						$("#modal").modal('hide');
+					});
+					getMedDoneOk();
+					$("#rqstTy").text("병원취소");
+				} else {
+					$("#modalLabel").text("처리실패");
+					$("#modalBody").text("운영자에게 문의해주세요.");
+					$("#modal").modal({
+						backdrop : 'static',
+						keyboard : false
+					});
+					$("#modal").modal('show');
+					$("#closeModalBtn").on("click", function() {
+						$("#modal").modal('hide');
+					});
+				}
+			},
+			error: function() {
+				$("#modalLabel").text("처리실패");
+				$("#modalBody").text("운영자에게 문의해주세요.");
+				$("#modal").modal({
+					backdrop : 'static',
+					keyboard : false
+				});
+				$("#modal").modal('show');
+				$("#closeModalBtn").on("click", function() {
+					$("#modal").modal('hide');
+				});
+			}
+		})
+	}
 
 </script>
 <!-- ./wrapper -->
