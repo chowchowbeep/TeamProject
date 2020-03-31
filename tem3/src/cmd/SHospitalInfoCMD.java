@@ -27,7 +27,6 @@ public class SHospitalInfoCMD implements Command {
 		String path = "aView/kjr/hospital_info.jsp"; //S8 병원정보 상세조회 페이지
 		HttpSession session = request.getSession(true);
 		String sessionId = (String)session.getAttribute("memberId");
-		
 		String sicId = sessionId;//세션에서 가져오기
 		String hosId = request.getParameter("hosId");
 		System.out.println("shospital인포~~ "+hosId);
