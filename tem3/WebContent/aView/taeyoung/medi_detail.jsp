@@ -14,6 +14,34 @@
 	font-size: 0.9rem;
 }
 </style>
+<script>
+	$(document).ready(function() {
+		getMedDoneOk();
+	})
+	
+	function getMedDoneOk() {
+			var rqstNo = ${dto.rqstNo};
+			console.log("rqstNo"+rqstNo);
+			var dataResult;
+			$.ajax({
+				type : "POST",
+				url : "ajax/HGetMedDoneOk.do",
+				dataType : "json",
+				data : {
+					rqstNo : rqstNo
+				},
+				success : function(result) {
+					console.log("result"+result);
+					if(result.mcttStt == 'Y'){
+						$("#mcttStt").html("진료완료");
+					} else {
+						$("#mcttStt").html("진료 전");
+					}
+					
+				}
+			})
+		}
+</script>
 <%@ include file="/layout/hos_menu.jsp"%>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -75,6 +103,9 @@
 										</c:choose>
 									</div>
 									<div class="item rqDetailInfo">
+										<span class="rqDetailLabel">진료완료 여부</span><span id="mcttStt"></span>
+									</div>
+									<div class="item rqDetailInfo">
 										<span class="rqDetailLabel">환자이름</span><span id="rqstTy">${param.sicName}</span>
 									</div>
 									<div class="item rqDetailInfo">
@@ -96,9 +127,10 @@
 										<span class="rqDetailLabel">의사선생님께 한 마디</span><span id="msg">${dto.msg }</span>
 									</div>
 									<c:if test="${dto.dcryNo != 0}">
-									<div class="item rqDetailInfo">
-										<span class="rqDetailLabel">첨부한 진료기록물</span><span id="msg"><a href="DcryDetail.do?dcryNo=${dto.dcryNo }">확인하기</a></span>
-									</div>
+										<div class="item rqDetailInfo">
+											<span class="rqDetailLabel">첨부한 진료기록물</span><span id="msg"><a
+												href="DcryDetail.do?dcryNo=${dto.dcryNo }">확인하기</a></span>
+										</div>
 									</c:if>
 								</div>
 							</div>
@@ -106,19 +138,20 @@
 
 						<div class="card-footer">
 							<div class="row text-center">
-								<button type="button" onclick="" class="btn btn-secondary col">
-									진료완료</button>
+								<button type="button" onclick="MakeMedDoneStatus()"
+									class="btn btn-secondary col">진료완료</button>
 								&nbsp;
-								<button type="button" onclick="" class="btn btn-secondary col">
+								<button type="button" onclick="makeMedCancelStatus()" 
+								class="btn btn-secondary col">
 									진료취소</button>
 							</div>
 							<div class="row text-center">
 								<button type="button"
 									onclick="location.href='HHospitalUpload.do?sic_id=${dto.sicId }&hos_id=${dto.hosId}&artr_no=${dto.artrNo }&rqst_no=${dto.rqstNo}'"
 									class="btn btn-secondary col">진료기록물 발급</button>
-<!-- 								<button type="button" -->
-<%-- 									onclick="location.href='HHospitalInquiry.do.do?sic_id=${dto.sicId }&hos_id=${dto.hosId}&artr_no=${dto.artrNo }&rqst_no=${dto.rqstNo}'" --%>
-<!-- 									class="btn btn-secondary col">진료기록물 조회</button> -->
+								<!-- 								<button type="button" -->
+								<%-- 									onclick="location.href='HHospitalInquiry.do.do?sic_id=${dto.sicId }&hos_id=${dto.hosId}&artr_no=${dto.artrNo }&rqst_no=${dto.rqstNo}'" --%>
+								<!-- 									class="btn btn-secondary col">진료기록물 조회</button> -->
 							</div>
 						</div>
 					</form>
@@ -129,5 +162,131 @@
 	</section>
 
 </div>
+<!-- 모달 -->
+<div class="modal" id="modal" role="dialog" aria-labelledby="modalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 id="modalLabel" class="modal-title"></h5>
+			</div>
+			<div class="modal-body" id="modalBody"></div>
+			<div class="modal-footer">
+				<button id="closeModalBtn" type="button" class="btn btn-secondary">확인</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	function MakeMedDoneStatus() { 
+		var rqstNo = ${dto.rqstNo};
+		console.log("rqstNo at MakeMedDoneStatus"+rqstNo);
+		getMedDoneOk();
+		$.ajax({
+			type : "POST",
+			url : "ajax/HMakeMedDoneStatus.do",
+			dataType : "json",
+			data : {
+				rqstNo : rqstNo
+			},
+			success : function(result) {
+				console.log("result"+result.ok);
+				if(result.ok == 1){
+					$("#modalLabel").text("처리완료");
+					$("#modalBody").text("진료완료처리되었습니다.");
+					$("#modal").modal({
+						backdrop : 'static',
+						keyboard : false
+					});
+					$("#modal").modal('show');
+					$("#closeModalBtn").on("click", function() {
+						$("#modal").modal('hide');
+					});
+					getMedDoneOk();
+				} else {
+					$("#modalLabel").text("처리실패");
+					$("#modalBody").text("운영자에게 문의해주세요.");
+					$("#modal").modal({
+						backdrop : 'static',
+						keyboard : false
+					});
+					$("#modal").modal('show');
+					$("#closeModalBtn").on("click", function() {
+						$("#modal").modal('hide');
+					});
+				}
+			}
+			,
+			error: function() {
+				$("#modalLabel").text("처리실패");
+				$("#modalBody").text("운영자에게 문의해주세요.");
+				$("#modal").modal({
+					backdrop : 'static',
+					keyboard : false
+				});
+				$("#modal").modal('show');
+				$("#closeModalBtn").on("click", function() {
+					$("#modal").modal('hide');
+				});
+			}
+			
+		})
+	}
+
+	function makeMedCancelStatus(){
+		var rqstNo = ${dto.rqstNo};
+		console.log("rqstNo at makeMedCancelStatus"+rqstNo);
+		$.ajax({
+			type : "POST",
+			url : "ajax/makeMedCancelStatus.do",
+			dataType : "json",
+			data : {
+				rqstNo : rqstNo
+			},
+			success : function(result) {
+				console.log("result"+result);
+				console.log("result.ok"+result.ok);
+				if(result.ok == 2){
+					$("#modalLabel").text("처리완료");
+					$("#modalBody").text("진료취소처리되었습니다.");;
+					$("#modal").modal({
+						backdrop : 'static',
+						keyboard : false
+					});
+					$("#modal").modal('show');
+					$("#closeModalBtn").on("click", function() {
+						$("#modal").modal('hide');
+					});
+					getMedDoneOk();
+					$("#rqstTy").text("병원취소");
+				} else {
+					$("#modalLabel").text("처리실패");
+					$("#modalBody").text("운영자에게 문의해주세요.");
+					$("#modal").modal({
+						backdrop : 'static',
+						keyboard : false
+					});
+					$("#modal").modal('show');
+					$("#closeModalBtn").on("click", function() {
+						$("#modal").modal('hide');
+					});
+				}
+			},
+			error: function() {
+				$("#modalLabel").text("처리실패");
+				$("#modalBody").text("운영자에게 문의해주세요.");
+				$("#modal").modal({
+					backdrop : 'static',
+					keyboard : false
+				});
+				$("#modal").modal('show');
+				$("#closeModalBtn").on("click", function() {
+					$("#modal").modal('hide');
+				});
+			}
+		})
+	}
+
+</script>
 <!-- ./wrapper -->
 <%@ include file="/layout/all_footer.jsp"%>

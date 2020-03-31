@@ -6,6 +6,69 @@ import command.DAO;
 import lastdto.mediRqdetailDTO;
 
 public class MediRqdetailDAO extends DAO {
+	
+	
+	// 진료취소처리하기
+			public int makeMedCancelStatus(int rqstNo) {
+				System.out.println("DAO왔음");
+				int n= 0 ;
+				String sql1 = "UPDATE medi_info SET mctt_stt = '0' WHERE rqst_no = ?";
+				String sql2 = "UPDATE medi_rqst SET rqst_ty = 'D003' WHERE rqst_no = ?";
+				try {
+					pstmt = conn.prepareStatement(sql1);
+					pstmt.setInt(1, rqstNo);
+					n  += pstmt.executeUpdate();
+					System.out.println("====at DAO MakeMedDoneStatus 처리건수(mctt stt)"+ n);
+					pstmt = conn.prepareStatement(sql2);
+					pstmt.setInt(1, rqstNo);
+					n  += pstmt.executeUpdate();
+					System.out.println("====at DAO MakeMedDoneStatus 처리건수(rqst_ty)"+ n);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					close();
+				}
+				return n;
+			}
+	
+	
+	// 진료완료처리하기
+		public int MakeMedDoneStatus(int rqstNo) {
+			int n= 0 ;
+			String sql = "update medi_info set mctt_stt='Y' where rqst_no = ?";
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, rqstNo);
+				n  = pstmt.executeUpdate();
+				System.out.println("====at DAO MakeMedDoneStatus 처리건수"+ n);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+			return n;
+		}
+	
+	// 진료완료 여부 가져오기 
+	public String getHosNow(int rqstNo) {
+		String mcttStt = null;
+		String sql = "select * from medi_info where rqst_no = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, rqstNo);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				mcttStt = rs.getString("mctt_stt");
+			} 
+			System.out.println("======DAO에서 mctt_stt:" + mcttStt + "=====");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return mcttStt;
+	}
+	
 
 	// 진료신청상세 단건조회__ 
 	// 신청현황상세, 진료신청완료페이지,

@@ -12,7 +12,8 @@ public class Medi_allDAO extends DAO {
 				List<mediListDTO> list = new ArrayList<mediListDTO>();
 				try {
 					String sql = "SELECT RQST_NO, RQST_TY, RQST_DTTM, SIC_NAME, ARTR_NAME, SIC_PHONE" + 
-								" FROM MEDI_List where hos_id=?";
+								" FROM MEDI_List where hos_id=?" +
+								" ORDER BY RQST_NO DESC";
 					pstmt = conn.prepareStatement(sql);
 					pstmt.setString(1, hosId);
 					rs = pstmt.executeQuery();

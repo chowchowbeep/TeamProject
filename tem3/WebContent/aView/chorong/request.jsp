@@ -59,157 +59,109 @@ label.error {
 <script>
 	// 예약일 경우 
 	<c:if test="${rqType == 'Res'}">
-	$(document)
-			.ready(
-					function() {
-						console.log("res");
+	$(document).ready(function() {
+		console.log("res");
 
-						// 예약날짜선택 달력 기본설정
-						var mxdate = new Date();
-						mxdate.setDate(mxdate.getDate() + 90); //오늘자로부터 90일 후 까지만 예약가능하도록
-						var mndate = new Date();
-						mndate.setDate(mndate.getDate() + 1);
-						$('#resDt')
-								.datepicker(
-										{
-											language : 'ko',
-											inline : true,
-											minDate : mndate,
-											maxDate : mxdate,
-											disableNavWhenOutOfRange : true,
-											onSelect : function onSelect(
-													formattedDate, date, inst) {
-												$("#resTm").val(""); //날짜 변경했으므로 선택시간도 초기화
+		// 예약날짜선택 달력 기본설정
+		var mxdate = new Date();
+		mxdate.setDate(mxdate.getDate() + 90); //오늘자로부터 90일 후 까지만 예약가능하도록
+		var mndate = new Date();
+		mndate.setDate(mndate.getDate() + 1);
+		$('#resDt').datepicker({
+			language : 'ko',
+			inline : true,
+			minDate : mndate,
+			maxDate : mxdate,
+			disableNavWhenOutOfRange : true,
+			onSelect : function onSelect(formattedDate, date, inst) {
+				$("#resTm").val(""); //날짜 변경했으므로 선택시간도 초기화
+				var selectedDt = formattedDate.replace(/\//gi, "");
 
-												var selectedDt = formattedDate
-														.replace(/\//gi, "");
-												// 												$("#selectedDtInfo").html(
-												// 														"날짜선택됨" + selectedDt);
+				// 1. 선택한 날짜의 값을 파라미터로 넘겨서 병원휴일테이블에서 일치하는 값이 있는지 확인
+				// 일치 값 있을 경우 #selectedDtInfo에 병원휴일입니다. 안내.
 
-												// 1. 선택한 날짜의 값을 파라미터로 넘겨서 병원휴일테이블에서 일치하는 값이 있는지 확인
-												// 일치 값 있을 경우 #selectedDtInfo에 병원휴일입니다. 안내.
+				// 병원휴일 여부 가져오기
+				var isHosHldy = checkHosHldy(selectedDt).checkHosHldy;
+				if (isHosHldy == true) {
+					$("#selectedDtInfo").html("병원휴일입니다. 다른날짜를 선택해주세요.");
+					$(".resTmInit").prop("disabled", true); //시간 선택할 수 없도록
+				} else {
+					// 1-1. 병원휴일 아닐경우, 의사휴일 가져오기.
+					var isDrHldy = checkDrHldy(selectedDt).checkDrHldy;
+					if (isDrHldy == true) { // 1-1-1. 일치 값 있을 경우 (의사휴일일 경우)
+						$("#selectedDtInfo").html("의사휴일입니다. 담당의사 혹은 날짜를 변경해주세요.");
+						$(".resTmInit").prop("disabled",true); //시간 선택할 수 없도록
+					} else { // 1-1-2. 일치 값 없을 경우 (의사 휴일 아닌 경우)
+						$("#selectedDtInfo").empty();
+						$(".resTmInit").prop("disabled", false); 
+						// 다른 날짜를 선택해서 이미 disabled ture되었을 경우를 대비하여 
+						// 예약시간옵션목록 가져오기 
+						var resTmOptions = [];
+						$("#resTm option").each(function() {
+											resTmOptions.push($(this).text());
+											})
+						// 해당병원, 해당의사, 선택날짜에 기 예약된 내용 가져와서 예약된 시간은 선택못하도록 disabled처리
+						var ReservedRqList = getAlreayReseved(selectedDt);
+						$.each(ReservedRqList, function(idx,item) {
+							console.log("each사용. 기예약 시간"+ item.resTm);
+							$.each(resTmOptions, function(idx, Opt) {
+								console.log(Opt);
+								if (item.resTm == Opt) { // 옵션목록에서  기예약된 시간과 동일한 값이 있으면 해당 옵션은 예약못하게 
+									$("option[value='"+ Opt+ "']").prop("disabled",true);
+								}
+							})
+						})
+					}
+				}
+			}
+		}) // ./datepicker
 
-												// 병원휴일 여부 가져오기
-												var isHosHldy = checkHosHldy(selectedDt).checkHosHldy;
+			// 달력 생성
+			var datepicker = $('#resDt').data('datepicker');
 
-												if (isHosHldy == true) {
-													$("#selectedDtInfo")
-															.html(
-																	"병원휴일입니다. 다른날짜를 선택해주세요.");
-													$(".resTmInit").prop(
-															"disabled", true); //시간 선택할 수 없도록
+			// 병원의 의사 모두표시
+			getDrList();
 
-												} else {
-													// 1-1. 병원휴일 아닐경우, 의사휴일 가져오기.
-													var isDrHldy = checkDrHldy(selectedDt).checkDrHldy;
-													if (isDrHldy == true) { // 1-1-1. 일치 값 있을 경우 (의사휴일일 경우)
-														$("#selectedDtInfo")
-																.html(
-																		"의사휴일입니다. 담당의사 혹은 날짜를 변경해주세요.");
-														$(".resTmInit").prop(
-																"disabled",
-																true); //시간 선택할 수 없도록
+			// 의사선택/변경시
+			$("#artrNo").on("propertychange input", function() {
+				console.log("의사변경");
 
-													} else { // 1-1-2. 일치 값 없을 경우 (의사 휴일 아닌 경우)
-														$("#selectedDtInfo")
-																.empty();
-														$(".resTmInit").prop(
-																"disabled",
-																false); // 다른 날짜를 선택해서 이미 disabled ture되었을 경우를 대비하여 
+				// 의사 선택시 날짜입력란(달력포함) 보이게 / 변경시 다시 보이게
+				$("#resDtContainer").toggle(500);
+				$("#resDtContainer").show(500);
 
-														// 예약시간옵션목록 가져오기 
-														var resTmOptions = [];
-														$("#resTm option")
-																.each(
-																		function() {
-																			resTmOptions
-																					.push($(
-																							this)
-																							.text());
-																		})
-														// 해당병원, 해당의사, 선택날짜에 기 예약된 내용 가져와서 예약된 시간은 선택못하도록 disabled처리
-														var ReservedRqList = getAlreayReseved(selectedDt);
-														$
-																.each(
-																		ReservedRqList,
-																		function(
-																				idx,
-																				item) {
-																			console
-																					.log("each사용. 기예약 시간"
-																							+ item.resTm);
-																			$
-																					.each(
-																							resTmOptions,
-																							function(
-																									idx,
-																									Opt) {
-																								console
-																										.log(Opt);
-																								if (item.resTm == Opt) { // 옵션목록에서  기예약된 시간과 동일한 값이 있으면 해당 옵션은 예약못하게 
-																									$(
-																											"option[value='"
-																													+ Opt
-																													+ "']")
-																											.prop(
-																													"disabled",
-																													true);
-																								}
-																							})
-																		})
+				// 주말예약불가 제어
+				ctrlRegularHosHldy();
 
-													}
-												}
-											}
+				// 날짜 선택내용 초기화
+				datepicker.clear();
+				// 							// 선택날짜에 대한 휴일, 기예약 정보 비우기
+				$("#selectedDtInfo").html("");
+			});
 
-										}) // ./datepicker
+			// 예약_  주말예약불가하도록제어
+			function ctrlRegularHosHldy() {
+				// 토, 일 disabled 처리
+				datepicker
+						.update({
+							onRenderCell : function(date, cellType) {
+								// 먼저, 병원 정기 휴일 DB에 입력하게 해야 함. 요일을 숫자로.
+								// 값을 받아와서 disabledDays 배열에 삽입할 것. 
+								// (요구사항 정의되지 않은 부분.여기서는 토,일요일 정기휴일로 가정함)
+								//쉼표연산자 왼->오 순으로 평가하여 마지막 연산자의 값 반환
+								if (cellType == 'day') { //현재 셀 타입이 day일 경우resTmContainer
+									var disabledDays = [ 0, 6 ];
+									var day = date.getDay(), isDisabled = disabledDays
+											.indexOf(day) != -1;
+									return {
+										disabled : isDisabled
+									}
+								}
+							}
+						})
+			}
 
-						// 달력 생성
-						var datepicker = $('#resDt').data('datepicker');
-
-						// 병원의 의사 모두표시
-						getDrList();
-
-						// 의사선택/변경시
-						$("#artrNo").on("propertychange input", function() {
-							console.log("의사변경");
-
-							// 의사 선택시 날짜입력란(달력포함) 보이게 / 변경시 다시 보이게
-							$("#resDtContainer").toggle(500);
-							$("#resDtContainer").show(500);
-
-							// 주말예약불가 제어
-							ctrlRegularHosHldy();
-
-							// 날짜 선택내용 초기화
-							datepicker.clear();
-							// 							// 선택날짜에 대한 휴일, 기예약 정보 비우기
-							$("#selectedDtInfo").html("");
-						});
-
-						// 예약_  주말예약불가하도록제어
-						function ctrlRegularHosHldy() {
-							// 토, 일 disabled 처리
-							datepicker
-									.update({
-										onRenderCell : function(date, cellType) {
-											// 먼저, 병원 정기 휴일 DB에 입력하게 해야 함. 요일을 숫자로.
-											// 값을 받아와서 disabledDays 배열에 삽입할 것. 
-											// (요구사항 정의되지 않은 부분.여기서는 토,일요일 정기휴일로 가정함)
-											//쉼표연산자 왼->오 순으로 평가하여 마지막 연산자의 값 반환
-											if (cellType == 'day') { //현재 셀 타입이 day일 경우resTmContainer
-												var disabledDays = [ 0, 6 ];
-												var day = date.getDay(), isDisabled = disabledDays
-														.indexOf(day) != -1;
-												return {
-													disabled : isDisabled
-												}
-											}
-										}
-									})
-						}
-
-					}); //-- /.document ready res
+		}); //-- /.document ready res
 
 	</c:if>
 
@@ -616,7 +568,7 @@ label.error {
 	$(document).on('change', "input:radio", function() {
 		console.log("radio선택값" + $(this).val());
 		$("#dcryNo").val($(this).val());
-		console.log("radio에서 받아온 값"+$("#dcryNo").val());
+		console.log("radio에서 받아온 값" + $("#dcryNo").val());
 	});
 </script>
 <script type="text/javascript"

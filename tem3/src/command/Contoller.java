@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import cmd.HDoctorAddCMD;
 import cmd.HDoctorAddVerifyCMD;
 import cmd.HDoctorlistCMD;
+import cmd.HGetMedDoneOkAjaxCMD;
 import cmd.HHospitalInquiryCMD;
 import cmd.HHospitalMainCMD;
 import cmd.HHospitalMemberBizNoCheckActionCMD;
@@ -24,6 +25,7 @@ import cmd.HHospitalSignupActionCMD;
 import cmd.HHospitalSignupCMD;
 import cmd.HHospitalUploadAddCMD;
 import cmd.HHospitalUploadCMD;
+import cmd.HMakeMedDoneStatusAjaxCMD;
 import cmd.HMediAllCMD;
 import cmd.HMediDetailCMD;
 import cmd.HMediReserveCMD;
@@ -94,6 +96,7 @@ import cmd.SsearchMainCMD;
 import cmd.TestCMD;
 import cmd.ToLoginPageCMD;
 import cmd.hosCodeCMD;
+import cmd.makeMedCancelStatusAjaxCMD;
 import cmd.sicCodeCMD;
 import kjr.sicCodeUpdate;
 import kjr.ajax.BookmarkDeleteAjaxCMD;
@@ -149,6 +152,12 @@ public class Contoller extends HttpServlet {
 		cont.put("/HMediWjqtn.do", new HMediWjqtnCMD()); //(당일접수)진료신청 현황 리스트 페이지 로 이동
 		cont.put("/HMediReserve.do", new HMediReserveCMD()); //(예약)진료신청 현황 리스트 페이지 로 이동
 		cont.put("/HMediDetail.do", new HMediDetailCMD()); //진료상세정보  페이지 로 이동
+		
+		cont.put("/ajax/HGetMedDoneOk.do", new HGetMedDoneOkAjaxCMD()); //진료완료 여부 가져오기
+		cont.put("/ajax/HMakeMedDoneStatus.do", new HMakeMedDoneStatusAjaxCMD()); //진료완료 처리하기
+		cont.put("/ajax/makeMedCancelStatus.do", new makeMedCancelStatusAjaxCMD()); //진료취소 처리하기
+		
+		
 		cont.put("/HHospitalUpload.do", new HHospitalUploadCMD()); //기록물 업로드 페이지로 이동+로그인한 아이디에 대한 정보 같이 보냄
 		cont.put("/HHospitalUploadAdd.do", new HHospitalUploadAddCMD()); //기록물 업로드 DB처리
 		cont.put("/HHospitalInquiry.do", new HHospitalInquiryCMD()); //기록물 조회 페이지  로 이동
@@ -228,7 +237,7 @@ public class Contoller extends HttpServlet {
 		cont.put("/ajax/SSelectDcry.do", new SSelectDcryAjaxCMD()); // S33 (진료신청 기록물 선택시) 기록물 목록 로드
 		cont.put("/SInsertRes.do", new SInsertResCMD()); //예약신청 입력처리 후 완료 페이지(접수/예약)로 이동
 		cont.put("/SInsertTmr.do", new SInsertTmrCMD()); //접수신청 입력처리 후 완료 페이지(접수/예약)로 이동
-		cont.put("/DcryDetail.do", new SDcryDetailCMD()); //접수신청 입력처리 후 완료 페이지(접수/예약)로 이동
+		cont.put("/DcryDetail.do", new SDcryDetailCMD()); //진료신청 상세페이지에서 첨부된 기록물 확인하는 페이지로 이동
 		
 		cont.put("/SBookmark.do", new SBookmarkCMD()); //S30 관심병원 리스트 페이지
 		//기록물 조회페이지

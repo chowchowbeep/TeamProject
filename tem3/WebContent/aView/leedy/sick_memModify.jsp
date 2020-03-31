@@ -103,7 +103,7 @@ function modifyValue(){
 						<label for="callSicPhone" class="col-sm-2 col-form-label">전화번호</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="sic_phone" name="sic_phone"
-								placeholder="회원 전화번호 수정 ">
+								placeholder="* 수정할 번호 사이에 하이픈을 넣어주세요">
 						</div>
 					</div>
 
