@@ -296,7 +296,7 @@ public class Contoller extends HttpServlet {
 		 * new FileUpload()); cont.put("/GetDeptCnt.do", new GetDeptCnt());
 		 */
 		
-		
+		cont.put("/hosCodeUpdate.do", new hosCodeUpdate()); //코드업데이트
 		cont.put("/sicCodeUpdate.do", new sicCodeUpdate()); //코드업데이트
 		cont.put("/sicCodeCMD.do", new sicCodeCMD()); //sic코드추가변경
 		cont.put("/hosCodeCMD.do", new hosCodeCMD()); //hos코드추가변경

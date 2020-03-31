@@ -39,42 +39,16 @@
 				
 			
 				
-		<form class="sickHeal" method=post action="SSickHealModifyGo.do">
+		<form class="sickHeal" method=post action="hosCodeUpdate.do">
 			<div class="card-body">
-					<div class="row">							
-							<div class="col-4 ">지역</div> <!-- 왼쪽 -->
-							<div class="col-8">	<!-- 오른쪽 -->
-								<c:forEach items="${list }" var="li">
-									<c:if test="${li.type eq 'A' }">
-									<div>
-										<input type="checkbox" value="${li.code }"
-											name="chrdis" class="chrdis">${li.name } 
-									</div>
-									</c:if>
-								</c:forEach>
-							</div>							
-						</div>
-						<div class="row">							
-							<div class="col-4 ">지하철</div> <!-- 왼쪽 -->
-							<div class="col-8">	<!-- 오른쪽 -->
-								<c:forEach items="${list }" var="li">
-									<c:if test="${li.type eq 'S' }">
-									<div>
-										<input type="checkbox" value="${li.code }"
-											name="chrdis" class="chrdis">${li.name }
-									</div>
-									</c:if>
-								</c:forEach>
-							</div>							
-						</div>
 						<div class="row">							
 							<div class="col-4 ">진료과목</div> <!-- 왼쪽 -->
 							<div class="col-8">	<!-- 오른쪽 -->
 								<c:forEach items="${list }" var="li">
 									<c:if test="${li.type eq 'SUB' }">
 									<div>
-										<input type="checkbox" value="${li.code }"
-											name="chrdis" class="chrdis">${li.name }
+										<input type="checkbox" value="${li.code}"
+											name="SUB" class="chrdis">${li.name}
 									</div>
 									</c:if>
 								</c:forEach>
@@ -86,8 +60,8 @@
 								<c:forEach items="${list }" var="li">
 									<c:if test="${li.type eq 'APA' }">
 									<div>
-										<input type="checkbox" value="${li.code }"
-											name="chrdis" class="chrdis">${li.name }
+										<input type="checkbox" value="${li.code}"
+											name="APA" class="chrdis">${li.name}
 									</div>
 									</c:if>
 								</c:forEach>
@@ -97,16 +71,16 @@
 							<div class="col-4 ">테마</div> <!-- 왼쪽 -->
 							<div class="col-8">	<!-- 오른쪽 -->
 								<c:forEach items="${list }" var="li">
-									<c:if test="${li.type eq 'TEMA' }">
+									<c:if test="${li.type eq 'TEMA'}">
 									<div>
-										<input type="checkbox" value="${li.code }"
-											name="chrdis" class="chrdis">${li.name } 
+										<input type="checkbox" value="${li.code}"
+											name="TEMA" class="chrdis">${li.name} 
 									</div>
 									</c:if>
 								</c:forEach>
 								<script>   
-								console.log(${sicCode});
-									$('.chrdis').val(${sicCode});	
+								console.log(${hosCode});
+									$('.chrdis').val(${hosCode});	
 								</script>
 							</div>							
 						</div>

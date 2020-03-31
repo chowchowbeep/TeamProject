@@ -50,8 +50,8 @@
 								<c:forEach items="${list }" var="li">
 									<c:if test="${li.type eq 'BL' }">
 									<div>
-										<input type="radio" value="${li.code }"
-											name="BDP">${li.name } 
+										<input type="radio" value="${li.code}"
+											class="chrdis" name="BDP">${li.name} 
 									</div>
 									</c:if>
 								</c:forEach>
@@ -63,8 +63,8 @@
 								<c:forEach items="${list }" var="li">
 									<c:if test="${li.type eq 'SI' }">
 									<div>
-										<input type="checkbox" value="${li.code }"
-											name="CHRDIS">${li.name }
+										<input type="checkbox" value="${li.code}"
+											class="chrdis" name="CHRDIS">${li.name}
 									</div>
 									</c:if>
 								</c:forEach>
@@ -76,8 +76,8 @@
 								<c:forEach items="${list }" var="li">
 									<c:if test="${li.type eq 'YK' }">
 									<div>
-										<input type="checkbox" value="${li.code }"
-											name="MEDI">${li.name }
+										<input type="checkbox" value="${li.code}"
+											class="chrdis" name="MEDI">${li.name}
 									</div>
 									</c:if>
 								</c:forEach>
@@ -89,14 +89,13 @@
 								<c:forEach items="${list }" var="li">
 									<c:if test="${li.type eq 'AR' }">
 									<div>
-										<input type="checkbox" value="${li.code }"
-											name="ALLRGY">${li.name } 
+										<input type="checkbox" value="${li.code}" class="chrdis"	name="ALLRGY">${li.name} 
 									</div>
 									</c:if>
 								</c:forEach>
 								<script>   
 								console.log(${sicCode});
-									$('.chrdis').val(${sicCode});	
+								$('.chrdis').val(${sicCode});	
 								</script>
 							</div>							
 						</div>
