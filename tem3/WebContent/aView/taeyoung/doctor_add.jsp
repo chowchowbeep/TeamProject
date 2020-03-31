@@ -4,6 +4,17 @@
 <%@ include file="/layout/hos_head.jsp"%>
 <%@ include file="/layout/hos_menu.jsp"%>
 
+		<section class="content-header">
+			<div class="container-fluid">
+	<section class="content-header">
+		<div class="container-fluid">
+			<div class="row mb-2">
+				<div class="col-sm-6">
+					<h1>의사 추가</h1>
+				</div>
+			</div>
+		</div>
+	</section>
    <!-- Main content -->
     <!-- Horizontal Form -->
  	<section class="content">
@@ -60,6 +71,10 @@
 </div></section>
           <!--/.col (left) -->
           <!-- right column -->
+          
+          		</div>
+          		</section>
+			
   <!-- /.content-wrapper -->
 
 <%@ include file="/layout/all_footer.jsp"%>
