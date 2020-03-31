@@ -27,19 +27,16 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
 	$(function() { //ready == window.load 와 같은 이벤트
-
 		//영업 등록 버튼 클릭 -> (DB) 오픈시간 값 입력&영업상태 값 진료중으로 변경
-	
 		$("#btnDiv").on("click","button",function(){
-			var stt = $(this).attr("name");
+			var stt = $(this).attr("id");
 			clickBtnFunc(stt);
 		});
 		
 		function clickBtnFunc(btnId){
-			
-			
+			console.log(btnId);
 			//ajax로 update처리하기 
-			$.ajax("/tem3/ajax/HosSttAjaxCMD.do",{
+			$.ajax("HosSttAjaxCMD.do",{
 				dataType : "json",
 				data:{bizStt :btnId}
 			}).done(function(data) {
@@ -48,17 +45,14 @@
 				}else if(btnId==="endBtn"){
 					window.alert("영업 마감 하였습니다.");
 				}
-				
 			});
-			
 		}
 		
 		$("tbody").on("click","span",function(){
 			var stt=$(this).attr("name");
 			var thisTr = (this).closest("form");
 			console.log(thisTr);
-			
-			$.ajax("/tem3/ajax/sttUpdateAjaxCMD.do", {
+			$.ajax("ajax/sttUpdateAjaxCMD.do", {
 				type:"POST",
 				dataType : "json",
 				data : formData
@@ -114,11 +108,13 @@
 	<!-- /.container-fzluid -->
 		</section>
 	<div class="container topMar">
-		<div class="col-sm mar">
-			<button type="button" class="btn btn-secondary btn-lg btn-block" id="startBtn">영업등록</button>
-		</div>
-		<div class="col-sm mar">
-			<button type="button" class="btn btn-secondary btn-lg btn-block" id="endBtn">영업마감</button>
+		<div  id="btnDiv">
+			<div class="col-sm mar">
+				<button type="button" class="btn btn-secondary btn-lg btn-block" id="startBtn">영업등록</button>
+			</div>
+			<div class="col-sm mar">
+				<button type="button" class="btn btn-secondary btn-lg btn-block" id="endBtn">영업마감</button>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm ">

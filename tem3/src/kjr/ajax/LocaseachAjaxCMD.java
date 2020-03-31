@@ -20,10 +20,8 @@ public class LocaseachAjaxCMD implements Command  {
 			throws ServletException, IOException {
 		String wd = request.getParameter("pCode");
 		String cate = request.getParameter("cate");
-		System.out.println("cate?"+cate);
 		LocaSechDAO loacadao = new LocaSechDAO();
 		ArrayList<locaSechDTO> list; 
-		System.out.println("넘어왓당ㅎ"+wd);
 		list = loacadao.select(wd,cate);
 		
 		return "ajax:" + JSONArray.fromObject(list);

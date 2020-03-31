@@ -102,6 +102,7 @@ import kjr.sicCodeUpdate;
 import kjr.ajax.BookmarkDeleteAjaxCMD;
 import kjr.ajax.BookmarkInsertAjaxCMD;
 import kjr.ajax.CategoriAjaxCMD;
+import kjr.ajax.HosSttAjaxCMD;
 import kjr.ajax.LocaseachAjaxCMD;
 import kjr.ajax.ReviewDeleteAjaxCMD;
 import kjr.ajax.ReviewInsrtAjaxCMD;
@@ -305,6 +306,7 @@ public class Contoller extends HttpServlet {
 		 * new FileUpload()); cont.put("/GetDeptCnt.do", new GetDeptCnt());
 		 */
 		
+		cont.put("/HosSttAjaxCMD.do", new HosSttAjaxCMD()); //코드업데이트
 		cont.put("/hosCodeUpdate.do", new hosCodeUpdate()); //코드업데이트
 		cont.put("/sicCodeUpdate.do", new sicCodeUpdate()); //코드업데이트
 		cont.put("/sicCodeCMD.do", new sicCodeCMD()); //sic코드추가변경
