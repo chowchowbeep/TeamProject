@@ -52,6 +52,7 @@ public class BookmarkDAO extends DAO {
 	public boolean Insert(String sicId, String hosId){
 		bookmarkDTO dto = new bookmarkDTO();
 		boolean a = true;
+		System.out.println("sicid이당앋앙ㅎㅎㅎ"+sicId+"호스아이디이당ㅎㅎ"+hosId);
 		sql="insert into Bookmark (sic_Id,hos_Id) VALUES (?,?) ";
 		try {
 			pstmt = conn.prepareStatement(sql);

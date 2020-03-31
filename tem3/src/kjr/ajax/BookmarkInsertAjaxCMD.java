@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import command.Command;
 import kjr.BookmarkDAO;
@@ -15,9 +16,11 @@ public class BookmarkInsertAjaxCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String sicId = "sic1"; //세션에서 값 가져오기
+		
+		HttpSession session = request.getSession(true);
+		String sessionId = (String)session.getAttribute("memberId") ;//세션에서 회원 id를 당겨와서 넣어야함 *현재 임시로 아이디 입력
+		String sicId = sessionId;
 		String hosId = request.getParameter("hosId");
-		System.out.println("넘어왔니? 인설트~~~ "+hosId);
 		
 		BookmarkDAO dao = new BookmarkDAO();
 		System.out.println(hosId);

@@ -10,6 +10,39 @@ import kty.DAO;
 public class HealthInfoDAO extends DAO{
 	String sql;
 	
+		public void delete(String sessionId) {
+			sql="DELETE FROM health_info WHERE sic_id=?";
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1,sessionId);
+				pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+			}
+		
+		}
+		public void insert(String sessionId,String chrdis,String medi,String bdp,String allrgy) {
+			sql="INSERT INTO health_info VALUES "
+			+ " (?,?,'',?,?,?,'');";
+			System.out.println("sqlinsert"+sql+"----");
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1,sessionId);
+				pstmt.setString(2,chrdis);
+				pstmt.setString(3,medi);
+				pstmt.setString(4,bdp);
+				pstmt.setString(5,allrgy);
+				int a =pstmt.executeUpdate(sql);
+				System.out.println("insert**********************"+a);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+			}
+		
+		}
+		
+		
+		
 	//단건조회
 		public ArrayList<seachCodeJoinDTO> select(String sessionId){
 			ArrayList<seachCodeJoinDTO> list = new ArrayList<>();
