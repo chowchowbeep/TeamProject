@@ -54,11 +54,10 @@ $(function() { //window load이벤트 생략해서 적은것
 	
 	$("tbody").on("click","tr",function(){
 		var id = $(this).attr("name");
-		$("#frm").append("<input type='text' class='hiden' name='hosId' id='hosId' value='"+id+"'>");
+		$("#frm").append("<input type='text' class='hiden' name='hosId' id='hosId' value="+id+">");
 		document.frm.action="SHospitalInfo.do";
 		document.frm.method="post";
 		document.frm.submit();
-		
 	});
 	
 	//건강정보수정 페이지로이동

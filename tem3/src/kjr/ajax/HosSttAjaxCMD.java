@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import command.Command;
 import lastdto.hosSttDTO;
@@ -16,9 +17,12 @@ public class HosSttAjaxCMD implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("?????????????????????????????뭐야 안넘어가냐?");
-		String hosId ="hos3"; //세션에서 hosId 받아오는거 추가
+		System.out.println("aa");
+		HttpSession session = request.getSession(true);
+		String sessionId = (String)session.getAttribute("memberId"); 
+		String hosId =sessionId; 
 		String bizStt = request.getParameter("bizStt");
+		System.out.println(bizStt);
 		if(bizStt.equals("startBtn")) {
 			bizStt = "Y";
 		}else {

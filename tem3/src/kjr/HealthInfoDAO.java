@@ -2,6 +2,8 @@ package kjr;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import lastdto.seachCodeJoinDTO;
@@ -22,16 +24,22 @@ public class HealthInfoDAO extends DAO{
 			}
 		
 		}
-		public void insert(String sessionId,String chrdis,String medi,String bdp,String allrgy) {
+		public void insert(String sicId, HashMap<String, String> map) {
 			sql="INSERT INTO health_info VALUES "
-			+ " (?,?,'',?,?,?,'');";
-			System.out.println("sqlinsert"+sql+sessionId+chrdis+"----");
+			+ " (?,?,'',?,?,?,'테스트')";
+			String chrdis=(String)map.get("chrdis");
+			String medi=(String)map.get("medi");
+			String allrgy=(String)map.get("allrgy");
+			/*
+			chrdis = chrdis.substring(1, chrdis.length()-1);
+			medi = chrdis.substring(1, chrdis.length()-1);
+			allrgy = chrdis.substring(1, chrdis.length()-1);*/
 			try {
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1,sessionId);
+				pstmt.setString(1,sicId);
 				pstmt.setString(2,chrdis);
 				pstmt.setString(3,medi);
-				pstmt.setString(4,bdp);
+				pstmt.setString(4,map.get("bdp"));
 				pstmt.setString(5,allrgy);
 				int	n = pstmt.executeUpdate();
 				if(n==0) {
@@ -168,7 +176,7 @@ public class HealthInfoDAO extends DAO{
 						e.printStackTrace();
 					}
 					return list;
-				}	
+				}
 		
 		
 

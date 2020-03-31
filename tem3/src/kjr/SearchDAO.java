@@ -42,7 +42,6 @@ public class SearchDAO extends DAO {
 		String orderby = cdto.getOderby();
 		String diam= cdto.getDiam();
 		String filter= cdto.getFilter();
-		System.out.println("우ㅡ아아;나얼;ㅇ ;낭ㅁ악!!!!!!!!!");
 		sql="select * from hos_member where hos_id in"+
 		    "(select hos_id from search " + 
 			"INTERSECT " + 
@@ -53,7 +52,6 @@ public class SearchDAO extends DAO {
 		}else {
 			len=0;
 		}
-		
 		//증상 검색
 		if(cateCode !=null && len>0) {
 			sql +=" and code in(";
@@ -69,18 +67,14 @@ public class SearchDAO extends DAO {
 			}else {
 				sql+="))";
 			}
-			
 		}
-		
 		//지역검색
 		if(areaCode!=null && !areaCode.isEmpty()){
 			sql += "and hos_id in (select HOS_ID from search " + 
 			"where code = ? ))";
 		}
-		
 			sql +="order by hos_name";
 		
-		System.out.println("sql은?"+sql);
 		try {
 			int cnt=1;
 			pstmt = conn.prepareStatement(sql);
