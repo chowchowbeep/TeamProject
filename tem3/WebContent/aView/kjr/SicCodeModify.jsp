@@ -24,10 +24,7 @@
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div><!-- /.content-header -->
-
-	</section>
-
-
+</section>
 
 	<!-- Main content -->
 	<section class="content">
@@ -39,7 +36,6 @@
 			<!-- /.card-header -->
 			<!-- form start -->
 			
-				
 			
 				
 		<form class="sickHeal" id="frm" action="sicCodeUpdate.do" method="post">
@@ -107,8 +103,7 @@
 					<div class="card-footer  text-center">
 						<button type="submit" id="updateBtn" class="btn btn-secondary">수정완료</button>
 						<!-- cancel에는 button type reset? -->
-						<button type="reset" class="btn btn-default"
-							onclick="javascript:history.go(-1)">수정취소</button>
+						<button type="reset" class="btn btn-default" onclick="javascript:history.go(-1)">수정취소</button>
 					</div>
 					<!-- /.card-footer -->
 				</form>
