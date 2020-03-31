@@ -227,7 +227,7 @@ public class Contoller extends HttpServlet {
 		cont.put("/ajax/SSelectDcry.do", new SSelectDcryAjaxCMD()); // S33 (진료신청 기록물 선택시) 기록물 목록 로드
 		cont.put("/SInsertRes.do", new SInsertResCMD()); //예약신청 입력처리 후 완료 페이지(접수/예약)로 이동
 		cont.put("/SInsertTmr.do", new SInsertTmrCMD()); //접수신청 입력처리 후 완료 페이지(접수/예약)로 이동
-		cont.put("/DcryDetail.do", new SDcryDetailCMD()); //접수신청 입력처리 후 완료 페이지(접수/예약)로 이동
+		cont.put("/DcryDetail.do", new SDcryDetailCMD()); //진료신청 상세페이지에서 첨부된 기록물 확인하는 페이지로 이동
 		
 		cont.put("/SBookmark.do", new SBookmarkCMD()); //S30 관심병원 리스트 페이지
 		//기록물 조회페이지
