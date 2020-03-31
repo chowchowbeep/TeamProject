@@ -39,11 +39,9 @@ public class hosCodeCMD implements Command {
 			System.out.println(code);
 		}
 		
-		
-		
-		JSONArray sicCode = JSONArray.fromObject(codeList);
+		JSONArray hosCode = JSONArray.fromObject(codeList);
 		request.setAttribute("list",list);//코드 전체리스트
-		request.setAttribute("hosCode",codeList);//회원이선택한 코드 전체리스트 
+		request.setAttribute("hosCode",hosCode);//회원이선택한 코드 전체리스트 
 		return path;
 	}
 

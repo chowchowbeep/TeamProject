@@ -16,55 +16,44 @@ public class hosCodeUpdate implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException{
-		String path ="SSickMain.do";
+		String path ="HHospitalMymenu.do";
 		HttpSession session = request.getSession(true);
 		String sessionId = (String)session.getAttribute("memberId") ;//세션에서 회원 id를 당겨와서 넣어야함 *현재 임시로 아이디 입력
-		String APA[] = request.getParameterValues("APA");//사용안함
+		String APA[] = request.getParameterValues("APA");
 		String TEMA[] = request.getParameterValues("TEMA");
 		String SUB[] = request.getParameterValues("SUB");
+		hosCodeDAO dao = new hosCodeDAO();
+		System.out.println("제발ㄹ나와주라요요요요ㅛ유ㅠㅠㅠㅠㅠㅠ ");
+		//apa,tema,sub로 등록되어있는 데이터 삭제 
+		dao.delete(sessionId);
 		
-		HashMap<String,String> map = new HashMap<>();
+		//선택한 apa,tema,sub데이터 등록
 		String apa="";
-		for(int i=0;i<APA.length;i++ ) {
-			if(i==(APA.length)-1) {
-				System.out.println(i);
-				apa += APA[i];
-			}else {
-				apa += APA[i]+',';
+		if(APA != null) {
+			for(int i=0;i<APA.length;i++ ) {
+				apa = APA[i];
+				System.out.println("왜 apa안나오ㅑㄴ구ㅠ ㅠㅠㅠㅠ "+apa);
+				dao.insert(sessionId, apa);
 			}
 		}
-	
 		
 		String tema="";
-		for(int i=0;i<TEMA.length;i++ ) {
-			if(i==(TEMA.length)-1) {
-				System.out.println(i);
-				tema += TEMA[i];
-			}else {
-				tema += TEMA[i]+',';
+		if(TEMA != null) {
+			for(int i=0;i<TEMA.length;i++ ) {
+				tema = TEMA[i];
+				System.out.println("왜 tema안나오ㅑㄴ구ㅠ ㅠㅠㅠㅠ "+tema);
+				dao.insert(sessionId, tema);
 			}
 		}
-		
 		String sub="";
-		for(int i=0;i<SUB.length;i++ ) {
-			if(i==(SUB.length)-1) {
-				System.out.println(i);
-				sub += SUB[i];
-			}else {
-				sub += SUB[i]+',';
+		if(SUB != null) {
+			for(int i=0;i<SUB.length;i++ ) {
+					sub = SUB[i];
+					System.out.println("왜 sub안나오ㅑㄴ구ㅠ ㅠㅠㅠㅠ "+sub);
+					dao.insert(sessionId, sub);
 			}
 		}
-		map.put("apa",apa);
-		map.put("tema",tema);
-		map.put("sub",sub);
-		
-		System.out.println("ㅇㅏㅇ파ㅇㅏㅏㅏㅏㅏㅏㅏㅏ"+apa);
-		System.out.println("테 ㅁ ㅏ ㅏㅏㅏㅏㅏ"+tema);
-		System.out.println("ㅇㅇㅅ ㅓ ㅂ ㅡ ㅇ"+sub);
-		hosCodeDAO dao = new hosCodeDAO();
-		//dao.delete(sessionId);
-		//dao.insert(sessionId,map);
-		return path;
+		return "redirect:"+path;
 	}
 
 
