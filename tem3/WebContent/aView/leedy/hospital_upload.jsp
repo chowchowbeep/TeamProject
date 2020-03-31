@@ -54,7 +54,7 @@
 									<label class="form-check-label">동영상</label>
 								</div>
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="file_type" id="file_type" value="F003"> 3
+									<input class="form-check-input" type="radio" name="file_type" id="file_type" value="F003">
 									<label class="form-check-label">문서</label>
 								</div>
 							</div>
