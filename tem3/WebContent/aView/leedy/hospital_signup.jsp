@@ -199,13 +199,13 @@ $(function(){
 					
 					<div class="input-group mb-3">
 						<input type="text" class="form-control" name="hos_bizno_1"
-							id="hos_bizno_1" onkeydown="inputBizNoUnChk()" placeholder="사업자번호">-
+							id="hos_bizno_1" onkeydown="inputBizNoUnChk()" placeholder="사업자">-
 								<input type="text" class="form-control" name="hos_bizno_2"
-							id="hos_bizno_2" onkeydown="inputBizNoUnChk()" placeholder="사업자번호">-
+							id="hos_bizno_2" onkeydown="inputBizNoUnChk()" placeholder="번호">-
 								<input type="text" class="form-control" name="hos_bizno_3"
-							id="hos_bizno_3" onkeydown="inputBizNoUnChk()" placeholder="사업자번호">
+							id="hos_bizno_3" onkeydown="inputBizNoUnChk()" placeholder="입력">
 						<input type="button" id="bizChk" name="bizChk" value="중복확인"  
-						onclick="bizNoChk()"> 
+						onclick="bizNoChk()" > 
 						<input type="hidden" name="bizNoDuplication" id="bizNoDuplication"
 							value="bizNoUnchk">
 						<div class="input-group-append">
@@ -214,11 +214,11 @@ $(function(){
 					</div>
 					<div class="input-group mb-3">
 						<input type="text" class="form-control" name="hos_phone_1"
-							id="hos_phone_1" placeholder="전화번호">-
+							id="hos_phone_1" placeholder="전화">-
 							<input type="text" class="form-control" name="hos_phone_2"
-							id="hos_phone_2" placeholder="전화번호">-
+							id="hos_phone_2" placeholder="번호">-
 							<input type="text" class="form-control" name="hos_phone_3"
-							id="hos_phone_3" placeholder="전화번호">
+							id="hos_phone_3" placeholder="입력">
 						<div class="input-group-append">
 							<div class="input-group-text"></div>
 						</div>
@@ -227,49 +227,49 @@ $(function(){
 						<div class="col sm-3">
 
 							<div class="btn-group-toggle mb-3" data-toggle="buttons">
-								<label class="btn btn-primary"> <input type="checkbox"
+								<label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" value="CS10"
 									name="code">내과
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CS20">소아과
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CS30">외과
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CS40">정형외과
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CS50">치과
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CK10">메스꺼움
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CK20">두통
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CK30">항문쓰림
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CK40">심장두근거림
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CK50">숨가쁨
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CT10">여의사진료
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CT20">응급실
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CT30">야간진료
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CT40">건강검진
-								</label> <label class="btn btn-primary"> <input type="checkbox"
+								</label> <label class="btn btn-secondary"> <input type="checkbox"
 									class="form-control select2" style="width: 100%;" name="code"
 									value="CT50">금연클리닉
 								</label>
@@ -297,7 +297,7 @@ $(function(){
 
 					<div class="row">
 						<div class="">
-							<div class="icheck-primary">
+							<div class="icheck-secondary">
 								<input type="checkbox" id="agreeTerms" name="agreeTerms"
 									value="agree"> <label for="agreeTerms"> <a
 									href="#">이용약관</a> 및 <a href="#">개인정보취급방침</a>에 동의합니다.
@@ -310,7 +310,7 @@ $(function(){
 					<!-- /.col -->
 					<br>
 					<div class="">
-						<button type="button" class="btn btn-primary btn-block" id="addBtn"
+						<button type="submit" class="btn btn-secondary btn-block" 
 						>회원가입 확인</button>
 
 					</div>
