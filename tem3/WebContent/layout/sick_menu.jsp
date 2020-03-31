@@ -79,7 +79,7 @@
 						</a></li>
 						<li class="nav-item"><a href="SSickMemCheck.do"
 							class="nav-link">
-								<p>내 정보보기</p>
+								<p>회원정보조회</p>
 						</a></li>
 						<li class="nav-item"><a href="SMedBeforeMedList.do"
 							class="nav-link">

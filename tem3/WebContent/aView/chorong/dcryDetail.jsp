@@ -26,7 +26,7 @@
 			<div class="container-fluid">
 				<div class="row mb-2">
 					<div class="col-sm-6">
-						<h1>의료기록물 조회</h1>
+						<h1>첨부한 기록물 조회</h1>
 					</div>
 				</div>
 			</div>
