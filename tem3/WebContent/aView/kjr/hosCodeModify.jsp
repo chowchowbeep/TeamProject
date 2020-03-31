@@ -79,6 +79,7 @@
 									</c:if>
 								</c:forEach>
 								<script>   
+								console.log(${sicCode});
 								console.log(${hosCode});
 									$('.chrdis').val(${hosCode});	
 								</script>
