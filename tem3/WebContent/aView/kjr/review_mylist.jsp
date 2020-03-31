@@ -88,10 +88,10 @@
 					<table class="table table-hover">
 						<thead>
 							<tr>
-								<th scope="col" style="width: 100px">병원명</th>
-								<th scope="col">내용</th>
-								<th scope="col" style="width: 40px">별점</th>
-								<th scope="col" style="width: 40px">Label</th>
+								<th scope="col" style="padding:2px;margin:2px;">병원명</th>
+								<th scope="col" style="padding:2px;margin:2px;">내용</th>
+								<th scope="col" style="padding:2px;margin:2px;">별점</th>
+								<th scope="col" style="padding:2px;margin:2px;">Label</th>
 							</tr>
 						</thead>
 						

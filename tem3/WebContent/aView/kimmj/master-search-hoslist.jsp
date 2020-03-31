@@ -93,13 +93,19 @@ to {
 
 .name {
 	font-size: 20px;
+	align: center;
+	margin-left: 10px;
 
 }
 
 .info {
-	padding: 10px;
+	padding: 15px;
+	width: 300px;
 }
 
+.card-header {
+	 background-color: #FFFFF2;
+}
 </style>
 
 <%@ include file="/layout/admin_menu.jsp"%>
@@ -120,9 +126,9 @@ to {
 		onclick="location.href = 'MSearchHoslistHos.do?hosId=<%=dto.getHosId()%>';">
 		<tbody>
 			<tr>
-				<td style="width: 60px;">
+				<td>
 				<ion-icon name="business" size = "large" 
-            style = "width: 70px; height: 70px; margin: 0px 0px 10px 10px;"></ion-icon>
+            style = "width: 70px; height: 70px; margin: 15px;"></ion-icon>
 					<div class="name">
 						<b><%=dto.getHosName()%> </b>
 					</div></td>

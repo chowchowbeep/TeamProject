@@ -86,7 +86,7 @@ function modifyValue(){
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="callSicPw" class="col-sm-2 col-form-label">수정 PW확인</label>
+						<label for="callSicPw" class="col-sm-2 col-form-label">PW확인</label>
 						<div class="col-sm-10">
 							<input type="password" class="form-control" id="sic_pw_re" name="sic_pw_re"
 								placeholder="pw 확인하기" >
@@ -108,8 +108,7 @@ function modifyValue(){
 					</div>
 
 					<div class="form-group row">
-						<label for="checkSicStt" class="col-sm-2 col-form-label">회원상태
-							상태</label>
+						<label for="checkSicStt" class="col-sm-2 col-form-label">회원상태</label>
 						<div class="col-sm-10">
 							<input type="email" class="form-control" id="sic_stt" name="sic_stt"
 								value="${dto.sicSttNm}" disabled>
