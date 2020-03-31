@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="/layout/hos_head.jsp"%>
-<%@ include file="/layout/hos_menu.jsp"%>
+<%@ include file="../../layout/sick_head.jsp" %>
+<%@ include file="../../layout/sick_menu.jsp" %>
 
+<script>
+
+</script>
 </head>
 <body>
 <div class="content-wrapper">
@@ -39,7 +42,7 @@
 				
 			
 				
-		<form class="sickHeal" method=post action="SSickHealModifyGo.do">
+		<form class="sickHeal" id="frm" action="sicCodeUpdate.do" method="post">
 			<div class="card-body">
 					<div class="row">							
 							<div class="col-4 ">혈액형</div> <!-- 왼쪽 -->
@@ -47,8 +50,8 @@
 								<c:forEach items="${list }" var="li">
 									<c:if test="${li.type eq 'BL' }">
 									<div>
-										<input type="checkbox" value="${li.code }"
-											name="chrdis" class="chrdis">${li.name } 
+										<input type="radio" value="${li.code }"
+											name="BDP">${li.name } 
 									</div>
 									</c:if>
 								</c:forEach>
@@ -61,7 +64,7 @@
 									<c:if test="${li.type eq 'SI' }">
 									<div>
 										<input type="checkbox" value="${li.code }"
-											name="chrdis" class="chrdis">${li.name }
+											name="CHRDIS">${li.name }
 									</div>
 									</c:if>
 								</c:forEach>
@@ -74,7 +77,7 @@
 									<c:if test="${li.type eq 'YK' }">
 									<div>
 										<input type="checkbox" value="${li.code }"
-											name="chrdis" class="chrdis">${li.name }
+											name="MEDI">${li.name }
 									</div>
 									</c:if>
 								</c:forEach>
@@ -87,7 +90,7 @@
 									<c:if test="${li.type eq 'AR' }">
 									<div>
 										<input type="checkbox" value="${li.code }"
-											name="chrdis" class="chrdis">${li.name } 
+											name="ALLRGY">${li.name } 
 									</div>
 									</c:if>
 								</c:forEach>
@@ -103,9 +106,9 @@
 			<!-- 반복문종료 -->
 					<!-- /.card-body -->
 					<div class="card-footer  text-center">
-						<button type="submit" class="btn btn-secondary">수정완료</button>
+						<button type="submit" id="updateBtn" class="btn btn-secondary">수정완료</button>
 						<!-- cancel에는 button type reset? -->
-						<button type="button" class="btn btn-default"
+						<button type="reset" class="btn btn-default"
 							onclick="javascript:history.go(-1)">수정취소</button>
 					</div>
 					<!-- /.card-footer -->
