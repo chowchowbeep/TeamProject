@@ -6,6 +6,29 @@ import command.DAO;
 import lastdto.mediRqdetailDTO;
 
 public class MediRqdetailDAO extends DAO {
+	
+	
+	
+	// 진료완료 여부 가져오기 
+	public String getHosNow(int rqstNo) {
+		String mcttStt = null;
+		String sql = "select * from medi_info where rqst_no = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, rqstNo);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				mcttStt = rs.getString("mctt_stt");
+			} 
+			System.out.println("======DAO에서 mctt_stt:" + mcttStt + "=====");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return mcttStt;
+	}
+	
 
 	// 진료신청상세 단건조회__ 
 	// 신청현황상세, 진료신청완료페이지,
