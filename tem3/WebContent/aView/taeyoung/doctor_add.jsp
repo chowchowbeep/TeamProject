@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="/layout/hos_head.jsp"%>
 <%@ include file="/layout/hos_menu.jsp"%>
-
+<div class="content-wrapper">
 		<section class="content-header">
 			<div class="container-fluid">
 	<section class="content-header">
@@ -74,6 +74,7 @@
           
           		</div>
           		</section>
+          		</div>
 			
   <!-- /.content-wrapper -->
 
