@@ -72,14 +72,15 @@
 
 						<li class="nav-header"><h5><strong>병원회원
 									메뉴</strong></h5></li>
-						<li class="nav-item"><a href="HHospitalMymenu.do"
-							class="nav-link">
-								<p>마이메뉴</p>
-						</a></li>
 						<li class="nav-item"><a href="HHospitalMain.do"
+							class="nav-link">
+								<p>메인</p>
+						</a></li>
+						<li class="nav-item"><a href="HHospitalMymenu.do"
 							class="nav-link">
 								<p>회원정보</p>
 						</a></li>
+
 						<li class="nav-item"><a href="HMediAll.do" class="nav-link">
 								<p>진료신청현황</p>
 						</a></li>
