@@ -16,7 +16,6 @@ public class ReviewDeleteAjaxCMD implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String rvNoString = request.getParameter("rvNo");
-		System.out.println("넘어왔니?"+rvNoString);
 		int rvNo = Integer.parseInt(rvNoString);
 		ReviewDAO dao = new ReviewDAO();
 		System.out.println(rvNo);

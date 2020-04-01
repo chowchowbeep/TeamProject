@@ -53,6 +53,7 @@
 								</c:forEach>
 							</div>							
 						</div>
+						<br>
 						<div class="row">							
 							<div class="col-4 ">과거병력 및 지병</div> <!-- 왼쪽 -->
 							<div class="col-8">	<!-- 오른쪽 -->
@@ -66,6 +67,7 @@
 								</c:forEach>
 							</div>							
 						</div>
+						<br>
 						<div class="row">							
 							<div class="col-4 ">복용약물</div> <!-- 왼쪽 -->
 							<div class="col-8">	<!-- 오른쪽 -->

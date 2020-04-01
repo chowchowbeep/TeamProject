@@ -23,8 +23,8 @@ public class SReviewMylistCMD implements Command {
 		String sessionId = (String)session.getAttribute("memberId"); 
 		String sicId =sessionId; //회원id 세션에서 받아오는걸로 변경해야함\
 		ReviewDAO dao = new ReviewDAO();
-		ArrayList<reviewListDTO> list = dao.select(sicId);
 		
+		ArrayList<reviewListDTO> list = dao.select(sicId);
 		request.setAttribute("list", list);
 	return path;	
 	}

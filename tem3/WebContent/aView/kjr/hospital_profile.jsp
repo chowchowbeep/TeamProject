@@ -114,10 +114,14 @@
 							    } 
 							})
 						</script>
-							<div class="form-group row col-sm-10">
-								<label for="callSicId" class="col-sm-2 col-form-label">병원명</label>
+						<br>
+							<div class="form-group row">
+								<label for="callSicId" class="col-sm-2 col-form-label">병원명ID</label>
+								<div class="col-sm-10">
 									<input type="text" class="form-control" id="hosName" name="hosName"	value="${list.hosName }">
+								</div>
 							</div>
+							
 							<div class="form-group row">
 								<label for="callSicName" class="col-sm-2 col-form-label">병원ID</label>
 								<div class="col-sm-10">

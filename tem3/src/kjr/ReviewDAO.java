@@ -51,7 +51,7 @@ public class ReviewDAO extends DAO{
 				String hosName = rs.getString("name");
 				int rvNo = rs.getInt("RV_NO");
 				reviewListDTO dto = new reviewListDTO(rvNo,sicId,hosId, star, rvCont, hosName);
-				
+				System.out.println("DAO체크***********************************"+hosName);
 				list.add(dto);
 			}
 		} catch (SQLException e) {
