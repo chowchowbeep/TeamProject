@@ -139,6 +139,10 @@ to {
 	background-color: #FFDD73;
 	border: none;
 }
+
+.card-header {
+	 background-color: #FFFFF2;
+}
 </style>
 
 
