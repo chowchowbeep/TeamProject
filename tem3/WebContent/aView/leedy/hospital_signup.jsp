@@ -282,12 +282,14 @@ $(function(){
 							<select class="form-control select2" style="width: 40%;"
 								name="biz_time_1" id="biz_time_1">
 								<option value="">오픈 시간</option>
+								<option value="08:30">08:00</option>
 								<option value="08:30">08:30</option>
 								<option value="09:00">09:00</option>
 								<option value="09:30">09:30</option>
 							</select> &nbsp;&nbsp;&nbsp; <select class="form-control select2"
 								style="width: 40%;" name="biz_time_2" id="biz_time_2">
 								<option value="">마감 시간</option>
+								<option value="17:30">17:00</option>
 								<option value="17:30">17:30</option>
 								<option value="18:00">18:00</option>
 								<option value="18:30">18:30</option>

@@ -179,7 +179,7 @@
 										<div class="col-sm-10">
 											<select	class="form-control" id="start" name="start">
 												<option value="00" selected> </option>
-												<c:forEach var="i" begin="06" end="18" step="1">
+												<c:forEach var="i" begin="08" end="9" step="1">
 													<c:forEach var="m" begin="00" end="04" step="3">
 														<option><c:if test="${i<10 }">0</c:if>${i}:${m}0</option>
 													</c:forEach>
@@ -192,7 +192,7 @@
 										<div class="col-sm-10">
 											<select	class="form-control"  id="end" name="end">
 												<option value="00" selected> </option>
-												<c:forEach var="i" begin="18" end="24" step="1">
+												<c:forEach var="i" begin="17" end="18" step="1">
 													<c:forEach var="m" begin="00" end="04" step="3">
 														<option>${i}:${m}0</option>
 													</c:forEach>

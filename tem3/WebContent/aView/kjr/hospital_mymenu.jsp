@@ -173,18 +173,6 @@
 				<!-- card종료 -->
 		</div>
 		<!-- 등록아이콘 컨테이너 종료 -->
-		<!-- 5. 의사리스트페이지 로 이동  -->
-		<div class="mb-3 " style="margin: 15px;">
-			<button type="button" class="btn btn-secondary btn-lg btn-block" id="HDoctorlist">
-				의사 리스트 
-			</button>
-		</div>
-		<!-- 진료현황리스트페이지 로 이동  -->
-		<div class="mb-3 " style="margin: 15px;">
-			<button type="button" class="btn btn-secondary btn-lg btn-block" id="HMediAll">
-				진료 현황 리스트
-			</button>
-		</div>
 	</div>
 	<!-- 컨테이너종료 -->
 </div> 

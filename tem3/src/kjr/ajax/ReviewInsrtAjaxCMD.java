@@ -19,7 +19,7 @@ public class ReviewInsrtAjaxCMD implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		//값 받아오기
-		
+			System.out.println("리뷰insert ajax처리 커맨드>>>>>>>>>>>>>>>");
 			HttpSession session = request.getSession(true);
 			String sessionId = (String)session.getAttribute("memberId") ;
 			String hosId = request.getParameter("hosId");
@@ -27,7 +27,7 @@ public class ReviewInsrtAjaxCMD implements Command {
 			String contents = request.getParameter("contents");
 			String st = request.getParameter("star");
 
-			System.out.println(hosId+"리뷰insert~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println(hosId+"hosId값을 받아오는가??? ");
 			int star = Integer.parseInt(st);
 			ReviewDAO dao = new ReviewDAO();
 			reviewDTO dto = new reviewDTO(sicId,hosId,star,contents);

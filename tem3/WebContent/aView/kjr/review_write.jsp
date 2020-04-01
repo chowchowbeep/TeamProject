@@ -80,7 +80,7 @@ $(function() {
 			<div class="card-body">
 				<form style="padding:10px" id="reviewFrm" name="reviewFrm" >
 					<div class="form-group">
-						<input style="display:none" id="hosId" name="${param.hosId}" value="${param.hosId}">
+						<input style="display:none" id="${param.hosId}" name="hosId" value="${param.hosId}">
 						<label for="hospital_name">내용</label>
 						<textarea class="form-control" id="contents" name="contents" rows="10"></textarea>
 					</div>
