@@ -18,7 +18,7 @@ public class MediDAO extends DAO {
 				"				           i.mctt_stt stt  " + 
 				"				      from  MEDI_RQST r, MEDI_info i " + 
 				"				     where r.RQST_NO = i.RQST_NO and   " + 
-				"				            trunc(RES_DTTM)=trunc(sysdate)and hos_id=? and i.mctt_stt='N' and rqst_ty='D001') medi  " + 
+				"				            trunc(rqst_dttm)=trunc(sysdate)and hos_id=? and i.mctt_stt='N' and rqst_ty='D001') medi  " + 
 				"				where medi.SIC_ID=sick.SIC_ID ";
 		try {
 			pstmt = conn.prepareStatement(sql);
