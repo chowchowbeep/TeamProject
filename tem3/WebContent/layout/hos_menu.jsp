@@ -78,14 +78,14 @@
 						</a></li>
 						<li class="nav-item"><a href="HHospitalMain.do"
 							class="nav-link">
-								<p>메인</p>
+								<p>회원정보</p>
 						</a></li>
 						<li class="nav-item"><a href="HMediAll.do" class="nav-link">
 								<p>진료신청현황</p>
 						</a></li>
 						<li class="nav-item"><a href="HDoctorlist.do"
 							class="nav-link">
-								<p>의사목록 관리</p>
+								<p>의사목록관리</p>
 						</a></li>
 						<li class="nav-item"><a href="Logout.do"
 							class="nav-link">
