@@ -14,7 +14,7 @@ public class MediDAO extends DAO {
 				"select ROW_NUMBER()over(order by toDay, resTime) num, no, stt, medi.SIC_ID, sick.SIC_NAME ,HOS_ID,substr(resTime,1,2)||':'||substr(resTime,-2,2) yesang,resTime " + 
 				"				from sick_member sick,(select " + 
 				"				           r.RQST_NO no, SIC_ID, RQST_DTTM, HOS_ID, to_char(RES_DTTM,'yyyy/mm/dd hh24:mi') toDay,  " + 
-				"				           ARTR_NO, RQST_TY, DCRY_NO, MSG,to_number(iftime),lpad(to_number(to_char(RES_DTTM,'hh24mi'))+to_number(nvl(iftime,0)),4,0) resTime,  " + 
+				"				           ARTR_NO, RQST_TY, DCRY_NO, MSG,to_number(iftime),lpad(to_number(to_char(rqst_dttm,'hh24mi'))+to_number(nvl(iftime,0)),4,0) resTime,  " + 
 				"				           i.mctt_stt stt  " + 
 				"				      from  MEDI_RQST r, MEDI_info i " + 
 				"				     where r.RQST_NO = i.RQST_NO and   " + 
