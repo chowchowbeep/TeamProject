@@ -459,12 +459,12 @@ label.error {
 												<label for="ifTime">도착예상시간</label><br> <select
 													class="custom-select" id="ifTime" name="ifTime">
 													<option value="">선택</option>
-													<option value="10분 후">10분 후 도착 예정</option>
-													<option value="20분 후">20분 후 도착 예정</option>
-													<option value="30분 후">30분 후 도착 예정</option>
-													<option value="40분 후">40분 후 도착 예정</option>
-													<option value="50분 후">50분 후 도착 예정</option>
-													<option value="60분 후">60분 후 도착 예정</option>
+													<option value="10">10분 후 도착 예정</option>
+													<option value="20">20분 후 도착 예정</option>
+													<option value="30">30분 후 도착 예정</option>
+													<option value="40">40분 후 도착 예정</option>
+													<option value="50">50분 후 도착 예정</option>
+													<option value="60">60분 후 도착 예정</option>
 												</select>
 											</div>
 										</c:if>

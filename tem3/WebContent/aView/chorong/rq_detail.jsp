@@ -150,7 +150,7 @@ a {
 			// 접수일 경우 접수시간
 			var rqstTm = "<div class='item rqDetailInfo importantItem'><span class='rqDetailLabel'>진료신청시간</span><span id = 'rqstTm'>"
 					+ result.rqstTm + "</span></div>";
-			$("#itemsWrapper").prepend(rqstTm+ "<span class='item rqDetailInfo importantItem'>" +"( "+result.ifTime+" 도착예정"+" )"+"</span>");
+			$("#itemsWrapper").prepend(rqstTm+ "<span class='item rqDetailInfo importantItem'>" +"( "+result.ifTime+"분 후 도착예정"+" )"+"</span>");
 			// 접수일 경우 예상대기 인원수
 			getNoOfWaiting();
 		}
