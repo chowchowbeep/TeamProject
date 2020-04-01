@@ -74,7 +74,7 @@
 											<span class="rqDetailLabel">진료신청시각</span><span id="rqstTm">${dto.rqstTm}</span>
 										</div>
 										<div class="item rqDetailInfo importantItem">
-											<span class="rqDetailLabel">도착예정시간</span><span id="ifTime">${dto.ifTime}</span>
+											<span class="rqDetailLabel">도착예정시간</span><span id="ifTime">${dto.ifTime}분 후 도착예정</span>
 										</div>
 									</c:if>
 									<c:if test="${dto.rqstTy =='D002' }">
